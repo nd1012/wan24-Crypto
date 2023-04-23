@@ -73,6 +73,8 @@ namespace wan24.Crypto
         /// <returns>Key size in bits</returns>
         public static int GetKeySize(ECCurve curve)
         {
+            Console.WriteLine($"CURVE OID: {curve.Oid.Value}");
+            Console.WriteLine($"CURVE NAME: {curve.Oid.Value}");
             string name = curve.Oid.FriendlyName ?? throw new ArgumentException("Unknown curve", nameof(curve));
             if (name == SECP256R1_CURVE.Oid.FriendlyName) name = SECP256R1;
             else if (name == SECP384R1_CURVE.Oid.FriendlyName) name = SECP384R1;
