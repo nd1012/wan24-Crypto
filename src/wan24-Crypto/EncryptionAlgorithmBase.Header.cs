@@ -28,11 +28,11 @@ namespace wan24.Crypto
                 givenOptions?.Clear();
                 if (options.HeaderProcessed) throw new InvalidOperationException();
                 options.Password ??= (byte[]?)pwd?.Clone();
-                //options.ValidateObject();
-                List<ValidationResult> results = new();
+                options.ValidateObject();
+                /*List<ValidationResult> results = new();
                 if (!options.TryValidateObject(results))
                     foreach (var result in results)
-                        Console.WriteLine($"{result.MemberNames.FirstOrDefault()}: {result.ErrorMessage}");
+                        Console.WriteLine($"{result.MemberNames.FirstOrDefault()}: {result.ErrorMessage}");*/
                 // Write unauthenticated options
                 MacStreams? macStream = null;
                 if (options.FlagsIncluded)
