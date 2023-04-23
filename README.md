@@ -36,12 +36,6 @@ soon.
 This library is available as 
 [NuGet package](https://www.nuget.org/packages/wan24-Crypto/).
 
-Currently these extension NuGet packages are available:
-
-- [NaCl](https://www.nuget.org/packages/wan24-Crypto-NaCl/)
-- [Bouncy Castle](https://www.nuget.org/packages/wan24-Crypto-BC/)
-- [Bouncy Castle PQC](https://www.nuget.org/packages/wan24-Crypto-BCPQC/)
-
 ## Usage
 
 ### Hashing
