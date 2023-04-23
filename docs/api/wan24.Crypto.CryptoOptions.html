@@ -1,0 +1,2513 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CryptoOptions
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CryptoOptions
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.CryptoOptions">
+  
+  
+  <h1 id="wan24_Crypto_CryptoOptions" data-uid="wan24.Crypto.CryptoOptions" class="text-break">Class CryptoOptions
+  </h1>
+  <div class="markdown level0 summary"><p>Crypto options</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">wan24.ObjectValidation.ValidatableObject</span></div>
+    <div class="level2"><span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase</span></div>
+    <div class="level3"><span class="xref">CryptoOptions</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.Collections.Generic.IEnumerable&lt;System.ComponentModel.DataAnnotations.ValidationResult&gt;.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.Collections.IEnumerable.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.ObjectValidatable(wan24.ObjectValidation.IObjectValidatable)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_CryptoOptions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CryptoOptions : StreamSerializerBase, IObjectValidatable, IValidatableObject, IEnumerable&lt;ValidationResult&gt;, IEnumerable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions__ctor_" data-uid="wan24.Crypto.CryptoOptions.#ctor*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions__ctor" data-uid="wan24.Crypto.CryptoOptions.#ctor">CryptoOptions()</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="wan24_Crypto_CryptoOptions_HEADER_VERSION" data-uid="wan24.Crypto.CryptoOptions.HEADER_VERSION">HEADER_VERSION</h4>
+  <div class="markdown level1 summary"><p>Header version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int HEADER_VERSION = 1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="wan24_Crypto_CryptoOptions_VERSION" data-uid="wan24.Crypto.CryptoOptions.VERSION">VERSION</h4>
+  <div class="markdown level1 summary"><p>Object version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Algorithm_" data-uid="wan24.Crypto.CryptoOptions.Algorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Algorithm" data-uid="wan24.Crypto.CryptoOptions.Algorithm">Algorithm</h4>
+  <div class="markdown level1 summary"><p>Encryption algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string Algorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_AlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.AlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_AlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.AlgorithmIncluded">AlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>Crypto algorithm included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_AsymmetricAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_AsymmetricAlgorithm" data-uid="wan24.Crypto.CryptoOptions.AsymmetricAlgorithm">AsymmetricAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Asymmetric algorithm name (for the key exchange data)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string AsymmetricAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_AsymmetricAlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricAlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_AsymmetricAlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.AsymmetricAlgorithmIncluded">AsymmetricAlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>Asymmetric algorithm (for the key exchange data) included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AsymmetricAlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_AsymmetricCounterAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricCounterAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_AsymmetricCounterAlgorithm" data-uid="wan24.Crypto.CryptoOptions.AsymmetricCounterAlgorithm">AsymmetricCounterAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Asymmetric counter algorithm name (for the key exchange data; used for en-/decryption and signature only)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string AsymmetricCounterAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_AsymmetricCounterAlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricCounterAlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_AsymmetricCounterAlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.AsymmetricCounterAlgorithmIncluded">AsymmetricCounterAlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>Asymmetric counter algorithm (for the key exchange data) included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AsymmetricCounterAlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_AsymmetricKeyBits_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricKeyBits*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_AsymmetricKeyBits" data-uid="wan24.Crypto.CryptoOptions.AsymmetricKeyBits">AsymmetricKeyBits</h4>
+  <div class="markdown level1 summary"><p>Asymmetric key bits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 2147483647)]
+public int AsymmetricKeyBits { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Compressed_" data-uid="wan24.Crypto.CryptoOptions.Compressed*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Compressed" data-uid="wan24.Crypto.CryptoOptions.Compressed">Compressed</h4>
+  <div class="markdown level1 summary"><p>Compressed?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Compressed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Compression_" data-uid="wan24.Crypto.CryptoOptions.Compression*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Compression" data-uid="wan24.Crypto.CryptoOptions.Compression">Compression</h4>
+  <div class="markdown level1 summary"><p>Compression options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompressionOptions Compression { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">wan24.Compression.CompressionOptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterKdfAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.CounterKdfAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterKdfAlgorithm" data-uid="wan24.Crypto.CryptoOptions.CounterKdfAlgorithm">CounterKdfAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Counter KDF algorithm name (used for en-/decryption only)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string CounterKdfAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterKdfAlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.CounterKdfAlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterKdfAlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.CounterKdfAlgorithmIncluded">CounterKdfAlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>Counter KDF algorithm included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CounterKdfAlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterKdfIterations_" data-uid="wan24.Crypto.CryptoOptions.CounterKdfIterations*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterKdfIterations" data-uid="wan24.Crypto.CryptoOptions.CounterKdfIterations">CounterKdfIterations</h4>
+  <div class="markdown level1 summary"><p>Counter KDF iterations (used for en-/decryption only)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 2147483647)]
+public int CounterKdfIterations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterKdfSalt_" data-uid="wan24.Crypto.CryptoOptions.CounterKdfSalt*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterKdfSalt" data-uid="wan24.Crypto.CryptoOptions.CounterKdfSalt">CounterKdfSalt</h4>
+  <div class="markdown level1 summary"><p>Counter KDF salt (used internal)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(1L, 255L)]
+public byte[] CounterKdfSalt { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterMac_" data-uid="wan24.Crypto.CryptoOptions.CounterMac*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterMac" data-uid="wan24.Crypto.CryptoOptions.CounterMac">CounterMac</h4>
+  <div class="markdown level1 summary"><p>Counter MAC (used internal for decryption)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(255L)]
+public byte[] CounterMac { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterMacAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.CounterMacAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterMacAlgorithm" data-uid="wan24.Crypto.CryptoOptions.CounterMacAlgorithm">CounterMacAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Counter MAC algorithm name (used for en-/decryption only)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string CounterMacAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterMacAlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.CounterMacAlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterMacAlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.CounterMacAlgorithmIncluded">CounterMacAlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>Counter MAC algorithm included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CounterMacAlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_CounterPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.CounterPrivateKey*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CounterPrivateKey" data-uid="wan24.Crypto.CryptoOptions.CounterPrivateKey">CounterPrivateKey</h4>
+  <div class="markdown level1 summary"><p>Counter private key (used for en-/decryption and signature only)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsymmetricPrivateKey CounterPrivateKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_DefaultMaximumAge_" data-uid="wan24.Crypto.CryptoOptions.DefaultMaximumAge*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_DefaultMaximumAge" data-uid="wan24.Crypto.CryptoOptions.DefaultMaximumAge">DefaultMaximumAge</h4>
+  <div class="markdown level1 summary"><p>Default maximum age</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan? DefaultMaximumAge { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_DefaultMaximumTimeOffset_" data-uid="wan24.Crypto.CryptoOptions.DefaultMaximumTimeOffset*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_DefaultMaximumTimeOffset" data-uid="wan24.Crypto.CryptoOptions.DefaultMaximumTimeOffset">DefaultMaximumTimeOffset</h4>
+  <div class="markdown level1 summary"><p>Default maximum time offset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan? DefaultMaximumTimeOffset { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Flags_" data-uid="wan24.Crypto.CryptoOptions.Flags*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Flags" data-uid="wan24.Crypto.CryptoOptions.Flags">Flags</h4>
+  <div class="markdown level1 summary"><p>Flags</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoFlags Flags { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoFlags.html">CryptoFlags</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_FlagsIncluded_" data-uid="wan24.Crypto.CryptoOptions.FlagsIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_FlagsIncluded" data-uid="wan24.Crypto.CryptoOptions.FlagsIncluded">FlagsIncluded</h4>
+  <div class="markdown level1 summary"><p>Flags included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FlagsIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_ForceMacCoverWhole_" data-uid="wan24.Crypto.CryptoOptions.ForceMacCoverWhole*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_ForceMacCoverWhole" data-uid="wan24.Crypto.CryptoOptions.ForceMacCoverWhole">ForceMacCoverWhole</h4>
+  <div class="markdown level1 summary"><p>Forced the MAC to cover the whole data?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ForceMacCoverWhole { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_HashAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.HashAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_HashAlgorithm" data-uid="wan24.Crypto.CryptoOptions.HashAlgorithm">HashAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Hash algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string HashAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_HeaderProcessed_" data-uid="wan24.Crypto.CryptoOptions.HeaderProcessed*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_HeaderProcessed" data-uid="wan24.Crypto.CryptoOptions.HeaderProcessed">HeaderProcessed</h4>
+  <div class="markdown level1 summary"><p>Has the header been processed (used internal)?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HeaderProcessed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_HeaderVersion_" data-uid="wan24.Crypto.CryptoOptions.HeaderVersion*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_HeaderVersion" data-uid="wan24.Crypto.CryptoOptions.HeaderVersion">HeaderVersion</h4>
+  <div class="markdown level1 summary"><p>Crypto header data structure version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 1)]
+public int HeaderVersion { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_HeaderVersionIncluded_" data-uid="wan24.Crypto.CryptoOptions.HeaderVersionIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_HeaderVersionIncluded" data-uid="wan24.Crypto.CryptoOptions.HeaderVersionIncluded">HeaderVersionIncluded</h4>
+  <div class="markdown level1 summary"><p>Header version included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HeaderVersionIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_KdfAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.KdfAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_KdfAlgorithm" data-uid="wan24.Crypto.CryptoOptions.KdfAlgorithm">KdfAlgorithm</h4>
+  <div class="markdown level1 summary"><p>KDF algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string KdfAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_KdfAlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.KdfAlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_KdfAlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.KdfAlgorithmIncluded">KdfAlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>KDF algorithm included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool KdfAlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_KdfIterations_" data-uid="wan24.Crypto.CryptoOptions.KdfIterations*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_KdfIterations" data-uid="wan24.Crypto.CryptoOptions.KdfIterations">KdfIterations</h4>
+  <div class="markdown level1 summary"><p>KDF iterations</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 2147483647)]
+public int KdfIterations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_KdfSalt_" data-uid="wan24.Crypto.CryptoOptions.KdfSalt*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_KdfSalt" data-uid="wan24.Crypto.CryptoOptions.KdfSalt">KdfSalt</h4>
+  <div class="markdown level1 summary"><p>KDF salt (used internal)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(1L, 255L)]
+public byte[] KdfSalt { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_KeyExchangeData_" data-uid="wan24.Crypto.CryptoOptions.KeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_KeyExchangeData" data-uid="wan24.Crypto.CryptoOptions.KeyExchangeData">KeyExchangeData</h4>
+  <div class="markdown level1 summary"><p>Key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(65535L)]
+public byte[] KeyExchangeData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_KeyExchangeDataIncluded_" data-uid="wan24.Crypto.CryptoOptions.KeyExchangeDataIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_KeyExchangeDataIncluded" data-uid="wan24.Crypto.CryptoOptions.KeyExchangeDataIncluded">KeyExchangeDataIncluded</h4>
+  <div class="markdown level1 summary"><p>Key exchange data included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool KeyExchangeDataIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_LeaveOpen_" data-uid="wan24.Crypto.CryptoOptions.LeaveOpen*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_LeaveOpen" data-uid="wan24.Crypto.CryptoOptions.LeaveOpen">LeaveOpen</h4>
+  <div class="markdown level1 summary"><p>Leave the processing stream open?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LeaveOpen { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Mac_" data-uid="wan24.Crypto.CryptoOptions.Mac*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Mac" data-uid="wan24.Crypto.CryptoOptions.Mac">Mac</h4>
+  <div class="markdown level1 summary"><p>MAC (used internal for decryption)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(255L)]
+public byte[] Mac { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_MacAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.MacAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MacAlgorithm" data-uid="wan24.Crypto.CryptoOptions.MacAlgorithm">MacAlgorithm</h4>
+  <div class="markdown level1 summary"><p>MAC algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[StringLength(255)]
+public string MacAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_MacAlgorithmIncluded_" data-uid="wan24.Crypto.CryptoOptions.MacAlgorithmIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MacAlgorithmIncluded" data-uid="wan24.Crypto.CryptoOptions.MacAlgorithmIncluded">MacAlgorithmIncluded</h4>
+  <div class="markdown level1 summary"><p>MAC algorithm included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MacAlgorithmIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_MacIncluded_" data-uid="wan24.Crypto.CryptoOptions.MacIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MacIncluded" data-uid="wan24.Crypto.CryptoOptions.MacIncluded">MacIncluded</h4>
+  <div class="markdown level1 summary"><p>MAC included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MacIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_MacPosition_" data-uid="wan24.Crypto.CryptoOptions.MacPosition*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MacPosition" data-uid="wan24.Crypto.CryptoOptions.MacPosition">MacPosition</h4>
+  <div class="markdown level1 summary"><p>MAC position within the cipher stream (used internal)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long MacPosition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_MaximumAge_" data-uid="wan24.Crypto.CryptoOptions.MaximumAge*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MaximumAge" data-uid="wan24.Crypto.CryptoOptions.MaximumAge">MaximumAge</h4>
+  <div class="markdown level1 summary"><p>Maximum age</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? MaximumAge { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_MaximumTimeOffset_" data-uid="wan24.Crypto.CryptoOptions.MaximumTimeOffset*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MaximumTimeOffset" data-uid="wan24.Crypto.CryptoOptions.MaximumTimeOffset">MaximumTimeOffset</h4>
+  <div class="markdown level1 summary"><p>Maximum time offset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? MaximumTimeOffset { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Password_" data-uid="wan24.Crypto.CryptoOptions.Password*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Password" data-uid="wan24.Crypto.CryptoOptions.Password">Password</h4>
+  <div class="markdown level1 summary"><p>Password (used internal)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(255L)]
+public byte[] Password { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_PayloadData_" data-uid="wan24.Crypto.CryptoOptions.PayloadData*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_PayloadData" data-uid="wan24.Crypto.CryptoOptions.PayloadData">PayloadData</h4>
+  <div class="markdown level1 summary"><p>Payload data (won't be encrypted, but included in the MAC)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CountLimit(65535L)]
+public byte[] PayloadData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_PayloadIncluded_" data-uid="wan24.Crypto.CryptoOptions.PayloadIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_PayloadIncluded" data-uid="wan24.Crypto.CryptoOptions.PayloadIncluded">PayloadIncluded</h4>
+  <div class="markdown level1 summary"><p>Payload included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PayloadIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_PrivateKey_" data-uid="wan24.Crypto.CryptoOptions.PrivateKey*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_PrivateKey" data-uid="wan24.Crypto.CryptoOptions.PrivateKey">PrivateKey</h4>
+  <div class="markdown level1 summary"><p>Private key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsymmetricPrivateKey PrivateKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireAsymmetricAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.RequireAsymmetricAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireAsymmetricAlgorithm" data-uid="wan24.Crypto.CryptoOptions.RequireAsymmetricAlgorithm">RequireAsymmetricAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Require an asymmetric algorithm (for the key exchange data when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireAsymmetricAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireAsymmetricCounterAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.RequireAsymmetricCounterAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireAsymmetricCounterAlgorithm" data-uid="wan24.Crypto.CryptoOptions.RequireAsymmetricCounterAlgorithm">RequireAsymmetricCounterAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Require an asymmetric counter algorithm (for the key exchange data when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireAsymmetricCounterAlgorithm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireCounterKdf_" data-uid="wan24.Crypto.CryptoOptions.RequireCounterKdf*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireCounterKdf" data-uid="wan24.Crypto.CryptoOptions.RequireCounterKdf">RequireCounterKdf</h4>
+  <div class="markdown level1 summary"><p>Require counter KDF (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireCounterKdf { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireCounterMac_" data-uid="wan24.Crypto.CryptoOptions.RequireCounterMac*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireCounterMac" data-uid="wan24.Crypto.CryptoOptions.RequireCounterMac">RequireCounterMac</h4>
+  <div class="markdown level1 summary"><p>Require a counter MAC (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireCounterMac { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireHeaderVersion_" data-uid="wan24.Crypto.CryptoOptions.RequireHeaderVersion*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireHeaderVersion" data-uid="wan24.Crypto.CryptoOptions.RequireHeaderVersion">RequireHeaderVersion</h4>
+  <div class="markdown level1 summary"><p>Require the header version (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireHeaderVersion { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireKdf_" data-uid="wan24.Crypto.CryptoOptions.RequireKdf*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireKdf" data-uid="wan24.Crypto.CryptoOptions.RequireKdf">RequireKdf</h4>
+  <div class="markdown level1 summary"><p>Require KDF (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireKdf { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireKeyExchangeData_" data-uid="wan24.Crypto.CryptoOptions.RequireKeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireKeyExchangeData" data-uid="wan24.Crypto.CryptoOptions.RequireKeyExchangeData">RequireKeyExchangeData</h4>
+  <div class="markdown level1 summary"><p>Require key exchange data (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireKeyExchangeData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireMac_" data-uid="wan24.Crypto.CryptoOptions.RequireMac*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireMac" data-uid="wan24.Crypto.CryptoOptions.RequireMac">RequireMac</h4>
+  <div class="markdown level1 summary"><p>Require a MAC (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireMac { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireMacCoverWhole_" data-uid="wan24.Crypto.CryptoOptions.RequireMacCoverWhole*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireMacCoverWhole" data-uid="wan24.Crypto.CryptoOptions.RequireMacCoverWhole">RequireMacCoverWhole</h4>
+  <div class="markdown level1 summary"><p>Require the MAC to cover the whole data (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireMacCoverWhole { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Requirements_" data-uid="wan24.Crypto.CryptoOptions.Requirements*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Requirements" data-uid="wan24.Crypto.CryptoOptions.Requirements">Requirements</h4>
+  <div class="markdown level1 summary"><p>Requirements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoFlags Requirements { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoFlags.html">CryptoFlags</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequirePayload_" data-uid="wan24.Crypto.CryptoOptions.RequirePayload*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequirePayload" data-uid="wan24.Crypto.CryptoOptions.RequirePayload">RequirePayload</h4>
+  <div class="markdown level1 summary"><p>Require payload (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequirePayload { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireSerializerVersion_" data-uid="wan24.Crypto.CryptoOptions.RequireSerializerVersion*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireSerializerVersion" data-uid="wan24.Crypto.CryptoOptions.RequireSerializerVersion">RequireSerializerVersion</h4>
+  <div class="markdown level1 summary"><p>Require the serializer version (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireSerializerVersion { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_RequireTime_" data-uid="wan24.Crypto.CryptoOptions.RequireTime*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_RequireTime" data-uid="wan24.Crypto.CryptoOptions.RequireTime">RequireTime</h4>
+  <div class="markdown level1 summary"><p>Require a time (when decrypting)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SerializerVersion_" data-uid="wan24.Crypto.CryptoOptions.SerializerVersion*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SerializerVersion" data-uid="wan24.Crypto.CryptoOptions.SerializerVersion">SerializerVersion</h4>
+  <div class="markdown level1 summary"><p>Serializer version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 255)]
+public int? SerializerVersion { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SerializerVersionIncluded_" data-uid="wan24.Crypto.CryptoOptions.SerializerVersionIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SerializerVersionIncluded" data-uid="wan24.Crypto.CryptoOptions.SerializerVersionIncluded">SerializerVersionIncluded</h4>
+  <div class="markdown level1 summary"><p>Serializer version included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SerializerVersionIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Time_" data-uid="wan24.Crypto.CryptoOptions.Time*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Time" data-uid="wan24.Crypto.CryptoOptions.Time">Time</h4>
+  <div class="markdown level1 summary"><p>Time (UTC)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? Time { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_TimeIncluded_" data-uid="wan24.Crypto.CryptoOptions.TimeIncluded*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_TimeIncluded" data-uid="wan24.Crypto.CryptoOptions.TimeIncluded">TimeIncluded</h4>
+  <div class="markdown level1 summary"><p>Time included?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TimeIncluded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_UsingAsymmetricCounterAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.UsingAsymmetricCounterAlgorithm*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_UsingAsymmetricCounterAlgorithm" data-uid="wan24.Crypto.CryptoOptions.UsingAsymmetricCounterAlgorithm">UsingAsymmetricCounterAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Using an asymmetric counter algorithm?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsingAsymmetricCounterAlgorithm { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_UsingCounterKdf_" data-uid="wan24.Crypto.CryptoOptions.UsingCounterKdf*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_UsingCounterKdf" data-uid="wan24.Crypto.CryptoOptions.UsingCounterKdf">UsingCounterKdf</h4>
+  <div class="markdown level1 summary"><p>Using a counter KDF?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsingCounterKdf { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_UsingCounterMac_" data-uid="wan24.Crypto.CryptoOptions.UsingCounterMac*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_UsingCounterMac" data-uid="wan24.Crypto.CryptoOptions.UsingCounterMac">UsingCounterMac</h4>
+  <div class="markdown level1 summary"><p>Using a counter MAC?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsingCounterMac { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Clear_" data-uid="wan24.Crypto.CryptoOptions.Clear*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Clear_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.Clear(System.Boolean)">Clear(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Clear sensible object data (and reset for re-use)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear(bool unsetPrivateKey = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">unsetPrivateKey</span></td>
+        <td><p>Unset the private key?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Clone_" data-uid="wan24.Crypto.CryptoOptions.Clone*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Clone" data-uid="wan24.Crypto.CryptoOptions.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Get a clone</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><p>Clone</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_DeriveExchangedKey_" data-uid="wan24.Crypto.CryptoOptions.DeriveExchangedKey*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_DeriveExchangedKey_wan24_Crypto_IAsymmetricPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IAsymmetricPrivateKey)">DeriveExchangedKey(IAsymmetricPrivateKey)</h4>
+  <div class="markdown level1 summary"><p>Derive the exchanged PFS key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] DeriveExchangedKey(IAsymmetricPrivateKey key = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>PFS key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Deserialize_" data-uid="wan24.Crypto.CryptoOptions.Deserialize*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.CryptoOptions.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Deserialize(Stream stream, int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_DeserializeAsync_" data-uid="wan24.Crypto.CryptoOptions.DeserializeAsync*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.CryptoOptions.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_GetPayload_" data-uid="wan24.Crypto.CryptoOptions.GetPayload*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_GetPayload__1_System_Nullable_System_Int32__" data-uid="wan24.Crypto.CryptoOptions.GetPayload``1(System.Nullable{System.Int32})">GetPayload&lt;T&gt;(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get the payload</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetPayload&lt;T&gt;(int? serializerVersion = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">serializerVersion</span></td>
+        <td><p>Serializer version</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>Payload</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Payload type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_IncludeNothing_" data-uid="wan24.Crypto.CryptoOptions.IncludeNothing*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_IncludeNothing_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.IncludeNothing(System.Boolean)">IncludeNothing(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Exclude everything</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions IncludeNothing(bool requireNothing = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireNothing</span></td>
+        <td><p>Require nothing, too?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><p>This</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_Serialize_" data-uid="wan24.Crypto.CryptoOptions.Serialize*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_Serialize_Stream_" data-uid="wan24.Crypto.CryptoOptions.Serialize(Stream)">Serialize(Stream)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Serialize(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SerializeAsync_" data-uid="wan24.Crypto.CryptoOptions.SerializeAsync*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.CryptoOptions.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SetCounterPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.SetCounterPrivateKey*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SetCounterPrivateKey_wan24_Crypto_IAsymmetricPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.SetCounterPrivateKey(wan24.Crypto.IAsymmetricPrivateKey)">SetCounterPrivateKey(IAsymmetricPrivateKey)</h4>
+  <div class="markdown level1 summary"><p>Set the counter private key (used for en-/decryption and signature only)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCounterPrivateKey(IAsymmetricPrivateKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SetKeyExchangeData_" data-uid="wan24.Crypto.CryptoOptions.SetKeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SetKeyExchangeData_wan24_Crypto_IAsymmetricPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IAsymmetricPrivateKey)">SetKeyExchangeData(IAsymmetricPrivateKey)</h4>
+  <div class="markdown level1 summary"><p>Set the PFS key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] SetKeyExchangeData(IAsymmetricPrivateKey key = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>PFS key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SetPayload_" data-uid="wan24.Crypto.CryptoOptions.SetPayload*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SetPayload__1___0_" data-uid="wan24.Crypto.CryptoOptions.SetPayload``1(``0)">SetPayload&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Set the payload</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPayload&lt;T&gt;(T payload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>Payload</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Payload type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_SetPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.SetPrivateKey*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_SetPrivateKey_wan24_Crypto_IAsymmetricPrivateKey_" data-uid="wan24.Crypto.CryptoOptions.SetPrivateKey(wan24.Crypto.IAsymmetricPrivateKey)">SetPrivateKey(IAsymmetricPrivateKey)</h4>
+  <div class="markdown level1 summary"><p>Set the private key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPrivateKey(IAsymmetricPrivateKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_ValidateAlgorithms_" data-uid="wan24.Crypto.CryptoOptions.ValidateAlgorithms*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_ValidateAlgorithms" data-uid="wan24.Crypto.CryptoOptions.ValidateAlgorithms">ValidateAlgorithms()</h4>
+  <div class="markdown level1 summary"><p>Validate the algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ValidateAlgorithms()</code></pre>
+  </div>
+  
+  
+  <a id="wan24_Crypto_CryptoOptions_ValidateRequirements_" data-uid="wan24.Crypto.CryptoOptions.ValidateRequirements*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_ValidateRequirements" data-uid="wan24.Crypto.CryptoOptions.ValidateRequirements">ValidateRequirements()</h4>
+  <div class="markdown level1 summary"><p>Validate the requirements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ValidateRequirements()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

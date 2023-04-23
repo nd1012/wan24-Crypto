@@ -1,0 +1,1874 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class EncryptionAlgorithmBase
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class EncryptionAlgorithmBase
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.EncryptionAlgorithmBase">
+  
+  
+  <h1 id="wan24_Crypto_EncryptionAlgorithmBase" data-uid="wan24.Crypto.EncryptionAlgorithmBase" class="text-break">Class EncryptionAlgorithmBase
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for a symmetric encryption algorithm</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a></div>
+    <div class="level2"><span class="xref">EncryptionAlgorithmBase</span></div>
+      <div class="level3"><a class="xref" href="wan24.Crypto.EncryptionAes256CbcAlgorithm.html">EncryptionAes256CbcAlgorithm</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_Name">CryptoAlgorithmBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_Value">CryptoAlgorithmBase.Value</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum">CryptoAlgorithmBase.IsPostQuantum</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_EncryptionAlgorithmBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class EncryptionAlgorithmBase : CryptoAlgorithmBase</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase__ctor_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.#ctor*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.#ctor(System.String,System.Int32)">EncryptionAlgorithmBase(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EncryptionAlgorithmBase(string name, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Algorithm name</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Algorithm value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase__DefaultOptions" data-uid="wan24.Crypto.EncryptionAlgorithmBase._DefaultOptions">_DefaultOptions</h4>
+  <div class="markdown level1 summary"><p>Default options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CryptoOptions _DefaultOptions</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_BlockSize_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.BlockSize*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_BlockSize" data-uid="wan24.Crypto.EncryptionAlgorithmBase.BlockSize">BlockSize</h4>
+  <div class="markdown level1 summary"><p>Block size in bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int BlockSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_DefaultOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.DefaultOptions*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_DefaultOptions" data-uid="wan24.Crypto.EncryptionAlgorithmBase.DefaultOptions">DefaultOptions</h4>
+  <div class="markdown level1 summary"><p>Default options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions DefaultOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_IvSize_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.IvSize*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_IvSize" data-uid="wan24.Crypto.EncryptionAlgorithmBase.IvSize">IvSize</h4>
+  <div class="markdown level1 summary"><p>IV size in bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int IvSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_KeySize_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.KeySize*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_KeySize" data-uid="wan24.Crypto.EncryptionAlgorithmBase.KeySize">KeySize</h4>
+  <div class="markdown level1 summary"><p>Key size in bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int KeySize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_RequireMacAuthentication_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.RequireMacAuthentication*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_RequireMacAuthentication" data-uid="wan24.Crypto.EncryptionAlgorithmBase.RequireMacAuthentication">RequireMacAuthentication</h4>
+  <div class="markdown level1 summary"><p>Is a MAC authentication required?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool RequireMacAuthentication { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_CreateIvBytes_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.CreateIvBytes*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_CreateIvBytes" data-uid="wan24.Crypto.EncryptionAlgorithmBase.CreateIvBytes">CreateIvBytes()</h4>
+  <div class="markdown level1 summary"><p>Create random IV bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual byte[] CreateIvBytes()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>IV bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_Decrypt_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Decrypt*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_Decrypt_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Decrypt(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions)">Decrypt(Stream, Stream, Byte[], CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Decrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Stream Decrypt(Stream cipherData, Stream rawData, byte[] pwd, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_Decrypt_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Decrypt*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_Decrypt_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Decrypt(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions)">Decrypt(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Decrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Stream Decrypt(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_DecryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.DecryptAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_DecryptAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.DecryptAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,CancellationToken)">DecryptAsync(Stream, Stream, Byte[], CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Decrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task DecryptAsync(Stream cipherData, Stream rawData, byte[] pwd, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_DecryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.DecryptAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_DecryptAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.DecryptAsync(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,CancellationToken)">DecryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Decrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task DecryptAsync(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,wan24.Crypto.MacStreams)">Encrypt(Stream, Stream, Byte[], CryptoOptions, MacStreams)</h4>
+  <div class="markdown level1 summary"><p>Encrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Stream Encrypt(Stream rawData, Stream cipherData, byte[] pwd, CryptoOptions options = null, MacStreams macStream = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="parametername">macStream</span></td>
+        <td><p>MAC stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions)">Encrypt(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Encrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Stream Encrypt(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,wan24.Crypto.MacStreams,CancellationToken)">EncryptAsync(Stream, Stream, Byte[], CryptoOptions, MacStreams, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Encrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task EncryptAsync(Stream rawData, Stream cipherData, byte[] pwd, CryptoOptions options = null, MacStreams macStream = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="parametername">macStream</span></td>
+        <td><p>MAC stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,CancellationToken)">EncryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Encrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task EncryptAsync(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStream_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStream*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStream_Stream_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStream(Stream,Stream,wan24.Crypto.CryptoOptions)">GetDecryptionStream(Stream, Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get a decryption stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DecryptionStreams GetDecryptionStream(Stream cipherData, Stream rawData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a></td>
+        <td><p>Decryption stream and transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStreamAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStreamAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStreamAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStreamAsync(Stream,Stream,wan24.Crypto.CryptoOptions,CancellationToken)">GetDecryptionStreamAsync(Stream, Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Get a decryption stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;DecryptionStreams&gt; GetDecryptionStreamAsync(Stream cipherData, Stream rawData, CryptoOptions options, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a>&gt;</td>
+        <td><p>Decryption stream and transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptor_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptor*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptor_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptor(Stream,wan24.Crypto.CryptoOptions)">GetDecryptor(Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get the decryptor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ICryptoTransform GetDecryptor(Stream cipherData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Security.Cryptography.ICryptoTransform</span></td>
+        <td><p>Transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptorAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptorAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptorAsync(Stream,wan24.Crypto.CryptoOptions,CancellationToken)">GetDecryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Get the decryptor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task&lt;ICryptoTransform&gt; GetDecryptorAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Security.Cryptography.ICryptoTransform</span>&gt;</td>
+        <td><p>Transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStream_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStream*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStream_Stream_Stream_wan24_Crypto_MacStreams_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStream(Stream,Stream,wan24.Crypto.MacStreams,wan24.Crypto.CryptoOptions)">GetEncryptionStream(Stream, Stream, MacStreams, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get an encryption stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual EncryptionStreams GetEncryptionStream(Stream rawData, Stream cipherData, MacStreams macStream, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="parametername">macStream</span></td>
+        <td><p>MAC stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a></td>
+        <td><p>Encryption stream, transform and MAC</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStreamAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStreamAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStreamAsync_Stream_Stream_wan24_Crypto_MacStreams_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStreamAsync(Stream,Stream,wan24.Crypto.MacStreams,wan24.Crypto.CryptoOptions,CancellationToken)">GetEncryptionStreamAsync(Stream, Stream, MacStreams, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Get an encryption stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;EncryptionStreams&gt; GetEncryptionStreamAsync(Stream rawData, Stream cipherData, MacStreams macStream, CryptoOptions options, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="parametername">macStream</span></td>
+        <td><p>MAC stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a>&gt;</td>
+        <td><p>Encryption stream, transform and MAC</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptor_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptor*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptor_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptor(Stream,wan24.Crypto.CryptoOptions)">GetEncryptor(Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get the encryptor (need to write the information (IV bytes etc.) which is required to create a decryptor)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ICryptoTransform GetEncryptor(Stream cipherData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Security.Cryptography.ICryptoTransform</span></td>
+        <td><p>Transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptorAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptorAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptorAsync(Stream,wan24.Crypto.CryptoOptions,CancellationToken)">GetEncryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Get the encryptor (need to write the information (IV bytes etc.) which is required to create a decryptor)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task&lt;ICryptoTransform&gt; GetEncryptorAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Security.Cryptography.ICryptoTransform</span>&gt;</td>
+        <td><p>Transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_ReadFixedIvBytes_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadFixedIvBytes*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_ReadFixedIvBytes_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadFixedIvBytes(Stream,wan24.Crypto.CryptoOptions)">ReadFixedIvBytes(Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Read the fixed IV bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual byte[] ReadFixedIvBytes(Stream cipherData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>IV bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_ReadFixedIvBytesAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadFixedIvBytesAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_ReadFixedIvBytesAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadFixedIvBytesAsync(Stream,wan24.Crypto.CryptoOptions,CancellationToken)">ReadFixedIvBytesAsync(Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Read the fixed IV bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;byte[]&gt; ReadFixedIvBytesAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Byte</span>[]&gt;</td>
+        <td><p>IV bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_ReadOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadOptions*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_ReadOptions_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadOptions(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions)">ReadOptions(Stream, Stream, Byte[], CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Read the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual CryptoOptions ReadOptions(Stream cipherData, Stream rawData, byte[] pwd = null, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><p>Red options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_ReadOptionsAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadOptionsAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_ReadOptionsAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadOptionsAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,CancellationToken)">ReadOptionsAsync(Stream, Stream, Byte[], CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Read the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;CryptoOptions&gt; ReadOptionsAsync(Stream cipherData, Stream rawData, byte[] pwd = null, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>&gt;</td>
+        <td><p>Red options and serializer version number</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_ReadVariableIvBytes_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadVariableIvBytes*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_ReadVariableIvBytes_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadVariableIvBytes(Stream,wan24.Crypto.CryptoOptions)">ReadVariableIvBytes(Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Read the variable IV bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual byte[] ReadVariableIvBytes(Stream cipherData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>IV bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_ReadVariableIvBytesAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadVariableIvBytesAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_ReadVariableIvBytesAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.ReadVariableIvBytesAsync(Stream,wan24.Crypto.CryptoOptions,CancellationToken)">ReadVariableIvBytesAsync(Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Read the variable IV bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;byte[]&gt; ReadVariableIvBytesAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Byte</span>[]&gt;</td>
+        <td><p>IV bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_WriteOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.WriteOptions*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_WriteOptions_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.WriteOptions(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions)">WriteOptions(Stream, Stream, Byte[], CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Write the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual (CryptoOptions Options, MacStreams MacStream) WriteOptions(Stream rawData, Stream cipherData, byte[] pwd = null, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>, <a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a>&gt;</td>
+        <td><p>Written options and used MAC stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_WriteOptionsAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.WriteOptionsAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_WriteOptionsAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.WriteOptionsAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,CancellationToken)">WriteOptionsAsync(Stream, Stream, Byte[], CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Write the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;(CryptoOptions Options, MacStreams MacStream)&gt; WriteOptionsAsync(Stream rawData, Stream cipherData, byte[] pwd = null, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>, <a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a>&gt;&gt;</td>
+        <td><p>Written options and used MAC stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

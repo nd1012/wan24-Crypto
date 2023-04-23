@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>wan24.Crypto</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>wan24Crypto</AssemblyName>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageId>wan24-Crypto</PackageId>
+    <Title>wan24-Crypto</Title>
+    <Version>1.0.0</Version>
+    <Authors>nd1012</Authors>
+    <Company>Andreas Zimmermann, wan24.de</Company>
+    <Product>wan24-Crypto</Product>
+    <Description>Crypto helper</Description>
+    <Copyright>(c)2023 Andreas Zimmermann, wan24.de</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>crypto</PackageTags>
+    <PackageProjectUrl>https://github.com/nd1012/wan24-Crypto</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nd1012/wan24-Crypto</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Stream-Serializer-Extensions" Version="1.2.0" />
+    <PackageReference Include="wan24-Compression" Version="1.1.0" />
+    <PackageReference Include="wan24-Core" Version="1.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="copy /Y &quot;$(ProjectDir)..\..\README.md&quot; &quot;$(ProjectDir)README.md&quot;&#xD;&#xA;" />
+  </Target>
+
+</Project>

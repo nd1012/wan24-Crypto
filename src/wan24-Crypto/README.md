@@ -166,16 +166,6 @@ publicKey.ValidateSignature(signature, anyData);
 
 The default signature algorithm is DSA from a secp521r1 elliptic curve.
 
-## Too many options?
-
-The `CryptoOptions` contains a huge collection of properties, which follow a 
-simple pattern:
-
-| Section | Property | Description |
-| --- | --- | --- |
-
-#TODO
-
 ## Crypto suite
 
 You can use a `CryptoOptions` instance as crypto suite. The type can be binary 

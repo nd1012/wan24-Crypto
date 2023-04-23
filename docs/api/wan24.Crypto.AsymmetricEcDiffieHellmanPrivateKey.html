@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AsymmetricEcDiffieHellmanPrivateKey
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AsymmetricEcDiffieHellmanPrivateKey
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey">
+  
+  
+  <h1 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey" class="text-break">Class AsymmetricEcDiffieHellmanPrivateKey
+  </h1>
+  <div class="markdown level0 summary"><p>Elliptic Curve Diffie Hellman asymmetric private key</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
+    <div class="level2"><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html">AsymmetricKeyBase</a></div>
+    <div class="level3"><a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html">AsymmetricPrivateKeyBase</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html">AsymmetricEcDiffieHellmanPublicKey</a>, <a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.html">AsymmetricEcDiffieHellmanPrivateKey</a>&gt;</div>
+    <div class="level4"><span class="xref">AsymmetricEcDiffieHellmanPrivateKey</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></div>
+    <div><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></div>
+    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.IAsyncDisposable</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2__PublicKey">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;._PublicKey</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_PublicKey">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.PublicKey</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_ID">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_wan24_Crypto_IAsymmetricPrivateKey_PublicKey">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.IAsymmetricPrivateKey.PublicKey</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_GetCopy">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.GetCopy()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_SignData_System_Byte___System_String_wan24_Crypto_CryptoOptions_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.SignData(Byte[], String, CryptoOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_SignData_Stream_System_String_wan24_Crypto_CryptoOptions_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.SignData(Stream, String, CryptoOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_SignDataAsync_Stream_System_String_wan24_Crypto_CryptoOptions_CancellationToken_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.SignDataAsync(Stream, String, CryptoOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_SignHash_System_Byte___System_String_wan24_Crypto_CryptoOptions_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.SignHash(Byte[], String, CryptoOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_SignHashRaw_System_Byte___">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.SignHashRaw(Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_GetKeyExchangeData_wan24_Crypto_CryptoOptions_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.GetKeyExchangeData(CryptoOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_DeriveKey_System_Byte___">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.DeriveKey(Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_Dispose_System_Boolean_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_VERSION">AsymmetricKeyBase.VERSION</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase__SerializedObjectVersion">AsymmetricKeyBase._SerializedObjectVersion</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_ID">AsymmetricKeyBase.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_KeyData">AsymmetricKeyBase.KeyData</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_wan24_StreamSerializerExtensions_IStreamSerializerVersion_ObjectVersion">AsymmetricKeyBase.IStreamSerializerVersion.ObjectVersion</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_wan24_StreamSerializerExtensions_IStreamSerializerVersion_SerializedObjectVersion">AsymmetricKeyBase.IStreamSerializerVersion.SerializedObjectVersion</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Serialize_Stream_">AsymmetricKeyBase.Serialize(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_SerializeAsync_Stream_CancellationToken_">AsymmetricKeyBase.SerializeAsync(Stream, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Deserialize_Stream_System_Int32_">AsymmetricKeyBase.Deserialize(Stream, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_Stream_System_Int32_CancellationToken_">AsymmetricKeyBase.DeserializeAsync(Stream, Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AsymmetricEcDiffieHellmanPrivateKey : AsymmetricPrivateKeyBase&lt;AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey&gt;, IAsymmetricPrivateKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__ctor_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.#ctor*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__ctor" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.#ctor">AsymmetricEcDiffieHellmanPrivateKey()</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsymmetricEcDiffieHellmanPrivateKey()</code></pre>
+  </div>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__ctor_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.#ctor*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__ctor_System_Byte___" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.#ctor(System.Byte[])">AsymmetricEcDiffieHellmanPrivateKey(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsymmetricEcDiffieHellmanPrivateKey(byte[] privateKeyData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">privateKeyData</span></td>
+        <td><p>Private key data (will be cloaked when disposing!)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__ctor_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.#ctor*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__ctor_System_Security_Cryptography_ECDiffieHellman_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.#ctor(System.Security.Cryptography.ECDiffieHellman)">AsymmetricEcDiffieHellmanPrivateKey(ECDiffieHellman)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsymmetricEcDiffieHellmanPrivateKey(ECDiffieHellman key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Security.Cryptography.ECDiffieHellman</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Private key (will be disposed!)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_Algorithm_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Algorithm*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_Algorithm" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Algorithm">Algorithm</h4>
+  <div class="markdown level1 summary"><p>Algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Algorithm { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Algorithm">AsymmetricKeyBase.Algorithm</a></div>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_Bits_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Bits*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_Bits" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Bits">Bits</h4>
+  <div class="markdown level1 summary"><p>Bits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Bits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Bits">AsymmetricKeyBase.Bits</a></div>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_PrivateKey_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.PrivateKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_PrivateKey" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.PrivateKey">PrivateKey</h4>
+  <div class="markdown level1 summary"><p>Private key (don't dispose - will be disposed when this private key instance disposes!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ECDiffieHellman PrivateKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Security.Cryptography.ECDiffieHellman</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_PublicKey_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.PublicKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_PublicKey" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.PublicKey">PublicKey</h4>
+  <div class="markdown level1 summary"><p>Public key (don't dispose - the instance will be disposed if the private key instance is being disposed!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override AsymmetricEcDiffieHellmanPublicKey PublicKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html">AsymmetricEcDiffieHellmanPublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Crypto.AsymmetricPrivateKeyBase&lt;wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey, wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey&gt;.PublicKey</span></div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_DeriveKey_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.DeriveKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_DeriveKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.DeriveKey(System.Byte[])">DeriveKey(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Get the derived key from received key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override byte[] DeriveKey(byte[] keyExchangeData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyExchangeData</span></td>
+        <td><p>Key exchange data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Derived key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Crypto.AsymmetricPrivateKeyBase&lt;wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey, wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey&gt;.DeriveKey(System.Byte[])</span></div>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_Dispose_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Dispose*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_Dispose_System_Boolean_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Crypto.AsymmetricPrivateKeyBase&lt;wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey, wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey&gt;.Dispose(System.Boolean)</span></div>
+  
+  
+  <a id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_GetKeyExchangeData_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.GetKeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_GetKeyExchangeData_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)">GetKeyExchangeData(CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override byte[] GetKeyExchangeData(CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Key exchange data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Crypto.AsymmetricPrivateKeyBase&lt;wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey, wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey&gt;.GetKeyExchangeData(wan24.Crypto.CryptoOptions)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.IAsyncDisposable</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

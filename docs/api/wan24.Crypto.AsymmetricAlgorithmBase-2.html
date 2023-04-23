@@ -1,0 +1,785 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2">
+  
+  
+  <h1 id="wan24_Crypto_AsymmetricAlgorithmBase_2" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2" class="text-break">Class AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for an asymmetric algorithm</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a></div>
+    <div class="level2"><span class="xref">AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;</span></div>
+      <div class="level3"><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html">AsymmetricEcDiffieHellmanAlgorithm</a></div>
+      <div class="level3"><a class="xref" href="wan24.Crypto.AsymmetricEcDsaAlgorithm.html">AsymmetricEcDsaAlgorithm</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></div>
+    <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_Name">CryptoAlgorithmBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_Value">CryptoAlgorithmBase.Value</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum">CryptoAlgorithmBase.IsPostQuantum</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_AsymmetricAlgorithmBase_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt; : CryptoAlgorithmBase, IAsymmetricAlgorithm, ICryptoAlgorithm where tPublic : AsymmetricPublicKeyBase, IAsymmetricPublicKey, new()
+    where tPrivate : AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;, IAsymmetricPrivateKey, new()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">tPublic</span></td>
+        <td><p>Public key type</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">tPrivate</span></td>
+        <td><p>Private key type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2__ctor_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.#ctor*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.#ctor(System.String,System.Int32)">AsymmetricAlgorithmBase(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected AsymmetricAlgorithmBase(string name, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Algorithm name</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Algorithm value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2__DefaultKeySize" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2._DefaultKeySize">_DefaultKeySize</h4>
+  <div class="markdown level1 summary"><p>Default key size</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _DefaultKeySize</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2__DefaultOptions" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2._DefaultOptions">_DefaultOptions</h4>
+  <div class="markdown level1 summary"><p>Default options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CryptoOptions _DefaultOptions</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.AllowedKeySizes*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.AllowedKeySizes">AllowedKeySizes</h4>
+  <div class="markdown level1 summary"><p>Allowed key sizes in bits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ReadOnlyCollection&lt;int&gt; AllowedKeySizes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.ObjectModel.ReadOnlyCollection</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanExchangeKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanExchangeKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanExchangeKey" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanExchangeKey">CanExchangeKey</h4>
+  <div class="markdown level1 summary"><p>Can exchange a key?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanExchangeKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanSign_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanSign*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanSign" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanSign">CanSign</h4>
+  <div class="markdown level1 summary"><p>Can sign?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanSign { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultKeySize*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultKeySize">DefaultKeySize</h4>
+  <div class="markdown level1 summary"><p>Default key size in bits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DefaultKeySize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultOptions*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultOptions" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultOptions">DefaultOptions</h4>
+  <div class="markdown level1 summary"><p>Default options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions DefaultOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsEllipticCurveAlgorithm_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsEllipticCurveAlgorithm*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsEllipticCurveAlgorithm" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsEllipticCurveAlgorithm">IsEllipticCurveAlgorithm</h4>
+  <div class="markdown level1 summary"><p>Is an elliptic curve algorithm?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsEllipticCurveAlgorithm { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_Usages_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.Usages*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_Usages" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.Usages">Usages</h4>
+  <div class="markdown level1 summary"><p>Key usages</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract AsymmetricAlgorithmUsages Usages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricAlgorithmUsages.html">AsymmetricAlgorithmUsages</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPair*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPair(wan24.Crypto.CryptoOptions)">CreateKeyPair(CryptoOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract tPrivate CreateKeyPair(CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">tPrivate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeriveKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeriveKey(System.Byte[],wan24.Crypto.CryptoOptions)">DeriveKey(Byte[], CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get the derived key from received key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyExchangeData</span></td>
+        <td><p>Key exchange data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Derived key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKey(System.Byte[])">DeserializePrivateKey(Byte[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public tPrivate DeserializePrivateKey(byte[] keyData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">tPrivate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePublicKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePublicKey(System.Byte[])">DeserializePublicKey(Byte[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public tPublic DeserializePublicKey(byte[] keyData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">tPublic</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_wan24_Crypto_IAsymmetricAlgorithm_CreateKeyPair_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.wan24#Crypto#IAsymmetricAlgorithm#CreateKeyPair*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_wan24_Crypto_IAsymmetricAlgorithm_CreateKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.wan24#Crypto#IAsymmetricAlgorithm#CreateKeyPair(wan24.Crypto.CryptoOptions)">IAsymmetricAlgorithm.CreateKeyPair(CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Create a new key pair</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsymmetricPrivateKey IAsymmetricAlgorithm.CreateKeyPair(CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_wan24_Crypto_IAsymmetricAlgorithm_DeserializePrivateKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.wan24#Crypto#IAsymmetricAlgorithm#DeserializePrivateKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_wan24_Crypto_IAsymmetricAlgorithm_DeserializePrivateKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.wan24#Crypto#IAsymmetricAlgorithm#DeserializePrivateKey(System.Byte[])">IAsymmetricAlgorithm.DeserializePrivateKey(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Deserialize a private key from a stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsymmetricPrivateKey IAsymmetricAlgorithm.DeserializePrivateKey(byte[] keyData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyData</span></td>
+        <td><p>Key data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_wan24_Crypto_IAsymmetricAlgorithm_DeserializePublicKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.wan24#Crypto#IAsymmetricAlgorithm#DeserializePublicKey*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_wan24_Crypto_IAsymmetricAlgorithm_DeserializePublicKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.wan24#Crypto#IAsymmetricAlgorithm#DeserializePublicKey(System.Byte[])">IAsymmetricAlgorithm.DeserializePublicKey(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Deserialize a public key from a stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsymmetricPublicKey IAsymmetricAlgorithm.DeserializePublicKey(byte[] keyData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyData</span></td>
+        <td><p>Key data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></td>
+        <td><p>Public key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

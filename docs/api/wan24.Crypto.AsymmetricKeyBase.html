@@ -1,0 +1,651 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AsymmetricKeyBase
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AsymmetricKeyBase
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricKeyBase">
+  
+  
+  <h1 id="wan24_Crypto_AsymmetricKeyBase" data-uid="wan24.Crypto.AsymmetricKeyBase" class="text-break">Class AsymmetricKeyBase
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for an asymmetric key</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
+    <div class="level2"><span class="xref">AsymmetricKeyBase</span></div>
+      <div class="level3"><a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html">AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;</a></div>
+      <div class="level3"><a class="xref" href="wan24.Crypto.AsymmetricPublicKeyBase.html">AsymmetricPublicKeyBase</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></div>
+    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.IAsyncDisposable</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_AsymmetricKeyBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class AsymmetricKeyBase : DisposableBase, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase__ctor_" data-uid="wan24.Crypto.AsymmetricKeyBase.#ctor*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase__ctor" data-uid="wan24.Crypto.AsymmetricKeyBase.#ctor">AsymmetricKeyBase()</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected AsymmetricKeyBase()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="wan24_Crypto_AsymmetricKeyBase__SerializedObjectVersion" data-uid="wan24.Crypto.AsymmetricKeyBase._SerializedObjectVersion">_SerializedObjectVersion</h4>
+  <div class="markdown level1 summary"><p>Serialized object version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int? _SerializedObjectVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_VERSION" data-uid="wan24.Crypto.AsymmetricKeyBase.VERSION">VERSION</h4>
+  <div class="markdown level1 summary"><p>Object version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_Algorithm_" data-uid="wan24.Crypto.AsymmetricKeyBase.Algorithm*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_Algorithm" data-uid="wan24.Crypto.AsymmetricKeyBase.Algorithm">Algorithm</h4>
+  <div class="markdown level1 summary"><p>Algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Algorithm { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_Bits_" data-uid="wan24.Crypto.AsymmetricKeyBase.Bits*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_Bits" data-uid="wan24.Crypto.AsymmetricKeyBase.Bits">Bits</h4>
+  <div class="markdown level1 summary"><p>Bits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int Bits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_ID_" data-uid="wan24.Crypto.AsymmetricKeyBase.ID*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_ID" data-uid="wan24.Crypto.AsymmetricKeyBase.ID">ID</h4>
+  <div class="markdown level1 summary"><p>Key ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract byte[] ID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_KeyData_" data-uid="wan24.Crypto.AsymmetricKeyBase.KeyData*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_KeyData" data-uid="wan24.Crypto.AsymmetricKeyBase.KeyData">KeyData</h4>
+  <div class="markdown level1 summary"><p>Key data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NoValidation]
+public SecureByteArray KeyData { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">wan24.Core.SecureByteArray</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_Deserialize_" data-uid="wan24.Crypto.AsymmetricKeyBase.Deserialize*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.AsymmetricKeyBase.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deserialize</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Deserialize(Stream stream, int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>Stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td><p>Serializer version</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_" data-uid="wan24.Crypto.AsymmetricKeyBase.DeserializeAsync*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeyBase.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deserialize</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>Stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td><p>Serializer version</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_Dispose_" data-uid="wan24.Crypto.AsymmetricKeyBase.Dispose*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_Dispose_System_Boolean_" data-uid="wan24.Crypto.AsymmetricKeyBase.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_Serialize_" data-uid="wan24.Crypto.AsymmetricKeyBase.Serialize*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_Serialize_Stream_" data-uid="wan24.Crypto.AsymmetricKeyBase.Serialize(Stream)">Serialize(Stream)</h4>
+  <div class="markdown level1 summary"><p>Serialize</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Serialize(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>Stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_SerializeAsync_" data-uid="wan24.Crypto.AsymmetricKeyBase.SerializeAsync*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeyBase.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Serialize</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>Stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_wan24_StreamSerializerExtensions_IStreamSerializerVersion_ObjectVersion_" data-uid="wan24.Crypto.AsymmetricKeyBase.wan24#StreamSerializerExtensions#IStreamSerializerVersion#ObjectVersion*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_wan24_StreamSerializerExtensions_IStreamSerializerVersion_ObjectVersion" data-uid="wan24.Crypto.AsymmetricKeyBase.wan24#StreamSerializerExtensions#IStreamSerializerVersion#ObjectVersion">IStreamSerializerVersion.ObjectVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? IStreamSerializerVersion.ObjectVersion { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_AsymmetricKeyBase_wan24_StreamSerializerExtensions_IStreamSerializerVersion_SerializedObjectVersion_" data-uid="wan24.Crypto.AsymmetricKeyBase.wan24#StreamSerializerExtensions#IStreamSerializerVersion#SerializedObjectVersion*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeyBase_wan24_StreamSerializerExtensions_IStreamSerializerVersion_SerializedObjectVersion" data-uid="wan24.Crypto.AsymmetricKeyBase.wan24#StreamSerializerExtensions#IStreamSerializerVersion#SerializedObjectVersion">IStreamSerializerVersion.SerializedObjectVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? IStreamSerializerVersion.SerializedObjectVersion { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.IAsyncDisposable</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

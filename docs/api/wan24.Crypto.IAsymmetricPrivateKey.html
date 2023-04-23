@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IAsymmetricPrivateKey
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IAsymmetricPrivateKey
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.IAsymmetricPrivateKey">
+  
+  
+  <h1 id="wan24_Crypto_IAsymmetricPrivateKey" data-uid="wan24.Crypto.IAsymmetricPrivateKey" class="text-break">Interface IAsymmetricPrivateKey
+  </h1>
+  <div class="markdown level0 summary"><p>Interface for an asymmetric private key</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_ID">IAsymmetricKey.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_Algorithm">IAsymmetricKey.Algorithm</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_Bits">IAsymmetricKey.Bits</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_KeyData">IAsymmetricKey.KeyData</a>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.IDisposable.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.IAsyncDisposable.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_IAsymmetricPrivateKey_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IAsymmetricPrivateKey : IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_PublicKey_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.PublicKey*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_PublicKey" data-uid="wan24.Crypto.IAsymmetricPrivateKey.PublicKey">PublicKey</h4>
+  <div class="markdown level1 summary"><p>Public key (don't dispose - will be disposed, when the private key instance is disposing!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsymmetricPublicKey PublicKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_DeriveKey_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.DeriveKey*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_DeriveKey_System_Byte___" data-uid="wan24.Crypto.IAsymmetricPrivateKey.DeriveKey(System.Byte[])">DeriveKey(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Get the derived key from received key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] DeriveKey(byte[] keyExchangeData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">keyExchangeData</span></td>
+        <td><p>Key exchange data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Derived key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_GetCopy_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.GetCopy*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_GetCopy" data-uid="wan24.Crypto.IAsymmetricPrivateKey.GetCopy">GetCopy()</h4>
+  <div class="markdown level1 summary"><p>Get a copy</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsymmetricPrivateKey GetCopy()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><p>Copy</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_GetKeyExchangeData_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_GetKeyExchangeData_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)">GetKeyExchangeData(CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Get key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] GetKeyExchangeData(CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Key exchange data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_SignData_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignData*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_SignData_Stream_System_String_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignData(Stream,System.String,wan24.Crypto.CryptoOptions)">SignData(Stream, String, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Sign data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SignatureContainer SignData(Stream data, string purpose = null, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">purpose</span></td>
+        <td><p>Purpose</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></td>
+        <td><p>Signature</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_SignData_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignData*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_SignData_System_Byte___System_String_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignData(System.Byte[],System.String,wan24.Crypto.CryptoOptions)">SignData(Byte[], String, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Sign data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SignatureContainer SignData(byte[] data, string purpose = null, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">purpose</span></td>
+        <td><p>Purpose</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></td>
+        <td><p>Signature</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_SignDataAsync_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_SignDataAsync_Stream_System_String_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync(Stream,System.String,wan24.Crypto.CryptoOptions,CancellationToken)">SignDataAsync(Stream, String, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sign data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SignatureContainer&gt; SignDataAsync(Stream data, string purpose = null, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">purpose</span></td>
+        <td><p>Purpose</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a>&gt;</td>
+        <td><p>Signature</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_SignHash_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignHash*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_SignHash_System_Byte___System_String_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignHash(System.Byte[],System.String,wan24.Crypto.CryptoOptions)">SignHash(Byte[], String, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Sign a hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SignatureContainer SignHash(byte[] hash, string purpose = null, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>Hash</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">purpose</span></td>
+        <td><p>Purpose</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></td>
+        <td><p>Signature</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="wan24_Crypto_IAsymmetricPrivateKey_SignHashRaw_" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw*"></a>
+  <h4 id="wan24_Crypto_IAsymmetricPrivateKey_SignHashRaw_System_Byte___" data-uid="wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw(System.Byte[])">SignHashRaw(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Sign a hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] SignHashRaw(byte[] hash)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>Hash</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Signature (RFC 3279 DER sequence)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
