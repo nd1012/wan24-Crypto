@@ -300,7 +300,7 @@ using AsymmetricSignedPublicKey signedPublicRootKey = new()
 signedPublicRootKey.Sign(privateRootKey);
 
 // Create a key pair, which will be signed
-using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
 
 // Sign the public key
 using AsymmetricSignedPublicKey signedPublicKey = new()
