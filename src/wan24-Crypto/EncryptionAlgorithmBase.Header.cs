@@ -96,7 +96,6 @@ namespace wan24.Crypto
                     cipherData = macStream.Stream;
                 }
                 // Write authenticated options
-                if (options.AlgorithmIncluded) cipherData.WriteNumber(EncryptionHelper.GetAlgorithmValue(options.Algorithm ??= EncryptionHelper.DefaultAlgorithm.Name));
                 if (options.KeyExchangeDataIncluded)
                 {
                     if (options.AsymmetricAlgorithmIncluded)
@@ -232,8 +231,6 @@ namespace wan24.Crypto
                     cipherData = macStream.Stream;
                 }
                 // Write authenticated options
-                if (options.AlgorithmIncluded)
-                    await cipherData.WriteNumberAsync(EncryptionHelper.GetAlgorithmValue(options.Algorithm ??= EncryptionHelper.DefaultAlgorithm.Name), cancellationToken).DynamicContext();
                 if (options.KeyExchangeDataIncluded)
                 {
                     if (options.AsymmetricAlgorithmIncluded)
@@ -374,7 +371,6 @@ namespace wan24.Crypto
                     if (cipherData.Read(options.Mac) != mac.MacLength) throw new IOException("Failed to read the MAC");
                 }
                 // Read authenticated options
-                if (options.AlgorithmIncluded) options.Algorithm = EncryptionHelper.GetAlgorithmName(cipherData.ReadNumber<int>(serializerVersion));
                 if (options.KeyExchangeDataIncluded)
                 {
                     if (options.AsymmetricAlgorithmIncluded) options.AsymmetricAlgorithm = AsymmetricHelper.GetAlgorithmName(cipherData.ReadNumber<int>(serializerVersion));
@@ -536,8 +532,6 @@ namespace wan24.Crypto
                     if (await cipherData.ReadAsync(options.Mac, cancellationToken).DynamicContext() != mac.MacLength) throw new IOException("Failed to read the MAC");
                 }
                 // Read authenticated options
-                if (options.AlgorithmIncluded)
-                    options.Algorithm = EncryptionHelper.GetAlgorithmName(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext());
                 if (options.KeyExchangeDataIncluded)
                 {
                     if (options.AsymmetricAlgorithmIncluded)

@@ -100,7 +100,7 @@ namespace wan24.Crypto
             {
                 if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
-                SignatureContainer res = new(options.HashAlgorithm!, hash, this, options.CounterPrivateKey, purpose);
+                SignatureContainer res = new(options.HashAlgorithm!, hash, (ISignaturePrivateKey)this, (ISignaturePrivateKey?)options.CounterPrivateKey, purpose);
                 res.Signature = SignHashRaw(res.CreateSignatureHash());
                 if (options.CounterPrivateKey != null) res.CounterSignature = HybridAlgorithmHelper.Sign(res, options);
                 PublicKey.ValidateSignature(res);

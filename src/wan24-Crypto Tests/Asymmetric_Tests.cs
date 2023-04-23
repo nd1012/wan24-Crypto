@@ -17,13 +17,13 @@ namespace wan24_Crypto_Tests
         [TestMethod]
         public void Pki_Tests()
         {
-            using IAsymmetricPrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
+            using ISignaturePrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
             using AsymmetricSignedPublicKey signedRootPublicKey = new()
             {
                 PublicKey = privateRootKey.PublicKey.GetCopy()
             };
             signedRootPublicKey.Sign(privateRootKey);
-            using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+            using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
             using AsymmetricSignedPublicKey signedPublicKey = new()
             {
                 PublicKey = privateKey.PublicKey.GetCopy()
@@ -66,21 +66,21 @@ namespace wan24_Crypto_Tests
             if (algo.CanExchangeKey)
             {
                 Console.WriteLine("\tExecute key exchange tests");
-                using IAsymmetricPrivateKey privateKey2 = algo.CreateKeyPair();
-                byte[] key = privateKey.DeriveKey(privateKey2.GetKeyExchangeData()),
-                    key2 = privateKey2.DeriveKey(privateKey.GetKeyExchangeData());
+                using IKeyExchangePrivateKey privateKey2 = (IKeyExchangePrivateKey)algo.CreateKeyPair();
+                byte[] key = ((IKeyExchangePrivateKey)privateKey).DeriveKey(privateKey2.GetKeyExchangeData()),
+                    key2 = privateKey2.DeriveKey(((IKeyExchangePrivateKey)privateKey).GetKeyExchangeData());
                 Assert.IsTrue(key.SequenceEqual(key2));
             }
             else
             {
                 Console.WriteLine("\tExecute signature tests");
-                SignatureContainer signature = privateKey.SignData(Data, "test");
+                SignatureContainer signature = ((ISignaturePrivateKey)privateKey).SignData(Data, "test");
                 Assert.IsTrue(signature.ValidateSignedData(Data, throwOnError: false));
                 Assert.IsFalse(signature.ValidateSignedData(Array.Empty<byte>(), throwOnError: false));
                 Assert.ThrowsException<CryptographicException>(() => signature.ValidateSignedData(Array.Empty<byte>()));
-                Assert.IsTrue(privateKey.PublicKey.ValidateSignature(signature, Data, throwOnError: false));
-                Assert.IsFalse(privateKey.PublicKey.ValidateSignature(signature, Array.Empty<byte>(), throwOnError: false));
-                Assert.ThrowsException<CryptographicException>(() => privateKey.PublicKey.ValidateSignature(signature, Array.Empty<byte>()));
+                Assert.IsTrue(((ISignaturePublicKey)privateKey.PublicKey).ValidateSignature(signature, Data, throwOnError: false));
+                Assert.IsFalse(((ISignaturePublicKey)privateKey.PublicKey).ValidateSignature(signature, Array.Empty<byte>(), throwOnError: false));
+                Assert.ThrowsException<CryptographicException>(() => ((ISignaturePublicKey)privateKey.PublicKey).ValidateSignature(signature, Array.Empty<byte>()));
             }
         }
     }

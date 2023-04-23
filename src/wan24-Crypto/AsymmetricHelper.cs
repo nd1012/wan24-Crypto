@@ -77,10 +77,10 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="options">Options</param>
         /// <returns>Private key</returns>
-        public static IAsymmetricPrivateKey CreateKeyExchangeKeyPair(CryptoOptions? options = null)
+        public static IKeyExchangePrivateKey CreateKeyExchangeKeyPair(CryptoOptions? options = null)
         {
             options = GetDefaultKeyExchangeOptions(options);
-            return GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
+            return (IKeyExchangePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
         }
 
         /// <summary>
@@ -88,10 +88,10 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="options">Options</param>
         /// <returns>Private key</returns>
-        public static IAsymmetricPrivateKey CreateSignatureKeyPair(CryptoOptions? options = null)
+        public static ISignaturePrivateKey CreateSignatureKeyPair(CryptoOptions? options = null)
         {
             options = GetDefaultSignatureOptions(options);
-            return GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
+            return (ISignaturePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
         }
 
         /// <summary>

@@ -12,17 +12,13 @@ Per default these cryptographic algorithms are implemented:
 | | SHA-256 |
 | | SHA-384 |
 | | SHA-512 |
-| --- | --- |
 | **MAC** | HMAC-SHA-1 |
 |  | HMAC-SHA-256 |
 |  | HMAC-SHA-384 |
 |  | HMAC-SHA-512 |
-| --- | --- |
 | **Symmetric encryption** | AES-256-CBC (ISO10126 padding) |
-| --- | --- |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
-| --- | --- |
 | **KDF key stretching** | PBKDF#2 (20,000 iterations per default) |
 
 These elliptic curves are supported at present:
@@ -166,6 +162,102 @@ publicKey.ValidateSignature(signature, anyData);
 
 The default signature algorithm is DSA from a secp521r1 elliptic curve.
 
+## Too many options?
+
+The `CryptoOptions` contains a huge collection of properties, which follow a 
+simple pattern: Which information should be included in the header, and is an 
+information in the header required?
+
+| Section | Property | Description |
+| --- | --- | --- |
+| Encryption | `Algorithm` | Encryption algorithm name |
+| MAC | `MacAlgorithm` | MAC algorithm name |
+|  | `MacIncluded` | Include a MAC in the header |
+|  | `RequireMac` | Is the MAC required in the header? |
+|  | `CounterMacAlgorithm` | Counter MAC algorithm name |
+|  | `CounterMacIncluded` | Include a counter MAC in the header |
+|  | `RequireCounterMac` | Is the counter MAC required in the header? |
+|  | `ForceMacCoverWhole` | Force the MAC to cover all data |
+|  | `RequireMacCoverWhole` | Is the MAC required to cover all data? |
+| PFS / Key creation / Signature | `AsymmetricAlgorithm` | Asymmetric algorithm name |
+|  | `AsymmetricAlgorithmIncluded` | Include the asymmetric algorithm in the header |
+|  | `RequireAsymmetricAlgorithm` | Is the asymmetric algorithm required in the header? |
+|  | `AsymmetricCounterAlgorithm` | Asymmetric counter algorithm name |
+|  | `AsymmetricCounterAlgorithmIncluded` | Include the asymmetric counter algorithm in the header |
+|  | `RequireAsymmetricCounterAlgorithm` | Is the asymmetric counter algorithm required in the header? |
+|  | `KeyExchangeData` | Key exchange data (includes counter key exchange data; generated automatic) |
+|  | `RequireKeyExchangeData` | Is the key exchange data required in the header? |
+|  | `PrivateKey` | Private key for key exchange (set automatic) |
+|  | `CounterPrivateKey` | Private key for counter key exchange (required when using a counter asymmetric algorithm) |
+| KDF | `KdfAlgorithm` | KDF algorithm name |
+|  | `KdfIterations` | KDF iteration count |
+|  | `KdfSalt` | KDF salt (generated automatic) |
+|  | `KdfAlgorithmIncluded` | Include the KDF information in the header |
+|  | `RequireKdfAlgorithm` | Is the KDF information required in the header? |
+|  | `CounterKdfAlgorithm` | Counter KDF algorithm name |
+|  | `CounterKdfIterations` | Counter KDF iteration count |
+|  | `CounterKdfSalt` | Counter KDF salt (generated automatic) |
+|  | `CounterKdfAlgorithmIncluded` | Include the counter KDF information in the header |
+|  | `RequireCounterKdfAlgorithm` | Is the counter KDF information required in the header? |
+| Payload | `PayloadData` | Plain payload |
+|  | `PayloadIncluded` | Is the payload object data included in the header? |
+|  | `RequirePayload` | Is payload object data required in the header? |
+| Serializer version | `SerializerVersion` | Serializer version number (set automatic) |
+|  | `SerializerVersionIncluded` | Include the serializer version number in the header |
+|  | `RequireSerializerVersion` | Is the serializer version number required in the header? |
+| Header version | `HeaderVersion` | Header version number (set automatic) |
+|  | `HeaderVersionIncluded` | Is the header version included in the header? |
+|  | `RequireHeaderVersion` | Is the header version required in the header? |
+| Encryption time | `Time` | Encryption timestamp (UTC) |
+|  | `TimeIncluded` | Is the encryption time included in the header? |
+|  | `RequireTime` | Is the encryption time required to be included in the header? |
+|  | `MaximumAge` | Maximum age of cipher data (the default can be set to `DefaultMaximumAge`) |
+|  | `MaximumTimeOffset` | Maximum time offset for a peer with a different system time (the default can be set to `DefaultMaximumTimeOffset`) |
+| Compression | `Compressed` | Should the raw data be compressed before encryption? |
+|  | `Compression` | The `CompressionOptions` instance to use |
+| Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use |
+| Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair |
+| Stream options | `LeaveOpen` | Leave the processing stream open after operation? |
+
+If you use a new instance of `CryptoOptions`, all defaults will be applied. 
+You can override these defaults in the static `*Helper.Default*` properties, 
+or by setting other values in the `CryptoOptions` instance, which you use when 
+calling any method.
+
+For encryption these sections matter:
+
+- Encryption
+- MAC
+- PFS
+- KDF
+- Payload
+- Serializer version
+- Header version
+- Encryption time
+- Compression
+- Stream options
+
+In case you want to use the `*Counter*` options, you'll need to set the 
+`CounterPrivateKey` value.
+
+For MAC these sections matter:
+
+- MAC
+- Stream options
+
+For hashing these sections matter:
+
+- Hashing
+- Stream options
+
+For asymmetric key creation the "Key creation" section matters.
+
+For signature these sections matter:
+
+- Signature
+- Hashing
+- Stream options
+
 ## Crypto suite
 
 You can use a `CryptoOptions` instance as crypto suite. The type can be binary 
@@ -198,7 +290,7 @@ which allows to
 
 ```cs
 // Create the root key pair
-using IAsymmetricPrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
+using ISignaturePrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
 
 // Self-sign the public root key
 using AsymmetricSignedPublicKey signedPublicRootKey = new()

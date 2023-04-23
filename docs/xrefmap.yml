@@ -1874,12 +1874,12 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.SerializeAsync
   nameWithType: AsymmetricSignedPublicKey.SerializeAsync
-- uid: wan24.Crypto.AsymmetricSignedPublicKey.Sign(wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,System.String,wan24.Crypto.CryptoOptions)
-  name: Sign(IAsymmetricPrivateKey, AsymmetricSignedPublicKey, IAsymmetricPrivateKey, AsymmetricSignedPublicKey, String, CryptoOptions)
-  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_Sign_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_AsymmetricSignedPublicKey_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_AsymmetricSignedPublicKey_System_String_wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.AsymmetricSignedPublicKey.Sign(wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,System.String,wan24.Crypto.CryptoOptions)
-  fullName: wan24.Crypto.AsymmetricSignedPublicKey.Sign(wan24.Crypto.IAsymmetricPrivateKey, wan24.Crypto.AsymmetricSignedPublicKey, wan24.Crypto.IAsymmetricPrivateKey, wan24.Crypto.AsymmetricSignedPublicKey, System.String, wan24.Crypto.CryptoOptions)
-  nameWithType: AsymmetricSignedPublicKey.Sign(IAsymmetricPrivateKey, AsymmetricSignedPublicKey, IAsymmetricPrivateKey, AsymmetricSignedPublicKey, String, CryptoOptions)
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.Sign(wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,System.String,wan24.Crypto.CryptoOptions)
+  name: Sign(ISignaturePrivateKey, AsymmetricSignedPublicKey, ISignaturePrivateKey, AsymmetricSignedPublicKey, String, CryptoOptions)
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_Sign_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_AsymmetricSignedPublicKey_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_AsymmetricSignedPublicKey_System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.AsymmetricSignedPublicKey.Sign(wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.AsymmetricSignedPublicKey,System.String,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.Sign(wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.AsymmetricSignedPublicKey, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.AsymmetricSignedPublicKey, System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: AsymmetricSignedPublicKey.Sign(ISignaturePrivateKey, AsymmetricSignedPublicKey, ISignaturePrivateKey, AsymmetricSignedPublicKey, String, CryptoOptions)
 - uid: wan24.Crypto.AsymmetricSignedPublicKey.Sign*
   name: Sign
   href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_Sign_
@@ -2138,12 +2138,6 @@ references:
   commentId: T:wan24.Crypto.CryptoFlags
   fullName: wan24.Crypto.CryptoFlags
   nameWithType: CryptoFlags
-- uid: wan24.Crypto.CryptoFlags.AlgorithmIncluded
-  name: AlgorithmIncluded
-  href: api/wan24.Crypto.CryptoFlags.html#wan24_Crypto_CryptoFlags_AlgorithmIncluded
-  commentId: F:wan24.Crypto.CryptoFlags.AlgorithmIncluded
-  fullName: wan24.Crypto.CryptoFlags.AlgorithmIncluded
-  nameWithType: CryptoFlags.AlgorithmIncluded
 - uid: wan24.Crypto.CryptoFlags.AsymmetricAlgorithmIncluded
   name: AsymmetricAlgorithmIncluded
   href: api/wan24.Crypto.CryptoFlags.html#wan24_Crypto_CryptoFlags_AsymmetricAlgorithmIncluded
@@ -2347,19 +2341,6 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.Algorithm
   nameWithType: CryptoOptions.Algorithm
-- uid: wan24.Crypto.CryptoOptions.AlgorithmIncluded
-  name: AlgorithmIncluded
-  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_AlgorithmIncluded
-  commentId: P:wan24.Crypto.CryptoOptions.AlgorithmIncluded
-  fullName: wan24.Crypto.CryptoOptions.AlgorithmIncluded
-  nameWithType: CryptoOptions.AlgorithmIncluded
-- uid: wan24.Crypto.CryptoOptions.AlgorithmIncluded*
-  name: AlgorithmIncluded
-  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_AlgorithmIncluded_
-  commentId: Overload:wan24.Crypto.CryptoOptions.AlgorithmIncluded
-  isSpec: "True"
-  fullName: wan24.Crypto.CryptoOptions.AlgorithmIncluded
-  nameWithType: CryptoOptions.AlgorithmIncluded
 - uid: wan24.Crypto.CryptoOptions.AsymmetricAlgorithm
   name: AsymmetricAlgorithm
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_AsymmetricAlgorithm
@@ -2607,12 +2588,12 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.DefaultMaximumTimeOffset
   nameWithType: CryptoOptions.DefaultMaximumTimeOffset
-- uid: wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IAsymmetricPrivateKey)
-  name: DeriveExchangedKey(IAsymmetricPrivateKey)
-  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_DeriveExchangedKey_wan24_Crypto_IAsymmetricPrivateKey_
-  commentId: M:wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IAsymmetricPrivateKey)
-  fullName: wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IAsymmetricPrivateKey)
-  nameWithType: CryptoOptions.DeriveExchangedKey(IAsymmetricPrivateKey)
+- uid: wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IKeyExchangePrivateKey)
+  name: DeriveExchangedKey(IKeyExchangePrivateKey)
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_DeriveExchangedKey_wan24_Crypto_IKeyExchangePrivateKey_
+  commentId: M:wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IKeyExchangePrivateKey)
+  fullName: wan24.Crypto.CryptoOptions.DeriveExchangedKey(wan24.Crypto.IKeyExchangePrivateKey)
+  nameWithType: CryptoOptions.DeriveExchangedKey(IKeyExchangePrivateKey)
 - uid: wan24.Crypto.CryptoOptions.DeriveExchangedKey*
   name: DeriveExchangedKey
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_DeriveExchangedKey_
@@ -3240,12 +3221,12 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.SetCounterPrivateKey
   nameWithType: CryptoOptions.SetCounterPrivateKey
-- uid: wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IAsymmetricPrivateKey)
-  name: SetKeyExchangeData(IAsymmetricPrivateKey)
-  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_SetKeyExchangeData_wan24_Crypto_IAsymmetricPrivateKey_
-  commentId: M:wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IAsymmetricPrivateKey)
-  fullName: wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IAsymmetricPrivateKey)
-  nameWithType: CryptoOptions.SetKeyExchangeData(IAsymmetricPrivateKey)
+- uid: wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IKeyExchangePrivateKey)
+  name: SetKeyExchangeData(IKeyExchangePrivateKey)
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_SetKeyExchangeData_wan24_Crypto_IKeyExchangePrivateKey_
+  commentId: M:wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IKeyExchangePrivateKey)
+  fullName: wan24.Crypto.CryptoOptions.SetKeyExchangeData(wan24.Crypto.IKeyExchangePrivateKey)
+  nameWithType: CryptoOptions.SetKeyExchangeData(IKeyExchangePrivateKey)
 - uid: wan24.Crypto.CryptoOptions.SetKeyExchangeData*
   name: SetKeyExchangeData
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_SetKeyExchangeData_
@@ -5894,22 +5875,6 @@ references:
   commentId: T:wan24.Crypto.IAsymmetricPrivateKey
   fullName: wan24.Crypto.IAsymmetricPrivateKey
   nameWithType: IAsymmetricPrivateKey
-- uid: wan24.Crypto.IAsymmetricPrivateKey.DeriveKey(System.Byte[])
-  name: DeriveKey(Byte[])
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_DeriveKey_System_Byte___
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.DeriveKey(System.Byte[])
-  name.vb: DeriveKey(Byte())
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.DeriveKey(System.Byte[])
-  fullName.vb: wan24.Crypto.IAsymmetricPrivateKey.DeriveKey(System.Byte())
-  nameWithType: IAsymmetricPrivateKey.DeriveKey(Byte[])
-  nameWithType.vb: IAsymmetricPrivateKey.DeriveKey(Byte())
-- uid: wan24.Crypto.IAsymmetricPrivateKey.DeriveKey*
-  name: DeriveKey
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_DeriveKey_
-  commentId: Overload:wan24.Crypto.IAsymmetricPrivateKey.DeriveKey
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.DeriveKey
-  nameWithType: IAsymmetricPrivateKey.DeriveKey
 - uid: wan24.Crypto.IAsymmetricPrivateKey.GetCopy
   name: GetCopy()
   href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_GetCopy
@@ -5923,19 +5888,6 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IAsymmetricPrivateKey.GetCopy
   nameWithType: IAsymmetricPrivateKey.GetCopy
-- uid: wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)
-  name: GetKeyExchangeData(CryptoOptions)
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_GetKeyExchangeData_wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)
-  nameWithType: IAsymmetricPrivateKey.GetKeyExchangeData(CryptoOptions)
-- uid: wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData*
-  name: GetKeyExchangeData
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_GetKeyExchangeData_
-  commentId: Overload:wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.GetKeyExchangeData
-  nameWithType: IAsymmetricPrivateKey.GetKeyExchangeData
 - uid: wan24.Crypto.IAsymmetricPrivateKey.PublicKey
   name: PublicKey
   href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_PublicKey
@@ -5949,73 +5901,6 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IAsymmetricPrivateKey.PublicKey
   nameWithType: IAsymmetricPrivateKey.PublicKey
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignData(Stream,System.String,wan24.Crypto.CryptoOptions)
-  name: SignData(Stream, String, CryptoOptions)
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignData_Stream_System_String_wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.SignData(Stream,System.String,wan24.Crypto.CryptoOptions)
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignData(Stream, System.String, wan24.Crypto.CryptoOptions)
-  nameWithType: IAsymmetricPrivateKey.SignData(Stream, String, CryptoOptions)
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignData(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
-  name: SignData(Byte[], String, CryptoOptions)
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignData_System_Byte___System_String_wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.SignData(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
-  name.vb: SignData(Byte(), String, CryptoOptions)
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignData(System.Byte[], System.String, wan24.Crypto.CryptoOptions)
-  fullName.vb: wan24.Crypto.IAsymmetricPrivateKey.SignData(System.Byte(), System.String, wan24.Crypto.CryptoOptions)
-  nameWithType: IAsymmetricPrivateKey.SignData(Byte[], String, CryptoOptions)
-  nameWithType.vb: IAsymmetricPrivateKey.SignData(Byte(), String, CryptoOptions)
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignData*
-  name: SignData
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignData_
-  commentId: Overload:wan24.Crypto.IAsymmetricPrivateKey.SignData
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignData
-  nameWithType: IAsymmetricPrivateKey.SignData
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync(Stream,System.String,wan24.Crypto.CryptoOptions,CancellationToken)
-  name: SignDataAsync(Stream, String, CryptoOptions, CancellationToken)
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignDataAsync_Stream_System_String_wan24_Crypto_CryptoOptions_CancellationToken_
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync(Stream,System.String,wan24.Crypto.CryptoOptions,CancellationToken)
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync(Stream, System.String, wan24.Crypto.CryptoOptions, CancellationToken)
-  nameWithType: IAsymmetricPrivateKey.SignDataAsync(Stream, String, CryptoOptions, CancellationToken)
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync*
-  name: SignDataAsync
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignDataAsync_
-  commentId: Overload:wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignDataAsync
-  nameWithType: IAsymmetricPrivateKey.SignDataAsync
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignHash(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
-  name: SignHash(Byte[], String, CryptoOptions)
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignHash_System_Byte___System_String_wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.SignHash(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
-  name.vb: SignHash(Byte(), String, CryptoOptions)
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignHash(System.Byte[], System.String, wan24.Crypto.CryptoOptions)
-  fullName.vb: wan24.Crypto.IAsymmetricPrivateKey.SignHash(System.Byte(), System.String, wan24.Crypto.CryptoOptions)
-  nameWithType: IAsymmetricPrivateKey.SignHash(Byte[], String, CryptoOptions)
-  nameWithType.vb: IAsymmetricPrivateKey.SignHash(Byte(), String, CryptoOptions)
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignHash*
-  name: SignHash
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignHash_
-  commentId: Overload:wan24.Crypto.IAsymmetricPrivateKey.SignHash
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignHash
-  nameWithType: IAsymmetricPrivateKey.SignHash
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw(System.Byte[])
-  name: SignHashRaw(Byte[])
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignHashRaw_System_Byte___
-  commentId: M:wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw(System.Byte[])
-  name.vb: SignHashRaw(Byte())
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw(System.Byte[])
-  fullName.vb: wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw(System.Byte())
-  nameWithType: IAsymmetricPrivateKey.SignHashRaw(Byte[])
-  nameWithType.vb: IAsymmetricPrivateKey.SignHashRaw(Byte())
-- uid: wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw*
-  name: SignHashRaw
-  href: api/wan24.Crypto.IAsymmetricPrivateKey.html#wan24_Crypto_IAsymmetricPrivateKey_SignHashRaw_
-  commentId: Overload:wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPrivateKey.SignHashRaw
-  nameWithType: IAsymmetricPrivateKey.SignHashRaw
 - uid: wan24.Crypto.IAsymmetricPublicKey
   name: IAsymmetricPublicKey
   href: api/wan24.Crypto.IAsymmetricPublicKey.html
@@ -6035,57 +5920,6 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IAsymmetricPublicKey.GetCopy
   nameWithType: IAsymmetricPublicKey.GetCopy
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,Stream,System.Boolean)
-  name: ValidateSignature(SignatureContainer, Stream, Boolean)
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignature_wan24_Crypto_SignatureContainer_Stream_System_Boolean_
-  commentId: M:wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,Stream,System.Boolean)
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer, Stream, System.Boolean)
-  nameWithType: IAsymmetricPublicKey.ValidateSignature(SignatureContainer, Stream, Boolean)
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,System.Byte[],System.Boolean)
-  name: ValidateSignature(SignatureContainer, Byte[], Boolean)
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignature_wan24_Crypto_SignatureContainer_System_Byte___System_Boolean_
-  commentId: M:wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,System.Byte[],System.Boolean)
-  name.vb: ValidateSignature(SignatureContainer, Byte(), Boolean)
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer, System.Byte[], System.Boolean)
-  fullName.vb: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature(wan24.Crypto.SignatureContainer, System.Byte(), System.Boolean)
-  nameWithType: IAsymmetricPublicKey.ValidateSignature(SignatureContainer, Byte[], Boolean)
-  nameWithType.vb: IAsymmetricPublicKey.ValidateSignature(SignatureContainer, Byte(), Boolean)
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature*
-  name: ValidateSignature
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignature_
-  commentId: Overload:wan24.Crypto.IAsymmetricPublicKey.ValidateSignature
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignature
-  nameWithType: IAsymmetricPublicKey.ValidateSignature
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureAsync(wan24.Crypto.SignatureContainer,Stream,System.Boolean,CancellationToken)
-  name: ValidateSignatureAsync(SignatureContainer, Stream, Boolean, CancellationToken)
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignatureAsync_wan24_Crypto_SignatureContainer_Stream_System_Boolean_CancellationToken_
-  commentId: M:wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureAsync(wan24.Crypto.SignatureContainer,Stream,System.Boolean,CancellationToken)
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureAsync(wan24.Crypto.SignatureContainer, Stream, System.Boolean, CancellationToken)
-  nameWithType: IAsymmetricPublicKey.ValidateSignatureAsync(SignatureContainer, Stream, Boolean, CancellationToken)
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureAsync*
-  name: ValidateSignatureAsync
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignatureAsync_
-  commentId: Overload:wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureAsync
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureAsync
-  nameWithType: IAsymmetricPublicKey.ValidateSignatureAsync
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw(System.Byte[],System.Byte[],System.Boolean)
-  name: ValidateSignatureRaw(Byte[], Byte[], Boolean)
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignatureRaw_System_Byte___System_Byte___System_Boolean_
-  commentId: M:wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw(System.Byte[],System.Byte[],System.Boolean)
-  name.vb: ValidateSignatureRaw(Byte(), Byte(), Boolean)
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw(System.Byte[], System.Byte[], System.Boolean)
-  fullName.vb: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw(System.Byte(), System.Byte(), System.Boolean)
-  nameWithType: IAsymmetricPublicKey.ValidateSignatureRaw(Byte[], Byte[], Boolean)
-  nameWithType.vb: IAsymmetricPublicKey.ValidateSignatureRaw(Byte(), Byte(), Boolean)
-- uid: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw*
-  name: ValidateSignatureRaw
-  href: api/wan24.Crypto.IAsymmetricPublicKey.html#wan24_Crypto_IAsymmetricPublicKey_ValidateSignatureRaw_
-  commentId: Overload:wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw
-  isSpec: "True"
-  fullName: wan24.Crypto.IAsymmetricPublicKey.ValidateSignatureRaw
-  nameWithType: IAsymmetricPublicKey.ValidateSignatureRaw
 - uid: wan24.Crypto.ICryptoAlgorithm
   name: ICryptoAlgorithm
   href: api/wan24.Crypto.ICryptoAlgorithm.html
@@ -6131,6 +5965,171 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.ICryptoAlgorithm.Value
   nameWithType: ICryptoAlgorithm.Value
+- uid: wan24.Crypto.IKeyExchangePrivateKey
+  name: IKeyExchangePrivateKey
+  href: api/wan24.Crypto.IKeyExchangePrivateKey.html
+  commentId: T:wan24.Crypto.IKeyExchangePrivateKey
+  fullName: wan24.Crypto.IKeyExchangePrivateKey
+  nameWithType: IKeyExchangePrivateKey
+- uid: wan24.Crypto.IKeyExchangePrivateKey.DeriveKey(System.Byte[])
+  name: DeriveKey(Byte[])
+  href: api/wan24.Crypto.IKeyExchangePrivateKey.html#wan24_Crypto_IKeyExchangePrivateKey_DeriveKey_System_Byte___
+  commentId: M:wan24.Crypto.IKeyExchangePrivateKey.DeriveKey(System.Byte[])
+  name.vb: DeriveKey(Byte())
+  fullName: wan24.Crypto.IKeyExchangePrivateKey.DeriveKey(System.Byte[])
+  fullName.vb: wan24.Crypto.IKeyExchangePrivateKey.DeriveKey(System.Byte())
+  nameWithType: IKeyExchangePrivateKey.DeriveKey(Byte[])
+  nameWithType.vb: IKeyExchangePrivateKey.DeriveKey(Byte())
+- uid: wan24.Crypto.IKeyExchangePrivateKey.DeriveKey*
+  name: DeriveKey
+  href: api/wan24.Crypto.IKeyExchangePrivateKey.html#wan24_Crypto_IKeyExchangePrivateKey_DeriveKey_
+  commentId: Overload:wan24.Crypto.IKeyExchangePrivateKey.DeriveKey
+  isSpec: "True"
+  fullName: wan24.Crypto.IKeyExchangePrivateKey.DeriveKey
+  nameWithType: IKeyExchangePrivateKey.DeriveKey
+- uid: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)
+  name: GetKeyExchangeData(CryptoOptions)
+  href: api/wan24.Crypto.IKeyExchangePrivateKey.html#wan24_Crypto_IKeyExchangePrivateKey_GetKeyExchangeData_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData(wan24.Crypto.CryptoOptions)
+  nameWithType: IKeyExchangePrivateKey.GetKeyExchangeData(CryptoOptions)
+- uid: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData*
+  name: GetKeyExchangeData
+  href: api/wan24.Crypto.IKeyExchangePrivateKey.html#wan24_Crypto_IKeyExchangePrivateKey_GetKeyExchangeData_
+  commentId: Overload:wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData
+  isSpec: "True"
+  fullName: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData
+  nameWithType: IKeyExchangePrivateKey.GetKeyExchangeData
+- uid: wan24.Crypto.ISignaturePrivateKey
+  name: ISignaturePrivateKey
+  href: api/wan24.Crypto.ISignaturePrivateKey.html
+  commentId: T:wan24.Crypto.ISignaturePrivateKey
+  fullName: wan24.Crypto.ISignaturePrivateKey
+  nameWithType: ISignaturePrivateKey
+- uid: wan24.Crypto.ISignaturePrivateKey.SignData(Stream,System.String,wan24.Crypto.CryptoOptions)
+  name: SignData(Stream, String, CryptoOptions)
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignData_Stream_System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.ISignaturePrivateKey.SignData(Stream,System.String,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignData(Stream, System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: ISignaturePrivateKey.SignData(Stream, String, CryptoOptions)
+- uid: wan24.Crypto.ISignaturePrivateKey.SignData(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
+  name: SignData(Byte[], String, CryptoOptions)
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignData_System_Byte___System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.ISignaturePrivateKey.SignData(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
+  name.vb: SignData(Byte(), String, CryptoOptions)
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignData(System.Byte[], System.String, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ISignaturePrivateKey.SignData(System.Byte(), System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: ISignaturePrivateKey.SignData(Byte[], String, CryptoOptions)
+  nameWithType.vb: ISignaturePrivateKey.SignData(Byte(), String, CryptoOptions)
+- uid: wan24.Crypto.ISignaturePrivateKey.SignData*
+  name: SignData
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignData_
+  commentId: Overload:wan24.Crypto.ISignaturePrivateKey.SignData
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignData
+  nameWithType: ISignaturePrivateKey.SignData
+- uid: wan24.Crypto.ISignaturePrivateKey.SignDataAsync(Stream,System.String,wan24.Crypto.CryptoOptions,CancellationToken)
+  name: SignDataAsync(Stream, String, CryptoOptions, CancellationToken)
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignDataAsync_Stream_System_String_wan24_Crypto_CryptoOptions_CancellationToken_
+  commentId: M:wan24.Crypto.ISignaturePrivateKey.SignDataAsync(Stream,System.String,wan24.Crypto.CryptoOptions,CancellationToken)
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignDataAsync(Stream, System.String, wan24.Crypto.CryptoOptions, CancellationToken)
+  nameWithType: ISignaturePrivateKey.SignDataAsync(Stream, String, CryptoOptions, CancellationToken)
+- uid: wan24.Crypto.ISignaturePrivateKey.SignDataAsync*
+  name: SignDataAsync
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignDataAsync_
+  commentId: Overload:wan24.Crypto.ISignaturePrivateKey.SignDataAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignDataAsync
+  nameWithType: ISignaturePrivateKey.SignDataAsync
+- uid: wan24.Crypto.ISignaturePrivateKey.SignHash(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
+  name: SignHash(Byte[], String, CryptoOptions)
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignHash_System_Byte___System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.ISignaturePrivateKey.SignHash(System.Byte[],System.String,wan24.Crypto.CryptoOptions)
+  name.vb: SignHash(Byte(), String, CryptoOptions)
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignHash(System.Byte[], System.String, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ISignaturePrivateKey.SignHash(System.Byte(), System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: ISignaturePrivateKey.SignHash(Byte[], String, CryptoOptions)
+  nameWithType.vb: ISignaturePrivateKey.SignHash(Byte(), String, CryptoOptions)
+- uid: wan24.Crypto.ISignaturePrivateKey.SignHash*
+  name: SignHash
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignHash_
+  commentId: Overload:wan24.Crypto.ISignaturePrivateKey.SignHash
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignHash
+  nameWithType: ISignaturePrivateKey.SignHash
+- uid: wan24.Crypto.ISignaturePrivateKey.SignHashRaw(System.Byte[])
+  name: SignHashRaw(Byte[])
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignHashRaw_System_Byte___
+  commentId: M:wan24.Crypto.ISignaturePrivateKey.SignHashRaw(System.Byte[])
+  name.vb: SignHashRaw(Byte())
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignHashRaw(System.Byte[])
+  fullName.vb: wan24.Crypto.ISignaturePrivateKey.SignHashRaw(System.Byte())
+  nameWithType: ISignaturePrivateKey.SignHashRaw(Byte[])
+  nameWithType.vb: ISignaturePrivateKey.SignHashRaw(Byte())
+- uid: wan24.Crypto.ISignaturePrivateKey.SignHashRaw*
+  name: SignHashRaw
+  href: api/wan24.Crypto.ISignaturePrivateKey.html#wan24_Crypto_ISignaturePrivateKey_SignHashRaw_
+  commentId: Overload:wan24.Crypto.ISignaturePrivateKey.SignHashRaw
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePrivateKey.SignHashRaw
+  nameWithType: ISignaturePrivateKey.SignHashRaw
+- uid: wan24.Crypto.ISignaturePublicKey
+  name: ISignaturePublicKey
+  href: api/wan24.Crypto.ISignaturePublicKey.html
+  commentId: T:wan24.Crypto.ISignaturePublicKey
+  fullName: wan24.Crypto.ISignaturePublicKey
+  nameWithType: ISignaturePublicKey
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,Stream,System.Boolean)
+  name: ValidateSignature(SignatureContainer, Stream, Boolean)
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignature_wan24_Crypto_SignatureContainer_Stream_System_Boolean_
+  commentId: M:wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,Stream,System.Boolean)
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer, Stream, System.Boolean)
+  nameWithType: ISignaturePublicKey.ValidateSignature(SignatureContainer, Stream, Boolean)
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,System.Byte[],System.Boolean)
+  name: ValidateSignature(SignatureContainer, Byte[], Boolean)
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignature_wan24_Crypto_SignatureContainer_System_Byte___System_Boolean_
+  commentId: M:wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer,System.Byte[],System.Boolean)
+  name.vb: ValidateSignature(SignatureContainer, Byte(), Boolean)
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer, System.Byte[], System.Boolean)
+  fullName.vb: wan24.Crypto.ISignaturePublicKey.ValidateSignature(wan24.Crypto.SignatureContainer, System.Byte(), System.Boolean)
+  nameWithType: ISignaturePublicKey.ValidateSignature(SignatureContainer, Byte[], Boolean)
+  nameWithType.vb: ISignaturePublicKey.ValidateSignature(SignatureContainer, Byte(), Boolean)
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignature*
+  name: ValidateSignature
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignature_
+  commentId: Overload:wan24.Crypto.ISignaturePublicKey.ValidateSignature
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignature
+  nameWithType: ISignaturePublicKey.ValidateSignature
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignatureAsync(wan24.Crypto.SignatureContainer,Stream,System.Boolean,CancellationToken)
+  name: ValidateSignatureAsync(SignatureContainer, Stream, Boolean, CancellationToken)
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignatureAsync_wan24_Crypto_SignatureContainer_Stream_System_Boolean_CancellationToken_
+  commentId: M:wan24.Crypto.ISignaturePublicKey.ValidateSignatureAsync(wan24.Crypto.SignatureContainer,Stream,System.Boolean,CancellationToken)
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignatureAsync(wan24.Crypto.SignatureContainer, Stream, System.Boolean, CancellationToken)
+  nameWithType: ISignaturePublicKey.ValidateSignatureAsync(SignatureContainer, Stream, Boolean, CancellationToken)
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignatureAsync*
+  name: ValidateSignatureAsync
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignatureAsync_
+  commentId: Overload:wan24.Crypto.ISignaturePublicKey.ValidateSignatureAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignatureAsync
+  nameWithType: ISignaturePublicKey.ValidateSignatureAsync
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw(System.Byte[],System.Byte[],System.Boolean)
+  name: ValidateSignatureRaw(Byte[], Byte[], Boolean)
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignatureRaw_System_Byte___System_Byte___System_Boolean_
+  commentId: M:wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw(System.Byte[],System.Byte[],System.Boolean)
+  name.vb: ValidateSignatureRaw(Byte(), Byte(), Boolean)
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw(System.Byte[], System.Byte[], System.Boolean)
+  fullName.vb: wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw(System.Byte(), System.Byte(), System.Boolean)
+  nameWithType: ISignaturePublicKey.ValidateSignatureRaw(Byte[], Byte[], Boolean)
+  nameWithType.vb: ISignaturePublicKey.ValidateSignatureRaw(Byte(), Byte(), Boolean)
+- uid: wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw*
+  name: ValidateSignatureRaw
+  href: api/wan24.Crypto.ISignaturePublicKey.html#wan24_Crypto_ISignaturePublicKey_ValidateSignatureRaw_
+  commentId: Overload:wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw
+  isSpec: "True"
+  fullName: wan24.Crypto.ISignaturePublicKey.ValidateSignatureRaw
+  nameWithType: ISignaturePublicKey.ValidateSignatureRaw
 - uid: wan24.Crypto.KdfAlgorithmBase
   name: KdfAlgorithmBase
   href: api/wan24.Crypto.KdfAlgorithmBase.html
@@ -7119,15 +7118,15 @@ references:
   commentId: M:wan24.Crypto.SignatureContainer.#ctor
   fullName: wan24.Crypto.SignatureContainer.SignatureContainer()
   nameWithType: SignatureContainer.SignatureContainer()
-- uid: wan24.Crypto.SignatureContainer.#ctor(System.String,System.Byte[],wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.IAsymmetricPrivateKey,System.String)
-  name: SignatureContainer(String, Byte[], IAsymmetricPrivateKey, IAsymmetricPrivateKey, String)
-  href: api/wan24.Crypto.SignatureContainer.html#wan24_Crypto_SignatureContainer__ctor_System_String_System_Byte___wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_IAsymmetricPrivateKey_System_String_
-  commentId: M:wan24.Crypto.SignatureContainer.#ctor(System.String,System.Byte[],wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.IAsymmetricPrivateKey,System.String)
-  name.vb: SignatureContainer(String, Byte(), IAsymmetricPrivateKey, IAsymmetricPrivateKey, String)
-  fullName: wan24.Crypto.SignatureContainer.SignatureContainer(System.String, System.Byte[], wan24.Crypto.IAsymmetricPrivateKey, wan24.Crypto.IAsymmetricPrivateKey, System.String)
-  fullName.vb: wan24.Crypto.SignatureContainer.SignatureContainer(System.String, System.Byte(), wan24.Crypto.IAsymmetricPrivateKey, wan24.Crypto.IAsymmetricPrivateKey, System.String)
-  nameWithType: SignatureContainer.SignatureContainer(String, Byte[], IAsymmetricPrivateKey, IAsymmetricPrivateKey, String)
-  nameWithType.vb: SignatureContainer.SignatureContainer(String, Byte(), IAsymmetricPrivateKey, IAsymmetricPrivateKey, String)
+- uid: wan24.Crypto.SignatureContainer.#ctor(System.String,System.Byte[],wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.ISignaturePrivateKey,System.String)
+  name: SignatureContainer(String, Byte[], ISignaturePrivateKey, ISignaturePrivateKey, String)
+  href: api/wan24.Crypto.SignatureContainer.html#wan24_Crypto_SignatureContainer__ctor_System_String_System_Byte___wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_ISignaturePrivateKey_System_String_
+  commentId: M:wan24.Crypto.SignatureContainer.#ctor(System.String,System.Byte[],wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.ISignaturePrivateKey,System.String)
+  name.vb: SignatureContainer(String, Byte(), ISignaturePrivateKey, ISignaturePrivateKey, String)
+  fullName: wan24.Crypto.SignatureContainer.SignatureContainer(System.String, System.Byte[], wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.ISignaturePrivateKey, System.String)
+  fullName.vb: wan24.Crypto.SignatureContainer.SignatureContainer(System.String, System.Byte(), wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.ISignaturePrivateKey, System.String)
+  nameWithType: SignatureContainer.SignatureContainer(String, Byte[], ISignaturePrivateKey, ISignaturePrivateKey, String)
+  nameWithType.vb: SignatureContainer.SignatureContainer(String, Byte(), ISignaturePrivateKey, ISignaturePrivateKey, String)
 - uid: wan24.Crypto.SignatureContainer.#ctor*
   name: SignatureContainer
   href: api/wan24.Crypto.SignatureContainer.html#wan24_Crypto_SignatureContainer__ctor_

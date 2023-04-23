@@ -185,16 +185,16 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="key">Private key</param>
         /// <returns>PFS key</returns>
-        public byte[] SetKeyExchangeData(IAsymmetricPrivateKey? key = null)
+        public byte[] SetKeyExchangeData(IKeyExchangePrivateKey? key = null)
         {
             try
             {
-                key ??= PrivateKey ?? throw new ArgumentNullException(nameof(key));
+                key ??= PrivateKey as IKeyExchangePrivateKey ?? throw new ArgumentNullException(nameof(key));
                 AsymmetricAlgorithm = key.Algorithm;
-                using (IAsymmetricPrivateKey pfsKey = AsymmetricHelper.GetAlgorithm(key.Algorithm).CreateKeyPair(new()
+                using (IKeyExchangePrivateKey pfsKey = (AsymmetricHelper.GetAlgorithm(key.Algorithm).CreateKeyPair(new()
                 {
                     AsymmetricKeyBits = key.Bits
-                }))
+                }) as IKeyExchangePrivateKey)!)
                     KeyExchangeData = pfsKey.GetKeyExchangeData(this);
                 if (UsingAsymmetricCounterAlgorithm)
                 {
@@ -228,11 +228,11 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="key">Private key</param>
         /// <returns>PFS key</returns>
-        public byte[] DeriveExchangedKey(IAsymmetricPrivateKey? key = null)
+        public byte[] DeriveExchangedKey(IKeyExchangePrivateKey? key = null)
         {
             try
             {
-                key ??= PrivateKey ?? throw new ArgumentNullException(nameof(key));
+                key ??= PrivateKey as IKeyExchangePrivateKey ?? throw new ArgumentNullException(nameof(key));
                 if (KeyExchangeData == null) throw new InvalidOperationException("No key exchange data");
                 if (AsymmetricAlgorithmIncluded)
                 {

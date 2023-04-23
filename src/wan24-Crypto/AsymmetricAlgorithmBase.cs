@@ -76,7 +76,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null)
         {
-            using IAsymmetricPrivateKey key = CreateKeyPair(options);
+            using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
             return key.DeriveKey(keyExchangeData);
         }
 

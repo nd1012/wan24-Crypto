@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Elliptic Curve Diffie Hellman asymmetric private key
     /// </summary>
-    public sealed class AsymmetricEcDiffieHellmanPrivateKey : AsymmetricPrivateKeyBase<AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey>
+    public sealed class AsymmetricEcDiffieHellmanPrivateKey : AsymmetricPrivateKeyBase<AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey>, IKeyExchangePrivateKey
     {
         /// <summary>
         /// Private key

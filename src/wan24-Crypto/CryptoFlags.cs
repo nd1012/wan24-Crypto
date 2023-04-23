@@ -27,49 +27,45 @@
         /// </summary>
         Compressed = 1 << 7,
         /// <summary>
-        /// Crypto algorithm included?
-        /// </summary>
-        AlgorithmIncluded = 1 << 8,
-        /// <summary>
         /// MAC algorithm included?
         /// </summary>
-        MacAlgorithmIncluded = 1 << 9,
+        MacAlgorithmIncluded = 1 << 8,
         /// <summary>
         /// KDF algorithm included?
         /// </summary>
-        KdfAlgorithmIncluded = 1 << 10,
+        KdfAlgorithmIncluded = 1 << 9,
         /// <summary>
         /// Asymmetric algorithm included (for the key exchange data)?
         /// </summary>
-        AsymmetricAlgorithmIncluded = 1 << 11,
+        AsymmetricAlgorithmIncluded = 1 << 10,
         /// <summary>
         /// MAC algorithm included?
         /// </summary>
-        CounterMacAlgorithmIncluded = 1 << 12,
+        CounterMacAlgorithmIncluded = 1 << 11,
         /// <summary>
         /// KDF algorithm included?
         /// </summary>
-        CounterKdfAlgorithmIncluded = 1 << 13,
+        CounterKdfAlgorithmIncluded = 1 << 12,
         /// <summary>
         /// Asymmetric algorithm included (for the key exchange data)?
         /// </summary>
-        AsymmetricCounterAlgorithmIncluded = 1 << 14,
+        AsymmetricCounterAlgorithmIncluded = 1 << 13,
         /// <summary>
         /// Key exchange data included?
         /// </summary>
-        KeyExchangeDataIncluded = 1 << 15,
+        KeyExchangeDataIncluded = 1 << 14,
         /// <summary>
         /// Payload included
         /// </summary>
-        PayloadIncluded = 1 << 16,
+        PayloadIncluded = 1 << 15,
         /// <summary>
         /// Time included?
         /// </summary>
-        TimeIncluded = 1 << 17,
+        TimeIncluded = 1 << 16,
         /// <summary>
         /// Is the MAC forced to cover all data?
         /// </summary>
-        ForceMacCoverWhole = 1 << 18,
+        ForceMacCoverWhole = 1 << 17,
         /// <summary>
         /// All flags
         /// </summary>
@@ -78,7 +74,6 @@
             MacIncluded | 
             MacAlgorithmIncluded | 
             Compressed | 
-            AlgorithmIncluded | 
             MacAlgorithmIncluded | 
             KdfAlgorithmIncluded | 
             AsymmetricAlgorithmIncluded |

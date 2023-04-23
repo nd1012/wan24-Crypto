@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Elliptic Curve DSA asymmetric private key
     /// </summary>
-    public sealed class AsymmetricEcDsaPrivateKey : AsymmetricPrivateKeyBase<AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey>
+    public sealed class AsymmetricEcDsaPrivateKey : AsymmetricPrivateKeyBase<AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey>, ISignaturePrivateKey
     {
         /// <summary>
         /// Private key

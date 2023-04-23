@@ -26,11 +26,6 @@ namespace wan24.Crypto
         public bool Compressed { get; set; } = true;
 
         /// <summary>
-        /// Crypto algorithm included?
-        /// </summary>
-        public bool AlgorithmIncluded { get; set; } = true;
-
-        /// <summary>
         /// MAC algorithm included?
         /// </summary>
         public bool MacAlgorithmIncluded { get; set; } = true;
@@ -96,7 +91,6 @@ namespace wan24.Crypto
                 if (SerializerVersionIncluded) res |= CryptoFlags.SerializerVersionIncluded;
                 if (MacIncluded) res |= CryptoFlags.MacIncluded;
                 if (Compressed) res |= CryptoFlags.Compressed;
-                if (AlgorithmIncluded) res |= CryptoFlags.AlgorithmIncluded;
                 if (MacIncluded) res |= CryptoFlags.MacIncluded;
                 if (KdfAlgorithmIncluded) res |= CryptoFlags.KdfAlgorithmIncluded;
                 if (AsymmetricAlgorithmIncluded) res |= CryptoFlags.AsymmetricAlgorithmIncluded;
@@ -117,7 +111,6 @@ namespace wan24.Crypto
                 SerializerVersionIncluded = value.HasFlag(CryptoFlags.SerializerVersionIncluded);
                 MacIncluded = value.HasFlag(CryptoFlags.MacIncluded);
                 Compressed = value.HasFlag(CryptoFlags.Compressed);
-                AlgorithmIncluded = value.HasFlag(CryptoFlags.AlgorithmIncluded);
                 MacIncluded = value.HasFlag(CryptoFlags.MacIncluded);
                 KdfAlgorithmIncluded = value.HasFlag(CryptoFlags.KdfAlgorithmIncluded);
                 AsymmetricAlgorithmIncluded = value.HasFlag(CryptoFlags.AsymmetricAlgorithmIncluded);

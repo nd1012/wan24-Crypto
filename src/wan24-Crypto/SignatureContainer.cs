@@ -34,8 +34,8 @@ namespace wan24.Crypto
         public SignatureContainer(
             string hashAlgorithm,
             byte[] signedDataHash,
-            IAsymmetricPrivateKey signer,
-            IAsymmetricPrivateKey? counterSigner,
+            ISignaturePrivateKey signer,
+            ISignaturePrivateKey? counterSigner,
             string? purpose
             ) : this()
         {
@@ -112,15 +112,15 @@ namespace wan24.Crypto
         /// <summary>
         /// Signer public key (don't forget to dispose!)
         /// </summary>
-        public IAsymmetricPublicKey SignerPublicKey => AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey((byte[])SignerPublicKeyData.Clone());
+        public ISignaturePublicKey SignerPublicKey => (ISignaturePublicKey)AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey((byte[])SignerPublicKeyData.Clone());
 
         /// <summary>
         /// Counter signer public key (don't forget to dispose!)
         /// </summary>
-        public IAsymmetricPublicKey? CounterSignerPublicKey
+        public ISignaturePublicKey? CounterSignerPublicKey
             => AsymmetricCounterAlgorithm == null
                 ? null
-                : AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
+                : (ISignaturePublicKey)AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
                     (byte[])(CounterSignerPublicKeyData?.Clone() ?? throw new InvalidDataException("No counter signer public key data"))
                     );
 

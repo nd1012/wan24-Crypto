@@ -165,10 +165,10 @@ namespace wan24.Crypto
         /// <returns>Key exchange data</returns>
         public static byte[] GetKeyExchangeData(byte[] keyExchangeData, CryptoOptions options)
         {
-            if (options.CounterPrivateKey == null) throw new ArgumentException("Missing counter private key", nameof(options));
+            if (options.CounterPrivateKey is not IKeyExchangePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
             using MemoryStream ms = new();
             ms.WriteBytes(keyExchangeData)
-                .WriteBytes(options.CounterPrivateKey.GetKeyExchangeData(options));
+                .WriteBytes(((IKeyExchangePrivateKey)options.CounterPrivateKey).GetKeyExchangeData(options));
             return ms.ToArray();
         }
 
@@ -180,8 +180,8 @@ namespace wan24.Crypto
         /// <returns>Hybrid key</returns>
         public static byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions options)
         {
-            if (options.PrivateKey == null) throw new ArgumentException("Missing private key", nameof(options));
-            if (options.CounterPrivateKey == null) throw new ArgumentException("Missing counter private key", nameof(options));
+            if (options.PrivateKey is not IKeyExchangePrivateKey) throw new ArgumentException("Missing private key", nameof(options));
+            if (options.CounterPrivateKey is not IKeyExchangePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
             using MemoryStream ms = new(keyExchangeData);
             byte[]? kex1 = null,
                 kex2 = null,
@@ -192,8 +192,8 @@ namespace wan24.Crypto
             {
                 kex1 = ms.ReadBytes(options.SerializerVersion, minLen: 1, maxLen: ushort.MaxValue).Value;
                 kex2 = ms.ReadBytes(options.SerializerVersion, minLen: 1, maxLen: ushort.MaxValue).Value;
-                key1 = options.PrivateKey.DeriveKey(kex1);
-                key2 = options.CounterPrivateKey.DeriveKey(kex2);
+                key1 = ((IKeyExchangePrivateKey)options.PrivateKey).DeriveKey(kex1);
+                key2 = ((IKeyExchangePrivateKey)options.CounterPrivateKey).DeriveKey(kex2);
                 res = new byte[key1.Length + key2.Length];
                 key1.AsSpan().CopyTo(res.AsSpan());
                 key2.AsSpan().CopyTo(res.AsSpan()[key1.Length..]);
@@ -255,8 +255,8 @@ namespace wan24.Crypto
         /// <returns>Hybrid signature (RFC 3279 DER sequence)</returns>
         public static byte[] Sign(SignatureContainer signature, CryptoOptions options)
         {
-            if (options.CounterPrivateKey == null) throw new ArgumentException("Missing counter private key", nameof(options));
-            return options.CounterPrivateKey.SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
+            if (options.CounterPrivateKey is not ISignaturePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
+            return ((ISignaturePrivateKey)options.CounterPrivateKey).SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
         }
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace wan24.Crypto
         public static bool ValidateCounterSignature(SignatureContainer signature)
         {
             if (signature.CounterSignature == null) throw new ArgumentException("No counter signature", nameof(signature));
-            using IAsymmetricPublicKey counterSignerPublicKey = signature.CounterSignerPublicKey ?? throw new InvalidDataException("Missing counter signer public key");
+            using ISignaturePublicKey counterSignerPublicKey = signature.CounterSignerPublicKey as ISignaturePublicKey ?? throw new InvalidDataException("Missing counter signer public key");
             return counterSignerPublicKey.ValidateSignatureRaw(signature.CounterSignature, signature.CreateSignatureHash(forCounterSignature: true), throwOnError: false);
         }
     }

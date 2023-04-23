@@ -98,9 +98,9 @@ namespace wan24.Crypto
         /// <param name="purpose">Purpose</param>
         /// <param name="options">Options</param>
         public void Sign(
-            IAsymmetricPrivateKey privateKey, 
+            ISignaturePrivateKey privateKey, 
             AsymmetricSignedPublicKey? publicKey = null, 
-            IAsymmetricPrivateKey? counterPrivateKey = null,
+            ISignaturePrivateKey? counterPrivateKey = null,
             AsymmetricSignedPublicKey? counterPublicKey = null,
             string? purpose = null,
             CryptoOptions? options = null
