@@ -73,11 +73,13 @@ namespace wan24.Crypto
         /// <returns>Key size in bits</returns>
         public static int GetKeySize(ECCurve curve)
         {
-            string name = curve.Oid.FriendlyName ?? curve.Oid.Value ?? throw new ArgumentException("Unknown curve (no name, no OID)", nameof(curve));
-            if (name == SECP256R1_CURVE.Oid.FriendlyName || name == SECP256R1_CURVE.Oid.Value) name = SECP256R1;
-            else if (name == SECP384R1_CURVE.Oid.FriendlyName || name == SECP384R1_CURVE.Oid.Value) name = SECP384R1;
-            else if (name == SECP521R1_CURVE.Oid.FriendlyName || name == SECP521R1_CURVE.Oid.Value) name = SECP521R1;
-            else throw new ArgumentException($"Unknown curve \"{name}\"", nameof(curve));
+            string? name = curve.Oid.FriendlyName,
+                oid = curve.Oid.Value;
+            if (name == null && oid == null) throw new ArgumentException("Unknown curve (no name, no OID)", nameof(curve));
+            if (name == SECP256R1_CURVE.Oid.FriendlyName || oid == SECP256R1_CURVE.Oid.Value) name = SECP256R1;
+            else if (name == SECP384R1_CURVE.Oid.FriendlyName || oid == SECP384R1_CURVE.Oid.Value) name = SECP384R1;
+            else if (name == SECP521R1_CURVE.Oid.FriendlyName || oid == SECP521R1_CURVE.Oid.Value) name = SECP521R1;
+            else throw new ArgumentException($"Unknown curve \"{name}\" (OID {oid})", nameof(curve));
             return GetKeySize(name);
         }
 
