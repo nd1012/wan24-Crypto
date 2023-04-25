@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "3FfCbJI/fT6zw2Dtl3Psi3j2o6Z3gI1r3aQy/NX0j1Y="
+          "hash": "r4W1coKGLX82Lddc1Z7Um6bXKXHqPDEP7WVw5TSf9AE="
         }
       },
       "is_incremental": false,
@@ -173,6 +173,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.AsymmetricPublicKeySigningRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html",
+          "hash": "LIa5bt6i5uVNJP/WRE68oKjaiVujHwqZNGv7O97efSs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.AsymmetricSignedPublicKey.RootTrust_Delegate.yml",
       "output": {
         ".html": {
@@ -285,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.CryptoOptions.html",
-          "hash": "NbFgtidS1NiNizBzrzZmeypGRzoaK1bUVHiWzFJZyx8="
+          "hash": "L3i9r0Jw5yQei6wB0lLIVsGXvXfDSTx/bQ/MCxzh34Y="
         }
       },
       "is_incremental": false,
@@ -605,6 +617,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.JsonObjectWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.JsonObjectWrapper.html",
+          "hash": "hGTCXGlieEzoYISQW9Ff14566qYMJEG1i5zlivaRgzs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.KdfAlgorithmBase.yml",
       "output": {
         ".html": {
@@ -789,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.html",
-          "hash": "X9To8OLuQAO80kHlpVU5uWTDjZiHGLiWJZcKOIhzdmQ="
+          "hash": "YPnLRtjBeHLMNacZwbTe00dSouiedRKgI13DO8AQdPc="
         }
       },
       "is_incremental": false,
@@ -864,7 +888,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 64,
+          "total_file_count": 66,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
