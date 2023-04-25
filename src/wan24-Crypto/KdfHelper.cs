@@ -80,25 +80,6 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get the KDF algorithm name
-        /// </summary>
-        /// <param name="algo">KDF algorithm value</param>
-        /// <returns>KDF algorithm name</returns>
-        public static string GetAlgorithmName(int algo)
-            => Algorithms.Values.Where(a => a.Value == algo).Select(a => a.Name).FirstOrDefault()
-                ?? throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
-        /// Get the KDF algorithm value
-        /// </summary>
-        /// <param name="algo">KDF algorithm name</param>
-        /// <returns>KDF algorithm value</returns>
-        public static int GetAlgorithmValue(string algo)
-            => Algorithms.TryGetValue(algo, out KdfAlgorithmBase? a)
-                ? a.Value
-                : throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
         /// Get an algorithm
         /// </summary>
         /// <param name="name">Algorithm name</param>
@@ -114,8 +95,6 @@ namespace wan24.Crypto
         /// <param name="value">Algorithm value</param>
         /// <returns>Algorithm</returns>
         public static KdfAlgorithmBase GetAlgorithm(int value)
-            => Algorithms.TryGetValue(GetAlgorithmName(value), out KdfAlgorithmBase? algo)
-                ? algo
-                : throw new ArgumentException("Invalid algorithm", nameof(value));
+            => Algorithms.Values.FirstOrDefault(a => a.Value == value) ?? throw new ArgumentException("Invalid algorithm", nameof(value));
     }
 }

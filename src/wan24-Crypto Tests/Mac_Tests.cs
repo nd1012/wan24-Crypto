@@ -29,8 +29,6 @@ namespace wan24_Crypto_Tests
             Assert.AreEqual(MacHelper.DefaultAlgorithm.MacLength, Data.Hash().Length);
             Assert.AreEqual(MacHelper.DefaultAlgorithm, MacHelper.GetAlgorithm(MacHelper.DefaultAlgorithm.Name));
             Assert.AreEqual(MacHelper.DefaultAlgorithm, MacHelper.GetAlgorithm(MacHelper.DefaultAlgorithm.Value));
-            Assert.AreEqual(MacHelper.DefaultAlgorithm.Name, MacHelper.GetAlgorithmName(MacHelper.DefaultAlgorithm.Value));
-            Assert.AreEqual(MacHelper.DefaultAlgorithm.Value, MacHelper.GetAlgorithmValue(MacHelper.DefaultAlgorithm.Name));
         }
 
         public void Sync_Tests(string name)

@@ -54,11 +54,11 @@ namespace wan24.Crypto
         /// <returns>Private key</returns>
         IAsymmetricPrivateKey DeserializePrivateKey(byte[] keyData);
         /// <summary>
-        /// Get the derived key from received key exchange data
+        /// Get the derived PFS key from received key exchange data
         /// </summary>
         /// <param name="keyExchangeData">Key exchange data</param>
         /// <param name="options">Options</param>
-        /// <returns>Derived key</returns>
+        /// <returns>Derived PFS key</returns>
         byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null);
     }
 }

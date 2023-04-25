@@ -104,5 +104,31 @@ namespace wan24.Crypto
                 throw new CryptographicException($"Failed to read IV bytes: {ex.Message}", ex);
             }
         }
+
+        /// <summary>
+        /// Encode flags
+        /// </summary>
+        /// <param name="flags">Flags</param>
+        /// <param name="buffer">Buffer</param>
+        protected virtual void EncodeFlags(CryptoFlags flags, byte[] buffer)
+        {
+            int f = (int)flags;
+            buffer[0] = (byte)f;
+            buffer[1] = (byte)(f >> 8);
+            buffer[2] = (byte)(f >> 16);
+        }
+
+        /// <summary>
+        /// Decode flags
+        /// </summary>
+        /// <param name="buffer">Buffer</param>
+        /// <returns>Flags</returns>
+        protected virtual CryptoFlags DecodeFlags(byte[] buffer)
+        {
+            int res = buffer[0];
+            res |= buffer[1] << 8;
+            res |= buffer[2] << 16;
+            return (CryptoFlags)res;
+        }
     }
 }

@@ -8,7 +8,8 @@
         /// <summary>
         /// Force all default algorithms to be "post quantum-safe" (using <see cref="HybridAlgorithmHelper"/>)
         /// </summary>
-        public static void ForcePostQuantumSafety()
+        /// <param name="strict">Force strictly (no pre quantum-algorithms are allowed)?</param>
+        public static void ForcePostQuantumSafety(bool strict = false)
         {
             if (!EncryptionHelper.DefaultAlgorithm.IsPostQuantum) EncryptionHelper.DefaultAlgorithm = EncryptionHelper.GetAlgorithm(EncryptionAes256CbcAlgorithm.ALGORITHM_NAME);
             if (!KdfHelper.DefaultAlgorithm.IsPostQuantum) KdfHelper.DefaultAlgorithm = KdfHelper.GetAlgorithm(KdfPbKdf2Algorithm.ALGORITHM_NAME);
@@ -24,7 +25,19 @@
             EncryptionHelper.UseHybridOptions = true;
             AsymmetricHelper.UseHybridKeyExchangeOptions = true;
             AsymmetricHelper.UseHybridSignatureOptions = true;
+            PostQuantumSafetyForced = true;
+            StrictPostQuantumSafety = strict;
         }
+
+        /// <summary>
+        /// Has the post quantum-safety been forced?
+        /// </summary>
+        public static bool PostQuantumSafetyForced { get; private set; }
+
+        /// <summary>
+        /// Has the post quantum-safety been forced strictly (no pre quantum-algorithms are allowed)?
+        /// </summary>
+        public static bool StrictPostQuantumSafety { get; private set; }
 
         /// <summary>
         /// Delegate for a force

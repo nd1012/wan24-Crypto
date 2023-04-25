@@ -40,7 +40,7 @@ namespace wan24.Crypto
             ) : this()
         {
             HashAlgorithm = hashAlgorithm;
-            AsymmetricAlgorithm = signer.Algorithm;
+            AsymmetricAlgorithm = signer.Algorithm.Name;
             SignedDataHash = signedDataHash;
             Signer = signer.ID;
             SignerPublicKeyData = (byte[])signer.PublicKey.KeyData.Array.Clone();

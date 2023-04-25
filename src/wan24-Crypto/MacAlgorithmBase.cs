@@ -35,6 +35,14 @@ namespace wan24.Crypto
         public abstract int MacLength { get; }
 
         /// <summary>
+        /// Get the MAC algorithm
+        /// </summary>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>Algorithm</returns>
+        public abstract KeyedHashAlgorithm GetMacAlgorithm(byte[] pwd, CryptoOptions? options = null);
+
+        /// <summary>
         /// Get a MAC stream
         /// </summary>
         /// <param name="pwd">Password</param>
@@ -42,7 +50,26 @@ namespace wan24.Crypto
         /// <param name="writable">Writable?</param>
         /// <param name="options">Options</param>
         /// <returns>MAC stream and crypto transform</returns>
-        public abstract MacStreams GetMacStream(byte[] pwd, Stream? target = null, bool writable = true, CryptoOptions? options = null);
+        public virtual MacStreams GetMacStream(byte[] pwd, Stream? target = null, bool writable = true, CryptoOptions? options = null)
+        {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
+            KeyedHashAlgorithm algo = GetMacAlgorithm(pwd, options);
+            try
+            {
+                return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
+            }
+            catch (CryptographicException)
+            {
+                algo.Dispose();
+                throw;
+            }
+            catch (Exception ex)
+            {
+                algo.Dispose();
+                throw new CryptographicException(ex.Message, ex);
+            }
+        }
 
         /// <summary>
         /// Create an MAC
@@ -53,6 +80,8 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public virtual byte[] Mac(Stream data, byte[] pwd, CryptoOptions? options = null)
         {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
             try
             {
                 using MacStreams mac = GetMacStream(pwd, options: options);
@@ -80,6 +109,8 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public virtual async Task<byte[]> MacAsync(Stream data, byte[] pwd, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
             try
             {
                 MacStreams mac = GetMacStream(pwd, options: options);
@@ -96,32 +127,6 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
-            }
-        }
-
-        /// <summary>
-        /// Get a MAC stream
-        /// </summary>
-        /// <param name="algo">MAC algorithm</param>
-        /// <param name="target">Target stream</param>
-        /// <param name="writable">Writable?</param>
-        /// <param name="options">Options</param>
-        /// <returns>MAC stream and crypto transform</returns>
-        protected virtual MacStreams GetMacStreamInt(KeyedHashAlgorithm algo, Stream? target, bool writable, CryptoOptions? options)
-        {
-            try
-            {
-                return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
-            }
-            catch (CryptographicException)
-            {
-                algo.Dispose();
-                throw;
-            }
-            catch (Exception ex)
-            {
-                algo.Dispose();
                 throw new CryptographicException(ex.Message, ex);
             }
         }

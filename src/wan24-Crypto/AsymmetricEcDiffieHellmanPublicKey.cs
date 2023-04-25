@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 
 namespace wan24.Crypto
 {
@@ -15,7 +16,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public AsymmetricEcDiffieHellmanPublicKey() : base() { }
+        public AsymmetricEcDiffieHellmanPublicKey() : base(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME) { }
 
         /// <summary>
         /// Constructor
@@ -39,9 +40,6 @@ namespace wan24.Crypto
                 throw new CryptographicException(ex.Message, ex);
             }
         }
-
-        /// <inheritdoc/>
-        public override string Algorithm => AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME;
 
         /// <inheritdoc/>
         public override int Bits => EllipticCurves.GetKeySize(PublicKey.ExportParameters().Curve);

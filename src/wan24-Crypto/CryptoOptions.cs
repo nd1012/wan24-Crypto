@@ -74,7 +74,7 @@ namespace wan24.Crypto
         /// KDF iterations
         /// </summary>
         [Range(1, int.MaxValue)]
-        public int KdfIterations { get; set; } = 1;
+        public int KdfIterations { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
         /// Asymmetric algorithm name (for the key exchange data)
@@ -86,18 +86,22 @@ namespace wan24.Crypto
         /// Asymmetric key bits
         /// </summary>
         [Range(1, int.MaxValue)]
-        public int AsymmetricKeyBits { get; set; } = AsymmetricEcDiffieHellmanAlgorithm.DEFAULT_KEY_SIZE;
+        public int AsymmetricKeyBits { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
-        /// Private key
+        /// Private key (for en-/decryption/key exchange/signature)
         /// </summary>
         public IAsymmetricPrivateKey? PrivateKey { get; set; }
 
         /// <summary>
+        /// Public key (for encryption/key exchange)
+        /// </summary>
+        public IAsymmetricPublicKey? PublicKey { get; set; }
+
+        /// <summary>
         /// Key exchange data
         /// </summary>
-        [CountLimit(ushort.MaxValue)]
-        public byte[]? KeyExchangeData { get; set; }
+        public KeyExchangeDataContainer? KeyExchangeData { get; set; }
 
         /// <summary>
         /// Payload data (won't be encrypted, but included in the MAC)
@@ -130,9 +134,16 @@ namespace wan24.Crypto
         {
             try
             {
-                using MemoryStream ms = new();
-                ms.WriteAny(payload);
-                PayloadData = ms.ToArray();
+                if (typeof(T) is IStreamSerializer)
+                {
+                    using MemoryStream ms = new();
+                    ms.WriteAny(payload);
+                    PayloadData = ms.ToArray();
+                }
+                else
+                {
+                    PayloadData = JsonHelper.Encode(new JsonObjectWrapper(payload)).GetBytes();
+                }
                 PayloadIncluded = true;
             }
             catch (CryptographicException)
@@ -156,8 +167,17 @@ namespace wan24.Crypto
             try
             {
                 if (PayloadData == null) return default(T?);
-                using MemoryStream ms = new();
-                return (T)ms.ReadAny(serializerVersion);
+                if (typeof(IStreamSerializer).IsAssignableFrom(typeof(T)))
+                {
+                    using MemoryStream ms = new();
+                    return (T)ms.ReadAny(serializerVersion);
+                }
+                else
+                {
+                    JsonObjectWrapper? wrapper = JsonHelper.Decode<JsonObjectWrapper>(PayloadData.ToUtf8String());
+                    if (wrapper == null) throw new InvalidDataException("Failed to deserialize JSON object wrapper");
+                    return wrapper.GetHostedObject<T>();
+                }
             }
             catch (CryptographicException)
             {
@@ -170,48 +190,39 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Set the private key
+        /// Set the keys (used for en-/decryption and signature only)
         /// </summary>
-        /// <param name="key">Private key</param>
-        public void SetPrivateKey(IAsymmetricPrivateKey key)
+        /// <param name="privateKey">Private key</param>
+        /// <param name="publicKey">Public key (required for encryption, if not using a PFS key)</param>
+        public void SetKeys(IAsymmetricPrivateKey privateKey, IAsymmetricPublicKey? publicKey = null)
         {
-            PrivateKey = key;
+            if (publicKey != null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
+            PrivateKey = privateKey;
+            PublicKey = publicKey;
+            AsymmetricAlgorithm = privateKey.Algorithm.Name;
             KeyExchangeDataIncluded = true;
             RequireKeyExchangeData = true;
         }
 
         /// <summary>
-        /// Set the PFS key exchange data
+        /// Set the key exchange data
         /// </summary>
-        /// <param name="key">Private key</param>
-        /// <returns>PFS key</returns>
-        public byte[] SetKeyExchangeData(IKeyExchangePrivateKey? key = null)
+        /// <returns>Key</returns>
+        public byte[] SetKeyExchangeData()
         {
             try
             {
-                key ??= PrivateKey as IKeyExchangePrivateKey ?? throw new ArgumentNullException(nameof(key));
-                AsymmetricAlgorithm = key.Algorithm;
-                using (IKeyExchangePrivateKey pfsKey = (AsymmetricHelper.GetAlgorithm(key.Algorithm).CreateKeyPair(new()
+                if (PrivateKey is not IKeyExchangePrivateKey key) throw new InvalidOperationException("Missing valid private key exchange key");
+                AsymmetricAlgorithm = PrivateKey.Algorithm.Name;
+                AsymmetricAlgorithm = key.Algorithm.Name;
+                (Password, byte[] kex) = key.GetKeyExchangeData(PublicKey, options: this);
+                KeyExchangeData = new()
                 {
-                    AsymmetricKeyBits = key.Bits
-                }) as IKeyExchangePrivateKey)!)
-                    KeyExchangeData = pfsKey.GetKeyExchangeData(this);
-                if (UsingAsymmetricCounterAlgorithm)
-                {
-                    byte[] kex = KeyExchangeData;
-                    try
-                    {
-                        KeyExchangeData = HybridAlgorithmHelper.GetKeyExchangeData(kex, this);
-                    }
-                    finally
-                    {
-                        kex.Clear();
-                    }
-                }
+                    KeyExchangeData = kex
+                };
+                if (UsingAsymmetricCounterAlgorithm) HybridAlgorithmHelper.GetKeyExchangeData(KeyExchangeData, this);
                 KeyExchangeDataIncluded = true;
-                return UsingAsymmetricCounterAlgorithm
-                    ? HybridAlgorithmHelper.DeriveKey(KeyExchangeData, this)
-                    : key.DeriveKey(KeyExchangeData);
+                return Password;
             }
             catch (CryptographicException)
             {
@@ -224,24 +235,24 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Derive the exchanged PFS key
+        /// Derive the exchanged key
         /// </summary>
-        /// <param name="key">Private key</param>
-        /// <returns>PFS key</returns>
-        public byte[] DeriveExchangedKey(IKeyExchangePrivateKey? key = null)
+        /// <returns>Key</returns>
+        public byte[] DeriveExchangedKey()
         {
             try
             {
-                key ??= PrivateKey as IKeyExchangePrivateKey ?? throw new ArgumentNullException(nameof(key));
+                if (PrivateKey is not IKeyExchangePrivateKey key) throw new InvalidOperationException("Missing or invalid private key");
                 if (KeyExchangeData == null) throw new InvalidOperationException("No key exchange data");
-                if (AsymmetricAlgorithmIncluded)
+                if (UsingAsymmetricCounterAlgorithm)
                 {
-                    if (AsymmetricAlgorithm == null) throw new InvalidOperationException("Missing asymmetric algorithm name");
-                    if (AsymmetricAlgorithm != key.Algorithm) throw new ArgumentException("Private key algorithm mismatch");
+                    HybridAlgorithmHelper.DeriveKey(KeyExchangeData, this);
                 }
-                return UsingAsymmetricCounterAlgorithm
-                    ? HybridAlgorithmHelper.DeriveKey(KeyExchangeData, this)
-                    : key.DeriveKey(KeyExchangeData);
+                else
+                {
+                    Password = key.DeriveKey(KeyExchangeData.KeyExchangeData);
+                }
+                return Password!;
             }
             catch (CryptographicException)
             {
@@ -256,17 +267,19 @@ namespace wan24.Crypto
         /// <summary>
         /// Clear sensible object data (and reset for re-use)
         /// </summary>
-        /// <param name="unsetPrivateKey">Unset the private key?</param>
-        public void Clear(bool unsetPrivateKey = true)
+        /// <param name="unsetKeys">Unset the asymmetric keys?</param>
+        public void Clear(bool unsetKeys = true)
         {
             HeaderProcessed = false;
-            if (unsetPrivateKey)
+            if (unsetKeys)
             {
                 PrivateKey = null;
                 CounterPrivateKey = null;
+                PublicKey = null;
+                CounterPublicKey = null;
             }
             KdfSalt?.Clear();
-            KeyExchangeData?.Clear();
+            KeyExchangeData = null;
             CounterKdfSalt?.Clear();
             PayloadData?.Clear();
             Mac?.Clear();
@@ -287,7 +300,7 @@ namespace wan24.Crypto
             KdfAlgorithm = KdfAlgorithm,
             KdfIterations = KdfIterations,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
-            KeyExchangeData = (byte[]?)KeyExchangeData?.Clone(),
+            KeyExchangeData = KeyExchangeData?.Clone(),
             CounterMacAlgorithm = CounterMacAlgorithm,
             CounterKdfAlgorithm = CounterKdfAlgorithm,
             CounterKdfIterations = CounterKdfIterations,
@@ -314,6 +327,8 @@ namespace wan24.Crypto
             CounterKdfSalt = (byte[]?)CounterKdfSalt?.Clone(),
             PrivateKey = PrivateKey,
             CounterPrivateKey = CounterPrivateKey,
+            PublicKey = PublicKey,
+            CounterPublicKey = CounterPublicKey,
             LeaveOpen = LeaveOpen
         };
     }

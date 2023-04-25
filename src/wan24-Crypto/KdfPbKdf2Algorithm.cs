@@ -51,12 +51,16 @@ namespace wan24.Crypto
         public override int SaltLength => DEFAULT_SALT_LEN;
 
         /// <inheritdoc/>
+        public override bool IsPostQuantum => true;
+
+        /// <inheritdoc/>
         public override (byte[] Stretched, byte[] Salt) Stretch(byte[] pwd, int len, byte[]? salt = null, CryptoOptions? options = null)
         {
             try
             {
                 if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
                 options ??= DefaultOptions;
+                options = KdfHelper.GetDefaultOptions(options);
                 if (options.KdfIterations < DEFAULT_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
                 salt ??= RandomNumberGenerator.GetBytes(DEFAULT_SALT_LEN);
                 if (salt.Length < DEFAULT_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));

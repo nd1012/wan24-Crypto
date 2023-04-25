@@ -26,24 +26,19 @@ namespace wan24.Crypto
         public bool RequireKdf { get; set; } = true;
 
         /// <summary>
-        /// Require an asymmetric algorithm (for the key exchange data when decrypting)
-        /// </summary>
-        public bool RequireAsymmetricAlgorithm { get; set; }
-
-        /// <summary>
         /// Require a counter MAC (when decrypting)
         /// </summary>
         public bool RequireCounterMac { get; set; }
 
         /// <summary>
+        /// Require an asymmetric counter algorithm (when decrypting)
+        /// </summary>
+        public bool RequireAsymmetricCounterAlgorithm { get; set; }
+
+        /// <summary>
         /// Require counter KDF (when decrypting)
         /// </summary>
         public bool RequireCounterKdf { get; set; }
-
-        /// <summary>
-        /// Require an asymmetric counter algorithm (for the key exchange data when decrypting)
-        /// </summary>
-        public bool RequireAsymmetricCounterAlgorithm { get; set; }
 
         /// <summary>
         /// Require key exchange data (when decrypting)
@@ -76,10 +71,9 @@ namespace wan24.Crypto
                 if (RequireSerializerVersion) res |= CryptoFlags.SerializerVersionIncluded;
                 if (RequireMac) res |= CryptoFlags.MacIncluded;
                 if (RequireKdf) res |= CryptoFlags.KdfAlgorithmIncluded;
-                if (RequireAsymmetricAlgorithm) res |= CryptoFlags.AsymmetricAlgorithmIncluded;
-                if (RequireCounterMac) res |= CryptoFlags.CounterMacAlgorithmIncluded;
-                if (RequireCounterKdf) res |= CryptoFlags.CounterKdfAlgorithmIncluded;
-                if (RequireAsymmetricCounterAlgorithm) res |= CryptoFlags.AsymmetricCounterAlgorithmIncluded;
+                if (RequireCounterMac) res |= CryptoFlags.RequireCounterMac;
+                if (RequireAsymmetricCounterAlgorithm) res |= CryptoFlags.RequireAsymmetricCounterAlgorithm;
+                if (RequireCounterKdf) res |= CryptoFlags.RequireCounterKdfAlgorithm;
                 if (RequireKeyExchangeData) res |= CryptoFlags.KeyExchangeDataIncluded;
                 if (RequirePayload) res |= CryptoFlags.PayloadIncluded;
                 if (RequireTime) res |= CryptoFlags.TimeIncluded;
@@ -92,10 +86,9 @@ namespace wan24.Crypto
                 RequireSerializerVersion = value.HasFlag(CryptoFlags.SerializerVersionIncluded);
                 RequireMac = value.HasFlag(CryptoFlags.MacIncluded);
                 RequireKdf = value.HasFlag(CryptoFlags.KdfAlgorithmIncluded);
-                RequireAsymmetricAlgorithm = value.HasFlag(CryptoFlags.AsymmetricAlgorithmIncluded);
-                RequireCounterMac = value.HasFlag(CryptoFlags.CounterMacAlgorithmIncluded);
-                RequireCounterKdf = value.HasFlag(CryptoFlags.CounterKdfAlgorithmIncluded);
-                RequireAsymmetricCounterAlgorithm = value.HasFlag(CryptoFlags.AsymmetricCounterAlgorithmIncluded);
+                RequireCounterMac = value.HasFlag(CryptoFlags.RequireCounterMac);
+                RequireAsymmetricCounterAlgorithm = value.HasFlag(CryptoFlags.RequireAsymmetricCounterAlgorithm);
+                RequireCounterKdf = value.HasFlag(CryptoFlags.RequireCounterKdfAlgorithm);
                 RequireKeyExchangeData = value.HasFlag(CryptoFlags.KeyExchangeDataIncluded);
                 RequirePayload = value.HasFlag(CryptoFlags.PayloadIncluded);
                 RequireTime = value.HasFlag(CryptoFlags.TimeIncluded);

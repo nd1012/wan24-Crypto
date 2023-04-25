@@ -14,7 +14,7 @@
         /// </summary>
         int Value { get; }
         /// <summary>
-        /// Is a post quantum algorithm?
+        /// Is a post quantum algorithm ("post quantum-safe")?
         /// </summary>
         bool IsPostQuantum { get; }
     }

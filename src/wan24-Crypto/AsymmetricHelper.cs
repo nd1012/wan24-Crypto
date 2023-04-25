@@ -178,25 +178,6 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get the hash algorithm name
-        /// </summary>
-        /// <param name="algo">Hash algorithm value</param>
-        /// <returns>Hash algorithm name</returns>
-        public static string GetAlgorithmName(int algo)
-            => Algorithms.Values.Where(a => a.Value == algo).Select(a => a.Name).FirstOrDefault()
-                ?? throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
-        /// Get the hash algorithm value
-        /// </summary>
-        /// <param name="algo">Hash algorithm name</param>
-        /// <returns>Hash algorithm value</returns>
-        public static int GetAlgorithmValue(string algo)
-            => Algorithms.TryGetValue(algo, out IAsymmetricAlgorithm? a)
-                ? a.Value
-                : throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
         /// Get an algorithm
         /// </summary>
         /// <param name="name">Algorithm name</param>
@@ -212,8 +193,6 @@ namespace wan24.Crypto
         /// <param name="value">Algorithm value</param>
         /// <returns>Algorithm</returns>
         public static IAsymmetricAlgorithm GetAlgorithm(int value)
-            => Algorithms.TryGetValue(GetAlgorithmName(value), out IAsymmetricAlgorithm? algo)
-                ? algo
-                : throw new ArgumentException("Invalid algorithm", nameof(value));
+            => Algorithms.Values.FirstOrDefault(a => a.Value == value) ?? throw new ArgumentException("Invalid algorithm", nameof(value));
     }
 }

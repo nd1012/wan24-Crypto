@@ -155,7 +155,7 @@ namespace wan24.Crypto
         public static Stream Encrypt(this Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             return GetAlgorithm(options.Algorithm!).Encrypt(rawData, cipherData, key, options);
         }
 
@@ -194,7 +194,7 @@ namespace wan24.Crypto
         public static async Task EncryptAsync(this Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             await GetAlgorithm(options.Algorithm!).EncryptAsync(rawData, cipherData, key, options, cancellationToken).DynamicContext();
         }
 
@@ -223,7 +223,7 @@ namespace wan24.Crypto
         public static Stream Decrypt(this Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             options = ReadOptions(cipherData, rawData, key, options);
             return GetAlgorithm(options.Algorithm!).Decrypt(cipherData, rawData, options.Password!, options);
         }
@@ -255,7 +255,7 @@ namespace wan24.Crypto
         public static async Task DecryptAsync(this Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             options = await ReadOptionsAsync(cipherData, rawData, key, options, cancellationToken).DynamicContext();
             await GetAlgorithm(options.Algorithm!).DecryptAsync(cipherData, rawData, options.Password!, options, cancellationToken).DynamicContext();
         }
@@ -271,7 +271,7 @@ namespace wan24.Crypto
         public static (CryptoOptions Options, MacStreams? MacStream) WriteOptions(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             return GetAlgorithm(options.Algorithm!).WriteOptions(rawData, cipherData, pwd: null, options);
         }
 
@@ -307,7 +307,7 @@ namespace wan24.Crypto
             )
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             return await GetAlgorithm(options.Algorithm!).WriteOptionsAsync(rawData, cipherData, pwd: null, options, cancellationToken).DynamicContext();
         }
 
@@ -343,7 +343,7 @@ namespace wan24.Crypto
         public static CryptoOptions ReadOptions(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             return GetAlgorithm(options.Algorithm!).ReadOptions(cipherData, rawData, pwd: null, options);
         }
 
@@ -379,7 +379,7 @@ namespace wan24.Crypto
             )
         {
             options = GetDefaultOptions(options);
-            options.SetPrivateKey(key);
+            options.SetKeys(key);
             return await GetAlgorithm(options.Algorithm!).ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
         }
 
@@ -462,25 +462,6 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get the hash algorithm name
-        /// </summary>
-        /// <param name="algo">Hash algorithm value</param>
-        /// <returns>Hash algorithm name</returns>
-        public static string GetAlgorithmName(int algo)
-            => Algorithms.Values.Where(a => a.Value == algo).Select(a => a.Name).FirstOrDefault()
-                ?? throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
-        /// Get the hash algorithm value
-        /// </summary>
-        /// <param name="algo">Hash algorithm name</param>
-        /// <returns>Hash algorithm value</returns>
-        public static int GetAlgorithmValue(string algo)
-            => Algorithms.TryGetValue(algo, out EncryptionAlgorithmBase? a)
-                ? a.Value
-                : throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
         /// Get an algorithm
         /// </summary>
         /// <param name="name">Algorithm name</param>
@@ -496,8 +477,6 @@ namespace wan24.Crypto
         /// <param name="value">Algorithm value</param>
         /// <returns>Algorithm</returns>
         public static EncryptionAlgorithmBase GetAlgorithm(int value)
-            => Algorithms.TryGetValue(GetAlgorithmName(value), out EncryptionAlgorithmBase? algo)
-                ? algo
-                : throw new ArgumentException("Invalid algorithm", nameof(value));
+            => Algorithms.Values.FirstOrDefault(a => a.Value == value) ?? throw new ArgumentException("Invalid algorithm", nameof(value));
     }
 }

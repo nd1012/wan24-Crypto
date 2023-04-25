@@ -37,9 +37,6 @@
         /// </summary>
         public abstract int SaltLength { get; }
 
-        /// <inheritdoc/>
-        public sealed override bool IsPostQuantum => true;
-
         /// <summary>
         /// Stretch a password
         /// </summary>

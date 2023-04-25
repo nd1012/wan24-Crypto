@@ -34,13 +34,39 @@ namespace wan24.Crypto
         public abstract int HashLength { get; }
 
         /// <summary>
+        /// Get the hash algorithm
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Algorithm</returns>
+        public abstract HashAlgorithm GetHashAlgorithm(CryptoOptions? options = null);
+
+        /// <summary>
         /// Get a hash stream
         /// </summary>
         /// <param name="target">Target stream</param>
         /// <param name="writable">Writable?</param>
         /// <param name="options">Options</param>
         /// <returns>Hash streams</returns>
-        public abstract HashStreams GetHashStream(Stream? target = null, bool writable = true, CryptoOptions? options = null);
+        public virtual HashStreams GetHashStream(Stream? target = null, bool writable = true, CryptoOptions? options = null)
+        {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
+            HashAlgorithm algo = GetHashAlgorithm(options);
+            try
+            {
+                return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
+            }
+            catch (CryptographicException)
+            {
+                algo.Dispose();
+                throw;
+            }
+            catch (Exception ex)
+            {
+                algo.Dispose();
+                throw new CryptographicException(ex.Message, ex);
+            }
+        }
 
         /// <summary>
         /// Create a hash
@@ -50,6 +76,8 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual byte[] Hash(Stream data, CryptoOptions? options = null)
         {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 using HashStreams hash = GetHashStream(options: options);
@@ -76,6 +104,8 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual async Task<byte[]> HashAsync(Stream data, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 HashStreams hash = GetHashStream(options: options);
@@ -92,32 +122,6 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
-            }
-        }
-
-        /// <summary>
-        /// Get a hash stream
-        /// </summary>
-        /// <param name="algo">Hash algorithm</param>
-        /// <param name="target">Target stream</param>
-        /// <param name="writable">Writable?</param>
-        /// <param name="options">Options</param>
-        /// <returns>Hash streams</returns>
-        protected virtual HashStreams GetHashStreamInt(HashAlgorithm algo, Stream? target, bool writable, CryptoOptions? options)
-        {
-            try
-            {
-                return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
-            }
-            catch (CryptographicException)
-            {
-                algo.Dispose();
-                throw;
-            }
-            catch (Exception ex)
-            {
-                algo.Dispose();
                 throw new CryptographicException(ex.Message, ex);
             }
         }

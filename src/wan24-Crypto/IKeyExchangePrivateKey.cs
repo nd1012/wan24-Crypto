@@ -8,9 +8,10 @@
         /// <summary>
         /// Get key exchange data
         /// </summary>
+        /// <param name="publicKey">Peer public key</param>
         /// <param name="options">Options</param>
-        /// <returns>Key exchange data</returns>
-        byte[] GetKeyExchangeData(CryptoOptions? options = null);
+        /// <returns>Derived key and key exchange data</returns>
+        (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null);
         /// <summary>
         /// Get the derived key from received key exchange data
         /// </summary>
