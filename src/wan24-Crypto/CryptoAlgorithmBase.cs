@@ -1,4 +1,6 @@
-﻿namespace wan24.Crypto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace wan24.Crypto
 {
     /// <summary>
     /// Base class for a cryptographic algorithm
@@ -17,9 +19,11 @@
         }
 
         /// <inheritdoc/>
+        [StringLength(byte.MaxValue)]
         public string Name { get; }
 
         /// <inheritdoc/>
+        [Range(0, int.MaxValue)]
         public int Value { get; }
 
         /// <inheritdoc/>

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using wan24.Core;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -54,16 +55,27 @@ namespace wan24.Crypto
         /// <returns>Object</returns>
         public T? GetHostedObject<T>()
         {
-            if (HostedObjectType != null && (TypeHelper.Instance.GetType(HostedObjectType) is not Type type || !typeof(T).IsAssignableFrom(type)))
-                if (TypeHelper.Instance.GetType(HostedObjectType) == null)
-                {
-                    throw new InvalidDataException($"Failed to load type \"{HostedObjectType}\"");
-                }
-                else
-                {
-                    throw new ArgumentException($"Can't get type \"{typeof(T)}\" from \"{HostedObjectType}\"", nameof(T));
-                }
-            return HostedObject == null ? (T?)(object?)HostedObject : JsonHelper.Decode<T>(HostedObject.ToUtf8String());
+            try
+            {
+                if (HostedObjectType != null && (TypeHelper.Instance.GetType(HostedObjectType) is not Type type || !typeof(T).IsAssignableFrom(type)))
+                    if (TypeHelper.Instance.GetType(HostedObjectType) == null)
+                    {
+                        throw new InvalidDataException($"Failed to load type \"{HostedObjectType}\"");
+                    }
+                    else
+                    {
+                        throw new ArgumentException($"Can't get type \"{typeof(T)}\" from \"{HostedObjectType}\"", nameof(T));
+                    }
+                return HostedObject == null ? (T?)(object?)HostedObject : JsonHelper.Decode<T>(HostedObject.ToUtf8String());
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -71,12 +83,38 @@ namespace wan24.Crypto
         /// </summary>
         /// <returns>Object</returns>
         public object? GetHostedObject()
-            => HostedObject == null
-                ? null
-                : JsonHelper.DecodeObject(
-                    TypeHelper.Instance.GetType(HostedObjectType ?? throw new InvalidDataException("Missing hosted object type name"))
-                        ?? throw new InvalidDataException($"Failed to load type \"{HostedObjectType}\""),
-                    HostedObject.ToUtf8String()
-                    );
+        {
+            try
+            {
+                return HostedObject == null
+                    ? null
+                    : JsonHelper.DecodeObject(
+                        TypeHelper.Instance.GetType(HostedObjectType ?? throw new InvalidDataException("Missing hosted object type name"))
+                            ?? throw new InvalidDataException($"Failed to load type \"{HostedObjectType}\""),
+                        HostedObject.ToUtf8String()
+                        );
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="wrapper">JSON object wrapper</param>
+        public static implicit operator byte[](JsonObjectWrapper wrapper) => JsonHelper.Encode(wrapper).GetBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator JsonObjectWrapper(byte[] data) => JsonHelper.Decode<JsonObjectWrapper>(data.ToUtf8String())
+            ?? throw new InvalidDataException("Failed to deserialize JSON object wrapper instance");
     }
 }

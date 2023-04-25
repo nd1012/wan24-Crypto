@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Interface for an asymmetric key
     /// </summary>
-    public interface IAsymmetricKey : IDisposableObject, IStreamSerializerVersion
+    public interface IAsymmetricKey : IDisposableObject, IStreamSerializerVersion, ICloneable
     {
         /// <summary>
         /// Key ID

@@ -21,9 +21,19 @@ namespace wan24.Crypto
         public const int MAC_LENGTH = 48;
 
         /// <summary>
+        /// Static constructor
+        /// </summary>
+        static MacHmacSha384Algorithm() => Instance = new();
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public MacHmacSha384Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static MacHmacSha384Algorithm Instance { get; }
 
         /// <inheritdoc/>
         public override int MacLength => MAC_LENGTH;
@@ -32,6 +42,6 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => true;
 
         /// <inheritdoc/>
-        public override KeyedHashAlgorithm GetMacAlgorithm(byte[] pwd, CryptoOptions? options = null) => new HMACSHA384(pwd);
+        protected override KeyedHashAlgorithm GetMacAlgorithmInt(byte[] pwd, CryptoOptions? options) => new HMACSHA384(pwd);
     }
 }

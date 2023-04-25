@@ -40,7 +40,23 @@ namespace wan24.Crypto
         /// <param name="pwd">Password</param>
         /// <param name="options">Options</param>
         /// <returns>Algorithm</returns>
-        public abstract KeyedHashAlgorithm GetMacAlgorithm(byte[] pwd, CryptoOptions? options = null);
+        public virtual KeyedHashAlgorithm GetMacAlgorithm(byte[] pwd, CryptoOptions? options = null)
+        {
+            try
+            {
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                return GetMacAlgorithmInt(pwd, options);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
 
         /// <summary>
         /// Get a MAC stream
@@ -52,22 +68,30 @@ namespace wan24.Crypto
         /// <returns>MAC stream and crypto transform</returns>
         public virtual MacStreams GetMacStream(byte[] pwd, Stream? target = null, bool writable = true, CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            options = MacHelper.GetDefaultOptions(options);
-            KeyedHashAlgorithm algo = GetMacAlgorithm(pwd, options);
             try
             {
-                return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = MacHelper.GetDefaultOptions(options);
+                KeyedHashAlgorithm algo = GetMacAlgorithm(pwd, options);
+                try
+                {
+                    return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
+                }
+                catch
+                {
+                    algo.Dispose();
+                    throw;
+                }
             }
             catch (CryptographicException)
             {
-                algo.Dispose();
                 throw;
             }
             catch (Exception ex)
             {
-                algo.Dispose();
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -80,10 +104,12 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public virtual byte[] Mac(Stream data, byte[] pwd, CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            options = MacHelper.GetDefaultOptions(options);
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = MacHelper.GetDefaultOptions(options);
                 using MacStreams mac = GetMacStream(pwd, options: options);
                 data.CopyTo(mac.Stream);
                 mac.Stream.FlushFinalBlock();
@@ -95,7 +121,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -109,10 +135,12 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public virtual async Task<byte[]> MacAsync(Stream data, byte[] pwd, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            options ??= DefaultOptions;
-            options = MacHelper.GetDefaultOptions(options);
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = MacHelper.GetDefaultOptions(options);
                 MacStreams mac = GetMacStream(pwd, options: options);
                 await using (mac.DynamicContext())
                 {
@@ -127,8 +155,16 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
+
+        /// <summary>
+        /// Get the MAC algorithm
+        /// </summary>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>Algorithm</returns>
+        protected abstract KeyedHashAlgorithm GetMacAlgorithmInt(byte[] pwd, CryptoOptions? options);
     }
 }

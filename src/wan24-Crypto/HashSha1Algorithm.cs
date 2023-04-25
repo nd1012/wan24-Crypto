@@ -21,9 +21,19 @@ namespace wan24.Crypto
         public const int HASH_LENGTH = 20;
 
         /// <summary>
+        /// Static constructor
+        /// </summary>
+        static HashSha1Algorithm() => Instance = new();
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public HashSha1Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static HashSha1Algorithm Instance { get; }
 
         /// <inheritdoc/>
         public override int HashLength => HASH_LENGTH;
@@ -32,6 +42,6 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
-        public override HashAlgorithm GetHashAlgorithm(CryptoOptions? options = null) => SHA1.Create();
+        protected override HashAlgorithm GetHashAlgorithmInt(CryptoOptions? options) => SHA1.Create();
     }
 }

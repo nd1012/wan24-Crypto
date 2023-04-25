@@ -9,7 +9,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Crypto options
     /// </summary>
-    public sealed partial class CryptoOptions : StreamSerializerBase
+    public sealed partial class CryptoOptions : StreamSerializerBase, ICloneable
     {
         /// <summary>
         /// Object version
@@ -142,6 +142,7 @@ namespace wan24.Crypto
                 }
                 else
                 {
+                    if (!EncryptionHelper.EnableJsonWrapper) throw new InvalidOperationException("JSON object wrapper disabled");
                     PayloadData = JsonHelper.Encode(new JsonObjectWrapper(payload)).GetBytes();
                 }
                 PayloadIncluded = true;
@@ -152,7 +153,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -174,8 +175,8 @@ namespace wan24.Crypto
                 }
                 else
                 {
-                    JsonObjectWrapper? wrapper = JsonHelper.Decode<JsonObjectWrapper>(PayloadData.ToUtf8String());
-                    if (wrapper == null) throw new InvalidDataException("Failed to deserialize JSON object wrapper");
+                    if (!EncryptionHelper.EnableJsonWrapper) throw new InvalidOperationException("JSON object wrapper disabled");
+                    JsonObjectWrapper wrapper = JsonHelper.Decode<JsonObjectWrapper>(PayloadData.ToUtf8String()) ?? throw new InvalidDataException("Failed to deserialize JSON object wrapper");
                     return wrapper.GetHostedObject<T>();
                 }
             }
@@ -185,7 +186,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -196,12 +197,23 @@ namespace wan24.Crypto
         /// <param name="publicKey">Public key (required for encryption, if not using a PFS key)</param>
         public void SetKeys(IAsymmetricPrivateKey privateKey, IAsymmetricPublicKey? publicKey = null)
         {
-            if (publicKey != null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
-            PrivateKey = privateKey;
-            PublicKey = publicKey;
-            AsymmetricAlgorithm = privateKey.Algorithm.Name;
-            KeyExchangeDataIncluded = true;
-            RequireKeyExchangeData = true;
+            try
+            {
+                PrivateKey = privateKey;
+                if (publicKey != null) PublicKey = publicKey;
+                if (PublicKey != null && PublicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
+                AsymmetricAlgorithm = privateKey.Algorithm.Name;
+                KeyExchangeDataIncluded = true;
+                RequireKeyExchangeData = true;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -230,7 +242,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -260,7 +272,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -278,12 +290,32 @@ namespace wan24.Crypto
                 PublicKey = null;
                 CounterPublicKey = null;
             }
-            KdfSalt?.Clear();
+            if (KdfSalt != null)
+            {
+                KdfSalt.Clear();
+                KdfSalt = null;
+            }
+            if (CounterKdfSalt != null)
+            {
+                CounterKdfSalt?.Clear();
+                CounterKdfSalt = null;
+            }
             KeyExchangeData = null;
-            CounterKdfSalt?.Clear();
-            PayloadData?.Clear();
-            Mac?.Clear();
-            Password?.Clear();
+            if (PayloadData != null)
+            {
+                PayloadData?.Clear();
+                PayloadData = null;
+            }
+            if (Mac != null)
+            {
+                Mac?.Clear();
+                Mac = null;
+            }
+            if (Password != null)
+            {
+                Password?.Clear();
+                Password = null;
+            }
         }
 
         /// <summary>
@@ -331,5 +363,20 @@ namespace wan24.Crypto
             CounterPublicKey = CounterPublicKey,
             LeaveOpen = LeaveOpen
         };
+
+        /// <inheritdoc/>
+        object ICloneable.Clone() => Clone();
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator byte[](CryptoOptions privateKey) => privateKey.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator CryptoOptions(byte[] data) => data.ToObject<CryptoOptions>();
     }
 }

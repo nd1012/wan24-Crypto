@@ -49,9 +49,20 @@ namespace wan24.Crypto
         /// <returns>IV bytes</returns>
         protected virtual byte[] ReadFixedIvBytes(Stream cipherData, CryptoOptions options)
         {
-            byte[] res = new byte[IvSize];
-            if (cipherData.Read(res) != IvSize) throw new CryptographicException($"Failed to read {IvSize} IV bytes");
-            return res;
+            try
+            {
+                byte[] res = new byte[IvSize];
+                if (cipherData.Read(res) != IvSize) throw new IOException($"Failed to read {IvSize} IV bytes");
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -63,9 +74,20 @@ namespace wan24.Crypto
         /// <returns>IV bytes</returns>
         protected virtual async Task<byte[]> ReadFixedIvBytesAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)
         {
-            byte[] res = new byte[IvSize];
-            if (await cipherData.ReadAsync(res, cancellationToken).DynamicContext() != IvSize) throw new CryptographicException($"Failed to read {IvSize} IV bytes");
-            return res;
+            try
+            {
+                byte[] res = new byte[IvSize];
+                if (await cipherData.ReadAsync(res, cancellationToken).DynamicContext() != IvSize) throw new IOException($"Failed to read {IvSize} IV bytes");
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>

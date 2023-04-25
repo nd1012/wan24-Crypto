@@ -21,9 +21,19 @@ namespace wan24.Crypto
         public const int HASH_LENGTH = 16;
 
         /// <summary>
+        /// Static constructor
+        /// </summary>
+        static HashMd5Algorithm() => Instance = new();
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public HashMd5Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static HashMd5Algorithm Instance { get; }
 
         /// <inheritdoc/>
         public override int HashLength => HASH_LENGTH;
@@ -32,6 +42,6 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
-        public override HashAlgorithm GetHashAlgorithm(CryptoOptions? options = null) => MD5.Create();
+        protected override HashAlgorithm GetHashAlgorithmInt(CryptoOptions? options) => MD5.Create();
     }
 }

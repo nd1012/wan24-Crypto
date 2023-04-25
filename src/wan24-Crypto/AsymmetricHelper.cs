@@ -36,8 +36,8 @@ namespace wan24.Crypto
         {
             Algorithms = new(new KeyValuePair<string, IAsymmetricAlgorithm>[]
             {
-                new(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME, new AsymmetricEcDiffieHellmanAlgorithm()),
-                new(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME, new AsymmetricEcDsaAlgorithm())
+                new(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME, AsymmetricEcDiffieHellmanAlgorithm.Instance),
+                new(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME, AsymmetricEcDsaAlgorithm.Instance)
             });
             _DefaultKeyExchangeAlgorithm = Algorithms[AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME];
             _DefaultSignatureAlgorithm = Algorithms[AsymmetricEcDsaAlgorithm.ALGORITHM_NAME];
@@ -105,8 +105,19 @@ namespace wan24.Crypto
         /// <returns>Private key</returns>
         public static IAsymmetricPrivateKey CreateKeyPair(CryptoOptions options)
         {
-            if (options.AsymmetricAlgorithm == null) throw new ArgumentException("Missing asymmetric algorithm name", nameof(options));
-            return GetAlgorithm(options.AsymmetricAlgorithm).CreateKeyPair(options);
+            try
+            {
+                if (options.AsymmetricAlgorithm == null) throw new ArgumentException("Missing asymmetric algorithm name", nameof(options));
+                return GetAlgorithm(options.AsymmetricAlgorithm).CreateKeyPair(options);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -116,8 +127,19 @@ namespace wan24.Crypto
         /// <returns>Private key</returns>
         public static IKeyExchangePrivateKey CreateKeyExchangeKeyPair(CryptoOptions? options = null)
         {
-            options = GetDefaultKeyExchangeOptions(options);
-            return (IKeyExchangePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
+            try
+            {
+                options = GetDefaultKeyExchangeOptions(options);
+                return (IKeyExchangePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -127,8 +149,19 @@ namespace wan24.Crypto
         /// <returns>Private key</returns>
         public static ISignaturePrivateKey CreateSignatureKeyPair(CryptoOptions? options = null)
         {
-            options = GetDefaultSignatureOptions(options);
-            return (ISignaturePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
+            try
+            {
+                options = GetDefaultSignatureOptions(options);
+                return (ISignaturePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -138,20 +171,31 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions GetDefaultKeyExchangeOptions(CryptoOptions? options = null)
         {
-            if (options == null)
+            try
             {
-                options = DefaultKeyExchangeAlgorithm.DefaultOptions;
-            }
-            else
-            {
-                if (options.AsymmetricAlgorithm == null)
+                if (options == null)
                 {
-                    options.AsymmetricAlgorithm = DefaultKeyExchangeAlgorithm.Name;
-                    options.AsymmetricKeyBits = DefaultKeyExchangeAlgorithm.DefaultKeySize;
+                    options = DefaultKeyExchangeAlgorithm.DefaultOptions;
                 }
+                else
+                {
+                    if (options.AsymmetricAlgorithm == null)
+                    {
+                        options.AsymmetricAlgorithm = DefaultKeyExchangeAlgorithm.Name;
+                        options.AsymmetricKeyBits = DefaultKeyExchangeAlgorithm.DefaultKeySize;
+                    }
+                }
+                if (UseHybridKeyExchangeOptions) options = HybridAlgorithmHelper.GetKeyExchangeOptions(options);
+                return options;
             }
-            if (UseHybridKeyExchangeOptions) options = HybridAlgorithmHelper.GetKeyExchangeOptions(options);
-            return options;
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -161,20 +205,31 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions GetDefaultSignatureOptions(CryptoOptions? options = null)
         {
-            if (options == null)
+            try
             {
-                options = DefaultSignatureAlgorithm.DefaultOptions;
-            }
-            else
-            {
-                if (options.AsymmetricAlgorithm == null)
+                if (options == null)
                 {
-                    options.AsymmetricAlgorithm = DefaultSignatureAlgorithm.Name;
-                    options.AsymmetricKeyBits = DefaultSignatureAlgorithm.DefaultKeySize;
+                    options = DefaultSignatureAlgorithm.DefaultOptions;
                 }
+                else
+                {
+                    if (options.AsymmetricAlgorithm == null)
+                    {
+                        options.AsymmetricAlgorithm = DefaultSignatureAlgorithm.Name;
+                        options.AsymmetricKeyBits = DefaultSignatureAlgorithm.DefaultKeySize;
+                    }
+                }
+                if (UseHybridSignatureOptions) options = HybridAlgorithmHelper.GetSignatureOptions(options);
+                return options;
             }
-            if (UseHybridSignatureOptions) options = HybridAlgorithmHelper.GetSignatureOptions(options);
-            return options;
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>

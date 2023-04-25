@@ -30,9 +30,19 @@ namespace wan24.Crypto
         public const int BLOCK_SIZE = 16;
 
         /// <summary>
+        /// Static constructor
+        /// </summary>
+        static EncryptionAes256CbcAlgorithm() => Instance = new();
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public EncryptionAes256CbcAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static EncryptionAes256CbcAlgorithm Instance { get; }
 
         /// <inheritdoc/>
         public override int KeySize => KEY_SIZE;
@@ -57,59 +67,109 @@ namespace wan24.Crypto
         public Aes CreateAes(CryptoOptions options)
         {
             options = EncryptionHelper.GetDefaultOptions(options);
-            Aes res = Aes.Create();
             try
             {
-                res.KeySize = KeySize << 3;
-                res.Mode = CipherMode.CBC;
-                res.Padding = PaddingMode.ISO10126;
-                res.Key = options.Password ?? throw new ArgumentException("Missing password", nameof(options));
-                return res;
+                Aes res = Aes.Create();
+                try
+                {
+                    res.KeySize = KeySize << 3;
+                    res.Mode = CipherMode.CBC;
+                    res.Padding = PaddingMode.ISO10126;
+                    res.Key = options.Password ?? throw new ArgumentException("Missing password", nameof(options));
+                    return res;
+                }
+                catch
+                {
+                    res.Dispose();
+                    throw;
+                }
             }
             catch (CryptographicException)
             {
-                res.Dispose();
                 throw;
             }
             catch (Exception ex)
             {
-                res.Dispose();
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
         /// <inheritdoc/>
         protected override ICryptoTransform GetEncryptor(Stream cipherData, CryptoOptions options)
         {
-            using Aes aes = CreateAes(options);
-            aes.IV = CreateIvBytes();
-            cipherData.Write(aes.IV);
-            return aes.CreateEncryptor();
+            try
+            {
+                using Aes aes = CreateAes(options);
+                aes.IV = CreateIvBytes();
+                cipherData.Write(aes.IV);
+                return aes.CreateEncryptor();
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <inheritdoc/>
         protected override async Task<ICryptoTransform> GetEncryptorAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)
         {
-            using Aes aes = CreateAes(options);
-            aes.IV = CreateIvBytes();
-            await cipherData.WriteAsync(aes.IV, cancellationToken).DynamicContext();
-            return aes.CreateEncryptor();
+            try
+            {
+                using Aes aes = CreateAes(options);
+                aes.IV = CreateIvBytes();
+                await cipherData.WriteAsync(aes.IV, cancellationToken).DynamicContext();
+                return aes.CreateEncryptor();
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <inheritdoc/>
         protected override ICryptoTransform GetDecryptor(Stream cipherData, CryptoOptions options)
         {
-            using Aes aes = CreateAes(options);
-            aes.IV = ReadFixedIvBytes(cipherData, options);
-            return aes.CreateDecryptor();
+            try
+            {
+                using Aes aes = CreateAes(options);
+                aes.IV = ReadFixedIvBytes(cipherData, options);
+                return aes.CreateDecryptor();
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <inheritdoc/>
         protected override async Task<ICryptoTransform> GetDecryptorAsync(Stream cipherData, CryptoOptions options, CancellationToken cancellationToken)
         {
-            using Aes aes = CreateAes(options);
-            aes.IV = await ReadFixedIvBytesAsync(cipherData, options, cancellationToken).DynamicContext();
-            return aes.CreateDecryptor();
+            try
+            {
+                using Aes aes = CreateAes(options);
+                aes.IV = await ReadFixedIvBytesAsync(cipherData, options, cancellationToken).DynamicContext();
+                return aes.CreateDecryptor();
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
     }
 }

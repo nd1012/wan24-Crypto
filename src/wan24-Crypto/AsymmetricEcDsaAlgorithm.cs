@@ -34,17 +34,26 @@ namespace wan24.Crypto
         /// <summary>
         /// Static constructor
         /// </summary>
-        static AsymmetricEcDsaAlgorithm() => _AllowedKeySizes = new List<int>()
+        static AsymmetricEcDsaAlgorithm()
         {
-            256,
-            384,
-            521
-        }.AsReadOnly();
+            _AllowedKeySizes = new List<int>()
+            {
+                256,
+                384,
+                521
+            }.AsReadOnly();
+            Instance = new();
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public AsymmetricEcDsaAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) => _DefaultOptions.AsymmetricKeyBits = DefaultKeySize = DEFAULT_KEY_SIZE;
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static AsymmetricEcDsaAlgorithm Instance { get; }
 
         /// <inheritdoc/>
         public override AsymmetricAlgorithmUsages Usages => USAGES;
@@ -67,9 +76,13 @@ namespace wan24.Crypto
                 if (!options.AsymmetricKeyBits.In(AllowedKeySizes)) throw new ArgumentException("Invalid key size", nameof(options));
                 return new(ECDsa.Create(EllipticCurves.GetCurve(options.AsymmetricKeyBits)));
             }
+            catch(CryptographicException)
+            {
+                throw;
+            }
             catch(Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
     }

@@ -34,17 +34,26 @@ namespace wan24.Crypto
         /// <summary>
         /// Static constructor
         /// </summary>
-        static AsymmetricEcDiffieHellmanAlgorithm() => _AllowedKeySizes = new List<int>()
+        static AsymmetricEcDiffieHellmanAlgorithm()
         {
-            256,
-            384,
-            521
-        }.AsReadOnly();
+            _AllowedKeySizes = new List<int>()
+            {
+                256,
+                384,
+                521
+            }.AsReadOnly();
+            Instance = new();
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public AsymmetricEcDiffieHellmanAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) => _DefaultOptions.AsymmetricKeyBits = DefaultKeySize = DEFAULT_KEY_SIZE;
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static AsymmetricEcDiffieHellmanAlgorithm Instance { get; }
 
         /// <inheritdoc/>
         public override AsymmetricAlgorithmUsages Usages => USAGES;
@@ -61,9 +70,20 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public override AsymmetricEcDiffieHellmanPrivateKey CreateKeyPair(CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            if (!options.AsymmetricKeyBits.In(AllowedKeySizes)) throw new ArgumentException("Invalid key size", nameof(options));
-            return new(ECDiffieHellman.Create(EllipticCurves.GetCurve(options.AsymmetricKeyBits)));
+            try
+            {
+                options ??= DefaultOptions;
+                if (!options.AsymmetricKeyBits.In(AllowedKeySizes)) throw new ArgumentException("Invalid key size", nameof(options));
+                return new(ECDiffieHellman.Create(EllipticCurves.GetCurve(options.AsymmetricKeyBits)));
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
     }
 }
