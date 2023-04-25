@@ -31,16 +31,28 @@ The number of algorithms can be extended easy, a bunch of additional libraries
 implementing more algorithms (and probably more elliptic curves) will follow 
 soon.
 
+The goals of this library are:
+
+- Make a choice being a less torture
+- Make a complex thing as easy as possible
+
+Implementing (new) cryptographic algorithms into (existing) code can be 
+challenging. `wan24-Crypto` tries to make it as easy as possible, while the 
+API is still complex due to the huge number of options it offers. Please see 
+the Wiki for examples of the most common use cases, which cover:
+
+- Simple encryption using a password
+- Advanced encryption using a private PFS key
+- Advanced encryption using a private PFS key and hybrid key exchange
+- Advanced encryption using a peers public key
+- Advanced encryption using a peers public key and hybrid key exchange
+
+For more examples please open an issue - I'd be glad to help!
+
 ## How to get it
 
 This library is available as 
 [NuGet package](https://www.nuget.org/packages/wan24-Crypto/).
-
-Currently these extension NuGet packages are available:
-
-- [NaCl](https://www.nuget.org/packages/wan24-Crypto-NaCl/)
-- [Bouncy Castle](https://www.nuget.org/packages/wan24-Crypto-BC/)
-- [Bouncy Castle PQC](https://www.nuget.org/packages/wan24-Crypto-BCPQC/)
 
 ## Usage
 
@@ -88,14 +100,41 @@ The default algorithms used:
 
 #### Using asymmetric keys for encryption
 
-When using an asymmetric private key for encryption, a PFS key will be created 
-when encrypting, and the cipher data can only be decrypted using the same 
-private key again.
+This way you encrypt using a stored private key (which will be required for 
+decryption later):
 
 ```cs
 using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
 byte[] cipher = raw.Encrypt(privateKey);
 byte[] raw = cipher.Decrypt(privateKey);
+```
+
+In case you want to encrypt for a peer using the peers asymmetric public key 
+for performing a PFS key exchange:
+
+```cs
+// Peer creates a key pair (PFS or stored) and sends peerPublicKeyData to the provider
+using IAsymmetricPrivateKey peerPrivateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] peerPublicKeyData;// Needs to be available at the provider
+using(MemoryStream ms = new())
+{
+    ms.WriteAny(peerPrivateKey.PublicKey);// Serialize the public key (the provider doesn't know the public key format yet)
+    peerPublicKeyData = ms.ToArray();
+}
+
+// Encryption at the provider (pfsKey shouldn't be stored and can be a new key for every cipher message)
+using MemoryStream ms = new(peerPublicKeyData);
+using IAsymmetricPublicKey peerPublicKey = ms.ReadAny<IAsymmetricPublicKey>();// Deserialize the peers public key of any format
+CryptoOptions options = EncryptionHelper.GetDefaultOptions();// Add the asymmetric key information for key pair creation
+options.AsymmetricAlgorithm = peerPublicKey.Algorithm.Name;
+options.AsymmetricKeyBits = peerPublicKey.Bits;
+options.PublicKey = peerPublicKey;// Required for encrypting especially for the one specific peer
+byte[] cipher;
+using(IAsymmetricPrivateKey pfsKey = AsymmetricHelper.CreateKeyExchangeKeyPair(options))
+    cipher = raw.Encrypt(pfsKey, options);// Only the peer can decrypt the cipher after pfsKey was disposed
+
+// Decryption at the peer
+byte[] raw = cipher.Decrypt(peerPrivateKey, options);
 ```
 
 #### Time critical decryption
@@ -111,7 +150,7 @@ CryptoOptions options = new()
 };
 byte[] cipher = raw.Encrypt(password, options);
 
-// Decryption (required to be decrypted within 10 seconds)
+// Decryption (required to be decrypted within 10 seconds, or the decryption will fail)
 options = new()
 {
     RequireTime = true,
@@ -121,27 +160,39 @@ byte[] raw = cipher.Decrypt(password, options);
 ```
 
 By defining `CryptoOptions.MaximumTimeOffset` you may define a time tolerance 
-which is being used to be tolderant with peers having a slightly different 
+which is being used to be tolerant with peers having a slightly different 
 system time.
 
 ### Asymmetric keys
 
 #### Key exchange
 
+PFS example:
+
 ```cs
-// A: Create a key pair for key exchange and the key exchange data
-using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
-byte[] keyExchangeData = privateKey.CreateKeyExchangeData();
+// A: Create a key pair
+using IKeyExchangePrivateKey privateKeyA = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] publicKeyData;// Needs to be available at B
+using(MemoryStream ms = new())
+{
+    ms.WriteAny(privateKeyA.PublicKey);// Serialize the public key (the provider doesn't know the public key format yet)
+    publicKeyData = ms.ToArray();
+}
 
-// B: Create a key pair for key exchange, create the key exchange data and derive the key
-using IAsymmetricPrivateKey privateKey2 = AsymmetricHelper.CreateKeyExchangeKeyPair();
-byte[] key2 = privateKey2.DeriveKey(keyExchangeData);
-byte[] keyExchangeData2 = privateKey2.CreateKeyExchangeData();
+// B: Create a key pair, key exchange data and derive the shared key
+using MemoryStream ms = new(publicKeyData);
+using IAsymmetricPublicKey publicKeyA = ms.ReadAny<IAsymmetricPublicKey>();// Deserialize the peers public key of any format
+using IKeyExchangePrivateKey privateKeyB = AsymmetricHelper.CreateKeyExchangeKeyPair(new()
+{
+    AsymmetricAlgorithm = publicKeyA.Algorithm.Name,
+    AsymmetricKeyBits = publicKeyA.Bits
+});
+(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKey);// Needs to be available at A
 
-// A: Derive the key
-byte[] key = privateKey.DeriveKey(keyExchangeData2);
+// A: Derive the exchanged key
+byte[] keyA = privateKeyA.DeriveKey(keyExchangeData);
 
-Assert.IsTrue(key.SequenceEqual(key2));
+Assert.IsTrue(keyA.SequenceEquals(keyB));
 ```
 
 The default key exchange algorithm is ECDH from a secp521r1 elliptic curve.
@@ -150,14 +201,13 @@ The default key exchange algorithm is ECDH from a secp521r1 elliptic curve.
 
 ```cs
 // Create a key pair for signature
-using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
-IAsymmetricPublicKey publicKey = privateKey.PublicKey;
+using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
 
 // Sign data
 SignatureContainer signature = privateKey.SignData(anyData);
 
 // Validate a signature
-publicKey.ValidateSignature(signature, anyData);
+privateKey.PublicKey.ValidateSignature(signature, anyData);
 ```
 
 The default signature algorithm is DSA from a secp521r1 elliptic curve.
@@ -165,59 +215,64 @@ The default signature algorithm is DSA from a secp521r1 elliptic curve.
 ## Too many options?
 
 The `CryptoOptions` contains a huge collection of properties, which follow a 
-simple pattern: Which information should be included in the header, and is an 
-information in the header required?
+simple pattern in case of en-/decryption: Which information should be included 
+in the cipher header, and is an information in the header required? Because 
+the options include information for all sections, there are single values 
+which belongs to the specific section only. If you separate the options into 
+sections, it's easy to overview:
 
-| Section | Property | Description |
-| --- | --- | --- |
-| Encryption | `Algorithm` | Encryption algorithm name |
-| MAC | `MacAlgorithm` | MAC algorithm name |
-|  | `MacIncluded` | Include a MAC in the header |
-|  | `RequireMac` | Is the MAC required in the header? |
-|  | `CounterMacAlgorithm` | Counter MAC algorithm name |
-|  | `CounterMacIncluded` | Include a counter MAC in the header |
-|  | `RequireCounterMac` | Is the counter MAC required in the header? |
-|  | `ForceMacCoverWhole` | Force the MAC to cover all data |
-|  | `RequireMacCoverWhole` | Is the MAC required to cover all data? |
-| PFS / Key creation / Signature | `AsymmetricAlgorithm` | Asymmetric algorithm name |
-|  | `AsymmetricAlgorithmIncluded` | Include the asymmetric algorithm in the header |
-|  | `RequireAsymmetricAlgorithm` | Is the asymmetric algorithm required in the header? |
-|  | `AsymmetricCounterAlgorithm` | Asymmetric counter algorithm name |
-|  | `AsymmetricCounterAlgorithmIncluded` | Include the asymmetric counter algorithm in the header |
-|  | `RequireAsymmetricCounterAlgorithm` | Is the asymmetric counter algorithm required in the header? |
-|  | `KeyExchangeData` | Key exchange data (includes counter key exchange data; generated automatic) |
-|  | `RequireKeyExchangeData` | Is the key exchange data required in the header? |
-|  | `PrivateKey` | Private key for key exchange (set automatic) |
-|  | `CounterPrivateKey` | Private key for counter key exchange (required when using a counter asymmetric algorithm) |
-| KDF | `KdfAlgorithm` | KDF algorithm name |
-|  | `KdfIterations` | KDF iteration count |
-|  | `KdfSalt` | KDF salt (generated automatic) |
-|  | `KdfAlgorithmIncluded` | Include the KDF information in the header |
-|  | `RequireKdfAlgorithm` | Is the KDF information required in the header? |
-|  | `CounterKdfAlgorithm` | Counter KDF algorithm name |
-|  | `CounterKdfIterations` | Counter KDF iteration count |
-|  | `CounterKdfSalt` | Counter KDF salt (generated automatic) |
-|  | `CounterKdfAlgorithmIncluded` | Include the counter KDF information in the header |
-|  | `RequireCounterKdfAlgorithm` | Is the counter KDF information required in the header? |
-| Payload | `PayloadData` | Plain payload |
-|  | `PayloadIncluded` | Is the payload object data included in the header? |
-|  | `RequirePayload` | Is payload object data required in the header? |
-| Serializer version | `SerializerVersion` | Serializer version number (set automatic) |
-|  | `SerializerVersionIncluded` | Include the serializer version number in the header |
-|  | `RequireSerializerVersion` | Is the serializer version number required in the header? |
-| Header version | `HeaderVersion` | Header version number (set automatic) |
-|  | `HeaderVersionIncluded` | Is the header version included in the header? |
-|  | `RequireHeaderVersion` | Is the header version required in the header? |
-| Encryption time | `Time` | Encryption timestamp (UTC) |
-|  | `TimeIncluded` | Is the encryption time included in the header? |
-|  | `RequireTime` | Is the encryption time required to be included in the header? |
-|  | `MaximumAge` | Maximum age of cipher data (the default can be set to `DefaultMaximumAge`) |
-|  | `MaximumTimeOffset` | Maximum time offset for a peer with a different system time (the default can be set to `DefaultMaximumTimeOffset`) |
-| Compression | `Compressed` | Should the raw data be compressed before encryption? |
-|  | `Compression` | The `CompressionOptions` instance to use |
-| Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use |
-| Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair |
-| Stream options | `LeaveOpen` | Leave the processing stream open after operation? |
+| Section | Property | Description | Default value |
+| --- | --- | --- | --- |
+| Encryption | `Algorithm` | Encryption algorithm name | `null` (`AES256CBC`) |
+|  | `FlagsIncluded` | Are the flags included in the header? | `true` |
+|  | `RequireFlags` | Are the flags required to be included in the header? | `true` |
+| MAC | `MacAlgorithm` | MAC algorithm name | `null` (`HMAC-SHA512`) |
+|  | `MacIncluded` | Include a MAC in the header | `true` |
+|  | `RequireMac` | Is the MAC required in the header? | `true` |
+|  | `CounterMacAlgorithm` | Counter MAC algorithm name | `null` |
+|  | `CounterMacIncluded` | Include a counter MAC in the header | `false` |
+|  | `RequireCounterMac` | Is the counter MAC required in the header? | `false` |
+|  | `ForceMacCoverWhole` | Force the MAC to cover all data | `false` |
+|  | `RequireMacCoverWhole` | Is the MAC required to cover all data? | `false` |
+| Encryption / Key creation / Signature | `AsymmetricAlgorithm` | Asymmetric algorithm name | `null` (`ECDH` for encryption, `ECDSA` for signature) |
+|  | `AsymmetricCounterAlgorithm` | Asymmetric counter algorithm name | `null` |
+|  | `KeyExchangeData` | Key exchange data (includes counter key exchange data; generated automatic) | `null` |
+|  | `RequireKeyExchangeData` | Is the key exchange data required in the header? | `false` |
+|  | `PrivateKey` | Private key for key exchange | `null` |
+|  | `CounterPrivateKey` | Private key for counter key exchange (required when using a counter asymmetric algorithm) | `null` |
+|  | `PublicKey` | Public key for key exchange (if not using a PFS key) | `null` |
+|  | `CounterPublicKey` | Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key) | `null` |
+| KDF | `KdfAlgorithm` | KDF algorithm name | `null` (`PBKDF2`) |
+|  | `KdfIterations` | KDF iteration count | `1` |
+|  | `KdfSalt` | KDF salt (generated automatic) | `null` |
+|  | `KdfAlgorithmIncluded` | Include the KDF information in the header | `true` |
+|  | `RequireKdfAlgorithm` | Is the KDF information required in the header? | `true` |
+|  | `CounterKdfAlgorithm` | Counter KDF algorithm name | `null` |
+|  | `CounterKdfIterations` | Counter KDF iteration count | `1` |
+|  | `CounterKdfSalt` | Counter KDF salt (generated automatic) | `null` |
+|  | `CounterKdfAlgorithmIncluded` | Include the counter KDF information in the header | `false` |
+|  | `RequireCounterKdfAlgorithm` | Is the counter KDF information required in the header? | `false` |
+| Payload | `PayloadData` | Plain payload | `null` |
+|  | `PayloadIncluded` | Is the payload object data included in the header? | `false` |
+|  | `RequirePayload` | Is payload object data required in the header? | `false` |
+| Serializer version | `SerializerVersion` | Serializer version number (set automatic) | `null` |
+|  | `SerializerVersionIncluded` | Include the serializer version number in the header | `true` |
+|  | `RequireSerializerVersion` | Is the serializer version number required in the header? | `true` |
+| Header version | `HeaderVersion` | Header version number (set automatic) | `1` |
+|  | `HeaderVersionIncluded` | Is the header version included in the header? | `true` |
+|  | `RequireHeaderVersion` | Is the header version required in the header? | `true` |
+| Encryption time | `Time` | Encryption timestamp (UTC) | `null` |
+|  | `TimeIncluded` | Is the encryption time included in the header? | `false` |
+|  | `RequireTime` | Is the encryption time required to be included in the header? | `false` |
+|  | `MaximumAge` | Maximum age of cipher data (the default can be set to `DefaultMaximumAge`) | `null` |
+|  | `MaximumTimeOffset` | Maximum time offset for a peer with a different system time (the default can be set to `DefaultMaximumTimeOffset`) | `null` |
+| Compression | `Compressed` | Should the raw data be compressed before encryption? | `true` |
+|  | `Compression` | The `CompressionOptions` instance to use (will be set automatic, if not given) | `null` |
+| Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use | `null` (`SHA512`) |
+| Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair | `1` |
+| Stream options | `LeaveOpen` | Leave the processing stream open after operation? | `false` |
+
+Other options, which are not listed here, are used internal only.
 
 If you use a new instance of `CryptoOptions`, all defaults will be applied. 
 You can override these defaults in the static `*Helper.Default*` properties, 
@@ -268,7 +323,11 @@ to/from anywhere.
 excludes:
 
 - `SerializerVersion`
+- `HeaderVersion`
 - `PrivateKey` (needs to be stored in another place)
+- `CounterPrivateKey` (needs to be stored in another place)
+- `PublicKey`
+- `CounterPublicKey`
 - `KeyExchangeData`
 - `PayloadData`
 - `Time`
@@ -380,9 +439,14 @@ The `HybridAlgorithmHelper` allows to set default hybrid algorithms for
 
 and exports some helper methods, which are being used internal (you don't need 
 to use them unless you have to). If you want the additional hybrid algorithms 
-to be used every time, you can set the `EncryptionHelper.UseHybridOptions` to 
-`true` to extend used `CryptoOptions` instances by the algorithms defined in 
-the `HybridAlgorithmHelper` properties.
+to be used every time, you can set the
+
+- `EncryptionHelper.UseHybridOptions`
+- `AsymmetricHelper.UseHybridKeyExchangeOptions`
+- `AsymmetricHelper.UseHybridSignatureOptions`
+
+to `true` to extend used `CryptoOptions` instances by the algorithms defined 
+in the `HybridAlgorithmHelper` properties.
 
 ### Post quantum safety
 
@@ -396,7 +460,8 @@ case it's not possible to use post quantum algorithms for all defaults, this
 method will throw an exception.
 
 **NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
-quantum safe algorithms.
+quantum safe algorithms, while currently no post quantum-safe asymmetric 
+algorithms are implemented.
 
 ## Disclaimer
 
@@ -405,5 +470,5 @@ warranty of any kind. Please read the license for the full disclaimer.
 
 This library uses the available .NET cryptographic algorithms and doesn't 
 implement any "selfmade" cryptographic algorithms. Extension libraries may add 
-other well known third party cryptographic algorithm libraries, like NaCl or 
-Bouncy Castle.
+other well known third party cryptographic algorithm libraries, like Bouncy 
+Castle.

@@ -32,6 +32,6 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => true;
 
         /// <inheritdoc/>
-        public override HashStreams GetHashStream(Stream? target = null, bool writable = true, CryptoOptions? options = null) => GetHashStreamInt(SHA384.Create(), target, writable, options);
+        public override HashAlgorithm GetHashAlgorithm(CryptoOptions? options = null) => SHA384.Create();
     }
 }

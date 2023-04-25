@@ -21,7 +21,7 @@ namespace wan24.Crypto
         /// Counter KDF iterations (used for en-/decryption only)
         /// </summary>
         [Range(1, int.MaxValue)]
-        public int CounterKdfIterations { get; set; } = 1;
+        public int CounterKdfIterations { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
         /// Asymmetric counter algorithm name (for the key exchange data; used for en-/decryption and signature only)
@@ -30,32 +30,41 @@ namespace wan24.Crypto
         public string? AsymmetricCounterAlgorithm { get; set; }
 
         /// <summary>
-        /// Counter private key (used for en-/decryption and signature only)
+        /// Counter private key (for en-/decryption/key exchange/signature)
         /// </summary>
         public IAsymmetricPrivateKey? CounterPrivateKey { get; set; }
 
         /// <summary>
+        /// Counter private key (used for encryption/key exchange)
+        /// </summary>
+        public IAsymmetricPublicKey? CounterPublicKey { get; set; }
+
+        /// <summary>
         /// Using a counter MAC?
         /// </summary>
-        public bool UsingCounterMac => CounterMacAlgorithm != null || CounterMacAlgorithmIncluded || RequireCounterMac;
+        public bool UsingCounterMac => CounterMacAlgorithm != null || RequireCounterMac;
 
         /// <summary>
         /// Using a counter KDF?
         /// </summary>
-        public bool UsingCounterKdf => CounterKdfAlgorithm != null || CounterKdfAlgorithmIncluded || RequireCounterKdf;
+        public bool UsingCounterKdf => CounterKdfAlgorithm != null || RequireCounterKdf;
 
         /// <summary>
         /// Using an asymmetric counter algorithm?
         /// </summary>
-        public bool UsingAsymmetricCounterAlgorithm => AsymmetricCounterAlgorithm != null || AsymmetricCounterAlgorithmIncluded || RequireAsymmetricCounterAlgorithm;
+        public bool UsingAsymmetricCounterAlgorithm => AsymmetricCounterAlgorithm != null;
 
         /// <summary>
-        /// Set the counter private key (used for en-/decryption and signature only)
+        /// Set the counter keys (used for en-/decryption and signature only)
         /// </summary>
-        /// <param name="key">Private key</param>
-        public void SetCounterPrivateKey(IAsymmetricPrivateKey key)
+        /// <param name="privateKey">Private key</param>
+        /// <param name="publicKey">Public key (required for encryption, if not using a PFS key)</param>
+        public void SetCounterKeys(IAsymmetricPrivateKey privateKey, IAsymmetricPublicKey? publicKey = null)
         {
-            CounterPrivateKey = key;
+            if (publicKey != null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
+            CounterPrivateKey = privateKey;
+            CounterPublicKey = publicKey;
+            AsymmetricAlgorithm = privateKey.Algorithm.Name;
             KeyExchangeDataIncluded = true;
             RequireKeyExchangeData = true;
         }

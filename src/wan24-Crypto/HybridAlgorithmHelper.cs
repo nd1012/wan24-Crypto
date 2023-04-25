@@ -98,16 +98,12 @@ namespace wan24.Crypto
             }
             options = EncryptionHelper.GetDefaultOptions(options);
             // Key exchange algorithm
-            if (
-                keyExchangeAlgorithm != null &&
-                (options.AsymmetricAlgorithm != null || options.AsymmetricAlgorithmIncluded || options.AsymmetricCounterAlgorithmIncluded || options.RequireAsymmetricAlgorithm || options.RequireAsymmetricCounterAlgorithm) &&
-                options.AsymmetricCounterAlgorithm == null
-                )
+            if (keyExchangeAlgorithm != null && options.AsymmetricAlgorithm != null && options.AsymmetricCounterAlgorithm == null)
                 options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
             // KDF algorithm
             if (
                 kdfAlgorithm != null &&
-                (options.KdfAlgorithm != null || options.KdfAlgorithmIncluded || options.CounterKdfAlgorithmIncluded || options.RequireKdf || options.RequireCounterKdf) &&
+                (options.KdfAlgorithm != null || options.KdfAlgorithmIncluded || options.RequireKdf || options.RequireCounterKdf) &&
                 options.CounterKdfAlgorithm == null
                 )
             {
@@ -119,7 +115,7 @@ namespace wan24.Crypto
                 macAlgorithm != null &&
                 (
                     EncryptionHelper.GetAlgorithm(options.Algorithm ?? EncryptionHelper.DefaultAlgorithm.Name).RequireMacAuthentication ||
-                    options.MacAlgorithm != null || options.CounterMacAlgorithmIncluded || options.MacIncluded || options.MacAlgorithmIncluded || options.RequireMac || options.RequireCounterMac
+                    options.MacAlgorithm != null || options.MacIncluded || options.MacAlgorithmIncluded || options.RequireMac || options.RequireCounterMac
                 ) &&
                 options.CounterMacAlgorithm == null
                 )
@@ -158,46 +154,38 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get hybrid key exchange data
+        /// Get hybrid key exchange data (password will be set to <see cref="CryptoOptions.Password"/>)
         /// </summary>
         /// <param name="keyExchangeData">Key exchange data</param>
         /// <param name="options">Options</param>
-        /// <returns>Key exchange data</returns>
-        public static byte[] GetKeyExchangeData(byte[] keyExchangeData, CryptoOptions options)
+        public static void GetKeyExchangeData(KeyExchangeDataContainer keyExchangeData, CryptoOptions options)
         {
-            if (options.CounterPrivateKey is not IKeyExchangePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
-            using MemoryStream ms = new();
-            ms.WriteBytes(keyExchangeData)
-                .WriteBytes(((IKeyExchangePrivateKey)options.CounterPrivateKey).GetKeyExchangeData(options));
-            return ms.ToArray();
+            if (options.CounterPrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing counter private key", nameof(options));
+            if (options.Password == null) throw new ArgumentException("No password yet", nameof(options));
+            (options.Password, keyExchangeData.CounterKeyExchangeData) = key.GetKeyExchangeData(options: options);
         }
 
         /// <summary>
-        /// Derive a hybrid key
+        /// Derive a hybrid key (will be set to <see cref="CryptoOptions.Password"/>)
         /// </summary>
         /// <param name="keyExchangeData">Key exchange data</param>
         /// <param name="options">Options</param>
-        /// <returns>Hybrid key</returns>
-        public static byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions options)
+        public static void DeriveKey(KeyExchangeDataContainer keyExchangeData, CryptoOptions options)
         {
-            if (options.PrivateKey is not IKeyExchangePrivateKey) throw new ArgumentException("Missing private key", nameof(options));
-            if (options.CounterPrivateKey is not IKeyExchangePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
-            using MemoryStream ms = new(keyExchangeData);
-            byte[]? kex1 = null,
-                kex2 = null,
-                key1 = null,
+            if (keyExchangeData.CounterKeyExchangeData == null) throw new ArgumentException("Missing counter key exchange data", nameof(keyExchangeData));
+            if (options.PrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing valid private key", nameof(options));
+            if (options.CounterPrivateKey is not IKeyExchangePrivateKey counterKey) throw new ArgumentException("Missing valid counter private key", nameof(options));
+            byte[]? key1 = null,
                 key2 = null,
                 res = null;
             try
             {
-                kex1 = ms.ReadBytes(options.SerializerVersion, minLen: 1, maxLen: ushort.MaxValue).Value;
-                kex2 = ms.ReadBytes(options.SerializerVersion, minLen: 1, maxLen: ushort.MaxValue).Value;
-                key1 = ((IKeyExchangePrivateKey)options.PrivateKey).DeriveKey(kex1);
-                key2 = ((IKeyExchangePrivateKey)options.CounterPrivateKey).DeriveKey(kex2);
+                key1 = key.DeriveKey(keyExchangeData.KeyExchangeData);
+                key2 = counterKey.DeriveKey(keyExchangeData.CounterKeyExchangeData);
                 res = new byte[key1.Length + key2.Length];
                 key1.AsSpan().CopyTo(res.AsSpan());
                 key2.AsSpan().CopyTo(res.AsSpan()[key1.Length..]);
-                return res;
+                options.Password = res;
             }
             catch(CryptographicException)
             {
@@ -211,40 +199,44 @@ namespace wan24.Crypto
             }
             finally
             {
-                kex1?.Clear();
-                kex2?.Clear();
                 key1?.Clear();
                 key2?.Clear();
             }
         }
 
         /// <summary>
-        /// Stretch a password hybrid
+        /// Stretch a password hybrid (will be set to <see cref="CryptoOptions.Password"/>)
         /// </summary>
-        /// <param name="pwd">Stretched password</param>
         /// <param name="options">Options</param>
-        /// <returns>Hybrid stretched key</returns>
-        public static byte[] StretchPassword(byte[] pwd, CryptoOptions options)
+        public static void StretchPassword(CryptoOptions options)
         {
-            EncryptionAlgorithmBase encryption = EncryptionHelper.GetAlgorithm(options.Algorithm ?? EncryptionHelper.DefaultAlgorithm.Name);
-            KdfAlgorithmBase algo = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm ?? _KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name);
-            CryptoOptions hybridOptions = algo.DefaultOptions;
-            hybridOptions.KdfIterations = options.CounterKdfIterations;
-            (byte[] res, options.CounterKdfSalt) = algo.Stretch(pwd, encryption.KeySize, options.CounterKdfSalt, hybridOptions);
-            return res;
+            if (options.Password == null) throw new ArgumentException("No password", nameof(options));
+            byte[] pwd = options.Password;
+            try
+            {
+                EncryptionAlgorithmBase encryption = EncryptionHelper.GetAlgorithm(options.Algorithm ?? EncryptionHelper.DefaultAlgorithm.Name);
+                KdfAlgorithmBase algo = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm ?? _KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name);
+                CryptoOptions hybridOptions = algo.DefaultOptions;
+                hybridOptions.KdfIterations = options.CounterKdfIterations;
+                (options.Password, options.CounterKdfSalt) = algo.Stretch(options.Password, encryption.KeySize, options.CounterKdfSalt, hybridOptions);
+            }
+            finally
+            {
+                pwd.Clear();
+            }
         }
 
         /// <summary>
-        /// Compute a hybrid MAC
+        /// Compute a hybrid MAC (will be set to <see cref="CryptoOptions.Mac"/>)
         /// </summary>
-        /// <param name="mac">Hybrid MAC</param>
         /// <param name="options">Options</param>
         /// <returns>Hybrid MAC</returns>
-        public static byte[] ComputeMac(byte[] mac, CryptoOptions options)
+        public static void ComputeMac(CryptoOptions options)
         {
             if (options.Password == null) throw new ArgumentException("No password", nameof(options));
+            if (options.Mac == null) throw new ArgumentException("No MAC", nameof(options));
             CryptoOptions hybridOptions = MacHelper.GetAlgorithm(options.CounterMacAlgorithm ?? _MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).DefaultOptions;
-            return mac.Mac(options.Password, hybridOptions);
+            options.Mac = options.Mac.Mac(options.Password, hybridOptions);
         }
 
         /// <summary>
@@ -252,11 +244,10 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="signature">Signature</param>
         /// <param name="options">Options</param>
-        /// <returns>Hybrid signature (RFC 3279 DER sequence)</returns>
-        public static byte[] Sign(SignatureContainer signature, CryptoOptions options)
+        public static void Sign(SignatureContainer signature, CryptoOptions options)
         {
             if (options.CounterPrivateKey is not ISignaturePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
-            return ((ISignaturePrivateKey)options.CounterPrivateKey).SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
+            signature.CounterSignature = ((ISignaturePrivateKey)options.CounterPrivateKey).SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
         }
 
         /// <summary>

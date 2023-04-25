@@ -28,8 +28,6 @@ namespace wan24_Crypto_Tests
             Assert.AreEqual(HashHelper.DefaultAlgorithm.HashLength, Data.Hash().Length);
             Assert.AreEqual(HashHelper.DefaultAlgorithm, HashHelper.GetAlgorithm(HashHelper.DefaultAlgorithm.Name));
             Assert.AreEqual(HashHelper.DefaultAlgorithm, HashHelper.GetAlgorithm(HashHelper.DefaultAlgorithm.Value));
-            Assert.AreEqual(HashHelper.DefaultAlgorithm.Name, HashHelper.GetAlgorithmName(HashHelper.DefaultAlgorithm.Value));
-            Assert.AreEqual(HashHelper.DefaultAlgorithm.Value, HashHelper.GetAlgorithmValue(HashHelper.DefaultAlgorithm.Name));
         }
 
         public void Sync_Tests(string name)

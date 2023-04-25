@@ -35,9 +35,9 @@ namespace wan24.Crypto
                 crypto.CryptoStream.Dispose();
                 long pos = cipherData.Position;
                 cipherData.Position = options.MacPosition;
-                byte[] mac = crypto.Mac.Transform!.Hash ?? throw new InvalidProgramException();
-                if (options.UsingCounterMac) mac = HybridAlgorithmHelper.ComputeMac(mac, options);
-                cipherData.Write(mac);
+                options.Mac = crypto.Mac.Transform!.Hash ?? throw new InvalidProgramException();
+                if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
+                cipherData.Write(options.Mac);
                 cipherData.Position = pos;
                 return cipherData;
             }
@@ -69,7 +69,8 @@ namespace wan24.Crypto
         {
             EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
             options ??= DefaultOptions;
-            options.SetPrivateKey(key);
+            options = EncryptionHelper.GetDefaultOptions(options);
+            options.SetKeys(key);
             (options, MacStreams? macStream) = WriteOptions(rawData, cipherData, pwd: null, options);
             try
             {
@@ -130,9 +131,9 @@ namespace wan24.Crypto
                     await crypto.CryptoStream.DisposeAsync().DynamicContext();
                     long pos = cipherData.Position;
                     cipherData.Position = options.MacPosition;
-                    byte[] mac = crypto.Mac.Transform!.Hash ?? throw new InvalidProgramException();
-                    if (options.UsingCounterMac) mac = HybridAlgorithmHelper.ComputeMac(mac, options);
-                    await cipherData.WriteAsync(mac, cancellationToken).DynamicContext();
+                    options.Mac = crypto.Mac.Transform!.Hash ?? throw new InvalidProgramException();
+                    if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
+                    await cipherData.WriteAsync(options.Mac, cancellationToken).DynamicContext();
                     cipherData.Position = pos;
                 }
             }
@@ -165,7 +166,8 @@ namespace wan24.Crypto
         {
             EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
             options ??= DefaultOptions;
-            options.SetPrivateKey(key);
+            options = EncryptionHelper.GetDefaultOptions(options);
+            options.SetKeys(key);
             (options, MacStreams? macStream) = await WriteOptionsAsync(rawData, cipherData, pwd: null, options, cancellationToken).DynamicContext();
             try
             {

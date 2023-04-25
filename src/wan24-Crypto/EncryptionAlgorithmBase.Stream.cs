@@ -32,9 +32,9 @@ namespace wan24.Crypto
                             macStream.Stream.Dispose();
                             long pos = cipherData.Position;
                             cipherData.Position = options.MacPosition;
-                            byte[] mac = macStream.Transform!.Hash ?? throw new InvalidProgramException();
-                            if (options.UsingCounterMac) mac = HybridAlgorithmHelper.ComputeMac(mac, options);
-                            cipherData.Write(mac);
+                            options.Mac = macStream.Transform!.Hash ?? throw new InvalidProgramException();
+                            if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
+                            cipherData.Write(options.Mac);
                             cipherData.Position = pos;
                         }
                         finally
@@ -104,9 +104,9 @@ namespace wan24.Crypto
                             macStream.Stream.Dispose();
                             long pos = cipherData.Position;
                             cipherData.Position = options.MacPosition;
-                            byte[] mac = macStream.Transform!.Hash ?? throw new InvalidProgramException();
-                            if (options.UsingCounterMac) mac = HybridAlgorithmHelper.ComputeMac(mac, options);
-                            await cipherData.WriteAsync(mac, cancellationToken).DynamicContext();
+                            options.Mac = macStream.Transform!.Hash ?? throw new InvalidProgramException();
+                            if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
+                            await cipherData.WriteAsync(options.Mac, cancellationToken).DynamicContext();
                             cipherData.Position = pos;
                         }
                         finally
@@ -178,9 +178,10 @@ namespace wan24.Crypto
                                 if (red > 0) macStream.Stream.Write(buffer.Span.Slice(0, red));
                             }
                         macStream.Stream.FlushFinalBlock();
-                        byte[] redMac = macStream.Transform.Hash ?? throw new InvalidProgramException();
-                        if (options.UsingCounterMac) redMac = HybridAlgorithmHelper.ComputeMac(redMac, options);
-                        if (!options.Mac.AsSpan().SlowCompare(redMac)) throw new CryptographicException("MAC mismatch");
+                        byte[] redMac = options.Mac;
+                        options.Mac = macStream.Transform.Hash ?? throw new InvalidProgramException();
+                        if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
+                        if (!options.Mac!.AsSpan().SlowCompare(redMac)) throw new InvalidDataException("MAC mismatch");
                         cipherData.Position = pos;
                     }
                     // Create the crypto stream
@@ -251,9 +252,10 @@ namespace wan24.Crypto
                                 if (red > 0) macStream.Stream.Write(buffer.Span.Slice(0, red));
                             }
                         macStream.Stream.FlushFinalBlock();
-                        byte[] redMac = macStream.Transform.Hash ?? throw new InvalidProgramException();
-                        if (options.UsingCounterMac) redMac = HybridAlgorithmHelper.ComputeMac(redMac, options);
-                        if (!options.Mac.AsSpan().SlowCompare(redMac)) throw new CryptographicException("MAC mismatch");
+                        byte[] redMac = options.Mac;
+                        options.Mac = macStream.Transform.Hash ?? throw new InvalidProgramException();
+                        if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
+                        if (!options.Mac!.AsSpan().SlowCompare(redMac)) throw new InvalidDataException("MAC mismatch");
                         cipherData.Position = pos;
                     }
                     // Create the crypto stream

@@ -15,7 +15,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        protected AsymmetricPublicKeyBase() : base() { }
+        /// <param name="algorithm">Algorithm name</param>
+        protected AsymmetricPublicKeyBase(string algorithm) : base(algorithm) { }
 
         /// <inheritdoc/>
         public override byte[] ID => (byte[])(_ID ??= KeyData.Array.Hash(HashHelper.GetAlgorithm(HashSha512Algorithm.ALGORITHM_NAME).DefaultOptions)).Clone();
@@ -28,7 +29,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 if (data != null && !signature.ValidateSignedData(data, throwOnError)) return false;
                 return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
             }
@@ -47,7 +48,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 if (data != null && !signature.ValidateSignedData(data, throwOnError)) return false;
                 return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
             }
@@ -66,7 +67,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 if (data != null && !await signature.ValidateSignedDataAsync(data, throwOnError, cancellationToken).DynamicContext()) return false;
                 return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
             }

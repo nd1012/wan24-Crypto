@@ -21,8 +21,6 @@ namespace wan24_Crypto_Tests
             Assert.AreEqual(KdfHelper.DefaultAlgorithm.SaltLength, Key.Stretch(64).Salt.Length);
             Assert.AreEqual(KdfHelper.DefaultAlgorithm, KdfHelper.GetAlgorithm(KdfHelper.DefaultAlgorithm.Name));
             Assert.AreEqual(KdfHelper.DefaultAlgorithm, KdfHelper.GetAlgorithm(KdfHelper.DefaultAlgorithm.Value));
-            Assert.AreEqual(KdfHelper.DefaultAlgorithm.Name, KdfHelper.GetAlgorithmName(KdfHelper.DefaultAlgorithm.Value));
-            Assert.AreEqual(KdfHelper.DefaultAlgorithm.Value, KdfHelper.GetAlgorithmValue(KdfHelper.DefaultAlgorithm.Name));
         }
 
         public void KdfAlgo_Tests(string name)

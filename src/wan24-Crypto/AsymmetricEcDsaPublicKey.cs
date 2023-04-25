@@ -15,7 +15,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public AsymmetricEcDsaPublicKey() : base() { }
+        public AsymmetricEcDsaPublicKey() : base(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME) { }
 
         /// <summary>
         /// Constructor
@@ -39,9 +39,6 @@ namespace wan24.Crypto
                 throw new CryptographicException(ex.Message, ex);
             }
         }
-
-        /// <inheritdoc/>
-        public override string Algorithm => AsymmetricEcDsaAlgorithm.ALGORITHM_NAME;
 
         /// <inheritdoc/>
         public override int Bits => PublicKey.KeySize;

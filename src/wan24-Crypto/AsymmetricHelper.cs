@@ -15,6 +15,14 @@ namespace wan24.Crypto
         /// Default signature algorithm
         /// </summary>
         private static IAsymmetricAlgorithm _DefaultSignatureAlgorithm;
+        /// <summary>
+        /// Use the hybrid key exchange options?
+        /// </summary>
+        private static bool _UseHybridKeyExchangeOptions = false;
+        /// <summary>
+        /// Use the hybrid signature options?
+        /// </summary>
+        private static bool _UseHybridSignatureOptions = false;
 
         /// <summary>
         /// Registered algorithms
@@ -34,6 +42,11 @@ namespace wan24.Crypto
             _DefaultKeyExchangeAlgorithm = Algorithms[AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME];
             _DefaultSignatureAlgorithm = Algorithms[AsymmetricEcDsaAlgorithm.ALGORITHM_NAME];
         }
+
+        /// <summary>
+        /// An object for thread synchronization
+        /// </summary>
+        public static object SyncObject { get; } = new();
 
         /// <summary>
         /// Default key exchange algorithm
@@ -58,6 +71,30 @@ namespace wan24.Crypto
             {
                 if (!value.CanSign) throw new ArgumentException("Algorithm can't sign", nameof(value));
                 _DefaultSignatureAlgorithm = value;
+            }
+        }
+
+        /// <summary>
+        /// Use the hybrid key exchange options?
+        /// </summary>
+        public static bool UseHybridKeyExchangeOptions
+        {
+            get => _UseHybridKeyExchangeOptions;
+            set
+            {
+                lock (SyncObject) _UseHybridKeyExchangeOptions = value;
+            }
+        }
+
+        /// <summary>
+        /// Use the hybrid signature options?
+        /// </summary>
+        public static bool UseHybridSignatureOptions
+        {
+            get => _UseHybridSignatureOptions;
+            set
+            {
+                lock (SyncObject) _UseHybridSignatureOptions = value;
             }
         }
 
@@ -113,6 +150,7 @@ namespace wan24.Crypto
                     options.AsymmetricKeyBits = DefaultKeyExchangeAlgorithm.DefaultKeySize;
                 }
             }
+            if (UseHybridKeyExchangeOptions) options = HybridAlgorithmHelper.GetKeyExchangeOptions(options);
             return options;
         }
 
@@ -135,27 +173,9 @@ namespace wan24.Crypto
                     options.AsymmetricKeyBits = DefaultSignatureAlgorithm.DefaultKeySize;
                 }
             }
+            if (UseHybridSignatureOptions) options = HybridAlgorithmHelper.GetSignatureOptions(options);
             return options;
         }
-
-        /// <summary>
-        /// Get the hash algorithm name
-        /// </summary>
-        /// <param name="algo">Hash algorithm value</param>
-        /// <returns>Hash algorithm name</returns>
-        public static string GetAlgorithmName(int algo)
-            => Algorithms.Values.Where(a => a.Value == algo).Select(a => a.Name).FirstOrDefault()
-                ?? throw new ArgumentException("Invalid algorithm", nameof(algo));
-
-        /// <summary>
-        /// Get the hash algorithm value
-        /// </summary>
-        /// <param name="algo">Hash algorithm name</param>
-        /// <returns>Hash algorithm value</returns>
-        public static int GetAlgorithmValue(string algo)
-            => Algorithms.TryGetValue(algo, out IAsymmetricAlgorithm? a)
-                ? a.Value
-                : throw new ArgumentException("Invalid algorithm", nameof(algo));
 
         /// <summary>
         /// Get an algorithm
@@ -173,8 +193,6 @@ namespace wan24.Crypto
         /// <param name="value">Algorithm value</param>
         /// <returns>Algorithm</returns>
         public static IAsymmetricAlgorithm GetAlgorithm(int value)
-            => Algorithms.TryGetValue(GetAlgorithmName(value), out IAsymmetricAlgorithm? algo)
-                ? algo
-                : throw new ArgumentException("Invalid algorithm", nameof(value));
+            => Algorithms.Values.FirstOrDefault(a => a.Value == value) ?? throw new ArgumentException("Invalid algorithm", nameof(value));
     }
 }

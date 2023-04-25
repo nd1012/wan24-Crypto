@@ -56,6 +56,7 @@ namespace wan24.Crypto
         /// <returns>AES instance</returns>
         public Aes CreateAes(CryptoOptions options)
         {
+            options = EncryptionHelper.GetDefaultOptions(options);
             Aes res = Aes.Create();
             try
             {

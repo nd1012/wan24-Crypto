@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class KeyExchangeDataContainer
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class KeyExchangeDataContainer
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.KeyExchangeDataContainer">
+  
+  
+  <h1 id="wan24_Crypto_KeyExchangeDataContainer" data-uid="wan24.Crypto.KeyExchangeDataContainer" class="text-break">Class KeyExchangeDataContainer
+  </h1>
+  <div class="markdown level0 summary"><p>Key exchange data container</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">wan24.ObjectValidation.ValidatableObject</span></div>
+    <div class="level2"><span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase</span></div>
+    <div class="level3"><span class="xref">KeyExchangeDataContainer</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.Collections.Generic.IEnumerable&lt;System.ComponentModel.DataAnnotations.ValidationResult&gt;.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.Collections.IEnumerable.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.ObjectValidation.ValidatableObject.ObjectValidatable(wan24.ObjectValidation.IObjectValidatable)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_KeyExchangeDataContainer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class KeyExchangeDataContainer : StreamSerializerBase, IObjectValidatable, IValidatableObject, IEnumerable&lt;ValidationResult&gt;, IEnumerable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L19">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer__ctor_" data-uid="wan24.Crypto.KeyExchangeDataContainer.#ctor*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer__ctor" data-uid="wan24.Crypto.KeyExchangeDataContainer.#ctor">KeyExchangeDataContainer()</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyExchangeDataContainer()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.VERSION%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L14">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_VERSION" data-uid="wan24.Crypto.KeyExchangeDataContainer.VERSION">VERSION</h4>
+  <div class="markdown level1 summary"><p>Object version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_CounterKeyExchangeData.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.CounterKeyExchangeData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L29">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_CounterKeyExchangeData_" data-uid="wan24.Crypto.KeyExchangeDataContainer.CounterKeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_CounterKeyExchangeData" data-uid="wan24.Crypto.KeyExchangeDataContainer.CounterKeyExchangeData">CounterKeyExchangeData</h4>
+  <div class="markdown level1 summary"><p>Counter key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] CounterKeyExchangeData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_KeyExchangeData.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.KeyExchangeData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L24">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_KeyExchangeData_" data-uid="wan24.Crypto.KeyExchangeDataContainer.KeyExchangeData*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_KeyExchangeData" data-uid="wan24.Crypto.KeyExchangeDataContainer.KeyExchangeData">KeyExchangeData</h4>
+  <div class="markdown level1 summary"><p>Key exchange data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] KeyExchangeData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L35">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_Clone_" data-uid="wan24.Crypto.KeyExchangeDataContainer.Clone*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_Clone" data-uid="wan24.Crypto.KeyExchangeDataContainer.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Clone this instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyExchangeDataContainer Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.KeyExchangeDataContainer.html">KeyExchangeDataContainer</a></td>
+        <td><p>Clone</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L56">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_Deserialize_" data-uid="wan24.Crypto.KeyExchangeDataContainer.Deserialize*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.KeyExchangeDataContainer.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Deserialize(Stream stream, int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L63">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_DeserializeAsync_" data-uid="wan24.Crypto.KeyExchangeDataContainer.DeserializeAsync*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.KeyExchangeDataContainer.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L42">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_Serialize_" data-uid="wan24.Crypto.KeyExchangeDataContainer.Serialize*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_Serialize_Stream_" data-uid="wan24.Crypto.KeyExchangeDataContainer.Serialize(Stream)">Serialize(Stream)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Serialize(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L49">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_SerializeAsync_" data-uid="wan24.Crypto.KeyExchangeDataContainer.SerializeAsync*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.KeyExchangeDataContainer.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

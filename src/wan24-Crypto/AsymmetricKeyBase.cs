@@ -22,13 +22,14 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        protected AsymmetricKeyBase() : base() { }
+        /// <param name="algorithm">Algorithm name</param>
+        protected AsymmetricKeyBase(string algorithm) : base() => Algorithm = AsymmetricHelper.GetAlgorithm(algorithm);
 
         /// <inheritdoc/>
         public abstract byte[] ID { get; }
 
         /// <inheritdoc/>
-        public abstract string Algorithm { get; }
+        public IAsymmetricAlgorithm Algorithm { get; }
 
         /// <inheritdoc/>
         public abstract int Bits { get; }
@@ -50,7 +51,7 @@ namespace wan24.Crypto
         protected virtual void Serialize(Stream stream)
         {
             stream.WriteNumber(VERSION)
-                .WriteNumber(AsymmetricHelper.GetAlgorithmValue(Algorithm))
+                .WriteNumber(Algorithm.Value)
                 .WriteBytes(KeyData.Array);
         }
 
@@ -62,7 +63,7 @@ namespace wan24.Crypto
         protected virtual async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
-            await stream.WriteNumberAsync(AsymmetricHelper.GetAlgorithmValue(Algorithm), cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(Algorithm.Value, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(KeyData.Array, cancellationToken).DynamicContext();
         }
 
@@ -74,7 +75,7 @@ namespace wan24.Crypto
         protected virtual void Deserialize(Stream stream, int version)
         {
             _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
-            if (AsymmetricHelper.GetAlgorithmName(stream.ReadNumber<int>()) != Algorithm) throw new SerializerException("Asymmetric key algorithm mismatch");
+            if (stream.ReadNumber<int>() != Algorithm.Value) throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
             KeyData = new(stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value);
         }
@@ -88,8 +89,8 @@ namespace wan24.Crypto
         protected virtual async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
-            if (AsymmetricHelper.GetAlgorithmName(await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext()) != Algorithm)
-                throw new SerializerException("Asymmetric key algorithm mismatch");
+            if (await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext() != Algorithm.Value)
+                throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
             KeyData = new((await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value);
         }

@@ -32,7 +32,6 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => true;
 
         /// <inheritdoc/>
-        public override MacStreams GetMacStream(byte[] pwd, Stream? target = null, bool writable = true, CryptoOptions? options = null)
-            => GetMacStreamInt(new HMACSHA384(pwd), target, writable, options);
+        public override KeyedHashAlgorithm GetMacAlgorithm(byte[] pwd, CryptoOptions? options = null) => new HMACSHA384(pwd);
     }
 }

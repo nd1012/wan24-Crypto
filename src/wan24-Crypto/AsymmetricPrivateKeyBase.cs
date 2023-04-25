@@ -19,7 +19,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        protected AsymmetricPrivateKeyBase() : base() { }
+        /// <param name="algorithm">Algorithm name</param>
+        protected AsymmetricPrivateKeyBase(string algorithm) : base(algorithm) { }
 
         /// <summary>
         /// Public key (don't dispose - the instance will be disposed if the private key instance is being disposed!)
@@ -41,7 +42,8 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 return SignHash(data.Hash(options), purpose, options);
             }
@@ -60,7 +62,8 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 return SignHash(data.Hash(options), purpose, options);
             }
@@ -79,7 +82,8 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 return SignHash(await data.HashAsync(options, cancellationToken).DynamicContext(), purpose, options);
             }
@@ -98,11 +102,12 @@ namespace wan24.Crypto
         {
             try
             {
-                if (!AsymmetricHelper.GetAlgorithm(Algorithm).CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
+                options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 SignatureContainer res = new(options.HashAlgorithm!, hash, (ISignaturePrivateKey)this, (ISignaturePrivateKey?)options.CounterPrivateKey, purpose);
                 res.Signature = SignHashRaw(res.CreateSignatureHash());
-                if (options.CounterPrivateKey != null) res.CounterSignature = HybridAlgorithmHelper.Sign(res, options);
+                if (options.CounterPrivateKey != null) HybridAlgorithmHelper.Sign(res, options);
                 PublicKey.ValidateSignature(res);
                 return res;
             }
@@ -120,7 +125,7 @@ namespace wan24.Crypto
         public virtual byte[] SignHashRaw(byte[] hash) => throw new NotSupportedException();
 
         /// <inheritdoc/>
-        public virtual byte[] GetKeyExchangeData(CryptoOptions? options = null) => throw new NotSupportedException();
+        public virtual (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null) => throw new NotSupportedException();
 
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData) => throw new NotSupportedException();

@@ -19,6 +19,7 @@ namespace wan24_Crypto_Tests
             options.Compression = CompressionHelper.GetDefaultOptions();
             options.HashAlgorithm = HashHelper.DefaultAlgorithm.Name;
             options.AsymmetricAlgorithm = AsymmetricHelper.DefaultKeyExchangeAlgorithm.Name;
+            options.AsymmetricKeyBits = AsymmetricHelper.DefaultKeyExchangeAlgorithm.DefaultKeySize;
             options.MaximumAge = TimeSpan.FromDays(1);
             options.MaximumTimeOffset = TimeSpan.FromMinutes(5);
             using MemoryStream ms = new();
@@ -47,6 +48,7 @@ namespace wan24_Crypto_Tests
             options.Compression = CompressionHelper.GetDefaultOptions();
             options.HashAlgorithm = HashHelper.DefaultAlgorithm.Name;
             options.AsymmetricAlgorithm = AsymmetricHelper.DefaultKeyExchangeAlgorithm.Name;
+            options.AsymmetricKeyBits = AsymmetricHelper.DefaultKeyExchangeAlgorithm.DefaultKeySize;
             options.MaximumAge = TimeSpan.FromDays(1);
             options.MaximumTimeOffset = TimeSpan.FromMinutes(5);
             using MemoryStream ms = new();

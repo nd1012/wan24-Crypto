@@ -49,7 +49,8 @@ namespace wan24.Crypto
         {
             EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
             options ??= DefaultOptions;
-            options.SetPrivateKey(key);
+            options = EncryptionHelper.GetDefaultOptions(options);
+            options.SetKeys(key);
             options = ReadOptions(cipherData, rawData, pwd: null, options);
             try
             {
@@ -115,7 +116,8 @@ namespace wan24.Crypto
         {
             EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
             options ??= DefaultOptions;
-            options.SetPrivateKey(key);
+            options = EncryptionHelper.GetDefaultOptions(options);
+            options.SetKeys(key);
             options = await ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
             try
             {

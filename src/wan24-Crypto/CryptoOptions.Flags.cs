@@ -36,26 +36,6 @@ namespace wan24.Crypto
         public bool KdfAlgorithmIncluded { get; set; } = true;
 
         /// <summary>
-        /// Asymmetric algorithm (for the key exchange data) included?
-        /// </summary>
-        public bool AsymmetricAlgorithmIncluded { get; set; }
-
-        /// <summary>
-        /// Counter MAC algorithm included?
-        /// </summary>
-        public bool CounterMacAlgorithmIncluded { get; set; }
-
-        /// <summary>
-        /// Counter KDF algorithm included?
-        /// </summary>
-        public bool CounterKdfAlgorithmIncluded { get; set; }
-
-        /// <summary>
-        /// Asymmetric counter algorithm (for the key exchange data) included?
-        /// </summary>
-        public bool AsymmetricCounterAlgorithmIncluded { get; set; }
-
-        /// <summary>
         /// Key exchange data included?
         /// </summary>
         public bool KeyExchangeDataIncluded { get; set; }
@@ -93,10 +73,6 @@ namespace wan24.Crypto
                 if (Compressed) res |= CryptoFlags.Compressed;
                 if (MacIncluded) res |= CryptoFlags.MacIncluded;
                 if (KdfAlgorithmIncluded) res |= CryptoFlags.KdfAlgorithmIncluded;
-                if (AsymmetricAlgorithmIncluded) res |= CryptoFlags.AsymmetricAlgorithmIncluded;
-                if (CounterMacAlgorithmIncluded) res |= CryptoFlags.CounterMacAlgorithmIncluded;
-                if (CounterKdfAlgorithmIncluded) res |= CryptoFlags.CounterKdfAlgorithmIncluded;
-                if (AsymmetricCounterAlgorithmIncluded) res |= CryptoFlags.AsymmetricCounterAlgorithmIncluded;
                 if (KeyExchangeDataIncluded) res |= CryptoFlags.KeyExchangeDataIncluded;
                 if (PayloadIncluded) res |= CryptoFlags.PayloadIncluded;
                 if (TimeIncluded) res |= CryptoFlags.TimeIncluded;
@@ -113,10 +89,6 @@ namespace wan24.Crypto
                 Compressed = value.HasFlag(CryptoFlags.Compressed);
                 MacIncluded = value.HasFlag(CryptoFlags.MacIncluded);
                 KdfAlgorithmIncluded = value.HasFlag(CryptoFlags.KdfAlgorithmIncluded);
-                AsymmetricAlgorithmIncluded = value.HasFlag(CryptoFlags.AsymmetricAlgorithmIncluded);
-                CounterMacAlgorithmIncluded = value.HasFlag(CryptoFlags.CounterMacAlgorithmIncluded);
-                CounterKdfAlgorithmIncluded = value.HasFlag(CryptoFlags.CounterKdfAlgorithmIncluded);
-                AsymmetricCounterAlgorithmIncluded = value.HasFlag(CryptoFlags.AsymmetricCounterAlgorithmIncluded);
                 KeyExchangeDataIncluded = value.HasFlag(CryptoFlags.KeyExchangeDataIncluded);
                 PayloadIncluded = value.HasFlag(CryptoFlags.PayloadIncluded);
                 TimeIncluded = value.HasFlag(CryptoFlags.TimeIncluded);

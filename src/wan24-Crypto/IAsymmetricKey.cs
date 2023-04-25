@@ -15,9 +15,9 @@ namespace wan24.Crypto
         /// <summary>
         /// Algorithm name
         /// </summary>
-        string Algorithm { get; }
+        IAsymmetricAlgorithm Algorithm { get; }
         /// <summary>
-        /// Bits
+        /// Key size in bits
         /// </summary>
         int Bits { get; }
         /// <summary>

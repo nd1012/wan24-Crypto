@@ -15,7 +15,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public AsymmetricEcDiffieHellmanPrivateKey() : base() { }
+        public AsymmetricEcDiffieHellmanPrivateKey() : base(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME) { }
 
         /// <summary>
         /// Constructor
@@ -39,9 +39,6 @@ namespace wan24.Crypto
                 throw new CryptographicException(ex.Message, ex);
             }
         }
-
-        /// <inheritdoc/>
-        public override string Algorithm => AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME;
 
         /// <inheritdoc/>
         public override int Bits => PrivateKey.KeySize;
@@ -87,7 +84,15 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        public override byte[] GetKeyExchangeData(CryptoOptions? options = null) => (byte[])PublicKey.KeyData.Array.Clone();
+        public override (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null)
+        {
+            options ??= Algorithm.DefaultOptions;
+            options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
+            publicKey ??= options.PublicKey ?? options.PrivateKey?.PublicKey ?? PublicKey;
+            if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
+            byte[] ked = (byte[])publicKey.KeyData.Array.Clone();
+            return (DeriveKey(ked), ked);
+        }
 
         /// <inheritdoc/>
         public override byte[] DeriveKey(byte[] keyExchangeData)
