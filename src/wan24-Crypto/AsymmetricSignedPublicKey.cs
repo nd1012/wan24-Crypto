@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using System.Security;
+using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
@@ -120,7 +121,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -141,22 +142,22 @@ namespace wan24.Crypto
                     DateTime now = DateTime.UtcNow;
                     if (Created > Expires)
                     {
-                        if (throwOnError) throw new CryptographicException("Created after expired");
+                        if (throwOnError) throw new TimeoutException("Created after expired");
                         return false;
                     }
                     if (now < (MaximumTimeDifference == null ? Created : Created - MaximumTimeDifference))
                     {
-                        if (throwOnError) throw new CryptographicException("Created in the future");
+                        if (throwOnError) throw new TimeoutException("Created in the future");
                         return false;
                     }
                     if (now > (MaximumTimeDifference == null ? Expires : Expires + MaximumTimeDifference))
                     {
-                        if (throwOnError) throw new CryptographicException("Expired");
+                        if (throwOnError) throw new TimeoutException("Expired");
                         return false;
                     }
                     if (Created > Signature.Signed || Expires < Signature.Signed)
                     {
-                        if (throwOnError) throw new CryptographicException("Invalid signature time");
+                        if (throwOnError) throw new TimeoutException("Invalid signature time");
                         return false;
                     }
                 }
@@ -164,25 +165,25 @@ namespace wan24.Crypto
                 if (!Signature.SignerPublicKey.ValidateSignature(Signature, GetSignedData(), throwOnError)) return false;
                 if (Signature.CounterSigner != null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
                 {
-                    if (throwOnError) throw new CryptographicException("Counter signature validation failed");
+                    if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
                     return false;
                 }
                 // Validate the signer
                 if (Signer != null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
                 {
-                    if (throwOnError) throw new CryptographicException("Signer mismatch");
+                    if (throwOnError) throw new InvalidDataException("Signer mismatch");
                     return false;
                 }
                 // Validate the counter signer
                 if (CounterSigner != null && CounterSigner.PublicKey.ID.SequenceEqual(Signature.CounterSigner!))
                 {
-                    if (throwOnError) throw new CryptographicException("Counter signer mismatch");
+                    if (throwOnError) throw new InvalidDataException("Counter signer mismatch");
                     return false;
                 }
                 // Validate if not revoked
                 if (SignedPublicKeyRevocation(PublicKey.ID))
                 {
-                    if (throwOnError) throw new CryptographicException("Key was revoked");
+                    if (throwOnError) throw new SecurityException("Key was revoked");
                     return false;
                 }
                 // Deep validation to the self signed root public keys
@@ -194,7 +195,7 @@ namespace wan24.Crypto
                         // Self signed
                         if (!RootTrust(PublicKey.ID))
                         {
-                            if (throwOnError) throw new CryptographicException("Untrusted root signer");
+                            if (throwOnError) throw new SecurityException("Untrusted root signer");
                             return false;
                         }
                     }
@@ -204,7 +205,7 @@ namespace wan24.Crypto
                         signer = SignedPublicKeyStore(Signature.Signer);
                         if (signer == null)
                         {
-                            if (throwOnError) throw new CryptographicException("Missing signed signer public key");
+                            if (throwOnError) throw new InvalidDataException("Missing signed signer public key");
                             return false;
                         }
                     }
@@ -220,7 +221,7 @@ namespace wan24.Crypto
                             signer = SignedPublicKeyStore(Signature.CounterSigner);
                             if (signer == null)
                             {
-                                if (throwOnError) throw new CryptographicException("Missing signed counter signer public key");
+                                if (throwOnError) throw new InvalidDataException("Missing signed counter signer public key");
                                 return false;
                             }
                         }
@@ -236,7 +237,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -246,8 +247,10 @@ namespace wan24.Crypto
         /// <returns>Signed data</returns>
         public byte[] GetSignedData()
         {
+            SignatureContainer signature = Signature;
             try
             {
+                this.ValidateObject();
                 using MemoryStream ms = new();
                 ms.WriteAny(PublicKey);
                 ms.WriteNumber(Created.Ticks);
@@ -261,7 +264,11 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                Signature = signature;
             }
         }
 

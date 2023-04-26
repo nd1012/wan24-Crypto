@@ -151,6 +151,14 @@ namespace wan24.Crypto
                     HashAlgorithm = HashAlgorithm
                 });
             }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
             finally
             {
                 Signature = signature;
@@ -178,14 +186,25 @@ namespace wan24.Crypto
         /// <returns>If the signed data is valid</returns>
         public bool ValidateSignedData(Stream data, bool throwOnError = true)
         {
-            CryptoOptions options = HashHelper.GetDefaultOptions(new()
+            try
             {
-                HashAlgorithm = HashAlgorithm
-            });
-            byte[] hash = data.Hash(options);
-            bool res = hash.AsSpan().SlowCompare(SignedDataHash);
-            if (!res && throwOnError) throw new CryptographicException("Signed data hash mismatch");
-            return res;
+                CryptoOptions options = HashHelper.GetDefaultOptions(new()
+                {
+                    HashAlgorithm = HashAlgorithm
+                });
+                byte[] hash = data.Hash(options);
+                bool res = hash.AsSpan().SlowCompare(SignedDataHash);
+                if (!res && throwOnError) throw new InvalidDataException("Signed data hash mismatch");
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -197,14 +216,25 @@ namespace wan24.Crypto
         /// <returns>If the signed data is valid</returns>
         public async Task<bool> ValidateSignedDataAsync(Stream data, bool throwOnError = true, CancellationToken cancellationToken = default)
         {
-            CryptoOptions options = HashHelper.GetDefaultOptions(new()
+            try
             {
-                HashAlgorithm = HashAlgorithm
-            });
-            byte[] hash = await data.HashAsync(options, cancellationToken).DynamicContext();
-            bool res = hash.AsSpan().SlowCompare(SignedDataHash);
-            if (!res && throwOnError) throw new CryptographicException("Signed data hash mismatch");
-            return res;
+                CryptoOptions options = HashHelper.GetDefaultOptions(new()
+                {
+                    HashAlgorithm = HashAlgorithm
+                });
+                byte[] hash = await data.HashAsync(options, cancellationToken).DynamicContext();
+                bool res = hash.AsSpan().SlowCompare(SignedDataHash);
+                if (!res && throwOnError) throw new InvalidDataException("Signed data hash mismatch");
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <inheritdoc/>
@@ -278,5 +308,17 @@ namespace wan24.Crypto
             CounterSignerPublicKeyData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken)).Value;
             Purpose = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator byte[](SignatureContainer privateKey) => privateKey.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator SignatureContainer(byte[] data) => data.ToObject<SignatureContainer>();
     }
 }

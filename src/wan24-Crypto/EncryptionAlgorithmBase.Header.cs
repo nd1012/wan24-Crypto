@@ -18,10 +18,11 @@ namespace wan24.Crypto
         /// <returns>Written options and used MAC stream</returns>
         public virtual (CryptoOptions Options, MacStreams? MacStream) WriteOptions(Stream rawData, Stream cipherData, byte[]? pwd = null, CryptoOptions? options = null)
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
             CryptoOptions? givenOptions = options;
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
                 givenOptions?.Clear();
@@ -121,7 +122,7 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 if (options != givenOptions) options?.Clear();
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -142,10 +143,11 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
             CryptoOptions? givenOptions = options;
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
                 givenOptions?.Clear();
@@ -246,7 +248,7 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 if (options != givenOptions) options?.Clear();
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -287,10 +289,10 @@ namespace wan24.Crypto
              *      - Compression options
              *      - Compressed data
              */
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
             CryptoOptions? givenOptions = options;
             try
             {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
                 givenOptions?.Clear();
@@ -429,7 +431,7 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 if (options != givenOptions) options?.Clear();
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -450,10 +452,10 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
             CryptoOptions? givenOptions = options;
             try
             {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
                 givenOptions?.Clear();
@@ -583,7 +585,7 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 if (options != givenOptions) options?.Clear();
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
     }

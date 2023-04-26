@@ -55,6 +55,7 @@ namespace wan24.Crypto
         /// <returns>Unsigned key</returns>
         public AsymmetricSignedPublicKey GetAsUnsignedKey()
         {
+            this.ValidateObject();
             AsymmetricSignedPublicKey res = new()
             {
                 PublicKey = PublicKey
@@ -97,5 +98,11 @@ namespace wan24.Crypto
             PublicKey = await stream.ReadAnyAsync(version, cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
             Attributes = await stream.ReadDictAsync<string, string>(version, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }
+
+        /// <summary>
+        /// Cast as unsigned public key
+        /// </summary>
+        /// <param name="signingRequest">Signing request</param>
+        public static implicit operator AsymmetricSignedPublicKey(AsymmetricPublicKeySigningRequest signingRequest) => signingRequest.GetAsUnsignedKey();
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -37,7 +37,7 @@ namespace wan24.Crypto
             }
             catch(Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -61,7 +61,7 @@ namespace wan24.Crypto
                 }
                 catch(Exception ex)
                 {
-                    throw new CryptographicException(ex.Message, ex);
+                    throw CryptographicException.From(ex);
                 }
             }
         }
@@ -75,5 +75,17 @@ namespace wan24.Crypto
             base.Dispose(disposing);
             _PublicKey?.Dispose();
         }
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="publicKey">Public key</param>
+        public static implicit operator byte[](AsymmetricEcDiffieHellmanPublicKey publicKey) => publicKey.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricEcDiffieHellmanPublicKey(byte[] data) => data.ToObject<AsymmetricEcDiffieHellmanPublicKey>();
     }
 }

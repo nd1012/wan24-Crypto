@@ -29,7 +29,7 @@
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -77,7 +77,7 @@
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -125,7 +125,7 @@
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -173,7 +173,7 @@
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 

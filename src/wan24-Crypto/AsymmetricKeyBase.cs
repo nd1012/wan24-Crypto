@@ -44,6 +44,9 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         int? IStreamSerializerVersion.SerializedObjectVersion => _SerializedObjectVersion;
 
+        /// <inheritdoc/>
+        public abstract object Clone();
+
         /// <summary>
         /// Serialize
         /// </summary>

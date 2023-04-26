@@ -25,11 +25,11 @@ namespace wan24.Crypto
         {
             Algorithms = new(new KeyValuePair<string, HashAlgorithmBase>[]
             {
-                new(HashMd5Algorithm.ALGORITHM_NAME, new HashMd5Algorithm()),
-                new(HashSha1Algorithm.ALGORITHM_NAME, new HashSha1Algorithm()),
-                new(HashSha256Algorithm.ALGORITHM_NAME, new HashSha256Algorithm()),
-                new(HashSha384Algorithm.ALGORITHM_NAME, new HashSha384Algorithm()),
-                new(HashSha512Algorithm.ALGORITHM_NAME, new HashSha512Algorithm())
+                new(HashMd5Algorithm.ALGORITHM_NAME, HashMd5Algorithm.Instance),
+                new(HashSha1Algorithm.ALGORITHM_NAME, HashSha1Algorithm.Instance),
+                new(HashSha256Algorithm.ALGORITHM_NAME, HashSha256Algorithm.Instance),
+                new(HashSha384Algorithm.ALGORITHM_NAME, HashSha384Algorithm.Instance),
+                new(HashSha512Algorithm.ALGORITHM_NAME, HashSha512Algorithm.Instance)
             });
             _DefaultAlgorithm = Algorithms[HashSha512Algorithm.ALGORITHM_NAME];
         }
@@ -96,15 +96,26 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions GetDefaultOptions(CryptoOptions? options = null)
         {
-            if (options == null)
+            try
             {
-                options = DefaultAlgorithm.DefaultOptions;
+                if (options == null)
+                {
+                    options = DefaultAlgorithm.DefaultOptions;
+                }
+                else
+                {
+                    options.HashAlgorithm ??= DefaultAlgorithm.Name;
+                }
+                return options;
             }
-            else
+            catch (CryptographicException)
             {
-                options.HashAlgorithm ??= DefaultAlgorithm.Name;
+                throw;
             }
-            return options;
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>

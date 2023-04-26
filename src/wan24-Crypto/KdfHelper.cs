@@ -24,7 +24,7 @@ namespace wan24.Crypto
         {
             Algorithms = new(new KeyValuePair<string, KdfAlgorithmBase>[]
             {
-                new(KdfPbKdf2Algorithm.ALGORITHM_NAME, new KdfPbKdf2Algorithm())
+                new(KdfPbKdf2Algorithm.ALGORITHM_NAME, KdfPbKdf2Algorithm.Instance)
             });
             _DefaultAlgorithm = Algorithms[KdfPbKdf2Algorithm.ALGORITHM_NAME];
         }
@@ -67,16 +67,27 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions GetDefaultOptions(CryptoOptions? options = null)
         {
-            if (options == null)
+            try
             {
-                options = DefaultAlgorithm.DefaultOptions;
+                if (options == null)
+                {
+                    options = DefaultAlgorithm.DefaultOptions;
+                }
+                else if (options.KdfAlgorithm == null)
+                {
+                    options.KdfAlgorithm = DefaultAlgorithm.Name;
+                    options.KdfIterations = DefaultAlgorithm.DefaultIterations;
+                }
+                return options;
             }
-            else if (options.KdfAlgorithm == null)
+            catch (CryptographicException)
             {
-                options.KdfAlgorithm = DefaultAlgorithm.Name;
-                options.KdfIterations = DefaultAlgorithm.DefaultIterations;
+                throw;
             }
-            return options;
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>

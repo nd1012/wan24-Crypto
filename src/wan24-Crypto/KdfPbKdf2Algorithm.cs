@@ -30,9 +30,19 @@ namespace wan24.Crypto
         private int _DefaultIterations = DEFAULT_ITERATIONS;
 
         /// <summary>
+        /// Static constructor
+        /// </summary>
+        static KdfPbKdf2Algorithm() => Instance = new();
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+
+        /// <summary>
+        /// Instance
+        /// </summary>
+        public static KdfPbKdf2Algorithm Instance { get; }
 
         /// <summary>
         /// Default iterations
@@ -73,7 +83,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
     }

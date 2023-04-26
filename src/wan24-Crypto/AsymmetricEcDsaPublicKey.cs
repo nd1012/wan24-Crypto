@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -36,7 +37,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -60,7 +61,7 @@ namespace wan24.Crypto
                 }
                 catch (Exception ex)
                 {
-                    throw new CryptographicException(ex.Message, ex);
+                    throw CryptographicException.From(ex);
                 }
             }
         }
@@ -74,7 +75,7 @@ namespace wan24.Crypto
             try
             {
                 bool res = PublicKey.VerifyHash(signedHash, signature, DSASignatureFormat.Rfc3279DerSequence);
-                if (!res && throwOnError) throw new CryptographicException("Signature validation failed");
+                if (!res && throwOnError) throw new InvalidDataException("Signature validation failed");
                 return res;
             }
             catch (CryptographicException)
@@ -83,7 +84,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -93,7 +94,7 @@ namespace wan24.Crypto
             try
             {
                 bool res = ValidateSignatureRaw(signature.Signature, signature.CreateSignatureHash());
-                if (!res && throwOnError) throw new CryptographicException("Signature validation failed");
+                if (!res && throwOnError) throw new InvalidDataException("Signature validation failed");
                 return res;
             }
             catch (CryptographicException)
@@ -102,7 +103,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -112,5 +113,17 @@ namespace wan24.Crypto
             base.Dispose(disposing);
             _PublicKey?.Dispose();
         }
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="publicKey">Public key</param>
+        public static implicit operator byte[](AsymmetricEcDsaPublicKey publicKey) => publicKey.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricEcDsaPublicKey(byte[] data) => data.ToObject<AsymmetricEcDsaPublicKey>();
     }
 }

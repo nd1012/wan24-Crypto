@@ -76,11 +76,23 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            if (CanExchangeKey) options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
-            if (CanSign) options = AsymmetricHelper.GetDefaultSignatureOptions(options);
-            using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
-            return key.DeriveKey(keyExchangeData);
+            try
+            {
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                if (CanExchangeKey) options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
+                if (CanSign) options = AsymmetricHelper.GetDefaultSignatureOptions(options);
+                using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
+                return key.DeriveKey(keyExchangeData);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <inheritdoc/>

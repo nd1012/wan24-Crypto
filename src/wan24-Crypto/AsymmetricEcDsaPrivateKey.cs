@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -36,7 +37,7 @@ namespace wan24.Crypto
             }
             catch(Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -57,7 +58,7 @@ namespace wan24.Crypto
                 }
                 catch (Exception ex)
                 {
-                    throw new CryptographicException(ex.Message, ex);
+                    throw CryptographicException.From(ex);
                 }
             }
         }
@@ -79,7 +80,7 @@ namespace wan24.Crypto
                 }
                 catch (Exception ex)
                 {
-                    throw new CryptographicException(ex.Message, ex);
+                    throw CryptographicException.From(ex);
                 }
             }
         }
@@ -89,11 +90,16 @@ namespace wan24.Crypto
         {
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 return PrivateKey.SignHash(hash, DSASignatureFormat.Rfc3279DerSequence);
+            }
+            catch(CryptographicException)
+            {
+                throw;
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -103,5 +109,23 @@ namespace wan24.Crypto
             base.Dispose(disposing);
             _PrivateKey?.Dispose();
         }
+
+        /// <summary>
+        /// Cast to public key
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator AsymmetricEcDsaPublicKey(AsymmetricEcDsaPrivateKey privateKey) => privateKey.PublicKey;
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator byte[](AsymmetricEcDsaPrivateKey privateKey) => privateKey.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricEcDsaPrivateKey(byte[] data) => data.ToObject<AsymmetricEcDsaPrivateKey>();
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using wan24.Compression;
+﻿using wan24.Compression;
 using wan24.Crypto;
 using wan24.StreamSerializerExtensions;
 
@@ -36,8 +31,7 @@ namespace wan24_Crypto_Tests
             Assert.AreEqual(options.AsymmetricAlgorithm, options2.AsymmetricAlgorithm);
             Assert.AreEqual(options.AsymmetricKeyBits, options2.AsymmetricKeyBits);
             Assert.AreEqual(options.HashAlgorithm, options2.HashAlgorithm);
-            //TODO Will be fixed with the next wan24-Compression library version
-            //Assert.AreEqual(options.Compression.Algorithm, options2.Compression?.Algorithm);
+            Assert.AreEqual(options.Compression.Algorithm, options2.Compression?.Algorithm);
             Assert.AreEqual(options.MaximumAge.Value.TotalMilliseconds, options2.MaximumAge?.TotalMilliseconds);
             Assert.AreEqual(options.MaximumTimeOffset.Value.TotalMilliseconds, options2.MaximumTimeOffset?.TotalMilliseconds);
         }
@@ -65,8 +59,7 @@ namespace wan24_Crypto_Tests
             Assert.AreEqual(options.AsymmetricAlgorithm, options2.AsymmetricAlgorithm);
             Assert.AreEqual(options.AsymmetricKeyBits, options2.AsymmetricKeyBits);
             Assert.AreEqual(options.HashAlgorithm, options2.HashAlgorithm);
-            //TODO Will be fixed with the next wan24-Compression library version
-            //Assert.AreEqual(options.Compression.Algorithm, options2.Compression?.Algorithm);
+            Assert.AreEqual(options.Compression.Algorithm, options2.Compression?.Algorithm);
             Assert.AreEqual(options.MaximumAge.Value.TotalMilliseconds, options2.MaximumAge?.TotalMilliseconds);
             Assert.AreEqual(options.MaximumTimeOffset.Value.TotalMilliseconds, options2.MaximumTimeOffset?.TotalMilliseconds);
         }

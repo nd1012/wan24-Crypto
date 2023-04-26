@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -36,7 +37,7 @@ namespace wan24.Crypto
             }
             catch(Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -78,7 +79,7 @@ namespace wan24.Crypto
                 }
                 catch(Exception ex)
                 {
-                    throw new CryptographicException(ex.Message, ex);
+                    throw CryptographicException.From(ex);
                 }
             }
         }
@@ -86,17 +87,28 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public override (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null)
         {
-            options ??= Algorithm.DefaultOptions;
-            options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
-            publicKey ??= options.PublicKey ?? options.PrivateKey?.PublicKey ?? PublicKey;
-            if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
-            byte[] ked = (byte[])publicKey.KeyData.Array.Clone();
-            return (DeriveKey(ked), ked);
+            try
+            {
+                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
+                if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
+                byte[] ked = (byte[])PublicKey.KeyData.Array.Clone();
+                return (DeriveKey((byte[])publicKey.KeyData.Array.Clone()), ked);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <inheritdoc/>
         public override byte[] DeriveKey(byte[] keyExchangeData)
         {
+            if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
             try
             {
                 using AsymmetricEcDiffieHellmanPublicKey publicKey = new((byte[])keyExchangeData.Clone());
@@ -108,7 +120,7 @@ namespace wan24.Crypto
             }
             catch(Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -118,5 +130,23 @@ namespace wan24.Crypto
             base.Dispose(disposing);
             _PrivateKey?.Dispose();
         }
+
+        /// <summary>
+        /// Cast to public key
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator AsymmetricEcDiffieHellmanPublicKey(AsymmetricEcDiffieHellmanPrivateKey privateKey) => privateKey.PublicKey;
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator byte[](AsymmetricEcDiffieHellmanPrivateKey privateKey) => privateKey.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricEcDiffieHellmanPrivateKey(byte[] data) => data.ToObject<AsymmetricEcDiffieHellmanPrivateKey>();
     }
 }

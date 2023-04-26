@@ -19,6 +19,7 @@ namespace wan24.Crypto
         {
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password == null) throw new ArgumentException("Missing password", nameof(options));
                 Stream? stream = null;
@@ -68,7 +69,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -91,6 +92,7 @@ namespace wan24.Crypto
         {
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password == null) throw new ArgumentException("Missing password", nameof(options));
                 Stream? stream = null;
@@ -140,7 +142,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -169,7 +171,7 @@ namespace wan24.Crypto
                         MacAlgorithmBase mac = MacHelper.GetAlgorithm(options.MacAlgorithm ?? MacHelper.DefaultAlgorithm.Name);
                         CryptoOptions macOptions = mac!.DefaultOptions;
                         macOptions.LeaveOpen = true;
-                        using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new CryptographicException("No password yet"), options: macOptions);
+                        using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new InvalidOperationException("No password yet"), options: macOptions);
                         int read = (int)(pos - (options.MacPosition + options.Mac!.Length));
                         using (RentedArray<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
                             for (int red; read > 0; read -= red)
@@ -208,7 +210,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -243,7 +245,7 @@ namespace wan24.Crypto
                         MacAlgorithmBase mac = MacHelper.GetAlgorithm(options.MacAlgorithm ?? MacHelper.DefaultAlgorithm.Name);
                         CryptoOptions macOptions = mac!.DefaultOptions;
                         macOptions.LeaveOpen = true;
-                        using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new CryptographicException("No password yet"), options: macOptions);
+                        using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new InvalidOperationException("No password yet"), options: macOptions);
                         int read = (int)(pos - (options.MacPosition + options.Mac!.Length));
                         using (RentedArray<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
                             for (int red; read > 0; read -= red)
@@ -282,7 +284,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
     }

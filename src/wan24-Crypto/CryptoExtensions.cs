@@ -18,10 +18,21 @@ namespace wan24.Crypto
         /// <returns>Stream</returns>
         public static T AddPadding<T>(this T stream, int blockSize, long? written = null) where T : Stream
         {
-            if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
-            if (written != null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
-            stream.Write(RandomNumberGenerator.GetBytes(blockSize - (int)((written ?? stream.Length) % blockSize)));
-            return stream;
+            try
+            {
+                if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
+                if (written != null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
+                stream.Write(RandomNumberGenerator.GetBytes(blockSize - (int)((written ?? stream.Length) % blockSize)));
+                return stream;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -34,9 +45,20 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         public static async Task AddPaddingAsync<T>(this T stream, int blockSize, long? written = null, CancellationToken cancellationToken = default) where T : Stream
         {
-            if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
-            if (written != null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
-            await stream.WriteAsync(RandomNumberGenerator.GetBytes(blockSize - (int)((written ?? stream.Length) % blockSize)), cancellationToken).DynamicContext();
+            try
+            {
+                if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
+                if (written != null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
+                await stream.WriteAsync(RandomNumberGenerator.GetBytes(blockSize - (int)((written ?? stream.Length) % blockSize)), cancellationToken).DynamicContext();
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -50,12 +72,19 @@ namespace wan24.Crypto
         /// <returns>If the MAC is valid</returns>
         public static bool ValidateMac(this Stream stream, byte[] mac, byte[] pwd, bool resetPosition = true, CryptoOptions? options = null)
         {
-            if (!stream.CanRead) throw new NotSupportedException();
-            if (resetPosition && !stream.CanSeek) throw new InvalidOperationException();
-            long pos = resetPosition ? stream.Position : 0;
             try
             {
-                return mac.AsSpan().SlowCompare(stream.Mac(pwd, options));
+                if (!stream.CanRead) throw new NotSupportedException();
+                if (resetPosition && !stream.CanSeek) throw new InvalidOperationException();
+                long pos = resetPosition ? stream.Position : 0;
+                try
+                {
+                    return mac.AsSpan().SlowCompare(stream.Mac(pwd, options));
+                }
+                finally
+                {
+                    if (resetPosition) stream.Position = pos;
+                }
             }
             catch (CryptographicException)
             {
@@ -63,11 +92,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
-            }
-            finally
-            {
-                if (resetPosition) stream.Position = pos;
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -90,13 +115,20 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
-            if (!stream.CanRead) throw new NotSupportedException();
-            if (resetPosition && !stream.CanSeek) throw new InvalidOperationException();
-            long pos = resetPosition ? stream.Position : 0;
             try
             {
-                byte[] mac2 = await stream.MacAsync(pwd, options, cancellationToken).DynamicContext();
-                return mac.AsSpan().SlowCompare(mac2);
+                if (!stream.CanRead) throw new NotSupportedException();
+                if (resetPosition && !stream.CanSeek) throw new InvalidOperationException();
+                long pos = resetPosition ? stream.Position : 0;
+                try
+                {
+                    byte[] mac2 = await stream.MacAsync(pwd, options, cancellationToken).DynamicContext();
+                    return mac.AsSpan().SlowCompare(mac2);
+                }
+                finally
+                {
+                    if (resetPosition) stream.Position = pos;
+                }
             }
             catch (CryptographicException)
             {
@@ -104,11 +136,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
-            }
-            finally
-            {
-                if (resetPosition) stream.Position = pos;
+                throw CryptographicException.From(ex);
             }
         }
     }

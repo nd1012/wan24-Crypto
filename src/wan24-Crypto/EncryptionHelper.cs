@@ -17,6 +17,10 @@ namespace wan24.Crypto
         /// </summary>
         private static bool _UseHybridOptions = false;
         /// <summary>
+        /// Enable the JSON wrapper for payload objects which don't implement <see cref="wan24.StreamSerializerExtensions.IStreamSerializer"/>?
+        /// </summary>
+        private static bool _EnableJsonWrapper = false;
+        /// <summary>
         /// Registered algorithms
         /// </summary>
         public static readonly ConcurrentDictionary<string, EncryptionAlgorithmBase> Algorithms;
@@ -28,7 +32,7 @@ namespace wan24.Crypto
         {
             Algorithms = new(new KeyValuePair<string, EncryptionAlgorithmBase>[]
             {
-                new(EncryptionAes256CbcAlgorithm.ALGORITHM_NAME, new EncryptionAes256CbcAlgorithm())
+                new(EncryptionAes256CbcAlgorithm.ALGORITHM_NAME, EncryptionAes256CbcAlgorithm.Instance)
             });
             _DefaultAlgorithm = Algorithms[EncryptionAes256CbcAlgorithm.ALGORITHM_NAME];
         }
@@ -59,6 +63,18 @@ namespace wan24.Crypto
             set
             {
                 lock (SyncObject) _UseHybridOptions = value;
+            }
+        }
+
+        /// <summary>
+        /// Enable the JSON wrapper for payload objects which don't implement <see cref="wan24.StreamSerializerExtensions.IStreamSerializer"/>?
+        /// </summary>
+        public static bool EnableJsonWrapper
+        {
+            get => _EnableJsonWrapper;
+            set
+            {
+                lock (SyncObject) _EnableJsonWrapper = value;
             }
         }
 
@@ -411,22 +427,33 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions GetDefaultOptions(CryptoOptions? options = null)
         {
-            if (options == null)
+            try
             {
-                options = DefaultAlgorithm.DefaultOptions;
-            }
-            else
-            {
-                options.Algorithm ??= DefaultAlgorithm.Name;
-                if (options.RequireMac) options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name;
-                if (options.RequireKdf && options.KdfAlgorithm == null)
+                if (options == null)
                 {
-                    options.KdfAlgorithm = KdfHelper.DefaultAlgorithm.Name;
-                    options.KdfIterations = KdfHelper.DefaultAlgorithm.DefaultIterations;
+                    options = DefaultAlgorithm.DefaultOptions;
                 }
+                else
+                {
+                    options.Algorithm ??= DefaultAlgorithm.Name;
+                    if (options.RequireMac) options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name;
+                    if (options.RequireKdf && options.KdfAlgorithm == null)
+                    {
+                        options.KdfAlgorithm = KdfHelper.DefaultAlgorithm.Name;
+                        options.KdfIterations = KdfHelper.DefaultAlgorithm.DefaultIterations;
+                    }
+                }
+                if (UseHybridOptions) options = HybridAlgorithmHelper.GetEncryptionOptions(options);
+                return options;
             }
-            if (UseHybridOptions) options = HybridAlgorithmHelper.GetEncryptionOptions(options);
-            return options;
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -440,23 +467,36 @@ namespace wan24.Crypto
         /// <returns>Valid?</returns>
         public static bool ValidateStreams(Stream rawData, Stream cipherData, bool forEncryption, CryptoOptions? options = null, bool throwOnError = true)
         {
-            options ??= GetDefaultOptions(options);
-            if (forEncryption)
+            try
             {
-                if (!rawData.CanRead || cipherData.CanSeek != options.MacIncluded || !cipherData.CanWrite)
+                options ??= GetDefaultOptions(options);
+                if (forEncryption)
                 {
-                    if (throwOnError) throw new CryptographicException($"Readable raw data and writ{(options.MacIncluded ? "- and seek" : string.Empty)}able cipher data required");
-                    return false;
+                    if (!rawData.CanRead || cipherData.CanSeek != options.MacIncluded || !cipherData.CanWrite)
+                    {
+                        if (throwOnError)
+                            throw new ArgumentException($"Readable raw data and writ{(options.MacIncluded ? "- and seek" : string.Empty)}able cipher data stream required", nameof(cipherData));
+                        return false;
+                    }
+                }
+                else
+                {
+                    options.Requirements = options.Flags;
+                    if (!rawData.CanWrite || cipherData.CanSeek != options.RequireMac || !cipherData.CanRead)
+                    {
+                        if (throwOnError)
+                            throw new ArgumentException($"Writable raw data and read{(options.RequireMac ? "- and seek" : string.Empty)}able raw data stream required", nameof(cipherData));
+                        return false;
+                    }
                 }
             }
-            else
+            catch (CryptographicException)
             {
-                options.Requirements = options.Flags;
-                if (!rawData.CanWrite || cipherData.CanSeek != options.RequireMac || !cipherData.CanRead)
-                {
-                    if (throwOnError) throw new CryptographicException($"Writable raw data and read{(options.RequireMac ? "- and seek" : string.Empty)}able cipher data required");
-                    return false;
-                }
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
             }
             return true;
         }

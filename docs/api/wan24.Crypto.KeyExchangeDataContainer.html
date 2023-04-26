@@ -87,10 +87,9 @@
     <h5>Implements</h5>
     <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
     <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
     <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
     <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+    <div><span class="xref">ICloneable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -128,12 +127,6 @@
       <span class="xref">wan24.ObjectValidation.ValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
     </div>
     <div>
-      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.Collections.Generic.IEnumerable&lt;System.ComponentModel.DataAnnotations.ValidationResult&gt;.GetEnumerator()</span>
-    </div>
-    <div>
-      <span class="xref">wan24.ObjectValidation.ValidatableObject.System.Collections.IEnumerable.GetEnumerator()</span>
-    </div>
-    <div>
       <span class="xref">wan24.ObjectValidation.ValidatableObject.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
     </div>
     <div>
@@ -165,7 +158,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_KeyExchangeDataContainer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class KeyExchangeDataContainer : StreamSerializerBase, IObjectValidatable, IValidatableObject, IEnumerable&lt;ValidationResult&gt;, IEnumerable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class KeyExchangeDataContainer : StreamSerializerBase, IObjectValidatable, IValidatableObject, IStreamSerializerVersion, IStreamSerializer</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -493,6 +486,106 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_op_Explicit_System_Byte____wan24_Crypto_KeyExchangeDataContainer.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.op_Explicit(System.Byte%5B%5D)~wan24.Crypto.KeyExchangeDataContainer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L82">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_op_Explicit_" data-uid="wan24.Crypto.KeyExchangeDataContainer.op_Explicit*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_op_Explicit_System_Byte____wan24_Crypto_KeyExchangeDataContainer" data-uid="wan24.Crypto.KeyExchangeDataContainer.op_Explicit(System.Byte[])~wan24.Crypto.KeyExchangeDataContainer">Explicit(Byte[] to KeyExchangeDataContainer)</h4>
+  <div class="markdown level1 summary"><p>Cast from serialized data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator KeyExchangeDataContainer(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.KeyExchangeDataContainer.html">KeyExchangeDataContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_KeyExchangeDataContainer_op_Implicit_wan24_Crypto_KeyExchangeDataContainer__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.KeyExchangeDataContainer.op_Implicit(wan24.Crypto.KeyExchangeDataContainer)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/KeyExchangeDataContainer.cs/#L76">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KeyExchangeDataContainer_op_Implicit_" data-uid="wan24.Crypto.KeyExchangeDataContainer.op_Implicit*"></a>
+  <h4 id="wan24_Crypto_KeyExchangeDataContainer_op_Implicit_wan24_Crypto_KeyExchangeDataContainer__System_Byte__" data-uid="wan24.Crypto.KeyExchangeDataContainer.op_Implicit(wan24.Crypto.KeyExchangeDataContainer)~System.Byte[]">Implicit(KeyExchangeDataContainer to Byte[])</h4>
+  <div class="markdown level1 summary"><p>Cast as serialized data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator byte[](KeyExchangeDataContainer keyExchangeData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.KeyExchangeDataContainer.html">KeyExchangeDataContainer</a></td>
+        <td><span class="parametername">keyExchangeData</span></td>
+        <td><p>Key exchange data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
@@ -501,16 +594,13 @@
       <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
   </div>
   <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
-  <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+  <div>
+      <span class="xref">ICloneable</span>
   </div>
 </article>
           </div>

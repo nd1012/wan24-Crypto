@@ -61,12 +61,23 @@ namespace wan24.Crypto
         /// <param name="publicKey">Public key (required for encryption, if not using a PFS key)</param>
         public void SetCounterKeys(IAsymmetricPrivateKey privateKey, IAsymmetricPublicKey? publicKey = null)
         {
-            if (publicKey != null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
-            CounterPrivateKey = privateKey;
-            CounterPublicKey = publicKey;
-            AsymmetricAlgorithm = privateKey.Algorithm.Name;
-            KeyExchangeDataIncluded = true;
-            RequireKeyExchangeData = true;
+            try
+            {
+                if (publicKey != null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
+                CounterPrivateKey = privateKey;
+                CounterPublicKey = publicKey;
+                AsymmetricAlgorithm = privateKey.Algorithm.Name;
+                KeyExchangeDataIncluded = true;
+                RequireKeyExchangeData = true;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
     }
 }

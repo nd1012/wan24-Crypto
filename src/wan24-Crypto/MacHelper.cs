@@ -26,10 +26,10 @@ namespace wan24.Crypto
         {
             Algorithms = new(new KeyValuePair<string, MacAlgorithmBase>[]
             {
-                new(MacHmacSha1Algorithm.ALGORITHM_NAME, new MacHmacSha1Algorithm()),
-                new(MacHmacSha256Algorithm.ALGORITHM_NAME, new MacHmacSha256Algorithm()),
-                new(MacHmacSha384Algorithm.ALGORITHM_NAME, new MacHmacSha384Algorithm()),
-                new(MacHmacSha512Algorithm.ALGORITHM_NAME, new MacHmacSha512Algorithm())
+                new(MacHmacSha1Algorithm.ALGORITHM_NAME, MacHmacSha1Algorithm.Instance),
+                new(MacHmacSha256Algorithm.ALGORITHM_NAME, MacHmacSha256Algorithm.Instance),
+                new(MacHmacSha384Algorithm.ALGORITHM_NAME, MacHmacSha384Algorithm.Instance),
+                new(MacHmacSha512Algorithm.ALGORITHM_NAME, MacHmacSha512Algorithm.Instance)
             });
             _DefaultAlgorithm = Algorithms[MacHmacSha512Algorithm.ALGORITHM_NAME];
         }
@@ -99,15 +99,26 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions GetDefaultOptions(CryptoOptions? options = null)
         {
-            if (options == null)
+            try
             {
-                options = DefaultAlgorithm.DefaultOptions;
+                if (options == null)
+                {
+                    options = DefaultAlgorithm.DefaultOptions;
+                }
+                else
+                {
+                    options.MacAlgorithm ??= DefaultAlgorithm.Name;
+                }
+                return options;
             }
-            else
+            catch (CryptographicException)
             {
-                options.MacAlgorithm ??= DefaultAlgorithm.Name;
+                throw;
             }
-            return options;
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>

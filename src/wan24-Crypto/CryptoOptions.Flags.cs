@@ -83,7 +83,7 @@ namespace wan24.Crypto
             set
             {
                 HeaderVersion = (int)value.RemoveFlags();
-                if (HeaderVersion < 1 || HeaderVersion > HEADER_VERSION) throw new CryptographicException($"Invalid header version {HeaderVersion} in crypto flags");
+                if (HeaderVersion < 1 || HeaderVersion > HEADER_VERSION) throw new ArgumentException($"Invalid header version {HeaderVersion} in crypto flags", nameof(value));
                 SerializerVersionIncluded = value.HasFlag(CryptoFlags.SerializerVersionIncluded);
                 MacIncluded = value.HasFlag(CryptoFlags.MacIncluded);
                 Compressed = value.HasFlag(CryptoFlags.Compressed);

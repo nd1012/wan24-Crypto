@@ -37,23 +37,23 @@ namespace wan24.Crypto
                 if (KdfAlgorithm != null)
                 {
                     KdfAlgorithmBase kdfAlgo = KdfHelper.GetAlgorithm(KdfAlgorithm);
-                    if (kdfAlgo.DefaultIterations > KdfIterations) throw new CryptographicException("Invalid KDF iteration count");
+                    if (kdfAlgo.DefaultIterations > KdfIterations) throw new InvalidDataException("Invalid KDF iteration count");
                 }
                 if (AsymmetricAlgorithm != null)
                 {
                     IAsymmetricAlgorithm asymmetricAlgo = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm);
-                    if (!asymmetricAlgo.AllowedKeySizes.Contains(AsymmetricKeyBits)) throw new CryptographicException("Invalid asymmetric key size");
+                    if (!asymmetricAlgo.AllowedKeySizes.Contains(AsymmetricKeyBits)) throw new InvalidDataException("Invalid asymmetric key size");
                 }
                 if (CounterMacAlgorithm != null) MacHelper.GetAlgorithm(CounterMacAlgorithm);
                 if (CounterKdfAlgorithm != null)
                 {
                     KdfAlgorithmBase kdfAlgo = KdfHelper.GetAlgorithm(CounterKdfAlgorithm);
-                    if (kdfAlgo.DefaultIterations > KdfIterations) throw new CryptographicException("Invalid counter KDF iteration count");
+                    if (kdfAlgo.DefaultIterations > KdfIterations) throw new InvalidDataException("Invalid counter KDF iteration count");
                 }
                 if (AsymmetricCounterAlgorithm != null) AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm);
                 if (HashAlgorithm != null) HashHelper.GetAlgorithm(HashAlgorithm);
-                if (Compression?.Algorithm != null && !CompressionHelper.Algorithms.TryGetValue(Compression.Algorithm, out _))
-                    throw new CryptographicException("Invalid compression algorithm");
+                if (Compression?.Algorithm != null) CompressionHelper.GetAlgorithm(Compression.Algorithm);
+
             }
             catch (CryptographicException)
             {
@@ -61,7 +61,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
     }

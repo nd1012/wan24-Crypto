@@ -25,6 +25,9 @@ namespace wan24.Crypto
         public abstract IAsymmetricPublicKey GetCopy();
 
         /// <inheritdoc/>
+        public sealed override object Clone() => GetCopy();
+
+        /// <inheritdoc/>
         public virtual bool ValidateSignature(SignatureContainer signature, byte[]? data = null, bool throwOnError = true)
         {
             try
@@ -39,7 +42,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -58,7 +61,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 
@@ -77,7 +80,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw new CryptographicException(ex.Message, ex);
+                throw CryptographicException.From(ex);
             }
         }
 

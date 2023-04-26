@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using wan24.Compression;
+using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -9,8 +10,8 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            //stream.WriteAnyNullable(Compression)//TODO Serialize
-            stream.WriteStringNullable(Algorithm)
+            stream.WriteSerializedNullable(Compression)
+                .WriteStringNullable(Algorithm)
                 .WriteStringNullable(MacAlgorithm)
                 .WriteStringNullable(KdfAlgorithm)
                 .WriteNumber(KdfIterations)
@@ -31,7 +32,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            //await stream.WriteAnyNullableAsync(Compression, cancellationToken).DynamicContext();//TODO Serialize
+            await stream.WriteSerializedNullableAsync(Compression, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(Algorithm, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(MacAlgorithm, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(KdfAlgorithm, cancellationToken).DynamicContext();
@@ -53,7 +54,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            //Compression = stream.ReadAnyNullable(version) as CompressionOptions;
+            Compression = stream.ReadSerializedNullable<CompressionOptions>(version);
             Algorithm = stream.ReadStringNullable(version, minLen: 1, maxLen: byte.MaxValue);
             MacAlgorithm = stream.ReadStringNullable(version, minLen: 1, maxLen: byte.MaxValue);
             KdfAlgorithm = stream.ReadStringNullable(version, minLen: 1, maxLen: byte.MaxValue);
@@ -77,7 +78,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            //Compression = await stream.ReadAnyNullableAsync(version, cancellationToken: cancellationToken).DynamicContext() as CompressionOptions;
+            Compression = await stream.ReadSerializedNullableAsync<CompressionOptions>(version, cancellationToken: cancellationToken).DynamicContext();
             Algorithm = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             MacAlgorithm = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             KdfAlgorithm = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();

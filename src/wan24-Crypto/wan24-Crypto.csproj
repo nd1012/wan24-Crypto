@@ -9,14 +9,14 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>wan24-Crypto</PackageId>
     <Title>wan24-Crypto</Title>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
     <Product>wan24-Crypto</Product>
     <Description>Crypto helper</Description>
     <Copyright>(c)2023 Andreas Zimmermann, wan24.de</Copyright>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>crypto</PackageTags>
+    <PackageTags>crypto;cryptography;hybrid-cryptography</PackageTags>
     <PackageProjectUrl>https://github.com/nd1012/wan24-Crypto</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nd1012/wan24-Crypto</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -25,9 +25,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Stream-Serializer-Extensions" Version="1.3.0" />
-    <PackageReference Include="wan24-Compression" Version="1.2.0" />
-    <PackageReference Include="wan24-Core" Version="1.6.0" />
+    <PackageReference Include="Stream-Serializer-Extensions" Version="1.3.1" />
+    <PackageReference Include="wan24-Compression" Version="1.2.1" />
+    <PackageReference Include="wan24-Core" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
