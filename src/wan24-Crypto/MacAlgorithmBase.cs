@@ -104,6 +104,8 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public virtual byte[] Mac(Stream data, byte[] pwd, CryptoOptions? options = null)
         {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
@@ -135,6 +137,8 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public virtual async Task<byte[]> MacAsync(Stream data, byte[] pwd, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)

@@ -100,6 +100,8 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual byte[] Hash(Stream data, CryptoOptions? options = null)
         {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
@@ -130,6 +132,8 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual async Task<byte[]> HashAsync(Stream data, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
