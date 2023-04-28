@@ -1,5 +1,4 @@
 ﻿using wan24.Core;
-using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -194,19 +193,40 @@ namespace wan24.Crypto
         /// <returns>Key exchange data</returns>
         public static void GetKeyExchangeData(KeyExchangeDataContainer keyExchangeData, CryptoOptions options)
         {
+            byte[]? pwd = null,
+                newPwd = null;
+            CryptoOptions? kedOptions = null;
             try
             {
                 if (options.CounterPrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing counter private key", nameof(options));
                 if (options.Password == null) throw new ArgumentException("No password yet", nameof(options));
-                (options.Password, keyExchangeData.CounterKeyExchangeData) = key.GetKeyExchangeData(options: options);
+                kedOptions = new()
+                {
+                    PrivateKey = options.CounterPrivateKey,
+                    PublicKey = options.CounterPublicKey
+                };
+                (pwd, keyExchangeData.CounterKeyExchangeData) = key.GetKeyExchangeData(options: kedOptions);
+                newPwd = new byte[options.Password.Length + pwd.Length];
+                options.Password.AsSpan().CopyTo(newPwd);
+                pwd.AsSpan().CopyTo(newPwd.AsSpan(options.Password.Length, newPwd.Length - options.Password.Length));
+                options.Password.Clear();
+                options.Password = newPwd;
             }
             catch (CryptographicException)
             {
+                pwd?.Clear();
+                newPwd?.Clear();
                 throw;
             }
             catch (Exception ex)
             {
+                pwd?.Clear();
+                newPwd?.Clear();
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                kedOptions?.Clear();
             }
         }
 
@@ -231,7 +251,7 @@ namespace wan24.Crypto
                     key2 = counterKey.DeriveKey(keyExchangeData.CounterKeyExchangeData);
                     res = new byte[key1.Length + key2.Length];
                     key1.AsSpan().CopyTo(res.AsSpan());
-                    key2.AsSpan().CopyTo(res.AsSpan()[key1.Length..]);
+                    key2.AsSpan().CopyTo(res.AsSpan(key1.Length, res.Length - key1.Length));
                     options.Password = res;
                 }
                 catch
@@ -299,7 +319,6 @@ namespace wan24.Crypto
             {
                 if (options.Mac == null) throw new ArgumentException("No MAC", nameof(options));
                 if (options.Password == null) throw new ArgumentException("No password", nameof(options));
-                if (options.Mac == null) throw new ArgumentException("No MAC", nameof(options));
                 CryptoOptions hybridOptions = MacHelper.GetAlgorithm(options.CounterMacAlgorithm ?? _MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).DefaultOptions;
                 options.Mac = options.Mac.Mac(options.Password, hybridOptions);
             }
@@ -345,7 +364,7 @@ namespace wan24.Crypto
             try
             {
                 if (signature.CounterSignature == null) throw new ArgumentException("No counter signature", nameof(signature));
-                using ISignaturePublicKey counterSignerPublicKey = signature.CounterSignerPublicKey as ISignaturePublicKey ?? throw new InvalidDataException("Missing counter signer public key");
+                using ISignaturePublicKey counterSignerPublicKey = signature.CounterSignerPublicKey ?? throw new InvalidDataException("Missing counter signer public key");
                 return counterSignerPublicKey.ValidateSignatureRaw(signature.CounterSignature, signature.CreateSignatureHash(forCounterSignature: true), throwOnError: false);
             }
             catch (CryptographicException)

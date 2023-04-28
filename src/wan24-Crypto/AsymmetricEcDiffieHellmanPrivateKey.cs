@@ -109,9 +109,9 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public override byte[] DeriveKey(byte[] keyExchangeData)
         {
-            if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 using AsymmetricEcDiffieHellmanPublicKey publicKey = new((byte[])keyExchangeData.Clone());
                 return PrivateKey.DeriveKeyMaterial(publicKey.PublicKey);
             }
