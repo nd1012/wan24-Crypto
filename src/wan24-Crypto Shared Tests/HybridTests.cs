@@ -11,12 +11,12 @@ namespace wan24.Crypto.Tests
             foreach (string name in AsymmetricHelper.Algorithms.Keys)
                 foreach (string counterName in AsymmetricHelper.Algorithms.Keys)
                 {
-                    if (name == counterName) continue;
+                    //if (name == counterName) continue;
                     if (seen.Contains($"{name} {counterName}")) continue;
                     seen.Add($"{name} {counterName}");
                     algo = AsymmetricHelper.GetAlgorithm(name);
                     counterAlgo = AsymmetricHelper.GetAlgorithm(counterName);
-                    if (algo.CanExchangeKey && !counterAlgo.CanExchangeKey && algo.CanSign && !counterAlgo.CanSign) continue;
+                    if (algo.CanExchangeKey != counterAlgo.CanExchangeKey && algo.CanSign != counterAlgo.CanSign) continue;
                     AsymmetricTests(new()
                     {
                         AsymmetricAlgorithm = name,
@@ -32,30 +32,28 @@ namespace wan24.Crypto.Tests
                 counterAlgo = AsymmetricHelper.GetAlgorithm(options.AsymmetricCounterAlgorithm!);
             if (algo.CanExchangeKey && counterAlgo.CanExchangeKey)
             {
-                Console.WriteLine("Running key exchange tests");
+                Console.WriteLine("\tRunning key exchange tests");
+                options.AsymmetricAlgorithm = algo.Name;
                 options.AsymmetricKeyBits = algo.DefaultKeySize;
                 using IKeyExchangePrivateKey privateKey = AsymmetricHelper.CreateKeyExchangeKeyPair(options);
-                options.AsymmetricAlgorithm = options.AsymmetricCounterAlgorithm;
+                options.AsymmetricAlgorithm = counterAlgo.Name;
                 options.AsymmetricKeyBits = counterAlgo.DefaultKeySize;
                 using IKeyExchangePrivateKey privateKey2 = AsymmetricHelper.CreateKeyExchangeKeyPair(options);
-                options.AsymmetricCounterAlgorithm = options.AsymmetricAlgorithm;
-                options.AsymmetricAlgorithm = privateKey.Algorithm.Name;
+                options.AsymmetricAlgorithm = algo.Name;
+                options.AsymmetricCounterAlgorithm = counterAlgo.Name;
+                options.PrivateKey = privateKey;
                 options.CounterPrivateKey = privateKey2;
                 KeyExchangeDataContainer keyExchangeData = new();
-                (byte[] key1, keyExchangeData.KeyExchangeData) = privateKey.GetKeyExchangeData(privateKey2.PublicKey, options);
+                (options.Password, keyExchangeData.KeyExchangeData) = privateKey.GetKeyExchangeData(options: options);
                 HybridAlgorithmHelper.GetKeyExchangeData(keyExchangeData, options);
-                Assert.IsNotNull(options.Password);
                 Assert.IsNotNull(keyExchangeData.CounterKeyExchangeData);
-                key1 = options.Password;
-                byte[] key2 = privateKey2.DeriveKey(keyExchangeData.KeyExchangeData);
+                byte[] key1 = options.Password;
                 HybridAlgorithmHelper.DeriveKey(keyExchangeData, options);
-                Assert.IsNotNull(options.Password);
-                key2 = options.Password;
-                Assert.IsTrue(key1.SequenceEqual(key2));
+                Assert.IsTrue(key1.SequenceEqual(options.Password));
             }
             if (algo.CanSign && counterAlgo.CanSign)
             {
-                Console.WriteLine("Running signature tests");
+                Console.WriteLine("\tRunning signature tests");
                 options.AsymmetricKeyBits = algo.DefaultKeySize;
                 using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair(options);
                 options.AsymmetricAlgorithm = options.AsymmetricCounterAlgorithm;
@@ -143,14 +141,13 @@ namespace wan24.Crypto.Tests
             foreach (string name in EncryptionHelper.Algorithms.Keys)
             {
                 macSeen.Clear();
-                asymmetricSeen.Clear();
-                kdfSeen.Clear();
                 foreach (string macName in MacHelper.Algorithms.Keys)
                     foreach (string counterMacName in MacHelper.Algorithms.Keys)
                     {
                         if (macName == counterMacName) continue;
                         if (macSeen.Contains($"{macName} {counterMacName}")) continue;
                         macSeen.Add($"{macName} {counterMacName}");
+                        asymmetricSeen.Clear();
                         foreach (string asymmetricName in AsymmetricHelper.Algorithms.Keys)
                         {
                             if (!AsymmetricHelper.GetAlgorithm(asymmetricName).CanExchangeKey) continue;
@@ -160,6 +157,7 @@ namespace wan24.Crypto.Tests
                                 //if (asymmetricName == counterAsymmetricName) continue;
                                 if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}")) continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
+                                kdfSeen.Clear();
                                 foreach (string kdfName in KdfHelper.Algorithms.Keys)
                                     foreach (string counterKdfName in KdfHelper.Algorithms.Keys)
                                     {
@@ -196,14 +194,13 @@ namespace wan24.Crypto.Tests
             foreach (string name in EncryptionHelper.Algorithms.Keys)
             {
                 macSeen.Clear();
-                asymmetricSeen.Clear();
-                kdfSeen.Clear();
                 foreach (string macName in MacHelper.Algorithms.Keys)
                     foreach (string counterMacName in MacHelper.Algorithms.Keys)
                     {
                         if (macName == counterMacName) continue;
                         if (macSeen.Contains($"{macName} {counterMacName}")) continue;
                         macSeen.Add($"{macName} {counterMacName}");
+                        asymmetricSeen.Clear();
                         foreach (string asymmetricName in AsymmetricHelper.Algorithms.Keys)
                         {
                             if (!AsymmetricHelper.GetAlgorithm(asymmetricName).CanExchangeKey) continue;
@@ -213,6 +210,7 @@ namespace wan24.Crypto.Tests
                                 //if (asymmetricName == counterAsymmetricName) continue;
                                 if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}")) continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
+                                kdfSeen.Clear();
                                 foreach (string kdfName in KdfHelper.Algorithms.Keys)
                                     foreach (string counterKdfName in KdfHelper.Algorithms.Keys)
                                     {
