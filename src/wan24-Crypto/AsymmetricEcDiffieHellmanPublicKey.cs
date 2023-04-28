@@ -53,6 +53,7 @@ namespace wan24.Crypto
             {
                 try
                 {
+                    EnsureUndisposed();
                     if (_PublicKey != null) return _PublicKey;
                     using ECDiffieHellman dh = ECDiffieHellman.Create();
                     dh.ImportSubjectPublicKeyInfo(KeyData.Span, out int red);

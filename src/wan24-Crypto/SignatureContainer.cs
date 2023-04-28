@@ -112,17 +112,66 @@ namespace wan24.Crypto
         /// <summary>
         /// Signer public key (don't forget to dispose!)
         /// </summary>
-        public ISignaturePublicKey SignerPublicKey => (ISignaturePublicKey)AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey((byte[])SignerPublicKeyData.Clone());
+        public ISignaturePublicKey SignerPublicKey
+        {
+            get
+            {
+                try
+                {
+                    IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey((byte[])SignerPublicKeyData.Clone());
+                    try
+                    {
+                        return (ISignaturePublicKey)res;
+                    }
+                    catch
+                    {
+                        res.Dispose();
+                        throw;
+                    }
+                }
+                catch (CryptographicException)
+                {
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    throw CryptographicException.From(ex);
+                }
+            }
+        }
 
         /// <summary>
         /// Counter signer public key (don't forget to dispose!)
         /// </summary>
         public ISignaturePublicKey? CounterSignerPublicKey
-            => AsymmetricCounterAlgorithm == null
-                ? null
-                : (ISignaturePublicKey)AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
-                    (byte[])(CounterSignerPublicKeyData?.Clone() ?? throw new InvalidDataException("No counter signer public key data"))
-                    );
+        {
+            get
+            {
+                if (AsymmetricCounterAlgorithm == null) return null;
+                try
+                {
+                    IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
+                        (byte[])(CounterSignerPublicKeyData?.Clone() ?? throw new InvalidDataException("No counter signer public key data"))
+                        );
+                    try
+                    {
+                        return (ISignaturePublicKey)res;
+                    }
+                    catch
+                    {
+                        throw;
+                    }
+                }
+                catch (CryptographicException)
+                {
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    throw CryptographicException.From(ex);
+                }
+            }
+        }
 
         /// <summary>
         /// Signature purpose

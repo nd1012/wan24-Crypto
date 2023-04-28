@@ -78,10 +78,10 @@ namespace wan24.Crypto
                     res.Key = options.Password ?? throw new ArgumentException("Missing password", nameof(options));
                     return res;
                 }
-                catch
+                catch(Exception ex)
                 {
                     res.Dispose();
-                    throw;
+                    throw CryptographicException.From(ex);
                 }
             }
             catch (CryptographicException)

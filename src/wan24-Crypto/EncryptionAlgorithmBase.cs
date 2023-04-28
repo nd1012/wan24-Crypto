@@ -134,6 +134,7 @@ namespace wan24.Crypto
         /// <param name="buffer">Buffer</param>
         protected virtual void EncodeFlags(CryptoFlags flags, byte[] buffer)
         {
+            if (buffer.Length < 3) throw new ArgumentException("Buffer soo small", nameof(buffer));
             int f = (int)flags;
             buffer[0] = (byte)f;
             buffer[1] = (byte)(f >> 8);
@@ -147,6 +148,7 @@ namespace wan24.Crypto
         /// <returns>Flags</returns>
         protected virtual CryptoFlags DecodeFlags(byte[] buffer)
         {
+            if (buffer.Length < 3) throw new ArgumentException("Buffer soo small", nameof(buffer));
             int res = buffer[0];
             res |= buffer[1] << 8;
             res |= buffer[2] << 16;

@@ -109,6 +109,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (!privateKey.ID.SequenceEqual(PublicKey.ID)) Signer = publicKey;
                 CounterSigner = counterPublicKey;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
@@ -136,6 +137,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 // Validate the times
                 if (!ignoreTime)
                 {
@@ -250,6 +252,7 @@ namespace wan24.Crypto
             SignatureContainer signature = Signature;
             try
             {
+                EnsureUndisposed();
                 this.ValidateObject();
                 using MemoryStream ms = new();
                 ms.WriteAny(PublicKey);
@@ -275,6 +278,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public void Serialize(Stream stream)
         {
+            EnsureUndisposed();
             stream.WriteNumber(VERSION);
             stream.Write(GetSignedData());
             stream.WriteSerialized(Signature)
@@ -285,6 +289,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
+            EnsureUndisposed();
             await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
             await stream.WriteAsync(GetSignedData(), cancellationToken).DynamicContext();
             await stream.WriteSerializedAsync(Signature, cancellationToken).DynamicContext();
@@ -295,6 +300,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public void Deserialize(Stream stream, int version)
         {
+            EnsureUndisposed();
             _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             PublicKey = (IAsymmetricPublicKey)stream.ReadAny(version);
             Created = new DateTime(stream.ReadNumber<long>(version));
@@ -308,6 +314,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
+            EnsureUndisposed();
             _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             PublicKey = (IAsymmetricPublicKey)await stream.ReadAnyAsync(version, cancellationToken).DynamicContext();
             Created = new DateTime(await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext());

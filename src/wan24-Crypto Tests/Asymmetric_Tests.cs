@@ -6,8 +6,6 @@ namespace wan24_Crypto_Tests
     [TestClass]
     public class Asymmetric_Tests
     {
-        public static readonly byte[] Data = new byte[] { 1, 2, 3 };
-
         [TestMethod]
         public void AllAlgo_Tests() => AsymmetricTests.TestAllAlgorithms();
 

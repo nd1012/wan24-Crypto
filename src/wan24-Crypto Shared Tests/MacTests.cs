@@ -1,10 +1,12 @@
-﻿namespace wan24.Crypto.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace wan24.Crypto.Tests
 {
     public static class MacTests
     {
         public static async Task TestAllAlgorithms()
         {
-            Assert.IsTrue(MacHelper.Algorithms.Count > 0);
+            Assert.IsFalse(MacHelper.Algorithms.IsEmpty);
             foreach (string name in MacHelper.Algorithms.Keys)
             {
                 AlgorithmTests(name);

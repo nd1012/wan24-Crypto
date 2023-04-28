@@ -1,10 +1,12 @@
-﻿namespace wan24.Crypto.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace wan24.Crypto.Tests
 {
     public static class KdfTests
     {
         public static void TestAllAlgorithms()
         {
-            Assert.IsTrue(KdfHelper.Algorithms.Count > 0);
+            Assert.IsFalse(KdfHelper.Algorithms.IsEmpty);
             foreach (string name in KdfHelper.Algorithms.Keys) AlgorithmTests(name);
         }
 

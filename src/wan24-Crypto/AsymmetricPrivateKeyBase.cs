@@ -35,7 +35,16 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public IAsymmetricPrivateKey GetCopy()
-            => Activator.CreateInstance(typeof(tPrivate), new object?[] { KeyData.Array.Clone() }) as tPrivate ?? throw new InvalidProgramException($"Failed to copy {typeof(tPrivate)}");
+        {
+            try
+            {
+                return Activator.CreateInstance(typeof(tPrivate), new object?[] { KeyData.Array.Clone() }) as tPrivate ?? throw new InvalidProgramException($"Failed to copy {typeof(tPrivate)}");
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
 
         /// <inheritdoc/>
         public sealed override object Clone() => GetCopy();
@@ -45,6 +54,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
@@ -66,6 +76,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
@@ -87,6 +98,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
@@ -108,6 +120,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
