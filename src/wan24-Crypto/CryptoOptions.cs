@@ -167,7 +167,9 @@ namespace wan24.Crypto
         {
             try
             {
+#pragma warning disable IDE0034 // default expression can be simplified
                 if (PayloadData == null) return default(T?);
+#pragma warning restore IDE0034
                 if (typeof(IStreamSerializer).IsAssignableFrom(typeof(T)))
                 {
                     using MemoryStream ms = new();
@@ -352,7 +354,6 @@ namespace wan24.Crypto
             MaximumTimeOffset = MaximumTimeOffset,
             MacPosition = MacPosition,
             Mac = Mac,
-            CounterMac = CounterMac,
             HeaderProcessed = HeaderProcessed,
             Password = (byte[]?)Password?.Clone(),
             KdfSalt = (byte[]?)KdfSalt?.Clone(),

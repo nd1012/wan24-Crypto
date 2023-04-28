@@ -29,12 +29,6 @@ namespace wan24.Crypto
         public byte[]? Mac { get; set; }
 
         /// <summary>
-        /// Counter MAC (used internal for decryption)
-        /// </summary>
-        [CountLimit(byte.MaxValue)]
-        public byte[]? CounterMac { get; set; }
-
-        /// <summary>
         /// Has the header been processed (used internal)?
         /// </summary>
         public bool HeaderProcessed { get; set; }

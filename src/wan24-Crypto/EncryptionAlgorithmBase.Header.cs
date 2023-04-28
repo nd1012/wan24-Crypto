@@ -25,7 +25,6 @@ namespace wan24.Crypto
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
-                givenOptions?.Clear();
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) throw new InvalidOperationException();
                 options.Password = (byte[]?)pwd?.Clone();
@@ -150,7 +149,6 @@ namespace wan24.Crypto
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
-                givenOptions?.Clear();
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) throw new InvalidOperationException();
                 options.Password = (byte[]?)pwd?.Clone();
@@ -295,7 +293,6 @@ namespace wan24.Crypto
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
-                givenOptions?.Clear();
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) return options;
                 options.ValidateObject();
@@ -337,18 +334,17 @@ namespace wan24.Crypto
                     {
                         options.MacAlgorithm = options.MacAlgorithmIncluded
                             ? MacHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name
-                            : MacHelper.GetDefaultOptions(options).MacAlgorithm;
+                            : options.MacAlgorithm ?? MacHelper.GetDefaultOptions(options).MacAlgorithm;
                         if (options.UsingCounterMac)
                             options.CounterMacAlgorithm = MacHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                     }
                     options.MacPosition = cipherData.Position;
-                    mac = MacHelper.GetAlgorithm(
-                        options.UsingCounterMac
-                            ? options.CounterMacAlgorithm ?? HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name
-                            : options.MacAlgorithm ?? throw new ArgumentException("Missing MAC algorithm in options", nameof(options))
-                        );
-                    options.Mac = new byte[mac.MacLength];
-                    if (cipherData.Read(options.Mac) != mac.MacLength) throw new IOException("Failed to read the MAC");
+                    mac = MacHelper.GetAlgorithm(options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name);
+                    int len = options.UsingCounterMac
+                        ? MacHelper.GetAlgorithm(options.CounterMacAlgorithm ??= HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).MacLength
+                        : mac.MacLength;
+                    options.Mac = new byte[len];
+                    if (cipherData.Read(options.Mac) != len) throw new IOException("Failed to read the MAC");
                 }
                 // Read authenticated options
                 if (options.KeyExchangeDataIncluded)
@@ -361,7 +357,7 @@ namespace wan24.Crypto
                 {
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                     options.KdfIterations = cipherData.ReadNumber<int>(serializerVersion);
-                    options.KdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 0, maxLen: byte.MaxValue).Value;
+                    options.KdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
                     pwd = options.Password ?? throw new ArgumentException("No password yet", nameof(pwd));
                     try
                     {
@@ -377,7 +373,7 @@ namespace wan24.Crypto
                             pwd = options.Password;
                             options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                             options.CounterKdfIterations = cipherData.ReadNumber<int>(serializerVersion);
-                            options.CounterKdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 0, maxLen: byte.MaxValue).Value;
+                            options.CounterKdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
                             HybridAlgorithmHelper.StretchPassword(options);
                         }
                         finally
@@ -413,7 +409,7 @@ namespace wan24.Crypto
                     macOptions.LeaveOpen = true;
                     using MacStreams macStream = mac.GetMacStream(options.Password, options: macOptions);
                     cipherData.CopyTo(macStream.Stream);
-                    macStream.Stream.FlushFinalBlock();
+                    macStream.Stream.Dispose();
                     byte[] redMac = options.Mac;
                     options.Mac = macStream.Transform.Hash ?? throw new InvalidProgramException();
                     if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);
@@ -458,7 +454,6 @@ namespace wan24.Crypto
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
-                givenOptions?.Clear();
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) return options;
                 options.ValidateObject();
@@ -499,20 +494,19 @@ namespace wan24.Crypto
                     {
                         options.MacAlgorithm = options.MacAlgorithmIncluded
                             ? MacHelper.GetAlgorithm(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()).Name
-                            : MacHelper.DefaultAlgorithm.Name;
+                            : options.MacAlgorithm ?? MacHelper.DefaultAlgorithm.Name;
                         if (options.UsingCounterMac)
                             options.CounterMacAlgorithm = MacHelper.GetAlgorithm(
                                 await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()
                                 ).Name;
                     }
                     options.MacPosition = cipherData.Position;
-                    mac = MacHelper.GetAlgorithm(
-                        options.UsingCounterMac
-                            ? options.CounterMacAlgorithm ?? HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name
-                            : options.MacAlgorithm ?? throw new ArgumentException("Missing MAC algorithm in options", nameof(options))
-                            );
-                    options.Mac = new byte[mac.MacLength];
-                    if (await cipherData.ReadAsync(options.Mac, cancellationToken).DynamicContext() != mac.MacLength) throw new IOException("Failed to read the MAC");
+                    mac = MacHelper.GetAlgorithm(options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name);
+                    int len = options.UsingCounterMac
+                        ? MacHelper.GetAlgorithm(options.CounterMacAlgorithm ??= HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).MacLength
+                        : mac.MacLength;
+                    options.Mac = new byte[len];
+                    if (await cipherData.ReadAsync(options.Mac, cancellationToken).DynamicContext() != len) throw new IOException("Failed to read the MAC");
                 }
                 // Read authenticated options
                 if (options.KeyExchangeDataIncluded)
@@ -525,7 +519,7 @@ namespace wan24.Crypto
                 {
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()).Name;
                     options.KdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
-                    options.KdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    options.KdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
                     pwd = options.Password ?? throw new ArgumentException("No password yet", nameof(pwd));
                     try
                     {
@@ -537,9 +531,12 @@ namespace wan24.Crypto
                     }
                     if (options.UsingCounterKdf)
                     {
-                        options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()).Name;
+                        options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(
+                            await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()
+                            ).Name;
                         options.CounterKdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
-                        options.CounterKdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                        options.CounterKdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())
+                            .Value;
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
                 }
@@ -567,7 +564,7 @@ namespace wan24.Crypto
                     macOptions.LeaveOpen = true;
                     using MacStreams macStream = mac.GetMacStream(options.Password, options: macOptions);
                     await cipherData.CopyToAsync(macStream.Stream, cancellationToken).DynamicContext();
-                    macStream.Stream.FlushFinalBlock();
+                    macStream.Stream.Dispose();
                     byte[] redMac = options.Mac;
                     options.Mac = macStream.Transform.Hash ?? throw new InvalidProgramException();
                     if (options.UsingCounterMac) HybridAlgorithmHelper.ComputeMac(options);

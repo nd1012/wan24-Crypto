@@ -177,7 +177,7 @@ namespace wan24.Crypto
                             for (int red; read > 0; read -= red)
                             {
                                 red = cipherData.Read(buffer.Span);
-                                if (red > 0) macStream.Stream.Write(buffer.Span.Slice(0, red));
+                                if (red > 0) macStream.Stream.Write(buffer.Span[..red]);
                             }
                         macStream.Stream.FlushFinalBlock();
                         byte[] redMac = options.Mac;
@@ -251,7 +251,7 @@ namespace wan24.Crypto
                             for (int red; read > 0; read -= red)
                             {
                                 red = await cipherData.ReadAsync(buffer.Memory, cancellationToken).DynamicContext();
-                                if (red > 0) macStream.Stream.Write(buffer.Span.Slice(0, red));
+                                if (red > 0) macStream.Stream.Write(buffer.Span[..red]);
                             }
                         macStream.Stream.FlushFinalBlock();
                         byte[] redMac = options.Mac;

@@ -55,6 +55,7 @@ namespace wan24.Crypto
         /// <returns>Unsigned key</returns>
         public AsymmetricSignedPublicKey GetAsUnsignedKey()
         {
+            EnsureUndisposed();
             this.ValidateObject();
             AsymmetricSignedPublicKey res = new()
             {
@@ -70,6 +71,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         void IStreamSerializer.Serialize(Stream stream)
         {
+            EnsureUndisposed();
             stream.WriteNumber(StreamSerializer.VERSION)
                 .WriteAny(PublicKey)
                 .WriteDict(Attributes);
@@ -78,6 +80,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         async Task IStreamSerializer.SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
+            EnsureUndisposed();
             await stream.WriteNumberAsync(StreamSerializer.VERSION, cancellationToken).DynamicContext();
             await stream.WriteAnyAsync(PublicKey, cancellationToken).DynamicContext();
             await stream.WriteDictAsync(Attributes, cancellationToken).DynamicContext();
@@ -86,6 +89,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         void IStreamSerializer.Deserialize(Stream stream, int version)
         {
+            EnsureUndisposed();
             _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             PublicKey = stream.ReadAny(version) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
             Attributes = stream.ReadDict<string, string>(version, maxLen: byte.MaxValue);
@@ -94,7 +98,8 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         async Task IStreamSerializer.DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION).DynamicContext();
+            EnsureUndisposed();
+            _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             PublicKey = await stream.ReadAnyAsync(version, cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
             Attributes = await stream.ReadDictAsync<string, string>(version, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }

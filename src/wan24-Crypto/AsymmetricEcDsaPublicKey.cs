@@ -53,6 +53,7 @@ namespace wan24.Crypto
             {
                 try
                 {
+                    EnsureUndisposed();
                     if (_PublicKey != null) return _PublicKey;
                     _PublicKey = ECDsa.Create();
                     _PublicKey.ImportSubjectPublicKeyInfo(KeyData.Span, out int red);
@@ -74,6 +75,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 bool res = PublicKey.VerifyHash(signedHash, signature, DSASignatureFormat.Rfc3279DerSequence);
                 if (!res && throwOnError) throw new InvalidDataException("Signature validation failed");
                 return res;
@@ -93,6 +95,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 bool res = ValidateSignatureRaw(signature.Signature, signature.CreateSignatureHash());
                 if (!res && throwOnError) throw new InvalidDataException("Signature validation failed");
                 return res;

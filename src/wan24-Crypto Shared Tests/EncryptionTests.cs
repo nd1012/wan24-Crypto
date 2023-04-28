@@ -1,10 +1,12 @@
-﻿namespace wan24.Crypto.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace wan24.Crypto.Tests
 {
     public static class EncryptionTests
     {
         public static async Task TestAllAlgorithms()
         {
-            Assert.IsTrue(EncryptionHelper.Algorithms.Count > 0);
+            Assert.IsFalse(EncryptionHelper.Algorithms.IsEmpty);
             foreach (string name in EncryptionHelper.Algorithms.Keys)
             {
                 AlgorithmTests(name);

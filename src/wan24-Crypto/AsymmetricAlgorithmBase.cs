@@ -57,8 +57,15 @@ namespace wan24.Crypto
             get => _DefaultKeySize;
             set
             {
-                if (!value.In(AllowedKeySizes)) throw new ArgumentOutOfRangeException(nameof(value));
-                _DefaultKeySize = value;
+                try
+                {
+                    if (!value.In(AllowedKeySizes)) throw new ArgumentOutOfRangeException(nameof(value));
+                    _DefaultKeySize = value;
+                }
+                catch(Exception ex)
+                {
+                    throw CryptographicException.From(ex);
+                }
             }
         }
 
@@ -67,11 +74,29 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public tPublic DeserializePublicKey(byte[] keyData)
-            => Activator.CreateInstance(typeof(tPublic), new object?[] { keyData }) as tPublic ?? throw new InvalidProgramException($"Failed to instance {typeof(tPublic)}");
+        {
+            try
+            {
+                return Activator.CreateInstance(typeof(tPublic), new object?[] { keyData }) as tPublic ?? throw new InvalidProgramException($"Failed to instance {typeof(tPublic)}");
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
 
         /// <inheritdoc/>
         public tPrivate DeserializePrivateKey(byte[] keyData)
-            => Activator.CreateInstance(typeof(tPrivate), new object?[] { keyData }) as tPrivate ?? throw new InvalidProgramException($"Failed to instance {typeof(tPrivate)}");
+        {
+            try
+            {
+                return Activator.CreateInstance(typeof(tPrivate), new object?[] { keyData }) as tPrivate ?? throw new InvalidProgramException($"Failed to instance {typeof(tPrivate)}");
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
 
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null)

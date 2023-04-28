@@ -1,10 +1,12 @@
-﻿namespace wan24.Crypto.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace wan24.Crypto.Tests
 {
     public static class AsymmetricTests
     {
         public static void TestAllAlgorithms()
         {
-            Assert.IsTrue(AsymmetricHelper.Algorithms.Count > 0);
+            Assert.IsFalse(AsymmetricHelper.Algorithms.IsEmpty);
             foreach (string name in AsymmetricHelper.Algorithms.Keys) AlgorithmTests(name);
         }
 

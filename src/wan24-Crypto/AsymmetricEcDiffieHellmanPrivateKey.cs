@@ -35,7 +35,7 @@ namespace wan24.Crypto
                 _PrivateKey = key;
                 KeyData = new(key.ExportECPrivateKey());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
             }
@@ -56,6 +56,7 @@ namespace wan24.Crypto
             {
                 try
                 {
+                    EnsureUndisposed();
                     if (_PrivateKey != null) return _PrivateKey;
                     _PrivateKey = ECDiffieHellman.Create();
                     int red;
@@ -77,7 +78,7 @@ namespace wan24.Crypto
                     }
                     return _PrivateKey;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw CryptographicException.From(ex);
                 }
@@ -108,9 +109,9 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public override byte[] DeriveKey(byte[] keyExchangeData)
         {
-            if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 using AsymmetricEcDiffieHellmanPublicKey publicKey = new((byte[])keyExchangeData.Clone());
                 return PrivateKey.DeriveKeyMaterial(publicKey.PublicKey);
             }
@@ -118,7 +119,7 @@ namespace wan24.Crypto
             {
                 throw;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
             }

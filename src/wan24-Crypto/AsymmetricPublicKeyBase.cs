@@ -32,6 +32,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 if (data != null && !signature.ValidateSignedData(data, throwOnError)) return false;
                 return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
@@ -51,6 +52,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 if (data != null && !signature.ValidateSignedData(data, throwOnError)) return false;
                 return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
@@ -70,6 +72,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 if (data != null && !await signature.ValidateSignedDataAsync(data, throwOnError, cancellationToken).DynamicContext()) return false;
                 return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));

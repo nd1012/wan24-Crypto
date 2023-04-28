@@ -51,6 +51,7 @@ namespace wan24.Crypto
             {
                 try
                 {
+                    EnsureUndisposed();
                     if (_PublicKey != null) return _PublicKey;
                     ECDsa dsa = ECDsa.Create();
                     dsa.ImportSubjectPublicKeyInfo(PrivateKey.ExportSubjectPublicKeyInfo(), out _);
@@ -72,6 +73,7 @@ namespace wan24.Crypto
             {
                 try
                 {
+                    EnsureUndisposed();
                     if (_PrivateKey != null) return _PrivateKey;
                     _PrivateKey = ECDsa.Create();
                     _PrivateKey.ImportECPrivateKey(KeyData.Span, out int red);
@@ -90,6 +92,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 return PrivateKey.SignHash(hash, DSASignatureFormat.Rfc3279DerSequence);
             }
