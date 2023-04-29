@@ -41,7 +41,7 @@ namespace wan24.Crypto
                         cipherData.Write(buffer.Span);
                     }
                 if (options.HeaderVersionIncluded) cipherData.Write((byte)options.HeaderVersion);
-                if (options.SerializerVersionIncluded) cipherData.Write((byte)StreamSerializer.VERSION);
+                if (options.SerializerVersionIncluded) cipherData.WriteSerializerVersion();
                 // Finalize the password to use
                 if (options.KeyExchangeDataIncluded) options.SetKeyExchangeData();
                 if (options.Password == null) throw new ArgumentException("Password required", nameof(pwd));
@@ -162,7 +162,7 @@ namespace wan24.Crypto
                         await cipherData.WriteAsync(buffer.Memory, cancellationToken).DynamicContext();
                     }
                 if (options.HeaderVersionIncluded) await cipherData.WriteAsync((byte)options.HeaderVersion, cancellationToken).DynamicContext();
-                if (options.SerializerVersionIncluded) await cipherData.WriteAsync((byte)StreamSerializer.VERSION, cancellationToken).DynamicContext();
+                if (options.SerializerVersionIncluded) await cipherData.WriteSerializerVersionAsync(cancellationToken).DynamicContext();
                 // Finalize the password to use
                 if (options.KeyExchangeDataIncluded) options.SetKeyExchangeData();
                 if (options.Password == null) throw new ArgumentException("Password required", nameof(pwd));
@@ -319,13 +319,7 @@ namespace wan24.Crypto
                     options.HeaderVersion = cipherData.ReadOneByte();
                     if (options.HeaderVersion < 1 || options.HeaderVersion > CryptoOptions.HEADER_VERSION) throw new InvalidDataException($"Invalid header version {options.HeaderVersion}");
                 }
-                int? serializerVersion = null;
-                if (options.SerializerVersionIncluded)
-                {
-                    serializerVersion = cipherData.ReadOneByte();
-                    if (serializerVersion < 1 || serializerVersion > StreamSerializer.VERSION) throw new InvalidDataException($"Unsupported serializer version {serializerVersion}");
-                    options.SerializerVersion = serializerVersion;
-                }
+                int? serializerVersion = options.SerializerVersionIncluded ? options.SerializerVersion = cipherData.ReadSerializerVersion() : null;
                 // Read the MAC
                 MacAlgorithmBase? mac = null;
                 if (options.MacIncluded)
@@ -480,12 +474,7 @@ namespace wan24.Crypto
                     options.HeaderVersion = await cipherData.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
                     if (options.HeaderVersion < 1 || options.HeaderVersion > CryptoOptions.HEADER_VERSION) throw new InvalidDataException($"Invalid header version {options.HeaderVersion}");
                 }
-                int? serializerVersion = null;
-                if (options.SerializerVersionIncluded)
-                {
-                    serializerVersion = await cipherData.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
-                    if (serializerVersion < 1 || serializerVersion > StreamSerializer.VERSION) throw new InvalidDataException($"Unsupported serializer version {serializerVersion}");
-                }
+                int? serializerVersion = options.SerializerVersionIncluded ? options.SerializerVersion = await cipherData.ReadSerializerVersionAsync(cancellationToken).DynamicContext() : null;
                 // Read the MAC
                 MacAlgorithmBase? mac = null;
                 if (options.MacIncluded)

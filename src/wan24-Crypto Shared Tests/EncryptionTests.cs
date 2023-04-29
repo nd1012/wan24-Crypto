@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace wan24.Crypto.Tests
 {
@@ -7,16 +8,20 @@ namespace wan24.Crypto.Tests
         public static async Task TestAllAlgorithms()
         {
             Assert.IsFalse(EncryptionHelper.Algorithms.IsEmpty);
+            int done = 0;
             foreach (string name in EncryptionHelper.Algorithms.Keys)
             {
                 AlgorithmTests(name);
                 await AlgorithmTestsAsync(name);
+                done += 2;
             }
+            Console.WriteLine($"{done} tests done");
         }
 
         public static void AlgorithmTests(string name)
         {
             Console.WriteLine($"Synchronous encryption {name} tests");
+            Stopwatch sw = Stopwatch.StartNew();
             {
                 byte[] cipher = TestData.Data.Encrypt(TestData.Key),
                     raw = cipher.Decrypt(TestData.Key);
@@ -48,11 +53,13 @@ namespace wan24.Crypto.Tests
                 cipher.Decrypt(raw, key, options);
                 Assert.IsTrue(raw.ToArray().SequenceEqual(TestData.Data));
             }
+            Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
 
         public static async Task AlgorithmTestsAsync(string name)
         {
             Console.WriteLine($"Asynchronous encryption {name} tests");
+            Stopwatch sw = Stopwatch.StartNew();
             CryptoOptions options = new()
             {
                 Algorithm = name,
@@ -73,6 +80,7 @@ namespace wan24.Crypto.Tests
             cipher.Position = 0;
             await cipher.DecryptAsync(raw, key, options);
             Assert.IsTrue(raw.ToArray().SequenceEqual(TestData.Data));
+            Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
     }
 }

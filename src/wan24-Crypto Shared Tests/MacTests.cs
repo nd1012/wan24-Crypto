@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace wan24.Crypto.Tests
 {
@@ -7,16 +8,20 @@ namespace wan24.Crypto.Tests
         public static async Task TestAllAlgorithms()
         {
             Assert.IsFalse(MacHelper.Algorithms.IsEmpty);
+            int done = 0;
             foreach (string name in MacHelper.Algorithms.Keys)
             {
                 AlgorithmTests(name);
                 await AlgorithmTestsAsync(name);
+                done += 2;
             }
+            Console.WriteLine($"{done} tests done");
         }
 
         public static void AlgorithmTests(string name)
         {
             Console.WriteLine($"Synchronous MAC {name} tests");
+            Stopwatch sw = Stopwatch.StartNew();
             MacAlgorithmBase algo = MacHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
             byte[] streamMac = algo.Mac(ms, TestData.Key),
@@ -79,11 +84,13 @@ namespace wan24.Crypto.Tests
             {
                 macStreams.Dispose();
             }
+            Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
 
         public static async Task AlgorithmTestsAsync(string name)
         {
             Console.WriteLine($"Asynchronous MAC {name} tests");
+            Stopwatch sw = Stopwatch.StartNew();
             MacAlgorithmBase algo = MacHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
             byte[] streamMac = await algo.MacAsync(ms, TestData.Key);
@@ -92,6 +99,7 @@ namespace wan24.Crypto.Tests
             {
                 MacAlgorithm = name
             })));
+            Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
     }
 }

@@ -191,8 +191,7 @@ namespace wan24.Crypto
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
-                        (options.Compression, _, long uncompressedLength) = CompressionHelper.ReadOptions(stream, rawData, options.Compression);
-                        options.Compression.LeaveOpen = false;
+                        options.Compression = CompressionHelper.ReadOptions(stream, rawData, options.Compression);
                         stream = stream.GetDecompressionStream(options.Compression);
                     }
                     return new(stream, transform);
@@ -265,8 +264,7 @@ namespace wan24.Crypto
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
-                        (options.Compression, _, long uncompressedLength) = await CompressionHelper.ReadOptionsAsync(stream, rawData, options.Compression, cancellationToken).DynamicContext();
-                        options.Compression.LeaveOpen = false;
+                        options.Compression = await CompressionHelper.ReadOptionsAsync(stream, rawData, options.Compression, cancellationToken).DynamicContext();
                         stream = stream.GetDecompressionStream(options.Compression);
                     }
                     return new(stream, transform);
