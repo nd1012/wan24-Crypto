@@ -1,5 +1,7 @@
-﻿using System.Security.Cryptography;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 using wan24.Core;
+using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -58,56 +60,67 @@ namespace wan24.Crypto
         /// <summary>
         /// Hash algorithm name
         /// </summary>
+        [StringLength(byte.MaxValue)]
         public string HashAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// Asymmetric algorithm name
         /// </summary>
+        [StringLength(byte.MaxValue)]
         public string AsymmetricAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// Asymmetric counter algorithm name
         /// </summary>
+        [StringLength(byte.MaxValue)]
         public string? AsymmetricCounterAlgorithm { get; private set; }
 
         /// <summary>
         /// Signed data hash
         /// </summary>
+        [CountLimit(HashMd5Algorithm.HASH_LENGTH, byte.MaxValue)]
         public byte[] SignedDataHash { get; private set; } = null!;
 
         /// <summary>
         /// Nonce
         /// </summary>
+        [CountLimit(NONCE_LENGTH, NONCE_LENGTH)]
         public byte[]? Nonce { get; private set; } = null!;
 
         /// <summary>
         /// Signature (signs all data except the counter signature)
         /// </summary>
+        [CountLimit(1, ushort.MaxValue)]
         public byte[] Signature { get; set; } = null!;
 
         /// <summary>
         /// Counter signature (signs all data including the signature)
         /// </summary>
+        [CountLimit(1, ushort.MaxValue), RequiredIf(nameof(AsymmetricCounterAlgorithm))]
         public byte[]? CounterSignature { get; set; }
 
         /// <summary>
         /// Signer
         /// </summary>
+        [CountLimit(HashMd5Algorithm.HASH_LENGTH, byte.MaxValue)]
         public byte[] Signer { get; private set; } = null!;
 
         /// <summary>
         /// Counter signer
         /// </summary>
+        [CountLimit(HashMd5Algorithm.HASH_LENGTH, byte.MaxValue), RequiredIf(nameof(CounterSignature))]
         public byte[]? CounterSigner { get; private set; }
 
         /// <summary>
         /// Signer public key data
         /// </summary>
+        [CountLimit(1, ushort.MaxValue)]
         public byte[] SignerPublicKeyData { get; private set; } = null!;
 
         /// <summary>
         /// Counter signer public key data
         /// </summary>
+        [CountLimit(1, ushort.MaxValue), RequiredIf(nameof(CounterSigner))]
         public byte[]? CounterSignerPublicKeyData { get; private set; }
 
         /// <summary>
@@ -177,6 +190,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Signature purpose
         /// </summary>
+        [CountLimit(1, ushort.MaxValue)]
         public string? Purpose { get; private set; }
 
         /// <summary>
