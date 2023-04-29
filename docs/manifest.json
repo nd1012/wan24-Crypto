@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "ykDIhpUktESflA7L4dUe1c9eC/MAafx31i7xwUI79UA="
+          "hash": "qSq8LqBApmmKGU5z12zwktAEqUr5GLxGoVf8g3AIKbE="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "vkaVZuNWlGAtmbaquVU6rteNmM+h9AOfE5BvbancWSg="
+          "hash": "sux8Hc/DpFrgzFM0Mp+A3iGkmTScxPLrrh/lw9wIOgI="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,19 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.CryptoOptions.html",
-          "hash": "MQ5xRfsrY9hsj+jGmPmn7spflMV56fff0LhdZZMQ8Ns="
+          "hash": "Pfa/+htpLXVyAhufFlKXr7fnsWmnorsBsEnJDjhw/+M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoOptionsFluidExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoOptionsFluidExtensions.html",
+          "hash": "YZVIJSV//Y7W67VwfuYnBbB6UZgUEs6Lmqd1J1QBQwk="
         }
       },
       "is_incremental": false,
@@ -681,7 +693,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.KeyExchangeDataContainer.html",
-          "hash": "vH+sf2BuohDujP2txlEHmf+0KUcebwJdVb5sgg2y6vM="
+          "hash": "2VdXUzM0Vt5o/+Sw7zg7/Y/br+q4F/e6GZsv4ta7lDk="
         }
       },
       "is_incremental": false,
@@ -801,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.SignatureContainer.html",
-          "hash": "s2up943HJ1kdVR8FFlhucErvRLHYUJTsf6dTGkzrsOU="
+          "hash": "g1zHpvzjOS/8M4q8TE3y9f7T/RrSGtxHUG5ZIECpnoo="
         }
       },
       "is_incremental": false,
@@ -825,7 +837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.html",
-          "hash": "TKVbRsnxOyN7Fx4EKwyeTIOfVhFu4su8Y27AoM3tQBw="
+          "hash": "ALrth5eT3DFvtWCtD+XlGV70BdrWRVS5lZaQRHe5HHo="
         }
       },
       "is_incremental": false,
@@ -861,7 +873,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "3eBkXd1LUjSJ6S3IbdyXZTH0Sn3P/mgoQbH85zX4ABU="
+          "hash": "sFKTojxLRsVq/X4KoZNs4ilz6lEDSChEpmSXoKrGW8A="
         }
       },
       "is_incremental": false,
@@ -873,7 +885,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "WSuRrYiGwKKMbtdG9z8W9fXmLoCyTnGg9AxbPKLXm2Y="
+          "hash": "s+UecGKJLe11K3w4+MJjx6QoiqktkO8teeQG06lk8L0="
         }
       },
       "is_incremental": false,
@@ -900,7 +912,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 67,
+          "total_file_count": 68,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

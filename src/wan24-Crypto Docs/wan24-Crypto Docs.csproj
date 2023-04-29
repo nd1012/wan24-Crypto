@@ -14,4 +14,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="copy /Y &quot;$(ProjectDir)..\..\README.md&quot; &quot;$(ProjectDir)index.md&quot;&#xD;&#xA;" />
+  </Target>
+
 </Project>
