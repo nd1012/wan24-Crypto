@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto.Tests
 {

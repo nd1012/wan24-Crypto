@@ -299,7 +299,7 @@ namespace wan24.Crypto
                 .WriteBytes(Signature)
                 .WriteBytesNullable(CounterSignature)
                 .WriteBytes(Signer)
-                .WriteBytesNullable(SignerPublicKeyData)
+                .WriteBytes(SignerPublicKeyData)
                 .WriteBytesNullable(CounterSigner)
                 .WriteBytesNullable(CounterSignerPublicKeyData)
                 .WriteStringNullable(Purpose);
@@ -317,7 +317,7 @@ namespace wan24.Crypto
             await stream.WriteBytesAsync(Signature, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(CounterSignature, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(Signer, cancellationToken).DynamicContext();
-            await stream.WriteBytesNullableAsync(SignerPublicKeyData, cancellationToken).DynamicContext();
+            await stream.WriteBytesAsync(SignerPublicKeyData, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(CounterSigner, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(CounterSignerPublicKeyData, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(Purpose, cancellationToken).DynamicContext();
@@ -336,8 +336,8 @@ namespace wan24.Crypto
             CounterSignature = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
             Signer = stream.ReadBytes(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
             SignerPublicKeyData = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
-            CounterSigner = stream.ReadBytes(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
-            CounterSignerPublicKeyData = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
+            CounterSigner = stream.ReadBytesNullable(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue)?.Value;
+            CounterSignerPublicKeyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
             Purpose = stream.ReadStringNullable(version, minLen: 1, maxLen: ushort.MaxValue);
         }
 
@@ -353,9 +353,9 @@ namespace wan24.Crypto
             Signature = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
             CounterSignature = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
             Signer = (await stream.ReadBytesAsync(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            SignerPublicKeyData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken)).Value;
-            CounterSigner = (await stream.ReadBytesAsync(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue, cancellationToken: cancellationToken)).Value;
-            CounterSignerPublicKeyData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken)).Value;
+            SignerPublicKeyData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            CounterSigner = (await stream.ReadBytesNullableAsync(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            CounterSignerPublicKeyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
             Purpose = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }
 
