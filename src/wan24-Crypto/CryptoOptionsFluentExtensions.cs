@@ -3,9 +3,9 @@
 namespace wan24.Crypto
 {
     /// <summary>
-    /// <see cref="CryptoOptions"/> fluid extensions
+    /// <see cref="CryptoOptions"/> fluent extensions
     /// </summary>
-    public static class CryptoOptionsFluidExtensions
+    public static class CryptoOptionsFluentExtensions
     {
         /// <summary>
         /// Set encryption algorithm options
@@ -13,8 +13,9 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm name</param>
         /// <returns>Options</returns>
-        public static CryptoOptions WithEncryptionAlgorithm(this CryptoOptions options, string algo)
+        public static CryptoOptions WithEncryptionAlgorithm(this CryptoOptions options, string? algo = null)
         {
+            algo ??= EncryptionHelper.DefaultAlgorithm.Name;
             EncryptionHelper.GetAlgorithm(algo);
             options.Algorithm = algo;
             return options;

@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Implementing more algorithms | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Implementing more algorithms | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="implementing-more-algorithms">Implementing more algorithms</h1>
+
+<p>wan24-Crypto is designed to make it easy to implement any cryptographic
+algorithm, which may be available from a third party library. This document
+gives tips how to implement new algorithms for use with the wan24-Crypto
+library.</p>
+<p>Please be sure to use algorithm values &gt;255 to avoid conflicts with official
+extensions.</p>
+<h2 id="making-your-extension-official">Making your extension official</h2>
+<p>If you want your extension to become official, please be sure to match the pre-
+requirements:</p>
+<ol>
+<li>Make your source code open source (and forkable) on GitHub</li>
+<li>Create a test project which uses the
+<a href="https://www.nuget.org/packages/wan24-Crypto-Shared-Tests/">shared tests NuGet package</a>
+and be sure to execute the tests which match your implementations</li>
+</ol>
+<p>Then there are just a few more steps:</p>
+<ol>
+<li>Request your official algorithm IDs (you can open an issue for that) and
+provide the URI to your GitHub project</li>
+<li>Update your extension to use your official algorithm IDs</li>
+<li>Create a NuGet package</li>
+<li>Update the issue with the URI to the NuGet package and request publication</li>
+<li>Wait for submission approval</li>
+</ol>
+<p>That's it! Your benefit will be a link to your NuGet package on the
+wan24-Crypto GitHub project main page, and official algorithm values, which
+won't conflict with other future developments ever.</p>
+<p>In order to keep your official algorithm values please be sure to</p>
+<ul>
+<li>update your project and NuGet package when the main wan24-Crypto NuGet
+package was updated</li>
+<li>update your project and NuGet package when your implemented algorithm(s)
+were updated</li>
+</ul>
+<p>Dead projects will loose their official algorithm value assignments after a
+deprecation period of one year. The deprecation period starts when
+wan24-Crypto was updated, and you didn't update your project and/or NuGet
+packet, or an implemented algorithm was broken.</p>
+<p>If your implemented encryption algorithm has been broken, wan24-Crypto will be
+updated to ensure that this algorithm can't be applied anymore (only
+decryption will work).</p>
+<h2 id="implemting-a-hash-algorithm">Implemting a hash algorithm</h2>
+<p>Your implementation needs to extend the <code>HashAlgorithmBase</code> type and implement
+these abstrations:</p>
+<ul>
+<li><code>HashLength</code>: Property which returns the hash length in bytes</li>
+<li><code>IsPostQuantum</code>: If the algorithm is considered to be post quantum-safe</li>
+<li><code>GetHashAlgorithm</code>: Returns a new <code>HashAlgorithm</code> instance</li>
+</ul>
+<p>Registration:</p>
+<pre><code class="lang-cs">HashHelper.Algorithms[&quot;YourAlgorithm&quot;] = new YourAlgorithm();
+</code></pre>
+<p>Tests:</p>
+<pre><code class="lang-cs">await wan24.Crypto.Tests.HashingTests.TestAllAlgorithms();
+</code></pre>
+<h2 id="implementing-a-mac-algorithm">Implementing a MAC algorithm</h2>
+<p>Your implementation needs to extend the <code>MacAlgorithmBase</code> type and implement
+these abstrations:</p>
+<ul>
+<li><code>MacLength</code>: Property which returns the MAC length in bytes</li>
+<li><code>IsPostQuantum</code>: If the algorithm is considered to be post quantum-safe</li>
+<li><code>GetMacAlgorithm</code>: Returns a new <code>KeyedHashAlgorithm</code> instance</li>
+</ul>
+<p>Registration:</p>
+<pre><code class="lang-cs">MacHelper.Algorithms[&quot;YourAlgorithm&quot;] = new YourAlgorithm();
+</code></pre>
+<p>Tests:</p>
+<pre><code class="lang-cs">await wan24.Crypto.Tests.MacTests.TestAllAlgorithms();
+wan24.Crypto.Tests.HybridTests.AllMacTests();
+</code></pre>
+<h2 id="implementing-a-kdf-algorithm">Implementing a KDF algorithm</h2>
+<p>Your implementation needs to extend the <code>KdfAlgorithmBase</code> type and implement
+these abstrations:</p>
+<ul>
+<li><code>DefaultIterations</code>: The number of default iterations</li>
+<li><code>SaltLength</code>: Returns the required salt length in bytes</li>
+<li><code>IsPostQuantum</code>: If the algorithm is considered to be post quantum-safe</li>
+<li><code>Stretch</code>: Key stretching method which return the stretched key and the used
+salt</li>
+</ul>
+<p>Registration:</p>
+<pre><code class="lang-cs">KdfHelper.Algorithms[&quot;YourAlgorithm&quot;] = new YourAlgorithm();
+</code></pre>
+<p>Tests:</p>
+<pre><code class="lang-cs">wan24.Crypto.Tests.KdfTests.TestAllAlgorithms();
+wan24.Crypto.Tests.HybridTests.AllKdfTests();
+</code></pre>
+<h2 id="implementing-a-symmetric-encryption-algorithm">Implementing a symmetric encryption algorithm</h2>
+<p>Your implementation needs to extend the <code>EncryptionAlgorithmBase</code> type and
+implement these abstractions:</p>
+<ul>
+<li><code>KeySize</code>: The required key size in bytes</li>
+<li><code>IvSize</code>: The required IV size in bytes</li>
+<li><code>BlockSize</code>: The block size in bytes</li>
+<li><code>RequireMacAuthentication</code>: If a MAC authentication is required</li>
+<li><code>GetEncryptor(Async)</code>: Returns a <code>IcryptoTransform</code> for encryption and
+writes all information to the cipher stream, which is required for creating a
+decryptor (such as IV bytes, etc.)</li>
+<li><code>GetDecryptor(Async)</code>: Returns a <code>IcryptoTransform</code> for decryption and
+reads all information from the cipher stream, which is required for creating
+the decryptor (such as IV bytes, etc.)</li>
+</ul>
+<p>Registration:</p>
+<pre><code class="lang-cs">EncryptionHelper.Algorithms[&quot;YourAlgorithm&quot;] = new YourAlgorithm();
+</code></pre>
+<p>Tests:</p>
+<pre><code class="lang-cs">await wan24.Crypto.Tests.EncryptionTests.TestAllAlgorithms();
+wan24.Crypto.Tests.HybridTests.AllSyncEncryptionTests();
+await wan24.Crypto.Tests.HybridTests.AllAsyncEncryptionTests();
+</code></pre>
+<h2 id="implementing-an-asymmetric-algorithm">Implementing an asymmetric algorithm</h2>
+<p>You'll need to create at last these types:</p>
+<ul>
+<li>Algorithm definition which extends <code>AsymmetricAlgorithmBase</code></li>
+<li>Private key which extends <code>AsymmetricPrivateKeyBase</code></li>
+<li>Public key which extends <code>AsymmetricPublicKeyBase</code></li>
+</ul>
+<p>If the algorithm is for key exchange, the private key needs to implement the
+<code>IKeyExchangePrivateKey</code> interface.</p>
+<p>If the algorithm is for signature, the private key needs to implement the
+<code>ISignaturePrivateKey</code> interface, while the public key needs to implement the
+<code>ISignaturePublicKey</code> interface.</p>
+<p>An asymmetric may be used for both, key exchange and signature.</p>
+<p><strong>NOTE</strong>: Your private/public key implementations need to store the serialized
+key data in the <code>KeyData</code> property!</p>
+<p>Registration:</p>
+<pre><code class="lang-cs">AsymmetricHelper.Algorithms[&quot;YourAlgorithm&quot;] = new YourAlgorithm();
+</code></pre>
+<p>Tests:</p>
+<pre><code class="lang-cs">wan24.Crypto.Tests.AsymmetricTests.TestAllAlgorithms();
+wan24.Crypto.Tests.HybridTests.AllAsymmetricTests();
+</code></pre>
+<h3 id="implementing-the-algorithm-definition">Implementing the algorithm definition</h3>
+<pre><code class="lang-cs">public sealed class YourAsymmetricAlgorithm extends AsymmetricAlgorithmBase&lt;YourPublicKey, YourPrivateKey&gt;
+{
+	public YourAsymmetricAlgorithm() : base(&quot;YourAlgorithmName&quot;, 123)
+		=&gt; _DefaultOptions.AsymmetricKeyBits = DefaultKeySize = 123;
+
+	...
+}
+</code></pre>
+<p>You'll need to implement these abstractions:</p>
+<ul>
+<li><code>Usages</code>: Returns the supported key usages (key exchange and/or signature)</li>
+<li><code>IsEllipticCurveAlgorithm</code>: If the algorithm uses the standard elliptic
+curves</li>
+<li><code>AllowedKeySizes</code>: A list of allowed key sizes (in bits)</li>
+<li><code>IsPostQuantum</code>: If the algorithm is considered to be post quantum-safe</li>
+<li><code>CreateKeyPair</code>: Method which is used to create a new private/public key pair</li>
+</ul>
+<h3 id="implementing-the-private-key">Implementing the private key</h3>
+<pre><code class="lang-cs">public sealed class YourPrivateKey : AsymmetricPrivateKeyBase&lt;YourPublicKey, YourPrivateKey&gt;, IKeyExchangePrivateKey
+{
+	public YourPrivateKey() : base(&quot;YourAlgorithmName&quot;) { }
+
+	public YourPrivateKey(byte[] privateKeyData) : this()
+	{
+		// Deserialize the key (you can store the key data in the KeyData property)
+	}
+
+	...
+}
+</code></pre>
+<p>This example shows the definition of a private key for key exchange. If your
+algorithm is for signature, implement <code>ISignaturePrivateKey</code> instead.</p>
+<p>You'll need to implement these abstractions:</p>
+<ul>
+<li><code>Bits</code>: Property which returns the key size in bits</li>
+<li><code>PublicKey</code>: Returns the public key instance, which needs to be disposed, if
+the private key is being disposed (set the value to <code>_PublicKey</code>)</li>
+<li><code>IKeyExchangePrivateKey</code> or <code>ISignaturePrivateKey</code> abstractions</li>
+</ul>
+<h3 id="implementing-the-public-key">Implementing the public key</h3>
+<pre><code class="lang-cs">public sealed class YourPublicKey : AsymmetricPublicKeyBase
+{
+	public YourPublicKey() : base(&quot;YourAlgorithmName&quot;) { }
+
+	public YourPublicKey(byte[] privateKeyData) : this()
+	{
+		// Deserialize the key (you can store the key data in the KeyData property)
+	}
+
+	...
+}
+</code></pre>
+<p>This example shows the definition of a public key for key exchange. If your
+algorithm is for signature, implement the <code>ISignaturePublicKey</code> interface.</p>
+<p>You'll need to implement these abstractions:</p>
+<ul>
+<li><code>Bits</code>: Property which returns the key size in bits</li>
+<li><code>GetCopy</code>: Method which returns a copy of the public key instance (which
+will be disposed manual)</li>
+<li><code>ISignaturePublicKey</code> abstractions, if applicable</li>
+</ul>
+<h2 id="best-practice">Best practice</h2>
+<ul>
+<li>Use the core libraries algorithm implementations as examples for your own
+implementations</li>
+<li>Execute tests from the wan24-Crypto-Shared-Tests NuGet packet and implement
+own tests, too</li>
+<li>Use a custom algorithm ID &gt;255</li>
+<li>Use a unique algorithm name</li>
+<li>Use reasonable class naems</li>
+<li>Create <code>sealed</code> classes</li>
+<li>Write documentation comment blocks for all types, constructors, fields,
+properties and methods (even the private ones) and enable XML documentation
+creation in Visual Studio</li>
+<li>Keep your implementations up to date (re-build for new wan24-Crypto versions)</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto Docs/articles/Implementing more algorithms.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

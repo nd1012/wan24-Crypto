@@ -144,7 +144,8 @@ soon.</p>
 <p>Implementing (new) cryptographic algorithms into (existing) code can be
 challenging. <code>wan24-Crypto</code> tries to make it as easy as possible, while the
 API is still complex due to the huge number of options it offers. Please see
-the Wiki for examples of the most common use cases, which cover:</p>
+the <a href="https://github.com/nd1012/wan24-Crypto/wiki">Wiki</a> for examples of the
+most common use cases, which cover:</p>
 <ul>
 <li>Simple encryption using a password</li>
 <li>Advanced encryption using a private PFS key</li>
@@ -152,10 +153,16 @@ the Wiki for examples of the most common use cases, which cover:</p>
 <li>Advanced encryption using a peers public key</li>
 <li>Advanced encryption using a peers public key and hybrid key exchange</li>
 </ul>
-<p>For more examples please open an issue - I'd be glad to help!</p>
+<p>For more examples please open an
+<a href="https://github.com/nd1012/wan24-Crypto/issues/new">issue</a> - I'd be glad to
+help! If you've found a security issue, please report it private.</p>
 <h2 id="how-to-get-it">How to get it</h2>
 <p>This library is available as
 <a href="https://www.nuget.org/packages/wan24-Crypto/">NuGet package</a>.</p>
+<p>These extension NuGet packages are available:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/wan24-Crypto-BC/">wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)</a></li>
+</ul>
 <h2 id="usage">Usage</h2>
 <h3 id="hashing">Hashing</h3>
 <pre><code class="lang-cs">byte[] hash = rawData.Hash();
@@ -723,80 +730,119 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <tr>
 <th>Algorithm</th>
 <th>ID</th>
+<th>Library</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Asymmetric cryptography</strong></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>ECDH</td>
 <td>0</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>ECDSA</td>
 <td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>CRYSTALS-Kyber</td>
+<td>2</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>CRYSTALS-Dilithium</td>
+<td>3</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>FALCON</td>
+<td>4</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>SPHINCS+</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
 </tr>
 <tr>
 <td><strong>Symmetric cryptography</strong></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>AES256CBC</td>
 <td>0</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td><strong>Hashing</strong></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>MD5</td>
 <td>0</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>SHA1</td>
 <td>1</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>SHA256</td>
 <td>2</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>SHA384</td>
 <td>3</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>SHA512</td>
 <td>4</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td><strong>MAC</strong></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>HMAC-SHA1</td>
 <td>0</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>HMAC-SHA256</td>
 <td>1</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>HMAC-SHA384</td>
 <td>2</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td>HMAC-SHA512</td>
 <td>3</td>
+<td>wan24-Crypto</td>
 </tr>
 <tr>
 <td><strong>KDF</strong></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PBKDF2</td>
 <td>0</td>
+<td>wan24-Crypto</td>
 </tr>
 </tbody>
 </table>

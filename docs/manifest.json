@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "sux8Hc/DpFrgzFM0Mp+A3iGkmTScxPLrrh/lw9wIOgI="
+          "hash": "AwU51dFA0qGRFzOqJBX9tuDBotntRo6Tx6zVYtetZaA="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.CryptoOptions.html",
-          "hash": "Pfa/+htpLXVyAhufFlKXr7fnsWmnorsBsEnJDjhw/+M="
+          "hash": "cRXYGm8VX//5Lbkw1H04t6iRP9y9D4J+rgHLA/xaqx4="
         }
       },
       "is_incremental": false,
@@ -305,11 +305,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/wan24.Crypto.CryptoOptionsFluidExtensions.yml",
+      "source_relative_path": "api/wan24.Crypto.CryptoOptionsFluentExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/wan24.Crypto.CryptoOptionsFluidExtensions.html",
-          "hash": "YZVIJSV//Y7W67VwfuYnBbB6UZgUEs6Lmqd1J1QBQwk="
+          "relative_path": "api/wan24.Crypto.CryptoOptionsFluentExtensions.html",
+          "hash": "ByDzzCUgG852fo42SIKbJ3FXozzYi2h6hlQohe5sxF8="
         }
       },
       "is_incremental": false,
@@ -346,6 +346,42 @@
         ".html": {
           "relative_path": "api/wan24.Crypto.EllipticCurves.html",
           "hash": "1xx1bs7oc6pxw8WN6QCDNcc8dvN2+ofH7XK3cre+uwo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EncryptedJsonValue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EncryptedJsonValue-1.html",
+          "hash": "ly18+K72wISwso6gtkfQXOkTRKFvjgObHmiEKbg1MvQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EncryptedSerializableValue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EncryptedSerializableValue-1.html",
+          "hash": "IVJm3Z66FR6o+MV+TLJx5z6xX9zaTB2vzR4A9gjLWIw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EncryptedValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EncryptedValue.html",
+          "hash": "wpzMv+UkJSzkxR4SyqLNdiDoS/T2DaWy6mdijjzIxU8="
         }
       },
       "is_incremental": false,
@@ -801,7 +837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.NetKeyExtensions.html",
-          "hash": "IxWNnZfo9aGeRBTNS6mC0zvE2eTlKlQyDLuaQtlyvT8="
+          "hash": "FyHls7m/2gqy3WwiTU0GUeuNLkyG45Q4o2Qye+wuus8="
         }
       },
       "is_incremental": false,
@@ -837,7 +873,91 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.html",
-          "hash": "ALrth5eT3DFvtWCtD+XlGV70BdrWRVS5lZaQRHe5HHo="
+          "hash": "a/u91kfsnWVHqR0wBbP+Yw+npzVJ3LRTOSLUsxBpMg4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Advanced encryption using a peers public key and hybrid key exchange.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Advanced encryption using a peers public key and hybrid key exchange.html",
+          "hash": "XONmcOeA5MDx2ixPIxuABdvPR9u+4WiN6YIqfUGolyk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Advanced encryption using a peers public key.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Advanced encryption using a peers public key.html",
+          "hash": "XyjfrhA6GLjiqzOXJPgcqCF4JxjQ1+lN1LK9RpJswSk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Advanced encryption using a private PFS key and hybrid key exchange.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Advanced encryption using a private PFS key and hybrid key exchange.html",
+          "hash": "GntRIan+iGYr3BwcpquBD85dVuCG4BqZBev59Uv/ck0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Advanced encryption using a private PFS key.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Advanced encryption using a private PFS key.html",
+          "hash": "bsTUEYoLB00bG7caEeN0zW5ZxQxmaIGZgmRhf0Eg8B0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Implementing more algorithms.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Implementing more algorithms.html",
+          "hash": "4IdOKzYCdlnEFUlYTu4qFIyBcWetrSwmCS8N7RFdhjE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Simple encryption using a password.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Simple encryption using a password.html",
+          "hash": "pFpDHmaWDFMpx3+w1CsX0mMFboPpiANZUrSxihETCus="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Special features explained.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Special features explained.html",
+          "hash": "eDKdxAEREIqQ056PWy1pKq5yLfec7UEpuADB5RLe8ek="
         }
       },
       "is_incremental": false,
@@ -849,7 +969,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "5TTZLEf9DkKhAAJuKtawbARAEWbn2m3c7rrSrhE6bdk="
+          "hash": "wMIn9+rPBufK/b6kCjkPlbpoVAGwz3qIZz3Af/uyGbo="
         }
       },
       "is_incremental": false,
@@ -873,7 +993,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "sFKTojxLRsVq/X4KoZNs4ilz6lEDSChEpmSXoKrGW8A="
+          "hash": "p8SLdaxfQ7K4BL9gpyIt/RSJf0ku7Lw1RpDzQW+8gwU="
         }
       },
       "is_incremental": false,
@@ -885,7 +1005,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "s+UecGKJLe11K3w4+MJjx6QoiqktkO8teeQG06lk8L0="
+          "hash": "uZ9dx8bVy8Sps62gobcayptHGcm9sAT/cD4HZ5KZFAQ="
         }
       },
       "is_incremental": false,
@@ -906,13 +1026,13 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 3,
+          "total_file_count": 10,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 68,
+          "total_file_count": 71,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

@@ -170,6 +170,7 @@ namespace wan24.Crypto
 #pragma warning disable IDE0034 // default expression can be simplified
                 if (PayloadData == null) return default(T?);
 #pragma warning restore IDE0034
+                serializerVersion ??= SerializerVersion;
                 if (typeof(IStreamSerializer).IsAssignableFrom(typeof(T)))
                 {
                     using MemoryStream ms = new();
@@ -371,8 +372,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Cast as serialized data
         /// </summary>
-        /// <param name="privateKey">Private key</param>
-        public static implicit operator byte[](CryptoOptions privateKey) => privateKey.ToBytes();
+        /// <param name="options">Options</param>
+        public static implicit operator byte[](CryptoOptions options) => options.ToBytes();
 
         /// <summary>
         /// Cast from serialized data
