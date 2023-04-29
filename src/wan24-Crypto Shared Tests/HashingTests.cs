@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace wan24.Crypto.Tests
 {
@@ -7,16 +8,20 @@ namespace wan24.Crypto.Tests
         public static async Task TestAllAlgorithms()
         {
             Assert.IsFalse(HashHelper.Algorithms.IsEmpty);
+            int done = 0;
             foreach (string name in HashHelper.Algorithms.Keys)
             {
                 AlgorithmTests(name);
                 await AlgorithmTestsAsync(name);
+                done += 2;
             }
+            Console.WriteLine($"{done} tests done");
         }
 
         public static void AlgorithmTests(string name)
         {
             Console.WriteLine($"Synchronous hash {name} tests");
+            Stopwatch sw = Stopwatch.StartNew();
             HashAlgorithmBase algo = HashHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
             byte[] streamHash = algo.Hash(ms),
@@ -79,11 +84,13 @@ namespace wan24.Crypto.Tests
             {
                 hashStreams.Dispose();
             }
+            Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
 
         public static async Task AlgorithmTestsAsync(string name)
         {
             Console.WriteLine($"Asynchronous hash {name} tests");
+            Stopwatch sw = Stopwatch.StartNew();
             HashAlgorithmBase algo = HashHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
             byte[] streamHash = await algo.HashAsync(ms);
@@ -92,6 +99,7 @@ namespace wan24.Crypto.Tests
             {
                 HashAlgorithm = name
             })));
+            Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
     }
 }

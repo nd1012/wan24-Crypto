@@ -362,8 +362,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Cast as serialized data
         /// </summary>
-        /// <param name="privateKey">Private key</param>
-        public static implicit operator byte[](SignatureContainer privateKey) => privateKey.ToBytes();
+        /// <param name="signature">Signature</param>
+        public static implicit operator byte[](SignatureContainer signature) => signature.ToBytes();
 
         /// <summary>
         /// Cast from serialized data
