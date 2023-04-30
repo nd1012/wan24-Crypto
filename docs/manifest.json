@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "AwU51dFA0qGRFzOqJBX9tuDBotntRo6Tx6zVYtetZaA="
+          "hash": "96RZQijbE1DRGW8hhJBxS9wJfH2rxfvGMegz/kKsKm8="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.AsymmetricSignedPublicKey.html",
-          "hash": "xcVIkp0IWgT4pmzkiyLDNsFcI5KMRhEEx3jnClBgCLA="
+          "hash": "ICL9M1JxqYTupRoh5QNLHY/hj1vC9526E8zfqZ2irZY="
         }
       },
       "is_incremental": false,
@@ -845,6 +845,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PrivateKeySuite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PrivateKeySuite.html",
+          "hash": "t5h19ImClvlfGGcmk2oQxHNORWJQmuuuDRg5aZC/AjM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PublicKeySuite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PublicKeySuite.html",
+          "hash": "EB+yVX8ZC9Z3Fgz7SNeT3Ejd4rv/GWEU1gEqv2W8oOw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.SignatureContainer.yml",
       "output": {
         ".html": {
@@ -873,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.html",
-          "hash": "a/u91kfsnWVHqR0wBbP+Yw+npzVJ3LRTOSLUsxBpMg4="
+          "hash": "FWfRZ0TMPp/nLwK2MyTKW6/4TTVwDxWUk/4ywcwjKuE="
         }
       },
       "is_incremental": false,
@@ -1032,7 +1056,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 71,
+          "total_file_count": 73,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

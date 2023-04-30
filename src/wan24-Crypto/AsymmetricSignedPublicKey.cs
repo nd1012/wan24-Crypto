@@ -348,5 +348,17 @@ namespace wan24.Crypto
         /// <param name="id">Signed public key ID</param>
         /// <returns>If the key was revoked</returns>
         public delegate bool SignedPublicKeyRevocation_Delegate(byte[] id);
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="key">Key</param>
+        public static implicit operator byte[](AsymmetricSignedPublicKey key) => key.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricSignedPublicKey(byte[] data) => data.ToObject<AsymmetricSignedPublicKey>();
     }
 }
