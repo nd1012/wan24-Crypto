@@ -192,7 +192,7 @@ namespace wan24.Crypto.Tests
                                         if (kdfSeen.Contains($"{kdfName} {counterKdfName}") || kdfSeen.Contains($"{counterKdfName} {kdfName}")) continue;
                                         kdfSeen.Add($"{kdfName} {counterKdfName}");
                                         foreach (int keySize in algo.AllowedKeySizes)
-                                            foreach (int counterKeySize in algo.AllowedKeySizes)
+                                            foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
                                             {
                                                 SyncEncryptionTests(new()
                                                 {
@@ -255,7 +255,7 @@ namespace wan24.Crypto.Tests
                                         if (kdfSeen.Contains($"{kdfName} {counterKdfName}") || kdfSeen.Contains($"{counterKdfName} {kdfName}")) continue;
                                         kdfSeen.Add($"{kdfName} {counterKdfName}");
                                         foreach (int keySize in algo.AllowedKeySizes)
-                                            foreach (int counterKeySize in algo.AllowedKeySizes)
+                                            foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
                                             {
                                                 await AsyncEncryptionTests(new()
                                                 {
