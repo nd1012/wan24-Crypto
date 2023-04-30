@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "96RZQijbE1DRGW8hhJBxS9wJfH2rxfvGMegz/kKsKm8="
+          "hash": "eDWrj7RtKBPjuTynOyI7XgsgueYQMINNV9+BtIAJXLI="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html",
-          "hash": "DvbfLODrcdsA7j7G2H02YU1Q9z/8jXGB4RjE29jwDNg="
+          "hash": "OMqa/UuXh6exIV3gYzCu9tvu315yqNGatQJcwA/bnHQ="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.AsymmetricSignedPublicKey.RootTrust_Delegate.html",
-          "hash": "p+/xyFYGxz4z8RGaeH4ExrBrqYNFoVE6JrApYruOU9I="
+          "hash": "GzxOmfhIThaV0Fvm61ysKuNcyI0IcEdpCy74LVLMNMQ="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate.html",
-          "hash": "yr8gCyOh9MGo24r33Pn0naxVyX+NSTVmenP878ULnh0="
+          "hash": "J45Ilofcn3hyHyWNL4YcOcpXLKO20LSq6s/xI/9zUns="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate.html",
-          "hash": "cCWUQUGFBaWAICr5OMz30+9sKsloKKtujkI7ZsB0uPM="
+          "hash": "9UHvaNA8XNwSmAIrv6nNuVVSbhgrceIqkc2GEmCBiqw="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.AsymmetricSignedPublicKey.html",
-          "hash": "ICL9M1JxqYTupRoh5QNLHY/hj1vC9526E8zfqZ2irZY="
+          "hash": "vaXbTs8I75kjZ0CXyaJWhPy5QXVzYl5pfI6Id7aHauw="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.CryptoOptions.html",
-          "hash": "cRXYGm8VX//5Lbkw1H04t6iRP9y9D4J+rgHLA/xaqx4="
+          "hash": "qcWGG7w31rx7VTKqkyAT5cRoZZv9OY7qUxCz6wBBSUI="
         }
       },
       "is_incremental": false,
@@ -849,7 +849,19 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.PrivateKeySuite.html",
-          "hash": "t5h19ImClvlfGGcmk2oQxHNORWJQmuuuDRg5aZC/AjM="
+          "hash": "g0vqwTiWQM6kZHAGI74qMO1cLMQGNOhvimFNOxX6/ck="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PrivateKeySuiteExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PrivateKeySuiteExtensions.html",
+          "hash": "b4xNqo3699iBA6OqKV6DYdatEO1EWOu89L9DSSiPbGc="
         }
       },
       "is_incremental": false,
@@ -861,7 +873,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.PublicKeySuite.html",
-          "hash": "EB+yVX8ZC9Z3Fgz7SNeT3Ejd4rv/GWEU1gEqv2W8oOw="
+          "hash": "9NxfG8oW4RJOAct2D8ZDCXZuqsxAxs7QO9Q1G/VQgmU="
         }
       },
       "is_incremental": false,
@@ -873,7 +885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.SignatureContainer.html",
-          "hash": "g1zHpvzjOS/8M4q8TE3y9f7T/RrSGtxHUG5ZIECpnoo="
+          "hash": "nKi2qPgcK4XNDs8KCs8BUnpu8FAEaiaHZPAlf+IKsFE="
         }
       },
       "is_incremental": false,
@@ -897,7 +909,7 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.html",
-          "hash": "FWfRZ0TMPp/nLwK2MyTKW6/4TTVwDxWUk/4ywcwjKuE="
+          "hash": "goNGof4yC6X+zWwUCZK8vwsq6ENJg59Oyy3YzmPB9iw="
         }
       },
       "is_incremental": false,
@@ -1056,7 +1068,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 73,
+          "total_file_count": 74,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
