@@ -8,7 +8,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Signed asymmetric public key
     /// </summary>
-    public sealed class AsymmetricSignedPublicKey : DisposableBase, IStreamSerializerVersion
+    public sealed class AsymmetricSignedPublicKey : DisposableBase, IStreamSerializerVersion, ICloneable
     {
         /// <summary>
         /// Object version
@@ -274,6 +274,24 @@ namespace wan24.Crypto
                 Signature = signature;
             }
         }
+
+        /// <summary>
+        /// Clone this instance
+        /// </summary>
+        /// <returns>Clone</returns>
+        public AsymmetricSignedPublicKey Clone() => new()
+        {
+            PublicKey = PublicKey.GetCopy(),
+            Created = Created,
+            Expires = Expires,
+            Attributes = new(Attributes),
+            Signature = Signature.Clone(),
+            Signer = Signer?.Clone(),
+            CounterSigner = CounterSigner?.Clone()
+        };
+
+        /// <inheritdoc/>
+        object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
         public void Serialize(Stream stream)

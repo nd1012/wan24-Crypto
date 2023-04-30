@@ -9,7 +9,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Signature container
     /// </summary>
-    public sealed class SignatureContainer : StreamSerializerBase
+    public sealed class SignatureContainer : StreamSerializerBase, ICloneable
     {
         /// <summary>
         /// Object version
@@ -300,6 +300,29 @@ namespace wan24.Crypto
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <summary>
+        /// Clone this instance
+        /// </summary>
+        /// <returns>Clone</returns>
+        public SignatureContainer Clone() => new()
+        {
+            Signed = Signed,
+            HashAlgorithm = HashAlgorithm,
+            AsymmetricAlgorithm = AsymmetricAlgorithm,
+            AsymmetricCounterAlgorithm = AsymmetricCounterAlgorithm,
+            SignedDataHash = (byte[])SignedDataHash.Clone(),
+            Nonce = (byte[])(Nonce?.Clone() ?? throw new InvalidOperationException()),
+            Signature = (byte[])Signature.Clone(),
+            Signer = (byte[])Signer.Clone(),
+            SignerPublicKeyData = (byte[])SignerPublicKeyData.Clone(),
+            CounterSignature = (byte[]?)CounterSignature?.Clone(),
+            CounterSigner = (byte[]?)CounterSigner?.Clone(),
+            CounterSignerPublicKeyData = (byte[]?)CounterSignerPublicKeyData?.Clone()
+        };
+
+        /// <inheritdoc/>
+        object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)

@@ -109,5 +109,17 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="signingRequest">Signing request</param>
         public static implicit operator AsymmetricSignedPublicKey(AsymmetricPublicKeySigningRequest signingRequest) => signingRequest.GetAsUnsignedKey();
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="request">Request</param>
+        public static implicit operator byte[](AsymmetricPublicKeySigningRequest request) => request.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricPublicKeySigningRequest(byte[] data) => data.ToObject<AsymmetricPublicKeySigningRequest>();
     }
 }

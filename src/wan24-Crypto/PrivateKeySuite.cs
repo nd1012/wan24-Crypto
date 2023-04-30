@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Private key suite
     /// </summary>
-    public sealed class PrivateKeySuite : DisposableBase, IStreamSerializerVersion
+    public sealed class PrivateKeySuite : DisposableBase, IStreamSerializerVersion, ICloneable
     {
         /// <summary>
         /// Object version
@@ -29,22 +29,32 @@ namespace wan24.Crypto
         public PrivateKeySuite() : base() { }
 
         /// <summary>
-        /// Key exchange private key
+        /// Key exchange private key (will be disposed)
         /// </summary>
         public IKeyExchangePrivateKey? KeyExchangeKey { get; set; }
 
         /// <summary>
-        /// Signature private key
+        /// Counter key exchange private key (will be disposed)
+        /// </summary>
+        public IKeyExchangePrivateKey? CounterKeyExchangeKey { get; set; }
+
+        /// <summary>
+        /// Signature private key (will be disposed)
         /// </summary>
         public ISignaturePrivateKey? SignatureKey { get; set; }
 
         /// <summary>
-        /// Signed public key
+        /// Counter signature private key (will be disposed)
+        /// </summary>
+        public ISignaturePrivateKey? CounterSignatureKey { get; set; }
+
+        /// <summary>
+        /// Signed public key (will be disposed)
         /// </summary>
         public AsymmetricSignedPublicKey? SignedPublicKey { get; set; }
 
         /// <summary>
-        /// Symmetric key
+        /// Symmetric key (will be cleared)
         /// </summary>
         [CountLimit(1, byte.MaxValue)]
         public byte[]? SymmetricKey { get; set; }
@@ -73,7 +83,9 @@ namespace wan24.Crypto
         {
             _Public = _Public?.Clone(),
             KeyExchangeKey = (IKeyExchangePrivateKey?)KeyExchangeKey?.GetCopy(),
+            CounterKeyExchangeKey = (IKeyExchangePrivateKey?)CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePrivateKey?)SignatureKey?.GetCopy(),
+            CounterSignatureKey = (ISignaturePrivateKey?)CounterSignatureKey?.GetCopy(),
             SignedPublicKey = SignedPublicKey == null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey,
             SymmetricKey = (byte[]?)SymmetricKey?.Clone()
         });
@@ -83,10 +95,15 @@ namespace wan24.Crypto
         {
             _Public?.Dispose();
             KeyExchangeKey?.Dispose();
+            CounterKeyExchangeKey?.Dispose();
             SignatureKey?.Dispose();
+            CounterSignatureKey?.Dispose();
             SignedPublicKey?.Dispose();
             SymmetricKey?.Clear();
         }
+
+        /// <inheritdoc/>
+        object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
         public void Serialize(Stream stream)
@@ -94,7 +111,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             stream.WriteNumber(VERSION);
             stream.WriteAnyNullable(KeyExchangeKey)
+                .WriteAnyNullable(CounterKeyExchangeKey)
                 .WriteAnyNullable(SignatureKey)
+                .WriteAnyNullable(CounterSignatureKey)
                 .WriteSerializedNullable(SignedPublicKey)
                 .WriteBytesNullable(SymmetricKey);
         }
@@ -105,7 +124,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(KeyExchangeKey, cancellationToken).DynamicContext();
+            await stream.WriteAnyNullableAsync(CounterKeyExchangeKey, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(SignatureKey, cancellationToken).DynamicContext();
+            await stream.WriteAnyNullableAsync(CounterSignatureKey, cancellationToken).DynamicContext();
             await stream.WriteSerializedNullableAsync(SignedPublicKey, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(SymmetricKey, cancellationToken).DynamicContext();
         }
@@ -116,7 +137,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             KeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
+            CounterKeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
             SignatureKey = (ISignaturePrivateKey?)stream.ReadAnyNullable(version);
+            CounterSignatureKey = (ISignaturePrivateKey?)stream.ReadAnyNullable(version);
             SignedPublicKey = stream.ReadSerializedNullable<AsymmetricSignedPublicKey>(version);
             SymmetricKey = stream.ReadBytesNullable(version, minLen: 1, maxLen: byte.MaxValue)?.Value;
         }
@@ -127,7 +150,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             KeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
+            CounterKeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             SignatureKey = (ISignaturePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
+            CounterSignatureKey = (ISignaturePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             SignedPublicKey = await stream.ReadSerializedNullableAsync<AsymmetricSignedPublicKey>(version, cancellationToken).DynamicContext();
             SymmetricKey = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
         }
@@ -155,5 +180,25 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="data">Data</param>
         public static explicit operator PrivateKeySuite(byte[] data) => data.ToObject<PrivateKeySuite>();
+
+        /// <summary>
+        /// Create a private key suite with new key exchange, signature and symmetric keys
+        /// </summary>
+        /// <returns>Private key suite</returns>
+        public static PrivateKeySuite Create() => new PrivateKeySuite()
+            .WithKeyExchangeKey()
+            .WithSignatureKey()
+            .WithSymmetricKey();
+
+        /// <summary>
+        /// Create a private key suite with new key exchange, signature and symmetric keys (and new counter algorithm keys)
+        /// </summary>
+        /// <returns>Private key suite</returns>
+        public static PrivateKeySuite CreateWithCounterAlgorithms() => new PrivateKeySuite()
+            .WithKeyExchangeKey()
+            .WithCounterKeyExchangeKey()
+            .WithSignatureKey()
+            .WithCounterSignatureKey()
+            .WithSymmetricKey();
     }
 }

@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Public key suite
     /// </summary>
-    public sealed class PublicKeySuite : DisposableBase, IStreamSerializerVersion
+    public sealed class PublicKeySuite : DisposableBase, IStreamSerializerVersion, ICloneable
     {
         /// <summary>
         /// Object version
@@ -21,6 +21,10 @@ namespace wan24.Crypto
         /// Key exchange public key
         /// </summary>
         private IAsymmetricPublicKey? _KeyExchangeKey = null;
+        /// <summary>
+        /// Counter key exchange public key
+        /// </summary>
+        private IAsymmetricPublicKey? _CounterKeyExchangeKey = null;
 
         /// <summary>
         /// Constructor
@@ -28,7 +32,7 @@ namespace wan24.Crypto
         public PublicKeySuite() : base() { }
 
         /// <summary>
-        /// Key exchange key
+        /// Key exchange key (will be disposed)
         /// </summary>
         public IAsymmetricPublicKey? KeyExchangeKey
         {
@@ -42,12 +46,31 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Signature public key
+        /// Counter key exchange key (will be disposed)
+        /// </summary>
+        public IAsymmetricPublicKey? CounterKeyExchangeKey
+        {
+            get => _CounterKeyExchangeKey;
+            set
+            {
+                EnsureUndisposed();
+                if (value != null && !value.Algorithm.CanExchangeKey) throw new ArgumentException("Key can't key exchange", nameof(value));
+                _CounterKeyExchangeKey = value;
+            }
+        }
+
+        /// <summary>
+        /// Signature public key (will be disposed)
         /// </summary>
         public ISignaturePublicKey? SignatureKey { get; set; }
 
         /// <summary>
-        /// Signed public key
+        /// Counter signature public key (will be disposed)
+        /// </summary>
+        public ISignaturePublicKey? CounterSignatureKey { get; set; }
+
+        /// <summary>
+        /// Signed public key (will be disposed)
         /// </summary>
         public AsymmetricSignedPublicKey? SignedPublicKey { get; set; }
 
@@ -64,7 +87,9 @@ namespace wan24.Crypto
         public PublicKeySuite Clone() => IfUndisposed(() => new PublicKeySuite()
         {
             _KeyExchangeKey = _KeyExchangeKey?.GetCopy(),
+            _CounterKeyExchangeKey = _CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.GetCopy(),
+            CounterSignatureKey = (ISignaturePublicKey?)CounterSignatureKey?.GetCopy(),
             SignedPublicKey = SignedPublicKey == null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
         });
 
@@ -72,9 +97,14 @@ namespace wan24.Crypto
         protected override void Dispose(bool disposing)
         {
             _KeyExchangeKey?.Dispose();
+            _CounterKeyExchangeKey?.Dispose();
             SignatureKey?.Dispose();
+            CounterSignatureKey?.Dispose();
             SignedPublicKey?.Dispose();
         }
+
+        /// <inheritdoc/>
+        object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
         public void Serialize(Stream stream)
@@ -82,7 +112,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             stream.WriteNumber(VERSION);
             stream.WriteAnyNullable(_KeyExchangeKey)
+                .WriteAnyNullable(_CounterKeyExchangeKey)
                 .WriteAnyNullable(SignatureKey)
+                .WriteAnyNullable(CounterSignatureKey)
                 .WriteSerializedNullable(SignedPublicKey);
         }
 
@@ -92,7 +124,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(_KeyExchangeKey, cancellationToken).DynamicContext();
+            await stream.WriteAnyNullableAsync(_CounterKeyExchangeKey, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(SignatureKey, cancellationToken).DynamicContext();
+            await stream.WriteAnyNullableAsync(CounterSignatureKey, cancellationToken).DynamicContext();
             await stream.WriteSerializedNullableAsync(SignedPublicKey, cancellationToken).DynamicContext();
         }
 
@@ -102,7 +136,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             _KeyExchangeKey = (IAsymmetricPublicKey?)stream.ReadAnyNullable(version);
+            _CounterKeyExchangeKey = (IAsymmetricPublicKey?)stream.ReadAnyNullable(version);
             SignatureKey = (ISignaturePublicKey?)stream.ReadAnyNullable(version);
+            CounterSignatureKey = (ISignaturePublicKey?)stream.ReadAnyNullable(version);
             SignedPublicKey = stream.ReadSerializedNullable<AsymmetricSignedPublicKey>(version);
         }
 
@@ -112,7 +148,9 @@ namespace wan24.Crypto
             EnsureUndisposed();
             _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             _KeyExchangeKey = (IAsymmetricPublicKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
+            _CounterKeyExchangeKey = (IAsymmetricPublicKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             SignatureKey = (ISignaturePublicKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
+            CounterSignatureKey = (ISignaturePublicKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             SignedPublicKey = await stream.ReadSerializedNullableAsync<AsymmetricSignedPublicKey>(version, cancellationToken).DynamicContext();
         }
 
