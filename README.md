@@ -39,7 +39,8 @@ The goals of this library are:
 Implementing (new) cryptographic algorithms into (existing) code can be 
 challenging. `wan24-Crypto` tries to make it as easy as possible, while the 
 API is still complex due to the huge number of options it offers. Please see 
-the Wiki for examples of the most common use cases, which cover:
+the [Wiki](https://github.com/nd1012/wan24-Crypto/wiki) for examples of the 
+most common use cases, which cover:
 
 - Simple encryption using a password
 - Advanced encryption using a private PFS key
@@ -47,12 +48,18 @@ the Wiki for examples of the most common use cases, which cover:
 - Advanced encryption using a peers public key
 - Advanced encryption using a peers public key and hybrid key exchange
 
-For more examples please open an issue - I'd be glad to help!
+For more examples please open an 
+[issue](https://github.com/nd1012/wan24-Crypto/issues/new) - I'd be glad to 
+help! If you've found a security issue, please report it private.
 
 ## How to get it
 
 This library is available as 
 [NuGet package](https://www.nuget.org/packages/wan24-Crypto/).
+
+These extension NuGet packages are available:
+
+- [wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)](https://www.nuget.org/packages/wan24-Crypto-BC/)
 
 ## Usage
 
@@ -402,26 +409,33 @@ If you'd like to implement inofficial algorithms on your own, please use the
 ID bits 24-32 only to avoid possible collisions with official libraries! These 
 are the official implementation IDs (not guaranteed to be complete):
 
-| Algorithm | ID |
-| --- | --- |
-| **Asymmetric cryptography** |  |
-| ECDH | 0 |
-| ECDSA | 1 |
-| **Symmetric cryptography** |  |
-| AES256CBC | 0 |
-| **Hashing** |  |
-| MD5 | 0 |
-| SHA1 | 1 |
-| SHA256 | 2 |
-| SHA384 | 3 |
-| SHA512 | 4 |
-| **MAC** |  |
-| HMAC-SHA1 | 0 |
-| HMAC-SHA256 | 1 |
-| HMAC-SHA384 | 2 |
-| HMAC-SHA512 | 3 |
-| **KDF** |  |
-| PBKDF2 | 0 |
+| Algorithm | ID | Library |
+| --- | --- | --- |
+| **Asymmetric cryptography** |  |  |
+| ECDH | 0 | wan24-Crypto |
+| ECDSA | 1 | wan24-Crypto |
+| CRYSTALS-Kyber | 2 | wan24-Crypto-BC |
+| CRYSTALS-Dilithium | 3 | wan24-Crypto-BC |
+| FALCON | 4 | wan24-Crypto-BC |
+| SPHINCS+ | 5 | wan24-Crypto-BC |
+| FrodoKEM | 6 | wan24-Crypto-BC |
+| **Symmetric cryptography** |  |  |
+| AES256CBC | 0 | wan24-Crypto |
+| CHACHA20 | 1 | wan24-Crypto-BC |
+| XSALSA20 | 2 | wan24-Crypto-BC |
+| **Hashing** |  |  |
+| MD5 | 0 | wan24-Crypto |
+| SHA1 | 1 | wan24-Crypto |
+| SHA256 | 2 | wan24-Crypto |
+| SHA384 | 3 | wan24-Crypto |
+| SHA512 | 4 | wan24-Crypto |
+| **MAC** |  |  |
+| HMAC-SHA1 | 0 | wan24-Crypto |
+| HMAC-SHA256 | 1 | wan24-Crypto |
+| HMAC-SHA384 | 2 | wan24-Crypto |
+| HMAC-SHA512 | 3 | wan24-Crypto |
+| **KDF** |  |  |
+| PBKDF2 | 0 | wan24-Crypto |
 
 ## Counter algorithms
 

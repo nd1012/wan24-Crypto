@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Special features explained | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Special features explained | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="special-features-explained">Special features explained</h1>
+
+<h2 id="flags-and-requirements">Flags and requirements</h2>
+<p>Using flags in the <code>CryptoOptions</code> you can define which information will be
+included (or are included, when decrypting) in the cipher header, while the
+requirements define which informations are required to be included in the
+cipher header when decrypting.</p>
+<p>The flags ensure that all information which you require for decrypting cipher
+data is included in the header. If all necessary are included in the header,
+you can decrypt without specifying them in the options.</p>
+<p>Requirements finally ensure that a cipher header contains all information,
+which is required for decryption. By defining requirements you can detect
+invalid cipher data before wasting time - and it's a security feature, too:
+Requirements can define additional security features, which you require to be
+applied before accepting cipher data for decryption.</p>
+<h2 id="skip-the-encryption-header">Skip the encryption header</h2>
+<p>Normally a header is prepended in the cipher data. In case you want to skip
+the header:</p>
+<pre><code class="lang-cs">CryptoOptions options = new().IncludeNothing();
+</code></pre>
+<p>Including all required decryption information into the header ensures that
+you'll be able to decrypt the cipher even with newer library versions, or if
+you don't know the options used for encryption.</p>
+<p>You may skip that header, if the cipher will be decrypted soon, and you know
+the options which are required for decryption.</p>
+<h2 id="forcing-the-mac-to-cover-the-whole-data">Forcing the MAC to cover the whole data</h2>
+<p>A cipher engine mode (like AES-CBC) may require to include a MAc which covers
+the whole data. Other cipher engines may not require that, but wan24-Crypto
+will cover the cipher header with a MAC to authenticate the included
+decryption options. The MAC will be validated before any decryption action,
+and during the cipher header is being red.</p>
+<p>You may force to cover all cipher data instead, by setting the value of the
+<code>CryptoOptions.RequireMacCoverWhole</code> instance property to <code>true</code>. This will
+ensure that the included MAC covers the cipher header including the cipher
+data, which will add overhead for ciphers which don't require it - but add
+more security to the whole thing.</p>
+<h2 id="using-cryptooptions-as-cipher-suite">Using <code>CryptoOptions</code> as cipher suite</h2>
+<p>You may use a configured <code>CryptoOptions</code> instance as storable crypto suite:</p>
+<pre><code class="lang-cs">// Serialize for storing in binary form
+byte[] serializedOptions = (byte[])options;
+
+// Deserialize a previously stored binary form
+options = (CryptoOptions)serializedOptions;
+</code></pre>
+<p>Sensible information (like keys) and temporary processing informations will be
+skipped by the serializer.</p>
+<h2 id="working-with-asymmetric-keys">Working with asymmetric keys</h2>
+<p>In general you should use these interfaces where possible:</p>
+<ul>
+<li><code>IAsymmetricPrivateKey</code> for any private key</li>
+<li><code>IAsymmetricPublicKey</code> for any public key</li>
+<li><code>IKeyExchangePrivateKey</code> to enforce working with a private key with key
+exchange capabilities (extends <code>IAsymmetricPrivateKey</code>)</li>
+<li><code>ISignaturePrivateKey</code> to enforce working with a private key with signature
+capabilities (extends <code>IAsymmetricPrivateKey</code>)</li>
+<li><code>ISignaturePublicKey</code> to enforce working with a public key with signature
+validation capabilities (extends <code>IAsymmetricPublicKey</code>)</li>
+</ul>
+<p>Work with final key types only, if you're sure that you won't switch to
+another algorithm later. The abstractions help you to stay flexible.</p>
+<h3 id="getting-wan24-crypto-objects-from-net-keys">Getting wan24-Crypto objects from .NET keys</h3>
+<p>wan24-Crypto uses the .NET cryptographic infrastructure and adds a higher
+level layer. But you're still able to access the lower level information, and
+it's also possible to create a higher level object from a lower level object:</p>
+<pre><code class="lang-cs">// To determine the algorithm (and if the algorithm is supported)
+IAsymmetricAlgorithm? algo = asymmetricAlgorithm.GetAsymmetricAlgorithm();
+
+// Create a IAsymmetricPrivateKey instance from a .NET asymmetric algorithm
+using IAsymmetricPrivateKey privateKey = asymmetricAlgorithm.GetAsymmetricPrivateKey();
+
+// Create a IAsymmetricPublicKey instance from a .NET asymmetric algorithm
+using IAsymmetricPrivateKey publicKey = asymmetricAlgorithm.GetAsymmetricPublicKey();
+</code></pre>
+<p>Supported are:</p>
+<ul>
+<li>Elliptic Curve Diffie Hellman</li>
+<li>Elliptic Curve DSA</li>
+</ul>
+<h3 id="getting-wan24-crypto-objects-from-a-x509-certificate">Getting wan24-Crypto objects from a X.509 certificate</h3>
+<p>The X.509 extensions try to</p>
+<ul>
+<li>return the used wan24-Crypto asymmetric algorithm</li>
+<li>create a <code>IAsymmetricPrivateKey</code> instance</li>
+<li>create a <code>IAsymmetricPublicKey</code> instance</li>
+</ul>
+<p>from a X.509 certificate, if possible. This is limited to the implemented .NET
+keys.</p>
+<h2 id="simple-object-deserialization">Simple object (de)serialization</h2>
+<pre><code class="lang-cs">// Serialize
+byte[] serializedData = (byte[])instance;
+
+// Deserialize
+instance = (InstanceType)serializedData;
+</code></pre>
+<p>This is possible with</p>
+<ul>
+<li>asymmetric keys</li>
+<li><code>CryptoOptions</code></li>
+<li><code>KeyExchangeDataContainer</code></li>
+<li><code>SignatureContainer</code></li>
+</ul>
+<p>The used binary serializer uses object versioning to ensure that a previously
+serialized object can be deserialized later, even the object definition was
+changed meanwhile (or the serializer binary format).</p>
+<h2 id="a-payload-object-in-the-cipher-header">A payload object in the cipher header</h2>
+<p>You can include any payload object into the cipher header, but you should
+ensure to use a MAC, too, before deserializing or using a payload object
+instance from a cipher header (!):</p>
+<pre><code class="lang-cs">CryptoOptions options = new CryptoOptions().WithPayload(payload);
+</code></pre>
+<p><strong>NOTE</strong>: The payload will be serialized <strong>unencrypted</strong> to the cipher header!</p>
+<p>To get the payload object later:</p>
+<pre><code class="lang-cs">// Require payload to be included
+CryptoOptions options = new()
+{
+	RequirePayload = true
+};
+
+// Read the cipher header
+options = cipherData.ReadOptions(rawData, password, options);
+
+// Extract the payload object
+PayloadType payload = options.GetPayload&lt;PayloadType&gt;() ?? throw new InvalidDataException();
+
+// Continue with decryption
+cipherData.Decrypt(rawData, password, options);
+</code></pre>
+<p>In order to be able to (de)serialize the payload, the object should be JSON
+serializable or implement the <code>IStreamSerializer</code> interface. If you want to
+use the JSON serializer, you'll need to enable it, first:</p>
+<pre><code class="lang-cs">EncryptionHelper.EnableJsonWrapper = true;
+</code></pre>
+<p><strong>CAUTION</strong>: JSON (de)serializing is disabled per default for security
+reasons - enable on your own risk!</p>
+<p><strong>CAUTION</strong>: Even the Stream-Serializer-Extensions may let you run into
+security issues, if you change the default settings or implement insecure
+(de)serialization methods!</p>
+<h2 id="hybrid-cryptography">Hybrid cryptography</h2>
+<p>In case you don't want to trust one algorithm alone (which may be broken in
+the future), you can add a counter algorithm for</p>
+<ul>
+<li>MAC (counter MAC will be created from the MAC)</li>
+<li>KDF (stretched key will be stretched twice using the counter KDF algorithm
+in the 2nd round)</li>
+<li>asymmetric key exchange (exchanged keys will be concatenated) and signature
+(signature will be signed with the counter signature algorithm)</li>
+</ul>
+<p>The counter MAC will only authenticate the MAC, since creating two MACs over
+the whole authenticated data may be a too huge overhead. If you need that,
+you're free to DIY.</p>
+<p>Using a counter KDF algorithm requires to store two salt values, which is only
+a little overhead compared to the security it adds.</p>
+<p>Also the counter signature doesn't sign the whole authenticated data again,
+because this would produce too much overhead. Instead the first signature is
+signed, which authenticates the signed data reliable, as long as the hash
+algorithm wasn't broken.</p>
+<h3 id="counter-hash">Counter hash</h3>
+<p>There's no counter hash, which you maybe would like to use for your
+signatures. It's easy to DIY:</p>
+<pre><code class="lang-cs">// Apply a counter hash algorithm (SHA-512 in this example)
+using MemoryStream ms = new();
+using HashStreams hash = HashSha512Algorithm.Instance.GetHashStream(ms, options: new()
+{
+	LeaveOpen = true
+});
+ms.Write(dataToSign);
+hash.Stream.Dispose();// To finalize the hash
+ms.Write(hash.Transform.Hash!);
+
+// Create and validate the signature
+
+// Validate the counter hash algorithm
+using MemoryStream ms = new(signedData);
+using HashStreams hash = HashSha512Algorithm.Instance.GetHashStream(ms, writable: false, new()
+{
+	LeaveOpen = true
+});
+byte[] buffer = new byte[ms.Length - HashSha512Algorithm.Instance.HashLength];// Previously dataToSign
+if(ms.Read(buffer) != buffer.Length) throw new IOException();
+hash.Stream.Dispose();// Stop calculating the counter hash, 'cause the hashed data has been red already
+byte[] bufferHash = new byte[HashSha512Algorithm.Instance.HashLength];
+if(ms.Read(bufferHash) != bufferHash.Length) throw new IOException();
+if(!hash.Transform.Hash!.AsSpan().SlowCompare(bufferHash))
+	throw new InvalidDataException(&quot;Counter hash mismatch&quot;);
+</code></pre>
+<h3 id="hybrid-helper">Hybrid helper</h3>
+<p>The <code>HybridAlgorithmHelper</code> stores the default hybrid cryptography settings,
+which are missing per default:</p>
+<ul>
+<li><code>KeyExchangeAlgorithm</code>: Hybrid key exchange algorithm to use</li>
+<li><code>SignatureAlgorithm</code>: Hybrid signature algorithm to use</li>
+<li><code>KdfAlgorithm</code>: Hybrid KDF algorithm to use</li>
+<li><code>MacAlgorithm</code>: Hybrid MAC algorithm to use</li>
+</ul>
+<p>If you want to use the hybrid default algorithms for encryption:</p>
+<pre><code class="lang-cs">EncryptionHelper.UseHybridOptions = true;
+</code></pre>
+<p>These are examples for manual operations:</p>
+<h4 id="hybrid-pfs-key-exchange">Hybrid PFS key exchange</h4>
+<p>Creating hybrid key exchange data:</p>
+<pre><code class="lang-cs">CryptoOptions options = new CryptoOptions()
+	.WithPfs(privateKey)// Optional give the peers PFS public key here
+	.WithCounterKeyExchange(counterPrivateKey);// Optional give the peers counter PFS public key here
+KeyExchangeDataContainer container = new()
+{
+	KeyExchangeData = privateKey.GetKeyExchangeData(options: options)
+};
+HybridAlgorithmHelper.GetKeyExchangeData(container, options);
+</code></pre>
+<p>The exchanged key is now available in <code>options.Password</code>.</p>
+<p>For deriving an exchanged key:</p>
+<pre><code class="lang-cs">CryptoOptions options = new CryptoOptions()
+	.WithPfs(peerPrivateKey)
+	.WithCounterKeyExchange(counterPeerPrivateKey);
+HybridAlgorithmHelper.DeriveKey(container, options);
+</code></pre>
+<p>The exchanged key is now available in <code>options.Password</code>.</p>
+<h4 id="hybrid-kdf">Hybrid KDF</h4>
+<pre><code class="lang-cs">CryptoOptions options = new CryptoOptions()
+	.WithEncryptionAlgorithm()// Required for the desired key length
+	.WithKdf()
+	.WithCounterKdf();
+options.Password = password.Stretch(EncryptionHelper.GetAlgorithm(options.Algorithm).KeySize, options);
+HybridAlgorithmHelper.StretchPassword(options);
+</code></pre>
+<p>The final stretched password is now available in <code>options.Password</code>.</p>
+<h4 id="hybrid-mac">Hybrid MAC</h4>
+<pre><code class="lang-cs">CryptoOptions options = new CryptoOptions()
+	.WithMac()
+	.WithCounterMac();
+options.Mac = authenticatedData.Mac(options);
+HybridAlgorithmHelper.ComputeMac(options);
+</code></pre>
+<p>The final MAC is now available in <code>options.Mac</code>.</p>
+<h4 id="hybrid-signature">Hybrid signature</h4>
+<pre><code class="lang-cs">// Signing
+CryptoOptions options = new CryptoOptions()
+	.WithSignatureKey(privateKey, counterPrivateKey);
+SignatureContainer = privateKey.SignData(dataToSign, options: options);
+
+// Signature validation
+publicKey.ValidateSignature(signature);
+if(!HybridAlgorithmHelper.ValidateCounterSignature(signature))
+	throw new InvalidDataException(&quot;Counter signature validation failed - signature is invalid!&quot;);
+</code></pre>
+<h2 id="elliptic-curves">Elliptic curves</h2>
+<p>Per default only these elliptic curves are supported:</p>
+<ul>
+<li>secp256r1</li>
+<li>secp384r1</li>
+<li>secp521r1</li>
+</ul>
+<p>.NET offers way more elliptic curves, but not on all operating systems. To be
+compatible with all platforms, only the curves which are supported everywhere
+are supported (these curves are the NIST recommended curves).</p>
+<p>There's no support for other (and custom) curves for several reasons:</p>
+<ul>
+<li>The support won't match this libraries target to make things more easy</li>
+<li>The NIST recommendations are worldwide used standards</li>
+<li>Custom curve support may blow up the cipher header overhead</li>
+</ul>
+<h2 id="post-quantum-safety">Post quantum-safety</h2>
+<p>AES-256 and (HMAC-)SHA-384+ are considered to be post quantum-safe at this
+time. Post quantum asymmetric algorithms aren't implemented in the core
+library, but they're available by using extension libraries. When you use such
+an extension library, you may want to force post quantum-safety for your
+application, which ensures that only post quantum-safe algorithms will be used
+per default:</p>
+<pre><code class="lang-cs">CryptoHelper.ForcePostQuantumSafety(strict: true);
+</code></pre>
+<p>This will change the environment:</p>
+<ul>
+<li>Only post quantum-safe algorithms will be used in the defaults</li>
+<li>Hybrid algorithms will be enabled everywhere</li>
+<li>By giving <code>strict: true</code> to the method, post quantum-safety is strictly
+required (using any non-post quantum-safe algorithm will cause an exception)</li>
+</ul>
+<p>If the method wasn't able to set post quantum-safe defaults in any area, it'll
+fail with an exception.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto Docs/articles/Special features explained.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

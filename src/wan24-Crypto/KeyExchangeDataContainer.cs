@@ -1,4 +1,5 @@
 ﻿using wan24.Core;
+using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -21,11 +22,13 @@ namespace wan24.Crypto
         /// <summary>
         /// Key exchange data
         /// </summary>
+        [CountLimit(1, ushort.MaxValue)]
         public byte[] KeyExchangeData { get; set; } = null!;
 
         /// <summary>
         /// Counter key exchange data
         /// </summary>
+        [CountLimit(1, ushort.MaxValue)]
         public byte[]? CounterKeyExchangeData { get; set; }
 
         /// <summary>

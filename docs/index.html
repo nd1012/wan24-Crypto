@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>This is the HOMEPAGE. | wan24-Crypto </title>
+    <title>wan24-Crypto | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="This is the HOMEPAGE. | wan24-Crypto ">
+    <meta name="title" content="wan24-Crypto | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -60,13 +60,848 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="this-is-the-homepage">This is the <strong>HOMEPAGE</strong>.</h1>
+<h1 id="wan24-crypto">wan24-Crypto</h1>
 
-<p>Refer to <a href="http://daringfireball.net/projects/markdown/">Markdown</a> for how to write markdown files.</p>
-<h2 id="quick-start-notes">Quick Start Notes:</h2>
-<ol>
-<li>Add images to the <em>images</em> folder if the file is referencing an image.</li>
-</ol>
+<p>This library exports a generic high level crypto API, which allows to use and
+implemented cryptographic algorithm to be applied using a simple interface.</p>
+<p>Per default these cryptographic algorithms are implemented:</p>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hashing</strong></td>
+<td>MD5</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-1</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-256</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-384</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-512</td>
+</tr>
+<tr>
+<td><strong>MAC</strong></td>
+<td>HMAC-SHA-1</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA-256</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA-384</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA-512</td>
+</tr>
+<tr>
+<td><strong>Symmetric encryption</strong></td>
+<td>AES-256-CBC (ISO10126 padding)</td>
+</tr>
+<tr>
+<td><strong>Asymmetric keys</strong></td>
+<td>Elliptic Curve Diffie Hellman</td>
+</tr>
+<tr>
+<td></td>
+<td>Elliptic Curve DSA (RFC 3279 signatures)</td>
+</tr>
+<tr>
+<td><strong>KDF key stretching</strong></td>
+<td>PBKDF#2 (20,000 iterations per default)</td>
+</tr>
+</tbody>
+</table>
+<p>These elliptic curves are supported at present:</p>
+<ul>
+<li>secp256r1</li>
+<li>secp384r1</li>
+<li>secp521r1</li>
+</ul>
+<p>The number of algorithms can be extended easy, a bunch of additional libraries
+implementing more algorithms (and probably more elliptic curves) will follow
+soon.</p>
+<p>The goals of this library are:</p>
+<ul>
+<li>Make a choice being a less torture</li>
+<li>Make a complex thing as easy as possible</li>
+</ul>
+<p>Implementing (new) cryptographic algorithms into (existing) code can be
+challenging. <code>wan24-Crypto</code> tries to make it as easy as possible, while the
+API is still complex due to the huge number of options it offers. Please see
+the <a href="https://github.com/nd1012/wan24-Crypto/wiki">Wiki</a> for examples of the
+most common use cases, which cover:</p>
+<ul>
+<li>Simple encryption using a password</li>
+<li>Advanced encryption using a private PFS key</li>
+<li>Advanced encryption using a private PFS key and hybrid key exchange</li>
+<li>Advanced encryption using a peers public key</li>
+<li>Advanced encryption using a peers public key and hybrid key exchange</li>
+</ul>
+<p>For more examples please open an
+<a href="https://github.com/nd1012/wan24-Crypto/issues/new">issue</a> - I'd be glad to
+help! If you've found a security issue, please report it private.</p>
+<h2 id="how-to-get-it">How to get it</h2>
+<p>This library is available as
+<a href="https://www.nuget.org/packages/wan24-Crypto/">NuGet package</a>.</p>
+<p>These extension NuGet packages are available:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/wan24-Crypto-BC/">wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="hashing">Hashing</h3>
+<pre><code class="lang-cs">byte[] hash = rawData.Hash();
+</code></pre>
+<p>The default hash algorithm ist SHA512.</p>
+<h3 id="mac">MAC</h3>
+<pre><code class="lang-cs">byte[] mac = rawData.Mac(password);
+</code></pre>
+<p>The default MAC algorithm is HMAC-SHA512.</p>
+<h3 id="kdf-key-stretching">KDF (key stretching)</h3>
+<pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
+</code></pre>
+<p>The default KDF algorithm is PBKDF#2, using 20,000 iterations.</p>
+<h3 id="encryption">Encryption</h3>
+<pre><code class="lang-cs">byte[] cipher = raw.Encrypt(password);
+byte[] raw = cipher.Decrypt(password);
+</code></pre>
+<p>There are extension methods for memory and streams.</p>
+<p>The default algorithms used:</p>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Symmetric encryption</td>
+<td>AES-256-CBC (HMAC secured and Brotli compressed)</td>
+</tr>
+<tr>
+<td>HMAC</td>
+<td>HMAC-SHA512</td>
+</tr>
+<tr>
+<td>KDF</td>
+<td>PBKDF#2</td>
+</tr>
+<tr>
+<td>Asymmetric key exchange and digital signature</td>
+<td>Diffie Hellman secp521r1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="using-asymmetric-keys-for-encryption">Using asymmetric keys for encryption</h4>
+<p>This way you encrypt using a stored private key (which will be required for
+decryption later):</p>
+<pre><code class="lang-cs">using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] cipher = raw.Encrypt(privateKey);
+byte[] raw = cipher.Decrypt(privateKey);
+</code></pre>
+<p>In case you want to encrypt for a peer using the peers asymmetric public key
+for performing a PFS key exchange:</p>
+<pre><code class="lang-cs">// Peer creates a key pair (PFS or stored) and sends peerPublicKeyData to the provider
+using IAsymmetricPrivateKey peerPrivateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] peerPublicKeyData;// Needs to be available at the provider
+using(MemoryStream ms = new())
+{
+    ms.WriteAny(peerPrivateKey.PublicKey);// Serialize the public key (the provider doesn't know the public key format yet)
+    peerPublicKeyData = ms.ToArray();
+}
+
+// Encryption at the provider (pfsKey shouldn't be stored and can be a new key for every cipher message)
+using MemoryStream ms = new(peerPublicKeyData);
+using IAsymmetricPublicKey peerPublicKey = ms.ReadAny&lt;IAsymmetricPublicKey&gt;();// Deserialize the peers public key of any format
+CryptoOptions options = EncryptionHelper.GetDefaultOptions();// Add the asymmetric key information for key pair creation
+options.AsymmetricAlgorithm = peerPublicKey.Algorithm.Name;
+options.AsymmetricKeyBits = peerPublicKey.Bits;
+options.PublicKey = peerPublicKey;// Required for encrypting especially for the one specific peer
+byte[] cipher;
+using(IAsymmetricPrivateKey pfsKey = AsymmetricHelper.CreateKeyExchangeKeyPair(options))
+    cipher = raw.Encrypt(pfsKey, options);// Only the peer can decrypt the cipher after pfsKey was disposed
+
+// Decryption at the peer
+byte[] raw = cipher.Decrypt(peerPrivateKey, options);
+</code></pre>
+<h4 id="time-critical-decryption">Time critical decryption</h4>
+<p>It's possible to define a maximum age for cipher data, which can't be
+decrypted after expired:</p>
+<pre><code class="lang-cs">// Encryption
+CryptoOptions options = new()
+{
+    TimeIncluded = true
+};
+byte[] cipher = raw.Encrypt(password, options);
+
+// Decryption (required to be decrypted within 10 seconds, or the decryption will fail)
+options = new()
+{
+    RequireTime = true,
+    MaximumAge = TimeSpan.FromSeconds(10)
+}
+byte[] raw = cipher.Decrypt(password, options);
+</code></pre>
+<p>By defining <code>CryptoOptions.MaximumTimeOffset</code> you may define a time tolerance
+which is being used to be tolerant with peers having a slightly different
+system time.</p>
+<h3 id="asymmetric-keys">Asymmetric keys</h3>
+<h4 id="key-exchange">Key exchange</h4>
+<p>PFS example:</p>
+<pre><code class="lang-cs">// A: Create a key pair
+using IKeyExchangePrivateKey privateKeyA = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] publicKeyData;// Needs to be available at B
+using(MemoryStream ms = new())
+{
+    ms.WriteAny(privateKeyA.PublicKey);// Serialize the public key (the provider doesn't know the public key format yet)
+    publicKeyData = ms.ToArray();
+}
+
+// B: Create a key pair, key exchange data and derive the shared key
+using MemoryStream ms = new(publicKeyData);
+using IAsymmetricPublicKey publicKeyA = ms.ReadAny&lt;IAsymmetricPublicKey&gt;();// Deserialize the peers public key of any format
+using IKeyExchangePrivateKey privateKeyB = AsymmetricHelper.CreateKeyExchangeKeyPair(new()
+{
+    AsymmetricAlgorithm = publicKeyA.Algorithm.Name,
+    AsymmetricKeyBits = publicKeyA.Bits
+});
+(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKey);// Needs to be available at A
+
+// A: Derive the exchanged key
+byte[] keyA = privateKeyA.DeriveKey(keyExchangeData);
+
+Assert.IsTrue(keyA.SequenceEquals(keyB));
+</code></pre>
+<p>The default key exchange algorithm is ECDH from a secp521r1 elliptic curve.</p>
+<h4 id="digital-signature">Digital signature</h4>
+<pre><code class="lang-cs">// Create a key pair for signature
+using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+
+// Sign data
+SignatureContainer signature = privateKey.SignData(anyData);
+
+// Validate a signature
+privateKey.PublicKey.ValidateSignature(signature, anyData);
+</code></pre>
+<p>The default signature algorithm is DSA from a secp521r1 elliptic curve.</p>
+<h2 id="too-many-options">Too many options?</h2>
+<p>The <code>CryptoOptions</code> contains a huge collection of properties, which follow a
+simple pattern in case of en-/decryption: Which information should be included
+in the cipher header, and is an information in the header required? Because
+the options include information for all sections, there are single values
+which belongs to the specific section only. If you separate the options into
+sections, it's easy to overview:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Property</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encryption</td>
+<td><code>Algorithm</code></td>
+<td>Encryption algorithm name</td>
+<td><code>null</code> (<code>AES256CBC</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>FlagsIncluded</code></td>
+<td>Are the flags included in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireFlags</code></td>
+<td>Are the flags required to be included in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>MAC</td>
+<td><code>MacAlgorithm</code></td>
+<td>MAC algorithm name</td>
+<td><code>null</code> (<code>HMAC-SHA512</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>MacIncluded</code></td>
+<td>Include a MAC in the header</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireMac</code></td>
+<td>Is the MAC required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterMacAlgorithm</code></td>
+<td>Counter MAC algorithm name</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterMacIncluded</code></td>
+<td>Include a counter MAC in the header</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireCounterMac</code></td>
+<td>Is the counter MAC required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>ForceMacCoverWhole</code></td>
+<td>Force the MAC to cover all data</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireMacCoverWhole</code></td>
+<td>Is the MAC required to cover all data?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Encryption / Key creation / Signature</td>
+<td><code>AsymmetricAlgorithm</code></td>
+<td>Asymmetric algorithm name</td>
+<td><code>null</code> (<code>ECDH</code> for encryption, <code>ECDSA</code> for signature)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>AsymmetricCounterAlgorithm</code></td>
+<td>Asymmetric counter algorithm name</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KeyExchangeData</code></td>
+<td>Key exchange data (includes counter key exchange data; generated automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireKeyExchangeData</code></td>
+<td>Is the key exchange data required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKey</code></td>
+<td>Private key for key exchange</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterPrivateKey</code></td>
+<td>Private key for counter key exchange (required when using a counter asymmetric algorithm)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PublicKey</code></td>
+<td>Public key for key exchange (if not using a PFS key)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterPublicKey</code></td>
+<td>Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>KDF</td>
+<td><code>KdfAlgorithm</code></td>
+<td>KDF algorithm name</td>
+<td><code>null</code> (<code>PBKDF2</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfIterations</code></td>
+<td>KDF iteration count</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfSalt</code></td>
+<td>KDF salt (generated automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfAlgorithmIncluded</code></td>
+<td>Include the KDF information in the header</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireKdfAlgorithm</code></td>
+<td>Is the KDF information required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfAlgorithm</code></td>
+<td>Counter KDF algorithm name</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfIterations</code></td>
+<td>Counter KDF iteration count</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfSalt</code></td>
+<td>Counter KDF salt (generated automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfAlgorithmIncluded</code></td>
+<td>Include the counter KDF information in the header</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireCounterKdfAlgorithm</code></td>
+<td>Is the counter KDF information required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><code>PayloadData</code></td>
+<td>Plain payload</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PayloadIncluded</code></td>
+<td>Is the payload object data included in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequirePayload</code></td>
+<td>Is payload object data required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Serializer version</td>
+<td><code>SerializerVersion</code></td>
+<td>Serializer version number (set automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>SerializerVersionIncluded</code></td>
+<td>Include the serializer version number in the header</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireSerializerVersion</code></td>
+<td>Is the serializer version number required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Header version</td>
+<td><code>HeaderVersion</code></td>
+<td>Header version number (set automatic)</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>HeaderVersionIncluded</code></td>
+<td>Is the header version included in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireHeaderVersion</code></td>
+<td>Is the header version required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Encryption time</td>
+<td><code>Time</code></td>
+<td>Encryption timestamp (UTC)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>TimeIncluded</code></td>
+<td>Is the encryption time included in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireTime</code></td>
+<td>Is the encryption time required to be included in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>MaximumAge</code></td>
+<td>Maximum age of cipher data (the default can be set to <code>DefaultMaximumAge</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>MaximumTimeOffset</code></td>
+<td>Maximum time offset for a peer with a different system time (the default can be set to <code>DefaultMaximumTimeOffset</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Compression</td>
+<td><code>Compressed</code></td>
+<td>Should the raw data be compressed before encryption?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Compression</code></td>
+<td>The <code>CompressionOptions</code> instance to use (will be set automatic, if not given)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Hashing / Signature</td>
+<td><code>HashAlgorithm</code></td>
+<td>The name of the hash algorithm to use</td>
+<td><code>null</code> (<code>SHA512</code>)</td>
+</tr>
+<tr>
+<td>Key creation</td>
+<td><code>AsymmetricKeyBits</code></td>
+<td>Key size in bits to use for creating a new asymmetric key pair</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Stream options</td>
+<td><code>LeaveOpen</code></td>
+<td>Leave the processing stream open after operation?</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p>Other options, which are not listed here, are used internal only.</p>
+<p>If you use a new instance of <code>CryptoOptions</code>, all defaults will be applied.
+You can override these defaults in the static <code>*Helper.Default*</code> properties,
+or by setting other values in the <code>CryptoOptions</code> instance, which you use when
+calling any method.</p>
+<p>For encryption these sections matter:</p>
+<ul>
+<li>Encryption</li>
+<li>MAC</li>
+<li>PFS</li>
+<li>KDF</li>
+<li>Payload</li>
+<li>Serializer version</li>
+<li>Header version</li>
+<li>Encryption time</li>
+<li>Compression</li>
+<li>Stream options</li>
+</ul>
+<p>In case you want to use the <code>*Counter*</code> options, you'll need to set the
+<code>CounterPrivateKey</code> value.</p>
+<p>For MAC these sections matter:</p>
+<ul>
+<li>MAC</li>
+<li>Stream options</li>
+</ul>
+<p>For hashing these sections matter:</p>
+<ul>
+<li>Hashing</li>
+<li>Stream options</li>
+</ul>
+<p>For asymmetric key creation the &quot;Key creation&quot; section matters.</p>
+<p>For signature these sections matter:</p>
+<ul>
+<li>Signature</li>
+<li>Hashing</li>
+<li>Stream options</li>
+</ul>
+<h2 id="crypto-suite">Crypto suite</h2>
+<p>You can use a <code>CryptoOptions</code> instance as crypto suite. The type can be binary
+serialized (using the <code>Stream-Serializer-Extensions</code>) for storing/restoring
+to/from anywhere.</p>
+<p><strong>NOTE</strong>: Only crypto suite relevant information will be serialized! This
+excludes:</p>
+<ul>
+<li><code>SerializerVersion</code></li>
+<li><code>HeaderVersion</code></li>
+<li><code>PrivateKey</code> (needs to be stored in another place)</li>
+<li><code>CounterPrivateKey</code> (needs to be stored in another place)</li>
+<li><code>PublicKey</code></li>
+<li><code>CounterPublicKey</code></li>
+<li><code>KeyExchangeData</code></li>
+<li><code>PayloadData</code></li>
+<li><code>Time</code></li>
+<li><code>LeaveOpen</code></li>
+<li><code>MacPosition</code></li>
+<li><code>Mac</code></li>
+<li><code>HeaderProcessed</code></li>
+<li><code>Password</code></li>
+</ul>
+<h2 id="pki">PKI</h2>
+<p>Using the <code>AsymmetricSignedPublicKey</code> type, you can implement a simple PKI,
+which allows to</p>
+<ul>
+<li>define trusted root keys</li>
+<li>define a key revocation list</li>
+<li>sign public keys</li>
+<li>validate signed public keys until the root signer key</li>
+</ul>
+<pre><code class="lang-cs">// Create the root key pair
+using ISignaturePrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
+
+// Self-sign the public root key
+using AsymmetricSignedPublicKey signedPublicRootKey = new()
+{
+    PublicKey = privateRootKey.PublicKey.GetCopy()
+};
+signedPublicRootKey.Sign(privateRootKey);
+
+// Create a key pair, which will be signed
+using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+
+// Sign the public key
+using AsymmetricSignedPublicKey signedPublicKey = new()
+{
+    PublicKey = privateKey.PublicKey.GetCopy()
+};
+signedPublicKey.Sign(privateRootKey);
+
+// Setup the PKI (minimal setup for signed public key validation)
+AsymmetricSignedPublicKey.RootTrust = 
+    // Normally you would have a DBMS which stores the trusted public key IDs
+    (id) =&gt; id.SequenceEqual(privateRootKey.ID);
+AsymmetricSignedPublicKey.SignedPublicKeyStore = (id) =&gt; 
+{
+    // Normally you would have a DBMS which stores the known keys
+    if(id.SequenceEqual(privateRootKey.ID)) return signedPublicRootKey;
+    if(id.SequenceEqual(privateKey.ID)) return signedPublicKey;
+    return null;
+};
+// Normally you would have a DBMS which stores a revocation list for AsymmetricSignedPublicKey.SignedPublicKeyRevocation
+
+// Validate the signed public key
+signedPublicKey.Validate();
+</code></pre>
+<p>As you can see, it's a really simple PKI implementation. It's good for
+internal use, and if there won't be too many keys to manage.</p>
+<h2 id="algorithm-ids">Algorithm IDs</h2>
+<p>Internal each algorithm has an unique ID within a category:</p>
+<ul>
+<li>Asymmetric cryptography</li>
+<li>Symmetric cryptography</li>
+<li>Hashing</li>
+<li>MAC</li>
+<li>KDF</li>
+</ul>
+<p>If you'd like to implement inofficial algorithms on your own, please use the
+ID bits 24-32 only to avoid possible collisions with official libraries! These
+are the official implementation IDs (not guaranteed to be complete):</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>ID</th>
+<th>Library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Asymmetric cryptography</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ECDH</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>ECDSA</td>
+<td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>CRYSTALS-Kyber</td>
+<td>2</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>CRYSTALS-Dilithium</td>
+<td>3</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>FALCON</td>
+<td>4</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>SPHINCS+</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>FrodoKEM</td>
+<td>6</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td><strong>Symmetric cryptography</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AES256CBC</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>CHACHA20</td>
+<td>1</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XSALSA20</td>
+<td>2</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td><strong>Hashing</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA1</td>
+<td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA256</td>
+<td>2</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA384</td>
+<td>3</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA512</td>
+<td>4</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td><strong>MAC</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMAC-SHA1</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA256</td>
+<td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA384</td>
+<td>2</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA512</td>
+<td>3</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td><strong>KDF</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PBKDF2</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+</tbody>
+</table>
+<h2 id="counter-algorithms">Counter algorithms</h2>
+<p>A counter algorithm is being applied after the main algorithm. So the main
+algorithm result is secured by the counter algorithm result. You can use this
+in case you want to double security, for example when using post quantum
+algorithms, which may not be trustable at present.</p>
+<p>The <code>HybridAlgorithmHelper</code> allows to set default hybrid algorithms for</p>
+<ul>
+<li>key exchange in <code>KeyExchangeAlgorithm</code></li>
+<li>signature in <code>SignatureAlgorithm</code></li>
+<li>KDF in <code>KdfAlgorithm</code></li>
+<li>MAC in <code>MacAlgorithm</code></li>
+</ul>
+<p>and exports some helper methods, which are being used internal (you don't need
+to use them unless you have to). If you want the additional hybrid algorithms
+to be used every time, you can set the</p>
+<ul>
+<li><code>EncryptionHelper.UseHybridOptions</code></li>
+<li><code>AsymmetricHelper.UseHybridKeyExchangeOptions</code></li>
+<li><code>AsymmetricHelper.UseHybridSignatureOptions</code></li>
+</ul>
+<p>to <code>true</code> to extend used <code>CryptoOptions</code> instances by the algorithms defined
+in the <code>HybridAlgorithmHelper</code> properties.</p>
+<h3 id="post-quantum-safety">Post quantum safety</h3>
+<p>Some of the used cryptographic algorithms are quantum safe already, but
+especially the asymmetric algorithms are not post quantum safe at all. If you
+use an extension library which offers asymmetric post quantum safe algorithms
+for key exchange and signature, you can enforce post quantum safety for all
+used default algorithms by calling <code>CryptoHelper.ForcePostQuantumSafety</code>. This
+method will ensure that all used default algorithms are post quantum safe. In
+case it's not possible to use post quantum algorithms for all defaults, this
+method will throw an exception.</p>
+<p><strong>NOTE</strong>: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post
+quantum safe algorithms, while currently no post quantum-safe asymmetric
+algorithms are implemented.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p><code>wan24-Crypto</code> and provided sub-libraries are provided &quot;as is&quot;, without any
+warranty of any kind. Please read the license for the full disclaimer.</p>
+<p>This library uses the available .NET cryptographic algorithms and doesn't
+implement any &quot;selfmade&quot; cryptographic algorithms. Extension libraries may add
+other well known third party cryptographic algorithm libraries, like Bouncy
+Castle.</p>
 </article>
           </div>
           
