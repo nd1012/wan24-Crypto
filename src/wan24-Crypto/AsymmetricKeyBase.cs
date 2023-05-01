@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for an asymmetric key
     /// </summary>
-    public abstract class AsymmetricKeyBase : DisposableBase, IAsymmetricKey
+    public abstract class AsymmetricKeyBase : DisposableBase, IAsymmetricKey //TODO Extend DisposableStreamSerializerBase
     {
         /// <summary>
         /// Object version

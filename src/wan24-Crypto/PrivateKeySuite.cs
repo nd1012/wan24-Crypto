@@ -5,9 +5,9 @@ using wan24.StreamSerializerExtensions;
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Private key suite
+    /// Private key suite (for storing long term keys)
     /// </summary>
-    public sealed class PrivateKeySuite : DisposableBase, IStreamSerializerVersion, ICloneable
+    public sealed class PrivateKeySuite : DisposableBase, IStreamSerializerVersion, ICloneable //TODO Extend DisposableStreamSerializerBase
     {
         /// <summary>
         /// Object version
@@ -74,6 +74,14 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         int? IStreamSerializerVersion.SerializedObjectVersion => _SerializedObjectVersion;
+
+        /// <summary>
+        /// Serialize and encrypt this private key suite for physical cold storage
+        /// </summary>
+        /// <param name="key">Key</param>
+        /// <param name="options">Options</param>
+        /// <returns>Cipher</returns>
+        public byte[] Encrypt(byte[] key, CryptoOptions? options = null) => ((byte[])this).Encrypt(key, options);
 
         /// <summary>
         /// Clone this private key suite
@@ -200,5 +208,14 @@ namespace wan24.Crypto
             .WithSignatureKey()
             .WithCounterSignatureKey()
             .WithSymmetricKey();
+
+        /// <summary>
+        /// Decrypt a private key suite cipher and deserialize to a private key suite instance
+        /// </summary>
+        /// <param name="cipher">Cipher</param>
+        /// <param name="key">Key</param>
+        /// <param name="options">Options</param>
+        /// <returns>Private key suite</returns>
+        public static PrivateKeySuite Decrypt(byte[] cipher, byte[] key, CryptoOptions? options = null) => (PrivateKeySuite)cipher.Decrypt(key, options);
     }
 }

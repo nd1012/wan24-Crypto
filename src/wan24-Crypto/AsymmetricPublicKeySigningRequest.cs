@@ -2,12 +2,14 @@
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
+//TODO Add signature
+
 namespace wan24.Crypto
 {
     /// <summary>
     /// Asymmetric public key signing request
     /// </summary>
-    public sealed class AsymmetricPublicKeySigningRequest : DisposableBase, IStreamSerializerVersion
+    public sealed class AsymmetricPublicKeySigningRequest : DisposableBase, IStreamSerializerVersion //TODO Extend DisposableStreamSerializerBase
     {
         /// <summary>
         /// Object version

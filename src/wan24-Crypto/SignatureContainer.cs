@@ -21,6 +21,15 @@ namespace wan24.Crypto
         public const int NONCE_LENGTH = 20;
 
         /// <summary>
+        /// Signed data
+        /// </summary>
+        private byte[]? SignedData = null;
+        /// <summary>
+        /// Counter signed data
+        /// </summary>
+        private byte[]? CounterSignedData = null;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public SignatureContainer() : base(VERSION) { }
@@ -173,6 +182,7 @@ namespace wan24.Crypto
                     }
                     catch
                     {
+                        res.Dispose();
                         throw;
                     }
                 }
@@ -200,6 +210,17 @@ namespace wan24.Crypto
         /// <returns>Hash to sign</returns>
         public byte[] CreateSignatureHash(bool forCounterSignature = false)
         {
+            if (SignedData != null)
+            {
+                if (!forCounterSignature) return SignedData.Hash(new()
+                {
+                    HashAlgorithm = HashAlgorithm
+                });
+                if (forCounterSignature && CounterSignedData != null) return CounterSignedData.Hash(new()
+                {
+                    HashAlgorithm = HashAlgorithm
+                });
+            }
             byte[] signature = Signature;
             byte[]? counterSignature = CounterSignature;
             try
@@ -208,9 +229,8 @@ namespace wan24.Crypto
                 if (Signature == null) Signed = DateTime.UtcNow;
                 if (!forCounterSignature) Signature = Array.Empty<byte>();
                 CounterSignature = null;
-                using MemoryStream ms = new();
-                Serialize(ms);
-                return ms.ToArray().Hash(new()
+                CreateSignedData(forCounterSignature);
+                return (forCounterSignature ? CounterSignedData : SignedData)!.Hash(new()
                 {
                     HashAlgorithm = HashAlgorithm
                 });
@@ -307,6 +327,7 @@ namespace wan24.Crypto
         /// <returns>Clone</returns>
         public SignatureContainer Clone() => new()
         {
+            SignedData = (byte[]?)SignedData?.Clone(),
             Signed = Signed,
             HashAlgorithm = HashAlgorithm,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
@@ -327,73 +348,95 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            stream.WriteBytes(Nonce)
+            if (SignedData == null) throw new SerializerException("Missing signed data", new InvalidOperationException());
+            stream.WriteBytes(SignedData)
+                .WriteBytesNullable(CounterSignedData)
+                .WriteBytes(Signature)
+                .WriteBytesNullable(CounterSignature);
+        }
+
+        /// <inheritdoc/>
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+        {
+            if (SignedData == null) throw new SerializerException("Missing signed data", new InvalidOperationException());
+            await stream.WriteBytesAsync(SignedData, cancellationToken).DynamicContext();
+            await stream.WriteBytesNullableAsync(CounterSignedData, cancellationToken).DynamicContext();
+            await stream.WriteBytesAsync(Signature, cancellationToken).DynamicContext();
+            await stream.WriteBytesNullableAsync(CounterSignature, cancellationToken).DynamicContext();
+        }
+
+        /// <inheritdoc/>
+        protected override void Deserialize(Stream stream, int version)
+        {
+            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 262140).Value;
+            CounterSignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: 262140)?.Value;
+            DeserializeSignedData();
+            Signature = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
+            CounterSignature = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        {
+            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 262140, cancellationToken: cancellationToken).DynamicContext()).Value;
+            CounterSignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: 262140, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            DeserializeSignedData();
+            Signature = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            CounterSignature = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+        }
+
+        /// <summary>
+        /// Create the signed data
+        /// </summary>
+        /// <param name="forCounterSignature">For counter signature?</param>
+        private void CreateSignedData(bool forCounterSignature)
+        {
+            using MemoryStream ms = new();
+            ms.WriteSerializerVersion()
+                .WriteNumber(VERSION)
+                .WriteBytes(Nonce)
                 .WriteNumber(Signed.Ticks)
                 .WriteString(HashAlgorithm)
                 .WriteString(AsymmetricAlgorithm)
                 .WriteStringNullable(AsymmetricCounterAlgorithm)
                 .WriteBytes(SignedDataHash)
                 .WriteBytes(Signature)
-                .WriteBytesNullable(CounterSignature)
                 .WriteBytes(Signer)
                 .WriteBytes(SignerPublicKeyData)
                 .WriteBytesNullable(CounterSigner)
                 .WriteBytesNullable(CounterSignerPublicKeyData)
                 .WriteStringNullable(Purpose);
+            if (forCounterSignature)
+            {
+                CounterSignedData = ms.ToArray();
+            }
+            else
+            {
+                SignedData = ms.ToArray();
+            }
         }
 
-        /// <inheritdoc/>
-        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+        /// <summary>
+        /// Deserialize the signed data
+        /// </summary>
+        private void DeserializeSignedData()
         {
-            await stream.WriteBytesAsync(Nonce, cancellationToken).DynamicContext();
-            await stream.WriteNumberAsync(Signed.Ticks, cancellationToken).DynamicContext();
-            await stream.WriteStringAsync(HashAlgorithm, cancellationToken).DynamicContext();
-            await stream.WriteStringAsync(AsymmetricAlgorithm, cancellationToken).DynamicContext();
-            await stream.WriteStringNullableAsync(AsymmetricCounterAlgorithm, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(SignedDataHash, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Signature, cancellationToken).DynamicContext();
-            await stream.WriteBytesNullableAsync(CounterSignature, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Signer, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(SignerPublicKeyData, cancellationToken).DynamicContext();
-            await stream.WriteBytesNullableAsync(CounterSigner, cancellationToken).DynamicContext();
-            await stream.WriteBytesNullableAsync(CounterSignerPublicKeyData, cancellationToken).DynamicContext();
-            await stream.WriteStringNullableAsync(Purpose, cancellationToken).DynamicContext();
-        }
-
-        /// <inheritdoc/>
-        protected override void Deserialize(Stream stream, int version)
-        {
-            Nonce = stream.ReadBytes(version, minLen: 20, maxLen: NONCE_LENGTH).Value;
-            Signed = new DateTime(stream.ReadNumber<long>(version));
-            HashAlgorithm = stream.ReadString(version, minLen: 1, maxLen: byte.MaxValue);
-            AsymmetricAlgorithm = stream.ReadString(version, minLen: 1, maxLen: byte.MaxValue);
-            AsymmetricCounterAlgorithm = stream.ReadStringNullable(version, minLen: 1, maxLen: byte.MaxValue);
-            SignedDataHash = stream.ReadBytes(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
-            Signature = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
-            CounterSignature = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
-            Signer = stream.ReadBytes(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
-            SignerPublicKeyData = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
-            CounterSigner = stream.ReadBytesNullable(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue)?.Value;
-            CounterSignerPublicKeyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
-            Purpose = stream.ReadStringNullable(version, minLen: 1, maxLen: ushort.MaxValue);
-        }
-
-        /// <inheritdoc/>
-        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
-        {
-            Nonce = (await stream.ReadBytesAsync(version, minLen: 20, maxLen: NONCE_LENGTH, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Signed = new DateTime(await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext());
-            HashAlgorithm = await stream.ReadStringAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
-            AsymmetricAlgorithm = await stream.ReadStringAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
-            AsymmetricCounterAlgorithm = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
-            SignedDataHash = (await stream.ReadBytesAsync(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Signature = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            CounterSignature = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
-            Signer = (await stream.ReadBytesAsync(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            SignerPublicKeyData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            CounterSigner = (await stream.ReadBytesNullableAsync(version, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
-            CounterSignerPublicKeyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
-            Purpose = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+            using MemoryStream ms = new(CounterSignedData ?? SignedData ?? throw new InvalidOperationException());
+            int ssv = ms.ReadSerializerVersion(),
+                ov = ms.ReadNumber<int>(ssv);
+            if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid signature container object version {ov}", new InvalidDataException());
+            Nonce = ms.ReadBytes(ssv, minLen: 20, maxLen: NONCE_LENGTH).Value;
+            Signed = new DateTime(ms.ReadNumber<long>(ssv));
+            HashAlgorithm = ms.ReadString(ssv, minLen: 1, maxLen: byte.MaxValue);
+            AsymmetricAlgorithm = ms.ReadString(ssv, minLen: 1, maxLen: byte.MaxValue);
+            AsymmetricCounterAlgorithm = ms.ReadStringNullable(ssv, minLen: 1, maxLen: byte.MaxValue);
+            SignedDataHash = ms.ReadBytes(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
+            Signature = ms.ReadBytes(ssv, minLen: 0, maxLen: ushort.MaxValue).Value;
+            Signer = ms.ReadBytes(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
+            SignerPublicKeyData = ms.ReadBytes(ssv, minLen: 1, maxLen: ushort.MaxValue).Value;
+            CounterSigner = ms.ReadBytesNullable(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue)?.Value;
+            CounterSignerPublicKeyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+            Purpose = ms.ReadStringNullable(ssv, minLen: 1, maxLen: ushort.MaxValue);
         }
 
         /// <summary>

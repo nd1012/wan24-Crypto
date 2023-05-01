@@ -8,7 +8,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Signed asymmetric public key
     /// </summary>
-    public sealed class AsymmetricSignedPublicKey : DisposableBase, IStreamSerializerVersion, ICloneable
+    public sealed class AsymmetricSignedPublicKey : DisposableBase, IStreamSerializerVersion, ICloneable //TODO Extend DisposableStreamSerializerBase
     {
         /// <summary>
         /// Object version
@@ -19,6 +19,10 @@ namespace wan24.Crypto
         /// Serialized object version
         /// </summary>
         private int? _SerializedObjectVersion = null;
+        /// <summary>
+        /// Signed data
+        /// </summary>
+        private byte[]? SignedData = null;
 
         /// <summary>
         /// Constructor
@@ -114,7 +118,7 @@ namespace wan24.Crypto
                 CounterSigner = counterPublicKey;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 options.CounterPrivateKey = counterPrivateKey;
-                Signature = privateKey.SignData(GetSignedData(), purpose, options);
+                Signature = privateKey.SignData(CreateSignedData(), purpose, options);
             }
             catch (CryptographicException)
             {
@@ -164,7 +168,7 @@ namespace wan24.Crypto
                     }
                 }
                 // Validate the signature
-                if (!Signature.SignerPublicKey.ValidateSignature(Signature, GetSignedData(), throwOnError)) return false;
+                if (!Signature.SignerPublicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
                 if (Signature.CounterSigner != null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
@@ -244,22 +248,27 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get the signed data
+        /// Create the signed data
         /// </summary>
         /// <returns>Signed data</returns>
-        public byte[] GetSignedData()
+        public byte[] CreateSignedData()
         {
-            SignatureContainer signature = Signature;
             try
             {
                 EnsureUndisposed();
+                if (SignedData != null) return SignedData;
                 this.ValidateObject();
                 using MemoryStream ms = new();
-                ms.WriteAny(PublicKey);
-                ms.WriteNumber(Created.Ticks);
-                ms.WriteNumber(Expires.Ticks);
-                ms.WriteDict(Attributes);
-                return ms.ToArray();
+                ms.WriteSerializerVersion()
+                    .WriteNumber(VERSION)
+                    .WriteAny(PublicKey)
+                    .WriteNumber(Created.Ticks)
+                    .WriteNumber(Expires.Ticks)
+                    .WriteDict(Attributes)
+                    .WriteAnyNullable(Signer)
+                    .WriteAnyNullable(CounterSigner);
+                SignedData = ms.ToArray();
+                return SignedData;
             }
             catch (CryptographicException)
             {
@@ -269,10 +278,6 @@ namespace wan24.Crypto
             {
                 throw CryptographicException.From(ex);
             }
-            finally
-            {
-                Signature = signature;
-            }
         }
 
         /// <summary>
@@ -281,6 +286,7 @@ namespace wan24.Crypto
         /// <returns>Clone</returns>
         public AsymmetricSignedPublicKey Clone() => new()
         {
+            SignedData = (byte[]?)SignedData?.Clone(),
             PublicKey = PublicKey.GetCopy(),
             Created = Created,
             Expires = Expires,
@@ -296,23 +302,19 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public void Serialize(Stream stream)
         {
-            EnsureUndisposed();
-            stream.WriteNumber(VERSION);
-            stream.Write(GetSignedData());
-            stream.WriteSerialized(Signature)
-                .WriteAnyNullable(Signer)
-                .WriteAnyNullable(CounterSigner);
+            CreateSignedData();
+            stream.WriteNumber(VERSION)
+                .WriteBytes(SignedData!)
+                .WriteSerialized(Signature);
         }
 
         /// <inheritdoc/>
         public async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
+            CreateSignedData();
             await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
-            await stream.WriteAsync(GetSignedData(), cancellationToken).DynamicContext();
+            await stream.WriteBytesAsync(SignedData, cancellationToken).DynamicContext();
             await stream.WriteSerializedAsync(Signature, cancellationToken).DynamicContext();
-            await stream.WriteAnyNullableAsync(Signer, cancellationToken).DynamicContext();
-            await stream.WriteAnyNullableAsync(CounterSigner, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
@@ -320,13 +322,9 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
-            PublicKey = (IAsymmetricPublicKey)stream.ReadAny(version);
-            Created = new DateTime(stream.ReadNumber<long>(version));
-            Expires = new DateTime(stream.ReadNumber<long>(version));
-            Attributes = stream.ReadDict<string, string>(maxLen: byte.MaxValue);
+            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
+            DeserializeSignedData();
             Signature = stream.ReadSerialized<SignatureContainer>(version);
-            Signer = stream.ReadAnyNullable(version) as AsymmetricSignedPublicKey;
-            CounterSigner = stream.ReadAnyNullable(version) as AsymmetricSignedPublicKey;
         }
 
         /// <inheritdoc/>
@@ -334,17 +332,31 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
-            PublicKey = (IAsymmetricPublicKey)await stream.ReadAnyAsync(version, cancellationToken).DynamicContext();
-            Created = new DateTime(await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext());
-            Expires = new DateTime(await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext());
-            Attributes = await stream.ReadDictAsync<string, string>(maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
+            DeserializeSignedData();
             Signature = await stream.ReadSerializedAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
-            Signer = await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext() as AsymmetricSignedPublicKey;
-            CounterSigner = await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext() as AsymmetricSignedPublicKey;
         }
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing) => PublicKey.Dispose();
+
+        /// <summary>
+        /// Deserialize the signed data
+        /// </summary>
+        private void DeserializeSignedData()
+        {
+            if (SignedData == null) throw new InvalidOperationException();
+            using MemoryStream ms = new();
+            int ssv = ms.ReadSerializerVersion(),
+                ov = ms.ReadNumber<int>(ssv);
+            if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
+            PublicKey = (IAsymmetricPublicKey)ms.ReadAny(ssv);
+            Created = new DateTime(ms.ReadNumber<long>(ssv));
+            Expires = new DateTime(ms.ReadNumber<long>(ssv));
+            Attributes = ms.ReadDict<string, string>(maxLen: byte.MaxValue);
+            Signer = ms.ReadAnyNullable(ssv) as AsymmetricSignedPublicKey;
+            CounterSigner = ms.ReadAnyNullable(ssv) as AsymmetricSignedPublicKey;
+        }
 
         /// <summary>
         /// Delegate for root key trust validation
