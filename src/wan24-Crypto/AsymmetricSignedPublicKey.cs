@@ -8,17 +8,13 @@ namespace wan24.Crypto
     /// <summary>
     /// Signed asymmetric public key
     /// </summary>
-    public sealed class AsymmetricSignedPublicKey : DisposableBase, IStreamSerializerVersion, ICloneable //TODO Extend DisposableStreamSerializerBase
+    public sealed class AsymmetricSignedPublicKey : DisposableStreamSerializerBase, ICloneable
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
-        /// <summary>
-        /// Serialized object version
-        /// </summary>
-        private int? _SerializedObjectVersion = null;
         /// <summary>
         /// Signed data
         /// </summary>
@@ -27,7 +23,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public AsymmetricSignedPublicKey() : base() { }
+        public AsymmetricSignedPublicKey() : base(VERSION) { }
 
         /// <summary>
         /// Root public key trust validation (returns <see langword="true"/>, if the given root public key ID is trusted)
@@ -86,12 +82,6 @@ namespace wan24.Crypto
         /// Counter signed signer public key
         /// </summary>
         public AsymmetricSignedPublicKey? CounterSigner { get; set; }
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.ObjectVersion => VERSION;
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.SerializedObjectVersion => _SerializedObjectVersion;
 
         /// <summary>
         /// Sign the key
@@ -300,38 +290,34 @@ namespace wan24.Crypto
         object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
-        public void Serialize(Stream stream)
+        protected override void Serialize(Stream stream)
         {
             CreateSignedData();
-            stream.WriteNumber(VERSION)
-                .WriteBytes(SignedData!)
+            stream.WriteBytes(SignedData!)
                 .WriteSerialized(Signature);
         }
 
         /// <inheritdoc/>
-        public async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             CreateSignedData();
-            await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(SignedData, cancellationToken).DynamicContext();
             await stream.WriteSerializedAsync(Signature, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
-        public void Deserialize(Stream stream, int version)
+        protected override void Deserialize(Stream stream, int version)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
             DeserializeSignedData();
             Signature = stream.ReadSerialized<SignatureContainer>(version);
         }
 
         /// <inheritdoc/>
-        public async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
             DeserializeSignedData();
             Signature = await stream.ReadSerializedAsync<SignatureContainer>(version, cancellationToken).DynamicContext();

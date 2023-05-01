@@ -7,17 +7,13 @@ namespace wan24.Crypto
     /// <summary>
     /// Private key suite (for storing long term keys)
     /// </summary>
-    public sealed class PrivateKeySuite : DisposableBase, IStreamSerializerVersion, ICloneable //TODO Extend DisposableStreamSerializerBase
+    public sealed class PrivateKeySuite : DisposableStreamSerializerBase, ICloneable
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
-        /// <summary>
-        /// Serialized object version
-        /// </summary>
-        private int? _SerializedObjectVersion = null;
         /// <summary>
         /// Public key suite
         /// </summary>
@@ -26,7 +22,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public PrivateKeySuite() : base() { }
+        public PrivateKeySuite() : base(VERSION) { }
 
         /// <summary>
         /// Key exchange private key (will be disposed)
@@ -68,12 +64,6 @@ namespace wan24.Crypto
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.PublicKey.GetCopy(),
             SignedPublicKey = SignedPublicKey == null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
         });
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.ObjectVersion => VERSION;
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.SerializedObjectVersion => _SerializedObjectVersion;
 
         /// <summary>
         /// Serialize and encrypt this private key suite for physical cold storage
@@ -125,10 +115,9 @@ namespace wan24.Crypto
         object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
-        public void Serialize(Stream stream)
+        protected override void Serialize(Stream stream)
         {
             EnsureUndisposed();
-            stream.WriteNumber(VERSION);
             stream.WriteAnyNullable(KeyExchangeKey)
                 .WriteAnyNullable(CounterKeyExchangeKey)
                 .WriteAnyNullable(SignatureKey)
@@ -138,10 +127,9 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        public async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(KeyExchangeKey, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(CounterKeyExchangeKey, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(SignatureKey, cancellationToken).DynamicContext();
@@ -151,10 +139,9 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        public void Deserialize(Stream stream, int version)
+        protected override void Deserialize(Stream stream, int version)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             KeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
             SignatureKey = (ISignaturePrivateKey?)stream.ReadAnyNullable(version);
@@ -164,10 +151,9 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        public async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             KeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             SignatureKey = (ISignaturePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();

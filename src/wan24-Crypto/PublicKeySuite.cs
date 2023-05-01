@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using wan24.Core;
+﻿using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -7,17 +6,13 @@ namespace wan24.Crypto
     /// <summary>
     /// Public key suite
     /// </summary>
-    public sealed class PublicKeySuite : DisposableBase, IStreamSerializerVersion, ICloneable //TODO Extend DisposableStreamSerializerBase
+    public sealed class PublicKeySuite : DisposableStreamSerializerBase, ICloneable
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
-        /// <summary>
-        /// Serialized object version
-        /// </summary>
-        private int? _SerializedObjectVersion = null;
         /// <summary>
         /// Key exchange public key
         /// </summary>
@@ -34,7 +29,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public PublicKeySuite() : base() { }
+        public PublicKeySuite() : base(VERSION) { }
 
         /// <summary>
         /// Key exchange key (will be disposed)
@@ -83,12 +78,6 @@ namespace wan24.Crypto
         /// Public key suite signature
         /// </summary>
         public SignatureContainer? Signature { get; set; }
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.ObjectVersion => VERSION;
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.SerializedObjectVersion => _SerializedObjectVersion;
 
         /// <summary>
         /// Create the signed data
@@ -161,38 +150,34 @@ namespace wan24.Crypto
         object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
-        public void Serialize(Stream stream)
+        protected override void Serialize(Stream stream)
         {
             CreateSignedData();
-            stream.WriteNumber(VERSION)
-                .WriteBytes(SignedData!)
+            stream.WriteBytes(SignedData!)
                 .WriteSerializedNullable(Signature);
         }
 
         /// <inheritdoc/>
-        public async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             CreateSignedData();
-            await stream.WriteNumberAsync(VERSION, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(SignedData!, cancellationToken).DynamicContext();
             await stream.WriteSerializedNullableAsync(Signature, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
-        public void Deserialize(Stream stream, int version)
+        protected override void Deserialize(Stream stream, int version)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
             DeserializeSignedData();
             Signature = stream.ReadSerializedNullable<SignatureContainer>(version);
         }
 
         /// <inheritdoc/>
-        public async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
             DeserializeSignedData();
             Signature = await stream.ReadSerializedNullableAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
