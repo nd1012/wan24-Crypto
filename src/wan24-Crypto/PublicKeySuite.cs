@@ -123,6 +123,17 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Create crypto options
+        /// </summary>
+        /// <returns>Options</returns>
+        public CryptoOptions CreateOptions()
+        {
+            CryptoOptions res = new();
+            res.ApplyPublicKeySuite(this);
+            return res;
+        }
+
+        /// <summary>
         /// Clone this public key suite
         /// </summary>
         /// <returns>Clone</returns>

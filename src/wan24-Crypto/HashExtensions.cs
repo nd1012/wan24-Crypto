@@ -11,7 +11,7 @@
         /// <param name="data">Data</param>
         /// <param name="options">Options</param>
         /// <returns>Hash</returns>
-        public static byte[] Hash(this Span<byte> data, CryptoOptions? options = null)
+        public static byte[] Hash(this ReadOnlySpan<byte> data, CryptoOptions? options = null)
         {
             try
             {
@@ -29,6 +29,22 @@
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
+        public static byte[] Hash(this Span<byte> data, CryptoOptions? options = null) => Hash((ReadOnlySpan<byte>)data, options);
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
+        public static byte[] Hash(this ReadOnlyMemory<byte> data, CryptoOptions? options = null) => data.Span.Hash(options);
 
         /// <summary>
         /// Create a hash

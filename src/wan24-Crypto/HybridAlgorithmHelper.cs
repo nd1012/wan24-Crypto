@@ -288,11 +288,11 @@ namespace wan24.Crypto
                 byte[] pwd = options.Password;
                 try
                 {
-                    EncryptionAlgorithmBase encryption = EncryptionHelper.GetAlgorithm(options.Algorithm ?? EncryptionHelper.DefaultAlgorithm.Name);
                     KdfAlgorithmBase algo = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm ?? _KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name);
                     CryptoOptions hybridOptions = algo.DefaultOptions;
                     hybridOptions.KdfIterations = options.CounterKdfIterations;
-                    (options.Password, options.CounterKdfSalt) = algo.Stretch(options.Password, encryption.KeySize, options.CounterKdfSalt, hybridOptions);
+                    hybridOptions.KdfOptions = options.CounterKdfOptions;
+                    (options.Password, options.CounterKdfSalt) = algo.Stretch(options.Password, pwd.Length, options.CounterKdfSalt, hybridOptions);
                 }
                 finally
                 {

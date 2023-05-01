@@ -1,4 +1,6 @@
-﻿using wan24.Compression;
+﻿using System.Security.Cryptography;
+using wan24.Compression;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -285,6 +287,7 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions WithPfs(this CryptoOptions options, IKeyExchangePrivateKey key, IAsymmetricPublicKey? peerKey = null)
         {
+            options.Password?.Clear();
             options.SetKeys(key, peerKey);
             return options;
         }
@@ -409,6 +412,31 @@ namespace wan24.Crypto
             }
             options.AsymmetricCounterAlgorithm = null;
             options.RequireAsymmetricCounterAlgorithm = false;
+            return options;
+        }
+
+        /// <summary>
+        /// Set a password for encryption or MAC
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="pwd">Password</param>
+        /// <returns>Options</returns>
+        public static CryptoOptions WithPassword(this CryptoOptions options, byte[]? pwd = null)
+        {
+            options.WithoutAsymmetricAlgorithm()
+                .WithoutPassword();
+            options.Password = pwd ?? RandomNumberGenerator.GetBytes(64);
+            return options;
+        }
+
+        /// <summary>
+        /// Unset the password
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        public static CryptoOptions WithoutPassword(this CryptoOptions options)
+        {
+            options.Password?.Clear();
             return options;
         }
 

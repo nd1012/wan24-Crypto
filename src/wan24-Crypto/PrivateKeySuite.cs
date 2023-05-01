@@ -84,6 +84,17 @@ namespace wan24.Crypto
         public byte[] Encrypt(byte[] key, CryptoOptions? options = null) => ((byte[])this).Encrypt(key, options);
 
         /// <summary>
+        /// Create crypto options
+        /// </summary>
+        /// <returns>Options</returns>
+        public CryptoOptions CreateOptions()
+        {
+            CryptoOptions res = new();
+            res.ApplyPrivateKeySuite(this);
+            return res;
+        }
+
+        /// <summary>
         /// Clone this private key suite
         /// </summary>
         /// <returns>Clone</returns>

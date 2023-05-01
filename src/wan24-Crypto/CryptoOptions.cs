@@ -286,28 +286,6 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Apply a private key suite (will set keys for PFS key encryption)
-        /// </summary>
-        /// <param name="suite">Private key suite</param>
-        /// <param name="withCounterAlgorithms">With counter algorithms?</param>
-        public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true)
-        {
-            if (suite.KeyExchangeKey != null) SetKeys(suite.KeyExchangeKey, suite.Public.KeyExchangeKey);
-            if (withCounterAlgorithms && suite.CounterKeyExchangeKey != null) SetCounterKeys(suite.CounterKeyExchangeKey, suite.Public.CounterKeyExchangeKey);
-        }
-
-        /// <summary>
-        /// Apply a public key suite (will set peer keys for PFS key encryption)
-        /// </summary>
-        /// <param name="suite">Public key suite</param>
-        /// <param name="withCounterAlgorithms">With counter algorithms?</param>
-        public void ApplyPublicKeySuite(PublicKeySuite suite, bool withCounterAlgorithms = true)
-        {
-            if (suite.KeyExchangeKey != null) PublicKey = suite.KeyExchangeKey;
-            if (withCounterAlgorithms && suite.CounterKeyExchangeKey != null) CounterPublicKey = suite.CounterKeyExchangeKey;
-        }
-
-        /// <summary>
         /// Clear sensible object data (and reset for re-use)
         /// </summary>
         /// <param name="unsetKeys">Unset the asymmetric keys?</param>
@@ -398,17 +376,5 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         object ICloneable.Clone() => Clone();
-
-        /// <summary>
-        /// Cast as serialized data
-        /// </summary>
-        /// <param name="options">Options</param>
-        public static implicit operator byte[](CryptoOptions options) => options.ToBytes();
-
-        /// <summary>
-        /// Cast from serialized data
-        /// </summary>
-        /// <param name="data">Data</param>
-        public static explicit operator CryptoOptions(byte[] data) => data.ToObject<CryptoOptions>();
     }
 }
