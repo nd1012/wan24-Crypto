@@ -24,6 +24,12 @@ namespace wan24.Crypto
         public int CounterKdfIterations { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
+        /// Counter KDF options
+        /// </summary>
+        [StringLength(byte.MaxValue)]
+        public string? CounterKdfOptions { get; set; }
+
+        /// <summary>
         /// Asymmetric counter algorithm name (for the key exchange data; used for en-/decryption and signature only)
         /// </summary>
         [StringLength(byte.MaxValue)]

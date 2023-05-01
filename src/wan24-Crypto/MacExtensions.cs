@@ -12,7 +12,7 @@
         /// <param name="pwd">Password</param>
         /// <param name="options">Options</param>
         /// <returns>MAC</returns>
-        public static byte[] Mac(this Span<byte> data, byte[] pwd, CryptoOptions? options = null)
+        public static byte[] Mac(this ReadOnlySpan<byte> data, byte[] pwd, CryptoOptions? options = null)
         {
             try
             {
@@ -30,6 +30,24 @@
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <summary>
+        /// Create a MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
+        public static byte[] Mac(this Span<byte> data, byte[] pwd, CryptoOptions? options = null) => Mac((ReadOnlySpan<byte>)data, pwd, options);
+
+        /// <summary>
+        /// Create a MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
+        public static byte[] Mac(this ReadOnlyMemory<byte> data, byte[] pwd, CryptoOptions? options = null) => data.Span.Mac(pwd, options);
 
         /// <summary>
         /// Create a MAC

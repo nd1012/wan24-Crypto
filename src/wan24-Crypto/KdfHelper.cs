@@ -77,6 +77,7 @@ namespace wan24.Crypto
                 {
                     options.KdfAlgorithm = DefaultAlgorithm.Name;
                     options.KdfIterations = DefaultAlgorithm.DefaultIterations;
+                    options.KdfOptions = DefaultAlgorithm.DefaultOptions.KdfOptions;
                 }
                 return options;
             }

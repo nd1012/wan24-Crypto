@@ -101,11 +101,13 @@ namespace wan24.Crypto
                     cipherData.WriteNumber(KdfHelper.GetAlgorithm(options.KdfAlgorithm ??= KdfHelper.DefaultAlgorithm.Name).Value);
                     cipherData.WriteNumber(options.KdfIterations);
                     cipherData.WriteBytes(options.KdfSalt);
+                    cipherData.WriteStringNullable(options.KdfOptions);
                     if (options.UsingCounterKdf)
                     {
                         cipherData.WriteNumber(KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm ??= HybridAlgorithmHelper.KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name).Value);
                         cipherData.WriteNumber(options.CounterKdfIterations);
                         cipherData.WriteBytes(options.CounterKdfSalt);
+                        cipherData.WriteStringNullable(options.CounterKdfOptions);
                     }
                 }
                 if (options.PayloadData != null) cipherData.WriteBytes(options.PayloadData);
@@ -224,6 +226,7 @@ namespace wan24.Crypto
                     await cipherData.WriteNumberAsync(KdfHelper.GetAlgorithm(options.KdfAlgorithm ??= KdfHelper.DefaultAlgorithm.Name).Value, cancellationToken).DynamicContext();
                     await cipherData.WriteNumberAsync(options.KdfIterations, cancellationToken).DynamicContext();
                     await cipherData.WriteBytesAsync(options.KdfSalt, cancellationToken).DynamicContext();
+                    await cipherData.WriteStringNullableAsync(options.KdfOptions, cancellationToken).DynamicContext();
                     if (options.UsingCounterKdf)
                     {
                         await cipherData.WriteNumberAsync(
@@ -231,6 +234,7 @@ namespace wan24.Crypto
                             ).DynamicContext();
                         await cipherData.WriteNumberAsync(options.CounterKdfIterations, cancellationToken).DynamicContext();
                         await cipherData.WriteBytesAsync(options.CounterKdfSalt, cancellationToken).DynamicContext();
+                        await cipherData.WriteStringNullableAsync(options.CounterKdfOptions, cancellationToken).DynamicContext();
                     }
                 }
                 if (options.PayloadData != null) await cipherData.WriteBytesAsync(options.PayloadData, cancellationToken).DynamicContext();
@@ -352,6 +356,7 @@ namespace wan24.Crypto
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                     options.KdfIterations = cipherData.ReadNumber<int>(serializerVersion);
                     options.KdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
+                    options.KdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                     pwd = options.Password ?? throw new ArgumentException("No password yet", nameof(pwd));
                     try
                     {
@@ -368,6 +373,7 @@ namespace wan24.Crypto
                             options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                             options.CounterKdfIterations = cipherData.ReadNumber<int>(serializerVersion);
                             options.CounterKdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
+                            options.CounterKdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                             HybridAlgorithmHelper.StretchPassword(options);
                         }
                         finally
@@ -509,6 +515,7 @@ namespace wan24.Crypto
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()).Name;
                     options.KdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
                     options.KdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    options.KdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     pwd = options.Password ?? throw new ArgumentException("No password yet", nameof(pwd));
                     try
                     {
@@ -526,6 +533,8 @@ namespace wan24.Crypto
                         options.CounterKdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
                         options.CounterKdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())
                             .Value;
+                        options.CounterKdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken)
+                            .DynamicContext();
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
                 }

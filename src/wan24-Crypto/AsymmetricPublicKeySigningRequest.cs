@@ -2,12 +2,14 @@
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
+//TODO Add signature
+
 namespace wan24.Crypto
 {
     /// <summary>
     /// Asymmetric public key signing request
     /// </summary>
-    public sealed class AsymmetricPublicKeySigningRequest : DisposableBase, IStreamSerializerVersion
+    public sealed class AsymmetricPublicKeySigningRequest : DisposableStreamSerializerBase
     {
         /// <summary>
         /// Object version
@@ -15,14 +17,9 @@ namespace wan24.Crypto
         public const int VERSION = 1;
 
         /// <summary>
-        /// Serialized object version
-        /// </summary>
-        private int? _SerializedObjectVersion = null;
-
-        /// <summary>
         /// Constructor
         /// </summary>
-        public AsymmetricPublicKeySigningRequest() : base() { }
+        public AsymmetricPublicKeySigningRequest() : base(VERSION) { }
 
         /// <summary>
         /// Constructor
@@ -42,12 +39,6 @@ namespace wan24.Crypto
         [ItemStringLength(byte.MaxValue, ItemValidationTargets.Key)]
         [ItemStringLength(byte.MaxValue)]
         public Dictionary<string, string> Attributes { get; private set; } = new();
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.ObjectVersion => VERSION;
-
-        /// <inheritdoc/>
-        int? IStreamSerializerVersion.SerializedObjectVersion => _SerializedObjectVersion;
 
         /// <summary>
         /// Get as unsigned key
@@ -69,37 +60,33 @@ namespace wan24.Crypto
         protected override void Dispose(bool disposing) => PublicKey.Dispose();
 
         /// <inheritdoc/>
-        void IStreamSerializer.Serialize(Stream stream)
+        protected override void Serialize(Stream stream)
         {
             EnsureUndisposed();
-            stream.WriteNumber(StreamSerializer.VERSION)
-                .WriteAny(PublicKey)
+            stream.WriteAny(PublicKey)
                 .WriteDict(Attributes);
         }
 
         /// <inheritdoc/>
-        async Task IStreamSerializer.SerializeAsync(Stream stream, CancellationToken cancellationToken)
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            await stream.WriteNumberAsync(StreamSerializer.VERSION, cancellationToken).DynamicContext();
             await stream.WriteAnyAsync(PublicKey, cancellationToken).DynamicContext();
             await stream.WriteDictAsync(Attributes, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
-        void IStreamSerializer.Deserialize(Stream stream, int version)
+        protected override void Deserialize(Stream stream, int version)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = StreamSerializerAdapter.ReadSerializedObjectVersion(stream, version, VERSION);
             PublicKey = stream.ReadAny(version) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
             Attributes = stream.ReadDict<string, string>(version, maxLen: byte.MaxValue);
         }
 
         /// <inheritdoc/>
-        async Task IStreamSerializer.DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            _SerializedObjectVersion = await StreamSerializerAdapter.ReadSerializedObjectVersionAsync(stream, version, VERSION, cancellationToken).DynamicContext();
             PublicKey = await stream.ReadAnyAsync(version, cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
             Attributes = await stream.ReadDictAsync<string, string>(version, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }
@@ -109,5 +96,17 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="signingRequest">Signing request</param>
         public static implicit operator AsymmetricSignedPublicKey(AsymmetricPublicKeySigningRequest signingRequest) => signingRequest.GetAsUnsignedKey();
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="request">Request</param>
+        public static implicit operator byte[](AsymmetricPublicKeySigningRequest request) => request.ToBytes();
+
+        /// <summary>
+        /// Cast from serialized data
+        /// </summary>
+        /// <param name="data">Data</param>
+        public static explicit operator AsymmetricPublicKeySigningRequest(byte[] data) => data.ToObject<AsymmetricPublicKeySigningRequest>();
     }
 }

@@ -1,0 +1,958 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PublicKeySuite
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PublicKeySuite
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.PublicKeySuite">
+  
+  
+  <h1 id="wan24_Crypto_PublicKeySuite" data-uid="wan24.Crypto.PublicKeySuite" class="text-break">Class PublicKeySuite
+  </h1>
+  <div class="markdown level0 summary"><p>Public key suite</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
+    <div class="level2"><span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase</span></div>
+    <div class="level3"><span class="xref">PublicKeySuite</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.IAsyncDisposable</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
+    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+    <div><span class="xref">ICloneable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_PublicKeySuite_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PublicKeySuite : DisposableStreamSerializerBase, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L32">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite__ctor_" data-uid="wan24.Crypto.PublicKeySuite.#ctor*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite__ctor" data-uid="wan24.Crypto.PublicKeySuite.#ctor">PublicKeySuite()</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PublicKeySuite()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.VERSION%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L14">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_PublicKeySuite_VERSION" data-uid="wan24.Crypto.PublicKeySuite.VERSION">VERSION</h4>
+  <div class="markdown level1 summary"><p>Object version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_CounterKeyExchangeKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.CounterKeyExchangeKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L51">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_CounterKeyExchangeKey_" data-uid="wan24.Crypto.PublicKeySuite.CounterKeyExchangeKey*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_CounterKeyExchangeKey" data-uid="wan24.Crypto.PublicKeySuite.CounterKeyExchangeKey">CounterKeyExchangeKey</h4>
+  <div class="markdown level1 summary"><p>Counter key exchange key (will be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsymmetricPublicKey CounterKeyExchangeKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_CounterSignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.CounterSignatureKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L70">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_CounterSignatureKey_" data-uid="wan24.Crypto.PublicKeySuite.CounterSignatureKey*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_CounterSignatureKey" data-uid="wan24.Crypto.PublicKeySuite.CounterSignatureKey">CounterSignatureKey</h4>
+  <div class="markdown level1 summary"><p>Counter signature public key (will be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISignaturePublicKey CounterSignatureKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_KeyExchangeKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.KeyExchangeKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L37">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_KeyExchangeKey_" data-uid="wan24.Crypto.PublicKeySuite.KeyExchangeKey*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_KeyExchangeKey" data-uid="wan24.Crypto.PublicKeySuite.KeyExchangeKey">KeyExchangeKey</h4>
+  <div class="markdown level1 summary"><p>Key exchange key (will be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsymmetricPublicKey KeyExchangeKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_Signature.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.Signature%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L80">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_Signature_" data-uid="wan24.Crypto.PublicKeySuite.Signature*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_Signature" data-uid="wan24.Crypto.PublicKeySuite.Signature">Signature</h4>
+  <div class="markdown level1 summary"><p>Public key suite signature</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignatureContainer Signature { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.SignatureKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L65">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_SignatureKey_" data-uid="wan24.Crypto.PublicKeySuite.SignatureKey*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_SignatureKey" data-uid="wan24.Crypto.PublicKeySuite.SignatureKey">SignatureKey</h4>
+  <div class="markdown level1 summary"><p>Signature public key (will be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISignaturePublicKey SignatureKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_SignedPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.SignedPublicKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L75">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_SignedPublicKey_" data-uid="wan24.Crypto.PublicKeySuite.SignedPublicKey*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_SignedPublicKey" data-uid="wan24.Crypto.PublicKeySuite.SignedPublicKey">SignedPublicKey</h4>
+  <div class="markdown level1 summary"><p>Signed public key (will be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsymmetricSignedPublicKey SignedPublicKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L129">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_Clone_" data-uid="wan24.Crypto.PublicKeySuite.Clone*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_Clone" data-uid="wan24.Crypto.PublicKeySuite.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Clone this public key suite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PublicKeySuite Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></td>
+        <td><p>Clone</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_CreateOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.CreateOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L118">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_CreateOptions_" data-uid="wan24.Crypto.PublicKeySuite.CreateOptions*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_CreateOptions" data-uid="wan24.Crypto.PublicKeySuite.CreateOptions">CreateOptions()</h4>
+  <div class="markdown level1 summary"><p>Create crypto options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions CreateOptions()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_CreateSignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.CreateSignedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L86">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_CreateSignedData_" data-uid="wan24.Crypto.PublicKeySuite.CreateSignedData*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_CreateSignedData" data-uid="wan24.Crypto.PublicKeySuite.CreateSignedData">CreateSignedData()</h4>
+  <div class="markdown level1 summary"><p>Create the signed data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] CreateSignedData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Signed data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L169">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_Deserialize_" data-uid="wan24.Crypto.PublicKeySuite.Deserialize*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.PublicKeySuite.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Deserialize(Stream stream, int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L178">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_DeserializeAsync_" data-uid="wan24.Crypto.PublicKeySuite.DeserializeAsync*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.PublicKeySuite.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L140">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_Dispose_" data-uid="wan24.Crypto.PublicKeySuite.Dispose*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_Dispose_System_Boolean_" data-uid="wan24.Crypto.PublicKeySuite.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L153">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_Serialize_" data-uid="wan24.Crypto.PublicKeySuite.Serialize*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_Serialize_Stream_" data-uid="wan24.Crypto.PublicKeySuite.Serialize(Stream)">Serialize(Stream)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Serialize(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L161">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_SerializeAsync_" data-uid="wan24.Crypto.PublicKeySuite.SerializeAsync*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.PublicKeySuite.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_op_Explicit_System_Byte____wan24_Crypto_PublicKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.op_Explicit(System.Byte%5B%5D)~wan24.Crypto.PublicKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L219">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_op_Explicit_" data-uid="wan24.Crypto.PublicKeySuite.op_Explicit*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_op_Explicit_System_Byte____wan24_Crypto_PublicKeySuite" data-uid="wan24.Crypto.PublicKeySuite.op_Explicit(System.Byte[])~wan24.Crypto.PublicKeySuite">Explicit(Byte[] to PublicKeySuite)</h4>
+  <div class="markdown level1 summary"><p>Cast from serialized data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator PublicKeySuite(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_op_Implicit_wan24_Crypto_PublicKeySuite__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.op_Implicit(wan24.Crypto.PublicKeySuite)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L213">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_op_Implicit_" data-uid="wan24.Crypto.PublicKeySuite.op_Implicit*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_op_Implicit_wan24_Crypto_PublicKeySuite__System_Byte__" data-uid="wan24.Crypto.PublicKeySuite.op_Implicit(wan24.Crypto.PublicKeySuite)~System.Byte[]">Implicit(PublicKeySuite to Byte[])</h4>
+  <div class="markdown level1 summary"><p>Cast as serialized data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator byte[](PublicKeySuite suite)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></td>
+        <td><span class="parametername">suite</span></td>
+        <td><p>Public key suite</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite_op_Implicit_wan24_Crypto_PublicKeySuite__wan24_Crypto_AsymmetricSignedPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite.op_Implicit(wan24.Crypto.PublicKeySuite)~wan24.Crypto.AsymmetricSignedPublicKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L207">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PublicKeySuite_op_Implicit_" data-uid="wan24.Crypto.PublicKeySuite.op_Implicit*"></a>
+  <h4 id="wan24_Crypto_PublicKeySuite_op_Implicit_wan24_Crypto_PublicKeySuite__wan24_Crypto_AsymmetricSignedPublicKey" data-uid="wan24.Crypto.PublicKeySuite.op_Implicit(wan24.Crypto.PublicKeySuite)~wan24.Crypto.AsymmetricSignedPublicKey">Implicit(PublicKeySuite to AsymmetricSignedPublicKey)</h4>
+  <div class="markdown level1 summary"><p>Cast as asymmetric signed public key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator AsymmetricSignedPublicKey(PublicKeySuite suite)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></td>
+        <td><span class="parametername">suite</span></td>
+        <td><p>Public key suite</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.IAsyncDisposable</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
+  </div>
+  <div>
+      <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+  <div>
+      <span class="xref">ICloneable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PublicKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.PublicKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PublicKeySuite.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
