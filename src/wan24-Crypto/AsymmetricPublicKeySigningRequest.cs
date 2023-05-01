@@ -2,8 +2,6 @@
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
-//TODO Add signature
-
 namespace wan24.Crypto
 {
     /// <summary>
@@ -17,6 +15,11 @@ namespace wan24.Crypto
         public const int VERSION = 1;
 
         /// <summary>
+        /// Signed data
+        /// </summary>
+        private byte[]? SignedData = null;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public AsymmetricPublicKeySigningRequest() : base(VERSION) { }
@@ -25,7 +28,16 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="publicKey">Public key (will be copied)</param>
-        public AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey publicKey) : this() => PublicKey = publicKey.GetCopy();
+        /// <param name="attributes">Attributes</param>
+        /// <param name="purpose">Request purpose (used for signing)</param>
+        /// <param name="options">Options (if a private signature key of the given public key is included, this request will be signed)</param>
+        public AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null, string? purpose = null, CryptoOptions? options = null) : this()
+        {
+            PublicKey = publicKey.GetCopy();
+            if (attributes != null) Attributes.AddRange(attributes);
+            if (options?.PrivateKey is not ISignaturePrivateKey signatureKey || !signatureKey.ID.SequenceEqual(publicKey.ID)) return;
+            Signature = signatureKey.SignData(CreateSignedData(), purpose, options);
+        }
 
         /// <summary>
         /// Public key (will be disposed)
@@ -39,6 +51,11 @@ namespace wan24.Crypto
         [ItemStringLength(byte.MaxValue, ItemValidationTargets.Key)]
         [ItemStringLength(byte.MaxValue)]
         public Dictionary<string, string> Attributes { get; private set; } = new();
+
+        /// <summary>
+        /// Signature
+        /// </summary>
+        public SignatureContainer? Signature { get; private set; }
 
         /// <summary>
         /// Get as unsigned key
@@ -56,6 +73,33 @@ namespace wan24.Crypto
             return res;
         }
 
+        /// <summary>
+        /// Create the signed data
+        /// </summary>
+        /// <returns>Signed data</returns>
+        public byte[] CreateSignedData()
+        {
+            try
+            {
+                if (SignedData != null) return SignedData;
+                using MemoryStream ms = new();
+                ms.WriteSerializerVersion()
+                    .WriteNumber(VERSION)
+                    .WriteAny(PublicKey)
+                    .WriteDict(Attributes);
+                SignedData = ms.ToArray();
+                return SignedData;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
         /// <inheritdoc/>
         protected override void Dispose(bool disposing) => PublicKey.Dispose();
 
@@ -63,32 +107,80 @@ namespace wan24.Crypto
         protected override void Serialize(Stream stream)
         {
             EnsureUndisposed();
-            stream.WriteAny(PublicKey)
-                .WriteDict(Attributes);
+            stream.WriteBytesNullable(SignedData);
+            if (SignedData == null)
+            {
+                stream.WriteAny(PublicKey)
+                    .WriteDict(Attributes);
+            }
+            else
+            {
+                stream.WriteSerialized(Signature!);
+            }
         }
 
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            await stream.WriteAnyAsync(PublicKey, cancellationToken).DynamicContext();
-            await stream.WriteDictAsync(Attributes, cancellationToken).DynamicContext();
+            stream.WriteBytesNullable(SignedData);
+            if (SignedData == null)
+            {
+                await stream.WriteAnyAsync(PublicKey, cancellationToken).DynamicContext();
+                await stream.WriteDictAsync(Attributes, cancellationToken).DynamicContext();
+            }
+            else
+            {
+                stream.WriteSerialized(Signature!);
+            }
         }
 
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
             EnsureUndisposed();
-            PublicKey = stream.ReadAny(version) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
-            Attributes = stream.ReadDict<string, string>(version, maxLen: byte.MaxValue);
+            SignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+            if (SignedData == null)
+            {
+                PublicKey = stream.ReadAny(version) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
+                Attributes = stream.ReadDict<string, string>(version, maxLen: byte.MaxValue);
+            }
+            else
+            {
+                DeserializeSignedData();
+                Signature = stream.ReadSerialized<SignatureContainer>(version);
+            }
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             EnsureUndisposed();
-            PublicKey = await stream.ReadAnyAsync(version, cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
-            Attributes = await stream.ReadDictAsync<string, string>(version, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+            SignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            if (SignedData == null)
+            {
+                PublicKey = await stream.ReadAnyAsync(version, cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
+                Attributes = await stream.ReadDictAsync<string, string>(version, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+            }
+            else
+            {
+                DeserializeSignedData();
+                Signature = await stream.ReadSerializedAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
+            }
+        }
+
+        /// <summary>
+        /// Deserialize the signed data
+        /// </summary>
+        private void DeserializeSignedData()
+        {
+            if (SignedData == null) throw new InvalidOperationException();
+            using MemoryStream ms = new();
+            int ssv = ms.ReadSerializerVersion(),
+                ov = ms.ReadNumber<int>();
+            if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
+            PublicKey = ms.ReadAny(ssv) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
+            Attributes = ms.ReadDict<string, string>(ssv, maxLen: byte.MaxValue);
         }
 
         /// <summary>

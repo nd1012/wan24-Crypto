@@ -1852,12 +1852,15 @@ references:
   commentId: M:wan24.Crypto.AsymmetricPublicKeySigningRequest.#ctor
   fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest()
   nameWithType: AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest()
-- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.#ctor(wan24.Crypto.IAsymmetricPublicKey)
-  name: AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey)
-  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest__ctor_wan24_Crypto_IAsymmetricPublicKey_
-  commentId: M:wan24.Crypto.AsymmetricPublicKeySigningRequest.#ctor(wan24.Crypto.IAsymmetricPublicKey)
-  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest(wan24.Crypto.IAsymmetricPublicKey)
-  nameWithType: AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey)
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.#ctor(wan24.Crypto.IAsymmetricPublicKey,System.Nullable{Dictionary{System.String,System.String}},System.String,wan24.Crypto.CryptoOptions)
+  name: AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey, Nullable<Dictionary<String, String>>, String, CryptoOptions)
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest__ctor_wan24_Crypto_IAsymmetricPublicKey_System_Nullable_Dictionary_System_String_System_String___System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.AsymmetricPublicKeySigningRequest.#ctor(wan24.Crypto.IAsymmetricPublicKey,System.Nullable{Dictionary{System.String,System.String}},System.String,wan24.Crypto.CryptoOptions)
+  name.vb: AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey, Nullable(Of Dictionary(Of String, String)), String, CryptoOptions)
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest(wan24.Crypto.IAsymmetricPublicKey, System.Nullable<Dictionary<System.String, System.String>>, System.String, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest(wan24.Crypto.IAsymmetricPublicKey, System.Nullable(Of Dictionary(Of System.String, System.String)), System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey, Nullable<Dictionary<String, String>>, String, CryptoOptions)
+  nameWithType.vb: AsymmetricPublicKeySigningRequest.AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey, Nullable(Of Dictionary(Of String, String)), String, CryptoOptions)
 - uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.#ctor*
   name: AsymmetricPublicKeySigningRequest
   href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest__ctor_
@@ -1878,6 +1881,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.Attributes
   nameWithType: AsymmetricPublicKeySigningRequest.Attributes
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData
+  name: CreateSignedData()
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_CreateSignedData
+  commentId: M:wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData()
+  nameWithType: AsymmetricPublicKeySigningRequest.CreateSignedData()
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData*
+  name: CreateSignedData
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_CreateSignedData_
+  commentId: Overload:wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData
+  nameWithType: AsymmetricPublicKeySigningRequest.CreateSignedData
 - uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.Deserialize(Stream,System.Int32)
   name: Deserialize(Stream, Int32)
   href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_Deserialize_Stream_System_Int32_
@@ -2016,6 +2032,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.SerializeAsync
   nameWithType: AsymmetricPublicKeySigningRequest.SerializeAsync
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature
+  name: Signature
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_Signature
+  commentId: P:wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature
+  nameWithType: AsymmetricPublicKeySigningRequest.Signature
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature*
+  name: Signature
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_Signature_
+  commentId: Overload:wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature
+  nameWithType: AsymmetricPublicKeySigningRequest.Signature
 - uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.VERSION
   name: VERSION
   href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_VERSION
