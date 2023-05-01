@@ -110,6 +110,7 @@ namespace wan24.Crypto
                 {
                     options.CounterKdfAlgorithm = kdfAlgorithm.Name;
                     options.CounterKdfIterations = kdfAlgorithm.DefaultIterations;
+                    options.CounterKdfOptions = kdfAlgorithm.DefaultOptions.KdfOptions;
                 }
                 // MAC algorithm
                 if (

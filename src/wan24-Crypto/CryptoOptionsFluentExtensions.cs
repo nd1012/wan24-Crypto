@@ -182,15 +182,17 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm name</param>
         /// <param name="iterations">Iterations</param>
+        /// <param name="kdfOptions">KDF options</param>
         /// <param name="included">Included in the header?</param>
         /// <returns>Options</returns>
-        public static CryptoOptions WithKdf(this CryptoOptions options, string? algo = null, int? iterations = null, bool included = true)
+        public static CryptoOptions WithKdf(this CryptoOptions options, string? algo = null, int? iterations = null, string? kdfOptions = null, bool included = true)
         {
             algo ??= KdfHelper.DefaultAlgorithm.Name;
             KdfAlgorithmBase kdf = KdfHelper.GetAlgorithm(algo);
             iterations ??= kdf.DefaultIterations;
             options.KdfAlgorithm = algo;
             options.KdfIterations = iterations.Value;
+            options.KdfOptions = kdfOptions;
             options.KdfAlgorithmIncluded = included;
             options.RequireKdf = true;
             if (EncryptionHelper.UseHybridOptions && options.CounterKdfAlgorithm == null)
@@ -198,7 +200,9 @@ namespace wan24.Crypto
                 options.CounterKdfAlgorithm = HybridAlgorithmHelper.KdfAlgorithm?.Name;
                 if (options.CounterKdfAlgorithm != null)
                 {
-                    options.CounterKdfIterations = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm).DefaultIterations;
+                    KdfAlgorithmBase counterKdf = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm);
+                    options.CounterKdfIterations = counterKdf.DefaultIterations;
+                    options.CounterKdfOptions = counterKdf.DefaultOptions.KdfOptions;
                     options.RequireCounterKdf = true;
                 }
                 else
@@ -216,10 +220,11 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm value</param>
         /// <param name="iterations">Iterations</param>
+        /// <param name="kdfOptions">KDF options</param>
         /// <param name="included">Included in the header?</param>
         /// <returns>Options</returns>
-        public static CryptoOptions WithKdf(this CryptoOptions options, int algo, int? iterations = null, bool included = true)
-            => WithKdf(options, KdfHelper.GetAlgorithm(algo).Name, iterations, included);
+        public static CryptoOptions WithKdf(this CryptoOptions options, int algo, int? iterations = null, string? kdfOptions = null, bool included = true)
+            => WithKdf(options, KdfHelper.GetAlgorithm(algo).Name, iterations, kdfOptions, included);
 
         /// <summary>
         /// Enable a counter KDF algorithm
@@ -227,14 +232,16 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm name</param>
         /// <param name="iterations">Iterations</param>
+        /// <param name="kdfOptions">KDF options</param>
         /// <returns>Options</returns>
-        public static CryptoOptions WithCounterKdf(this CryptoOptions options, string? algo = null, int? iterations = null)
+        public static CryptoOptions WithCounterKdf(this CryptoOptions options, string? algo = null, int? iterations = null, string? kdfOptions = null)
         {
             algo ??= HybridAlgorithmHelper.KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name;
             KdfAlgorithmBase kdf = KdfHelper.GetAlgorithm(algo);
             iterations ??= kdf.DefaultIterations;
             options.CounterKdfAlgorithm = algo;
             options.CounterKdfIterations = iterations.Value;
+            options.CounterKdfOptions = kdfOptions;
             options.RequireCounterKdf = true;
             return options;
         }
@@ -245,9 +252,10 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm value</param>
         /// <param name="iterations">Iterations</param>
+        /// <param name="kdfOptions">KDF options</param>
         /// <returns>Options</returns>
-        public static CryptoOptions WithCounterKdf(this CryptoOptions options, int algo, int? iterations = null)
-            => WithCounterKdf(options, algo, iterations);
+        public static CryptoOptions WithCounterKdf(this CryptoOptions options, int algo, int? iterations = null, string? kdfOptions = null)
+            => WithCounterKdf(options, algo, iterations, kdfOptions);
 
         /// <summary>
         /// Remove KDF options
@@ -258,10 +266,12 @@ namespace wan24.Crypto
         {
             options.KdfAlgorithm = null;
             options.KdfIterations = 1;
+            options.KdfOptions = null;
             options.KdfAlgorithmIncluded = false;
             options.RequireKdf = false;
             options.CounterKdfAlgorithm = null;
             options.CounterKdfIterations = 1;
+            options.CounterKdfOptions = null;
             options.RequireCounterKdf = false;
             return options;
         }

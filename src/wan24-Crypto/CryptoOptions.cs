@@ -77,6 +77,12 @@ namespace wan24.Crypto
         public int KdfIterations { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
+        /// KDF options
+        /// </summary>
+        [StringLength(byte.MaxValue)]
+        public string? KdfOptions { get; set; }
+
+        /// <summary>
         /// Asymmetric algorithm name (for the key exchange data)
         /// </summary>
         [StringLength(byte.MaxValue)]
@@ -355,12 +361,14 @@ namespace wan24.Crypto
             Algorithm = Algorithm,
             MacAlgorithm = MacAlgorithm,
             KdfAlgorithm = KdfAlgorithm,
+            KdfOptions = KdfOptions,
             KdfIterations = KdfIterations,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
             KeyExchangeData = KeyExchangeData?.Clone(),
             CounterMacAlgorithm = CounterMacAlgorithm,
             CounterKdfAlgorithm = CounterKdfAlgorithm,
             CounterKdfIterations = CounterKdfIterations,
+            CounterKdfOptions = CounterKdfOptions,
             AsymmetricCounterAlgorithm = AsymmetricCounterAlgorithm,
             PayloadData = (byte[]?)PayloadData?.Clone(),
             Time = Time,
