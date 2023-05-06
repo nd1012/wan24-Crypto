@@ -27,7 +27,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone();
+        public CryptoOptions DefaultOptions => _DefaultOptions.Clone().WithMac(Name);
 
         /// <summary>
         /// MAC length in bytes

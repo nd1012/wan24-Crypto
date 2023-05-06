@@ -33,7 +33,11 @@ namespace wan24.Crypto
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone();
+        public CryptoOptions DefaultOptions => _DefaultOptions.Clone()
+            .WithCompression(CompressionHelper.GetDefaultOptions())
+            .WithEncryptionAlgorithm(Name)
+            .WithMac(MacHelper.DefaultAlgorithm.Name)
+            .WithKdf(KdfHelper.DefaultAlgorithm.Name, KdfHelper.DefaultAlgorithm.DefaultIterations, KdfHelper.DefaultAlgorithm.DefaultKdfOptions);
 
         /// <summary>
         /// Create random IV bytes

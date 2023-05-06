@@ -79,6 +79,7 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public CryptoOptions CreateOptions()
         {
+            EnsureUndisposed();
             CryptoOptions res = new();
             res.ApplyPrivateKeySuite(this);
             return res;
@@ -117,7 +118,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            EnsureUndisposed();
             stream.WriteAnyNullable(KeyExchangeKey)
                 .WriteAnyNullable(CounterKeyExchangeKey)
                 .WriteAnyNullable(SignatureKey)
@@ -129,7 +129,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
             await stream.WriteAnyNullableAsync(KeyExchangeKey, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(CounterKeyExchangeKey, cancellationToken).DynamicContext();
             await stream.WriteAnyNullableAsync(SignatureKey, cancellationToken).DynamicContext();
@@ -141,7 +140,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            EnsureUndisposed();
             KeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
             SignatureKey = (ISignaturePrivateKey?)stream.ReadAnyNullable(version);
@@ -153,7 +151,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
             KeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();
             SignatureKey = (ISignaturePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken).DynamicContext();

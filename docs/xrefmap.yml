@@ -543,15 +543,6 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Narrowing
   nameWithType: AsymmetricEcDiffieHellmanPrivateKey.Explicit
   nameWithType.vb: AsymmetricEcDiffieHellmanPrivateKey.Narrowing
-- uid: wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.op_Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey)~System.Byte[]
-  name: Implicit(AsymmetricEcDiffieHellmanPrivateKey to Byte[])
-  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.html#wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_op_Implicit_wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__System_Byte__
-  commentId: M:wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.op_Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey)~System.Byte[]
-  name.vb: Widening(AsymmetricEcDiffieHellmanPrivateKey to Byte())
-  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey to System.Byte[])
-  fullName.vb: wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.Widening(wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey to System.Byte())
-  nameWithType: AsymmetricEcDiffieHellmanPrivateKey.Implicit(AsymmetricEcDiffieHellmanPrivateKey to Byte[])
-  nameWithType.vb: AsymmetricEcDiffieHellmanPrivateKey.Widening(AsymmetricEcDiffieHellmanPrivateKey to Byte())
 - uid: wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.op_Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey)~wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey
   name: Implicit(AsymmetricEcDiffieHellmanPrivateKey to AsymmetricEcDiffieHellmanPublicKey)
   href: api/wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.html#wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey_op_Implicit_wan24_Crypto_AsymmetricEcDiffieHellmanPrivateKey__wan24_Crypto_AsymmetricEcDiffieHellmanPublicKey
@@ -689,25 +680,6 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.Narrowing
   nameWithType: AsymmetricEcDiffieHellmanPublicKey.Explicit
   nameWithType.vb: AsymmetricEcDiffieHellmanPublicKey.Narrowing
-- uid: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.op_Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey)~System.Byte[]
-  name: Implicit(AsymmetricEcDiffieHellmanPublicKey to Byte[])
-  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html#wan24_Crypto_AsymmetricEcDiffieHellmanPublicKey_op_Implicit_wan24_Crypto_AsymmetricEcDiffieHellmanPublicKey__System_Byte__
-  commentId: M:wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.op_Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey)~System.Byte[]
-  name.vb: Widening(AsymmetricEcDiffieHellmanPublicKey to Byte())
-  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.Implicit(wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey to System.Byte[])
-  fullName.vb: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.Widening(wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey to System.Byte())
-  nameWithType: AsymmetricEcDiffieHellmanPublicKey.Implicit(AsymmetricEcDiffieHellmanPublicKey to Byte[])
-  nameWithType.vb: AsymmetricEcDiffieHellmanPublicKey.Widening(AsymmetricEcDiffieHellmanPublicKey to Byte())
-- uid: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.op_Implicit*
-  name: Implicit
-  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html#wan24_Crypto_AsymmetricEcDiffieHellmanPublicKey_op_Implicit_
-  commentId: Overload:wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.op_Implicit
-  isSpec: "True"
-  name.vb: Widening
-  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.Implicit
-  fullName.vb: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.Widening
-  nameWithType: AsymmetricEcDiffieHellmanPublicKey.Implicit
-  nameWithType.vb: AsymmetricEcDiffieHellmanPublicKey.Widening
 - uid: wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.PublicKey
   name: PublicKey
   href: api/wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html#wan24_Crypto_AsymmetricEcDiffieHellmanPublicKey_PublicKey
@@ -921,15 +893,6 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricEcDsaPrivateKey.Narrowing
   nameWithType: AsymmetricEcDsaPrivateKey.Explicit
   nameWithType.vb: AsymmetricEcDsaPrivateKey.Narrowing
-- uid: wan24.Crypto.AsymmetricEcDsaPrivateKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPrivateKey)~System.Byte[]
-  name: Implicit(AsymmetricEcDsaPrivateKey to Byte[])
-  href: api/wan24.Crypto.AsymmetricEcDsaPrivateKey.html#wan24_Crypto_AsymmetricEcDsaPrivateKey_op_Implicit_wan24_Crypto_AsymmetricEcDsaPrivateKey__System_Byte__
-  commentId: M:wan24.Crypto.AsymmetricEcDsaPrivateKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPrivateKey)~System.Byte[]
-  name.vb: Widening(AsymmetricEcDsaPrivateKey to Byte())
-  fullName: wan24.Crypto.AsymmetricEcDsaPrivateKey.Implicit(wan24.Crypto.AsymmetricEcDsaPrivateKey to System.Byte[])
-  fullName.vb: wan24.Crypto.AsymmetricEcDsaPrivateKey.Widening(wan24.Crypto.AsymmetricEcDsaPrivateKey to System.Byte())
-  nameWithType: AsymmetricEcDsaPrivateKey.Implicit(AsymmetricEcDsaPrivateKey to Byte[])
-  nameWithType.vb: AsymmetricEcDsaPrivateKey.Widening(AsymmetricEcDsaPrivateKey to Byte())
 - uid: wan24.Crypto.AsymmetricEcDsaPrivateKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPrivateKey)~wan24.Crypto.AsymmetricEcDsaPublicKey
   name: Implicit(AsymmetricEcDsaPrivateKey to AsymmetricEcDsaPublicKey)
   href: api/wan24.Crypto.AsymmetricEcDsaPrivateKey.html#wan24_Crypto_AsymmetricEcDsaPrivateKey_op_Implicit_wan24_Crypto_AsymmetricEcDsaPrivateKey__wan24_Crypto_AsymmetricEcDsaPublicKey
@@ -1083,25 +1046,6 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricEcDsaPublicKey.Narrowing
   nameWithType: AsymmetricEcDsaPublicKey.Explicit
   nameWithType.vb: AsymmetricEcDsaPublicKey.Narrowing
-- uid: wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPublicKey)~System.Byte[]
-  name: Implicit(AsymmetricEcDsaPublicKey to Byte[])
-  href: api/wan24.Crypto.AsymmetricEcDsaPublicKey.html#wan24_Crypto_AsymmetricEcDsaPublicKey_op_Implicit_wan24_Crypto_AsymmetricEcDsaPublicKey__System_Byte__
-  commentId: M:wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPublicKey)~System.Byte[]
-  name.vb: Widening(AsymmetricEcDsaPublicKey to Byte())
-  fullName: wan24.Crypto.AsymmetricEcDsaPublicKey.Implicit(wan24.Crypto.AsymmetricEcDsaPublicKey to System.Byte[])
-  fullName.vb: wan24.Crypto.AsymmetricEcDsaPublicKey.Widening(wan24.Crypto.AsymmetricEcDsaPublicKey to System.Byte())
-  nameWithType: AsymmetricEcDsaPublicKey.Implicit(AsymmetricEcDsaPublicKey to Byte[])
-  nameWithType.vb: AsymmetricEcDsaPublicKey.Widening(AsymmetricEcDsaPublicKey to Byte())
-- uid: wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit*
-  name: Implicit
-  href: api/wan24.Crypto.AsymmetricEcDsaPublicKey.html#wan24_Crypto_AsymmetricEcDsaPublicKey_op_Implicit_
-  commentId: Overload:wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit
-  isSpec: "True"
-  name.vb: Widening
-  fullName: wan24.Crypto.AsymmetricEcDsaPublicKey.Implicit
-  fullName.vb: wan24.Crypto.AsymmetricEcDsaPublicKey.Widening
-  nameWithType: AsymmetricEcDsaPublicKey.Implicit
-  nameWithType.vb: AsymmetricEcDsaPublicKey.Widening
 - uid: wan24.Crypto.AsymmetricEcDsaPublicKey.PublicKey
   name: PublicKey
   href: api/wan24.Crypto.AsymmetricEcDsaPublicKey.html#wan24_Crypto_AsymmetricEcDsaPublicKey_PublicKey
@@ -1402,6 +1346,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricKeyBase.Dispose
   nameWithType: AsymmetricKeyBase.Dispose
+- uid: wan24.Crypto.AsymmetricKeyBase.Export
+  name: Export()
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Export
+  commentId: M:wan24.Crypto.AsymmetricKeyBase.Export
+  fullName: wan24.Crypto.AsymmetricKeyBase.Export()
+  nameWithType: AsymmetricKeyBase.Export()
+- uid: wan24.Crypto.AsymmetricKeyBase.Export*
+  name: Export
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Export_
+  commentId: Overload:wan24.Crypto.AsymmetricKeyBase.Export
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeyBase.Export
+  nameWithType: AsymmetricKeyBase.Export
 - uid: wan24.Crypto.AsymmetricKeyBase.ID
   name: ID
   href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_ID
@@ -1415,6 +1372,31 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricKeyBase.ID
   nameWithType: AsymmetricKeyBase.ID
+- uid: wan24.Crypto.AsymmetricKeyBase.Import(System.Byte[])
+  name: Import(Byte[])
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import_System_Byte___
+  commentId: M:wan24.Crypto.AsymmetricKeyBase.Import(System.Byte[])
+  name.vb: Import(Byte())
+  fullName: wan24.Crypto.AsymmetricKeyBase.Import(System.Byte[])
+  fullName.vb: wan24.Crypto.AsymmetricKeyBase.Import(System.Byte())
+  nameWithType: AsymmetricKeyBase.Import(Byte[])
+  nameWithType.vb: AsymmetricKeyBase.Import(Byte())
+- uid: wan24.Crypto.AsymmetricKeyBase.Import*
+  name: Import
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import_
+  commentId: Overload:wan24.Crypto.AsymmetricKeyBase.Import
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeyBase.Import
+  nameWithType: AsymmetricKeyBase.Import
+- uid: wan24.Crypto.AsymmetricKeyBase.Import``1(System.Byte[])
+  name: Import<T>(Byte[])
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import__1_System_Byte___
+  commentId: M:wan24.Crypto.AsymmetricKeyBase.Import``1(System.Byte[])
+  name.vb: Import(Of T)(Byte())
+  fullName: wan24.Crypto.AsymmetricKeyBase.Import<T>(System.Byte[])
+  fullName.vb: wan24.Crypto.AsymmetricKeyBase.Import(Of T)(System.Byte())
+  nameWithType: AsymmetricKeyBase.Import<T>(Byte[])
+  nameWithType.vb: AsymmetricKeyBase.Import(Of T)(Byte())
 - uid: wan24.Crypto.AsymmetricKeyBase.KeyData
   name: KeyData
   href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_KeyData
@@ -1597,6 +1579,25 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricPrivateKeyBase(Of tPublic, tPrivate).ID
   nameWithType: AsymmetricPrivateKeyBase<tPublic, tPrivate>.ID
   nameWithType.vb: AsymmetricPrivateKeyBase(Of tPublic, tPrivate).ID
+- uid: wan24.Crypto.AsymmetricPrivateKeyBase`2.op_Implicit(wan24.Crypto.AsymmetricPrivateKeyBase{`0,`1})~System.Byte[]
+  name: Implicit(AsymmetricPrivateKeyBase<tPublic, tPrivate> to Byte[])
+  href: api/wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_op_Implicit_wan24_Crypto_AsymmetricPrivateKeyBase__0__1___System_Byte__
+  commentId: M:wan24.Crypto.AsymmetricPrivateKeyBase`2.op_Implicit(wan24.Crypto.AsymmetricPrivateKeyBase{`0,`1})~System.Byte[]
+  name.vb: Widening(AsymmetricPrivateKeyBase(Of tPublic, tPrivate) to Byte())
+  fullName: wan24.Crypto.AsymmetricPrivateKeyBase<tPublic, tPrivate>.Implicit(wan24.Crypto.AsymmetricPrivateKeyBase<tPublic, tPrivate> to System.Byte[])
+  fullName.vb: wan24.Crypto.AsymmetricPrivateKeyBase(Of tPublic, tPrivate).Widening(wan24.Crypto.AsymmetricPrivateKeyBase(Of tPublic, tPrivate) to System.Byte())
+  nameWithType: AsymmetricPrivateKeyBase<tPublic, tPrivate>.Implicit(AsymmetricPrivateKeyBase<tPublic, tPrivate> to Byte[])
+  nameWithType.vb: AsymmetricPrivateKeyBase(Of tPublic, tPrivate).Widening(AsymmetricPrivateKeyBase(Of tPublic, tPrivate) to Byte())
+- uid: wan24.Crypto.AsymmetricPrivateKeyBase`2.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_op_Implicit_
+  commentId: Overload:wan24.Crypto.AsymmetricPrivateKeyBase`2.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.AsymmetricPrivateKeyBase<tPublic, tPrivate>.Implicit
+  fullName.vb: wan24.Crypto.AsymmetricPrivateKeyBase(Of tPublic, tPrivate).Widening
+  nameWithType: AsymmetricPrivateKeyBase<tPublic, tPrivate>.Implicit
+  nameWithType.vb: AsymmetricPrivateKeyBase(Of tPublic, tPrivate).Widening
 - uid: wan24.Crypto.AsymmetricPrivateKeyBase`2.PublicKey
   name: PublicKey
   href: api/wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_PublicKey
@@ -1776,6 +1777,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricPublicKeyBase.ID
   nameWithType: AsymmetricPublicKeyBase.ID
+- uid: wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit(wan24.Crypto.AsymmetricPublicKeyBase)~System.Byte[]
+  name: Implicit(AsymmetricPublicKeyBase to Byte[])
+  href: api/wan24.Crypto.AsymmetricPublicKeyBase.html#wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_wan24_Crypto_AsymmetricPublicKeyBase__System_Byte__
+  commentId: M:wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit(wan24.Crypto.AsymmetricPublicKeyBase)~System.Byte[]
+  name.vb: Widening(AsymmetricPublicKeyBase to Byte())
+  fullName: wan24.Crypto.AsymmetricPublicKeyBase.Implicit(wan24.Crypto.AsymmetricPublicKeyBase to System.Byte[])
+  fullName.vb: wan24.Crypto.AsymmetricPublicKeyBase.Widening(wan24.Crypto.AsymmetricPublicKeyBase to System.Byte())
+  nameWithType: AsymmetricPublicKeyBase.Implicit(AsymmetricPublicKeyBase to Byte[])
+  nameWithType.vb: AsymmetricPublicKeyBase.Widening(AsymmetricPublicKeyBase to Byte())
+- uid: wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.AsymmetricPublicKeyBase.html#wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_
+  commentId: Overload:wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.AsymmetricPublicKeyBase.Implicit
+  fullName.vb: wan24.Crypto.AsymmetricPublicKeyBase.Widening
+  nameWithType: AsymmetricPublicKeyBase.Implicit
+  nameWithType.vb: AsymmetricPublicKeyBase.Widening
 - uid: wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer,Stream,System.Boolean)
   name: ValidateSignature(SignatureContainer, Stream, Boolean)
   href: api/wan24.Crypto.AsymmetricPublicKeyBase.html#wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_Stream_System_Boolean_
@@ -2045,6 +2065,32 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.Signature
   nameWithType: AsymmetricPublicKeySigningRequest.Signature
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest(wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  name: SignRequest(ISignaturePrivateKey, CryptoOptions)
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_SignRequest_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest(wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest(wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  nameWithType: AsymmetricPublicKeySigningRequest.SignRequest(ISignaturePrivateKey, CryptoOptions)
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest*
+  name: SignRequest
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_SignRequest_
+  commentId: Overload:wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest
+  nameWithType: AsymmetricPublicKeySigningRequest.SignRequest
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature(System.Boolean)
+  name: ValidateRequestSignature(Boolean)
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_ValidateRequestSignature_System_Boolean_
+  commentId: M:wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature(System.Boolean)
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature(System.Boolean)
+  nameWithType: AsymmetricPublicKeySigningRequest.ValidateRequestSignature(Boolean)
+- uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature*
+  name: ValidateRequestSignature
+  href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_ValidateRequestSignature_
+  commentId: Overload:wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature
+  nameWithType: AsymmetricPublicKeySigningRequest.ValidateRequestSignature
 - uid: wan24.Crypto.AsymmetricPublicKeySigningRequest.VERSION
   name: VERSION
   href: api/wan24.Crypto.AsymmetricPublicKeySigningRequest.html#wan24_Crypto_AsymmetricPublicKeySigningRequest_VERSION
@@ -2063,6 +2109,15 @@ references:
   commentId: M:wan24.Crypto.AsymmetricSignedPublicKey.#ctor
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.AsymmetricSignedPublicKey()
   nameWithType: AsymmetricSignedPublicKey.AsymmetricSignedPublicKey()
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.#ctor(wan24.Crypto.IAsymmetricPublicKey,System.Nullable{Dictionary{System.String,System.String}})
+  name: AsymmetricSignedPublicKey(IAsymmetricPublicKey, Nullable<Dictionary<String, String>>)
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey__ctor_wan24_Crypto_IAsymmetricPublicKey_System_Nullable_Dictionary_System_String_System_String___
+  commentId: M:wan24.Crypto.AsymmetricSignedPublicKey.#ctor(wan24.Crypto.IAsymmetricPublicKey,System.Nullable{Dictionary{System.String,System.String}})
+  name.vb: AsymmetricSignedPublicKey(IAsymmetricPublicKey, Nullable(Of Dictionary(Of String, String)))
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.AsymmetricSignedPublicKey(wan24.Crypto.IAsymmetricPublicKey, System.Nullable<Dictionary<System.String, System.String>>)
+  fullName.vb: wan24.Crypto.AsymmetricSignedPublicKey.AsymmetricSignedPublicKey(wan24.Crypto.IAsymmetricPublicKey, System.Nullable(Of Dictionary(Of System.String, System.String)))
+  nameWithType: AsymmetricSignedPublicKey.AsymmetricSignedPublicKey(IAsymmetricPublicKey, Nullable<Dictionary<String, String>>)
+  nameWithType.vb: AsymmetricSignedPublicKey.AsymmetricSignedPublicKey(IAsymmetricPublicKey, Nullable(Of Dictionary(Of String, String)))
 - uid: wan24.Crypto.AsymmetricSignedPublicKey.#ctor*
   name: AsymmetricSignedPublicKey
   href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey__ctor_
@@ -2270,6 +2325,25 @@ references:
   commentId: T:wan24.Crypto.AsymmetricSignedPublicKey.RootTrust_Delegate
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.RootTrust_Delegate
   nameWithType: AsymmetricSignedPublicKey.RootTrust_Delegate
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync
+  name: RootTrustAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_RootTrustAsync
+  commentId: P:wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync
+  nameWithType: AsymmetricSignedPublicKey.RootTrustAsync
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync*
+  name: RootTrustAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_RootTrustAsync_
+  commentId: Overload:wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync
+  nameWithType: AsymmetricSignedPublicKey.RootTrustAsync
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync_Delegate
+  name: AsymmetricSignedPublicKey.RootTrustAsync_Delegate
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync_Delegate.html
+  commentId: T:wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync_Delegate
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync_Delegate
+  nameWithType: AsymmetricSignedPublicKey.RootTrustAsync_Delegate
 - uid: wan24.Crypto.AsymmetricSignedPublicKey.Serialize(Stream)
   name: Serialize(Stream)
   href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_Serialize_Stream_
@@ -2341,6 +2415,25 @@ references:
   commentId: T:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate
   nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+  name: SignedPublicKeyRevocationAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_SignedPublicKeyRevocationAsync
+  commentId: P:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+  nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync*
+  name: SignedPublicKeyRevocationAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_SignedPublicKeyRevocationAsync_
+  commentId: Overload:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+  nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate
+  name: AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate.html
+  commentId: T:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate
+  nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate
 - uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore
   name: SignedPublicKeyStore
   href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_SignedPublicKeyStore
@@ -2360,6 +2453,25 @@ references:
   commentId: T:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate
   nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+  name: SignedPublicKeyStoreAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_SignedPublicKeyStoreAsync
+  commentId: P:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+  nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync*
+  name: SignedPublicKeyStoreAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_SignedPublicKeyStoreAsync_
+  commentId: Overload:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+  nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate
+  name: AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate.html
+  commentId: T:wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate
+  nameWithType: AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate
 - uid: wan24.Crypto.AsymmetricSignedPublicKey.Signer
   name: Signer
   href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_Signer
@@ -2386,6 +2498,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.Validate
   nameWithType: AsymmetricSignedPublicKey.Validate
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.ValidateAsync(System.Boolean,System.Boolean,System.Boolean,CancellationToken)
+  name: ValidateAsync(Boolean, Boolean, Boolean, CancellationToken)
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_ValidateAsync_System_Boolean_System_Boolean_System_Boolean_CancellationToken_
+  commentId: M:wan24.Crypto.AsymmetricSignedPublicKey.ValidateAsync(System.Boolean,System.Boolean,System.Boolean,CancellationToken)
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.ValidateAsync(System.Boolean, System.Boolean, System.Boolean, CancellationToken)
+  nameWithType: AsymmetricSignedPublicKey.ValidateAsync(Boolean, Boolean, Boolean, CancellationToken)
+- uid: wan24.Crypto.AsymmetricSignedPublicKey.ValidateAsync*
+  name: ValidateAsync
+  href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_ValidateAsync_
+  commentId: Overload:wan24.Crypto.AsymmetricSignedPublicKey.ValidateAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricSignedPublicKey.ValidateAsync
+  nameWithType: AsymmetricSignedPublicKey.ValidateAsync
 - uid: wan24.Crypto.AsymmetricSignedPublicKey.VERSION
   name: VERSION
   href: api/wan24.Crypto.AsymmetricSignedPublicKey.html#wan24_Crypto_AsymmetricSignedPublicKey_VERSION
@@ -4684,6 +4809,339 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.DecryptionStreams.Transform
   nameWithType: DecryptionStreams.Transform
+- uid: wan24.Crypto.DisposableSignedPayload`1
+  name: DisposableSignedPayload<T>
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html
+  commentId: T:wan24.Crypto.DisposableSignedPayload`1
+  name.vb: DisposableSignedPayload(Of T)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T)
+  nameWithType: DisposableSignedPayload<T>
+  nameWithType.vb: DisposableSignedPayload(Of T)
+- uid: wan24.Crypto.DisposableSignedPayload`1.#ctor
+  name: DisposableSignedPayload()
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1__ctor
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.#ctor
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DisposableSignedPayload()
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DisposableSignedPayload()
+  nameWithType: DisposableSignedPayload<T>.DisposableSignedPayload()
+  nameWithType.vb: DisposableSignedPayload(Of T).DisposableSignedPayload()
+- uid: wan24.Crypto.DisposableSignedPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  name: DisposableSignedPayload(T, ISignaturePrivateKey, CryptoOptions)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DisposableSignedPayload(T, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DisposableSignedPayload(T, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  nameWithType: DisposableSignedPayload<T>.DisposableSignedPayload(T, ISignaturePrivateKey, CryptoOptions)
+  nameWithType.vb: DisposableSignedPayload(Of T).DisposableSignedPayload(T, ISignaturePrivateKey, CryptoOptions)
+- uid: wan24.Crypto.DisposableSignedPayload`1.#ctor*
+  name: DisposableSignedPayload
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1__ctor_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DisposableSignedPayload
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DisposableSignedPayload
+  nameWithType: DisposableSignedPayload<T>.DisposableSignedPayload
+  nameWithType.vb: DisposableSignedPayload(Of T).DisposableSignedPayload
+- uid: wan24.Crypto.DisposableSignedPayload`1.CreateSignedData
+  name: CreateSignedData()
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_CreateSignedData
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.CreateSignedData
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.CreateSignedData()
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).CreateSignedData()
+  nameWithType: DisposableSignedPayload<T>.CreateSignedData()
+  nameWithType.vb: DisposableSignedPayload(Of T).CreateSignedData()
+- uid: wan24.Crypto.DisposableSignedPayload`1.CreateSignedData*
+  name: CreateSignedData
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_CreateSignedData_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.CreateSignedData
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.CreateSignedData
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).CreateSignedData
+  nameWithType: DisposableSignedPayload<T>.CreateSignedData
+  nameWithType.vb: DisposableSignedPayload(Of T).CreateSignedData
+- uid: wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt(Stream)
+  name: CreateSignedDataInt(Stream)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_Stream_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt(Stream)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.CreateSignedDataInt(Stream)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).CreateSignedDataInt(Stream)
+  nameWithType: DisposableSignedPayload<T>.CreateSignedDataInt(Stream)
+  nameWithType.vb: DisposableSignedPayload(Of T).CreateSignedDataInt(Stream)
+- uid: wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt*
+  name: CreateSignedDataInt
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.CreateSignedDataInt
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).CreateSignedDataInt
+  nameWithType: DisposableSignedPayload<T>.CreateSignedDataInt
+  nameWithType.vb: DisposableSignedPayload(Of T).CreateSignedDataInt
+- uid: wan24.Crypto.DisposableSignedPayload`1.Deserialize(Stream,System.Int32)
+  name: Deserialize(Stream, Int32)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Deserialize_Stream_System_Int32_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.Deserialize(Stream,System.Int32)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Deserialize(Stream, System.Int32)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Deserialize(Stream, System.Int32)
+  nameWithType: DisposableSignedPayload<T>.Deserialize(Stream, Int32)
+  nameWithType.vb: DisposableSignedPayload(Of T).Deserialize(Stream, Int32)
+- uid: wan24.Crypto.DisposableSignedPayload`1.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Deserialize_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Deserialize
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Deserialize
+  nameWithType: DisposableSignedPayload<T>.Deserialize
+  nameWithType.vb: DisposableSignedPayload(Of T).Deserialize
+- uid: wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DeserializeAsync(Stream, System.Int32, CancellationToken)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DeserializeAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: DisposableSignedPayload<T>.DeserializeAsync(Stream, Int32, CancellationToken)
+  nameWithType.vb: DisposableSignedPayload(Of T).DeserializeAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DeserializeAsync
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DeserializeAsync
+  nameWithType: DisposableSignedPayload<T>.DeserializeAsync
+  nameWithType.vb: DisposableSignedPayload(Of T).DeserializeAsync
+- uid: wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedData
+  name: DeserializeSignedData()
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedData
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedData
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DeserializeSignedData()
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DeserializeSignedData()
+  nameWithType: DisposableSignedPayload<T>.DeserializeSignedData()
+  nameWithType.vb: DisposableSignedPayload(Of T).DeserializeSignedData()
+- uid: wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedData*
+  name: DeserializeSignedData
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedData_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedData
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DeserializeSignedData
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DeserializeSignedData
+  nameWithType: DisposableSignedPayload<T>.DeserializeSignedData
+  nameWithType.vb: DisposableSignedPayload(Of T).DeserializeSignedData
+- uid: wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt(Stream,System.Int32)
+  name: DeserializeSignedDataInt(Stream, Int32)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_Stream_System_Int32_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt(Stream,System.Int32)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DeserializeSignedDataInt(Stream, System.Int32)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DeserializeSignedDataInt(Stream, System.Int32)
+  nameWithType: DisposableSignedPayload<T>.DeserializeSignedDataInt(Stream, Int32)
+  nameWithType.vb: DisposableSignedPayload(Of T).DeserializeSignedDataInt(Stream, Int32)
+- uid: wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt*
+  name: DeserializeSignedDataInt
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DeserializeSignedDataInt
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DeserializeSignedDataInt
+  nameWithType: DisposableSignedPayload<T>.DeserializeSignedDataInt
+  nameWithType.vb: DisposableSignedPayload(Of T).DeserializeSignedDataInt
+- uid: wan24.Crypto.DisposableSignedPayload`1.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.Dispose(System.Boolean)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Dispose(System.Boolean)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Dispose(System.Boolean)
+  nameWithType: DisposableSignedPayload<T>.Dispose(Boolean)
+  nameWithType.vb: DisposableSignedPayload(Of T).Dispose(Boolean)
+- uid: wan24.Crypto.DisposableSignedPayload`1.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Dispose_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Dispose
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Dispose
+  nameWithType: DisposableSignedPayload<T>.Dispose
+  nameWithType.vb: DisposableSignedPayload(Of T).Dispose
+- uid: wan24.Crypto.DisposableSignedPayload`1.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DisposeCore
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.DisposeCore
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DisposeCore()
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DisposeCore()
+  nameWithType: DisposableSignedPayload<T>.DisposeCore()
+  nameWithType.vb: DisposableSignedPayload(Of T).DisposeCore()
+- uid: wan24.Crypto.DisposableSignedPayload`1.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_DisposeCore_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.DisposeCore
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).DisposeCore
+  nameWithType: DisposableSignedPayload<T>.DisposeCore
+  nameWithType.vb: DisposableSignedPayload(Of T).DisposeCore
+- uid: wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~`0
+  name: Implicit(DisposableSignedPayload<T> to T)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0____0
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~`0
+  name.vb: Widening(DisposableSignedPayload(Of T) to T)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Implicit(wan24.Crypto.DisposableSignedPayload<T> to T)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Widening(wan24.Crypto.DisposableSignedPayload(Of T) to T)
+  nameWithType: DisposableSignedPayload<T>.Implicit(DisposableSignedPayload<T> to T)
+  nameWithType.vb: DisposableSignedPayload(Of T).Widening(DisposableSignedPayload(Of T) to T)
+- uid: wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~System.Byte[]
+  name: Implicit(DisposableSignedPayload<T> to Byte[])
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___System_Byte__
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~System.Byte[]
+  name.vb: Widening(DisposableSignedPayload(Of T) to Byte())
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Implicit(wan24.Crypto.DisposableSignedPayload<T> to System.Byte[])
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Widening(wan24.Crypto.DisposableSignedPayload(Of T) to System.Byte())
+  nameWithType: DisposableSignedPayload<T>.Implicit(DisposableSignedPayload<T> to Byte[])
+  nameWithType.vb: DisposableSignedPayload(Of T).Widening(DisposableSignedPayload(Of T) to Byte())
+- uid: wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~wan24.Crypto.SignatureContainer
+  name: Implicit(DisposableSignedPayload<T> to SignatureContainer)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___wan24_Crypto_SignatureContainer
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~wan24.Crypto.SignatureContainer
+  name.vb: Widening(DisposableSignedPayload(Of T) to SignatureContainer)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Implicit(wan24.Crypto.DisposableSignedPayload<T> to wan24.Crypto.SignatureContainer)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Widening(wan24.Crypto.DisposableSignedPayload(Of T) to wan24.Crypto.SignatureContainer)
+  nameWithType: DisposableSignedPayload<T>.Implicit(DisposableSignedPayload<T> to SignatureContainer)
+  nameWithType.vb: DisposableSignedPayload(Of T).Widening(DisposableSignedPayload(Of T) to SignatureContainer)
+- uid: wan24.Crypto.DisposableSignedPayload`1.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_op_Implicit_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Implicit
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Widening
+  nameWithType: DisposableSignedPayload<T>.Implicit
+  nameWithType.vb: DisposableSignedPayload(Of T).Widening
+- uid: wan24.Crypto.DisposableSignedPayload`1.Payload
+  name: Payload
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Payload
+  commentId: P:wan24.Crypto.DisposableSignedPayload`1.Payload
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Payload
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Payload
+  nameWithType: DisposableSignedPayload<T>.Payload
+  nameWithType.vb: DisposableSignedPayload(Of T).Payload
+- uid: wan24.Crypto.DisposableSignedPayload`1.Payload*
+  name: Payload
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Payload_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Payload
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Payload
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Payload
+  nameWithType: DisposableSignedPayload<T>.Payload
+  nameWithType.vb: DisposableSignedPayload(Of T).Payload
+- uid: wan24.Crypto.DisposableSignedPayload`1.Serialize(Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Serialize_Stream_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.Serialize(Stream)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Serialize(Stream)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Serialize(Stream)
+  nameWithType: DisposableSignedPayload<T>.Serialize(Stream)
+  nameWithType.vb: DisposableSignedPayload(Of T).Serialize(Stream)
+- uid: wan24.Crypto.DisposableSignedPayload`1.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Serialize_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Serialize
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Serialize
+  nameWithType: DisposableSignedPayload<T>.Serialize
+  nameWithType.vb: DisposableSignedPayload(Of T).Serialize
+- uid: wan24.Crypto.DisposableSignedPayload`1.SerializeAsync(Stream,CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_Stream_CancellationToken_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.SerializeAsync(Stream,CancellationToken)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.SerializeAsync(Stream, CancellationToken)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).SerializeAsync(Stream, CancellationToken)
+  nameWithType: DisposableSignedPayload<T>.SerializeAsync(Stream, CancellationToken)
+  nameWithType.vb: DisposableSignedPayload(Of T).SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.DisposableSignedPayload`1.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.SerializeAsync
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).SerializeAsync
+  nameWithType: DisposableSignedPayload<T>.SerializeAsync
+  nameWithType.vb: DisposableSignedPayload(Of T).SerializeAsync
+- uid: wan24.Crypto.DisposableSignedPayload`1.Sign(wan24.Crypto.ISignaturePrivateKey,System.String,wan24.Crypto.CryptoOptions)
+  name: Sign(ISignaturePrivateKey, String, CryptoOptions)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Sign_wan24_Crypto_ISignaturePrivateKey_System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.Sign(wan24.Crypto.ISignaturePrivateKey,System.String,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Sign(wan24.Crypto.ISignaturePrivateKey, System.String, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Sign(wan24.Crypto.ISignaturePrivateKey, System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: DisposableSignedPayload<T>.Sign(ISignaturePrivateKey, String, CryptoOptions)
+  nameWithType.vb: DisposableSignedPayload(Of T).Sign(ISignaturePrivateKey, String, CryptoOptions)
+- uid: wan24.Crypto.DisposableSignedPayload`1.Sign*
+  name: Sign
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Sign_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Sign
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Sign
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Sign
+  nameWithType: DisposableSignedPayload<T>.Sign
+  nameWithType.vb: DisposableSignedPayload(Of T).Sign
+- uid: wan24.Crypto.DisposableSignedPayload`1.Signature
+  name: Signature
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Signature
+  commentId: P:wan24.Crypto.DisposableSignedPayload`1.Signature
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Signature
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Signature
+  nameWithType: DisposableSignedPayload<T>.Signature
+  nameWithType.vb: DisposableSignedPayload(Of T).Signature
+- uid: wan24.Crypto.DisposableSignedPayload`1.Signature*
+  name: Signature
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Signature_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Signature
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Signature
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Signature
+  nameWithType: DisposableSignedPayload<T>.Signature
+  nameWithType.vb: DisposableSignedPayload(Of T).Signature
+- uid: wan24.Crypto.DisposableSignedPayload`1.SignedData
+  name: SignedData
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_SignedData
+  commentId: F:wan24.Crypto.DisposableSignedPayload`1.SignedData
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.SignedData
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).SignedData
+  nameWithType: DisposableSignedPayload<T>.SignedData
+  nameWithType.vb: DisposableSignedPayload(Of T).SignedData
+- uid: wan24.Crypto.DisposableSignedPayload`1.SignedDataMaxLength
+  name: SignedDataMaxLength
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_SignedDataMaxLength
+  commentId: F:wan24.Crypto.DisposableSignedPayload`1.SignedDataMaxLength
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.SignedDataMaxLength
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).SignedDataMaxLength
+  nameWithType: DisposableSignedPayload<T>.SignedDataMaxLength
+  nameWithType.vb: DisposableSignedPayload(Of T).SignedDataMaxLength
+- uid: wan24.Crypto.DisposableSignedPayload`1.Validate(System.Boolean)
+  name: Validate(Boolean)
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Validate_System_Boolean_
+  commentId: M:wan24.Crypto.DisposableSignedPayload`1.Validate(System.Boolean)
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Validate(System.Boolean)
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Validate(System.Boolean)
+  nameWithType: DisposableSignedPayload<T>.Validate(Boolean)
+  nameWithType.vb: DisposableSignedPayload(Of T).Validate(Boolean)
+- uid: wan24.Crypto.DisposableSignedPayload`1.Validate*
+  name: Validate
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_Validate_
+  commentId: Overload:wan24.Crypto.DisposableSignedPayload`1.Validate
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.Validate
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).Validate
+  nameWithType: DisposableSignedPayload<T>.Validate
+  nameWithType.vb: DisposableSignedPayload(Of T).Validate
+- uid: wan24.Crypto.DisposableSignedPayload`1.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.DisposableSignedPayload-1.html#wan24_Crypto_DisposableSignedPayload_1_VERSION
+  commentId: F:wan24.Crypto.DisposableSignedPayload`1.VERSION
+  fullName: wan24.Crypto.DisposableSignedPayload<T>.VERSION
+  fullName.vb: wan24.Crypto.DisposableSignedPayload(Of T).VERSION
+  nameWithType: DisposableSignedPayload<T>.VERSION
+  nameWithType.vb: DisposableSignedPayload(Of T).VERSION
 - uid: wan24.Crypto.EllipticCurves
   name: EllipticCurves
   href: api/wan24.Crypto.EllipticCurves.html
@@ -4869,6 +5327,25 @@ references:
   fullName.vb: wan24.Crypto.EncryptedJsonValue(Of T).Object
   nameWithType: EncryptedJsonValue<T>.Object
   nameWithType.vb: EncryptedJsonValue(Of T).Object
+- uid: wan24.Crypto.EncryptedJsonValue`1.op_Implicit(wan24.Crypto.EncryptedJsonValue{`0})~`0
+  name: Implicit(EncryptedJsonValue<T> to T)
+  href: api/wan24.Crypto.EncryptedJsonValue-1.html#wan24_Crypto_EncryptedJsonValue_1_op_Implicit_wan24_Crypto_EncryptedJsonValue__0____0
+  commentId: M:wan24.Crypto.EncryptedJsonValue`1.op_Implicit(wan24.Crypto.EncryptedJsonValue{`0})~`0
+  name.vb: Widening(EncryptedJsonValue(Of T) to T)
+  fullName: wan24.Crypto.EncryptedJsonValue<T>.Implicit(wan24.Crypto.EncryptedJsonValue<T> to T)
+  fullName.vb: wan24.Crypto.EncryptedJsonValue(Of T).Widening(wan24.Crypto.EncryptedJsonValue(Of T) to T)
+  nameWithType: EncryptedJsonValue<T>.Implicit(EncryptedJsonValue<T> to T)
+  nameWithType.vb: EncryptedJsonValue(Of T).Widening(EncryptedJsonValue(Of T) to T)
+- uid: wan24.Crypto.EncryptedJsonValue`1.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.EncryptedJsonValue-1.html#wan24_Crypto_EncryptedJsonValue_1_op_Implicit_
+  commentId: Overload:wan24.Crypto.EncryptedJsonValue`1.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.EncryptedJsonValue<T>.Implicit
+  fullName.vb: wan24.Crypto.EncryptedJsonValue(Of T).Widening
+  nameWithType: EncryptedJsonValue<T>.Implicit
+  nameWithType.vb: EncryptedJsonValue(Of T).Widening
 - uid: wan24.Crypto.EncryptedJsonValue`1.RawData
   name: RawData
   href: api/wan24.Crypto.EncryptedJsonValue-1.html#wan24_Crypto_EncryptedJsonValue_1_RawData
@@ -4954,6 +5431,25 @@ references:
   fullName.vb: wan24.Crypto.EncryptedSerializableValue(Of T).Object
   nameWithType: EncryptedSerializableValue<T>.Object
   nameWithType.vb: EncryptedSerializableValue(Of T).Object
+- uid: wan24.Crypto.EncryptedSerializableValue`1.op_Implicit(wan24.Crypto.EncryptedSerializableValue{`0})~`0
+  name: Implicit(EncryptedSerializableValue<T> to T)
+  href: api/wan24.Crypto.EncryptedSerializableValue-1.html#wan24_Crypto_EncryptedSerializableValue_1_op_Implicit_wan24_Crypto_EncryptedSerializableValue__0____0
+  commentId: M:wan24.Crypto.EncryptedSerializableValue`1.op_Implicit(wan24.Crypto.EncryptedSerializableValue{`0})~`0
+  name.vb: Widening(EncryptedSerializableValue(Of T) to T)
+  fullName: wan24.Crypto.EncryptedSerializableValue<T>.Implicit(wan24.Crypto.EncryptedSerializableValue<T> to T)
+  fullName.vb: wan24.Crypto.EncryptedSerializableValue(Of T).Widening(wan24.Crypto.EncryptedSerializableValue(Of T) to T)
+  nameWithType: EncryptedSerializableValue<T>.Implicit(EncryptedSerializableValue<T> to T)
+  nameWithType.vb: EncryptedSerializableValue(Of T).Widening(EncryptedSerializableValue(Of T) to T)
+- uid: wan24.Crypto.EncryptedSerializableValue`1.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.EncryptedSerializableValue-1.html#wan24_Crypto_EncryptedSerializableValue_1_op_Implicit_
+  commentId: Overload:wan24.Crypto.EncryptedSerializableValue`1.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.EncryptedSerializableValue<T>.Implicit
+  fullName.vb: wan24.Crypto.EncryptedSerializableValue(Of T).Widening
+  nameWithType: EncryptedSerializableValue<T>.Implicit
+  nameWithType.vb: EncryptedSerializableValue(Of T).Widening
 - uid: wan24.Crypto.EncryptedSerializableValue`1.RawData
   name: RawData
   href: api/wan24.Crypto.EncryptedSerializableValue-1.html#wan24_Crypto_EncryptedSerializableValue_1_RawData
@@ -5047,6 +5543,32 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptedValue.CipherData
   nameWithType: EncryptedValue.CipherData
+- uid: wan24.Crypto.EncryptedValue.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.EncryptedValue.Dispose(System.Boolean)
+  fullName: wan24.Crypto.EncryptedValue.Dispose(System.Boolean)
+  nameWithType: EncryptedValue.Dispose(Boolean)
+- uid: wan24.Crypto.EncryptedValue.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_Dispose_
+  commentId: Overload:wan24.Crypto.EncryptedValue.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptedValue.Dispose
+  nameWithType: EncryptedValue.Dispose
+- uid: wan24.Crypto.EncryptedValue.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_DisposeCore
+  commentId: M:wan24.Crypto.EncryptedValue.DisposeCore
+  fullName: wan24.Crypto.EncryptedValue.DisposeCore()
+  nameWithType: EncryptedValue.DisposeCore()
+- uid: wan24.Crypto.EncryptedValue.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_DisposeCore_
+  commentId: Overload:wan24.Crypto.EncryptedValue.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptedValue.DisposeCore
+  nameWithType: EncryptedValue.DisposeCore
 - uid: wan24.Crypto.EncryptedValue.HasKey
   name: HasKey
   href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_HasKey
@@ -5060,6 +5582,44 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptedValue.HasKey
   nameWithType: EncryptedValue.HasKey
+- uid: wan24.Crypto.EncryptedValue.op_Explicit(System.Byte[])~wan24.Crypto.EncryptedValue
+  name: Explicit(Byte[] to EncryptedValue)
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_op_Explicit_System_Byte____wan24_Crypto_EncryptedValue
+  commentId: M:wan24.Crypto.EncryptedValue.op_Explicit(System.Byte[])~wan24.Crypto.EncryptedValue
+  name.vb: Narrowing(Byte() to EncryptedValue)
+  fullName: wan24.Crypto.EncryptedValue.Explicit(System.Byte[] to wan24.Crypto.EncryptedValue)
+  fullName.vb: wan24.Crypto.EncryptedValue.Narrowing(System.Byte() to wan24.Crypto.EncryptedValue)
+  nameWithType: EncryptedValue.Explicit(Byte[] to EncryptedValue)
+  nameWithType.vb: EncryptedValue.Narrowing(Byte() to EncryptedValue)
+- uid: wan24.Crypto.EncryptedValue.op_Explicit*
+  name: Explicit
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_op_Explicit_
+  commentId: Overload:wan24.Crypto.EncryptedValue.op_Explicit
+  isSpec: "True"
+  name.vb: Narrowing
+  fullName: wan24.Crypto.EncryptedValue.Explicit
+  fullName.vb: wan24.Crypto.EncryptedValue.Narrowing
+  nameWithType: EncryptedValue.Explicit
+  nameWithType.vb: EncryptedValue.Narrowing
+- uid: wan24.Crypto.EncryptedValue.op_Implicit(wan24.Crypto.EncryptedValue)~System.Byte[]
+  name: Implicit(EncryptedValue to Byte[])
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_op_Implicit_wan24_Crypto_EncryptedValue__System_Byte__
+  commentId: M:wan24.Crypto.EncryptedValue.op_Implicit(wan24.Crypto.EncryptedValue)~System.Byte[]
+  name.vb: Widening(EncryptedValue to Byte())
+  fullName: wan24.Crypto.EncryptedValue.Implicit(wan24.Crypto.EncryptedValue to System.Byte[])
+  fullName.vb: wan24.Crypto.EncryptedValue.Widening(wan24.Crypto.EncryptedValue to System.Byte())
+  nameWithType: EncryptedValue.Implicit(EncryptedValue to Byte[])
+  nameWithType.vb: EncryptedValue.Widening(EncryptedValue to Byte())
+- uid: wan24.Crypto.EncryptedValue.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_op_Implicit_
+  commentId: Overload:wan24.Crypto.EncryptedValue.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.EncryptedValue.Implicit
+  fullName.vb: wan24.Crypto.EncryptedValue.Widening
+  nameWithType: EncryptedValue.Implicit
+  nameWithType.vb: EncryptedValue.Widening
 - uid: wan24.Crypto.EncryptedValue.Options
   name: Options
   href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_Options
@@ -5099,6 +5659,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptedValue.StoreDecrypted
   nameWithType: EncryptedValue.StoreDecrypted
+- uid: wan24.Crypto.EncryptedValue.StoreKeys
+  name: StoreKeys
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_StoreKeys
+  commentId: P:wan24.Crypto.EncryptedValue.StoreKeys
+  fullName: wan24.Crypto.EncryptedValue.StoreKeys
+  nameWithType: EncryptedValue.StoreKeys
+- uid: wan24.Crypto.EncryptedValue.StoreKeys*
+  name: StoreKeys
+  href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_StoreKeys_
+  commentId: Overload:wan24.Crypto.EncryptedValue.StoreKeys
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptedValue.StoreKeys
+  nameWithType: EncryptedValue.StoreKeys
 - uid: wan24.Crypto.EncryptedValue.SymmetricKey
   name: SymmetricKey
   href: api/wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_SymmetricKey
@@ -7609,6 +8182,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IAsymmetricKey.Bits
   nameWithType: IAsymmetricKey.Bits
+- uid: wan24.Crypto.IAsymmetricKey.Export
+  name: Export()
+  href: api/wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_Export
+  commentId: M:wan24.Crypto.IAsymmetricKey.Export
+  fullName: wan24.Crypto.IAsymmetricKey.Export()
+  nameWithType: IAsymmetricKey.Export()
+- uid: wan24.Crypto.IAsymmetricKey.Export*
+  name: Export
+  href: api/wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_Export_
+  commentId: Overload:wan24.Crypto.IAsymmetricKey.Export
+  isSpec: "True"
+  fullName: wan24.Crypto.IAsymmetricKey.Export
+  nameWithType: IAsymmetricKey.Export
 - uid: wan24.Crypto.IAsymmetricKey.ID
   name: ID
   href: api/wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_ID
@@ -8058,6 +8644,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.KdfAlgorithmBase.DefaultIterations
   nameWithType: KdfAlgorithmBase.DefaultIterations
+- uid: wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions
+  name: DefaultKdfOptions
+  href: api/wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_DefaultKdfOptions
+  commentId: P:wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions
+  fullName: wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions
+  nameWithType: KdfAlgorithmBase.DefaultKdfOptions
+- uid: wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions*
+  name: DefaultKdfOptions
+  href: api/wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_DefaultKdfOptions_
+  commentId: Overload:wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions
+  nameWithType: KdfAlgorithmBase.DefaultKdfOptions
 - uid: wan24.Crypto.KdfAlgorithmBase.DefaultOptions
   name: DefaultOptions
   href: api/wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_DefaultOptions
@@ -8100,6 +8699,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.KdfAlgorithmBase.Stretch
   nameWithType: KdfAlgorithmBase.Stretch
+- uid: wan24.Crypto.KdfAlgorithmBase.ValidateOptions(System.String,System.Boolean)
+  name: ValidateOptions(String, Boolean)
+  href: api/wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_ValidateOptions_System_String_System_Boolean_
+  commentId: M:wan24.Crypto.KdfAlgorithmBase.ValidateOptions(System.String,System.Boolean)
+  fullName: wan24.Crypto.KdfAlgorithmBase.ValidateOptions(System.String, System.Boolean)
+  nameWithType: KdfAlgorithmBase.ValidateOptions(String, Boolean)
+- uid: wan24.Crypto.KdfAlgorithmBase.ValidateOptions*
+  name: ValidateOptions
+  href: api/wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_ValidateOptions_
+  commentId: Overload:wan24.Crypto.KdfAlgorithmBase.ValidateOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.KdfAlgorithmBase.ValidateOptions
+  nameWithType: KdfAlgorithmBase.ValidateOptions
 - uid: wan24.Crypto.KdfHelper
   name: KdfHelper
   href: api/wan24.Crypto.KdfHelper.html
@@ -10296,6 +10908,305 @@ references:
   commentId: F:wan24.Crypto.SignatureContainer.VERSION
   fullName: wan24.Crypto.SignatureContainer.VERSION
   nameWithType: SignatureContainer.VERSION
+- uid: wan24.Crypto.SignedPayload`1
+  name: SignedPayload<T>
+  href: api/wan24.Crypto.SignedPayload-1.html
+  commentId: T:wan24.Crypto.SignedPayload`1
+  name.vb: SignedPayload(Of T)
+  fullName: wan24.Crypto.SignedPayload<T>
+  fullName.vb: wan24.Crypto.SignedPayload(Of T)
+  nameWithType: SignedPayload<T>
+  nameWithType.vb: SignedPayload(Of T)
+- uid: wan24.Crypto.SignedPayload`1.#ctor
+  name: SignedPayload()
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1__ctor
+  commentId: M:wan24.Crypto.SignedPayload`1.#ctor
+  fullName: wan24.Crypto.SignedPayload<T>.SignedPayload()
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SignedPayload()
+  nameWithType: SignedPayload<T>.SignedPayload()
+  nameWithType.vb: SignedPayload(Of T).SignedPayload()
+- uid: wan24.Crypto.SignedPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  name: SignedPayload(T, ISignaturePrivateKey, CryptoOptions)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.SignedPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.SignedPayload<T>.SignedPayload(T, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SignedPayload(T, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  nameWithType: SignedPayload<T>.SignedPayload(T, ISignaturePrivateKey, CryptoOptions)
+  nameWithType.vb: SignedPayload(Of T).SignedPayload(T, ISignaturePrivateKey, CryptoOptions)
+- uid: wan24.Crypto.SignedPayload`1.#ctor*
+  name: SignedPayload
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1__ctor_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.SignedPayload
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SignedPayload
+  nameWithType: SignedPayload<T>.SignedPayload
+  nameWithType.vb: SignedPayload(Of T).SignedPayload
+- uid: wan24.Crypto.SignedPayload`1.CreateSignedData
+  name: CreateSignedData()
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_CreateSignedData
+  commentId: M:wan24.Crypto.SignedPayload`1.CreateSignedData
+  fullName: wan24.Crypto.SignedPayload<T>.CreateSignedData()
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).CreateSignedData()
+  nameWithType: SignedPayload<T>.CreateSignedData()
+  nameWithType.vb: SignedPayload(Of T).CreateSignedData()
+- uid: wan24.Crypto.SignedPayload`1.CreateSignedData*
+  name: CreateSignedData
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_CreateSignedData_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.CreateSignedData
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.CreateSignedData
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).CreateSignedData
+  nameWithType: SignedPayload<T>.CreateSignedData
+  nameWithType.vb: SignedPayload(Of T).CreateSignedData
+- uid: wan24.Crypto.SignedPayload`1.CreateSignedDataInt(Stream)
+  name: CreateSignedDataInt(Stream)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_CreateSignedDataInt_Stream_
+  commentId: M:wan24.Crypto.SignedPayload`1.CreateSignedDataInt(Stream)
+  fullName: wan24.Crypto.SignedPayload<T>.CreateSignedDataInt(Stream)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).CreateSignedDataInt(Stream)
+  nameWithType: SignedPayload<T>.CreateSignedDataInt(Stream)
+  nameWithType.vb: SignedPayload(Of T).CreateSignedDataInt(Stream)
+- uid: wan24.Crypto.SignedPayload`1.CreateSignedDataInt*
+  name: CreateSignedDataInt
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_CreateSignedDataInt_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.CreateSignedDataInt
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.CreateSignedDataInt
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).CreateSignedDataInt
+  nameWithType: SignedPayload<T>.CreateSignedDataInt
+  nameWithType.vb: SignedPayload(Of T).CreateSignedDataInt
+- uid: wan24.Crypto.SignedPayload`1.Deserialize(Stream,System.Int32)
+  name: Deserialize(Stream, Int32)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Deserialize_Stream_System_Int32_
+  commentId: M:wan24.Crypto.SignedPayload`1.Deserialize(Stream,System.Int32)
+  fullName: wan24.Crypto.SignedPayload<T>.Deserialize(Stream, System.Int32)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Deserialize(Stream, System.Int32)
+  nameWithType: SignedPayload<T>.Deserialize(Stream, Int32)
+  nameWithType.vb: SignedPayload(Of T).Deserialize(Stream, Int32)
+- uid: wan24.Crypto.SignedPayload`1.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Deserialize_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.Deserialize
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Deserialize
+  nameWithType: SignedPayload<T>.Deserialize
+  nameWithType.vb: SignedPayload(Of T).Deserialize
+- uid: wan24.Crypto.SignedPayload`1.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_DeserializeAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.SignedPayload`1.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.SignedPayload<T>.DeserializeAsync(Stream, System.Int32, CancellationToken)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).DeserializeAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: SignedPayload<T>.DeserializeAsync(Stream, Int32, CancellationToken)
+  nameWithType.vb: SignedPayload(Of T).DeserializeAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.SignedPayload`1.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.DeserializeAsync
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).DeserializeAsync
+  nameWithType: SignedPayload<T>.DeserializeAsync
+  nameWithType.vb: SignedPayload(Of T).DeserializeAsync
+- uid: wan24.Crypto.SignedPayload`1.DeserializeSignedData
+  name: DeserializeSignedData()
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_DeserializeSignedData
+  commentId: M:wan24.Crypto.SignedPayload`1.DeserializeSignedData
+  fullName: wan24.Crypto.SignedPayload<T>.DeserializeSignedData()
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).DeserializeSignedData()
+  nameWithType: SignedPayload<T>.DeserializeSignedData()
+  nameWithType.vb: SignedPayload(Of T).DeserializeSignedData()
+- uid: wan24.Crypto.SignedPayload`1.DeserializeSignedData*
+  name: DeserializeSignedData
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_DeserializeSignedData_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.DeserializeSignedData
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.DeserializeSignedData
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).DeserializeSignedData
+  nameWithType: SignedPayload<T>.DeserializeSignedData
+  nameWithType.vb: SignedPayload(Of T).DeserializeSignedData
+- uid: wan24.Crypto.SignedPayload`1.DeserializeSignedDataInt(Stream,System.Int32)
+  name: DeserializeSignedDataInt(Stream, Int32)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_DeserializeSignedDataInt_Stream_System_Int32_
+  commentId: M:wan24.Crypto.SignedPayload`1.DeserializeSignedDataInt(Stream,System.Int32)
+  fullName: wan24.Crypto.SignedPayload<T>.DeserializeSignedDataInt(Stream, System.Int32)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).DeserializeSignedDataInt(Stream, System.Int32)
+  nameWithType: SignedPayload<T>.DeserializeSignedDataInt(Stream, Int32)
+  nameWithType.vb: SignedPayload(Of T).DeserializeSignedDataInt(Stream, Int32)
+- uid: wan24.Crypto.SignedPayload`1.DeserializeSignedDataInt*
+  name: DeserializeSignedDataInt
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_DeserializeSignedDataInt_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.DeserializeSignedDataInt
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.DeserializeSignedDataInt
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).DeserializeSignedDataInt
+  nameWithType: SignedPayload<T>.DeserializeSignedDataInt
+  nameWithType.vb: SignedPayload(Of T).DeserializeSignedDataInt
+- uid: wan24.Crypto.SignedPayload`1.op_Implicit(wan24.Crypto.SignedPayload{`0})~`0
+  name: Implicit(SignedPayload<T> to T)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_op_Implicit_wan24_Crypto_SignedPayload__0____0
+  commentId: M:wan24.Crypto.SignedPayload`1.op_Implicit(wan24.Crypto.SignedPayload{`0})~`0
+  name.vb: Widening(SignedPayload(Of T) to T)
+  fullName: wan24.Crypto.SignedPayload<T>.Implicit(wan24.Crypto.SignedPayload<T> to T)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Widening(wan24.Crypto.SignedPayload(Of T) to T)
+  nameWithType: SignedPayload<T>.Implicit(SignedPayload<T> to T)
+  nameWithType.vb: SignedPayload(Of T).Widening(SignedPayload(Of T) to T)
+- uid: wan24.Crypto.SignedPayload`1.op_Implicit(wan24.Crypto.SignedPayload{`0})~System.Byte[]
+  name: Implicit(SignedPayload<T> to Byte[])
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_op_Implicit_wan24_Crypto_SignedPayload__0___System_Byte__
+  commentId: M:wan24.Crypto.SignedPayload`1.op_Implicit(wan24.Crypto.SignedPayload{`0})~System.Byte[]
+  name.vb: Widening(SignedPayload(Of T) to Byte())
+  fullName: wan24.Crypto.SignedPayload<T>.Implicit(wan24.Crypto.SignedPayload<T> to System.Byte[])
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Widening(wan24.Crypto.SignedPayload(Of T) to System.Byte())
+  nameWithType: SignedPayload<T>.Implicit(SignedPayload<T> to Byte[])
+  nameWithType.vb: SignedPayload(Of T).Widening(SignedPayload(Of T) to Byte())
+- uid: wan24.Crypto.SignedPayload`1.op_Implicit(wan24.Crypto.SignedPayload{`0})~wan24.Crypto.SignatureContainer
+  name: Implicit(SignedPayload<T> to SignatureContainer)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_op_Implicit_wan24_Crypto_SignedPayload__0___wan24_Crypto_SignatureContainer
+  commentId: M:wan24.Crypto.SignedPayload`1.op_Implicit(wan24.Crypto.SignedPayload{`0})~wan24.Crypto.SignatureContainer
+  name.vb: Widening(SignedPayload(Of T) to SignatureContainer)
+  fullName: wan24.Crypto.SignedPayload<T>.Implicit(wan24.Crypto.SignedPayload<T> to wan24.Crypto.SignatureContainer)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Widening(wan24.Crypto.SignedPayload(Of T) to wan24.Crypto.SignatureContainer)
+  nameWithType: SignedPayload<T>.Implicit(SignedPayload<T> to SignatureContainer)
+  nameWithType.vb: SignedPayload(Of T).Widening(SignedPayload(Of T) to SignatureContainer)
+- uid: wan24.Crypto.SignedPayload`1.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_op_Implicit_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.SignedPayload<T>.Implicit
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Widening
+  nameWithType: SignedPayload<T>.Implicit
+  nameWithType.vb: SignedPayload(Of T).Widening
+- uid: wan24.Crypto.SignedPayload`1.Payload
+  name: Payload
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Payload
+  commentId: P:wan24.Crypto.SignedPayload`1.Payload
+  fullName: wan24.Crypto.SignedPayload<T>.Payload
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Payload
+  nameWithType: SignedPayload<T>.Payload
+  nameWithType.vb: SignedPayload(Of T).Payload
+- uid: wan24.Crypto.SignedPayload`1.Payload*
+  name: Payload
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Payload_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.Payload
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.Payload
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Payload
+  nameWithType: SignedPayload<T>.Payload
+  nameWithType.vb: SignedPayload(Of T).Payload
+- uid: wan24.Crypto.SignedPayload`1.Serialize(Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Serialize_Stream_
+  commentId: M:wan24.Crypto.SignedPayload`1.Serialize(Stream)
+  fullName: wan24.Crypto.SignedPayload<T>.Serialize(Stream)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Serialize(Stream)
+  nameWithType: SignedPayload<T>.Serialize(Stream)
+  nameWithType.vb: SignedPayload(Of T).Serialize(Stream)
+- uid: wan24.Crypto.SignedPayload`1.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Serialize_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.Serialize
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Serialize
+  nameWithType: SignedPayload<T>.Serialize
+  nameWithType.vb: SignedPayload(Of T).Serialize
+- uid: wan24.Crypto.SignedPayload`1.SerializeAsync(Stream,CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_SerializeAsync_Stream_CancellationToken_
+  commentId: M:wan24.Crypto.SignedPayload`1.SerializeAsync(Stream,CancellationToken)
+  fullName: wan24.Crypto.SignedPayload<T>.SerializeAsync(Stream, CancellationToken)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SerializeAsync(Stream, CancellationToken)
+  nameWithType: SignedPayload<T>.SerializeAsync(Stream, CancellationToken)
+  nameWithType.vb: SignedPayload(Of T).SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.SignedPayload`1.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_SerializeAsync_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.SerializeAsync
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SerializeAsync
+  nameWithType: SignedPayload<T>.SerializeAsync
+  nameWithType.vb: SignedPayload(Of T).SerializeAsync
+- uid: wan24.Crypto.SignedPayload`1.Sign(wan24.Crypto.ISignaturePrivateKey,System.String,wan24.Crypto.CryptoOptions)
+  name: Sign(ISignaturePrivateKey, String, CryptoOptions)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Sign_wan24_Crypto_ISignaturePrivateKey_System_String_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.SignedPayload`1.Sign(wan24.Crypto.ISignaturePrivateKey,System.String,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.SignedPayload<T>.Sign(wan24.Crypto.ISignaturePrivateKey, System.String, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Sign(wan24.Crypto.ISignaturePrivateKey, System.String, wan24.Crypto.CryptoOptions)
+  nameWithType: SignedPayload<T>.Sign(ISignaturePrivateKey, String, CryptoOptions)
+  nameWithType.vb: SignedPayload(Of T).Sign(ISignaturePrivateKey, String, CryptoOptions)
+- uid: wan24.Crypto.SignedPayload`1.Sign*
+  name: Sign
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Sign_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.Sign
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.Sign
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Sign
+  nameWithType: SignedPayload<T>.Sign
+  nameWithType.vb: SignedPayload(Of T).Sign
+- uid: wan24.Crypto.SignedPayload`1.Signature
+  name: Signature
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Signature
+  commentId: P:wan24.Crypto.SignedPayload`1.Signature
+  fullName: wan24.Crypto.SignedPayload<T>.Signature
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Signature
+  nameWithType: SignedPayload<T>.Signature
+  nameWithType.vb: SignedPayload(Of T).Signature
+- uid: wan24.Crypto.SignedPayload`1.Signature*
+  name: Signature
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Signature_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.Signature
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.Signature
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Signature
+  nameWithType: SignedPayload<T>.Signature
+  nameWithType.vb: SignedPayload(Of T).Signature
+- uid: wan24.Crypto.SignedPayload`1.SignedData
+  name: SignedData
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_SignedData
+  commentId: F:wan24.Crypto.SignedPayload`1.SignedData
+  fullName: wan24.Crypto.SignedPayload<T>.SignedData
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SignedData
+  nameWithType: SignedPayload<T>.SignedData
+  nameWithType.vb: SignedPayload(Of T).SignedData
+- uid: wan24.Crypto.SignedPayload`1.SignedDataMaxLength
+  name: SignedDataMaxLength
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_SignedDataMaxLength
+  commentId: F:wan24.Crypto.SignedPayload`1.SignedDataMaxLength
+  fullName: wan24.Crypto.SignedPayload<T>.SignedDataMaxLength
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).SignedDataMaxLength
+  nameWithType: SignedPayload<T>.SignedDataMaxLength
+  nameWithType.vb: SignedPayload(Of T).SignedDataMaxLength
+- uid: wan24.Crypto.SignedPayload`1.Validate(System.Boolean)
+  name: Validate(Boolean)
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Validate_System_Boolean_
+  commentId: M:wan24.Crypto.SignedPayload`1.Validate(System.Boolean)
+  fullName: wan24.Crypto.SignedPayload<T>.Validate(System.Boolean)
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Validate(System.Boolean)
+  nameWithType: SignedPayload<T>.Validate(Boolean)
+  nameWithType.vb: SignedPayload(Of T).Validate(Boolean)
+- uid: wan24.Crypto.SignedPayload`1.Validate*
+  name: Validate
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_Validate_
+  commentId: Overload:wan24.Crypto.SignedPayload`1.Validate
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPayload<T>.Validate
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).Validate
+  nameWithType: SignedPayload<T>.Validate
+  nameWithType.vb: SignedPayload(Of T).Validate
+- uid: wan24.Crypto.SignedPayload`1.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.SignedPayload-1.html#wan24_Crypto_SignedPayload_1_VERSION
+  commentId: F:wan24.Crypto.SignedPayload`1.VERSION
+  fullName: wan24.Crypto.SignedPayload<T>.VERSION
+  fullName.vb: wan24.Crypto.SignedPayload(Of T).VERSION
+  nameWithType: SignedPayload<T>.VERSION
+  nameWithType.vb: SignedPayload(Of T).VERSION
 - uid: wan24.Crypto.X509Extensions
   name: X509Extensions
   href: api/wan24.Crypto.X509Extensions.html

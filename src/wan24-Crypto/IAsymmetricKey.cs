@@ -24,5 +24,10 @@ namespace wan24.Crypto
         /// Key data
         /// </summary>
         SecureByteArray KeyData { get; }
+        /// <summary>
+        /// Export the key data
+        /// </summary>
+        /// <returns>Key data</returns>
+        byte[] Export();
     }
 }

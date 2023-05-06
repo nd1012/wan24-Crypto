@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Encrypted value
     /// </summary>
-    public class EncryptedValue
+    public class EncryptedValue : DisposableBase
     {
         /// <summary>
         /// Decrypted value
@@ -23,7 +23,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public EncryptedValue() { }
+        public EncryptedValue() : base() { }
 
         /// <summary>
         /// Options
@@ -31,11 +31,11 @@ namespace wan24.Crypto
         public CryptoOptions Options { get; set; } = EncryptionHelper.GetDefaultOptions().IncludeNothing().WithMac();
 
         /// <summary>
-        /// Symmetric key
+        /// Symmetric key (won't be cleared!)
         /// </summary>
         public virtual byte[]? SymmetricKey
         {
-            get => _SymmetricKey ??= SymmetricKeyFactory?.Invoke();
+            get => StoreKeys ? _SymmetricKey ??= SymmetricKeyFactory?.Invoke() : SymmetricKeyFactory?.Invoke() ?? _SymmetricKey;
             set => _SymmetricKey = value;
         }
 
@@ -45,11 +45,11 @@ namespace wan24.Crypto
         public Func<byte[]>? SymmetricKeyFactory { get; set; }
 
         /// <summary>
-        /// Asymmetric key
+        /// Asymmetric key (won't be disposed!)
         /// </summary>
         public virtual IAsymmetricPrivateKey? AsymmetricKey
         {
-            get => _AsymmetricKey ??= AsymmetricKeyFactory?.Invoke();
+            get => StoreKeys ? _AsymmetricKey ??= AsymmetricKeyFactory?.Invoke() : AsymmetricKeyFactory?.Invoke() ?? _AsymmetricKey;
             set => _AsymmetricKey = value;
         }
 
@@ -59,9 +59,14 @@ namespace wan24.Crypto
         public Func<IAsymmetricPrivateKey>? AsymmetricKeyFactory { get; set; }
 
         /// <summary>
+        /// Store keys from the factory methods?
+        /// </summary>
+        public bool StoreKeys { get; set; } = true;
+
+        /// <summary>
         /// Has a key?
         /// </summary>
-        public bool HasKey => SymmetricKey != null || AsymmetricKey != null;
+        public bool HasKey => SymmetricKey != null || SymmetricKeyFactory != null || AsymmetricKey != null || AsymmetricKeyFactory != null;
 
         /// <summary>
         /// Cipher data
@@ -74,25 +79,25 @@ namespace wan24.Crypto
         public bool StoreDecrypted { get; set; }
 
         /// <summary>
-        /// Raw data
+        /// Raw data (will be cloned for setting/getting; the store will be cleared when disposing)
         /// </summary>
         public virtual byte[]? RawData
         {
             get
             {
-                if (_Decrypted != null || CipherData == null) return _Decrypted;
+                if (_Decrypted != null || CipherData == null) return (byte[]?)_Decrypted?.Clone();
                 if (!HasKey) throw new InvalidOperationException("No key");
                 byte[]? res = SymmetricKey == null
                     ? CipherData.Decrypt(AsymmetricKey!, Options)
                     : CipherData.Decrypt(SymmetricKey, Options);
-                if (StoreDecrypted) _Decrypted = res;
+                if (StoreDecrypted) _Decrypted = (byte[])res.Clone();
                 return res;
             }
             set
             {
                 if (!HasKey) throw new InvalidOperationException("No key");
                 _Decrypted?.Clear();
-                _Decrypted = value;
+                _Decrypted = (byte[]?)value?.Clone();
                 if (value == null)
                 {
                     CipherData = null;
@@ -105,5 +110,27 @@ namespace wan24.Crypto
                 }
             }
         }
+
+        /// <inheritdoc/>
+        protected override void Dispose(bool disposing) => _Decrypted?.Clear();
+
+        /// <inheritdoc/>
+        protected override Task DisposeCore()
+        {
+            _Decrypted?.Clear();
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Cast as cipher data
+        /// </summary>
+        /// <param name="value">Value</param>
+        public static implicit operator byte[]?(EncryptedValue value) => value.CipherData;
+
+        /// <summary>
+        /// Cast cipher data as encrypted value
+        /// </summary>
+        /// <param name="cipherData">Cipher data</param>
+        public static explicit operator EncryptedValue(byte[] cipherData) => new() { CipherData = cipherData };
     }
 }

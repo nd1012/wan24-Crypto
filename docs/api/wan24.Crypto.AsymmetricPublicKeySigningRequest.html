@@ -90,9 +90,14 @@
     <div><span class="xref">System.IAsyncDisposable</span></div>
     <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
     <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.BASE_VERSION</span>
+    </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Serialize(System.IO.Stream)</span>
     </div>
@@ -118,10 +123,16 @@
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializerVersion</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
@@ -194,7 +205,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AsymmetricPublicKeySigningRequest : DisposableStreamSerializerBase, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AsymmetricPublicKeySigningRequest : DisposableStreamSerializerBase, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -255,7 +266,7 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">purpose</span></td>
-        <td><p>Request purpose (used for signing)</p>
+        <td><p>Request purpose (used for signing the request)</p>
 </td>
       </tr>
       <tr>
@@ -403,7 +414,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_CreateSignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L80">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L105">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_CreateSignedData_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_CreateSignedData" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.CreateSignedData">CreateSignedData()</h4>
@@ -435,7 +446,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L139">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L163">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_Deserialize_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.Deserialize*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -472,7 +483,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L156">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L179">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_DeserializeAsync_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -529,7 +540,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L104">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L130">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_Dispose_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.Dispose*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_Dispose_System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -563,11 +574,11 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_GetAsUnsignedKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.GetAsUnsignedKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L64">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L88">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_GetAsUnsignedKey_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.GetAsUnsignedKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_GetAsUnsignedKey" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.GetAsUnsignedKey">GetAsUnsignedKey()</h4>
-  <div class="markdown level1 summary"><p>Get as unsigned key</p>
+  <div class="markdown level1 summary"><p>Get as unsigned key (a signed request will be validated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -585,7 +596,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a></td>
-        <td><p>Unsigned key</p>
+        <td><p>Unsigned key (don't forget to dispose)</p>
 </td>
       </tr>
     </tbody>
@@ -595,7 +606,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L107">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L133">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_Serialize_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.Serialize*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_Serialize_Stream_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.Serialize(Stream)">Serialize(Stream)</h4>
@@ -627,7 +638,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L123">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L148">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_SerializeAsync_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
@@ -674,6 +685,96 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_SignRequest_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest(wan24.Crypto.ISignaturePrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L65">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_SignRequest_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest*"></a>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_SignRequest_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.SignRequest(wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)">SignRequest(ISignaturePrivateKey, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Sign the request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SignRequest(ISignaturePrivateKey privateKey, CryptoOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></td>
+        <td><span class="parametername">privateKey</span></td>
+        <td><p>Private key</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_ValidateRequestSignature_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L76">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_ValidateRequestSignature_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature*"></a>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_ValidateRequestSignature_System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.ValidateRequestSignature(System.Boolean)">ValidateRequestSignature(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Validate the signing request signature</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ValidateRequestSignature(bool throwOnError = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">throwOnError</span></td>
+        <td><p>Throw an exception on error?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>If the signature is valid</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="operators">Operators
   </h3>
   <span class="small pull-right mobile-hide">
@@ -681,7 +782,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Explicit_System_Byte____wan24_Crypto_AsymmetricPublicKeySigningRequest.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Explicit(System.Byte%5B%5D)~wan24.Crypto.AsymmetricPublicKeySigningRequest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L202">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L225">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Explicit_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Explicit*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Explicit_System_Byte____wan24_Crypto_AsymmetricPublicKeySigningRequest" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Explicit(System.Byte[])~wan24.Crypto.AsymmetricPublicKeySigningRequest">Explicit(Byte[] to AsymmetricPublicKeySigningRequest)</h4>
@@ -730,7 +831,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Implicit_wan24_Crypto_AsymmetricPublicKeySigningRequest__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Implicit(wan24.Crypto.AsymmetricPublicKeySigningRequest)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L196">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L219">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Implicit_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Implicit*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Implicit_wan24_Crypto_AsymmetricPublicKeySigningRequest__System_Byte__" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Implicit(wan24.Crypto.AsymmetricPublicKeySigningRequest)~System.Byte[]">Implicit(AsymmetricPublicKeySigningRequest to Byte[])</h4>
@@ -779,7 +880,7 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Implicit_wan24_Crypto_AsymmetricPublicKeySigningRequest__wan24_Crypto_AsymmetricSignedPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Implicit(wan24.Crypto.AsymmetricPublicKeySigningRequest)~wan24.Crypto.AsymmetricSignedPublicKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L190">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricPublicKeySigningRequest.cs/#L213">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Implicit_" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Implicit*"></a>
   <h4 id="wan24_Crypto_AsymmetricPublicKeySigningRequest_op_Implicit_wan24_Crypto_AsymmetricPublicKeySigningRequest__wan24_Crypto_AsymmetricSignedPublicKey" data-uid="wan24.Crypto.AsymmetricPublicKeySigningRequest.op_Implicit(wan24.Crypto.AsymmetricPublicKeySigningRequest)~wan24.Crypto.AsymmetricSignedPublicKey">Implicit(AsymmetricPublicKeySigningRequest to AsymmetricSignedPublicKey)</h4>
@@ -838,6 +939,12 @@ public Dictionary&lt;string, string&gt; Attributes { get; }</code></pre>
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+  <div>
+      <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
   </div>
 </article>
           </div>

@@ -117,6 +117,7 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public CryptoOptions CreateOptions()
         {
+            EnsureUndisposed();
             CryptoOptions res = new();
             res.ApplyPublicKeySuite(this);
             return res;
@@ -168,7 +169,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            EnsureUndisposed();
             SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
             DeserializeSignedData();
             Signature = stream.ReadSerializedNullable<SignatureContainer>(version);
@@ -177,7 +177,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
             SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
             DeserializeSignedData();
             Signature = await stream.ReadSerializedNullableAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
@@ -188,6 +187,7 @@ namespace wan24.Crypto
         /// </summary>
         private void DeserializeSignedData()
         {
+            EnsureUndisposed();
             if (SignedData == null) throw new InvalidOperationException();
             using MemoryStream ms = new();
             int ssv = ms.ReadSerializerVersion(),

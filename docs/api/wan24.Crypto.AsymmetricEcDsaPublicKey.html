@@ -87,6 +87,8 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
     <div><a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a></div>
     <div><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></div>
     <div><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></div>
@@ -127,6 +129,9 @@
       <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_KeyData">AsymmetricKeyBase.KeyData</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Export">AsymmetricKeyBase.Export()</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Serialize_Stream_">AsymmetricKeyBase.Serialize(Stream)</a>
     </div>
     <div>
@@ -137,6 +142,15 @@
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_Stream_System_Int32_CancellationToken_">AsymmetricKeyBase.DeserializeAsync(Stream, Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import__1_System_Byte___">AsymmetricKeyBase.Import&lt;T&gt;(Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import_System_Byte___">AsymmetricKeyBase.Import(Byte[])</a>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.BASE_VERSION</span>
     </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Serialize(System.IO.Stream)</span>
@@ -163,10 +177,16 @@
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializerVersion</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
@@ -239,7 +259,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricEcDsaPublicKey_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AsymmetricEcDsaPublicKey : AsymmetricPublicKeyBase, ISignaturePublicKey, IAsymmetricPublicKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AsymmetricEcDsaPublicKey : AsymmetricPublicKeyBase, IObjectValidatable, IValidatableObject, ISignaturePublicKey, IAsymmetricPublicKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -592,7 +612,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaPublicKey_op_Explicit_System_Byte____wan24_Crypto_AsymmetricEcDsaPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaPublicKey.op_Explicit(System.Byte%5B%5D)~wan24.Crypto.AsymmetricEcDsaPublicKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricEcDsaPublicKey.cs/#L130">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricEcDsaPublicKey.cs/#L124">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaPublicKey_op_Explicit_" data-uid="wan24.Crypto.AsymmetricEcDsaPublicKey.op_Explicit*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaPublicKey_op_Explicit_System_Byte____wan24_Crypto_AsymmetricEcDsaPublicKey" data-uid="wan24.Crypto.AsymmetricEcDsaPublicKey.op_Explicit(System.Byte[])~wan24.Crypto.AsymmetricEcDsaPublicKey">Explicit(Byte[] to AsymmetricEcDsaPublicKey)</h4>
@@ -636,56 +656,13 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaPublicKey_op_Implicit_wan24_Crypto_AsymmetricEcDsaPublicKey__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPublicKey)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/AsymmetricEcDsaPublicKey.cs/#L124">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricEcDsaPublicKey_op_Implicit_" data-uid="wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit*"></a>
-  <h4 id="wan24_Crypto_AsymmetricEcDsaPublicKey_op_Implicit_wan24_Crypto_AsymmetricEcDsaPublicKey__System_Byte__" data-uid="wan24.Crypto.AsymmetricEcDsaPublicKey.op_Implicit(wan24.Crypto.AsymmetricEcDsaPublicKey)~System.Byte[]">Implicit(AsymmetricEcDsaPublicKey to Byte[])</h4>
-  <div class="markdown level1 summary"><p>Cast as serialized data</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator byte[](AsymmetricEcDsaPublicKey publicKey)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="wan24.Crypto.AsymmetricEcDsaPublicKey.html">AsymmetricEcDsaPublicKey</a></td>
-        <td><span class="parametername">publicKey</span></td>
-        <td><p>Public key</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+  </div>
   <div>
       <a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a>
   </div>

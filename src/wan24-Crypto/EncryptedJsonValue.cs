@@ -35,9 +35,22 @@ namespace wan24.Crypto
         /// </summary>
         public virtual T? Object
         {
-            get => StoreDecrypted
-                ? _Object ??= RawData is byte[] raw1 ? JsonHelper.Decode<T>(raw1.ToUtf8String()) : default
-                : RawData is byte[] raw2 ? JsonHelper.Decode<T>(raw2.ToUtf8String()) : default;
+            get
+            {
+                if (_Object != null) return _Object;
+                T? res = default;
+                if(RawData is byte[] raw)
+                    try
+                    {
+                        res = JsonHelper.Decode<T>(raw.ToUtf8String());
+                        if (StoreDecrypted) _Object = res;
+                    }
+                    finally
+                    {
+                        raw.Clear();
+                    }
+                return res;
+            }
             set
             {
                 base.RawData = value == null ? null : JsonHelper.Encode(value).GetBytes();
@@ -49,5 +62,11 @@ namespace wan24.Crypto
         /// Current object buffer
         /// </summary>
         public T? CurrentObject => _Object;
+
+        /// <summary>
+        /// Cast as object
+        /// </summary>
+        /// <param name="value">Value</param>
+        public static implicit operator T?(EncryptedJsonValue<T> value) => value.Object;
     }
 }

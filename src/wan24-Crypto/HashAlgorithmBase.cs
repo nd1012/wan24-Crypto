@@ -26,7 +26,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone();
+        public CryptoOptions DefaultOptions => _DefaultOptions.Clone().WithHashAlgorithm(Name);
 
         /// <summary>
         /// Hash length in bytes

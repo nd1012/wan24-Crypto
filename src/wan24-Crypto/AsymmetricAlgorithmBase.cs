@@ -34,7 +34,16 @@ namespace wan24.Crypto
             };
 
         /// <inheritdoc/>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone();
+        public CryptoOptions DefaultOptions
+        {
+            get
+            {
+                CryptoOptions res = _DefaultOptions.Clone();
+                res.AsymmetricAlgorithm = Name;
+                res.AsymmetricKeyBits = DefaultKeySize;
+                return res;
+            }
+        }
 
         /// <inheritdoc/>
         public abstract AsymmetricAlgorithmUsages Usages { get; }

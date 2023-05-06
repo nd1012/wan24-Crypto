@@ -122,22 +122,16 @@ for performing a PFS key exchange:
 ```cs
 // Peer creates a key pair (PFS or stored) and sends peerPublicKeyData to the provider
 using IAsymmetricPrivateKey peerPrivateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
-byte[] peerPublicKeyData;// Needs to be available at the provider
-using(MemoryStream ms = new())
-{
-    ms.WriteAny(peerPrivateKey.PublicKey);// Serialize the public key (the provider doesn't know the public key format yet)
-    peerPublicKeyData = ms.ToArray();
-}
+byte[] peerPublicKeyData = (byte[])peerPrivateKey.PublicKey;// Needs to be available at the provider
 
 // Encryption at the provider (pfsKey shouldn't be stored and can be a new key for every cipher message)
-using MemoryStream ms = new(peerPublicKeyData);
-using IAsymmetricPublicKey peerPublicKey = ms.ReadAny<IAsymmetricPublicKey>();// Deserialize the peers public key of any format
+using IAsymmetricPublicKey peerPublicKey = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(peerPublicKeyData);// Deserialize the peers public key of any format
 CryptoOptions options = EncryptionHelper.GetDefaultOptions();// Add the asymmetric key information for key pair creation
 options.AsymmetricAlgorithm = peerPublicKey.Algorithm.Name;
 options.AsymmetricKeyBits = peerPublicKey.Bits;
 options.PublicKey = peerPublicKey;// Required for encrypting especially for the one specific peer
 byte[] cipher;
-using(IAsymmetricPrivateKey pfsKey = AsymmetricHelper.CreateKeyExchangeKeyPair(options))
+using(IKeyExchangePrivateKey pfsKey = AsymmetricHelper.CreateKeyExchangeKeyPair(options))
     cipher = raw.Encrypt(pfsKey, options);// Only the peer can decrypt the cipher after pfsKey was disposed
 
 // Decryption at the peer
@@ -179,16 +173,10 @@ PFS example:
 ```cs
 // A: Create a key pair
 using IKeyExchangePrivateKey privateKeyA = AsymmetricHelper.CreateKeyExchangeKeyPair();
-byte[] publicKeyData;// Needs to be available at B
-using(MemoryStream ms = new())
-{
-    ms.WriteAny(privateKeyA.PublicKey);// Serialize the public key (the provider doesn't know the public key format yet)
-    publicKeyData = ms.ToArray();
-}
+byte[] publicKeyData = (byte[])privateKeyA.PublicKey;// Needs to be available at B
 
 // B: Create a key pair, key exchange data and derive the shared key
-using MemoryStream ms = new(publicKeyData);
-using IAsymmetricPublicKey publicKeyA = ms.ReadAny<IAsymmetricPublicKey>();// Deserialize the peers public key of any format
+using IAsymmetricPublicKey publicKeyA = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(publicKeyData);// Deserialize the peers public key of any format
 using IKeyExchangePrivateKey privateKeyB = AsymmetricHelper.CreateKeyExchangeKeyPair(new()
 {
     AsymmetricAlgorithm = publicKeyA.Algorithm.Name,
@@ -359,20 +347,15 @@ which allows to
 using ISignaturePrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
 
 // Self-sign the public root key
-using AsymmetricSignedPublicKey signedPublicRootKey = new()
-{
-    PublicKey = privateRootKey.PublicKey.GetCopy()
-};
+using AsymmetricSignedPublicKey signedPublicRootKey = new(privateRootKey.PublicKey);
 signedPublicRootKey.Sign(privateRootKey);
 
-// Create a key pair, which will be signed
+// Create a key pair, which will be signed, and a signing request
 using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+using AsymmetricPublicKeySigningRequest signingRequest = new(privateKey.PublicKey);
 
 // Sign the public key
-using AsymmetricSignedPublicKey signedPublicKey = new()
-{
-    PublicKey = privateKey.PublicKey.GetCopy()
-};
+using AsymmetricSignedPublicKey signedPublicKey = signingRequest.GetAsUnsignedKey();
 signedPublicKey.Sign(privateRootKey);
 
 // Setup the PKI (minimal setup for signed public key validation)
