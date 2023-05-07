@@ -377,6 +377,25 @@ references:
   commentId: F:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DEFAULT_KEY_SIZE
   fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DEFAULT_KEY_SIZE
   nameWithType: AsymmetricEcDiffieHellmanAlgorithm.DEFAULT_KEY_SIZE
+- uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DISPLAY_NAME
+  nameWithType: AsymmetricEcDiffieHellmanAlgorithm.DISPLAY_NAME
+- uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_DisplayName
+  commentId: P:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DisplayName
+  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DisplayName
+  nameWithType: AsymmetricEcDiffieHellmanAlgorithm.DisplayName
+- uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.DisplayName
+  nameWithType: AsymmetricEcDiffieHellmanAlgorithm.DisplayName
 - uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.Instance
   name: Instance
   href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_Instance
@@ -756,6 +775,25 @@ references:
   commentId: F:wan24.Crypto.AsymmetricEcDsaAlgorithm.DEFAULT_KEY_SIZE
   fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.DEFAULT_KEY_SIZE
   nameWithType: AsymmetricEcDsaAlgorithm.DEFAULT_KEY_SIZE
+- uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.AsymmetricEcDsaAlgorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.DISPLAY_NAME
+  nameWithType: AsymmetricEcDsaAlgorithm.DISPLAY_NAME
+- uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_DisplayName
+  commentId: P:wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName
+  fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName
+  nameWithType: AsymmetricEcDsaAlgorithm.DisplayName
+- uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName
+  nameWithType: AsymmetricEcDsaAlgorithm.DisplayName
 - uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.Instance
   name: Instance
   href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_Instance
@@ -2536,6 +2574,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAlgorithmBase.CryptoAlgorithmBase
   nameWithType: CryptoAlgorithmBase.CryptoAlgorithmBase
+- uid: wan24.Crypto.CryptoAlgorithmBase.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName
+  commentId: P:wan24.Crypto.CryptoAlgorithmBase.DisplayName
+  fullName: wan24.Crypto.CryptoAlgorithmBase.DisplayName
+  nameWithType: CryptoAlgorithmBase.DisplayName
+- uid: wan24.Crypto.CryptoAlgorithmBase.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName_
+  commentId: Overload:wan24.Crypto.CryptoAlgorithmBase.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAlgorithmBase.DisplayName
+  nameWithType: CryptoAlgorithmBase.DisplayName
 - uid: wan24.Crypto.CryptoAlgorithmBase.IsPostQuantum
   name: IsPostQuantum
   href: api/wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum
@@ -5761,6 +5812,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.CreateAes
   nameWithType: EncryptionAes256CbcAlgorithm.CreateAes
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.EncryptionAes256CbcAlgorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.DISPLAY_NAME
+  nameWithType: EncryptionAes256CbcAlgorithm.DISPLAY_NAME
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_DisplayName
+  commentId: P:wan24.Crypto.EncryptionAes256CbcAlgorithm.DisplayName
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.DisplayName
+  nameWithType: EncryptionAes256CbcAlgorithm.DisplayName
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.EncryptionAes256CbcAlgorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.DisplayName
+  nameWithType: EncryptionAes256CbcAlgorithm.DisplayName
 - uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptor(Stream,wan24.Crypto.CryptoOptions)
   name: GetDecryptor(Stream, CryptoOptions)
   href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptor_Stream_wan24_Crypto_CryptoOptions_
@@ -7319,6 +7389,25 @@ references:
   commentId: F:wan24.Crypto.HashMd5Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.HashMd5Algorithm.ALGORITHM_VALUE
   nameWithType: HashMd5Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.HashMd5Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.HashMd5Algorithm.html#wan24_Crypto_HashMd5Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.HashMd5Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.HashMd5Algorithm.DISPLAY_NAME
+  nameWithType: HashMd5Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.HashMd5Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.HashMd5Algorithm.html#wan24_Crypto_HashMd5Algorithm_DisplayName
+  commentId: P:wan24.Crypto.HashMd5Algorithm.DisplayName
+  fullName: wan24.Crypto.HashMd5Algorithm.DisplayName
+  nameWithType: HashMd5Algorithm.DisplayName
+- uid: wan24.Crypto.HashMd5Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.HashMd5Algorithm.html#wan24_Crypto_HashMd5Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.HashMd5Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashMd5Algorithm.DisplayName
+  nameWithType: HashMd5Algorithm.DisplayName
 - uid: wan24.Crypto.HashMd5Algorithm.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)
   name: GetHashAlgorithmInt(CryptoOptions)
   href: api/wan24.Crypto.HashMd5Algorithm.html#wan24_Crypto_HashMd5Algorithm_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_
@@ -7408,6 +7497,25 @@ references:
   commentId: F:wan24.Crypto.HashSha1Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.HashSha1Algorithm.ALGORITHM_VALUE
   nameWithType: HashSha1Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.HashSha1Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.HashSha1Algorithm.html#wan24_Crypto_HashSha1Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.HashSha1Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.HashSha1Algorithm.DISPLAY_NAME
+  nameWithType: HashSha1Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.HashSha1Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha1Algorithm.html#wan24_Crypto_HashSha1Algorithm_DisplayName
+  commentId: P:wan24.Crypto.HashSha1Algorithm.DisplayName
+  fullName: wan24.Crypto.HashSha1Algorithm.DisplayName
+  nameWithType: HashSha1Algorithm.DisplayName
+- uid: wan24.Crypto.HashSha1Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha1Algorithm.html#wan24_Crypto_HashSha1Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.HashSha1Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashSha1Algorithm.DisplayName
+  nameWithType: HashSha1Algorithm.DisplayName
 - uid: wan24.Crypto.HashSha1Algorithm.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)
   name: GetHashAlgorithmInt(CryptoOptions)
   href: api/wan24.Crypto.HashSha1Algorithm.html#wan24_Crypto_HashSha1Algorithm_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_
@@ -7497,6 +7605,25 @@ references:
   commentId: F:wan24.Crypto.HashSha256Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.HashSha256Algorithm.ALGORITHM_VALUE
   nameWithType: HashSha256Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.HashSha256Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.HashSha256Algorithm.html#wan24_Crypto_HashSha256Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.HashSha256Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.HashSha256Algorithm.DISPLAY_NAME
+  nameWithType: HashSha256Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.HashSha256Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha256Algorithm.html#wan24_Crypto_HashSha256Algorithm_DisplayName
+  commentId: P:wan24.Crypto.HashSha256Algorithm.DisplayName
+  fullName: wan24.Crypto.HashSha256Algorithm.DisplayName
+  nameWithType: HashSha256Algorithm.DisplayName
+- uid: wan24.Crypto.HashSha256Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha256Algorithm.html#wan24_Crypto_HashSha256Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.HashSha256Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashSha256Algorithm.DisplayName
+  nameWithType: HashSha256Algorithm.DisplayName
 - uid: wan24.Crypto.HashSha256Algorithm.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)
   name: GetHashAlgorithmInt(CryptoOptions)
   href: api/wan24.Crypto.HashSha256Algorithm.html#wan24_Crypto_HashSha256Algorithm_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_
@@ -7586,6 +7713,25 @@ references:
   commentId: F:wan24.Crypto.HashSha384Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.HashSha384Algorithm.ALGORITHM_VALUE
   nameWithType: HashSha384Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.HashSha384Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.HashSha384Algorithm.html#wan24_Crypto_HashSha384Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.HashSha384Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.HashSha384Algorithm.DISPLAY_NAME
+  nameWithType: HashSha384Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.HashSha384Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha384Algorithm.html#wan24_Crypto_HashSha384Algorithm_DisplayName
+  commentId: P:wan24.Crypto.HashSha384Algorithm.DisplayName
+  fullName: wan24.Crypto.HashSha384Algorithm.DisplayName
+  nameWithType: HashSha384Algorithm.DisplayName
+- uid: wan24.Crypto.HashSha384Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha384Algorithm.html#wan24_Crypto_HashSha384Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.HashSha384Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashSha384Algorithm.DisplayName
+  nameWithType: HashSha384Algorithm.DisplayName
 - uid: wan24.Crypto.HashSha384Algorithm.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)
   name: GetHashAlgorithmInt(CryptoOptions)
   href: api/wan24.Crypto.HashSha384Algorithm.html#wan24_Crypto_HashSha384Algorithm_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_
@@ -7675,6 +7821,25 @@ references:
   commentId: F:wan24.Crypto.HashSha512Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.HashSha512Algorithm.ALGORITHM_VALUE
   nameWithType: HashSha512Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.HashSha512Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.HashSha512Algorithm.html#wan24_Crypto_HashSha512Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.HashSha512Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.HashSha512Algorithm.DISPLAY_NAME
+  nameWithType: HashSha512Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.HashSha512Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha512Algorithm.html#wan24_Crypto_HashSha512Algorithm_DisplayName
+  commentId: P:wan24.Crypto.HashSha512Algorithm.DisplayName
+  fullName: wan24.Crypto.HashSha512Algorithm.DisplayName
+  nameWithType: HashSha512Algorithm.DisplayName
+- uid: wan24.Crypto.HashSha512Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.HashSha512Algorithm.html#wan24_Crypto_HashSha512Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.HashSha512Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashSha512Algorithm.DisplayName
+  nameWithType: HashSha512Algorithm.DisplayName
 - uid: wan24.Crypto.HashSha512Algorithm.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)
   name: GetHashAlgorithmInt(CryptoOptions)
   href: api/wan24.Crypto.HashSha512Algorithm.html#wan24_Crypto_HashSha512Algorithm_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_
@@ -8278,6 +8443,19 @@ references:
   commentId: T:wan24.Crypto.ICryptoAlgorithm
   fullName: wan24.Crypto.ICryptoAlgorithm
   nameWithType: ICryptoAlgorithm
+- uid: wan24.Crypto.ICryptoAlgorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.ICryptoAlgorithm.html#wan24_Crypto_ICryptoAlgorithm_DisplayName
+  commentId: P:wan24.Crypto.ICryptoAlgorithm.DisplayName
+  fullName: wan24.Crypto.ICryptoAlgorithm.DisplayName
+  nameWithType: ICryptoAlgorithm.DisplayName
+- uid: wan24.Crypto.ICryptoAlgorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.ICryptoAlgorithm.html#wan24_Crypto_ICryptoAlgorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.ICryptoAlgorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.ICryptoAlgorithm.DisplayName
+  nameWithType: ICryptoAlgorithm.DisplayName
 - uid: wan24.Crypto.ICryptoAlgorithm.IsPostQuantum
   name: IsPostQuantum
   href: api/wan24.Crypto.ICryptoAlgorithm.html#wan24_Crypto_ICryptoAlgorithm_IsPostQuantum
@@ -8854,6 +9032,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.KdfPbKdf2Algorithm.DefaultIterations
   nameWithType: KdfPbKdf2Algorithm.DefaultIterations
+- uid: wan24.Crypto.KdfPbKdf2Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.KdfPbKdf2Algorithm.html#wan24_Crypto_KdfPbKdf2Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.KdfPbKdf2Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.KdfPbKdf2Algorithm.DISPLAY_NAME
+  nameWithType: KdfPbKdf2Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.KdfPbKdf2Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.KdfPbKdf2Algorithm.html#wan24_Crypto_KdfPbKdf2Algorithm_DisplayName
+  commentId: P:wan24.Crypto.KdfPbKdf2Algorithm.DisplayName
+  fullName: wan24.Crypto.KdfPbKdf2Algorithm.DisplayName
+  nameWithType: KdfPbKdf2Algorithm.DisplayName
+- uid: wan24.Crypto.KdfPbKdf2Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.KdfPbKdf2Algorithm.html#wan24_Crypto_KdfPbKdf2Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.KdfPbKdf2Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.KdfPbKdf2Algorithm.DisplayName
+  nameWithType: KdfPbKdf2Algorithm.DisplayName
 - uid: wan24.Crypto.KdfPbKdf2Algorithm.Instance
   name: Instance
   href: api/wan24.Crypto.KdfPbKdf2Algorithm.html#wan24_Crypto_KdfPbKdf2Algorithm_Instance
@@ -9401,6 +9598,25 @@ references:
   commentId: F:wan24.Crypto.MacHmacSha1Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.MacHmacSha1Algorithm.ALGORITHM_VALUE
   nameWithType: MacHmacSha1Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.MacHmacSha1Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.MacHmacSha1Algorithm.html#wan24_Crypto_MacHmacSha1Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.MacHmacSha1Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.MacHmacSha1Algorithm.DISPLAY_NAME
+  nameWithType: MacHmacSha1Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.MacHmacSha1Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha1Algorithm.html#wan24_Crypto_MacHmacSha1Algorithm_DisplayName
+  commentId: P:wan24.Crypto.MacHmacSha1Algorithm.DisplayName
+  fullName: wan24.Crypto.MacHmacSha1Algorithm.DisplayName
+  nameWithType: MacHmacSha1Algorithm.DisplayName
+- uid: wan24.Crypto.MacHmacSha1Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha1Algorithm.html#wan24_Crypto_MacHmacSha1Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.MacHmacSha1Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.MacHmacSha1Algorithm.DisplayName
+  nameWithType: MacHmacSha1Algorithm.DisplayName
 - uid: wan24.Crypto.MacHmacSha1Algorithm.GetMacAlgorithmInt(System.Byte[],wan24.Crypto.CryptoOptions)
   name: GetMacAlgorithmInt(Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacHmacSha1Algorithm.html#wan24_Crypto_MacHmacSha1Algorithm_GetMacAlgorithmInt_System_Byte___wan24_Crypto_CryptoOptions_
@@ -9493,6 +9709,25 @@ references:
   commentId: F:wan24.Crypto.MacHmacSha256Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.MacHmacSha256Algorithm.ALGORITHM_VALUE
   nameWithType: MacHmacSha256Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.MacHmacSha256Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.MacHmacSha256Algorithm.html#wan24_Crypto_MacHmacSha256Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.MacHmacSha256Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.MacHmacSha256Algorithm.DISPLAY_NAME
+  nameWithType: MacHmacSha256Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.MacHmacSha256Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha256Algorithm.html#wan24_Crypto_MacHmacSha256Algorithm_DisplayName
+  commentId: P:wan24.Crypto.MacHmacSha256Algorithm.DisplayName
+  fullName: wan24.Crypto.MacHmacSha256Algorithm.DisplayName
+  nameWithType: MacHmacSha256Algorithm.DisplayName
+- uid: wan24.Crypto.MacHmacSha256Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha256Algorithm.html#wan24_Crypto_MacHmacSha256Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.MacHmacSha256Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.MacHmacSha256Algorithm.DisplayName
+  nameWithType: MacHmacSha256Algorithm.DisplayName
 - uid: wan24.Crypto.MacHmacSha256Algorithm.GetMacAlgorithmInt(System.Byte[],wan24.Crypto.CryptoOptions)
   name: GetMacAlgorithmInt(Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacHmacSha256Algorithm.html#wan24_Crypto_MacHmacSha256Algorithm_GetMacAlgorithmInt_System_Byte___wan24_Crypto_CryptoOptions_
@@ -9585,6 +9820,25 @@ references:
   commentId: F:wan24.Crypto.MacHmacSha384Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.MacHmacSha384Algorithm.ALGORITHM_VALUE
   nameWithType: MacHmacSha384Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.MacHmacSha384Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.MacHmacSha384Algorithm.html#wan24_Crypto_MacHmacSha384Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.MacHmacSha384Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.MacHmacSha384Algorithm.DISPLAY_NAME
+  nameWithType: MacHmacSha384Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.MacHmacSha384Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha384Algorithm.html#wan24_Crypto_MacHmacSha384Algorithm_DisplayName
+  commentId: P:wan24.Crypto.MacHmacSha384Algorithm.DisplayName
+  fullName: wan24.Crypto.MacHmacSha384Algorithm.DisplayName
+  nameWithType: MacHmacSha384Algorithm.DisplayName
+- uid: wan24.Crypto.MacHmacSha384Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha384Algorithm.html#wan24_Crypto_MacHmacSha384Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.MacHmacSha384Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.MacHmacSha384Algorithm.DisplayName
+  nameWithType: MacHmacSha384Algorithm.DisplayName
 - uid: wan24.Crypto.MacHmacSha384Algorithm.GetMacAlgorithmInt(System.Byte[],wan24.Crypto.CryptoOptions)
   name: GetMacAlgorithmInt(Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacHmacSha384Algorithm.html#wan24_Crypto_MacHmacSha384Algorithm_GetMacAlgorithmInt_System_Byte___wan24_Crypto_CryptoOptions_
@@ -9677,6 +9931,25 @@ references:
   commentId: F:wan24.Crypto.MacHmacSha512Algorithm.ALGORITHM_VALUE
   fullName: wan24.Crypto.MacHmacSha512Algorithm.ALGORITHM_VALUE
   nameWithType: MacHmacSha512Algorithm.ALGORITHM_VALUE
+- uid: wan24.Crypto.MacHmacSha512Algorithm.DISPLAY_NAME
+  name: DISPLAY_NAME
+  href: api/wan24.Crypto.MacHmacSha512Algorithm.html#wan24_Crypto_MacHmacSha512Algorithm_DISPLAY_NAME
+  commentId: F:wan24.Crypto.MacHmacSha512Algorithm.DISPLAY_NAME
+  fullName: wan24.Crypto.MacHmacSha512Algorithm.DISPLAY_NAME
+  nameWithType: MacHmacSha512Algorithm.DISPLAY_NAME
+- uid: wan24.Crypto.MacHmacSha512Algorithm.DisplayName
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha512Algorithm.html#wan24_Crypto_MacHmacSha512Algorithm_DisplayName
+  commentId: P:wan24.Crypto.MacHmacSha512Algorithm.DisplayName
+  fullName: wan24.Crypto.MacHmacSha512Algorithm.DisplayName
+  nameWithType: MacHmacSha512Algorithm.DisplayName
+- uid: wan24.Crypto.MacHmacSha512Algorithm.DisplayName*
+  name: DisplayName
+  href: api/wan24.Crypto.MacHmacSha512Algorithm.html#wan24_Crypto_MacHmacSha512Algorithm_DisplayName_
+  commentId: Overload:wan24.Crypto.MacHmacSha512Algorithm.DisplayName
+  isSpec: "True"
+  fullName: wan24.Crypto.MacHmacSha512Algorithm.DisplayName
+  nameWithType: MacHmacSha512Algorithm.DisplayName
 - uid: wan24.Crypto.MacHmacSha512Algorithm.GetMacAlgorithmInt(System.Byte[],wan24.Crypto.CryptoOptions)
   name: GetMacAlgorithmInt(Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacHmacSha512Algorithm.html#wan24_Crypto_MacHmacSha512Algorithm_GetMacAlgorithmInt_System_Byte___wan24_Crypto_CryptoOptions_

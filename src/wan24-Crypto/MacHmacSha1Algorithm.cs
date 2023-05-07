@@ -19,6 +19,10 @@ namespace wan24.Crypto
         /// MAC length in bytes
         /// </summary>
         public const int MAC_LENGTH = 20;
+        /// <summary>
+        /// Display name
+        /// </summary>
+        public const string DISPLAY_NAME = "HMAC SHA1";
 
         /// <summary>
         /// Static constructor
@@ -40,6 +44,9 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => false;
+
+        /// <inheritdoc/>
+        public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
         protected override KeyedHashAlgorithm GetMacAlgorithmInt(byte[] pwd, CryptoOptions? options) => new HMACSHA1(pwd);

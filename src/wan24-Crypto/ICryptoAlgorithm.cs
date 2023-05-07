@@ -17,5 +17,9 @@
         /// Is a post quantum algorithm ("post quantum-safe")?
         /// </summary>
         bool IsPostQuantum { get; }
+        /// <summary>
+        /// Display name
+        /// </summary>
+        string DisplayName { get; }
     }
 }
