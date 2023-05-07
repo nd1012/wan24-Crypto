@@ -90,6 +90,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
@@ -111,6 +112,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 using AsymmetricEcDiffieHellmanPublicKey publicKey = new((byte[])keyExchangeData.Clone());
                 return PrivateKey.DeriveKeyMaterial(publicKey.PublicKey);
@@ -139,15 +141,9 @@ namespace wan24.Crypto
         public static implicit operator AsymmetricEcDiffieHellmanPublicKey(AsymmetricEcDiffieHellmanPrivateKey privateKey) => privateKey.PublicKey;
 
         /// <summary>
-        /// Cast as serialized data
-        /// </summary>
-        /// <param name="privateKey">Private key</param>
-        public static implicit operator byte[](AsymmetricEcDiffieHellmanPrivateKey privateKey) => privateKey.ToBytes();
-
-        /// <summary>
         /// Cast from serialized data
         /// </summary>
         /// <param name="data">Data</param>
-        public static explicit operator AsymmetricEcDiffieHellmanPrivateKey(byte[] data) => data.ToObject<AsymmetricEcDiffieHellmanPrivateKey>();
+        public static explicit operator AsymmetricEcDiffieHellmanPrivateKey(byte[] data) => Import<AsymmetricEcDiffieHellmanPrivateKey>(data);
     }
 }

@@ -36,13 +36,22 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public abstract object Clone();
 
+        /// <inheritdoc/>
+        public byte[] Export()
+        {
+            using MemoryStream ms = new();
+            ms.WriteSerializerVersion()
+                .WriteString(GetType().ToString())
+                .WriteBytes(KeyData.Array);
+            return ms.ToArray();
+        }
+
         /// <summary>
         /// Serialize
         /// </summary>
         /// <param name="stream">Stream</param>
         protected override void Serialize(Stream stream)
         {
-            EnsureUndisposed();
             stream.WriteNumber(Algorithm.Value)
                 .WriteBytes(KeyData.Array);
         }
@@ -54,7 +63,6 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
             await stream.WriteNumberAsync(Algorithm.Value, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(KeyData.Array, cancellationToken).DynamicContext();
         }
@@ -66,7 +74,6 @@ namespace wan24.Crypto
         /// <param name="version">Serializer version</param>
         protected override void Deserialize(Stream stream, int version)
         {
-            EnsureUndisposed();
             if (stream.ReadNumber<int>() != Algorithm.Value) throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
             KeyData = new(stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value);
@@ -80,7 +87,6 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
             if (await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext() != Algorithm.Value)
                 throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
@@ -89,5 +95,30 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing) => KeyData.Dispose();
+
+        /// <summary>
+        /// Create a key instance from exported key data
+        /// </summary>
+        /// <typeparam name="T">Asymmetric key type</typeparam>
+        /// <param name="keyData">Key data</param>
+        /// <returns>Key instance (don't forget to dispose)</returns>
+        public static T Import<T>(byte[] keyData) where T : IAsymmetricKey
+        {
+            using MemoryStream ms = new(keyData);
+            int ssv = ms.ReadSerializerVersion();
+            string typeName = ms.ReadString(ssv, minLen: 1, maxLen: byte.MaxValue);
+            Type type = TypeHelper.Instance.GetType(typeName) ?? throw new InvalidDataException($"Failed to get serialized asymmetric key type \"{typeName}\"");
+            if (!typeof(T).IsAssignableFrom(type) || type.IsAbstract || type.IsInterface) throw new InvalidDataException($"Type {type} isn't a valid asymmetric key type ({typeof(T)})");
+            keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: ushort.MaxValue).Value;
+            if (ms.Position != ms.Length) throw new InvalidDataException("Didn't use all available key data for deserializing asymmetric key");
+            return (T)(Activator.CreateInstance(type, keyData) ?? throw new InvalidProgramException($"Failed to instance asymmetric key {type} ({typeof(T)})"));
+        }
+
+        /// <summary>
+        /// Create a key instance from exported key data
+        /// </summary>
+        /// <param name="keyData">Key data</param>
+        /// <returns>Key instance (don't forget to dispose)</returns>
+        public static IAsymmetricKey Import(byte[] keyData) => Import<IAsymmetricKey>(keyData);
     }
 }

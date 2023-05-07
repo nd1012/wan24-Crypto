@@ -156,5 +156,11 @@ namespace wan24.Crypto
             base.Dispose(disposing);
             _PublicKey?.Dispose();
         }
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="privateKey">Private key</param>
+        public static implicit operator byte[](AsymmetricPrivateKeyBase<tPublic, tPrivate> privateKey) => privateKey.Export();
     }
 }

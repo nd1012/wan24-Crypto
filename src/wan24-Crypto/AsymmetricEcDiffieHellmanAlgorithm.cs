@@ -25,6 +25,10 @@ namespace wan24.Crypto
         /// Algorithm usages
         /// </summary>
         public const AsymmetricAlgorithmUsages USAGES = AsymmetricAlgorithmUsages.KeyExchange;
+        /// <summary>
+        /// Display name
+        /// </summary>
+        public const string DISPLAY_NAME = "EC Diffie Hellman";
 
         /// <summary>
         /// Allowed key sizes in bits
@@ -66,6 +70,9 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => false;
+
+        /// <inheritdoc/>
+        public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
         public override AsymmetricEcDiffieHellmanPrivateKey CreateKeyPair(CryptoOptions? options = null)

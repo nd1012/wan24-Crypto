@@ -23,6 +23,10 @@ namespace wan24.Crypto
         /// Default salt bytes length
         /// </summary>
         public const int DEFAULT_SALT_LEN = 8;
+        /// <summary>
+        /// Display name
+        /// </summary>
+        public const string DISPLAY_NAME = "PBKDF#2";
 
         /// <summary>
         /// Default iterations
@@ -62,6 +66,9 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => true;
+
+        /// <inheritdoc/>
+        public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
         public override (byte[] Stretched, byte[] Salt) Stretch(byte[] pwd, int len, byte[]? salt = null, CryptoOptions? options = null)

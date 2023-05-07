@@ -19,6 +19,10 @@ namespace wan24.Crypto
         /// Hash length in bytes
         /// </summary>
         public const int HASH_LENGTH = 48;
+        /// <summary>
+        /// Display name
+        /// </summary>
+        public const string DISPLAY_NAME = ALGORITHM_NAME;
 
         /// <summary>
         /// Static constructor
@@ -40,6 +44,9 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => true;
+
+        /// <inheritdoc/>
+        public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
         protected override HashAlgorithm GetHashAlgorithmInt(CryptoOptions? options) => SHA384.Create();

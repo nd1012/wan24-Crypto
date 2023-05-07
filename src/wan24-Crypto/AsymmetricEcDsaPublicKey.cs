@@ -118,15 +118,9 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Cast as serialized data
-        /// </summary>
-        /// <param name="publicKey">Public key</param>
-        public static implicit operator byte[](AsymmetricEcDsaPublicKey publicKey) => publicKey.ToBytes();
-
-        /// <summary>
         /// Cast from serialized data
         /// </summary>
         /// <param name="data">Data</param>
-        public static explicit operator AsymmetricEcDsaPublicKey(byte[] data) => data.ToObject<AsymmetricEcDsaPublicKey>();
+        public static explicit operator AsymmetricEcDsaPublicKey(byte[] data) => Import<AsymmetricEcDsaPublicKey>(data);
     }
 }

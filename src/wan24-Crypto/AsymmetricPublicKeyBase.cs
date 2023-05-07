@@ -97,5 +97,11 @@ namespace wan24.Crypto
         /// <param name="throwOnError">Throw an exception on validation error?</param>
         /// <returns>If the signature is valid</returns>
         protected virtual bool ValidateSignatureInt(SignatureContainer signature, bool throwOnError = true) => throw new NotSupportedException();
+
+        /// <summary>
+        /// Cast as serialized data
+        /// </summary>
+        /// <param name="publicKey">Public key</param>
+        public static implicit operator byte[](AsymmetricPublicKeyBase publicKey) => publicKey.Export();
     }
 }

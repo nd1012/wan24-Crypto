@@ -120,15 +120,9 @@ namespace wan24.Crypto
         public static implicit operator AsymmetricEcDsaPublicKey(AsymmetricEcDsaPrivateKey privateKey) => privateKey.PublicKey;
 
         /// <summary>
-        /// Cast as serialized data
-        /// </summary>
-        /// <param name="privateKey">Private key</param>
-        public static implicit operator byte[](AsymmetricEcDsaPrivateKey privateKey) => privateKey.ToBytes();
-
-        /// <summary>
         /// Cast from serialized data
         /// </summary>
         /// <param name="data">Data</param>
-        public static explicit operator AsymmetricEcDsaPrivateKey(byte[] data) => data.ToObject<AsymmetricEcDsaPrivateKey>();
+        public static explicit operator AsymmetricEcDsaPrivateKey(byte[] data) => Import<AsymmetricEcDsaPrivateKey>(data);
     }
 }

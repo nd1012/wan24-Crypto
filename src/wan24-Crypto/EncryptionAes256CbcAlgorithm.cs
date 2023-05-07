@@ -28,6 +28,10 @@ namespace wan24.Crypto
         /// Block size in bytes
         /// </summary>
         public const int BLOCK_SIZE = 16;
+        /// <summary>
+        /// Display name
+        /// </summary>
+        public const string DISPLAY_NAME = "AES-256-CBC";
 
         /// <summary>
         /// Static constructor
@@ -58,6 +62,9 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => true;
+
+        /// <inheritdoc/>
+        public override string DisplayName => DISPLAY_NAME;
 
         /// <summary>
         /// Create the AES instance

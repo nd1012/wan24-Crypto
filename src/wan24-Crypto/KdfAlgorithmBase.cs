@@ -25,12 +25,17 @@
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone();
+        public virtual CryptoOptions DefaultOptions => _DefaultOptions.Clone().WithKdf(Name, DefaultIterations, DefaultKdfOptions);
 
         /// <summary>
         /// Default number of iterations
         /// </summary>
         public abstract int DefaultIterations { get; set; }
+
+        /// <summary>
+        /// Default KDF options
+        /// </summary>
+        public string? DefaultKdfOptions { get; set; }
 
         /// <summary>
         /// Salt length in bytes
@@ -46,5 +51,21 @@
         /// <param name="options">Options</param>
         /// <returns>Stretched password and the used salt</returns>
         public abstract (byte[] Stretched, byte[] Salt) Stretch(byte[] pwd, int len, byte[]? salt = null, CryptoOptions? options = null);
+
+        /// <summary>
+        /// Validate KDF options for this algorithm
+        /// </summary>
+        /// <param name="kdfOptions">KDF options</param>
+        /// <param name="throwOnError">Throw an exception on error?</param>
+        /// <returns>If the options are valid</returns>
+        public virtual bool ValidateOptions(string? kdfOptions, bool throwOnError = true)
+        {
+            if (kdfOptions != null)
+            {
+                if (throwOnError) throw new CryptographicException($"KDF options for {Name} aren't upported and should be NULL");
+                return false;
+            }
+            return true;
+        }
     }
 }

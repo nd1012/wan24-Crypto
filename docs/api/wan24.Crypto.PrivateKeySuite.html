@@ -90,10 +90,15 @@
     <div><span class="xref">System.IAsyncDisposable</span></div>
     <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
     <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
     <div><span class="xref">ICloneable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.BASE_VERSION</span>
+    </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Serialize(System.IO.Stream)</span>
     </div>
@@ -119,10 +124,16 @@
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializerVersion</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
@@ -195,7 +206,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_PrivateKeySuite_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PrivateKeySuite : DisposableStreamSerializerBase, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PrivateKeySuite : DisposableStreamSerializerBase, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -474,7 +485,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L91">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L92">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Clone_" data-uid="wan24.Crypto.PrivateKeySuite.Clone*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Clone" data-uid="wan24.Crypto.PrivateKeySuite.Clone">Clone()</h4>
@@ -506,7 +517,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Create.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Create%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L193">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L190">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Create_" data-uid="wan24.Crypto.PrivateKeySuite.Create*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Create" data-uid="wan24.Crypto.PrivateKeySuite.Create">Create()</h4>
@@ -570,7 +581,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CreateWithCounterAlgorithms.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CreateWithCounterAlgorithms%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L202">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L199">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_CreateWithCounterAlgorithms_" data-uid="wan24.Crypto.PrivateKeySuite.CreateWithCounterAlgorithms*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_CreateWithCounterAlgorithms" data-uid="wan24.Crypto.PrivateKeySuite.CreateWithCounterAlgorithms">CreateWithCounterAlgorithms()</h4>
@@ -602,7 +613,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Decrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Decrypt(System.Byte%5B%5D%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L216">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L213">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Decrypt_" data-uid="wan24.Crypto.PrivateKeySuite.Decrypt*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Decrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.PrivateKeySuite.Decrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)">Decrypt(Byte[], Byte[], CryptoOptions)</h4>
@@ -664,7 +675,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L142">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L141">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Deserialize_" data-uid="wan24.Crypto.PrivateKeySuite.Deserialize*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.PrivateKeySuite.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -701,7 +712,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L154">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L152">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_DeserializeAsync_" data-uid="wan24.Crypto.PrivateKeySuite.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.PrivateKeySuite.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -758,7 +769,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L103">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L104">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Dispose_" data-uid="wan24.Crypto.PrivateKeySuite.Dispose*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Dispose_System_Boolean_" data-uid="wan24.Crypto.PrivateKeySuite.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -848,7 +859,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L118">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L119">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Serialize_" data-uid="wan24.Crypto.PrivateKeySuite.Serialize*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Serialize_Stream_" data-uid="wan24.Crypto.PrivateKeySuite.Serialize(Stream)">Serialize(Stream)</h4>
@@ -934,7 +945,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Explicit_System_Byte____wan24_Crypto_PrivateKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Explicit(System.Byte%5B%5D)~wan24.Crypto.PrivateKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L187">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L184">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Explicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Explicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Explicit_System_Byte____wan24_Crypto_PrivateKeySuite" data-uid="wan24.Crypto.PrivateKeySuite.op_Explicit(System.Byte[])~wan24.Crypto.PrivateKeySuite">Explicit(Byte[] to PrivateKeySuite)</h4>
@@ -983,7 +994,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L181">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L178">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Implicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__System_Byte__" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~System.Byte[]">Implicit(PrivateKeySuite to Byte[])</h4>
@@ -1032,7 +1043,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_AsymmetricSignedPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.AsymmetricSignedPublicKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L175">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L172">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Implicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_AsymmetricSignedPublicKey" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.AsymmetricSignedPublicKey">Implicit(PrivateKeySuite to AsymmetricSignedPublicKey)</h4>
@@ -1081,7 +1092,7 @@ public byte[] SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_PublicKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.PublicKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L169">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/PrivateKeySuite.cs/#L166">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Implicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_PublicKeySuite" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.PublicKeySuite">Implicit(PrivateKeySuite to PublicKeySuite)</h4>
@@ -1140,6 +1151,12 @@ public byte[] SymmetricKey { get; set; }</code></pre>
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+  <div>
+      <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
   </div>
   <div>
       <span class="xref">ICloneable</span>

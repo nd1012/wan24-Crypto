@@ -8,7 +8,7 @@
     <AssemblyName>wan24CryptoSharedTests</AssemblyName>
     <PackageId>wan24-Crypto-Shared-Tests</PackageId>
     <Title>wan24-Crypto Shared Tests</Title>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
     <Product>wan24-Crypto</Product>
@@ -20,6 +20,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
   </PropertyGroup>
 
   <ItemGroup>

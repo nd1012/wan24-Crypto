@@ -28,5 +28,8 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public abstract bool IsPostQuantum { get; }
+
+        /// <inheritdoc/>
+        public virtual string DisplayName => Name;
     }
 }

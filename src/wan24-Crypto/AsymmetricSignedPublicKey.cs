@@ -26,9 +26,25 @@ namespace wan24.Crypto
         public AsymmetricSignedPublicKey() : base(VERSION) { }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="publicKey">Public key (will be copied)</param>
+        /// <param name="attributes">Attributes</param>
+        public AsymmetricSignedPublicKey(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null) : this()
+        {
+            PublicKey = publicKey.GetCopy();
+            if (attributes != null) Attributes.AddRange(attributes);
+        }
+
+        /// <summary>
         /// Root public key trust validation (returns <see langword="true"/>, if the given root public key ID is trusted)
         /// </summary>
         public static RootTrust_Delegate RootTrust { get; set; } = (id) => true;
+
+        /// <summary>
+        /// Root public key trust validation (returns <see langword="true"/>, if the given root public key ID is trusted)
+        /// </summary>
+        public static RootTrustAsync_Delegate RootTrustAsync { get; set; } = (id, ct) => Task.FromResult(true);
 
         /// <summary>
         /// Signed public key store (returns <see langword="null"/>, if the signed public key with the given ID wasn't found; do not dispose the returned key!)
@@ -36,9 +52,19 @@ namespace wan24.Crypto
         public static SignedPublicKeyStore_Delegate SignedPublicKeyStore { get; set; } = (id) => null;
 
         /// <summary>
+        /// Signed public key store (returns <see langword="null"/>, if the signed public key with the given ID wasn't found; do not dispose the returned key!)
+        /// </summary>
+        public static SignedPublicKeyStoreAsync_Delegate SignedPublicKeyStoreAsync { get; set; } = (id, ct) => Task.FromResult((AsymmetricSignedPublicKey?)null);
+
+        /// <summary>
         /// Signed public key revocation validation (returns <see langword="false"/>, if the public key with the given ID wasn't revoked)
         /// </summary>
         public static SignedPublicKeyRevocation_Delegate SignedPublicKeyRevocation { get; set; } = (id) => false;
+
+        /// <summary>
+        /// Signed public key revocation validation (returns <see langword="false"/>, if the public key with the given ID wasn't revoked)
+        /// </summary>
+        public static SignedPublicKeyRevocationAsync_Delegate SignedPublicKeyRevocationAsync { get; set; } = (id, ct) => Task.FromResult(false);
 
         /// <summary>
         /// Maximum time difference
@@ -104,10 +130,13 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
+                if (publicKey != null && !publicKey.PublicKey.ID.SequenceEqual(privateKey.ID)) throw new ArgumentException("Public key ID mismatch", nameof(publicKey));
+                if (counterPrivateKey != null && counterPublicKey != null && !counterPublicKey.PublicKey.ID.SequenceEqual(counterPrivateKey.ID))
+                    throw new ArgumentException("Public key ID mismatch", nameof(counterPublicKey));
                 if (!privateKey.ID.SequenceEqual(PublicKey.ID)) Signer = publicKey;
-                CounterSigner = counterPublicKey;
-                options = AsymmetricHelper.GetDefaultSignatureOptions(options);
-                options.CounterPrivateKey = counterPrivateKey;
+                if (counterPrivateKey != null) CounterSigner = counterPublicKey;
+                options = AsymmetricHelper.GetDefaultSignatureOptions(options)
+                    .WithSignatureKey(privateKey, counterPrivateKey);
                 Signature = privateKey.SignData(CreateSignedData(), purpose, options);
             }
             catch (CryptographicException)
@@ -133,7 +162,7 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 // Validate the times
-                if (!ignoreTime)
+                if (!ignoreTime)//TODO Use the new wan24-Core methods
                 {
                     DateTime now = DateTime.UtcNow;
                     if (Created > Expires)
@@ -237,6 +266,127 @@ namespace wan24.Crypto
             }
         }
 
+
+        /// <summary>
+        /// Validate the signature
+        /// </summary>
+        /// <param name="deep">Deep validation until the self signed root</param>
+        /// <param name="ignoreTime">Ignore the time?</param>
+        /// <param name="throwOnError">Throw an exception on error?</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>If the signature is valid</returns>
+        public async Task<bool> ValidateAsync(bool deep = true, bool ignoreTime = false, bool throwOnError = true, CancellationToken cancellationToken = default)
+        {
+            await Task.Yield();
+            try
+            {
+                EnsureUndisposed();
+                // Validate the times
+                if (!ignoreTime)//TODO Use the new wan24-Core methods
+                {
+                    DateTime now = DateTime.UtcNow;
+                    if (Created > Expires)
+                    {
+                        if (throwOnError) throw new TimeoutException("Created after expired");
+                        return false;
+                    }
+                    if (now < (MaximumTimeDifference == null ? Created : Created - MaximumTimeDifference))
+                    {
+                        if (throwOnError) throw new TimeoutException("Created in the future");
+                        return false;
+                    }
+                    if (now > (MaximumTimeDifference == null ? Expires : Expires + MaximumTimeDifference))
+                    {
+                        if (throwOnError) throw new TimeoutException("Expired");
+                        return false;
+                    }
+                    if (Created > Signature.Signed || Expires < Signature.Signed)
+                    {
+                        if (throwOnError) throw new TimeoutException("Invalid signature time");
+                        return false;
+                    }
+                }
+                // Validate the signature
+                if (!Signature.SignerPublicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
+                if (Signature.CounterSigner != null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
+                {
+                    if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
+                    return false;
+                }
+                // Validate the signer
+                if (Signer != null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
+                {
+                    if (throwOnError) throw new InvalidDataException("Signer mismatch");
+                    return false;
+                }
+                // Validate the counter signer
+                if (CounterSigner != null && CounterSigner.PublicKey.ID.SequenceEqual(Signature.CounterSigner!))
+                {
+                    if (throwOnError) throw new InvalidDataException("Counter signer mismatch");
+                    return false;
+                }
+                // Validate if not revoked
+                if (await SignedPublicKeyRevocationAsync(PublicKey.ID, cancellationToken).DynamicContext())
+                {
+                    if (throwOnError) throw new SecurityException("Key was revoked");
+                    return false;
+                }
+                // Deep validation to the self signed root public keys
+                if (deep)
+                {
+                    AsymmetricSignedPublicKey? signer = Signer;
+                    if (Signature.Signer.SequenceEqual(PublicKey.ID))
+                    {
+                        // Self signed
+                        if (!await RootTrustAsync(PublicKey.ID, cancellationToken).DynamicContext())
+                        {
+                            if (throwOnError) throw new SecurityException("Untrusted root signer");
+                            return false;
+                        }
+                    }
+                    else if (signer == null)
+                    {
+                        // Unknown signer
+                        signer = await SignedPublicKeyStoreAsync(Signature.Signer, cancellationToken).DynamicContext();
+                        if (signer == null)
+                        {
+                            if (throwOnError) throw new InvalidDataException("Missing signed signer public key");
+                            return false;
+                        }
+                    }
+                    // Validate the signed signer public key
+                    if (signer != null && !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext()) return false;
+                    // Validate the counter signer
+                    if (Signature.CounterSigner != null)
+                    {
+                        signer = CounterSigner;
+                        if (signer == null)
+                        {
+                            // Unknown counter signer
+                            signer = await SignedPublicKeyStoreAsync(Signature.CounterSigner, cancellationToken).DynamicContext();
+                            if (signer == null)
+                            {
+                                if (throwOnError) throw new InvalidDataException("Missing signed counter signer public key");
+                                return false;
+                            }
+                        }
+                        // Validate the signed counter signer public key
+                        if (signer != null && !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext())
+                            return false;
+                    }
+                }
+                return true;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
         /// <summary>
         /// Create the signed data
         /// </summary>
@@ -247,7 +397,6 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (SignedData != null) return SignedData;
-                this.ValidateObject();
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
                     .WriteNumber(VERSION)
@@ -274,7 +423,7 @@ namespace wan24.Crypto
         /// Clone this instance
         /// </summary>
         /// <returns>Clone</returns>
-        public AsymmetricSignedPublicKey Clone() => new()
+        public AsymmetricSignedPublicKey Clone() => IfUndisposed(() => new AsymmetricSignedPublicKey()
         {
             SignedData = (byte[]?)SignedData?.Clone(),
             PublicKey = PublicKey.GetCopy(),
@@ -284,7 +433,7 @@ namespace wan24.Crypto
             Signature = Signature.Clone(),
             Signer = Signer?.Clone(),
             CounterSigner = CounterSigner?.Clone()
-        };
+        });
 
         /// <inheritdoc/>
         object ICloneable.Clone() => Clone();
@@ -308,7 +457,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            EnsureUndisposed();
             SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
             DeserializeSignedData();
             Signature = stream.ReadSerialized<SignatureContainer>(version);
@@ -317,7 +465,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            EnsureUndisposed();
             SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
             DeserializeSignedData();
             Signature = await stream.ReadSerializedAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
@@ -331,6 +478,7 @@ namespace wan24.Crypto
         /// </summary>
         private void DeserializeSignedData()
         {
+            EnsureUndisposed();
             if (SignedData == null) throw new InvalidOperationException();
             using MemoryStream ms = new();
             int ssv = ms.ReadSerializerVersion(),
@@ -352,6 +500,14 @@ namespace wan24.Crypto
         public delegate bool RootTrust_Delegate(byte[] id);
 
         /// <summary>
+        /// Delegate for root key trust validation
+        /// </summary>
+        /// <param name="id">Root public key ID</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Is trusted?</returns>
+        public delegate Task<bool> RootTrustAsync_Delegate(byte[] id, CancellationToken cancellationToken);
+
+        /// <summary>
         /// Delegate for a public key store
         /// </summary>
         /// <param name="id">Signed public key ID</param>
@@ -359,11 +515,27 @@ namespace wan24.Crypto
         public delegate AsymmetricSignedPublicKey? SignedPublicKeyStore_Delegate(byte[] id);
 
         /// <summary>
+        /// Delegate for a public key store
+        /// </summary>
+        /// <param name="id">Signed public key ID</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Public key</returns>
+        public delegate Task<AsymmetricSignedPublicKey?> SignedPublicKeyStoreAsync_Delegate(byte[] id, CancellationToken cancellationToken);
+
+        /// <summary>
         /// Delegate for signed public key revocation validation
         /// </summary>
         /// <param name="id">Signed public key ID</param>
         /// <returns>If the key was revoked</returns>
         public delegate bool SignedPublicKeyRevocation_Delegate(byte[] id);
+
+        /// <summary>
+        /// Delegate for signed public key revocation validation
+        /// </summary>
+        /// <param name="id">Signed public key ID</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>If the key was revoked</returns>
+        public delegate Task<bool> SignedPublicKeyRevocationAsync_Delegate(byte[] id, CancellationToken cancellationToken);
 
         /// <summary>
         /// Cast as serialized data

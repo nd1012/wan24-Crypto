@@ -264,33 +264,6 @@ namespace wan24.Crypto
         /// <returns>Red options</returns>
         public virtual CryptoOptions ReadOptions(Stream cipherData, Stream rawData, byte[]? pwd = null, CryptoOptions? options = null)
         {
-            /*
-             * Stream data structure:
-             * 
-             * - 3 byte flags
-             * - 1 byte header version
-             * - 1 byte serializer version
-             * - MAC algorithm
-             * - MAC (fixed length, depending on the algorithm)
-             * - Encryption algorithm
-             * - Asymmetric algorithm
-             * - Public key
-             * - Asymmetric counter algorithm
-             * - Counter public key
-             * - Key exchange data
-             * - KDF algorithm
-             * - KDF interations
-             * - KDF salt
-             * - Counter KDF algorithm
-             * - Counter KDF interations
-             * - Counter KDF salt
-             * - Payload
-             * - Timestamp
-             * - IV bytes
-             * - Cipher data
-             *      - Compression options
-             *      - Compressed data
-             */
             CryptoOptions? givenOptions = options;
             try
             {
@@ -385,7 +358,7 @@ namespace wan24.Crypto
                 if (options.TimeIncluded)
                 {
                     options.Time = new DateTime(cipherData.ReadNumber<long>(serializerVersion));
-                    if (options.MaximumTimeOffset != null)
+                    if (options.MaximumTimeOffset != null)//TODO Use the new wan24-Core methods
                     {
                         if (options.Time >= DateTime.UtcNow)
                         {
@@ -543,7 +516,7 @@ namespace wan24.Crypto
                 if (options.TimeIncluded)
                 {
                     options.Time = new DateTime(await cipherData.ReadNumberAsync<long>(serializerVersion, cancellationToken: cancellationToken).DynamicContext());
-                    if (options.MaximumTimeOffset != null)
+                    if (options.MaximumTimeOffset != null)//TODO Use the new wan24-Core methods
                     {
                         options.Time = options.Time >= DateTime.UtcNow
                             ? options.Time.Value - options.MaximumTimeOffset.Value

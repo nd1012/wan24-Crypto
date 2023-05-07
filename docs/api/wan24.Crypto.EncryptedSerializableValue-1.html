@@ -79,8 +79,15 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="wan24.Crypto.EncryptedValue.html">EncryptedValue</a></div>
-    <div class="level2"><span class="xref">EncryptedSerializableValue&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
+    <div class="level2"><a class="xref" href="wan24.Crypto.EncryptedValue.html">EncryptedValue</a></div>
+    <div class="level3"><span class="xref">EncryptedSerializableValue&lt;T&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.IAsyncDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -109,6 +116,9 @@
       <a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_AsymmetricKeyFactory">EncryptedValue.AsymmetricKeyFactory</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_StoreKeys">EncryptedValue.StoreKeys</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_HasKey">EncryptedValue.HasKey</a>
     </div>
     <div>
@@ -116,6 +126,54 @@
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_StoreDecrypted">EncryptedValue.StoreDecrypted</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_Dispose_System_Boolean_">EncryptedValue.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_DisposeCore">EncryptedValue.DisposeCore()</a>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -143,7 +201,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_EncryptedSerializableValue_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EncryptedSerializableValue&lt;T&gt; : EncryptedValue where T : class, IStreamSerializer, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public class EncryptedSerializableValue&lt;T&gt; : EncryptedValue, IDisposableObject, IDisposable, IAsyncDisposable where T : class, IStreamSerializer, new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -168,7 +226,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L19">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L20">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptedSerializableValue_1__ctor_" data-uid="wan24.Crypto.EncryptedSerializableValue`1.#ctor*"></a>
   <h4 id="wan24_Crypto_EncryptedSerializableValue_1__ctor" data-uid="wan24.Crypto.EncryptedSerializableValue`1.#ctor">EncryptedSerializableValue()</h4>
@@ -186,7 +244,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1__Object.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601._Object%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L14">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L15">View Source</a>
   </span>
   <h4 id="wan24_Crypto_EncryptedSerializableValue_1__Object" data-uid="wan24.Crypto.EncryptedSerializableValue`1._Object">_Object</h4>
   <div class="markdown level1 summary"><p>Object</p>
@@ -218,7 +276,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1_CurrentObject.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601.CurrentObject%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L50">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L64">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptedSerializableValue_1_CurrentObject_" data-uid="wan24.Crypto.EncryptedSerializableValue`1.CurrentObject*"></a>
   <h4 id="wan24_Crypto_EncryptedSerializableValue_1_CurrentObject" data-uid="wan24.Crypto.EncryptedSerializableValue`1.CurrentObject">CurrentObject</h4>
@@ -249,7 +307,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1_Object.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601.Object%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L35">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L36">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptedSerializableValue_1_Object_" data-uid="wan24.Crypto.EncryptedSerializableValue`1.Object*"></a>
   <h4 id="wan24_Crypto_EncryptedSerializableValue_1_Object" data-uid="wan24.Crypto.EncryptedSerializableValue`1.Object">Object</h4>
@@ -280,11 +338,11 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1_RawData.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601.RawData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L22">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L23">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptedSerializableValue_1_RawData_" data-uid="wan24.Crypto.EncryptedSerializableValue`1.RawData*"></a>
   <h4 id="wan24_Crypto_EncryptedSerializableValue_1_RawData" data-uid="wan24.Crypto.EncryptedSerializableValue`1.RawData">RawData</h4>
-  <div class="markdown level1 summary"><p>Raw data</p>
+  <div class="markdown level1 summary"><p>Raw data (will be cloned for setting/getting; the store will be cleared when disposing)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -308,6 +366,67 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="wan24.Crypto.EncryptedValue.html#wan24_Crypto_EncryptedValue_RawData">EncryptedValue.RawData</a></div>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1_op_Implicit_wan24_Crypto_EncryptedSerializableValue__0____0.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601.op_Implicit(wan24.Crypto.EncryptedSerializableValue%7B%600%7D)~%600%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L70">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptedSerializableValue_1_op_Implicit_" data-uid="wan24.Crypto.EncryptedSerializableValue`1.op_Implicit*"></a>
+  <h4 id="wan24_Crypto_EncryptedSerializableValue_1_op_Implicit_wan24_Crypto_EncryptedSerializableValue__0____0" data-uid="wan24.Crypto.EncryptedSerializableValue`1.op_Implicit(wan24.Crypto.EncryptedSerializableValue{`0})~`0">Implicit(EncryptedSerializableValue&lt;T&gt; to T)</h4>
+  <div class="markdown level1 summary"><p>Cast as object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator T(EncryptedSerializableValue&lt;T&gt; value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.EncryptedSerializableValue-1.html">EncryptedSerializableValue</a>&lt;T&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.IAsyncDisposable</span>
+  </div>
 </article>
           </div>
           
@@ -319,7 +438,7 @@
                     <a href="https://github.com/nd1012/wan24-Crypto/new/dev/apiSpec/new?filename=wan24_Crypto_EncryptedSerializableValue_1.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptedSerializableValue%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/dev/src/wan24-Crypto/EncryptedSerializableValue.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
