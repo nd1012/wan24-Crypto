@@ -162,7 +162,7 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 // Validate the times
-                if (!ignoreTime)//TODO Use the new wan24-Core methods
+                if (!ignoreTime)
                 {
                     DateTime now = DateTime.UtcNow;
                     if (Created > Expires)
@@ -282,7 +282,7 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 // Validate the times
-                if (!ignoreTime)//TODO Use the new wan24-Core methods
+                if (!ignoreTime)
                 {
                     DateTime now = DateTime.UtcNow;
                     if (Created > Expires)

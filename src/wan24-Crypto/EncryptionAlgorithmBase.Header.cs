@@ -358,18 +358,7 @@ namespace wan24.Crypto
                 if (options.TimeIncluded)
                 {
                     options.Time = new DateTime(cipherData.ReadNumber<long>(serializerVersion));
-                    if (options.MaximumTimeOffset != null)//TODO Use the new wan24-Core methods
-                    {
-                        if (options.Time >= DateTime.UtcNow)
-                        {
-                            options.Time = options.Time.Value - options.MaximumTimeOffset.Value;
-                        }
-                        else
-                        {
-                            options.Time = options.Time.Value + options.MaximumTimeOffset.Value;
-                        }
-                        if (options.Time >= DateTime.UtcNow) options.Time = DateTime.UtcNow;
-                    }
+                    if (options.MaximumTimeOffset != null) options.Time = options.Time.Value.ApplyOffset(options.MaximumTimeOffset.Value, DateTime.UtcNow);
                     if (options.MaximumAge != null && DateTime.UtcNow - options.Time.Value > options.MaximumAge) throw new InvalidOperationException("Maximum age exceeded");
                 }
                 options.ValidateRequirements();
@@ -516,13 +505,7 @@ namespace wan24.Crypto
                 if (options.TimeIncluded)
                 {
                     options.Time = new DateTime(await cipherData.ReadNumberAsync<long>(serializerVersion, cancellationToken: cancellationToken).DynamicContext());
-                    if (options.MaximumTimeOffset != null)//TODO Use the new wan24-Core methods
-                    {
-                        options.Time = options.Time >= DateTime.UtcNow
-                            ? options.Time.Value - options.MaximumTimeOffset.Value
-                            : options.Time.Value + options.MaximumTimeOffset.Value;
-                        if (options.Time >= DateTime.UtcNow) options.Time = DateTime.UtcNow;
-                    }
+                    if (options.MaximumTimeOffset != null) options.Time = options.Time.Value.ApplyOffset(options.MaximumTimeOffset.Value, DateTime.UtcNow);
                     if (options.MaximumAge != null && DateTime.UtcNow - options.Time.Value > options.MaximumAge) throw new InvalidOperationException("Maximum age exceeded");
                 }
                 options.ValidateRequirements();
