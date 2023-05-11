@@ -472,7 +472,7 @@ namespace wan24.Crypto
                 options ??= GetDefaultOptions(options);
                 if (forEncryption)
                 {
-                    if (!rawData.CanRead || cipherData.CanSeek != options.MacIncluded || !cipherData.CanWrite)
+                    if (!rawData.CanRead || (options.MacIncluded && !cipherData.CanSeek) || !cipherData.CanWrite)
                     {
                         if (throwOnError)
                             throw new ArgumentException($"Readable raw data and writ{(options.MacIncluded ? "- and seek" : string.Empty)}able cipher data stream required", nameof(cipherData));
@@ -482,7 +482,7 @@ namespace wan24.Crypto
                 else
                 {
                     options.Requirements = options.Flags;
-                    if (!rawData.CanWrite || cipherData.CanSeek != options.RequireMac || !cipherData.CanRead)
+                    if (!rawData.CanWrite || (options.RequireMac && !cipherData.CanSeek) || !cipherData.CanRead)
                     {
                         if (throwOnError)
                             throw new ArgumentException($"Writable raw data and read{(options.RequireMac ? "- and seek" : string.Empty)}able raw data stream required", nameof(cipherData));
