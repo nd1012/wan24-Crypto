@@ -181,7 +181,8 @@ namespace wan24.Crypto
             SignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
             if (SignedData == null)
             {
-                PublicKey = await stream.ReadAnyAsync(version, cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
+                PublicKey = await stream.ReadAnyAsync(version, cancellationToken: cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? 
+                    throw new SerializerException("Failed to deserialize the public key");
                 Attributes = await stream.ReadDictAsync<string, string>(version, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             }
             else
