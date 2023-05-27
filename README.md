@@ -458,7 +458,7 @@ method will throw an exception.
 
 **NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
 quantum safe algorithms, while currently no post quantum-safe asymmetric 
-algorithms are implemented.
+algorithms are implemented in this main library (`wan24-Crypto-BC` does).
 
 ## Disclaimer
 
