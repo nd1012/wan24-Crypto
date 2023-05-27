@@ -2555,6 +2555,200 @@ references:
   commentId: F:wan24.Crypto.AsymmetricSignedPublicKey.VERSION
   fullName: wan24.Crypto.AsymmetricSignedPublicKey.VERSION
   nameWithType: AsymmetricSignedPublicKey.VERSION
+- uid: wan24.Crypto.BinaryPayloadContainer
+  name: BinaryPayloadContainer
+  href: api/wan24.Crypto.BinaryPayloadContainer.html
+  commentId: T:wan24.Crypto.BinaryPayloadContainer
+  fullName: wan24.Crypto.BinaryPayloadContainer
+  nameWithType: BinaryPayloadContainer
+- uid: wan24.Crypto.BinaryPayloadContainer.#ctor
+  name: BinaryPayloadContainer()
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer__ctor
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.#ctor
+  fullName: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer()
+  nameWithType: BinaryPayloadContainer.BinaryPayloadContainer()
+- uid: wan24.Crypto.BinaryPayloadContainer.#ctor(System.Byte[])
+  name: BinaryPayloadContainer(Byte[])
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer__ctor_System_Byte___
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.#ctor(System.Byte[])
+  name.vb: BinaryPayloadContainer(Byte())
+  fullName: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer(System.Byte[])
+  fullName.vb: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer(System.Byte())
+  nameWithType: BinaryPayloadContainer.BinaryPayloadContainer(Byte[])
+  nameWithType.vb: BinaryPayloadContainer.BinaryPayloadContainer(Byte())
+- uid: wan24.Crypto.BinaryPayloadContainer.#ctor(System.Int32,System.Int32,System.Byte[],System.Nullable{System.Int32})
+  name: BinaryPayloadContainer(Int32, Int32, Byte[], Nullable<Int32>)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer__ctor_System_Int32_System_Int32_System_Byte___System_Nullable_System_Int32__
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.#ctor(System.Int32,System.Int32,System.Byte[],System.Nullable{System.Int32})
+  name.vb: BinaryPayloadContainer(Int32, Int32, Byte(), Nullable(Of Int32))
+  fullName: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer(System.Int32, System.Int32, System.Byte[], System.Nullable<System.Int32>)
+  fullName.vb: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer(System.Int32, System.Int32, System.Byte(), System.Nullable(Of System.Int32))
+  nameWithType: BinaryPayloadContainer.BinaryPayloadContainer(Int32, Int32, Byte[], Nullable<Int32>)
+  nameWithType.vb: BinaryPayloadContainer.BinaryPayloadContainer(Int32, Int32, Byte(), Nullable(Of Int32))
+- uid: wan24.Crypto.BinaryPayloadContainer.#ctor(System.Int32,System.Int32,System.Nullable{System.Int32})
+  name: BinaryPayloadContainer(Int32, Int32, Nullable<Int32>)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer__ctor_System_Int32_System_Int32_System_Nullable_System_Int32__
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.#ctor(System.Int32,System.Int32,System.Nullable{System.Int32})
+  name.vb: BinaryPayloadContainer(Int32, Int32, Nullable(Of Int32))
+  fullName: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer(System.Int32, System.Int32, System.Nullable<System.Int32>)
+  fullName.vb: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer(System.Int32, System.Int32, System.Nullable(Of System.Int32))
+  nameWithType: BinaryPayloadContainer.BinaryPayloadContainer(Int32, Int32, Nullable<Int32>)
+  nameWithType.vb: BinaryPayloadContainer.BinaryPayloadContainer(Int32, Int32, Nullable(Of Int32))
+- uid: wan24.Crypto.BinaryPayloadContainer.#ctor*
+  name: BinaryPayloadContainer
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer__ctor_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.BinaryPayloadContainer
+  nameWithType: BinaryPayloadContainer.BinaryPayloadContainer
+- uid: wan24.Crypto.BinaryPayloadContainer.Deserialize(Stream,System.Int32)
+  name: Deserialize(Stream, Int32)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_Deserialize_Stream_System_Int32_
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.Deserialize(Stream,System.Int32)
+  fullName: wan24.Crypto.BinaryPayloadContainer.Deserialize(Stream, System.Int32)
+  nameWithType: BinaryPayloadContainer.Deserialize(Stream, Int32)
+- uid: wan24.Crypto.BinaryPayloadContainer.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_Deserialize_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.Deserialize
+  nameWithType: BinaryPayloadContainer.Deserialize
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializeAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializeAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: BinaryPayloadContainer.DeserializeAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializeAsync
+  nameWithType: BinaryPayloadContainer.DeserializeAsync
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializedHlObjectVersion
+  name: DeserializedHlObjectVersion
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializedHlObjectVersion
+  commentId: F:wan24.Crypto.BinaryPayloadContainer.DeserializedHlObjectVersion
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializedHlObjectVersion
+  nameWithType: BinaryPayloadContainer.DeserializedHlObjectVersion
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersion(Stream,System.Int32)
+  name: DeserializeHlVersion(Stream, Int32)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializeHlVersion_Stream_System_Int32_
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersion(Stream,System.Int32)
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersion(Stream, System.Int32)
+  nameWithType: BinaryPayloadContainer.DeserializeHlVersion(Stream, Int32)
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersion*
+  name: DeserializeHlVersion
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializeHlVersion_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersion
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersion
+  nameWithType: BinaryPayloadContainer.DeserializeHlVersion
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersionAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeHlVersionAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializeHlVersionAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersionAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersionAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: BinaryPayloadContainer.DeserializeHlVersionAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersionAsync*
+  name: DeserializeHlVersionAsync
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_DeserializeHlVersionAsync_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersionAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.DeserializeHlVersionAsync
+  nameWithType: BinaryPayloadContainer.DeserializeHlVersionAsync
+- uid: wan24.Crypto.BinaryPayloadContainer.EnsureValidHlVersion
+  name: EnsureValidHlVersion()
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_EnsureValidHlVersion
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.EnsureValidHlVersion
+  fullName: wan24.Crypto.BinaryPayloadContainer.EnsureValidHlVersion()
+  nameWithType: BinaryPayloadContainer.EnsureValidHlVersion()
+- uid: wan24.Crypto.BinaryPayloadContainer.EnsureValidHlVersion*
+  name: EnsureValidHlVersion
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_EnsureValidHlVersion_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.EnsureValidHlVersion
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.EnsureValidHlVersion
+  nameWithType: BinaryPayloadContainer.EnsureValidHlVersion
+- uid: wan24.Crypto.BinaryPayloadContainer.HlObjectVersion
+  name: HlObjectVersion
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_HlObjectVersion
+  commentId: F:wan24.Crypto.BinaryPayloadContainer.HlObjectVersion
+  fullName: wan24.Crypto.BinaryPayloadContainer.HlObjectVersion
+  nameWithType: BinaryPayloadContainer.HlObjectVersion
+- uid: wan24.Crypto.BinaryPayloadContainer.MaxPayloadLength
+  name: MaxPayloadLength
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MaxPayloadLength
+  commentId: P:wan24.Crypto.BinaryPayloadContainer.MaxPayloadLength
+  fullName: wan24.Crypto.BinaryPayloadContainer.MaxPayloadLength
+  nameWithType: BinaryPayloadContainer.MaxPayloadLength
+- uid: wan24.Crypto.BinaryPayloadContainer.MaxPayloadLength*
+  name: MaxPayloadLength
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MaxPayloadLength_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.MaxPayloadLength
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.MaxPayloadLength
+  nameWithType: BinaryPayloadContainer.MaxPayloadLength
+- uid: wan24.Crypto.BinaryPayloadContainer.MinPayloadLength
+  name: MinPayloadLength
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MinPayloadLength
+  commentId: P:wan24.Crypto.BinaryPayloadContainer.MinPayloadLength
+  fullName: wan24.Crypto.BinaryPayloadContainer.MinPayloadLength
+  nameWithType: BinaryPayloadContainer.MinPayloadLength
+- uid: wan24.Crypto.BinaryPayloadContainer.MinPayloadLength*
+  name: MinPayloadLength
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MinPayloadLength_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.MinPayloadLength
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.MinPayloadLength
+  nameWithType: BinaryPayloadContainer.MinPayloadLength
+- uid: wan24.Crypto.BinaryPayloadContainer.Payload
+  name: Payload
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_Payload
+  commentId: P:wan24.Crypto.BinaryPayloadContainer.Payload
+  fullName: wan24.Crypto.BinaryPayloadContainer.Payload
+  nameWithType: BinaryPayloadContainer.Payload
+- uid: wan24.Crypto.BinaryPayloadContainer.Payload*
+  name: Payload
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_Payload_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.Payload
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.Payload
+  nameWithType: BinaryPayloadContainer.Payload
+- uid: wan24.Crypto.BinaryPayloadContainer.Serialize(Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_Serialize_Stream_
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.Serialize(Stream)
+  fullName: wan24.Crypto.BinaryPayloadContainer.Serialize(Stream)
+  nameWithType: BinaryPayloadContainer.Serialize(Stream)
+- uid: wan24.Crypto.BinaryPayloadContainer.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_Serialize_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.Serialize
+  nameWithType: BinaryPayloadContainer.Serialize
+- uid: wan24.Crypto.BinaryPayloadContainer.SerializeAsync(Stream,CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_SerializeAsync_Stream_CancellationToken_
+  commentId: M:wan24.Crypto.BinaryPayloadContainer.SerializeAsync(Stream,CancellationToken)
+  fullName: wan24.Crypto.BinaryPayloadContainer.SerializeAsync(Stream, CancellationToken)
+  nameWithType: BinaryPayloadContainer.SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.BinaryPayloadContainer.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_SerializeAsync_
+  commentId: Overload:wan24.Crypto.BinaryPayloadContainer.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.BinaryPayloadContainer.SerializeAsync
+  nameWithType: BinaryPayloadContainer.SerializeAsync
+- uid: wan24.Crypto.BinaryPayloadContainer.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_VERSION
+  commentId: F:wan24.Crypto.BinaryPayloadContainer.VERSION
+  fullName: wan24.Crypto.BinaryPayloadContainer.VERSION
+  nameWithType: BinaryPayloadContainer.VERSION
 - uid: wan24.Crypto.CryptoAlgorithmBase
   name: CryptoAlgorithmBase
   href: api/wan24.Crypto.CryptoAlgorithmBase.html
@@ -8437,6 +8631,51 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IAsymmetricPublicKey.GetCopy
   nameWithType: IAsymmetricPublicKey.GetCopy
+- uid: wan24.Crypto.IBinaryPayloadContainer
+  name: IBinaryPayloadContainer
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html
+  commentId: T:wan24.Crypto.IBinaryPayloadContainer
+  fullName: wan24.Crypto.IBinaryPayloadContainer
+  nameWithType: IBinaryPayloadContainer
+- uid: wan24.Crypto.IBinaryPayloadContainer.MaxPayloadLength
+  name: MaxPayloadLength
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html#wan24_Crypto_IBinaryPayloadContainer_MaxPayloadLength
+  commentId: P:wan24.Crypto.IBinaryPayloadContainer.MaxPayloadLength
+  fullName: wan24.Crypto.IBinaryPayloadContainer.MaxPayloadLength
+  nameWithType: IBinaryPayloadContainer.MaxPayloadLength
+- uid: wan24.Crypto.IBinaryPayloadContainer.MaxPayloadLength*
+  name: MaxPayloadLength
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html#wan24_Crypto_IBinaryPayloadContainer_MaxPayloadLength_
+  commentId: Overload:wan24.Crypto.IBinaryPayloadContainer.MaxPayloadLength
+  isSpec: "True"
+  fullName: wan24.Crypto.IBinaryPayloadContainer.MaxPayloadLength
+  nameWithType: IBinaryPayloadContainer.MaxPayloadLength
+- uid: wan24.Crypto.IBinaryPayloadContainer.MinPayloadLength
+  name: MinPayloadLength
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html#wan24_Crypto_IBinaryPayloadContainer_MinPayloadLength
+  commentId: P:wan24.Crypto.IBinaryPayloadContainer.MinPayloadLength
+  fullName: wan24.Crypto.IBinaryPayloadContainer.MinPayloadLength
+  nameWithType: IBinaryPayloadContainer.MinPayloadLength
+- uid: wan24.Crypto.IBinaryPayloadContainer.MinPayloadLength*
+  name: MinPayloadLength
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html#wan24_Crypto_IBinaryPayloadContainer_MinPayloadLength_
+  commentId: Overload:wan24.Crypto.IBinaryPayloadContainer.MinPayloadLength
+  isSpec: "True"
+  fullName: wan24.Crypto.IBinaryPayloadContainer.MinPayloadLength
+  nameWithType: IBinaryPayloadContainer.MinPayloadLength
+- uid: wan24.Crypto.IBinaryPayloadContainer.Payload
+  name: Payload
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html#wan24_Crypto_IBinaryPayloadContainer_Payload
+  commentId: P:wan24.Crypto.IBinaryPayloadContainer.Payload
+  fullName: wan24.Crypto.IBinaryPayloadContainer.Payload
+  nameWithType: IBinaryPayloadContainer.Payload
+- uid: wan24.Crypto.IBinaryPayloadContainer.Payload*
+  name: Payload
+  href: api/wan24.Crypto.IBinaryPayloadContainer.html#wan24_Crypto_IBinaryPayloadContainer_Payload_
+  commentId: Overload:wan24.Crypto.IBinaryPayloadContainer.Payload
+  isSpec: "True"
+  fullName: wan24.Crypto.IBinaryPayloadContainer.Payload
+  nameWithType: IBinaryPayloadContainer.Payload
 - uid: wan24.Crypto.ICryptoAlgorithm
   name: ICryptoAlgorithm
   href: api/wan24.Crypto.ICryptoAlgorithm.html
@@ -11181,6 +11420,65 @@ references:
   commentId: F:wan24.Crypto.SignatureContainer.VERSION
   fullName: wan24.Crypto.SignatureContainer.VERSION
   nameWithType: SignatureContainer.VERSION
+- uid: wan24.Crypto.SignedBinaryPayload
+  name: SignedBinaryPayload
+  href: api/wan24.Crypto.SignedBinaryPayload.html
+  commentId: T:wan24.Crypto.SignedBinaryPayload
+  fullName: wan24.Crypto.SignedBinaryPayload
+  nameWithType: SignedBinaryPayload
+- uid: wan24.Crypto.SignedBinaryPayload.#ctor
+  name: SignedBinaryPayload()
+  href: api/wan24.Crypto.SignedBinaryPayload.html#wan24_Crypto_SignedBinaryPayload__ctor
+  commentId: M:wan24.Crypto.SignedBinaryPayload.#ctor
+  fullName: wan24.Crypto.SignedBinaryPayload.SignedBinaryPayload()
+  nameWithType: SignedBinaryPayload.SignedBinaryPayload()
+- uid: wan24.Crypto.SignedBinaryPayload.#ctor(wan24.Crypto.BinaryPayloadContainer,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  name: SignedBinaryPayload(BinaryPayloadContainer, ISignaturePrivateKey, CryptoOptions)
+  href: api/wan24.Crypto.SignedBinaryPayload.html#wan24_Crypto_SignedBinaryPayload__ctor_wan24_Crypto_BinaryPayloadContainer_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.SignedBinaryPayload.#ctor(wan24.Crypto.BinaryPayloadContainer,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.SignedBinaryPayload.SignedBinaryPayload(wan24.Crypto.BinaryPayloadContainer, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  nameWithType: SignedBinaryPayload.SignedBinaryPayload(BinaryPayloadContainer, ISignaturePrivateKey, CryptoOptions)
+- uid: wan24.Crypto.SignedBinaryPayload.#ctor*
+  name: SignedBinaryPayload
+  href: api/wan24.Crypto.SignedBinaryPayload.html#wan24_Crypto_SignedBinaryPayload__ctor_
+  commentId: Overload:wan24.Crypto.SignedBinaryPayload.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedBinaryPayload.SignedBinaryPayload
+  nameWithType: SignedBinaryPayload.SignedBinaryPayload
+- uid: wan24.Crypto.SignedBinaryPayload`1
+  name: SignedBinaryPayload<T>
+  href: api/wan24.Crypto.SignedBinaryPayload-1.html
+  commentId: T:wan24.Crypto.SignedBinaryPayload`1
+  name.vb: SignedBinaryPayload(Of T)
+  fullName: wan24.Crypto.SignedBinaryPayload<T>
+  fullName.vb: wan24.Crypto.SignedBinaryPayload(Of T)
+  nameWithType: SignedBinaryPayload<T>
+  nameWithType.vb: SignedBinaryPayload(Of T)
+- uid: wan24.Crypto.SignedBinaryPayload`1.#ctor
+  name: SignedBinaryPayload()
+  href: api/wan24.Crypto.SignedBinaryPayload-1.html#wan24_Crypto_SignedBinaryPayload_1__ctor
+  commentId: M:wan24.Crypto.SignedBinaryPayload`1.#ctor
+  fullName: wan24.Crypto.SignedBinaryPayload<T>.SignedBinaryPayload()
+  fullName.vb: wan24.Crypto.SignedBinaryPayload(Of T).SignedBinaryPayload()
+  nameWithType: SignedBinaryPayload<T>.SignedBinaryPayload()
+  nameWithType.vb: SignedBinaryPayload(Of T).SignedBinaryPayload()
+- uid: wan24.Crypto.SignedBinaryPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  name: SignedBinaryPayload(T, ISignaturePrivateKey, CryptoOptions)
+  href: api/wan24.Crypto.SignedBinaryPayload-1.html#wan24_Crypto_SignedBinaryPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.SignedBinaryPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.SignedBinaryPayload<T>.SignedBinaryPayload(T, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.SignedBinaryPayload(Of T).SignedBinaryPayload(T, wan24.Crypto.ISignaturePrivateKey, wan24.Crypto.CryptoOptions)
+  nameWithType: SignedBinaryPayload<T>.SignedBinaryPayload(T, ISignaturePrivateKey, CryptoOptions)
+  nameWithType.vb: SignedBinaryPayload(Of T).SignedBinaryPayload(T, ISignaturePrivateKey, CryptoOptions)
+- uid: wan24.Crypto.SignedBinaryPayload`1.#ctor*
+  name: SignedBinaryPayload
+  href: api/wan24.Crypto.SignedBinaryPayload-1.html#wan24_Crypto_SignedBinaryPayload_1__ctor_
+  commentId: Overload:wan24.Crypto.SignedBinaryPayload`1.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedBinaryPayload<T>.SignedBinaryPayload
+  fullName.vb: wan24.Crypto.SignedBinaryPayload(Of T).SignedBinaryPayload
+  nameWithType: SignedBinaryPayload<T>.SignedBinaryPayload
+  nameWithType.vb: SignedBinaryPayload(Of T).SignedBinaryPayload
 - uid: wan24.Crypto.SignedPayload`1
   name: SignedPayload<T>
   href: api/wan24.Crypto.SignedPayload-1.html
