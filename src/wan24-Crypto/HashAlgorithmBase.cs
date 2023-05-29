@@ -98,6 +98,75 @@ namespace wan24.Crypto
         /// <param name="data">Data</param>
         /// <param name="options">Options</param>
         /// <returns>Hash</returns>
+        public byte[] Hash(byte[] data, CryptoOptions? options = null) => Hash((ReadOnlySpan<byte>)data.AsSpan(), options);
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
+        public virtual byte[] Hash(ReadOnlySpan<byte> data, CryptoOptions? options = null)
+        {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
+            try
+            {
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = HashHelper.GetDefaultOptions(options);
+                byte[] res = new byte[HashLength];
+                GetHashAlgorithm(options).TryComputeHash(data, res, out _);
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="outputBuffer">Output buffer</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
+        public virtual Span<byte> Hash(ReadOnlySpan<byte> data, Span<byte> outputBuffer, CryptoOptions? options = null)
+        {
+            options ??= DefaultOptions;
+            options = HashHelper.GetDefaultOptions(options);
+            try
+            {
+                if (outputBuffer.Length < HashLength) throw new ArgumentOutOfRangeException(nameof(outputBuffer));
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = HashHelper.GetDefaultOptions(options);
+                GetHashAlgorithm(options).TryComputeHash(data, outputBuffer, out _);
+                return outputBuffer;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
         public virtual byte[] Hash(Stream data, CryptoOptions? options = null)
         {
             options ??= DefaultOptions;

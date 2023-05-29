@@ -3899,6 +3899,15 @@ references:
   fullName.vb: wan24.Crypto.CryptoOptions.Narrowing(System.Byte() to wan24.Crypto.CryptoOptions)
   nameWithType: CryptoOptions.Explicit(Byte[] to CryptoOptions)
   nameWithType.vb: CryptoOptions.Narrowing(Byte() to CryptoOptions)
+- uid: wan24.Crypto.CryptoOptions.op_Explicit(wan24.Crypto.CryptoOptions)~System.Byte[]
+  name: Explicit(CryptoOptions to Byte[])
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_op_Explicit_wan24_Crypto_CryptoOptions__System_Byte__
+  commentId: M:wan24.Crypto.CryptoOptions.op_Explicit(wan24.Crypto.CryptoOptions)~System.Byte[]
+  name.vb: Narrowing(CryptoOptions to Byte())
+  fullName: wan24.Crypto.CryptoOptions.Explicit(wan24.Crypto.CryptoOptions to System.Byte[])
+  fullName.vb: wan24.Crypto.CryptoOptions.Narrowing(wan24.Crypto.CryptoOptions to System.Byte())
+  nameWithType: CryptoOptions.Explicit(CryptoOptions to Byte[])
+  nameWithType.vb: CryptoOptions.Narrowing(CryptoOptions to Byte())
 - uid: wan24.Crypto.CryptoOptions.op_Explicit*
   name: Explicit
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_op_Explicit_
@@ -3909,15 +3918,6 @@ references:
   fullName.vb: wan24.Crypto.CryptoOptions.Narrowing
   nameWithType: CryptoOptions.Explicit
   nameWithType.vb: CryptoOptions.Narrowing
-- uid: wan24.Crypto.CryptoOptions.op_Implicit(wan24.Crypto.CryptoOptions)~System.Byte[]
-  name: Implicit(CryptoOptions to Byte[])
-  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_op_Implicit_wan24_Crypto_CryptoOptions__System_Byte__
-  commentId: M:wan24.Crypto.CryptoOptions.op_Implicit(wan24.Crypto.CryptoOptions)~System.Byte[]
-  name.vb: Widening(CryptoOptions to Byte())
-  fullName: wan24.Crypto.CryptoOptions.Implicit(wan24.Crypto.CryptoOptions to System.Byte[])
-  fullName.vb: wan24.Crypto.CryptoOptions.Widening(wan24.Crypto.CryptoOptions to System.Byte())
-  nameWithType: CryptoOptions.Implicit(CryptoOptions to Byte[])
-  nameWithType.vb: CryptoOptions.Widening(CryptoOptions to Byte())
 - uid: wan24.Crypto.CryptoOptions.op_Implicit(wan24.Crypto.CryptoOptions)~wan24.Crypto.PrivateKeySuite
   name: Implicit(CryptoOptions to PrivateKeySuite)
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_op_Implicit_wan24_Crypto_CryptoOptions__wan24_Crypto_PrivateKeySuite
@@ -7343,12 +7343,39 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.HashAlgorithmBase.GetHashStream
   nameWithType: HashAlgorithmBase.GetHashStream
+- uid: wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(ReadOnlySpan<Byte>, Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashAlgorithmBase.html#wan24_Crypto_HashAlgorithmBase_Hash_ReadOnlySpan_System_Byte__Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(ReadOnlySpan(Of Byte), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan<System.Byte>, Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan(Of System.Byte), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashAlgorithmBase.Hash(ReadOnlySpan<Byte>, Span<Byte>, CryptoOptions)
+  nameWithType.vb: HashAlgorithmBase.Hash(ReadOnlySpan(Of Byte), Span(Of Byte), CryptoOptions)
+- uid: wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(ReadOnlySpan<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashAlgorithmBase.html#wan24_Crypto_HashAlgorithmBase_Hash_ReadOnlySpan_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(ReadOnlySpan(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashAlgorithmBase.Hash(ReadOnlySpan(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashAlgorithmBase.Hash(ReadOnlySpan<Byte>, CryptoOptions)
+  nameWithType.vb: HashAlgorithmBase.Hash(ReadOnlySpan(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.HashAlgorithmBase.Hash(Stream,wan24.Crypto.CryptoOptions)
   name: Hash(Stream, CryptoOptions)
   href: api/wan24.Crypto.HashAlgorithmBase.html#wan24_Crypto_HashAlgorithmBase_Hash_Stream_wan24_Crypto_CryptoOptions_
   commentId: M:wan24.Crypto.HashAlgorithmBase.Hash(Stream,wan24.Crypto.CryptoOptions)
   fullName: wan24.Crypto.HashAlgorithmBase.Hash(Stream, wan24.Crypto.CryptoOptions)
   nameWithType: HashAlgorithmBase.Hash(Stream, CryptoOptions)
+- uid: wan24.Crypto.HashAlgorithmBase.Hash(System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Hash(Byte[], CryptoOptions)
+  href: api/wan24.Crypto.HashAlgorithmBase.html#wan24_Crypto_HashAlgorithmBase_Hash_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashAlgorithmBase.Hash(System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Hash(Byte(), CryptoOptions)
+  fullName: wan24.Crypto.HashAlgorithmBase.Hash(System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashAlgorithmBase.Hash(System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: HashAlgorithmBase.Hash(Byte[], CryptoOptions)
+  nameWithType.vb: HashAlgorithmBase.Hash(Byte(), CryptoOptions)
 - uid: wan24.Crypto.HashAlgorithmBase.Hash*
   name: Hash
   href: api/wan24.Crypto.HashAlgorithmBase.html#wan24_Crypto_HashAlgorithmBase_Hash_
@@ -7388,6 +7415,15 @@ references:
   commentId: T:wan24.Crypto.HashExtensions
   fullName: wan24.Crypto.HashExtensions
   nameWithType: HashExtensions
+- uid: wan24.Crypto.HashExtensions.Hash(Memory{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(Memory<Byte>, Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_Memory_System_Byte__Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashExtensions.Hash(Memory{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(Memory(Of Byte), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashExtensions.Hash(Memory<System.Byte>, Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashExtensions.Hash(Memory(Of System.Byte), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashExtensions.Hash(Memory<Byte>, Span<Byte>, CryptoOptions)
+  nameWithType.vb: HashExtensions.Hash(Memory(Of Byte), Span(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.HashExtensions.Hash(Memory{System.Byte},wan24.Crypto.CryptoOptions)
   name: Hash(Memory<Byte>, CryptoOptions)
   href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_Memory_System_Byte__wan24_Crypto_CryptoOptions_
@@ -7397,6 +7433,15 @@ references:
   fullName.vb: wan24.Crypto.HashExtensions.Hash(Memory(Of System.Byte), wan24.Crypto.CryptoOptions)
   nameWithType: HashExtensions.Hash(Memory<Byte>, CryptoOptions)
   nameWithType.vb: HashExtensions.Hash(Memory(Of Byte), CryptoOptions)
+- uid: wan24.Crypto.HashExtensions.Hash(ReadOnlyMemory{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(ReadOnlyMemory<Byte>, Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_ReadOnlyMemory_System_Byte__Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashExtensions.Hash(ReadOnlyMemory{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(ReadOnlyMemory(Of Byte), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashExtensions.Hash(ReadOnlyMemory<System.Byte>, Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashExtensions.Hash(ReadOnlyMemory(Of System.Byte), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashExtensions.Hash(ReadOnlyMemory<Byte>, Span<Byte>, CryptoOptions)
+  nameWithType.vb: HashExtensions.Hash(ReadOnlyMemory(Of Byte), Span(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.HashExtensions.Hash(ReadOnlyMemory{System.Byte},wan24.Crypto.CryptoOptions)
   name: Hash(ReadOnlyMemory<Byte>, CryptoOptions)
   href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_ReadOnlyMemory_System_Byte__wan24_Crypto_CryptoOptions_
@@ -7406,15 +7451,15 @@ references:
   fullName.vb: wan24.Crypto.HashExtensions.Hash(ReadOnlyMemory(Of System.Byte), wan24.Crypto.CryptoOptions)
   nameWithType: HashExtensions.Hash(ReadOnlyMemory<Byte>, CryptoOptions)
   nameWithType.vb: HashExtensions.Hash(ReadOnlyMemory(Of Byte), CryptoOptions)
-- uid: wan24.Crypto.HashExtensions.Hash(ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)
-  name: Hash(ReadOnlySpan<Byte>, CryptoOptions)
-  href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_ReadOnlySpan_System_Byte__wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.HashExtensions.Hash(ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)
-  name.vb: Hash(ReadOnlySpan(Of Byte), CryptoOptions)
-  fullName: wan24.Crypto.HashExtensions.Hash(ReadOnlySpan<System.Byte>, wan24.Crypto.CryptoOptions)
-  fullName.vb: wan24.Crypto.HashExtensions.Hash(ReadOnlySpan(Of System.Byte), wan24.Crypto.CryptoOptions)
-  nameWithType: HashExtensions.Hash(ReadOnlySpan<Byte>, CryptoOptions)
-  nameWithType.vb: HashExtensions.Hash(ReadOnlySpan(Of Byte), CryptoOptions)
+- uid: wan24.Crypto.HashExtensions.Hash(Span{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(Span<Byte>, Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_Span_System_Byte__Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashExtensions.Hash(Span{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(Span(Of Byte), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashExtensions.Hash(Span<System.Byte>, Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashExtensions.Hash(Span(Of System.Byte), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashExtensions.Hash(Span<Byte>, Span<Byte>, CryptoOptions)
+  nameWithType.vb: HashExtensions.Hash(Span(Of Byte), Span(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.HashExtensions.Hash(Span{System.Byte},wan24.Crypto.CryptoOptions)
   name: Hash(Span<Byte>, CryptoOptions)
   href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_Span_System_Byte__wan24_Crypto_CryptoOptions_
@@ -7424,15 +7469,6 @@ references:
   fullName.vb: wan24.Crypto.HashExtensions.Hash(Span(Of System.Byte), wan24.Crypto.CryptoOptions)
   nameWithType: HashExtensions.Hash(Span<Byte>, CryptoOptions)
   nameWithType.vb: HashExtensions.Hash(Span(Of Byte), CryptoOptions)
-- uid: wan24.Crypto.HashExtensions.Hash(System.Byte[],wan24.Crypto.CryptoOptions)
-  name: Hash(Byte[], CryptoOptions)
-  href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_System_Byte___wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.HashExtensions.Hash(System.Byte[],wan24.Crypto.CryptoOptions)
-  name.vb: Hash(Byte(), CryptoOptions)
-  fullName: wan24.Crypto.HashExtensions.Hash(System.Byte[], wan24.Crypto.CryptoOptions)
-  fullName.vb: wan24.Crypto.HashExtensions.Hash(System.Byte(), wan24.Crypto.CryptoOptions)
-  nameWithType: HashExtensions.Hash(Byte[], CryptoOptions)
-  nameWithType.vb: HashExtensions.Hash(Byte(), CryptoOptions)
 - uid: wan24.Crypto.HashExtensions.Hash*
   name: Hash
   href: api/wan24.Crypto.HashExtensions.html#wan24_Crypto_HashExtensions_Hash_
@@ -7513,12 +7549,39 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.HashHelper.GetHashStream
   nameWithType: HashHelper.GetHashStream
+- uid: wan24.Crypto.HashHelper.Hash(ReadOnlySpan{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(ReadOnlySpan<Byte>, Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_Hash_ReadOnlySpan_System_Byte__Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashHelper.Hash(ReadOnlySpan{System.Byte},Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(ReadOnlySpan(Of Byte), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashHelper.Hash(ReadOnlySpan<System.Byte>, Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashHelper.Hash(ReadOnlySpan(Of System.Byte), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashHelper.Hash(ReadOnlySpan<Byte>, Span<Byte>, CryptoOptions)
+  nameWithType.vb: HashHelper.Hash(ReadOnlySpan(Of Byte), Span(Of Byte), CryptoOptions)
+- uid: wan24.Crypto.HashHelper.Hash(ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Hash(ReadOnlySpan<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_Hash_ReadOnlySpan_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashHelper.Hash(ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Hash(ReadOnlySpan(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.HashHelper.Hash(ReadOnlySpan<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashHelper.Hash(ReadOnlySpan(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: HashHelper.Hash(ReadOnlySpan<Byte>, CryptoOptions)
+  nameWithType.vb: HashHelper.Hash(ReadOnlySpan(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.HashHelper.Hash(Stream,wan24.Crypto.CryptoOptions)
   name: Hash(Stream, CryptoOptions)
   href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_Hash_Stream_wan24_Crypto_CryptoOptions_
   commentId: M:wan24.Crypto.HashHelper.Hash(Stream,wan24.Crypto.CryptoOptions)
   fullName: wan24.Crypto.HashHelper.Hash(Stream, wan24.Crypto.CryptoOptions)
   nameWithType: HashHelper.Hash(Stream, CryptoOptions)
+- uid: wan24.Crypto.HashHelper.Hash(System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Hash(Byte[], CryptoOptions)
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_Hash_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.HashHelper.Hash(System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Hash(Byte(), CryptoOptions)
+  fullName: wan24.Crypto.HashHelper.Hash(System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.HashHelper.Hash(System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: HashHelper.Hash(Byte[], CryptoOptions)
+  nameWithType.vb: HashHelper.Hash(Byte(), CryptoOptions)
 - uid: wan24.Crypto.HashHelper.Hash*
   name: Hash
   href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_Hash_
@@ -9585,6 +9648,24 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.MacAlgorithmBase.GetMacStream
   nameWithType: MacAlgorithmBase.GetMacStream
+- uid: wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Mac(ReadOnlySpan<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.MacAlgorithmBase.html#wan24_Crypto_MacAlgorithmBase_Mac_ReadOnlySpan_System_Byte__System_Byte___Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Mac(ReadOnlySpan(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan<System.Byte>, System.Byte[], Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan(Of System.Byte), System.Byte(), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: MacAlgorithmBase.Mac(ReadOnlySpan<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  nameWithType.vb: MacAlgorithmBase.Mac(ReadOnlySpan(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+- uid: wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Mac(ReadOnlySpan<Byte>, Byte[], CryptoOptions)
+  href: api/wan24.Crypto.MacAlgorithmBase.html#wan24_Crypto_MacAlgorithmBase_Mac_ReadOnlySpan_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Mac(ReadOnlySpan(Of Byte), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan<System.Byte>, System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacAlgorithmBase.Mac(ReadOnlySpan(Of System.Byte), System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: MacAlgorithmBase.Mac(ReadOnlySpan<Byte>, Byte[], CryptoOptions)
+  nameWithType.vb: MacAlgorithmBase.Mac(ReadOnlySpan(Of Byte), Byte(), CryptoOptions)
 - uid: wan24.Crypto.MacAlgorithmBase.Mac(Stream,System.Byte[],wan24.Crypto.CryptoOptions)
   name: Mac(Stream, Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacAlgorithmBase.html#wan24_Crypto_MacAlgorithmBase_Mac_Stream_System_Byte___wan24_Crypto_CryptoOptions_
@@ -9636,6 +9717,15 @@ references:
   commentId: T:wan24.Crypto.MacExtensions
   fullName: wan24.Crypto.MacExtensions
   nameWithType: MacExtensions
+- uid: wan24.Crypto.MacExtensions.Mac(Memory{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Mac(Memory<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_Memory_System_Byte__System_Byte___Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacExtensions.Mac(Memory{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Mac(Memory(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.MacExtensions.Mac(Memory<System.Byte>, System.Byte[], Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacExtensions.Mac(Memory(Of System.Byte), System.Byte(), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: MacExtensions.Mac(Memory<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  nameWithType.vb: MacExtensions.Mac(Memory(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.MacExtensions.Mac(Memory{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
   name: Mac(Memory<Byte>, Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_Memory_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_
@@ -9645,6 +9735,15 @@ references:
   fullName.vb: wan24.Crypto.MacExtensions.Mac(Memory(Of System.Byte), System.Byte(), wan24.Crypto.CryptoOptions)
   nameWithType: MacExtensions.Mac(Memory<Byte>, Byte[], CryptoOptions)
   nameWithType.vb: MacExtensions.Mac(Memory(Of Byte), Byte(), CryptoOptions)
+- uid: wan24.Crypto.MacExtensions.Mac(ReadOnlyMemory{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Mac(ReadOnlyMemory<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_ReadOnlyMemory_System_Byte__System_Byte___Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacExtensions.Mac(ReadOnlyMemory{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Mac(ReadOnlyMemory(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.MacExtensions.Mac(ReadOnlyMemory<System.Byte>, System.Byte[], Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacExtensions.Mac(ReadOnlyMemory(Of System.Byte), System.Byte(), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: MacExtensions.Mac(ReadOnlyMemory<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  nameWithType.vb: MacExtensions.Mac(ReadOnlyMemory(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.MacExtensions.Mac(ReadOnlyMemory{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
   name: Mac(ReadOnlyMemory<Byte>, Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_ReadOnlyMemory_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_
@@ -9654,15 +9753,15 @@ references:
   fullName.vb: wan24.Crypto.MacExtensions.Mac(ReadOnlyMemory(Of System.Byte), System.Byte(), wan24.Crypto.CryptoOptions)
   nameWithType: MacExtensions.Mac(ReadOnlyMemory<Byte>, Byte[], CryptoOptions)
   nameWithType.vb: MacExtensions.Mac(ReadOnlyMemory(Of Byte), Byte(), CryptoOptions)
-- uid: wan24.Crypto.MacExtensions.Mac(ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
-  name: Mac(ReadOnlySpan<Byte>, Byte[], CryptoOptions)
-  href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_ReadOnlySpan_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.MacExtensions.Mac(ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
-  name.vb: Mac(ReadOnlySpan(Of Byte), Byte(), CryptoOptions)
-  fullName: wan24.Crypto.MacExtensions.Mac(ReadOnlySpan<System.Byte>, System.Byte[], wan24.Crypto.CryptoOptions)
-  fullName.vb: wan24.Crypto.MacExtensions.Mac(ReadOnlySpan(Of System.Byte), System.Byte(), wan24.Crypto.CryptoOptions)
-  nameWithType: MacExtensions.Mac(ReadOnlySpan<Byte>, Byte[], CryptoOptions)
-  nameWithType.vb: MacExtensions.Mac(ReadOnlySpan(Of Byte), Byte(), CryptoOptions)
+- uid: wan24.Crypto.MacExtensions.Mac(Span{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Mac(Span<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_Span_System_Byte__System_Byte___Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacExtensions.Mac(Span{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Mac(Span(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.MacExtensions.Mac(Span<System.Byte>, System.Byte[], Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacExtensions.Mac(Span(Of System.Byte), System.Byte(), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: MacExtensions.Mac(Span<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  nameWithType.vb: MacExtensions.Mac(Span(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
 - uid: wan24.Crypto.MacExtensions.Mac(Span{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
   name: Mac(Span<Byte>, Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_Span_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_
@@ -9672,15 +9771,6 @@ references:
   fullName.vb: wan24.Crypto.MacExtensions.Mac(Span(Of System.Byte), System.Byte(), wan24.Crypto.CryptoOptions)
   nameWithType: MacExtensions.Mac(Span<Byte>, Byte[], CryptoOptions)
   nameWithType.vb: MacExtensions.Mac(Span(Of Byte), Byte(), CryptoOptions)
-- uid: wan24.Crypto.MacExtensions.Mac(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
-  name: Mac(Byte[], Byte[], CryptoOptions)
-  href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.MacExtensions.Mac(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
-  name.vb: Mac(Byte(), Byte(), CryptoOptions)
-  fullName: wan24.Crypto.MacExtensions.Mac(System.Byte[], System.Byte[], wan24.Crypto.CryptoOptions)
-  fullName.vb: wan24.Crypto.MacExtensions.Mac(System.Byte(), System.Byte(), wan24.Crypto.CryptoOptions)
-  nameWithType: MacExtensions.Mac(Byte[], Byte[], CryptoOptions)
-  nameWithType.vb: MacExtensions.Mac(Byte(), Byte(), CryptoOptions)
 - uid: wan24.Crypto.MacExtensions.Mac*
   name: Mac
   href: api/wan24.Crypto.MacExtensions.html#wan24_Crypto_MacExtensions_Mac_
@@ -9761,6 +9851,24 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.MacHelper.GetMacStream
   nameWithType: MacHelper.GetMacStream
+- uid: wan24.Crypto.MacHelper.Mac(ReadOnlySpan{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name: Mac(ReadOnlySpan<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_Mac_ReadOnlySpan_System_Byte__System_Byte___Span_System_Byte__wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacHelper.Mac(ReadOnlySpan{System.Byte},System.Byte[],Span{System.Byte},wan24.Crypto.CryptoOptions)
+  name.vb: Mac(ReadOnlySpan(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+  fullName: wan24.Crypto.MacHelper.Mac(ReadOnlySpan<System.Byte>, System.Byte[], Span<System.Byte>, wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacHelper.Mac(ReadOnlySpan(Of System.Byte), System.Byte(), Span(Of System.Byte), wan24.Crypto.CryptoOptions)
+  nameWithType: MacHelper.Mac(ReadOnlySpan<Byte>, Byte[], Span<Byte>, CryptoOptions)
+  nameWithType.vb: MacHelper.Mac(ReadOnlySpan(Of Byte), Byte(), Span(Of Byte), CryptoOptions)
+- uid: wan24.Crypto.MacHelper.Mac(ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Mac(ReadOnlySpan<Byte>, Byte[], CryptoOptions)
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_Mac_ReadOnlySpan_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacHelper.Mac(ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Mac(ReadOnlySpan(Of Byte), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.MacHelper.Mac(ReadOnlySpan<System.Byte>, System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacHelper.Mac(ReadOnlySpan(Of System.Byte), System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: MacHelper.Mac(ReadOnlySpan<Byte>, Byte[], CryptoOptions)
+  nameWithType.vb: MacHelper.Mac(ReadOnlySpan(Of Byte), Byte(), CryptoOptions)
 - uid: wan24.Crypto.MacHelper.Mac(Stream,System.Byte[],wan24.Crypto.CryptoOptions)
   name: Mac(Stream, Byte[], CryptoOptions)
   href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_Mac_Stream_System_Byte___wan24_Crypto_CryptoOptions_
@@ -9770,6 +9878,15 @@ references:
   fullName.vb: wan24.Crypto.MacHelper.Mac(Stream, System.Byte(), wan24.Crypto.CryptoOptions)
   nameWithType: MacHelper.Mac(Stream, Byte[], CryptoOptions)
   nameWithType.vb: MacHelper.Mac(Stream, Byte(), CryptoOptions)
+- uid: wan24.Crypto.MacHelper.Mac(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Mac(Byte[], Byte[], CryptoOptions)
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_Mac_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.MacHelper.Mac(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Mac(Byte(), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.MacHelper.Mac(System.Byte[], System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.MacHelper.Mac(System.Byte(), System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: MacHelper.Mac(Byte[], Byte[], CryptoOptions)
+  nameWithType.vb: MacHelper.Mac(Byte(), Byte(), CryptoOptions)
 - uid: wan24.Crypto.MacHelper.Mac*
   name: Mac
   href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_Mac_

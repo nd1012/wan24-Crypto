@@ -70,6 +70,43 @@ namespace wan24.Crypto
         /// <param name="data">Data</param>
         /// <param name="options">Options</param>
         /// <returns>Hash</returns>
+        public static byte[] Hash(this byte[] data, CryptoOptions? options = null)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.HashAlgorithm!).Hash(data, options);
+        }
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
+        public static byte[] Hash(this ReadOnlySpan<byte> data, CryptoOptions? options = null)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.HashAlgorithm!).Hash(data, options);
+        }
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="outputBuffer">Output buffer</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
+        public static Span<byte> Hash(this ReadOnlySpan<byte> data, Span<byte> outputBuffer, CryptoOptions? options = null)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.HashAlgorithm!).Hash(data, outputBuffer, options);
+        }
+
+        /// <summary>
+        /// Create a hash
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Hash</returns>
         public static byte[] Hash(this Stream data, CryptoOptions? options = null)
         {
             options = GetDefaultOptions(options);

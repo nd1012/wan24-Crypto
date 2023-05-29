@@ -102,6 +102,69 @@ namespace wan24.Crypto
         /// <param name="pwd">Password</param>
         /// <param name="options">Options</param>
         /// <returns>MAC</returns>
+        public virtual byte[] Mac(ReadOnlySpan<byte> data, byte[] pwd, CryptoOptions? options = null)
+        {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
+            try
+            {
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = MacHelper.GetDefaultOptions(options);
+                byte[] res = new byte[MacLength];
+                GetMacAlgorithm(pwd, options).TryComputeHash(data, res, out _);
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
+        /// Create an MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="outputBuffer">Output buffer</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
+        public virtual Span<byte> Mac(ReadOnlySpan<byte> data, byte[] pwd, Span<byte> outputBuffer, CryptoOptions? options = null)
+        {
+            options ??= DefaultOptions;
+            options = MacHelper.GetDefaultOptions(options);
+            try
+            {
+                if (outputBuffer.Length < MacLength) throw new ArgumentOutOfRangeException(nameof(outputBuffer));
+                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
+                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options ??= DefaultOptions;
+                options = MacHelper.GetDefaultOptions(options);
+                GetMacAlgorithm(pwd, options).TryComputeHash(data, outputBuffer, out _);
+                return outputBuffer;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
+        /// Create an MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
         public virtual byte[] Mac(Stream data, byte[] pwd, CryptoOptions? options = null)
         {
             options ??= DefaultOptions;

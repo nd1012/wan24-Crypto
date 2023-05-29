@@ -72,6 +72,46 @@ namespace wan24.Crypto
         /// <param name="pwd">Password</param>
         /// <param name="options">Options</param>
         /// <returns>MAC</returns>
+        public static byte[] Mac(this byte[] data, byte[] pwd, CryptoOptions? options = null)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.MacAlgorithm!).Mac(data, pwd, options);
+        }
+
+        /// <summary>
+        /// Create a MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
+        public static byte[] Mac(this ReadOnlySpan<byte> data, byte[] pwd, CryptoOptions? options = null)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.MacAlgorithm!).Mac(data, pwd, options);
+        }
+
+        /// <summary>
+        /// Create a MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="outputBuffer">Output buffer</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
+        public static Span<byte> Mac(this ReadOnlySpan<byte> data, byte[] pwd, Span<byte> outputBuffer, CryptoOptions? options = null)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.MacAlgorithm!).Mac(data, pwd, outputBuffer, options);
+        }
+
+        /// <summary>
+        /// Create a MAC
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="pwd">Password</param>
+        /// <param name="options">Options</param>
+        /// <returns>MAC</returns>
         public static byte[] Mac(this Stream data, byte[] pwd, CryptoOptions? options = null)
         {
             options = GetDefaultOptions(options);

@@ -258,8 +258,26 @@ namespace wan24.Crypto
         /// <returns>If the signed data is valid</returns>
         public bool ValidateSignedData(byte[] data, bool throwOnError = true)
         {
-            using MemoryStream ms = new(data);
-            return ValidateSignedData(ms, throwOnError);
+            try
+            {
+                CryptoOptions options = HashHelper.GetDefaultOptions(new()
+                {
+                    HashAlgorithm = HashAlgorithm
+                });
+                using RentedArray<byte> buffer = new(HashHelper.GetAlgorithm(HashAlgorithm).HashLength);
+                data.AsSpan().Hash(buffer.Span, options);
+                bool res = buffer.Span.SlowCompare(SignedDataHash);
+                if (!res && throwOnError) throw new InvalidDataException("Signed data hash mismatch");
+                return res;
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
         }
 
         /// <summary>
@@ -276,8 +294,7 @@ namespace wan24.Crypto
                 {
                     HashAlgorithm = HashAlgorithm
                 });
-                byte[] hash = data.Hash(options);
-                bool res = hash.AsSpan().SlowCompare(SignedDataHash);
+                bool res = data.Hash(options).AsSpan().SlowCompare(SignedDataHash);
                 if (!res && throwOnError) throw new InvalidDataException("Signed data hash mismatch");
                 return res;
             }
