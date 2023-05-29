@@ -277,7 +277,7 @@ namespace wan24.Crypto
                     HashAlgorithm = HashAlgorithm
                 });
                 byte[] hash = data.Hash(options);
-                bool res = hash.AsSpan().SlowCompare(SignedDataHash);
+                bool res = data.Hash(options).AsSpan().SlowCompare(SignedDataHash);
                 if (!res && throwOnError) throw new InvalidDataException("Signed data hash mismatch");
                 return res;
             }
