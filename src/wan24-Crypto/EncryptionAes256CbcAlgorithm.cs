@@ -32,6 +32,10 @@ namespace wan24.Crypto
         /// Display name
         /// </summary>
         public const string DISPLAY_NAME = "AES-256-CBC";
+        /// <summary>
+        /// AES-256-CBC raw (without header) and uncompressed profile key
+        /// </summary>
+        public const string PROFILE_AES256CBC_RAW = "AES256CBC_RAW";
 
         /// <summary>
         /// Static constructor
