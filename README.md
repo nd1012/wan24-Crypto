@@ -1,6 +1,6 @@
 # wan24-Crypto
 
-This library exports a generic high level crypto API, which allows to use and 
+This library exports a generic high level crypto API, which allows to use an 
 implemented cryptographic algorithm to be applied using a simple interface.
 
 Per default these cryptographic algorithms are implemented:
