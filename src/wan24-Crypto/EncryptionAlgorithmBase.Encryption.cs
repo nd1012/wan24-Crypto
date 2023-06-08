@@ -151,7 +151,7 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 macStream?.Dispose();
-                throw CryptographicException.From(ex);
+                throw await CryptographicException.FromAsync(ex);
             }
             finally
             {
@@ -194,7 +194,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw CryptographicException.From(ex);
+                throw await CryptographicException.FromAsync(ex);
             }
         }
     }

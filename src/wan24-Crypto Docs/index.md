@@ -52,6 +52,20 @@ For more examples please open an
 [issue](https://github.com/nd1012/wan24-Crypto/issues/new) - I'd be glad to 
 help! If you've found a security issue, please report it private.
 
+**NOTE**: The cipher output of this library may include a header, which can't 
+(yet) be interpreted by any third party vendor code (which is true especially 
+if the raw data was compressed before encryption, which is the default). That 
+means, a cipher output of this library can't be decrypted with a third party 
+crypto library, even this library implements standard cryptographic algorithms.
+
+Using this library for a cipher which has to be exchanged with a third party 
+application, which relies on working with standard crypto algorithm output, is 
+not recommended - it may not work!
+
+Anyway, this library should be a good choice for isolated use within your 
+application(s), if want to avoid a hussle with implementing newer crypto 
+algorithms.
+
 ## How to get it
 
 This library is available as 

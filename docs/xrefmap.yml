@@ -2998,6 +2998,24 @@ references:
   commentId: M:wan24.Crypto.CryptographicException.#ctor
   fullName: wan24.Crypto.CryptographicException.CryptographicException()
   nameWithType: CryptographicException.CryptographicException()
+- uid: wan24.Crypto.CryptographicException.#ctor(System.Boolean)
+  name: CryptographicException(Boolean)
+  href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException__ctor_System_Boolean_
+  commentId: M:wan24.Crypto.CryptographicException.#ctor(System.Boolean)
+  fullName: wan24.Crypto.CryptographicException.CryptographicException(System.Boolean)
+  nameWithType: CryptographicException.CryptographicException(Boolean)
+- uid: wan24.Crypto.CryptographicException.#ctor(System.Boolean,System.String)
+  name: CryptographicException(Boolean, String)
+  href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException__ctor_System_Boolean_System_String_
+  commentId: M:wan24.Crypto.CryptographicException.#ctor(System.Boolean,System.String)
+  fullName: wan24.Crypto.CryptographicException.CryptographicException(System.Boolean, System.String)
+  nameWithType: CryptographicException.CryptographicException(Boolean, String)
+- uid: wan24.Crypto.CryptographicException.#ctor(System.Boolean,System.String,Exception)
+  name: CryptographicException(Boolean, String, Exception)
+  href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException__ctor_System_Boolean_System_String_Exception_
+  commentId: M:wan24.Crypto.CryptographicException.#ctor(System.Boolean,System.String,Exception)
+  fullName: wan24.Crypto.CryptographicException.CryptographicException(System.Boolean, System.String, Exception)
+  nameWithType: CryptographicException.CryptographicException(Boolean, String, Exception)
 - uid: wan24.Crypto.CryptographicException.#ctor(System.String)
   name: CryptographicException(String)
   href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException__ctor_System_String_
@@ -3049,6 +3067,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptographicException.From
   nameWithType: CryptographicException.From
+- uid: wan24.Crypto.CryptographicException.FromAsync(Exception)
+  name: FromAsync(Exception)
+  href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException_FromAsync_Exception_
+  commentId: M:wan24.Crypto.CryptographicException.FromAsync(Exception)
+  fullName: wan24.Crypto.CryptographicException.FromAsync(Exception)
+  nameWithType: CryptographicException.FromAsync(Exception)
+- uid: wan24.Crypto.CryptographicException.FromAsync(System.String,Exception)
+  name: FromAsync(String, Exception)
+  href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException_FromAsync_System_String_Exception_
+  commentId: M:wan24.Crypto.CryptographicException.FromAsync(System.String,Exception)
+  fullName: wan24.Crypto.CryptographicException.FromAsync(System.String, Exception)
+  nameWithType: CryptographicException.FromAsync(String, Exception)
+- uid: wan24.Crypto.CryptographicException.FromAsync*
+  name: FromAsync
+  href: api/wan24.Crypto.CryptographicException.html#wan24_Crypto_CryptographicException_FromAsync_
+  commentId: Overload:wan24.Crypto.CryptographicException.FromAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptographicException.FromAsync
+  nameWithType: CryptographicException.FromAsync
 - uid: wan24.Crypto.CryptoHelper
   name: CryptoHelper
   href: api/wan24.Crypto.CryptoHelper.html
@@ -4983,6 +5020,31 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptionsFluentExtensions.WithTimeCritics
   nameWithType: CryptoOptionsFluentExtensions.WithTimeCritics
+- uid: wan24.Crypto.CryptoProfiles
+  name: CryptoProfiles
+  href: api/wan24.Crypto.CryptoProfiles.html
+  commentId: T:wan24.Crypto.CryptoProfiles
+  fullName: wan24.Crypto.CryptoProfiles
+  nameWithType: CryptoProfiles
+- uid: wan24.Crypto.CryptoProfiles.GetProfile(System.String)
+  name: GetProfile(String)
+  href: api/wan24.Crypto.CryptoProfiles.html#wan24_Crypto_CryptoProfiles_GetProfile_System_String_
+  commentId: M:wan24.Crypto.CryptoProfiles.GetProfile(System.String)
+  fullName: wan24.Crypto.CryptoProfiles.GetProfile(System.String)
+  nameWithType: CryptoProfiles.GetProfile(String)
+- uid: wan24.Crypto.CryptoProfiles.GetProfile*
+  name: GetProfile
+  href: api/wan24.Crypto.CryptoProfiles.html#wan24_Crypto_CryptoProfiles_GetProfile_
+  commentId: Overload:wan24.Crypto.CryptoProfiles.GetProfile
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoProfiles.GetProfile
+  nameWithType: CryptoProfiles.GetProfile
+- uid: wan24.Crypto.CryptoProfiles.Registered
+  name: Registered
+  href: api/wan24.Crypto.CryptoProfiles.html#wan24_Crypto_CryptoProfiles_Registered
+  commentId: F:wan24.Crypto.CryptoProfiles.Registered
+  fullName: wan24.Crypto.CryptoProfiles.Registered
+  nameWithType: CryptoProfiles.Registered
 - uid: wan24.Crypto.DecryptionStreams
   name: DecryptionStreams
   href: api/wan24.Crypto.DecryptionStreams.html
@@ -6141,6 +6203,12 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.KeySize
   nameWithType: EncryptionAes256CbcAlgorithm.KeySize
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.PROFILE_AES256CBC_RAW
+  name: PROFILE_AES256CBC_RAW
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_PROFILE_AES256CBC_RAW
+  commentId: F:wan24.Crypto.EncryptionAes256CbcAlgorithm.PROFILE_AES256CBC_RAW
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.PROFILE_AES256CBC_RAW
+  nameWithType: EncryptionAes256CbcAlgorithm.PROFILE_AES256CBC_RAW
 - uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.RequireMacAuthentication
   name: RequireMacAuthentication
   href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_RequireMacAuthentication
