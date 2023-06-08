@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
-using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto.Tests
 {
@@ -14,7 +13,7 @@ namespace wan24.Crypto.Tests
             foreach (string name in AsymmetricHelper.Algorithms.Keys)
                 foreach (string counterName in AsymmetricHelper.Algorithms.Keys)
                 {
-                    //if (name == counterName) continue;
+                    if (AsymmetricHelper.Algorithms.Count != 1 && name == counterName) continue;
                     if (seen.Contains($"{name} {counterName}") || seen.Contains($"{counterName} {name}")) continue;
                     seen.Add($"{name} {counterName}");
                     algo = AsymmetricHelper.GetAlgorithm(name);
@@ -97,7 +96,7 @@ namespace wan24.Crypto.Tests
             foreach (string name in MacHelper.Algorithms.Keys)
                 foreach (string counterName in MacHelper.Algorithms.Keys)
                 {
-                    if (name == counterName) continue;
+                    if (MacHelper.Algorithms.Count != 1 && name == counterName) continue;
                     if (seen.Contains($"{name} {counterName}") || seen.Contains($"{counterName} {name}")) continue;
                     seen.Add($"{name} {counterName}");
                     MacTests(new()
@@ -129,7 +128,7 @@ namespace wan24.Crypto.Tests
             foreach (string name in KdfHelper.Algorithms.Keys)
                 foreach (string counterName in KdfHelper.Algorithms.Keys)
                 {
-                    //if (name == counterName) continue;
+                    if (KdfHelper.Algorithms.Count != 1 && name == counterName) continue;
                     if (seen.Contains($"{name} {counterName}") || seen.Contains($"{counterName} {name}")) continue;
                     seen.Add($"{name} {counterName}");
                     KdfTests(new()
@@ -169,7 +168,7 @@ namespace wan24.Crypto.Tests
                 foreach (string macName in MacHelper.Algorithms.Keys)
                     foreach (string counterMacName in MacHelper.Algorithms.Keys)
                     {
-                        if (macName == counterMacName) continue;
+                        if (MacHelper.Algorithms.Count != 1 && macName == counterMacName) continue;
                         if (macSeen.Contains($"{macName} {counterMacName}") || macSeen.Contains($"{counterMacName} {macName}")) continue;
                         macSeen.Add($"{macName} {counterMacName}");
                         asymmetricSeen.Clear();
@@ -181,19 +180,21 @@ namespace wan24.Crypto.Tests
                             {
                                 counterAlgo = AsymmetricHelper.GetAlgorithm(counterAsymmetricName);
                                 if (!counterAlgo.CanExchangeKey) continue;
-                                //if (asymmetricName == counterAsymmetricName) continue;
-                                if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}")) continue;
+                                if (AsymmetricHelper.Algorithms.Count != 1 && asymmetricName == counterAsymmetricName) continue;
+                                if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
+                                    continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
                                 kdfSeen.Clear();
                                 foreach (string kdfName in KdfHelper.Algorithms.Keys)
                                     foreach (string counterKdfName in KdfHelper.Algorithms.Keys)
                                     {
-                                        //if (kdfName == counterKdfName) continue;
+                                        if (KdfHelper.Algorithms.Count != 1 && kdfName == counterKdfName) continue;
                                         if (kdfSeen.Contains($"{kdfName} {counterKdfName}") || kdfSeen.Contains($"{counterKdfName} {kdfName}")) continue;
                                         kdfSeen.Add($"{kdfName} {counterKdfName}");
                                         foreach (int keySize in algo.AllowedKeySizes)
                                             foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
                                             {
+                                                if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
                                                 SyncEncryptionTests(new()
                                                 {
                                                     Algorithm = name,
@@ -232,7 +233,7 @@ namespace wan24.Crypto.Tests
                 foreach (string macName in MacHelper.Algorithms.Keys)
                     foreach (string counterMacName in MacHelper.Algorithms.Keys)
                     {
-                        if (macName == counterMacName) continue;
+                        if (MacHelper.Algorithms.Count != 1 && macName == counterMacName) continue;
                         if (macSeen.Contains($"{macName} {counterMacName}") || macSeen.Contains($"{counterMacName} {macName}")) continue;
                         macSeen.Add($"{macName} {counterMacName}");
                         asymmetricSeen.Clear();
@@ -244,19 +245,21 @@ namespace wan24.Crypto.Tests
                             {
                                 counterAlgo = AsymmetricHelper.GetAlgorithm(counterAsymmetricName);
                                 if (!counterAlgo.CanExchangeKey) continue;
-                                //if (asymmetricName == counterAsymmetricName) continue;
-                                if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}")) continue;
+                                if (AsymmetricHelper.Algorithms.Count != 1 && asymmetricName == counterAsymmetricName) continue;
+                                if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
+                                    continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
                                 kdfSeen.Clear();
                                 foreach (string kdfName in KdfHelper.Algorithms.Keys)
                                     foreach (string counterKdfName in KdfHelper.Algorithms.Keys)
                                     {
-                                        //if (kdfName == counterKdfName) continue;
+                                        if (KdfHelper.Algorithms.Count != 1 && kdfName == counterKdfName) continue;
                                         if (kdfSeen.Contains($"{kdfName} {counterKdfName}") || kdfSeen.Contains($"{counterKdfName} {kdfName}")) continue;
                                         kdfSeen.Add($"{kdfName} {counterKdfName}");
                                         foreach (int keySize in algo.AllowedKeySizes)
                                             foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
                                             {
+                                                if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
                                                 await AsyncEncryptionTests(new()
                                                 {
                                                     Algorithm = name,

@@ -141,7 +141,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw CryptographicException.From(ex);
+                throw await CryptographicException.FromAsync(ex);
             }
         }
 
@@ -179,7 +179,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                throw CryptographicException.From(ex);
+                throw await CryptographicException.FromAsync(ex);
             }
         }
     }
