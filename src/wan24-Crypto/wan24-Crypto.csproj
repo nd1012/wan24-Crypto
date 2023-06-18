@@ -24,12 +24,15 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <DebugType>embedded</DebugType>
     <EmbedAllSources>true</EmbedAllSources>
+    <Configurations>Debug;Release;Trunk</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Stream-Serializer-Extensions" Version="2.3.1" />
-    <PackageReference Include="wan24-Compression" Version="1.11.0" />
-    <PackageReference Include="wan24-Core" Version="1.18.0" />
+    <PackageReference Include="Stream-Serializer-Extensions" Version="2.3.1" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Compression" Version="1.11.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Core" Version="1.18.0" Condition="'$(Configuration)' != 'Trunk'" />
+	<ProjectReference Include="..\..\..\wan24-Core\src\Wan24-Core\Wan24-Core.csproj" Condition="'$(Configuration)' == 'Trunk'" />
+	<ProjectReference Include="..\..\..\wan24-Compression\src\wan24-Compression\wan24-Compression.csproj" Condition="'$(Configuration)' == 'Trunk'" />
   </ItemGroup>
 
   <ItemGroup>
