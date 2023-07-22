@@ -7,6 +7,11 @@ references:
   commentId: N:wan24.Crypto
   fullName: wan24.Crypto
   nameWithType: wan24.Crypto
+- uid: wan24.Crypto.
+  name: ''
+  href: api/wan24.Crypto..html
+  commentId: T:wan24.Crypto.
+  fullName: wan24.Crypto.
 - uid: wan24.Crypto.AsymmetricAlgorithmBase`2
   name: AsymmetricAlgorithmBase<tPublic, tPrivate>
   href: api/wan24.Crypto.AsymmetricAlgorithmBase-2.html
@@ -2749,6 +2754,25 @@ references:
   commentId: F:wan24.Crypto.BinaryPayloadContainer.VERSION
   fullName: wan24.Crypto.BinaryPayloadContainer.VERSION
   nameWithType: BinaryPayloadContainer.VERSION
+- uid: wan24.Crypto.Bootstrap
+  name: Bootstrap
+  href: api/wan24.Crypto.Bootstrap.html
+  commentId: T:wan24.Crypto.Bootstrap
+  fullName: wan24.Crypto.Bootstrap
+  nameWithType: Bootstrap
+- uid: wan24.Crypto.Bootstrap.Boot
+  name: Boot()
+  href: api/wan24.Crypto.Bootstrap.html#wan24_Crypto_Bootstrap_Boot
+  commentId: M:wan24.Crypto.Bootstrap.Boot
+  fullName: wan24.Crypto.Bootstrap.Boot()
+  nameWithType: Bootstrap.Boot()
+- uid: wan24.Crypto.Bootstrap.Boot*
+  name: Boot
+  href: api/wan24.Crypto.Bootstrap.html#wan24_Crypto_Bootstrap_Boot_
+  commentId: Overload:wan24.Crypto.Bootstrap.Boot
+  isSpec: "True"
+  fullName: wan24.Crypto.Bootstrap.Boot
+  nameWithType: Bootstrap.Boot
 - uid: wan24.Crypto.CryptoAlgorithmBase
   name: CryptoAlgorithmBase
   href: api/wan24.Crypto.CryptoAlgorithmBase.html
@@ -11963,6 +11987,76 @@ references:
   fullName.vb: wan24.Crypto.SignedPayload(Of T).VERSION
   nameWithType: SignedPayload<T>.VERSION
   nameWithType.vb: SignedPayload(Of T).VERSION
+- uid: wan24.Crypto.StreamSerializerExtensions
+  name: StreamSerializerExtensions
+  href: api/wan24.Crypto.StreamSerializerExtensions.html
+  commentId: T:wan24.Crypto.StreamSerializerExtensions
+  fullName: wan24.Crypto.StreamSerializerExtensions
+  nameWithType: StreamSerializerExtensions
+- uid: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken(Stream,System.Buffers.ArrayPool{System.Byte})
+  name: ReadTimeoutToken(Stream, ArrayPool<Byte>)
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutToken_Stream_System_Buffers_ArrayPool_System_Byte__
+  commentId: M:wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken(Stream,System.Buffers.ArrayPool{System.Byte})
+  name.vb: ReadTimeoutToken(Stream, ArrayPool(Of Byte))
+  fullName: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken(Stream, System.Buffers.ArrayPool<System.Byte>)
+  fullName.vb: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken(Stream, System.Buffers.ArrayPool(Of System.Byte))
+  nameWithType: StreamSerializerExtensions.ReadTimeoutToken(Stream, ArrayPool<Byte>)
+  nameWithType.vb: StreamSerializerExtensions.ReadTimeoutToken(Stream, ArrayPool(Of Byte))
+- uid: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken*
+  name: ReadTimeoutToken
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutToken_
+  commentId: Overload:wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutToken
+  nameWithType: StreamSerializerExtensions.ReadTimeoutToken
+- uid: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream,System.Buffers.ArrayPool{System.Byte},CancellationToken)
+  name: ReadTimeoutTokenAsync(Stream, ArrayPool<Byte>, CancellationToken)
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutTokenAsync_Stream_System_Buffers_ArrayPool_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream,System.Buffers.ArrayPool{System.Byte},CancellationToken)
+  name.vb: ReadTimeoutTokenAsync(Stream, ArrayPool(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, System.Buffers.ArrayPool<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, System.Buffers.ArrayPool(Of System.Byte), CancellationToken)
+  nameWithType: StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, ArrayPool<Byte>, CancellationToken)
+  nameWithType.vb: StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, ArrayPool(Of Byte), CancellationToken)
+- uid: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync*
+  name: ReadTimeoutTokenAsync
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutTokenAsync_
+  commentId: Overload:wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamSerializerExtensions.ReadTimeoutTokenAsync
+  nameWithType: StreamSerializerExtensions.ReadTimeoutTokenAsync
+- uid: wan24.Crypto.StreamSerializerExtensions.Write*
+  name: Write
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_Write_
+  commentId: Overload:wan24.Crypto.StreamSerializerExtensions.Write
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamSerializerExtensions.Write
+  nameWithType: StreamSerializerExtensions.Write
+- uid: wan24.Crypto.StreamSerializerExtensions.Write``1(``0,wan24.Crypto.TimeoutToken@,System.Byte[],System.Buffers.ArrayPool{System.Byte})
+  name: Write<T>(T, in TimeoutToken, Byte[], ArrayPool<Byte>)
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_Write__1___0_wan24_Crypto_TimeoutToken__System_Byte___System_Buffers_ArrayPool_System_Byte__
+  commentId: M:wan24.Crypto.StreamSerializerExtensions.Write``1(``0,wan24.Crypto.TimeoutToken@,System.Byte[],System.Buffers.ArrayPool{System.Byte})
+  name.vb: Write(Of T)(T, ByRef TimeoutToken, Byte(), ArrayPool(Of Byte))
+  fullName: wan24.Crypto.StreamSerializerExtensions.Write<T>(T, in wan24.Crypto.TimeoutToken, System.Byte[], System.Buffers.ArrayPool<System.Byte>)
+  fullName.vb: wan24.Crypto.StreamSerializerExtensions.Write(Of T)(T, ByRef wan24.Crypto.TimeoutToken, System.Byte(), System.Buffers.ArrayPool(Of System.Byte))
+  nameWithType: StreamSerializerExtensions.Write<T>(T, in TimeoutToken, Byte[], ArrayPool<Byte>)
+  nameWithType.vb: StreamSerializerExtensions.Write(Of T)(T, ByRef TimeoutToken, Byte(), ArrayPool(Of Byte))
+- uid: wan24.Crypto.StreamSerializerExtensions.WriteAsync*
+  name: WriteAsync
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_WriteAsync_
+  commentId: Overload:wan24.Crypto.StreamSerializerExtensions.WriteAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamSerializerExtensions.WriteAsync
+  nameWithType: StreamSerializerExtensions.WriteAsync
+- uid: wan24.Crypto.StreamSerializerExtensions.WriteAsync``1(``0,wan24.Crypto.TimeoutToken,System.Byte[],System.Buffers.ArrayPool{System.Byte},CancellationToken)
+  name: WriteAsync<T>(T, TimeoutToken, Byte[], ArrayPool<Byte>, CancellationToken)
+  href: api/wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_WriteAsync__1___0_wan24_Crypto_TimeoutToken_System_Byte___System_Buffers_ArrayPool_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.StreamSerializerExtensions.WriteAsync``1(``0,wan24.Crypto.TimeoutToken,System.Byte[],System.Buffers.ArrayPool{System.Byte},CancellationToken)
+  name.vb: WriteAsync(Of T)(T, TimeoutToken, Byte(), ArrayPool(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.StreamSerializerExtensions.WriteAsync<T>(T, wan24.Crypto.TimeoutToken, System.Byte[], System.Buffers.ArrayPool<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.StreamSerializerExtensions.WriteAsync(Of T)(T, wan24.Crypto.TimeoutToken, System.Byte(), System.Buffers.ArrayPool(Of System.Byte), CancellationToken)
+  nameWithType: StreamSerializerExtensions.WriteAsync<T>(T, TimeoutToken, Byte[], ArrayPool<Byte>, CancellationToken)
+  nameWithType.vb: StreamSerializerExtensions.WriteAsync(Of T)(T, TimeoutToken, Byte(), ArrayPool(Of Byte), CancellationToken)
 - uid: wan24.Crypto.X509Extensions
   name: X509Extensions
   href: api/wan24.Crypto.X509Extensions.html

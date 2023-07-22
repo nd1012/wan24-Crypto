@@ -420,6 +420,7 @@ are the official implementation IDs (not guaranteed to be complete):
 | AES256CBC | 0 | wan24-Crypto |
 | CHACHA20 | 1 | wan24-Crypto-BC |
 | XSALSA20 | 2 | wan24-Crypto-BC |
+| AES256CM | 3 | wan24-Crypto-BC |
 | **Hashing** |  |  |
 | MD5 | 0 | wan24-Crypto |
 | SHA1 | 1 | wan24-Crypto |
