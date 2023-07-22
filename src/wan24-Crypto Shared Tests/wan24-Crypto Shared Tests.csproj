@@ -8,7 +8,7 @@
     <AssemblyName>wan24CryptoSharedTests</AssemblyName>
     <PackageId>wan24-Crypto-Shared-Tests</PackageId>
     <Title>wan24-Crypto Shared Tests</Title>
-    <Version>1.8.0</Version>
+    <Version>1.9.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
     <Product>wan24-Crypto</Product>
@@ -22,10 +22,11 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <DebugType>embedded</DebugType>
     <EmbedAllSources>true</EmbedAllSources>
+    <Configurations>Debug;Release;Trunk</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSTest.TestFramework" Version="3.0.4" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
