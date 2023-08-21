@@ -17,6 +17,7 @@ Per default these cryptographic algorithms are implemented:
 |  | HMAC-SHA-384 |
 |  | HMAC-SHA-512 |
 | **Symmetric encryption** | AES-256-CBC (ISO10126 padding) |
+|  | XCrypt |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
 | **KDF key stretching** | PBKDF#2 (20,000 iterations per default) |
@@ -421,6 +422,7 @@ are the official implementation IDs (not guaranteed to be complete):
 | CHACHA20 | 1 | wan24-Crypto-BC |
 | XSALSA20 | 2 | wan24-Crypto-BC |
 | AES256CM | 3 | wan24-Crypto-BC |
+| XCrypt | 4 | wan24-Crypto-XCrypt |
 | **Hashing** |  |  |
 | MD5 | 0 | wan24-Crypto |
 | SHA1 | 1 | wan24-Crypto |
@@ -475,6 +477,21 @@ method will throw an exception.
 quantum safe algorithms, while currently no post quantum-safe asymmetric 
 algorithms are implemented in this main library (`wan24-Crypto-BC` does).
 
+## Symmetric key suite
+
+The symmetric key suite manages symmetric key bytes and provides a stretched 
+key, which can be used for any crypto task. The key suite can be initialized 
+with an identifier, which would change the key stretching method.
+
+Actually this isn't much, but it's just a part of a bigger symmetric 
+authentication application, which is being demonstrated in the tests.
+
+**CAUTION**: In order to make the signup/login of the tests "secure", it's 
+required to wrap the key exchange communication with a PFS protocol! The tests 
+are just a basic demonstration of the bigger picture. The are other details 
+also, which you may want to implement in order to get a complete and secure 
+signup/login application.
+
 ## Disclaimer
 
 `wan24-Crypto` and provided sub-libraries are provided "as is", without any 
@@ -483,4 +500,5 @@ warranty of any kind. Please read the license for the full disclaimer.
 This library uses the available .NET cryptographic algorithms and doesn't 
 implement any "selfmade" cryptographic algorithms. Extension libraries may add 
 other well known third party cryptographic algorithm libraries, like Bouncy 
-Castle.
+Castle. Also "selfmade" cryptographic algorithms may be implemented by 
+extensions.
