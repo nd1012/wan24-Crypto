@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -68,7 +69,7 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        public override IAsymmetricPublicKey GetCopy() => new AsymmetricEcDsaPublicKey((byte[])KeyData.Array.Clone());
+        public override IAsymmetricPublicKey GetCopy() => new AsymmetricEcDsaPublicKey(KeyData.Array.CloneArray());
 
         /// <inheritdoc/>
         public override bool ValidateSignatureRaw(byte[] signature, byte[] signedHash, bool throwOnError = true)

@@ -1,4 +1,6 @@
-﻿namespace wan24.Crypto
+﻿using wan24.Core;
+
+namespace wan24.Crypto
 {
     // Suite
     public partial class CryptoOptions
@@ -12,7 +14,7 @@
         {
             if (suite.KeyExchangeKey != null) SetKeys(suite.KeyExchangeKey, suite.Public.KeyExchangeKey);
             if (withCounterAlgorithms && suite.CounterKeyExchangeKey != null) SetCounterKeys(suite.CounterKeyExchangeKey, suite.Public.CounterKeyExchangeKey);
-            if (suite.KeyExchangeKey == null && suite.SymmetricKey != null) Password = (byte[])suite.SymmetricKey.Clone();
+            if (suite.KeyExchangeKey == null && suite.SymmetricKey != null) Password = suite.SymmetricKey.CloneArray();
         }
 
         /// <summary>
@@ -39,7 +41,7 @@
                 if (PrivateKey?.Algorithm.CanSign ?? false) res.SignatureKey = (ISignaturePrivateKey)PrivateKey.GetCopy();
                 if (CounterPrivateKey?.Algorithm.CanExchangeKey ?? false) res.CounterKeyExchangeKey = (IKeyExchangePrivateKey)CounterPrivateKey.GetCopy();
                 if (CounterPrivateKey?.Algorithm.CanSign ?? false) res.CounterSignatureKey = (ISignaturePrivateKey)CounterPrivateKey.GetCopy();
-                if (Password != null) res.SymmetricKey = (byte[])Password.Clone();
+                if (Password != null) res.SymmetricKey = Password.CloneArray();
                 return res;
             }
             catch

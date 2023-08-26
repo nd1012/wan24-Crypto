@@ -77,7 +77,7 @@ namespace wan24.Crypto
         /// Set the (new) symmetric key
         /// </summary>
         /// <param name="suite">Private key suite</param>
-        /// <param name="key">Symmetric key</param>
+        /// <param name="key">Symmetric key (if <see langword="null"/>, a 64 byte random key will be generated)</param>
         /// <returns>Private key suite</returns>
         public static PrivateKeySuite WithSymmetricKey(this PrivateKeySuite suite, byte[]? key = null)
         {

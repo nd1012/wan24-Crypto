@@ -28,7 +28,7 @@ namespace wan24.Crypto
         public abstract tPublic PublicKey { get; }
 
         /// <inheritdoc/>
-        public override byte[] ID => (byte[])PublicKey.ID.Clone();
+        public override byte[] ID => PublicKey.ID.CloneArray();
 
         /// <inheritdoc/>
         IAsymmetricPublicKey IAsymmetricPrivateKey.PublicKey => PublicKey;

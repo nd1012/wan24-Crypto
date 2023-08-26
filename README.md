@@ -393,6 +393,74 @@ signedPublicKey.Validate();
 As you can see, it's a really simple PKI implementation. It's good for 
 internal use, and if there won't be too many keys to manage.
 
+## PAKE
+
+`Pake` (see tests) can be used for implementing a password authenticated key 
+exchange, which should be wrapped with a PFS protocol in addition. PAKE uses 
+symmetric cryptographic algorithms only and uses random bytes for session key 
+generation. After signup, it can be seen as a symmetric PFS protocol, if the 
+random bytes are random for each session and never stored as communicated 
+between the peers.
+
+**NOTE**: For PAKE both peers need to use the same KDF and MAC options. If the 
+algorithm is going to be changed, a new signup has to be performed. In case a 
+peer changes its authentication (identifier or key), a new signup operation 
+has to be performed, too. A signup should always be performed using an 
+additional factor, which was communicated using another transport. An 
+authentication may use a second factor, while it's recommended to use at last 
+two factors for each operation.
+
+PAKE allows single directional authenticated messages and should be performed 
+bi-directional for a bi-directional communication, if possible.
+
+While a MAC can be computed fast, KDF needs time. During a PAKE handshake both 
+algorithms are used on both peers. But the server will perform KDF only after 
+a MAC was validated, which closes a door for DoS attacks by an anonymous 
+attacker.
+
+**NOTE**: Default options for PAKE can be overridden by setting a custom value 
+to `Pake.DefaultOptions`.
+
+## Notes
+
+Sometimes you'll read something like "will be disposed" or "will be cleared" 
+in the documentation. These are important diclaimers, which should be 
+respected in order to work safe with sensitive data.
+
+**WARNING**: The disclaimer may be missing in some places!
+
+### Will be disposed
+
+When noted to a given value, it'll be disposed after the desired operation, or 
+when the hosting object is being disposed.
+
+When noted to a returned value, and you don't want to use the value only for a 
+short term (during the hosted value wasn't disposed for sure), you should 
+consider to create a copy. The hosting object will dispose the value, when 
+it's being disposed.
+
+### Should be disposed
+
+This is a disclaimer that reminds you to dispose a returned value after use.
+
+### Will be cleared
+
+When noted to a given value, it'll be cleared after the desired operation, or 
+when the hosting object is being disposed/cleared.
+
+When noted to a returned value, and you don't want to use the value only for a 
+short term (during the hosted value wasn't disposed/cleared for sure), you 
+should consider to create a copy. The hosting object will clear the value, 
+when it's being disposed/cleared.
+
+### Should be cleared
+
+This is a disclaimer that reminds you to clear a returned value after use. For 
+this usually you can use the `Clear` or `Clean` (extension?) method of the 
+value. (In case of `Memory<T>` or `Span<T>` it's `Clean`, because `Clear` is 
+used to zero out the value already, while `Clean` will fill it with random 
+bytes before.)
+
 ## Algorithm IDs
 
 Internal each algorithm has an unique ID within a category:
@@ -422,7 +490,7 @@ are the official implementation IDs (not guaranteed to be complete):
 | CHACHA20 | 1 | wan24-Crypto-BC |
 | XSALSA20 | 2 | wan24-Crypto-BC |
 | AES256CM | 3 | wan24-Crypto-BC |
-| XCrypt | 4 | wan24-Crypto-XCrypt |
+| XCrypt | 4 | (none) |
 | **Hashing** |  |  |
 | MD5 | 0 | wan24-Crypto |
 | SHA1 | 1 | wan24-Crypto |
@@ -476,21 +544,6 @@ method will throw an exception.
 **NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
 quantum safe algorithms, while currently no post quantum-safe asymmetric 
 algorithms are implemented in this main library (`wan24-Crypto-BC` does).
-
-## Symmetric key suite
-
-The symmetric key suite manages symmetric key bytes and provides a stretched 
-key, which can be used for any crypto task. The key suite can be initialized 
-with an identifier, which would change the key stretching method.
-
-Actually this isn't much, but it's just a part of a bigger symmetric 
-authentication application, which is being demonstrated in the tests.
-
-**CAUTION**: In order to make the signup/login of the tests "secure", it's 
-required to wrap the key exchange communication with a PFS protocol! The tests 
-are just a basic demonstration of the bigger picture. The are other details 
-also, which you may want to implement in order to get a complete and secure 
-signup/login application.
 
 ## Disclaimer
 

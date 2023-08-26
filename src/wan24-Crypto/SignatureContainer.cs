@@ -55,7 +55,7 @@ namespace wan24.Crypto
             AsymmetricCounterAlgorithm = counterSigner?.Algorithm.Name;
             SignedDataHash = signedDataHash;
             Signer = signer.ID;
-            SignerPublicKeyData = (byte[])signer.PublicKey.KeyData.Array.Clone();
+            SignerPublicKeyData = signer.PublicKey.KeyData.Array.CloneArray();
             CounterSigner = counterSigner?.ID;
             CounterSignerPublicKeyData = (byte[]?)counterSigner?.PublicKey.KeyData.Array.Clone();
             Purpose = purpose;
@@ -141,7 +141,7 @@ namespace wan24.Crypto
             {
                 try
                 {
-                    IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey((byte[])SignerPublicKeyData.Clone());
+                    IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey(SignerPublicKeyData.CloneArray());
                     try
                     {
                         return (ISignaturePublicKey)res;
@@ -174,7 +174,7 @@ namespace wan24.Crypto
                 try
                 {
                     IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
-                        (byte[])(CounterSignerPublicKeyData?.Clone() ?? throw new InvalidDataException("No counter signer public key data"))
+                        (CounterSignerPublicKeyData?.CloneArray() ?? throw new InvalidDataException("No counter signer public key data"))
                         );
                     try
                     {
@@ -349,11 +349,11 @@ namespace wan24.Crypto
             HashAlgorithm = HashAlgorithm,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
             AsymmetricCounterAlgorithm = AsymmetricCounterAlgorithm,
-            SignedDataHash = (byte[])SignedDataHash.Clone(),
+            SignedDataHash = SignedDataHash.CloneArray(),
             Nonce = (byte[])(Nonce?.Clone() ?? throw new InvalidOperationException()),
-            Signature = (byte[])Signature.Clone(),
-            Signer = (byte[])Signer.Clone(),
-            SignerPublicKeyData = (byte[])SignerPublicKeyData.Clone(),
+            Signature = Signature.CloneArray(),
+            Signer = Signer.CloneArray(),
+            SignerPublicKeyData = SignerPublicKeyData.CloneArray(),
             CounterSignature = (byte[]?)CounterSignature?.Clone(),
             CounterSigner = (byte[]?)CounterSigner?.Clone(),
             CounterSignerPublicKeyData = (byte[]?)CounterSignerPublicKeyData?.Clone()

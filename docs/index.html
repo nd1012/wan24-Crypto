@@ -114,6 +114,10 @@ implemented cryptographic algorithm to be applied using a simple interface.</p>
 <td>AES-256-CBC (ISO10126 padding)</td>
 </tr>
 <tr>
+<td></td>
+<td>XCrypt</td>
+</tr>
+<tr>
 <td><strong>Asymmetric keys</strong></td>
 <td>Elliptic Curve Diffie Hellman</td>
 </tr>
@@ -707,6 +711,55 @@ signedPublicKey.Validate();
 </code></pre>
 <p>As you can see, it's a really simple PKI implementation. It's good for
 internal use, and if there won't be too many keys to manage.</p>
+<h2 id="pake">PAKE</h2>
+<p><code>Pake</code> (see tests) can be used for implementing a password authenticated key
+exchange, which should be wrapped with a PFS protocol in addition. PAKE uses
+symmetric cryptographic algorithms only and uses random bytes for session key
+generation. After signup, it can be seen as a symmetric PFS protocol, if the
+random bytes are random for each session and never stored as communicated
+between the peers.</p>
+<p><strong>NOTE</strong>: For PAKE both peers need to use the same KDF and MAC options. If the
+algorithm is going to be changed, a new signup has to be performed. In case a
+peer changes its authentication (identifier or key), a new signup operation
+has to be performed, too. A signup should always be performed using an
+additional factor, which was communicated using another transport. An
+authentication may use a second factor, while it's recommended to use at last
+two factors for each operation.</p>
+<p>PAKE allows single directional authenticated messages and should be performed
+bi-directional for a bi-directional communication, if possible.</p>
+<p>While a MAC can be computed fast, KDF needs time. During a PAKE handshake both
+algorithms are used on both peers. But the server will perform KDF only after
+a MAC was validated, which closes a door for DoS attacks by an anonymous
+attacker.</p>
+<p><strong>NOTE</strong>: Default options for PAKE can be overridden by setting a custom value
+to <code>Pake.DefaultOptions</code>.</p>
+<h2 id="notes">Notes</h2>
+<p>Sometimes you'll read something like &quot;will be disposed&quot; or &quot;will be cleared&quot;
+in the documentation. These are important diclaimers, which should be
+respected in order to work safe with sensitive data.</p>
+<p><strong>WARNING</strong>: The disclaimer may be missing in some places!</p>
+<h3 id="will-be-disposed">Will be disposed</h3>
+<p>When noted to a given value, it'll be disposed after the desired operation, or
+when the hosting object is being disposed.</p>
+<p>When noted to a returned value, and you don't want to use the value only for a
+short term (during the hosted value wasn't disposed for sure), you should
+consider to create a copy. The hosting object will dispose the value, when
+it's being disposed.</p>
+<h3 id="should-be-disposed">Should be disposed</h3>
+<p>This is a disclaimer that reminds you to dispose a returned value after use.</p>
+<h3 id="will-be-cleared">Will be cleared</h3>
+<p>When noted to a given value, it'll be cleared after the desired operation, or
+when the hosting object is being disposed/cleared.</p>
+<p>When noted to a returned value, and you don't want to use the value only for a
+short term (during the hosted value wasn't disposed/cleared for sure), you
+should consider to create a copy. The hosting object will clear the value,
+when it's being disposed/cleared.</p>
+<h3 id="should-be-cleared">Should be cleared</h3>
+<p>This is a disclaimer that reminds you to clear a returned value after use. For
+this usually you can use the <code>Clear</code> or <code>Clean</code> (extension?) method of the
+value. (In case of <code>Memory&lt;T&gt;</code> or <code>Span&lt;T&gt;</code> it's <code>Clean</code>, because <code>Clear</code> is
+used to zero out the value already, while <code>Clean</code> will fill it with random
+bytes before.)</p>
 <h2 id="algorithm-ids">Algorithm IDs</h2>
 <p>Internal each algorithm has an unique ID within a category:</p>
 <ul>
@@ -792,6 +845,11 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td>AES256CM</td>
 <td>3</td>
 <td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XCrypt</td>
+<td>4</td>
+<td>(none)</td>
 </tr>
 <tr>
 <td><strong>Hashing</strong></td>
@@ -900,7 +958,8 @@ warranty of any kind. Please read the license for the full disclaimer.</p>
 <p>This library uses the available .NET cryptographic algorithms and doesn't
 implement any &quot;selfmade&quot; cryptographic algorithms. Extension libraries may add
 other well known third party cryptographic algorithm libraries, like Bouncy
-Castle.</p>
+Castle. Also &quot;selfmade&quot; cryptographic algorithms may be implemented by
+extensions.</p>
 </article>
           </div>
           

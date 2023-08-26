@@ -90,7 +90,7 @@ namespace wan24.Crypto
                 byte[]? res = SymmetricKey == null
                     ? CipherData.Decrypt(AsymmetricKey!, Options)
                     : CipherData.Decrypt(SymmetricKey, Options);
-                if (StoreDecrypted) _Decrypted = (byte[])res.Clone();
+                if (StoreDecrypted) _Decrypted = res.CloneArray();
                 return res;
             }
             set

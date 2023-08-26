@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -94,8 +95,8 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
-                byte[] ked = (byte[])PublicKey.KeyData.Array.Clone();
-                return (DeriveKey((byte[])publicKey.KeyData.Array.Clone()), ked);
+                byte[] ked = PublicKey.KeyData.Array.CloneArray();
+                return (DeriveKey(publicKey.KeyData.Array.CloneArray()), ked);
             }
             catch (CryptographicException)
             {
@@ -114,7 +115,7 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
-                using AsymmetricEcDiffieHellmanPublicKey publicKey = new((byte[])keyExchangeData.Clone());
+                using AsymmetricEcDiffieHellmanPublicKey publicKey = new(keyExchangeData.CloneArray());
                 return PrivateKey.DeriveKeyMaterial(publicKey.PublicKey);
             }
             catch (CryptographicException)
