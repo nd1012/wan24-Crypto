@@ -97,7 +97,7 @@ namespace wan24.Crypto
         /// <param name="data">Serialized data</param>
         public TimeoutToken(in ReadOnlySpan<byte> data)
         {
-            ArgumentValidationHelper.EnsureValidArgument(nameof(data), STRUCT_LENGTH, int.MaxValue, data.Length, "Not enough data");
+            if (data.Length < STRUCT_LENGTH) throw new ArgumentOutOfRangeException(nameof(data));
             _Timeout = data.ToLong();
             _Payload = data[PAYLOAD_OFFSET..].ToULong();
             _MAC = data.Slice(MAC_OFFSET, MacHmacSha384Algorithm.MAC_LENGTH).ToArray();
@@ -111,13 +111,7 @@ namespace wan24.Crypto
         /// <param name="mac">MAC (won't be copied!)</param>
         private TimeoutToken(long timeout, ulong payload, byte[] mac)
         {
-            ArgumentValidationHelper.EnsureValidArgument(
-                nameof(mac), 
-                STRUCT_LENGTH, 
-                STRUCT_LENGTH, 
-                mac.Length, 
-                $"Invalid MAC length (expected {MacHmacSha384Algorithm.MAC_LENGTH} bytes, got {mac.Length} bytes)"
-                );
+            if (mac.Length != STRUCT_LENGTH) throw new ArgumentOutOfRangeException(nameof(mac));
             _Timeout = timeout;
             _Payload = payload;
             _MAC = mac;

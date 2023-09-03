@@ -10626,6 +10626,12 @@ references:
   commentId: T:wan24.Crypto.Pake
   fullName: wan24.Crypto.Pake
   nameWithType: Pake
+- uid: wan24.Crypto.Pake.#ctor(wan24.Crypto.CryptoOptions)
+  name: Pake(CryptoOptions)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake__ctor_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.Pake.#ctor(wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.Pake.Pake(wan24.Crypto.CryptoOptions)
+  nameWithType: Pake.Pake(CryptoOptions)
 - uid: wan24.Crypto.Pake.#ctor(wan24.Crypto.IPakeRecord,wan24.Crypto.CryptoOptions)
   name: Pake(IPakeRecord, CryptoOptions)
   href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake__ctor_wan24_Crypto_IPakeRecord_wan24_Crypto_CryptoOptions_

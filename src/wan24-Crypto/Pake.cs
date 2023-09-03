@@ -15,6 +15,19 @@ namespace wan24.Crypto
         public CryptoOptions Options { get; }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
+        public Pake(CryptoOptions? options = null) : base(asyncDisposing: false)
+        {
+            Key = null;
+            Options = options ?? DefaultOptions.Clone();
+            if (Options.KdfAlgorithm is null) Options.WithKdf();
+            if (Options.MacAlgorithm is null) Options.WithMac();
+            Identity = null;
+        }
+
+        /// <summary>
         /// Identifier (will be cleared!)
         /// </summary>
         public byte[] Identifier
