@@ -9,14 +9,14 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>wan24-Crypto</PackageId>
     <Title>wan24-Crypto</Title>
-    <Version>1.15.1</Version>
+    <Version>1.16.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
     <Product>wan24-Crypto</Product>
     <Description>Crypto helper</Description>
     <Copyright>(c)2023 Andreas Zimmermann, wan24.de</Copyright>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>crypto;cryptography;hybrid-cryptography</PackageTags>
+    <PackageTags>crypto;cryptography;hybrid-cryptography;pake</PackageTags>
     <PackageProjectUrl>https://github.com/nd1012/wan24-Crypto</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nd1012/wan24-Crypto</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -28,9 +28,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Stream-Serializer-Extensions" Version="2.5.0" Condition="'$(Configuration)' != 'Trunk'" />
-    <PackageReference Include="wan24-Compression" Version="1.13.1" Condition="'$(Configuration)' != 'Trunk'" />
-    <PackageReference Include="wan24-Core" Version="1.25.1" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="Stream-Serializer-Extensions" Version="2.6.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Compression" Version="1.14.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Core" Version="1.29.0" Condition="'$(Configuration)' != 'Trunk'" />
 	<ProjectReference Include="..\..\..\wan24-Core\src\Wan24-Core\Wan24-Core.csproj" Condition="'$(Configuration)' == 'Trunk'" />
 	<ProjectReference Include="..\..\..\wan24-Compression\src\wan24-Compression\wan24-Compression.csproj" Condition="'$(Configuration)' == 'Trunk'" />
   </ItemGroup>

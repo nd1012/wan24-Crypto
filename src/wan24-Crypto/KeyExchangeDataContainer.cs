@@ -37,8 +37,8 @@ namespace wan24.Crypto
         /// <returns>Clone</returns>
         public KeyExchangeDataContainer Clone() => new()
         {
-            KeyExchangeData = (byte[])KeyExchangeData.Clone(),
-            CounterKeyExchangeData = (byte[]?)CounterKeyExchangeData?.Clone()
+            KeyExchangeData = KeyExchangeData.CloneArray(),
+            CounterKeyExchangeData = CounterKeyExchangeData?.CloneArray()
         };
 
         /// <inheritdoc/>

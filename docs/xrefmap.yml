@@ -8924,6 +8924,51 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData
   nameWithType: IKeyExchangePrivateKey.GetKeyExchangeData
+- uid: wan24.Crypto.IPakeRecord
+  name: IPakeRecord
+  href: api/wan24.Crypto.IPakeRecord.html
+  commentId: T:wan24.Crypto.IPakeRecord
+  fullName: wan24.Crypto.IPakeRecord
+  nameWithType: IPakeRecord
+- uid: wan24.Crypto.IPakeRecord.Identifier
+  name: Identifier
+  href: api/wan24.Crypto.IPakeRecord.html#wan24_Crypto_IPakeRecord_Identifier
+  commentId: P:wan24.Crypto.IPakeRecord.Identifier
+  fullName: wan24.Crypto.IPakeRecord.Identifier
+  nameWithType: IPakeRecord.Identifier
+- uid: wan24.Crypto.IPakeRecord.Identifier*
+  name: Identifier
+  href: api/wan24.Crypto.IPakeRecord.html#wan24_Crypto_IPakeRecord_Identifier_
+  commentId: Overload:wan24.Crypto.IPakeRecord.Identifier
+  isSpec: "True"
+  fullName: wan24.Crypto.IPakeRecord.Identifier
+  nameWithType: IPakeRecord.Identifier
+- uid: wan24.Crypto.IPakeRecord.Secret
+  name: Secret
+  href: api/wan24.Crypto.IPakeRecord.html#wan24_Crypto_IPakeRecord_Secret
+  commentId: P:wan24.Crypto.IPakeRecord.Secret
+  fullName: wan24.Crypto.IPakeRecord.Secret
+  nameWithType: IPakeRecord.Secret
+- uid: wan24.Crypto.IPakeRecord.Secret*
+  name: Secret
+  href: api/wan24.Crypto.IPakeRecord.html#wan24_Crypto_IPakeRecord_Secret_
+  commentId: Overload:wan24.Crypto.IPakeRecord.Secret
+  isSpec: "True"
+  fullName: wan24.Crypto.IPakeRecord.Secret
+  nameWithType: IPakeRecord.Secret
+- uid: wan24.Crypto.IPakeRecord.SignatureKey
+  name: SignatureKey
+  href: api/wan24.Crypto.IPakeRecord.html#wan24_Crypto_IPakeRecord_SignatureKey
+  commentId: P:wan24.Crypto.IPakeRecord.SignatureKey
+  fullName: wan24.Crypto.IPakeRecord.SignatureKey
+  nameWithType: IPakeRecord.SignatureKey
+- uid: wan24.Crypto.IPakeRecord.SignatureKey*
+  name: SignatureKey
+  href: api/wan24.Crypto.IPakeRecord.html#wan24_Crypto_IPakeRecord_SignatureKey_
+  commentId: Overload:wan24.Crypto.IPakeRecord.SignatureKey
+  isSpec: "True"
+  fullName: wan24.Crypto.IPakeRecord.SignatureKey
+  nameWithType: IPakeRecord.SignatureKey
 - uid: wan24.Crypto.ISignaturePrivateKey
   name: ISignaturePrivateKey
   href: api/wan24.Crypto.ISignaturePrivateKey.html
@@ -10575,6 +10620,821 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.NetKeyExtensions.GetAsymmetricPublicKey
   nameWithType: NetKeyExtensions.GetAsymmetricPublicKey
+- uid: wan24.Crypto.Pake
+  name: Pake
+  href: api/wan24.Crypto.Pake.html
+  commentId: T:wan24.Crypto.Pake
+  fullName: wan24.Crypto.Pake
+  nameWithType: Pake
+- uid: wan24.Crypto.Pake.#ctor(wan24.Crypto.CryptoOptions)
+  name: Pake(CryptoOptions)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake__ctor_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.Pake.#ctor(wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.Pake.Pake(wan24.Crypto.CryptoOptions)
+  nameWithType: Pake.Pake(CryptoOptions)
+- uid: wan24.Crypto.Pake.#ctor(wan24.Crypto.IPakeRecord,wan24.Crypto.CryptoOptions)
+  name: Pake(IPakeRecord, CryptoOptions)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake__ctor_wan24_Crypto_IPakeRecord_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.Pake.#ctor(wan24.Crypto.IPakeRecord,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.Pake.Pake(wan24.Crypto.IPakeRecord, wan24.Crypto.CryptoOptions)
+  nameWithType: Pake.Pake(IPakeRecord, CryptoOptions)
+- uid: wan24.Crypto.Pake.#ctor(wan24.Crypto.SymmetricKeySuite,wan24.Crypto.CryptoOptions)
+  name: Pake(SymmetricKeySuite, CryptoOptions)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake__ctor_wan24_Crypto_SymmetricKeySuite_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.Pake.#ctor(wan24.Crypto.SymmetricKeySuite,wan24.Crypto.CryptoOptions)
+  fullName: wan24.Crypto.Pake.Pake(wan24.Crypto.SymmetricKeySuite, wan24.Crypto.CryptoOptions)
+  nameWithType: Pake.Pake(SymmetricKeySuite, CryptoOptions)
+- uid: wan24.Crypto.Pake.#ctor*
+  name: Pake
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake__ctor_
+  commentId: Overload:wan24.Crypto.Pake.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.Pake
+  nameWithType: Pake.Pake
+- uid: wan24.Crypto.Pake.ClearSessionKey
+  name: ClearSessionKey()
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_ClearSessionKey
+  commentId: M:wan24.Crypto.Pake.ClearSessionKey
+  fullName: wan24.Crypto.Pake.ClearSessionKey()
+  nameWithType: Pake.ClearSessionKey()
+- uid: wan24.Crypto.Pake.ClearSessionKey*
+  name: ClearSessionKey
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_ClearSessionKey_
+  commentId: Overload:wan24.Crypto.Pake.ClearSessionKey
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.ClearSessionKey
+  nameWithType: Pake.ClearSessionKey
+- uid: wan24.Crypto.Pake.CreateAuth
+  name: CreateAuth()
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateAuth
+  commentId: M:wan24.Crypto.Pake.CreateAuth
+  fullName: wan24.Crypto.Pake.CreateAuth()
+  nameWithType: Pake.CreateAuth()
+- uid: wan24.Crypto.Pake.CreateAuth*
+  name: CreateAuth
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateAuth_
+  commentId: Overload:wan24.Crypto.Pake.CreateAuth
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.CreateAuth
+  nameWithType: Pake.CreateAuth
+- uid: wan24.Crypto.Pake.CreateSignup
+  name: CreateSignup()
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateSignup
+  commentId: M:wan24.Crypto.Pake.CreateSignup
+  fullName: wan24.Crypto.Pake.CreateSignup()
+  nameWithType: Pake.CreateSignup()
+- uid: wan24.Crypto.Pake.CreateSignup*
+  name: CreateSignup
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateSignup_
+  commentId: Overload:wan24.Crypto.Pake.CreateSignup
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.CreateSignup
+  nameWithType: Pake.CreateSignup
+- uid: wan24.Crypto.Pake.DefaultOptions
+  name: DefaultOptions
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_DefaultOptions
+  commentId: P:wan24.Crypto.Pake.DefaultOptions
+  fullName: wan24.Crypto.Pake.DefaultOptions
+  nameWithType: Pake.DefaultOptions
+- uid: wan24.Crypto.Pake.DefaultOptions*
+  name: DefaultOptions
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_DefaultOptions_
+  commentId: Overload:wan24.Crypto.Pake.DefaultOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.DefaultOptions
+  nameWithType: Pake.DefaultOptions
+- uid: wan24.Crypto.Pake.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.Pake.Dispose(System.Boolean)
+  fullName: wan24.Crypto.Pake.Dispose(System.Boolean)
+  nameWithType: Pake.Dispose(Boolean)
+- uid: wan24.Crypto.Pake.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Dispose_
+  commentId: Overload:wan24.Crypto.Pake.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.Dispose
+  nameWithType: Pake.Dispose
+- uid: wan24.Crypto.Pake.HandleAuth(wan24.Crypto.PakeAuth)
+  name: HandleAuth(PakeAuth)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleAuth_wan24_Crypto_PakeAuth_
+  commentId: M:wan24.Crypto.Pake.HandleAuth(wan24.Crypto.PakeAuth)
+  fullName: wan24.Crypto.Pake.HandleAuth(wan24.Crypto.PakeAuth)
+  nameWithType: Pake.HandleAuth(PakeAuth)
+- uid: wan24.Crypto.Pake.HandleAuth*
+  name: HandleAuth
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleAuth_
+  commentId: Overload:wan24.Crypto.Pake.HandleAuth
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.HandleAuth
+  nameWithType: Pake.HandleAuth
+- uid: wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup)
+  name: HandleSignup(PakeSignup)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleSignup_wan24_Crypto_PakeSignup_
+  commentId: M:wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup)
+  fullName: wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup)
+  nameWithType: Pake.HandleSignup(PakeSignup)
+- uid: wan24.Crypto.Pake.HandleSignup*
+  name: HandleSignup
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleSignup_
+  commentId: Overload:wan24.Crypto.Pake.HandleSignup
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.HandleSignup
+  nameWithType: Pake.HandleSignup
+- uid: wan24.Crypto.Pake.HasSession
+  name: HasSession
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HasSession
+  commentId: P:wan24.Crypto.Pake.HasSession
+  fullName: wan24.Crypto.Pake.HasSession
+  nameWithType: Pake.HasSession
+- uid: wan24.Crypto.Pake.HasSession*
+  name: HasSession
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HasSession_
+  commentId: Overload:wan24.Crypto.Pake.HasSession
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.HasSession
+  nameWithType: Pake.HasSession
+- uid: wan24.Crypto.Pake.Identifier
+  name: Identifier
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Identifier
+  commentId: P:wan24.Crypto.Pake.Identifier
+  fullName: wan24.Crypto.Pake.Identifier
+  nameWithType: Pake.Identifier
+- uid: wan24.Crypto.Pake.Identifier*
+  name: Identifier
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Identifier_
+  commentId: Overload:wan24.Crypto.Pake.Identifier
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.Identifier
+  nameWithType: Pake.Identifier
+- uid: wan24.Crypto.Pake.Identity
+  name: Identity
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Identity
+  commentId: P:wan24.Crypto.Pake.Identity
+  fullName: wan24.Crypto.Pake.Identity
+  nameWithType: Pake.Identity
+- uid: wan24.Crypto.Pake.Identity*
+  name: Identity
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Identity_
+  commentId: Overload:wan24.Crypto.Pake.Identity
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.Identity
+  nameWithType: Pake.Identity
+- uid: wan24.Crypto.Pake.op_Addition(wan24.Crypto.Pake,wan24.Crypto.PakeAuth)
+  name: Addition(Pake, PakeAuth)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_op_Addition_wan24_Crypto_Pake_wan24_Crypto_PakeAuth_
+  commentId: M:wan24.Crypto.Pake.op_Addition(wan24.Crypto.Pake,wan24.Crypto.PakeAuth)
+  fullName: wan24.Crypto.Pake.Addition(wan24.Crypto.Pake, wan24.Crypto.PakeAuth)
+  nameWithType: Pake.Addition(Pake, PakeAuth)
+- uid: wan24.Crypto.Pake.op_Addition(wan24.Crypto.Pake,wan24.Crypto.PakeSignup)
+  name: Addition(Pake, PakeSignup)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_op_Addition_wan24_Crypto_Pake_wan24_Crypto_PakeSignup_
+  commentId: M:wan24.Crypto.Pake.op_Addition(wan24.Crypto.Pake,wan24.Crypto.PakeSignup)
+  fullName: wan24.Crypto.Pake.Addition(wan24.Crypto.Pake, wan24.Crypto.PakeSignup)
+  nameWithType: Pake.Addition(Pake, PakeSignup)
+- uid: wan24.Crypto.Pake.op_Addition*
+  name: Addition
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_op_Addition_
+  commentId: Overload:wan24.Crypto.Pake.op_Addition
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.Addition
+  nameWithType: Pake.Addition
+- uid: wan24.Crypto.Pake.op_Implicit(wan24.Crypto.Pake)~System.Boolean
+  name: Implicit(Pake to Boolean)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_op_Implicit_wan24_Crypto_Pake__System_Boolean
+  commentId: M:wan24.Crypto.Pake.op_Implicit(wan24.Crypto.Pake)~System.Boolean
+  name.vb: Widening(Pake to Boolean)
+  fullName: wan24.Crypto.Pake.Implicit(wan24.Crypto.Pake to System.Boolean)
+  fullName.vb: wan24.Crypto.Pake.Widening(wan24.Crypto.Pake to System.Boolean)
+  nameWithType: Pake.Implicit(Pake to Boolean)
+  nameWithType.vb: Pake.Widening(Pake to Boolean)
+- uid: wan24.Crypto.Pake.op_Implicit(wan24.Crypto.Pake)~System.Byte[]
+  name: Implicit(Pake to Byte[])
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_op_Implicit_wan24_Crypto_Pake__System_Byte__
+  commentId: M:wan24.Crypto.Pake.op_Implicit(wan24.Crypto.Pake)~System.Byte[]
+  name.vb: Widening(Pake to Byte())
+  fullName: wan24.Crypto.Pake.Implicit(wan24.Crypto.Pake to System.Byte[])
+  fullName.vb: wan24.Crypto.Pake.Widening(wan24.Crypto.Pake to System.Byte())
+  nameWithType: Pake.Implicit(Pake to Byte[])
+  nameWithType.vb: Pake.Widening(Pake to Byte())
+- uid: wan24.Crypto.Pake.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_op_Implicit_
+  commentId: Overload:wan24.Crypto.Pake.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.Pake.Implicit
+  fullName.vb: wan24.Crypto.Pake.Widening
+  nameWithType: Pake.Implicit
+  nameWithType.vb: Pake.Widening
+- uid: wan24.Crypto.Pake.Options
+  name: Options
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Options
+  commentId: P:wan24.Crypto.Pake.Options
+  fullName: wan24.Crypto.Pake.Options
+  nameWithType: Pake.Options
+- uid: wan24.Crypto.Pake.Options*
+  name: Options
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_Options_
+  commentId: Overload:wan24.Crypto.Pake.Options
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.Options
+  nameWithType: Pake.Options
+- uid: wan24.Crypto.Pake.SessionKey
+  name: SessionKey
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_SessionKey
+  commentId: P:wan24.Crypto.Pake.SessionKey
+  fullName: wan24.Crypto.Pake.SessionKey
+  nameWithType: Pake.SessionKey
+- uid: wan24.Crypto.Pake.SessionKey*
+  name: SessionKey
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_SessionKey_
+  commentId: Overload:wan24.Crypto.Pake.SessionKey
+  isSpec: "True"
+  fullName: wan24.Crypto.Pake.SessionKey
+  nameWithType: Pake.SessionKey
+- uid: wan24.Crypto.PakeAuth
+  name: PakeAuth
+  href: api/wan24.Crypto.PakeAuth.html
+  commentId: T:wan24.Crypto.PakeAuth
+  fullName: wan24.Crypto.PakeAuth
+  nameWithType: PakeAuth
+- uid: wan24.Crypto.PakeAuth.#ctor
+  name: PakeAuth()
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth__ctor
+  commentId: M:wan24.Crypto.PakeAuth.#ctor
+  fullName: wan24.Crypto.PakeAuth.PakeAuth()
+  nameWithType: PakeAuth.PakeAuth()
+- uid: wan24.Crypto.PakeAuth.#ctor*
+  name: PakeAuth
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth__ctor_
+  commentId: Overload:wan24.Crypto.PakeAuth.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.PakeAuth
+  nameWithType: PakeAuth.PakeAuth
+- uid: wan24.Crypto.PakeAuth.Deserialize(Stream,System.Int32)
+  name: Deserialize(Stream, Int32)
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Deserialize_Stream_System_Int32_
+  commentId: M:wan24.Crypto.PakeAuth.Deserialize(Stream,System.Int32)
+  fullName: wan24.Crypto.PakeAuth.Deserialize(Stream, System.Int32)
+  nameWithType: PakeAuth.Deserialize(Stream, Int32)
+- uid: wan24.Crypto.PakeAuth.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Deserialize_
+  commentId: Overload:wan24.Crypto.PakeAuth.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Deserialize
+  nameWithType: PakeAuth.Deserialize
+- uid: wan24.Crypto.PakeAuth.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_DeserializeAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.PakeAuth.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.PakeAuth.DeserializeAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: PakeAuth.DeserializeAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.PakeAuth.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.PakeAuth.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.DeserializeAsync
+  nameWithType: PakeAuth.DeserializeAsync
+- uid: wan24.Crypto.PakeAuth.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.PakeAuth.Dispose(System.Boolean)
+  fullName: wan24.Crypto.PakeAuth.Dispose(System.Boolean)
+  nameWithType: PakeAuth.Dispose(Boolean)
+- uid: wan24.Crypto.PakeAuth.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Dispose_
+  commentId: Overload:wan24.Crypto.PakeAuth.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Dispose
+  nameWithType: PakeAuth.Dispose
+- uid: wan24.Crypto.PakeAuth.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_DisposeCore
+  commentId: M:wan24.Crypto.PakeAuth.DisposeCore
+  fullName: wan24.Crypto.PakeAuth.DisposeCore()
+  nameWithType: PakeAuth.DisposeCore()
+- uid: wan24.Crypto.PakeAuth.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_DisposeCore_
+  commentId: Overload:wan24.Crypto.PakeAuth.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.DisposeCore
+  nameWithType: PakeAuth.DisposeCore
+- uid: wan24.Crypto.PakeAuth.Identifier
+  name: Identifier
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Identifier
+  commentId: P:wan24.Crypto.PakeAuth.Identifier
+  fullName: wan24.Crypto.PakeAuth.Identifier
+  nameWithType: PakeAuth.Identifier
+- uid: wan24.Crypto.PakeAuth.Identifier*
+  name: Identifier
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Identifier_
+  commentId: Overload:wan24.Crypto.PakeAuth.Identifier
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Identifier
+  nameWithType: PakeAuth.Identifier
+- uid: wan24.Crypto.PakeAuth.Key
+  name: Key
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Key
+  commentId: P:wan24.Crypto.PakeAuth.Key
+  fullName: wan24.Crypto.PakeAuth.Key
+  nameWithType: PakeAuth.Key
+- uid: wan24.Crypto.PakeAuth.Key*
+  name: Key
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Key_
+  commentId: Overload:wan24.Crypto.PakeAuth.Key
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Key
+  nameWithType: PakeAuth.Key
+- uid: wan24.Crypto.PakeAuth.op_Explicit(System.Byte[])~wan24.Crypto.PakeAuth
+  name: Explicit(Byte[] to PakeAuth)
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_op_Explicit_System_Byte____wan24_Crypto_PakeAuth
+  commentId: M:wan24.Crypto.PakeAuth.op_Explicit(System.Byte[])~wan24.Crypto.PakeAuth
+  name.vb: Narrowing(Byte() to PakeAuth)
+  fullName: wan24.Crypto.PakeAuth.Explicit(System.Byte[] to wan24.Crypto.PakeAuth)
+  fullName.vb: wan24.Crypto.PakeAuth.Narrowing(System.Byte() to wan24.Crypto.PakeAuth)
+  nameWithType: PakeAuth.Explicit(Byte[] to PakeAuth)
+  nameWithType.vb: PakeAuth.Narrowing(Byte() to PakeAuth)
+- uid: wan24.Crypto.PakeAuth.op_Explicit*
+  name: Explicit
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_op_Explicit_
+  commentId: Overload:wan24.Crypto.PakeAuth.op_Explicit
+  isSpec: "True"
+  name.vb: Narrowing
+  fullName: wan24.Crypto.PakeAuth.Explicit
+  fullName.vb: wan24.Crypto.PakeAuth.Narrowing
+  nameWithType: PakeAuth.Explicit
+  nameWithType.vb: PakeAuth.Narrowing
+- uid: wan24.Crypto.PakeAuth.op_Implicit(wan24.Crypto.PakeAuth)~System.Byte[]
+  name: Implicit(PakeAuth to Byte[])
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_op_Implicit_wan24_Crypto_PakeAuth__System_Byte__
+  commentId: M:wan24.Crypto.PakeAuth.op_Implicit(wan24.Crypto.PakeAuth)~System.Byte[]
+  name.vb: Widening(PakeAuth to Byte())
+  fullName: wan24.Crypto.PakeAuth.Implicit(wan24.Crypto.PakeAuth to System.Byte[])
+  fullName.vb: wan24.Crypto.PakeAuth.Widening(wan24.Crypto.PakeAuth to System.Byte())
+  nameWithType: PakeAuth.Implicit(PakeAuth to Byte[])
+  nameWithType.vb: PakeAuth.Widening(PakeAuth to Byte())
+- uid: wan24.Crypto.PakeAuth.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_op_Implicit_
+  commentId: Overload:wan24.Crypto.PakeAuth.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.PakeAuth.Implicit
+  fullName.vb: wan24.Crypto.PakeAuth.Widening
+  nameWithType: PakeAuth.Implicit
+  nameWithType.vb: PakeAuth.Widening
+- uid: wan24.Crypto.PakeAuth.Random
+  name: Random
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Random
+  commentId: P:wan24.Crypto.PakeAuth.Random
+  fullName: wan24.Crypto.PakeAuth.Random
+  nameWithType: PakeAuth.Random
+- uid: wan24.Crypto.PakeAuth.Random*
+  name: Random
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Random_
+  commentId: Overload:wan24.Crypto.PakeAuth.Random
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Random
+  nameWithType: PakeAuth.Random
+- uid: wan24.Crypto.PakeAuth.Serialize(Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Serialize_Stream_
+  commentId: M:wan24.Crypto.PakeAuth.Serialize(Stream)
+  fullName: wan24.Crypto.PakeAuth.Serialize(Stream)
+  nameWithType: PakeAuth.Serialize(Stream)
+- uid: wan24.Crypto.PakeAuth.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Serialize_
+  commentId: Overload:wan24.Crypto.PakeAuth.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Serialize
+  nameWithType: PakeAuth.Serialize
+- uid: wan24.Crypto.PakeAuth.SerializeAsync(Stream,CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_SerializeAsync_Stream_CancellationToken_
+  commentId: M:wan24.Crypto.PakeAuth.SerializeAsync(Stream,CancellationToken)
+  fullName: wan24.Crypto.PakeAuth.SerializeAsync(Stream, CancellationToken)
+  nameWithType: PakeAuth.SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.PakeAuth.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_SerializeAsync_
+  commentId: Overload:wan24.Crypto.PakeAuth.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.SerializeAsync
+  nameWithType: PakeAuth.SerializeAsync
+- uid: wan24.Crypto.PakeAuth.Signature
+  name: Signature
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Signature
+  commentId: P:wan24.Crypto.PakeAuth.Signature
+  fullName: wan24.Crypto.PakeAuth.Signature
+  nameWithType: PakeAuth.Signature
+- uid: wan24.Crypto.PakeAuth.Signature*
+  name: Signature
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_Signature_
+  commentId: Overload:wan24.Crypto.PakeAuth.Signature
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeAuth.Signature
+  nameWithType: PakeAuth.Signature
+- uid: wan24.Crypto.PakeAuth.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.PakeAuth.html#wan24_Crypto_PakeAuth_VERSION
+  commentId: F:wan24.Crypto.PakeAuth.VERSION
+  fullName: wan24.Crypto.PakeAuth.VERSION
+  nameWithType: PakeAuth.VERSION
+- uid: wan24.Crypto.PakeRecord
+  name: PakeRecord
+  href: api/wan24.Crypto.PakeRecord.html
+  commentId: T:wan24.Crypto.PakeRecord
+  fullName: wan24.Crypto.PakeRecord
+  nameWithType: PakeRecord
+- uid: wan24.Crypto.PakeRecord.#ctor
+  name: PakeRecord()
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord__ctor
+  commentId: M:wan24.Crypto.PakeRecord.#ctor
+  fullName: wan24.Crypto.PakeRecord.PakeRecord()
+  nameWithType: PakeRecord.PakeRecord()
+- uid: wan24.Crypto.PakeRecord.#ctor(System.Byte[],System.Byte[],System.Byte[])
+  name: PakeRecord(Byte[], Byte[], Byte[])
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord__ctor_System_Byte___System_Byte___System_Byte___
+  commentId: M:wan24.Crypto.PakeRecord.#ctor(System.Byte[],System.Byte[],System.Byte[])
+  name.vb: PakeRecord(Byte(), Byte(), Byte())
+  fullName: wan24.Crypto.PakeRecord.PakeRecord(System.Byte[], System.Byte[], System.Byte[])
+  fullName.vb: wan24.Crypto.PakeRecord.PakeRecord(System.Byte(), System.Byte(), System.Byte())
+  nameWithType: PakeRecord.PakeRecord(Byte[], Byte[], Byte[])
+  nameWithType.vb: PakeRecord.PakeRecord(Byte(), Byte(), Byte())
+- uid: wan24.Crypto.PakeRecord.#ctor(wan24.Crypto.IPakeRecord)
+  name: PakeRecord(IPakeRecord)
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord__ctor_wan24_Crypto_IPakeRecord_
+  commentId: M:wan24.Crypto.PakeRecord.#ctor(wan24.Crypto.IPakeRecord)
+  fullName: wan24.Crypto.PakeRecord.PakeRecord(wan24.Crypto.IPakeRecord)
+  nameWithType: PakeRecord.PakeRecord(IPakeRecord)
+- uid: wan24.Crypto.PakeRecord.#ctor*
+  name: PakeRecord
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord__ctor_
+  commentId: Overload:wan24.Crypto.PakeRecord.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.PakeRecord
+  nameWithType: PakeRecord.PakeRecord
+- uid: wan24.Crypto.PakeRecord.Clear
+  name: Clear()
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Clear
+  commentId: M:wan24.Crypto.PakeRecord.Clear
+  fullName: wan24.Crypto.PakeRecord.Clear()
+  nameWithType: PakeRecord.Clear()
+- uid: wan24.Crypto.PakeRecord.Clear*
+  name: Clear
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Clear_
+  commentId: Overload:wan24.Crypto.PakeRecord.Clear
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.Clear
+  nameWithType: PakeRecord.Clear
+- uid: wan24.Crypto.PakeRecord.Deserialize(Stream,System.Int32)
+  name: Deserialize(Stream, Int32)
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Deserialize_Stream_System_Int32_
+  commentId: M:wan24.Crypto.PakeRecord.Deserialize(Stream,System.Int32)
+  fullName: wan24.Crypto.PakeRecord.Deserialize(Stream, System.Int32)
+  nameWithType: PakeRecord.Deserialize(Stream, Int32)
+- uid: wan24.Crypto.PakeRecord.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Deserialize_
+  commentId: Overload:wan24.Crypto.PakeRecord.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.Deserialize
+  nameWithType: PakeRecord.Deserialize
+- uid: wan24.Crypto.PakeRecord.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_DeserializeAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRecord.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.PakeRecord.DeserializeAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: PakeRecord.DeserializeAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.PakeRecord.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.PakeRecord.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.DeserializeAsync
+  nameWithType: PakeRecord.DeserializeAsync
+- uid: wan24.Crypto.PakeRecord.Identifier
+  name: Identifier
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Identifier
+  commentId: P:wan24.Crypto.PakeRecord.Identifier
+  fullName: wan24.Crypto.PakeRecord.Identifier
+  nameWithType: PakeRecord.Identifier
+- uid: wan24.Crypto.PakeRecord.Identifier*
+  name: Identifier
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Identifier_
+  commentId: Overload:wan24.Crypto.PakeRecord.Identifier
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.Identifier
+  nameWithType: PakeRecord.Identifier
+- uid: wan24.Crypto.PakeRecord.op_Explicit(System.Byte[])~wan24.Crypto.PakeRecord
+  name: Explicit(Byte[] to PakeRecord)
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_op_Explicit_System_Byte____wan24_Crypto_PakeRecord
+  commentId: M:wan24.Crypto.PakeRecord.op_Explicit(System.Byte[])~wan24.Crypto.PakeRecord
+  name.vb: Narrowing(Byte() to PakeRecord)
+  fullName: wan24.Crypto.PakeRecord.Explicit(System.Byte[] to wan24.Crypto.PakeRecord)
+  fullName.vb: wan24.Crypto.PakeRecord.Narrowing(System.Byte() to wan24.Crypto.PakeRecord)
+  nameWithType: PakeRecord.Explicit(Byte[] to PakeRecord)
+  nameWithType.vb: PakeRecord.Narrowing(Byte() to PakeRecord)
+- uid: wan24.Crypto.PakeRecord.op_Explicit*
+  name: Explicit
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_op_Explicit_
+  commentId: Overload:wan24.Crypto.PakeRecord.op_Explicit
+  isSpec: "True"
+  name.vb: Narrowing
+  fullName: wan24.Crypto.PakeRecord.Explicit
+  fullName.vb: wan24.Crypto.PakeRecord.Narrowing
+  nameWithType: PakeRecord.Explicit
+  nameWithType.vb: PakeRecord.Narrowing
+- uid: wan24.Crypto.PakeRecord.op_Implicit(wan24.Crypto.PakeRecord)~System.Byte[]
+  name: Implicit(PakeRecord to Byte[])
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_op_Implicit_wan24_Crypto_PakeRecord__System_Byte__
+  commentId: M:wan24.Crypto.PakeRecord.op_Implicit(wan24.Crypto.PakeRecord)~System.Byte[]
+  name.vb: Widening(PakeRecord to Byte())
+  fullName: wan24.Crypto.PakeRecord.Implicit(wan24.Crypto.PakeRecord to System.Byte[])
+  fullName.vb: wan24.Crypto.PakeRecord.Widening(wan24.Crypto.PakeRecord to System.Byte())
+  nameWithType: PakeRecord.Implicit(PakeRecord to Byte[])
+  nameWithType.vb: PakeRecord.Widening(PakeRecord to Byte())
+- uid: wan24.Crypto.PakeRecord.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_op_Implicit_
+  commentId: Overload:wan24.Crypto.PakeRecord.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.PakeRecord.Implicit
+  fullName.vb: wan24.Crypto.PakeRecord.Widening
+  nameWithType: PakeRecord.Implicit
+  nameWithType.vb: PakeRecord.Widening
+- uid: wan24.Crypto.PakeRecord.Secret
+  name: Secret
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Secret
+  commentId: P:wan24.Crypto.PakeRecord.Secret
+  fullName: wan24.Crypto.PakeRecord.Secret
+  nameWithType: PakeRecord.Secret
+- uid: wan24.Crypto.PakeRecord.Secret*
+  name: Secret
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Secret_
+  commentId: Overload:wan24.Crypto.PakeRecord.Secret
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.Secret
+  nameWithType: PakeRecord.Secret
+- uid: wan24.Crypto.PakeRecord.Serialize(Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Serialize_Stream_
+  commentId: M:wan24.Crypto.PakeRecord.Serialize(Stream)
+  fullName: wan24.Crypto.PakeRecord.Serialize(Stream)
+  nameWithType: PakeRecord.Serialize(Stream)
+- uid: wan24.Crypto.PakeRecord.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_Serialize_
+  commentId: Overload:wan24.Crypto.PakeRecord.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.Serialize
+  nameWithType: PakeRecord.Serialize
+- uid: wan24.Crypto.PakeRecord.SerializeAsync(Stream,CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_SerializeAsync_Stream_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRecord.SerializeAsync(Stream,CancellationToken)
+  fullName: wan24.Crypto.PakeRecord.SerializeAsync(Stream, CancellationToken)
+  nameWithType: PakeRecord.SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.PakeRecord.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_SerializeAsync_
+  commentId: Overload:wan24.Crypto.PakeRecord.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.SerializeAsync
+  nameWithType: PakeRecord.SerializeAsync
+- uid: wan24.Crypto.PakeRecord.SignatureKey
+  name: SignatureKey
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_SignatureKey
+  commentId: P:wan24.Crypto.PakeRecord.SignatureKey
+  fullName: wan24.Crypto.PakeRecord.SignatureKey
+  nameWithType: PakeRecord.SignatureKey
+- uid: wan24.Crypto.PakeRecord.SignatureKey*
+  name: SignatureKey
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_SignatureKey_
+  commentId: Overload:wan24.Crypto.PakeRecord.SignatureKey
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRecord.SignatureKey
+  nameWithType: PakeRecord.SignatureKey
+- uid: wan24.Crypto.PakeRecord.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.PakeRecord.html#wan24_Crypto_PakeRecord_VERSION
+  commentId: F:wan24.Crypto.PakeRecord.VERSION
+  fullName: wan24.Crypto.PakeRecord.VERSION
+  nameWithType: PakeRecord.VERSION
+- uid: wan24.Crypto.PakeSignup
+  name: PakeSignup
+  href: api/wan24.Crypto.PakeSignup.html
+  commentId: T:wan24.Crypto.PakeSignup
+  fullName: wan24.Crypto.PakeSignup
+  nameWithType: PakeSignup
+- uid: wan24.Crypto.PakeSignup.#ctor
+  name: PakeSignup()
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup__ctor
+  commentId: M:wan24.Crypto.PakeSignup.#ctor
+  fullName: wan24.Crypto.PakeSignup.PakeSignup()
+  nameWithType: PakeSignup.PakeSignup()
+- uid: wan24.Crypto.PakeSignup.#ctor*
+  name: PakeSignup
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup__ctor_
+  commentId: Overload:wan24.Crypto.PakeSignup.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.PakeSignup
+  nameWithType: PakeSignup.PakeSignup
+- uid: wan24.Crypto.PakeSignup.Deserialize(Stream,System.Int32)
+  name: Deserialize(Stream, Int32)
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Deserialize_Stream_System_Int32_
+  commentId: M:wan24.Crypto.PakeSignup.Deserialize(Stream,System.Int32)
+  fullName: wan24.Crypto.PakeSignup.Deserialize(Stream, System.Int32)
+  nameWithType: PakeSignup.Deserialize(Stream, Int32)
+- uid: wan24.Crypto.PakeSignup.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Deserialize_
+  commentId: Overload:wan24.Crypto.PakeSignup.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Deserialize
+  nameWithType: PakeSignup.Deserialize
+- uid: wan24.Crypto.PakeSignup.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  name: DeserializeAsync(Stream, Int32, CancellationToken)
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_DeserializeAsync_Stream_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.PakeSignup.DeserializeAsync(Stream,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.PakeSignup.DeserializeAsync(Stream, System.Int32, CancellationToken)
+  nameWithType: PakeSignup.DeserializeAsync(Stream, Int32, CancellationToken)
+- uid: wan24.Crypto.PakeSignup.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.PakeSignup.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.DeserializeAsync
+  nameWithType: PakeSignup.DeserializeAsync
+- uid: wan24.Crypto.PakeSignup.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.PakeSignup.Dispose(System.Boolean)
+  fullName: wan24.Crypto.PakeSignup.Dispose(System.Boolean)
+  nameWithType: PakeSignup.Dispose(Boolean)
+- uid: wan24.Crypto.PakeSignup.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Dispose_
+  commentId: Overload:wan24.Crypto.PakeSignup.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Dispose
+  nameWithType: PakeSignup.Dispose
+- uid: wan24.Crypto.PakeSignup.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_DisposeCore
+  commentId: M:wan24.Crypto.PakeSignup.DisposeCore
+  fullName: wan24.Crypto.PakeSignup.DisposeCore()
+  nameWithType: PakeSignup.DisposeCore()
+- uid: wan24.Crypto.PakeSignup.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_DisposeCore_
+  commentId: Overload:wan24.Crypto.PakeSignup.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.DisposeCore
+  nameWithType: PakeSignup.DisposeCore
+- uid: wan24.Crypto.PakeSignup.Identifier
+  name: Identifier
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Identifier
+  commentId: P:wan24.Crypto.PakeSignup.Identifier
+  fullName: wan24.Crypto.PakeSignup.Identifier
+  nameWithType: PakeSignup.Identifier
+- uid: wan24.Crypto.PakeSignup.Identifier*
+  name: Identifier
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Identifier_
+  commentId: Overload:wan24.Crypto.PakeSignup.Identifier
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Identifier
+  nameWithType: PakeSignup.Identifier
+- uid: wan24.Crypto.PakeSignup.Key
+  name: Key
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Key
+  commentId: P:wan24.Crypto.PakeSignup.Key
+  fullName: wan24.Crypto.PakeSignup.Key
+  nameWithType: PakeSignup.Key
+- uid: wan24.Crypto.PakeSignup.Key*
+  name: Key
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Key_
+  commentId: Overload:wan24.Crypto.PakeSignup.Key
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Key
+  nameWithType: PakeSignup.Key
+- uid: wan24.Crypto.PakeSignup.op_Explicit(System.Byte[])~wan24.Crypto.PakeSignup
+  name: Explicit(Byte[] to PakeSignup)
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_op_Explicit_System_Byte____wan24_Crypto_PakeSignup
+  commentId: M:wan24.Crypto.PakeSignup.op_Explicit(System.Byte[])~wan24.Crypto.PakeSignup
+  name.vb: Narrowing(Byte() to PakeSignup)
+  fullName: wan24.Crypto.PakeSignup.Explicit(System.Byte[] to wan24.Crypto.PakeSignup)
+  fullName.vb: wan24.Crypto.PakeSignup.Narrowing(System.Byte() to wan24.Crypto.PakeSignup)
+  nameWithType: PakeSignup.Explicit(Byte[] to PakeSignup)
+  nameWithType.vb: PakeSignup.Narrowing(Byte() to PakeSignup)
+- uid: wan24.Crypto.PakeSignup.op_Explicit*
+  name: Explicit
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_op_Explicit_
+  commentId: Overload:wan24.Crypto.PakeSignup.op_Explicit
+  isSpec: "True"
+  name.vb: Narrowing
+  fullName: wan24.Crypto.PakeSignup.Explicit
+  fullName.vb: wan24.Crypto.PakeSignup.Narrowing
+  nameWithType: PakeSignup.Explicit
+  nameWithType.vb: PakeSignup.Narrowing
+- uid: wan24.Crypto.PakeSignup.op_Implicit(wan24.Crypto.PakeSignup)~System.Byte[]
+  name: Implicit(PakeSignup to Byte[])
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_op_Implicit_wan24_Crypto_PakeSignup__System_Byte__
+  commentId: M:wan24.Crypto.PakeSignup.op_Implicit(wan24.Crypto.PakeSignup)~System.Byte[]
+  name.vb: Widening(PakeSignup to Byte())
+  fullName: wan24.Crypto.PakeSignup.Implicit(wan24.Crypto.PakeSignup to System.Byte[])
+  fullName.vb: wan24.Crypto.PakeSignup.Widening(wan24.Crypto.PakeSignup to System.Byte())
+  nameWithType: PakeSignup.Implicit(PakeSignup to Byte[])
+  nameWithType.vb: PakeSignup.Widening(PakeSignup to Byte())
+- uid: wan24.Crypto.PakeSignup.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_op_Implicit_
+  commentId: Overload:wan24.Crypto.PakeSignup.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.PakeSignup.Implicit
+  fullName.vb: wan24.Crypto.PakeSignup.Widening
+  nameWithType: PakeSignup.Implicit
+  nameWithType.vb: PakeSignup.Widening
+- uid: wan24.Crypto.PakeSignup.Random
+  name: Random
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Random
+  commentId: P:wan24.Crypto.PakeSignup.Random
+  fullName: wan24.Crypto.PakeSignup.Random
+  nameWithType: PakeSignup.Random
+- uid: wan24.Crypto.PakeSignup.Random*
+  name: Random
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Random_
+  commentId: Overload:wan24.Crypto.PakeSignup.Random
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Random
+  nameWithType: PakeSignup.Random
+- uid: wan24.Crypto.PakeSignup.Secret
+  name: Secret
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Secret
+  commentId: P:wan24.Crypto.PakeSignup.Secret
+  fullName: wan24.Crypto.PakeSignup.Secret
+  nameWithType: PakeSignup.Secret
+- uid: wan24.Crypto.PakeSignup.Secret*
+  name: Secret
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Secret_
+  commentId: Overload:wan24.Crypto.PakeSignup.Secret
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Secret
+  nameWithType: PakeSignup.Secret
+- uid: wan24.Crypto.PakeSignup.Serialize(Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Serialize_Stream_
+  commentId: M:wan24.Crypto.PakeSignup.Serialize(Stream)
+  fullName: wan24.Crypto.PakeSignup.Serialize(Stream)
+  nameWithType: PakeSignup.Serialize(Stream)
+- uid: wan24.Crypto.PakeSignup.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Serialize_
+  commentId: Overload:wan24.Crypto.PakeSignup.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Serialize
+  nameWithType: PakeSignup.Serialize
+- uid: wan24.Crypto.PakeSignup.SerializeAsync(Stream,CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_SerializeAsync_Stream_CancellationToken_
+  commentId: M:wan24.Crypto.PakeSignup.SerializeAsync(Stream,CancellationToken)
+  fullName: wan24.Crypto.PakeSignup.SerializeAsync(Stream, CancellationToken)
+  nameWithType: PakeSignup.SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.PakeSignup.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_SerializeAsync_
+  commentId: Overload:wan24.Crypto.PakeSignup.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.SerializeAsync
+  nameWithType: PakeSignup.SerializeAsync
+- uid: wan24.Crypto.PakeSignup.Signature
+  name: Signature
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Signature
+  commentId: P:wan24.Crypto.PakeSignup.Signature
+  fullName: wan24.Crypto.PakeSignup.Signature
+  nameWithType: PakeSignup.Signature
+- uid: wan24.Crypto.PakeSignup.Signature*
+  name: Signature
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_Signature_
+  commentId: Overload:wan24.Crypto.PakeSignup.Signature
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeSignup.Signature
+  nameWithType: PakeSignup.Signature
+- uid: wan24.Crypto.PakeSignup.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.PakeSignup.html#wan24_Crypto_PakeSignup_VERSION
+  commentId: F:wan24.Crypto.PakeSignup.VERSION
+  fullName: wan24.Crypto.PakeSignup.VERSION
+  nameWithType: PakeSignup.VERSION
 - uid: wan24.Crypto.PrivateKeySuite
   name: PrivateKeySuite
   href: api/wan24.Crypto.PrivateKeySuite.html
@@ -12057,6 +12917,118 @@ references:
   fullName.vb: wan24.Crypto.StreamSerializerExtensions.WriteAsync(Of T)(T, wan24.Crypto.TimeoutToken, System.Byte(), System.Buffers.ArrayPool(Of System.Byte), CancellationToken)
   nameWithType: StreamSerializerExtensions.WriteAsync<T>(T, TimeoutToken, Byte[], ArrayPool<Byte>, CancellationToken)
   nameWithType.vb: StreamSerializerExtensions.WriteAsync(Of T)(T, TimeoutToken, Byte(), ArrayPool(Of Byte), CancellationToken)
+- uid: wan24.Crypto.SymmetricKeySuite
+  name: SymmetricKeySuite
+  href: api/wan24.Crypto.SymmetricKeySuite.html
+  commentId: T:wan24.Crypto.SymmetricKeySuite
+  fullName: wan24.Crypto.SymmetricKeySuite
+  nameWithType: SymmetricKeySuite
+- uid: wan24.Crypto.SymmetricKeySuite.#ctor(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name: SymmetricKeySuite(Byte[], Byte[], CryptoOptions)
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite__ctor_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.SymmetricKeySuite.#ctor(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: SymmetricKeySuite(Byte(), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.SymmetricKeySuite.SymmetricKeySuite(System.Byte[], System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.SymmetricKeySuite.SymmetricKeySuite(System.Byte(), System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: SymmetricKeySuite.SymmetricKeySuite(Byte[], Byte[], CryptoOptions)
+  nameWithType.vb: SymmetricKeySuite.SymmetricKeySuite(Byte(), Byte(), CryptoOptions)
+- uid: wan24.Crypto.SymmetricKeySuite.#ctor(wan24.Crypto.CryptoOptions,System.Boolean)
+  name: SymmetricKeySuite(CryptoOptions, Boolean)
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite__ctor_wan24_Crypto_CryptoOptions_System_Boolean_
+  commentId: M:wan24.Crypto.SymmetricKeySuite.#ctor(wan24.Crypto.CryptoOptions,System.Boolean)
+  fullName: wan24.Crypto.SymmetricKeySuite.SymmetricKeySuite(wan24.Crypto.CryptoOptions, System.Boolean)
+  nameWithType: SymmetricKeySuite.SymmetricKeySuite(CryptoOptions, Boolean)
+- uid: wan24.Crypto.SymmetricKeySuite.#ctor*
+  name: SymmetricKeySuite
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite__ctor_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.SymmetricKeySuite
+  nameWithType: SymmetricKeySuite.SymmetricKeySuite
+- uid: wan24.Crypto.SymmetricKeySuite.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.SymmetricKeySuite.Dispose(System.Boolean)
+  fullName: wan24.Crypto.SymmetricKeySuite.Dispose(System.Boolean)
+  nameWithType: SymmetricKeySuite.Dispose(Boolean)
+- uid: wan24.Crypto.SymmetricKeySuite.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_Dispose_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.Dispose
+  nameWithType: SymmetricKeySuite.Dispose
+- uid: wan24.Crypto.SymmetricKeySuite.ExpandedKey
+  name: ExpandedKey
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_ExpandedKey
+  commentId: P:wan24.Crypto.SymmetricKeySuite.ExpandedKey
+  fullName: wan24.Crypto.SymmetricKeySuite.ExpandedKey
+  nameWithType: SymmetricKeySuite.ExpandedKey
+- uid: wan24.Crypto.SymmetricKeySuite.ExpandedKey*
+  name: ExpandedKey
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_ExpandedKey_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.ExpandedKey
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.ExpandedKey
+  nameWithType: SymmetricKeySuite.ExpandedKey
+- uid: wan24.Crypto.SymmetricKeySuite.Identifier
+  name: Identifier
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_Identifier
+  commentId: P:wan24.Crypto.SymmetricKeySuite.Identifier
+  fullName: wan24.Crypto.SymmetricKeySuite.Identifier
+  nameWithType: SymmetricKeySuite.Identifier
+- uid: wan24.Crypto.SymmetricKeySuite.Identifier*
+  name: Identifier
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_Identifier_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.Identifier
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.Identifier
+  nameWithType: SymmetricKeySuite.Identifier
+- uid: wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier(System.Byte[],System.Byte[])
+  name: InitKeyAndIdentifier(Byte[], Byte[])
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_InitKeyAndIdentifier_System_Byte___System_Byte___
+  commentId: M:wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier(System.Byte[],System.Byte[])
+  name.vb: InitKeyAndIdentifier(Byte(), Byte())
+  fullName: wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier(System.Byte[], System.Byte[])
+  fullName.vb: wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier(System.Byte(), System.Byte())
+  nameWithType: SymmetricKeySuite.InitKeyAndIdentifier(Byte[], Byte[])
+  nameWithType.vb: SymmetricKeySuite.InitKeyAndIdentifier(Byte(), Byte())
+- uid: wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier*
+  name: InitKeyAndIdentifier
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_InitKeyAndIdentifier_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier
+  nameWithType: SymmetricKeySuite.InitKeyAndIdentifier
+- uid: wan24.Crypto.SymmetricKeySuite.InitKeyOnly(System.Byte[])
+  name: InitKeyOnly(Byte[])
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_InitKeyOnly_System_Byte___
+  commentId: M:wan24.Crypto.SymmetricKeySuite.InitKeyOnly(System.Byte[])
+  name.vb: InitKeyOnly(Byte())
+  fullName: wan24.Crypto.SymmetricKeySuite.InitKeyOnly(System.Byte[])
+  fullName.vb: wan24.Crypto.SymmetricKeySuite.InitKeyOnly(System.Byte())
+  nameWithType: SymmetricKeySuite.InitKeyOnly(Byte[])
+  nameWithType.vb: SymmetricKeySuite.InitKeyOnly(Byte())
+- uid: wan24.Crypto.SymmetricKeySuite.InitKeyOnly*
+  name: InitKeyOnly
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_InitKeyOnly_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.InitKeyOnly
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.InitKeyOnly
+  nameWithType: SymmetricKeySuite.InitKeyOnly
+- uid: wan24.Crypto.SymmetricKeySuite.Options
+  name: Options
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_Options
+  commentId: P:wan24.Crypto.SymmetricKeySuite.Options
+  fullName: wan24.Crypto.SymmetricKeySuite.Options
+  nameWithType: SymmetricKeySuite.Options
+- uid: wan24.Crypto.SymmetricKeySuite.Options*
+  name: Options
+  href: api/wan24.Crypto.SymmetricKeySuite.html#wan24_Crypto_SymmetricKeySuite_Options_
+  commentId: Overload:wan24.Crypto.SymmetricKeySuite.Options
+  isSpec: "True"
+  fullName: wan24.Crypto.SymmetricKeySuite.Options
+  nameWithType: SymmetricKeySuite.Options
 - uid: wan24.Crypto.X509Extensions
   name: X509Extensions
   href: api/wan24.Crypto.X509Extensions.html

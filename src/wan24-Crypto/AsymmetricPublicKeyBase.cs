@@ -19,7 +19,7 @@ namespace wan24.Crypto
         protected AsymmetricPublicKeyBase(string algorithm) : base(algorithm) { }
 
         /// <inheritdoc/>
-        public override byte[] ID => (byte[])(_ID ??= KeyData.Array.Hash(HashHelper.GetAlgorithm(HashSha512Algorithm.ALGORITHM_NAME).DefaultOptions)).Clone();
+        public override byte[] ID => (_ID ??= KeyData.Array.Hash(HashHelper.GetAlgorithm(HashSha512Algorithm.ALGORITHM_NAME).DefaultOptions)).CloneArray();
 
         /// <inheritdoc/>
         public abstract IAsymmetricPublicKey GetCopy();
