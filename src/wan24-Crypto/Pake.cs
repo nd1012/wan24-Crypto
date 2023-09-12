@@ -10,11 +10,6 @@ namespace wan24.Crypto
     public sealed partial class Pake : DisposableBase
     {
         /// <summary>
-        /// Options with KDF and MAC settings (will be cleared!)
-        /// </summary>
-        public CryptoOptions Options { get; }
-
-        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
@@ -28,12 +23,17 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Options with KDF and MAC settings (will be cleared!)
+        /// </summary>
+        public CryptoOptions Options { get; }
+
+        /// <summary>
         /// Identifier (will be cleared!)
         /// </summary>
         public byte[] Identifier
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => IfUndisposed(() => Key?.Identifier ?? Identity?.Identifier ?? throw new InvalidOperationException("Unknown identity"));
+            get => IfUndisposed(() => Key?.Identifier ?? Identity?.Identifier ?? throw CryptographicException.From(new InvalidOperationException("Unknown identity")));
         }
 
         /// <summary>
@@ -42,9 +42,8 @@ namespace wan24.Crypto
         public byte[] SessionKey
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => IfUndisposed(() => _SessionKey ?? throw new InvalidOperationException("No session key yet"));
+            get => IfUndisposed(() => _SessionKey ?? throw CryptographicException.From(new InvalidOperationException("No session key yet")));
         }
-
 
         /// <summary>
         /// Determine if this instance contains a session key

@@ -20,7 +20,7 @@ Per default these cryptographic algorithms are implemented:
 |  | XCrypt |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
-| **KDF key stretching** | PBKDF#2 (20,000 iterations per default) |
+| **KDF key stretching** | PBKDF#2 (250,000 iterations per default) |
 
 These elliptic curves are supported at present:
 
@@ -100,7 +100,7 @@ The default MAC algorithm is HMAC-SHA512.
 (byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 ```
 
-The default KDF algorithm is PBKDF#2, using 20,000 iterations.
+The default KDF algorithm is PBKDF#2, using 250,000 iterations.
 
 ### Encryption
 
@@ -503,7 +503,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | HMAC-SHA384 | 2 | wan24-Crypto |
 | HMAC-SHA512 | 3 | wan24-Crypto |
 | **KDF** |  |  |
-| PBKDF2 | 0 | wan24-Crypto |
+| PBKDF#2 | 0 | wan24-Crypto |
+| Argon2id | 1 | wan24-Crypto-NaCl |
 
 ## Counter algorithms
 

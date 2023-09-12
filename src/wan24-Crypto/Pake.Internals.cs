@@ -26,7 +26,8 @@ namespace wan24.Crypto
         /// <returns>Authentication key</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private byte[] CreateAuthKey()
-            => Key?.Identifier?.Mac(Key.ExpandedKey, Options) ?? Identity?.Identifier.Mac(Identity.SignatureKey, Options) ?? throw new InvalidOperationException("Unknown identity");
+            => Key?.Identifier?.Mac(Key.ExpandedKey, Options) ?? Identity?.Identifier.Mac(Identity.SignatureKey, Options) ?? 
+                throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
 
         /// <summary>
         /// Create the secret
@@ -34,7 +35,8 @@ namespace wan24.Crypto
         /// <param name="key">Authentication key</param>
         /// <returns>Secret</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private byte[] CreateSecret(in byte[] key) => Key?.ExpandedKey.Mac(key, Options) ?? throw new InvalidOperationException("Missing symmetric key suite");
+        private byte[] CreateSecret(in byte[] key)
+            => Key?.ExpandedKey.Mac(key, Options) ?? throw CryptographicException.From(new InvalidOperationException("Missing symmetric key suite"));
 
         /// <summary>
         /// Create the signature key
@@ -46,7 +48,7 @@ namespace wan24.Crypto
         private byte[] CreateSignatureKey(in byte[] key, in byte[]? identifier = null)
             => key.Stretch(
                 key.Length,
-                identifier ?? Key?.Identifier ?? Identity?.Identifier ?? throw new ArgumentNullException(nameof(identifier)),
+                identifier ?? Key?.Identifier ?? Identity?.Identifier ?? throw CryptographicException.From(new ArgumentNullException(nameof(identifier))),
                 Options
                 )
                 .Stretched;
@@ -57,29 +59,35 @@ namespace wan24.Crypto
         /// <param name="signatureKey">Signature key</param>
         /// <param name="key">Authentication key</param>
         /// <param name="random">Random bytes</param>
+        /// <param name="payload">Payload</param>
         /// <param name="secret">Secret</param>
         /// <returns>Signature</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [MemberNotNull(nameof(_SessionKey), nameof(SessionKey))]
-        private byte[] CreateSignatureAndSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, byte[]? secret = null)
+        private byte[] CreateSignatureAndSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, byte[] payload, byte[]? secret = null)
         {
-            byte[] identifier = Key?.Identifier ?? Identity?.Identifier ?? throw new InvalidOperationException("Unknown identity"),
+            byte[] identifier = Key?.Identifier ?? Identity?.Identifier ?? throw CryptographicException.From(new InvalidOperationException("Unknown identity")),
                 signature = null!;
             try
             {
                 secret ??= Identity!.Secret;
                 // Sign the PAKE sequence
-                using (RentedArrayStruct<byte> signedData = new(len: secret.Length + identifier.Length + random.Length + key.Length, clean: false)
+                using (RentedArrayStruct<byte> signedData = new(len: random.Length + payload.Length + secret.Length + identifier.Length + key.Length, clean: false)
                 {
                     Clear = true
                 })
                 {
-                    int offset = secret.Length;
-                    secret.AsSpan().CopyTo(signedData.Span);
+                    int offset = random.Length;
+                    random.AsSpan().CopyTo(signedData.Span);
+                    if (payload.Length != 0)
+                    {
+                        payload.AsSpan().CopyTo(signedData.Span[offset..]);
+                        offset += payload.Length;
+                    }
+                    secret.AsSpan().CopyTo(signedData.Span[offset..]);
+                    offset += secret.Length;
                     identifier.AsSpan().CopyTo(signedData.Span[offset..]);
                     offset += identifier.Length;
-                    random.AsSpan().CopyTo(signedData.Span[offset..]);
-                    offset += random.Length;
                     key.AsSpan().CopyTo(signedData.Span[offset..]);
                     signature = signedData.Span.Mac(signatureKey, Options);
                 }
@@ -90,10 +98,11 @@ namespace wan24.Crypto
                 return signature;
 #pragma warning restore CS8774 // Member "SessionKey" must not be NULL
             }
-            catch
+            catch(Exception ex)
             {
                 signature?.Clear();
-                throw;
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
             }
         }
 

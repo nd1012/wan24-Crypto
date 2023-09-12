@@ -18,11 +18,19 @@ namespace wan24.Crypto
         /// <summary>
         /// Default iterations
         /// </summary>
-        public const int DEFAULT_ITERATIONS = 20000;
+        public const int DEFAULT_ITERATIONS = 250_000;
+        /// <summary>
+        /// Min. iterations
+        /// </summary>
+        public const int MIN_ITERATIONS = 20_000;
         /// <summary>
         /// Default salt bytes length
         /// </summary>
-        public const int DEFAULT_SALT_LEN = 8;
+        public const int DEFAULT_SALT_LEN = 16;
+        /// <summary>
+        /// Min. salt bytes length
+        /// </summary>
+        public const int MIN_SALT_LEN = 8;
         /// <summary>
         /// Display name
         /// </summary>
@@ -48,18 +56,22 @@ namespace wan24.Crypto
         /// </summary>
         public static KdfPbKdf2Algorithm Instance { get; }
 
-        /// <summary>
-        /// Default iterations
-        /// </summary>
+        /// <inheritdoc/>
+        public override int MinIterations => MIN_ITERATIONS;
+
+        /// <inheritdoc/>
         public override int DefaultIterations
         {
             get => _DefaultIterations;
             set
             {
-                if (value < DEFAULT_ITERATIONS) throw new ArgumentOutOfRangeException(nameof(value));
+                if (value < MIN_ITERATIONS) throw new ArgumentOutOfRangeException(nameof(value));
                 _DefaultIterations = value;
             }
         }
+
+        /// <inheritdoc/>
+        public override int MinSaltLength => MIN_SALT_LEN;
 
         /// <inheritdoc/>
         public override int SaltLength => DEFAULT_SALT_LEN;
@@ -78,9 +90,9 @@ namespace wan24.Crypto
                 if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
                 options ??= DefaultOptions;
                 options = KdfHelper.GetDefaultOptions(options);
-                if (options.KdfIterations < DEFAULT_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
+                if (options.KdfIterations < MIN_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
                 salt ??= RandomNumberGenerator.GetBytes(DEFAULT_SALT_LEN);
-                if (salt.Length < DEFAULT_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));
+                if (salt.Length < MIN_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));
                 using Rfc2898DeriveBytes kdf = new(pwd, salt, options.KdfIterations);
                 return (kdf.GetBytes(len), salt);
             }
