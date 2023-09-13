@@ -159,7 +159,7 @@ namespace wan24.Crypto
         /// <exception cref="CryptographicException">The token integrity is invalid (the token may have been manipulated)</exception>
         public bool ValidateToken(in byte[] pwd, bool throwOnError = true)
         {
-            using RentedArray<byte> buffer = new(MAC_OFFSET, clean: false);
+            using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
             _Timeout.GetBytes(buffer.Span);
             _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
             if (buffer.Span.Mac(pwd, MacHmacSha384Algorithm.Instance.DefaultOptions).SlowCompare(_MAC)) return true;
@@ -187,7 +187,7 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public Span<byte> CreateMac(byte[] pwd, in Span<byte> outputBuffer)
         {
-            using RentedArray<byte> buffer = new(MAC_OFFSET, clean: false);
+            using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
             _Timeout.GetBytes(buffer.Span);
             _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
             return buffer.Span.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);

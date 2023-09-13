@@ -72,7 +72,7 @@ namespace wan24.Crypto
             {
                 secret ??= Identity!.Secret;
                 // Sign the PAKE sequence
-                using (RentedArrayStruct<byte> signedData = new(len: random.Length + payload.Length + secret.Length + identifier.Length + key.Length, clean: false)
+                using (RentedArrayRefStruct<byte> signedData = new(len: random.Length + payload.Length + secret.Length + identifier.Length + key.Length, clean: false)
                 {
                     Clear = true
                 })

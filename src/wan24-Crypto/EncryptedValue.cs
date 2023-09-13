@@ -85,7 +85,7 @@ namespace wan24.Crypto
         {
             get
             {
-                if (_Decrypted != null || CipherData == null) return (byte[]?)_Decrypted?.Clone();
+                if (_Decrypted != null || CipherData == null) return _Decrypted?.CloneArray();
                 if (!HasKey) throw new InvalidOperationException("No key");
                 byte[]? res = SymmetricKey == null
                     ? CipherData.Decrypt(AsymmetricKey!, Options)
@@ -97,7 +97,7 @@ namespace wan24.Crypto
             {
                 if (!HasKey) throw new InvalidOperationException("No key");
                 _Decrypted?.Clear();
-                _Decrypted = (byte[]?)value?.Clone();
+                _Decrypted = value?.CloneArray();
                 if (value == null)
                 {
                     CipherData = null;

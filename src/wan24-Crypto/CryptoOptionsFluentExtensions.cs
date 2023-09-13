@@ -425,7 +425,7 @@ namespace wan24.Crypto
         {
             options.WithoutAsymmetricAlgorithm()
                 .WithoutPassword();
-            options.Password = pwd ?? RandomNumberGenerator.GetBytes(64);
+            options.Password = pwd ?? RND.GetBytes(64);
             return options;
         }
 

@@ -425,7 +425,7 @@ namespace wan24.Crypto
         /// <returns>Clone</returns>
         public AsymmetricSignedPublicKey Clone() => IfUndisposed(() => new AsymmetricSignedPublicKey()
         {
-            SignedData = (byte[]?)SignedData?.Clone(),
+            SignedData = SignedData?.CloneArray(),
             PublicKey = PublicKey.GetCopy(),
             Created = Created,
             Expires = Expires,

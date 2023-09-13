@@ -173,7 +173,7 @@ namespace wan24.Crypto
                         macOptions.LeaveOpen = true;
                         using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new InvalidOperationException("No password yet"), options: macOptions);
                         int read = (int)(pos - (options.MacPosition + options.Mac!.Length));
-                        using (RentedArray<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
+                        using (RentedArrayRefStruct<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
                             for (int red; read > 0; read -= red)
                             {
                                 red = cipherData.Read(buffer.Span);
@@ -246,7 +246,7 @@ namespace wan24.Crypto
                         macOptions.LeaveOpen = true;
                         using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new InvalidOperationException("No password yet"), options: macOptions);
                         int read = (int)(pos - (options.MacPosition + options.Mac!.Length));
-                        using (RentedArray<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
+                        using (RentedArrayStruct<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
                             for (int red; read > 0; read -= red)
                             {
                                 red = await cipherData.ReadAsync(buffer.Memory, cancellationToken).DynamicContext();

@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -22,7 +21,22 @@ namespace wan24.Crypto
             {
                 if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
                 if (written != null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
-                stream.Write(RandomNumberGenerator.GetBytes(blockSize - (int)((written ?? stream.Length) % blockSize)));
+                int len = blockSize - (int)((written ?? stream.Length) % blockSize);
+                if (len > Settings.StackAllocBorder)
+                {
+                    using RentedArrayRefStruct<byte> buffer = new(len, clean: false)
+                    {
+                        Clear = true
+                    };
+                    RND.FillBytes(buffer.Span);
+                    stream.Write(buffer.Span);
+                }
+                else
+                {
+                    Span<byte> buffer = stackalloc byte[len];
+                    RND.FillBytes(buffer);
+                    stream.Write(buffer);
+                }
                 return stream;
             }
             catch (CryptographicException)
@@ -49,7 +63,13 @@ namespace wan24.Crypto
             {
                 if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
                 if (written != null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
-                await stream.WriteAsync(RandomNumberGenerator.GetBytes(blockSize - (int)((written ?? stream.Length) % blockSize)), cancellationToken).DynamicContext();
+                int len = blockSize - (int)((written ?? stream.Length) % blockSize);
+                using RentedArrayStruct<byte> buffer = new(len, clean: false)
+                {
+                    Clear = true
+                };
+                RND.FillBytes(buffer.Span);
+                await stream.WriteAsync(buffer.Memory, cancellationToken).DynamicContext();
             }
             catch (CryptographicException)
             {

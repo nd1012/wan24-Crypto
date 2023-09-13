@@ -34,7 +34,7 @@ namespace wan24.Crypto
             if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation"));
             byte[] secret = null!,// Needs to be sent to the server for the signup ONLY
                 key = null!,
-                random = RandomNumberGenerator.GetBytes(Key.ExpandedKey.Length),
+                random = RND.GetBytes(Key.ExpandedKey.Length),
                 signatureKey = null!,
                 signature = null!;
             try
@@ -71,7 +71,7 @@ namespace wan24.Crypto
             if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation"));
             byte[] secret = null!,
                 key = null!,
-                random = RandomNumberGenerator.GetBytes(Key.ExpandedKey.Length),
+                random = RND.GetBytes(Key.ExpandedKey.Length),
                 signatureKey = null!,
                 signature = null!;
             try

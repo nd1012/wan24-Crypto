@@ -43,7 +43,7 @@ namespace wan24.Crypto
         /// Create random IV bytes
         /// </summary>
         /// <returns>IV bytes</returns>
-        protected virtual byte[] CreateIvBytes() => RandomNumberGenerator.GetBytes(IvSize);
+        protected virtual byte[] CreateIvBytes() => RND.GetBytes(IvSize);
 
         /// <summary>
         /// Read the fixed IV bytes

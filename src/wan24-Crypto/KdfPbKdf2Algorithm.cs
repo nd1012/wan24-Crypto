@@ -91,7 +91,7 @@ namespace wan24.Crypto
                 options ??= DefaultOptions;
                 options = KdfHelper.GetDefaultOptions(options);
                 if (options.KdfIterations < MIN_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
-                salt ??= RandomNumberGenerator.GetBytes(DEFAULT_SALT_LEN);
+                salt ??= RND.GetBytes(DEFAULT_SALT_LEN);
                 if (salt.Length < MIN_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));
                 using Rfc2898DeriveBytes kdf = new(pwd, salt, options.KdfIterations);
                 return (kdf.GetBytes(len), salt);

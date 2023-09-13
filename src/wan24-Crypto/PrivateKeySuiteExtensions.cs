@@ -83,7 +83,7 @@ namespace wan24.Crypto
         {
             if (key != null && (key.Length < 1 || key.Length > byte.MaxValue)) throw new ArgumentOutOfRangeException(nameof(key));
             suite.SymmetricKey?.Clear();
-            suite.SymmetricKey = key ?? RandomNumberGenerator.GetBytes(64);
+            suite.SymmetricKey = key ?? RND.GetBytes(64);
             return suite;
         }
 
@@ -97,7 +97,7 @@ namespace wan24.Crypto
         {
             if (len < 1 || len > byte.MaxValue) throw new ArgumentOutOfRangeException(nameof(len));
             suite.SymmetricKey?.Clear();
-            suite.SymmetricKey = RandomNumberGenerator.GetBytes(len);
+            suite.SymmetricKey = RND.GetBytes(len);
             return suite;
         }
     }

@@ -27,7 +27,7 @@ namespace wan24.Crypto
                 options = options?.Clone() ?? DefaultOptions;
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) throw new InvalidOperationException();
-                options.Password = (byte[]?)pwd?.Clone();
+                options.Password = pwd?.CloneArray();
                 options.ValidateObject();
                 /*List<ValidationResult> results = new();
                 if (!options.TryValidateObject(results))
@@ -35,7 +35,7 @@ namespace wan24.Crypto
                         Console.WriteLine($"{result.MemberNames.FirstOrDefault()}: {result.ErrorMessage}");*/
                 // Write unauthenticated options
                 if (options.FlagsIncluded)
-                    using (RentedArray<byte> buffer = new(len: 3))
+                    using (RentedArrayRefStruct<byte> buffer = new(len: 3))
                     {
                         EncodeFlags(options.Flags, buffer.Array);
                         cipherData.Write(buffer.Span);
@@ -69,7 +69,7 @@ namespace wan24.Crypto
                             cipherData.WriteNumber(MacHelper.GetAlgorithm(options.CounterMacAlgorithm ??= HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).Value);
                     }
                     options.MacPosition = cipherData.Position;
-                    using (RentedArray<byte> buffer = options.UsingCounterMac
+                    using (RentedArrayRefStruct<byte> buffer = options.UsingCounterMac
                         ? new(MacHelper.GetAlgorithm(options.CounterMacAlgorithm ??= HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).MacLength)
                         : new(MacHelper.GetAlgorithm(options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name).MacLength))
                         cipherData.Write(buffer.Span);
@@ -153,12 +153,12 @@ namespace wan24.Crypto
                 options = options?.Clone() ?? DefaultOptions;
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) throw new InvalidOperationException();
-                options.Password = (byte[]?)pwd?.Clone();
+                options.Password = pwd?.CloneArray();
                 options.ValidateObject();
                 // Write unauthenticated options
                 MacStreams? macStream = null;
                 if (options.FlagsIncluded)
-                    using (RentedArray<byte> buffer = new(len: 3))
+                    using (RentedArrayStruct<byte> buffer = new(len: 3))
                     {
                         EncodeFlags(options.Flags, buffer.Array);
                         await cipherData.WriteAsync(buffer.Memory, cancellationToken).DynamicContext();
@@ -195,7 +195,7 @@ namespace wan24.Crypto
                     }
                     options.MacPosition = cipherData.Position;
                     bool coverWhole = RequireMacAuthentication || options.ForceMacCoverWhole;
-                    using (RentedArray<byte> buffer = options.UsingCounterMac
+                    using (RentedArrayStruct<byte> buffer = options.UsingCounterMac
                         ? new(MacHelper.GetAlgorithm(options.CounterMacAlgorithm ??= HybridAlgorithmHelper.MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).MacLength)
                         : new(MacHelper.GetAlgorithm(options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name).MacLength))
                         await cipherData.WriteAsync(buffer.Memory, cancellationToken).DynamicContext();
@@ -276,7 +276,7 @@ namespace wan24.Crypto
                 // Prepare the password
                 if (pwd != null)
                 {
-                    options.Password ??= (byte[]?)pwd?.Clone();
+                    options.Password ??= pwd?.CloneArray();
                 }
                 else
                 {
@@ -285,7 +285,7 @@ namespace wan24.Crypto
                 }
                 // Read unauthenticated options
                 if (options.FlagsIncluded)
-                    using (RentedArray<byte> buffer = new(len: 3))
+                    using (RentedArrayRefStruct<byte> buffer = new(len: 3))
                     {
                         if (cipherData.Read(buffer.Span) != buffer.Length) throw new IOException("Failed to read the crypto flags");
                         options.Flags = DecodeFlags(buffer.Array);
@@ -422,7 +422,7 @@ namespace wan24.Crypto
                 // Prepare the password
                 if (pwd != null)
                 {
-                    options.Password ??= (byte[]?)pwd?.Clone();
+                    options.Password ??= pwd?.CloneArray();
                 }
                 else
                 {
@@ -431,7 +431,7 @@ namespace wan24.Crypto
                 }
                 // Read unauthenticated options
                 if (options.FlagsIncluded)
-                    using (RentedArray<byte> buffer = new(len: 3))
+                    using (RentedArrayStruct<byte> buffer = new(len: 3))
                     {
                         if (await cipherData.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != buffer.Length) throw new IOException("Failed to read the crypto flags");
                         options.Flags = DecodeFlags(buffer.Array);
