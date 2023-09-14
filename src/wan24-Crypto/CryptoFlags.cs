@@ -68,7 +68,6 @@
         FLAGS = HeaderVersionIncluded |
             SerializerVersionIncluded |
             MacIncluded |
-            MacAlgorithmIncluded |
             Compressed |
             MacAlgorithmIncluded |
             KdfAlgorithmIncluded |

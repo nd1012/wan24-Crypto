@@ -421,6 +421,14 @@ attacker.
 **NOTE**: Default options for PAKE can be overridden by setting a custom value 
 to `Pake.DefaultOptions`.
 
+`FastPakeClient/Server` allow fast followup authentications after the first 
+authentication of an already known peer (after a signup was performed). 
+They're designed to be alive for a longer time, if the server expects a client 
+to perform multiple authentications. They're good for a single-directional UDP 
+protocol, for example, where each message is PAKE authenticated, and each 
+followup message is encrypted using the session key of the first 
+authentication message.
+
 ## Notes
 
 Sometimes you'll read something like "will be disposed" or "will be cleared" 

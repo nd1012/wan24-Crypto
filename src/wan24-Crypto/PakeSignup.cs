@@ -16,12 +16,12 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="identifier">Identifier</param>
-        /// <param name="secret">Secret</param>
-        /// <param name="key">Key</param>
-        /// <param name="signature">Signature</param>
-        /// <param name="random">Random bytes</param>
-        /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length)</param>
+        /// <param name="identifier">Identifier (will be cleared!)</param>
+        /// <param name="secret">Secret (will be cleared!)</param>
+        /// <param name="key">Key (will be cleared!)</param>
+        /// <param name="signature">Signature (will be cleared!)</param>
+        /// <param name="random">Random bytes (will be cleared!)</param>
+        /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         internal PakeSignup(byte[] identifier, byte[] secret, byte[] key, byte[] signature, byte[] random, byte[]? payload = null) : this()
         {
             if (payload is not null && payload.Length > ushort.MaxValue) throw new ArgumentOutOfRangeException(nameof(payload));
@@ -42,7 +42,7 @@ namespace wan24.Crypto
         public byte[] Identifier { get; private set; } = null!;
 
         /// <summary>
-        /// Secret
+        /// Secret (will be cleared!)
         /// </summary>
         public byte[] Secret { get; private set; } = null!;
 
@@ -83,44 +83,54 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
-            => stream.WriteBytes(Identifier)
-                .WriteBytes(Secret)
-                .WriteBytes(Key)
-                .WriteBytes(Signature)
-                .WriteBytes(Payload)
-                .WriteBytes(Random);
+        {
+            stream.WriteBytes(Identifier)
+                .Write(Secret);
+            stream.Write(Key);
+            stream.Write(Signature);
+            stream.Write(Random);
+            stream.WriteBytes(Payload);
+        }
 
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             await stream.WriteBytesAsync(Identifier, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Secret, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Key, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Signature, cancellationToken).DynamicContext();
+            await stream.WriteAsync(Secret, cancellationToken).DynamicContext();
+            await stream.WriteAsync(Key, cancellationToken).DynamicContext();
+            await stream.WriteAsync(Signature, cancellationToken).DynamicContext();
+            await stream.WriteAsync(Random, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(Payload, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Random, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
             Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
-            Secret = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
-            Key = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
-            Signature = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
+            Secret = new byte[Identifier.Length];
+            if (stream.Read(Secret) != Secret.Length) throw new IOException($"Failed to read {Identifier.Length} secret bytes");
+            Key = new byte[Identifier.Length];
+            if (stream.Read(Key) != Key.Length) throw new IOException($"Failed to read {Identifier.Length} key bytes");
+            Signature = new byte[Identifier.Length];
+            if (stream.Read(Signature) != Signature.Length) throw new IOException($"Failed to read {Identifier.Length} signature bytes");
+            Random = new byte[Identifier.Length];
+            if (stream.Read(Random) != Random.Length) throw new IOException($"Failed to read {Identifier.Length} random bytes");
             Payload = stream.ReadBytes(version, minLen: 0, maxLen: ushort.MaxValue).Value;
-            Random = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Secret = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Key = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Signature = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Secret = new byte[Identifier.Length];
+            if (await stream.ReadAsync(Secret, cancellationToken).DynamicContext() != Secret.Length) throw new IOException($"Failed to read {Identifier.Length} secret bytes");
+            Key = new byte[Identifier.Length];
+            if (await stream.ReadAsync(Key, cancellationToken).DynamicContext() != Key.Length) throw new IOException($"Failed to read {Identifier.Length} key bytes");
+            Signature = new byte[Identifier.Length];
+            if (await stream.ReadAsync(Signature, cancellationToken).DynamicContext() != Signature.Length) throw new IOException($"Failed to read {Identifier.Length} signature bytes");
+            Random = new byte[Identifier.Length];
+            if (await stream.ReadAsync(Random, cancellationToken).DynamicContext() != Random.Length) throw new IOException($"Failed to read {Identifier.Length} random bytes");
             Payload = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Random = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
         }
 
         /// <summary>

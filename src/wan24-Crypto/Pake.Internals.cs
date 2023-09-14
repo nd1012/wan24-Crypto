@@ -25,9 +25,9 @@ namespace wan24.Crypto
         /// </summary>
         /// <returns>Authentication key</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private byte[] CreateAuthKey()
-            => Key?.Identifier?.Mac(Key.ExpandedKey, Options) ?? Identity?.Identifier.Mac(Identity.SignatureKey, Options) ?? 
-                throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
+        internal byte[] CreateAuthKey()
+            => Key?.Identifier?.Mac(Key.ExpandedKey, Options) ?? 
+                throw CryptographicException.From(new InvalidOperationException("Unknown identity or initialized for server operation"));
 
         /// <summary>
         /// Create the secret
@@ -35,23 +35,17 @@ namespace wan24.Crypto
         /// <param name="key">Authentication key</param>
         /// <returns>Secret</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private byte[] CreateSecret(in byte[] key)
-            => Key?.ExpandedKey.Mac(key, Options) ?? throw CryptographicException.From(new InvalidOperationException("Missing symmetric key suite"));
+        internal byte[] CreateSecret(in byte[] key)
+            => Key?.ExpandedKey.Array.Mac(key, Options) ?? throw CryptographicException.From(new InvalidOperationException("Initialized for server operation"));
 
         /// <summary>
         /// Create the signature key
         /// </summary>
         /// <param name="key">Authentication key</param>
-        /// <param name="identifier">Identifier</param>
+        /// <param name="secret">Secret</param>
         /// <returns>Signature key</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private byte[] CreateSignatureKey(in byte[] key, in byte[]? identifier = null)
-            => key.Stretch(
-                key.Length,
-                identifier ?? Key?.Identifier ?? Identity?.Identifier ?? throw CryptographicException.From(new ArgumentNullException(nameof(identifier))),
-                Options
-                )
-                .Stretched;
+        internal byte[] CreateSignatureKey(in byte[] key, in byte[] secret) => key.Stretch(key.Length, secret, Options).Stretched;
 
         /// <summary>
         /// Create the signature and the session key
@@ -64,13 +58,12 @@ namespace wan24.Crypto
         /// <returns>Signature</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [MemberNotNull(nameof(_SessionKey), nameof(SessionKey))]
-        private byte[] CreateSignatureAndSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, byte[] payload, byte[]? secret = null)
+        internal byte[] SignAndCreateSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, byte[] payload, byte[] secret)
         {
-            byte[] identifier = Key?.Identifier ?? Identity?.Identifier ?? throw CryptographicException.From(new InvalidOperationException("Unknown identity")),
+            byte[] identifier = Identifier,
                 signature = null!;
             try
             {
-                secret ??= Identity!.Secret;
                 // Sign the PAKE sequence
                 using (RentedArrayRefStruct<byte> signedData = new(len: random.Length + payload.Length + secret.Length + identifier.Length + key.Length, clean: false)
                 {
@@ -110,7 +103,7 @@ namespace wan24.Crypto
         /// Clear the identity
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void ClearIdentity()
+        internal void ClearIdentity()
         {
             if (Identity is null) return;
             Identity.Identifier.Clear();

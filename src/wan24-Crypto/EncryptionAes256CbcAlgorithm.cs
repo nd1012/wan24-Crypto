@@ -70,6 +70,12 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
 
+        /// <inheritdoc/>
+        public override byte[] EnsureValidKeyLength(byte[] key) => GetValidLengthKey(key, KEY_SIZE);
+
+        /// <inheritdoc/>
+        public override bool IsKeyLengthValid(int len) => len == KEY_SIZE;
+
         /// <summary>
         /// Create the AES instance
         /// </summary>

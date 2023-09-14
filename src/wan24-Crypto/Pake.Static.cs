@@ -17,10 +17,17 @@ namespace wan24.Crypto
         public static CryptoOptions DefaultOptions
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => _DefaultOptions ??= _DefaultOptions = new CryptoOptions()
+            get => _DefaultOptions ??= new CryptoOptions()
                 .WithKdf()
                 .WithMac();
-            set => _DefaultOptions = value;
+            set
+            {
+                _DefaultOptions?.Clear();
+                _DefaultOptions = value;
+                if (value is null) return;
+                if (_DefaultOptions.KdfAlgorithm is null) _DefaultOptions.WithKdf();
+                if (_DefaultOptions.MacAlgorithm is null) _DefaultOptions.WithMac();
+            }
         }
 
         /// <summary>
@@ -36,11 +43,11 @@ namespace wan24.Crypto
         public static implicit operator byte[](Pake pake) => pake.SessionKey.CloneArray();
 
         /// <summary>
-        /// Get a session key (should be cleared!)
+        /// Get the payload
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
         /// <param name="signup"><see cref="PakeSignup"/> (will be disposed!)</param>
-        /// <returns>Session key (should be cleared!)</returns>
+        /// <returns>Payload</returns>
         public static byte[] operator +(Pake pake, PakeSignup signup)
         {
             pake.HandleSignup(signup);
@@ -48,11 +55,11 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get a session key (should be cleared!)
+        /// Get the payload
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
         /// <param name="auth"><see cref="PakeAuth"/> (will be disposed!)</param>
-        /// <returns>Session key (should be cleared!)</returns>
+        /// <returns>Payload</returns>
         public static byte[] operator +(Pake pake, PakeAuth auth) => pake.HandleAuth(auth).CloneArray();
     }
 }

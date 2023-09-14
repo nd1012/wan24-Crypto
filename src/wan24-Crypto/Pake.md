@@ -1,44 +1,56 @@
 ﻿# PAKE
 
 This is a Password Authenticated Key Exchange protocol, which uses symmetric 
-cryptographic algorithms only.
+cryptographic algorithms only. Messages are required to be exchanged wrapped 
+by a PFS protocol. All used/produced/communicated data IS sensitive!
 
 In the following pseudo codes there are some functions used:
 
 - MAC: Any MAC algorithm - first parameter is the data, second parameter the 
-key
+key (HMAC-SHA-512 for example)
 - KDF: Any KDF algorithm - first parameter is the key, second parameter the 
-salt, third parameter is the return value length
+salt, third parameter is the return value length (PBKDF#2 for example)
 - RND: A cryptographic random byte generator - first parameter is the return 
 value length
 
 It's possible to include any payload data (`payload`) which is required to 
-process a signup/authentication at the server side.
+process a signup/authentication at the server side. It'd be possible to 
+encrypt the payload data using the pre-calculated PAKE session key, when 
+changing the PAKE algorithm - don't do it! If you want to encrypt the payload, 
+use another key - `signature_key` could be an usable candidate, if you'd like 
+to use PAKE related values only, and early decryption of the payload is 
+required.
+
+**WARNING**: Since all symmetric algorithms can be attacked using brute force, 
+the length of the used symmetric algorithms output is important: The longer 
+the output, the more secure is the whole PAKE process. Because symmetric 
+algorithms which produce 512 bit (64 byte) output are quiet fast, you 
+shouldn't have to think about reducing the lenght by using other (faster) 
+algorithms for saving bandwidth, computing resources or memory.
 
 ## Client
 
-At the client no informatiomation will be stored, since all information can be 
+At the client no information will be stored, since all information can be 
 generated from a login username (`id`) and password (`key`):
 
 ```js
-// Hide the raw ID as good as possible, and don't work with the raw data EVER again
-key_mac = MAC(key, key)
-identifier = MAC(id, key_mac, key_mac.Length)
+// Hide the raw ID as good as possible, and DO NOT work with the raw data EVER again
+identifier = MAC(id, MAC(key, key))
 
 // Ensure to NEVER use the raw key again
-expanded_key = KDF(key, identifier, identifier.Length)
+expanded_key = KDF(key, identifier, identifier.length)
 
-// Since the expanded key is an unshared secret, the auth_key can't be calculated on the server
+// Since the expanded_key is an unshared secret, the auth_key can't be calculated on the server
 auth_key = MAC(identifier, expanded_key)
 
 // The secret needs to be stored at the server during signup, but won't be sent by the client for a later authentication
 secret = MAC(expanded_key, auth_key)
 
-// The key for a pseudo-signature
-signature_key = KDF(auth_key, identifier, auth_key.Length)
+// The key for a pseudo-signature (won't be sent to the server, but will be calculated there, too)
+signature_key = KDF(auth_key, secret, auth_key.length)
 
 // Random data ensures using a fresh session key with each key exchange
-random = RND(auth_key.Length)
+random = RND(auth_key.length)
 
 // "Sign" the data INCLUDING the secret
 signature = MAC(random+payload+secret+identifier+auth_key, signature_key)
@@ -48,6 +60,10 @@ session_key = MAC(random, MAC(signature_key, secret))
 ```
 
 This needs to be done for the signup and each later authentication.
+
+**CAUTION**: Avoid to store any of the used or calculated values at the client 
+side! If your app requires to store the information, ensure they're stored 
+encrypted and the used encryption key is secured using a TPM hardware at last.
 
 ## Signup
 
@@ -67,25 +83,27 @@ The server will validate the received data (by calculating the
 
 ```js
 identity.identifier = signup.identifier
-identity.secret = signup.secret
+identity.secret = signup.secret ^ signup.auth_key
 identity.signature_key = signature_key
 ```
 
-Also the session key (`session_key`) is exchanged now.
+**NOTE**: The `^` character is used as XOR operator here.
 
-**NOTE**: Instead of storing every value as it is, all values could be stored 
-XORed in a single field. Anyway, in this case the `identifier` couldn't be 
-used to load an identity record (this must be solved using another identifier 
-then).
+**CAUTION**: `identity.secret` and `identity.signature_key` should be stored 
+encrypted! Ensure the used encryption key is secured using a TPM hardware at 
+last.
+
+Also the session key (`session_key`) is exchanged now.
 
 ## Authentication
 
 The client will send some information to the server (the `secret` is missing 
-here, compared to the signup):
+here, compared to the signup, and also the original value of `auth_key` is 
+hidden):
 
 ```js
 auth.identifier = identifier
-auth.auth_key = auth_key
+auth.auth_key = auth_key ^ MAC(random, signature_key)
 auth.signature = signature
 auth.payload = payload
 auth.random = random
@@ -94,33 +112,23 @@ auth.random = random
 Then the server can validate the authentication data:
 
 ```js
+// Extract auth_key and secret
+auth_key = auth.auth_key ^ MAC(auth.random, identity.signature_key)
+secret = identity.secret ^ auth_key
+
 // Calculate and validate the signature from mixed offline stored and received authentication data
-signature = MAC(auth.random+auth.payload+identity.secret+auth.identifier+auth.auth_key, identity.signature_key)
+signature = MAC(auth.random+auth.payload+secret+auth.identifier+auth_key, identity.signature_key)
 auth.signature == signature
 
 // Calculate and validate the signature key (KDF only after successful MAC validation, to prevent DoS!)
-signature_key = KDF(auth.auth_key, auth.identity, auth.auth_key.Length)
+signature_key = KDF(auth_key, secret, auth_key.length)
 signature_key == identity.signature_key
 
-// Calculate the session key, which should be the same as the one the client calculated
-session_key = MAC(auth.random, MAC(signature_key, identity.secret))
+// Calculate the session key, which should then be the same as the one the client calculated
+session_key = MAC(auth.random, MAC(signature_key, secret))
 ```
 
 Also the session key (`session_key`) is exchanged now.
-
-These information subsets are required to be combined for an authentication:
-
-Client subset:
-- `auth_key`
-- `payload`
-- `random`
-
-Server subset:
-- `secret`
-
-The combination of all client authentication and server side identity data is 
-enough to validate the client authentication data and calculate a shared 
-session key which is based on the client generated random data.
 
 ## Advantages of PAKE wrapped by an asymmetric PFS protocol
 
@@ -148,7 +156,8 @@ takes an important part at the end
 authentication information as he want (this would break the PAKE security)
 - All communication must be wrapped using an asymmetric PFS protocol, because 
 PAKE signup (especially!) and authentication data is still sensitive and 
-shouldn't be exposed to any unauthorized party
+shouldn't be exposed to any unauthorized party (for this a pre-shared key is 
+required)
 
 ## Usage thoughts
 
@@ -177,7 +186,44 @@ handshake:
 - Client meta data (signed from the server and validated by the client to 
 disclose a MiM)
 
-In a perfect world, the authentication protocol would use pre-shared keys, 
+Since this PAKE implementation uses KDF, it's not designed for a secure AND 
+fast key exchange, which could be automatted. It's more a signup and login 
+helper, which exchanges a session key, but protects against brute force and 
+DoS attacks (depending on the servers additional security issue handling 
+algorithms) - not usable for a fast key exchange, where the speed is 
+important. Once a session key was established, the connection should be kept 
+alive as long as possible and required.
+
+This PAKE implementation is designed to protect the communicated and stored 
+information as good as possible. Finally the security relies on the security 
+of the server encryption key, which is used to encrypt the stored data. As 
+long as this key is secure, a DBMS breach or a MiM or DoS attack wouldn't 
+affect the client/server authentication security. Of course a required 
+reaction to any breach would be to exchange the servers encryption key, and a 
+fresh signup would be required in case of a MiM attack, too. If all data was 
+handled as recommended in this document, even a breach of the DBMS combined 
+with a successful MiM attack wouldn't break the authentication security, as 
+long as the servers encryption key wasn't breached, too. Only a compromised 
+client would break the authentication security, if an attacker was able to 
+observe the used `id` and `key`, or the calculated PAKE values.
+
+The signup message is a critical part of this PAKE implementations security, 
+because all PAKE values which can be used to perform a client authentication 
+have to be sent insecure to the server. So the security relies fully on the 
+wrapping PFS protocol, and the pre-shared key (if any). It's very important to 
+ensure the signup communication is as secure as possible, and don't care about 
+performance at that time! Use multiple factors for calculating a session key.
+
+Anyway, if a fast authenticated messaging (UDP protocol) is required, PAKE 
+client and server values may life longer within memory, as long as the server 
+expects a client to send authenticated messages in a short term. The session 
+key of the initial authentication could be used to encrypt all followup 
+messages, while each followup message could encrypt a payload for a second 
+time, using an embedded PAKE authentication. Fast PAKE authentication wouldn't 
+use KDF, but the initial authentication should be performed as usual 
+(including KDF).
+
+In a perfect world, a TCP authentication protocol would use pre-shared keys, 
 which could then look like this:
 
 Client:
@@ -214,6 +260,11 @@ protection, etc. - but it shows a possible combination of asymmetric PFS with
 symmetric PAKE, which I'd call "secure" in these days (based on the chosen 
 underlying algorithms, of course).
 
+Using PAKE it's also possible to process a single-directional channel 
+communication, where the client does send payload encrypted using the PAKE 
+key. The server wouldn't need to answer such a message, which could be a 
+simple UDP packet for that reason.
+
 As algorithms for a full cipher suite I'd choose in 2023:
 
 - CRYSTALS-Kyber (or FrodoKEM) for pre-shared and PFS keys and wrapping non-PQ 
@@ -222,20 +273,13 @@ algorithms
 - CRYSTALS-Dilithium (or SPHINX+, or FALCON) for pre-shared signature keys and 
 wrapping non-PQ algorithms
 - ECDSA (or DSA; pre-shared) for wrapped non-PQ signing
-- SHA-512
+- SHA-384 (or SHA-512, depending on the purpose)
 - HMAC-SHA-512
 - PBKDF#2 or Argon2id
 - PAKE (as I implemented it :)
-- AES-256-GCM (with HMAC-SHA-256, or CBC with HMAC-SHA-512)
+- AES-256-GCM (with 128 bit MAC, or CBC with HMAC-SHA-512)
 
 Having PQ in mind, PQ algorithms should always wrap non-PQ algorithms, while 
 I'd consider existing common symmetric algorithms to be PQ-safe today and in 
 the long term also, when using 512 bit variants (or 256 in case of AES). For 
 any key and salt sizes, I'd follow the up to date recommendations (OWASP).
-
-All in all there is a huge potential for storing informations in a "secure" 
-way, when playing with the PAKE values, which are stored at the server and 
-being sent by the client. With a little creativity, values can be stored in a 
-way that would bring tears into a hackers eyes for sure, and make the server 
-become a no longer interesting target for hacking attacks, as long as the PFS 
-protocol and the communication channels are safe.

@@ -19,11 +19,12 @@ namespace wan24.Crypto
             {
                 if (identifier is null)
                 {
-                    ExpandedKey = InitKeyOnly(key);
+                    ExpandedKey = new(InitKeyOnly(key));
                 }
                 else
                 {
-                    (ExpandedKey, Identifier) = InitKeyAndIdentifier(key, identifier);
+                    (byte[] expandedKey, Identifier) = InitKeyAndIdentifier(key, identifier);
+                    ExpandedKey = new(expandedKey);
                 }
             }
             catch(Exception ex)
@@ -60,7 +61,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Expanded symmetric key (private!; used for en-/decryption and authentication; will be cleared!)
         /// </summary>
-        public byte[] ExpandedKey { get; }
+        public SecureByteArray ExpandedKey { get; }
 
         /// <summary>
         /// Initialize with only having a key
@@ -111,7 +112,7 @@ namespace wan24.Crypto
         {
             Options.Clear();
             Identifier?.Clear();
-            ExpandedKey?.Clear();
+            ExpandedKey?.Dispose();
         }
     }
 }

@@ -16,9 +16,9 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="identifier">Identifier</param>
-        /// <param name="secret">Secret</param>
-        /// <param name="key">Key</param>
+        /// <param name="identifier">Identifier (will be cleared!)</param>
+        /// <param name="secret">Secret (will be cleared!)</param>
+        /// <param name="key">Key (will be cleared!)</param>
         public PakeRecord(byte[] identifier, byte[] secret, byte[] key) : this()
         {
             Identifier = identifier;

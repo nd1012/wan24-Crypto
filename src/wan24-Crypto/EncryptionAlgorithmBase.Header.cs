@@ -58,6 +58,18 @@ namespace wan24.Crypto
                     }
                     if (options.UsingCounterKdf) HybridAlgorithmHelper.StretchPassword(options);
                 }
+                if (!IsKeyLengthValid(options.Password.Length))
+                {
+                    pwd = options.Password;
+                    try
+                    {
+                        options.Password = EnsureValidKeyLength(options.Password);
+                    }
+                    finally
+                    {
+                        pwd.Clear();
+                    }
+                }
                 // Switch to a MAC stream
                 MacStreams? macStream = null;
                 if (options.MacIncluded)
@@ -180,6 +192,18 @@ namespace wan24.Crypto
                         pwd.Clear();
                     }
                     if (options.UsingCounterKdf) HybridAlgorithmHelper.StretchPassword(options);
+                }
+                if (!IsKeyLengthValid(options.Password.Length))
+                {
+                    pwd = options.Password;
+                    try
+                    {
+                        options.Password = EnsureValidKeyLength(options.Password);
+                    }
+                    finally
+                    {
+                        pwd.Clear();
+                    }
                 }
                 // Switch to a MAC stream
                 if (options.MacIncluded)
@@ -354,6 +378,18 @@ namespace wan24.Crypto
                             pwd.Clear();
                         }
                 }
+                if (!IsKeyLengthValid(options.Password.Length))
+                {
+                    pwd = options.Password;
+                    try
+                    {
+                        options.Password = EnsureValidKeyLength(options.Password);
+                    }
+                    finally
+                    {
+                        pwd.Clear();
+                    }
+                }
                 if (options.PayloadIncluded) options.PayloadData = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: ushort.MaxValue).Value;
                 if (options.TimeIncluded)
                 {
@@ -498,6 +534,18 @@ namespace wan24.Crypto
                         options.CounterKdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken)
                             .DynamicContext();
                         HybridAlgorithmHelper.StretchPassword(options);
+                    }
+                }
+                if (!IsKeyLengthValid(options.Password.Length))
+                {
+                    pwd = options.Password;
+                    try
+                    {
+                        options.Password = EnsureValidKeyLength(options.Password);
+                    }
+                    finally
+                    {
+                        pwd.Clear();
                     }
                 }
                 if (options.PayloadIncluded)

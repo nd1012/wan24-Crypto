@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -9,7 +8,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key
         /// </summary>
-        private readonly SymmetricKeySuite? Key;
+        internal readonly SymmetricKeySuite? Key;
 
         /// <summary>
         /// Constructor
@@ -41,8 +40,8 @@ namespace wan24.Crypto
             {
                 key = CreateAuthKey();// MAC
                 secret = CreateSecret(key);// MAC
-                signatureKey = CreateSignatureKey(key);// KDF
-                signature = CreateSignatureAndSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                signatureKey = CreateSignatureKey(key, secret);// KDF
+                signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
                 return new PakeSignup(Key.Identifier.CloneArray(), secret, key, signature, random, payload);
             }
             catch(Exception ex)
@@ -51,6 +50,7 @@ namespace wan24.Crypto
                 key?.Clear();
                 random.Clear();
                 signature?.Clear();
+                payload?.Clear();
                 if (ex is CryptographicException) throw;
                 throw CryptographicException.From(ex);
             }
@@ -64,34 +64,51 @@ namespace wan24.Crypto
         /// Create an authentication (client)
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
+        /// <param name="encryptPayload">Encrypt the payload?</param>
         /// <returns>Authentication (send this to the server and don't forget to dispose!)</returns>
-        public PakeAuth CreateAuth(byte[]? payload = null)
+        public PakeAuth CreateAuth(byte[]? payload = null, bool encryptPayload = false)
         {
             EnsureUndisposed();
-            if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation"));
+            if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
             byte[] secret = null!,
                 key = null!,
                 random = RND.GetBytes(Key.ExpandedKey.Length),
+                randomMac = null!,
                 signatureKey = null!,
                 signature = null!;
             try
             {
                 key = CreateAuthKey();// MAC
                 secret = CreateSecret(key);// MAC
-                signatureKey = CreateSignatureKey(key);// KDF
-                signature = CreateSignatureAndSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
-                return new PakeAuth(Key.Identifier.CloneArray(), key, signature, random, payload);
+                signatureKey = CreateSignatureKey(key, secret);// KDF
+                randomMac = random.Mac(signatureKey);
+                if (encryptPayload && payload is not null)
+                {
+                    byte[] dek = random.Mac(signatureKey, Options);
+                    try
+                    {
+                        payload = payload.Encrypt(dek, Options);
+                    }
+                    finally
+                    {
+                        dek.Clear();
+                    }
+                }
+                signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                return new PakeAuth(Key.Identifier.CloneArray(), key.Xor(randomMac), signature, random, payload);
             }
             catch(Exception ex)
             {
                 key?.Clear();
                 random.Clear();
                 signature?.Clear();
+                payload?.Clear();
                 if (ex is CryptographicException) throw;
                 throw CryptographicException.From(ex);
             }
             finally
             {
+                randomMac?.Clear();
                 secret?.Clear();
                 signatureKey?.Clear();
             }

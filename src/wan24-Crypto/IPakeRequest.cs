@@ -3,7 +3,7 @@
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Interface fr a PAKE request
+    /// Interface for a PAKE request (all values will be cleared!)
     /// </summary>
     public interface IPakeRequest : IDisposableObject
     {
@@ -12,7 +12,7 @@ namespace wan24.Crypto
         /// </summary>
         byte[] Identifier { get; }
         /// <summary>
-        /// Key
+        /// Key (XORed with the signature key, when authenticating)
         /// </summary>
         byte[] Key { get; }
         /// <summary>
