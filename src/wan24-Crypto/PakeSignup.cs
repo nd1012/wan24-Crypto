@@ -22,7 +22,7 @@ namespace wan24.Crypto
         /// <param name="signature">Signature (will be cleared!)</param>
         /// <param name="random">Random bytes (will be cleared!)</param>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
-        internal PakeSignup(byte[] identifier, byte[] secret, byte[] key, byte[] signature, byte[] random, byte[]? payload = null) : this()
+        internal PakeSignup(in byte[] identifier, in byte[] secret, in byte[] key, in byte[] signature, in byte[] random, in byte[]? payload = null) : this()
         {
             if (payload is not null && payload.Length > ushort.MaxValue) throw new ArgumentOutOfRangeException(nameof(payload));
             Identifier = identifier;
@@ -137,12 +137,12 @@ namespace wan24.Crypto
         /// Cast as serialized data
         /// </summary>
         /// <param name="signup"><see cref="PakeSignup"/></param>
-        public static implicit operator byte[](PakeSignup signup) => signup.ToBytes();
+        public static implicit operator byte[](in PakeSignup signup) => signup.ToBytes();
 
         /// <summary>
         /// Cast from serialized data
         /// </summary>
         /// <param name="data">Serialized data</param>
-        public static explicit operator PakeSignup(byte[] data) => data.ToObject<PakeSignup>();
+        public static explicit operator PakeSignup(in byte[] data) => data.ToObject<PakeSignup>();
     }
 }

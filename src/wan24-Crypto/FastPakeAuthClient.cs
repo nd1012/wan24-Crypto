@@ -25,9 +25,10 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="key">Key (will be disposed!)</param>
-        public FastPakeAuthClient(SymmetricKeySuite key) : base(asyncDisposing: false)
+        /// <param name="options">Options (willbe cleared!)</param>
+        public FastPakeAuthClient(in SymmetricKeySuite key, in CryptoOptions? options = null) : base(asyncDisposing: false)
         {
-            Pake = new(key);
+            Pake = new(key, options);
             Key = new(Pake.CreateAuthKey());
             Secret = new(Pake.CreateSecret(Key));
             SignatureKey = new(Pake.CreateSignatureKey(Key, Secret));
@@ -71,7 +72,7 @@ namespace wan24.Crypto
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <param name="encryptPayload">Encrypt the payload?</param>
         /// <returns>Authentication (send this to the server and don't forget to dispose!)</returns>
-        public PakeAuth CreateAuth(byte[]? payload = null, bool encryptPayload = false)
+        public PakeAuth CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
         {
             EnsureUndisposed();
             if (Pake.Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
@@ -82,7 +83,8 @@ namespace wan24.Crypto
             {
                 if (encryptPayload && payload is not null)
                 {
-                    byte[] dek = random.Mac(SignatureKey, Pake.Options);
+                    byte[] dek = random.Mac(SignatureKey, Pake.Options),
+                        temp = payload;
                     try
                     {
                         payload = payload.Encrypt(dek, Pake.Options);
@@ -90,6 +92,7 @@ namespace wan24.Crypto
                     finally
                     {
                         dek.Clear();
+                        payload.Clear();
                     }
                 }
                 randomMac = random.Mac(SignatureKey);

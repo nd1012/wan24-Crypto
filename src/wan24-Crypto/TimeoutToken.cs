@@ -82,7 +82,7 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="stream">Stream</param>
-        public TimeoutToken(Stream stream)
+        public TimeoutToken(in Stream stream)
         {
             _Timeout = stream.ReadLong();
             _Payload = stream.ReadULong();
@@ -109,7 +109,7 @@ namespace wan24.Crypto
         /// <param name="timeout">Timeout ticks (UTC)</param>
         /// <param name="payload">Payload</param>
         /// <param name="mac">MAC (won't be copied!)</param>
-        private TimeoutToken(long timeout, ulong payload, byte[] mac)
+        private TimeoutToken(in long timeout, in ulong payload, in byte[] mac)
         {
             if (mac.Length != STRUCT_LENGTH) throw new ArgumentOutOfRangeException(nameof(mac));
             _Timeout = timeout;
@@ -157,14 +157,14 @@ namespace wan24.Crypto
         /// <param name="throwOnError">Throw an exception on error?</param>
         /// <returns>If the token integrity is valid</returns>
         /// <exception cref="CryptographicException">The token integrity is invalid (the token may have been manipulated)</exception>
-        public bool ValidateToken(in byte[] pwd, bool throwOnError = true)
+        public bool ValidateToken(in byte[] pwd, in bool throwOnError = true)
         {
             using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
             _Timeout.GetBytes(buffer.Span);
             _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
             if (buffer.Span.Mac(pwd, MacHmacSha384Algorithm.Instance.DefaultOptions).SlowCompare(_MAC)) return true;
-            if (throwOnError) throw new CryptographicException("MAC mismatch", new InvalidDataException());
-            return false;
+            if (!throwOnError) return false;
+            throw new CryptographicException("MAC mismatch", new InvalidDataException());
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="pwd">Password</param>
         /// <returns>MAC</returns>
-        public byte[] CreateMac(byte[] pwd)
+        public byte[] CreateMac(in byte[] pwd)
         {
             byte[] res = new byte[MacHmacSha384Algorithm.MAC_LENGTH];
             CreateMac(pwd, res);
@@ -185,7 +185,7 @@ namespace wan24.Crypto
         /// <param name="pwd">Password</param>
         /// <param name="outputBuffer">Output buffer</param>
         /// <returns>MAC</returns>
-        public Span<byte> CreateMac(byte[] pwd, in Span<byte> outputBuffer)
+        public Span<byte> CreateMac(in byte[] pwd, in Span<byte> outputBuffer)
         {
             using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
             _Timeout.GetBytes(buffer.Span);
@@ -199,7 +199,7 @@ namespace wan24.Crypto
         /// <param name="buffer">Buffer</param>
         /// <param name="pool">Buffer pool (if given, and <c>buffer</c> is <see langword="null"/>, the returned serialized data needs to be returned to this pool)</param>
         /// <returns>Serialized data</returns>
-        public byte[] Serialize(byte[]? buffer = null, ArrayPool<byte>? pool = null)
+        public byte[] Serialize(in byte[]? buffer = null, in ArrayPool<byte>? pool = null)
         {
             byte[] res;
             if (buffer != null)
@@ -228,7 +228,7 @@ namespace wan24.Crypto
         /// <param name="stream">Stream</param>
         /// <param name="buffer">Buffer</param>
         /// <param name="pool">Buffer pool</param>
-        public void Serialize(Stream stream, byte[]? buffer = null, ArrayPool<byte>? pool = null)
+        public void Serialize(in Stream stream, in byte[]? buffer = null, ArrayPool<byte>? pool = null)
         {
             if (buffer == null) pool ??= ArrayPool<byte>.Shared;
             byte[] data = Serialize(buffer, pool);

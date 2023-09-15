@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;

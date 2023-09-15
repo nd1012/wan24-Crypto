@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public Pake(CryptoOptions? options = null) : base(asyncDisposing: false)
+        public Pake(in CryptoOptions? options = null) : base(asyncDisposing: false)
         {
             Key = null;
             Options = options ?? DefaultOptions.Clone();

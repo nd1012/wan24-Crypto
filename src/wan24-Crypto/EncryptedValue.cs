@@ -23,7 +23,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public EncryptedValue() : base() { }
+        public EncryptedValue() : base(asyncDisposing: false) { }
 
         /// <summary>
         /// Options
@@ -113,13 +113,6 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing) => _Decrypted?.Clear();
-
-        /// <inheritdoc/>
-        protected override Task DisposeCore()
-        {
-            _Decrypted?.Clear();
-            return Task.CompletedTask;
-        }
 
         /// <summary>
         /// Cast as cipher data

@@ -11,7 +11,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="identity">Identity (initializes server operations; will be cleared!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public Pake(IPakeRecord identity, CryptoOptions? options = null) : this(options)
+        public Pake(in IPakeRecord identity, in CryptoOptions? options = null) : this(options)
         {
             Key = null;
             Identity = identity;
@@ -29,7 +29,7 @@ namespace wan24.Crypto
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid signup record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleSignup(PakeSignup signup)
+        public byte[] HandleSignup(in PakeSignup signup)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace wan24.Crypto
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleAuth(IPakeRequest auth, bool decryptPayload = false)
+        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
             byte[]? payload = null;
             try
@@ -189,7 +189,7 @@ namespace wan24.Crypto
         /// Raise the <see cref="OnSignup"/> event
         /// </summary>
         /// <param name="e">Arguments</param>
-        internal void RaiseOnSignup(PakeServerEventArgs e) => OnSignup?.Invoke(this, e);
+        internal void RaiseOnSignup(in PakeServerEventArgs e) => OnSignup?.Invoke(this, e);
 
         /// <summary>
         /// Raised on authentication
@@ -199,7 +199,7 @@ namespace wan24.Crypto
         /// Raise the <see cref="OnAuth"/> event
         /// </summary>
         /// <param name="e">Arguments</param>
-        internal void RaiseOnAuth(PakeServerEventArgs e) => OnAuth?.Invoke(this, e);
+        internal void RaiseOnAuth(in PakeServerEventArgs e) => OnAuth?.Invoke(this, e);
 
         /// <summary>
         /// Raised on authentication
@@ -209,7 +209,7 @@ namespace wan24.Crypto
         /// Raise the <see cref="OnAuthError"/> event
         /// </summary>
         /// <param name="e">Arguments</param>
-        internal void RaiseOnAuthError(PakeServerEventArgs e) => OnAuthError?.Invoke(this, e);
+        internal void RaiseOnAuthError(in PakeServerEventArgs e) => OnAuthError?.Invoke(this, e);
 
         /// <summary>
         /// PAKE server event arguments
@@ -222,7 +222,7 @@ namespace wan24.Crypto
             /// <param name="request">Request</param>
             /// <param name="payload">Decrypted payload, if any</param>
             /// <param name="ex">Exception</param>
-            public PakeServerEventArgs(IPakeRequest request, byte[]? payload = null, Exception? ex = null) : base()
+            public PakeServerEventArgs(in IPakeRequest request, in byte[]? payload = null, in Exception? ex = null) : base()
             {
                 Request = request;
                 Payload = payload;

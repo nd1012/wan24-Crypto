@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Security.Principal;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -24,7 +23,7 @@ namespace wan24.Crypto
         /// <param name="pake">PAKE instance (will be disposed!)</param>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload (if any)?</param>
-        public FastPakeAuthServer(Pake pake, PakeAuth auth, bool decryptPayload = false) : base(asyncDisposing: false)
+        public FastPakeAuthServer(in Pake pake, in PakeAuth auth, in bool decryptPayload = false) : base(asyncDisposing: false)
         {
             if (pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
             if (pake.Identity is null) throw CryptographicException.From(new ArgumentException("Identity record required", nameof(pake)));
@@ -119,7 +118,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="signup">Signup (will be disposed!)</param>
         /// <param name="pake">PAKE instance (will be disposed!)</param>
-        public FastPakeAuthServer(PakeSignup signup, Pake? pake = null) : base(asyncDisposing: false)
+        public FastPakeAuthServer(in PakeSignup signup, Pake? pake = null) : base(asyncDisposing: false)
         {
             pake ??= new();
             if (pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
@@ -219,7 +218,7 @@ namespace wan24.Crypto
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
-        public byte[] HandleAuth(IPakeRequest auth, bool decryptPayload = false)
+        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
             byte[]? payload = null;
             try

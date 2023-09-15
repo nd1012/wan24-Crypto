@@ -18,6 +18,7 @@ namespace wan24.Crypto
             ClearSessionKey();
             ClearIdentity();
             Key?.Dispose();
+            Options.Clear();
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace wan24.Crypto
         /// <returns>Signature</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [MemberNotNull(nameof(_SessionKey), nameof(SessionKey))]
-        internal byte[] SignAndCreateSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, byte[] payload, byte[] secret)
+        internal byte[] SignAndCreateSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, in byte[] payload, in byte[] secret)
         {
             byte[] identifier = Identifier,
                 signature = null!;

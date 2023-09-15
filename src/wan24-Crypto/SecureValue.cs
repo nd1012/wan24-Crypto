@@ -3,104 +3,113 @@
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Secure value (keeps a value encrypted after a timeout, re-crypts from time to time)
+    /// Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see 
+    /// <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>)
     /// </summary>
-    public sealed class SecureValue : DisposableBase
+    public sealed partial class SecureValue : DisposableBase
     {
-        /// <summary>
-        /// Encrypt timer
-        /// </summary>
-        private readonly System.Timers.Timer EncryptTimer;
-        /// <summary>
-        /// Recrypt timer
-        /// </summary>
-        private readonly System.Timers.Timer RecryptTimer;
-        /// <summary>
-        /// Thread synchronization
-        /// </summary>
-        private readonly SemaphoreSync Sync = new();
-        /// <summary>
-        /// Raw value
-        /// </summary>
-        private SecureByteArray? RawValue;
-        /// <summary>
-        /// Encrypted value
-        /// </summary>
-        private SecureByteArray? EncryptedValue = null;
-        /// <summary>
-        /// Encryption key
-        /// </summary>
-        private SecureByteArray? EncryptionKey = null;
-
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="value">Value (will be cleared!)</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time)</param>
-        /// <param name="recryptTimeout">Re-crypt timeout (see <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>: "...there's enough risk to 
-        /// dispose the RAM carefully...")</param>
-        /// <param name="options">Options</param>
-        public SecureValue(byte[] value, TimeSpan encryptTimeout, TimeSpan recryptTimeout, CryptoOptions? options = null) : base(asyncDisposing: false)
+        /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example)</param>
+        /// <param name="options">Options (will be cleared!)</param>
+        /// <param name="keyLen">Random value encryption key length in bytes</param>
+        public SecureValue(
+            in byte[] value,
+            in TimeSpan? encryptTimeout = null,
+            in TimeSpan? recryptTimeout = null,
+            in CryptoOptions? options = null,
+            in int keyLen = DEFAULT_KEY_LEN
+            )
+            : base(asyncDisposing: false)
         {
             RawValue = new(value);
-            EncryptTimeout = encryptTimeout;
-            RecryptTimeout = recryptTimeout;
-            Options = options ?? new();
-            if (Options.Algorithm is null) Options.WithEncryptionAlgorithm();
-            EncryptTimer = new()
+            try
             {
-                Interval = encryptTimeout.TotalMilliseconds,
-                AutoReset = false
-            };
-            EncryptTimer.Elapsed += (s, e) => Encrypt();
-            RecryptTimer = new()
-            {
-                Interval = recryptTimeout.TotalMilliseconds,
-                AutoReset = false
-            };
-            RecryptTimer.Elapsed += (s, e) => Recrypt();
-            if (encryptTimeout == TimeSpan.Zero)
-            {
-                Encrypt(sync: false);
+                KeyLen = keyLen;
+                EncryptTimeout = encryptTimeout ?? DefaultEncryptTimeout;
+                RecryptTimeout = recryptTimeout ?? DefaultRecryptTimeout;
+                Options = options ?? new();
+                if (Options.Algorithm is null) Options.WithEncryptionAlgorithm();
+                EncryptTimer = new()
+                {
+                    Interval = EncryptTimeout.TotalMilliseconds,
+                    AutoReset = false
+                };
+                EncryptTimer.Elapsed += (s, e) => Encrypt();
+                RecryptTimer = new()
+                {
+                    Interval = RecryptTimeout.TotalMilliseconds,
+                    AutoReset = false
+                };
+                RecryptTimer.Elapsed += (s, e) => Recrypt();
+                if (EncryptTimeout == TimeSpan.Zero)
+                {
+                    Encrypt();
+                }
+                else
+                {
+                    EncryptTimer.Start();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                EncryptTimer.Start();
+                Dispose();
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
             }
         }
 
         /// <summary>
-        /// Value (should be cleared / will be cleared!)
+        /// Default encrypt timeout
+        /// </summary>
+        public static TimeSpan DefaultEncryptTimeout { get; set; } = TimeSpan.FromMilliseconds(150);
+
+        /// <summary>
+        /// Default re-crypt timeout
+        /// </summary>
+        public static TimeSpan DefaultRecryptTimeout { get; set; } = TimeSpan.FromMinutes(1);
+
+        /// <summary>
+        /// Value (should/will be cleared!)
         /// </summary>
         public byte[] Value
         {
             get
             {
                 EnsureUndisposed();
-                using SemaphoreSyncContext ssc = Sync.SyncContext();
+                using SemaphoreSyncContext ssc = Sync;
+                LastAccess = DateTime.Now;
                 if (RawValue is null) return Decrypt();
-                RecryptTimer.Stop();
                 EncryptTimer.Stop();
-                EncryptTimer.Start();
-                RecryptTimer.Start();
-                return RawValue.Array.CloneArray();
+                try
+                {
+                    return RawValue.Array.CloneArray();
+                }
+                finally
+                {
+                    EncryptTimer.Start();
+                    RaiseOnAccess();
+                }
             }
             set
             {
+                using SecureByteArrayRefStruct secureValue = new(value);
                 EnsureUndisposed();
-                using SemaphoreSyncContext ssc = Sync.SyncContext();
+                using SemaphoreSyncContext ssc = Sync;
                 RecryptTimer.Stop();
                 EncryptTimer.Stop();
                 if (RawValue is null)
                 {
-                    EncryptedValue!.Dispose();
                     EncryptionKey!.Dispose();
+                    EncryptedValue!.Dispose();
                     if (EncryptTimeout == TimeSpan.Zero)
                     {
-                        EncryptionKey = new(RND.GetBytes(64));
-                        EncryptedValue = new(value.Encrypt(EncryptionKey.Array, Options));
+                        EncryptionKey = new(RND.GetBytes(_KeyLen));
+                        EncryptedValue = new(secureValue.Array.Encrypt(EncryptionKey, Options));
                         RecryptTimer.Start();
-                        value.Clear();
                         return;
                     }
                     else
@@ -110,16 +119,31 @@ namespace wan24.Crypto
                     }
                 }
                 RawValue?.Dispose();
-                RawValue = new(value);
+                RawValue = new(secureValue.Array.CloneArray());
                 EncryptTimer.Start();
-                RecryptTimer.Start();
             }
         }
 
         /// <summary>
         /// Options
         /// </summary>
-        public CryptoOptions Options { get; }
+        public CryptoOptions Options { get; } = null!;
+
+        /// <summary>
+        /// Random value encryption key length in bytes
+        /// </summary>
+        public int KeyLen
+        {
+            get => _KeyLen;
+            set
+            {
+                EnsureUndisposed();
+                if (_KeyLen == value) return;
+                if (value < 1 || value > byte.MaxValue) throw new ArgumentOutOfRangeException(nameof(value));
+                _KeyLen = value;
+                if (EncryptedValue is not null) Recrypt();
+            }
+        }
 
         /// <summary>
         /// Encrypt timeout
@@ -127,9 +151,24 @@ namespace wan24.Crypto
         public TimeSpan EncryptTimeout { get; }
 
         /// <summary>
-        /// Recrypt timeout (see <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>: "...there's enough risk to dispose the RAM carefully...")
+        /// Recrypt timeout
         /// </summary>
         public TimeSpan RecryptTimeout { get; }
+
+        /// <summary>
+        /// Is the value encrypted at present?
+        /// </summary>
+        public bool IsEncrypted => IfUndisposed(() => RawValue is null);
+
+        /// <summary>
+        /// Last access time
+        /// </summary>
+        public DateTime LastAccess { get; private set; } = DateTime.MinValue;
+
+        /// <summary>
+        /// Encryption time
+        /// </summary>
+        public DateTime EncryptedSince { get; private set; } = DateTime.MinValue;
 
         /// <summary>
         /// Get the value
@@ -140,12 +179,18 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             using SemaphoreSyncContext ssc = await Sync.SyncContextAsync(cancellationToken).DynamicContext();
+            LastAccess = DateTime.Now;
             if (RawValue is null) return Decrypt();
-            RecryptTimer.Stop();
             EncryptTimer.Stop();
-            EncryptTimer.Start();
-            RecryptTimer.Start();
-            return RawValue.Array.CloneArray();
+            try
+            {
+                return RawValue.Array.CloneArray();
+            }
+            finally
+            {
+                EncryptTimer.Start();
+                RaiseOnAccess();
+            }
         }
 
         /// <summary>
@@ -155,20 +200,20 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         public async Task SetValueAsync(byte[] value, CancellationToken cancellationToken = default)
         {
+            using SecureByteArrayStructSimple secureValue = new(value);
             EnsureUndisposed();
             using SemaphoreSyncContext ssc = await Sync.SyncContextAsync(cancellationToken).DynamicContext();
             RecryptTimer.Stop();
             EncryptTimer.Stop();
             if (RawValue is null)
             {
-                EncryptedValue!.Dispose();
                 EncryptionKey!.Dispose();
+                EncryptedValue!.Dispose();
                 if (EncryptTimeout == TimeSpan.Zero)
                 {
-                    EncryptionKey = new(await RND.GetBytesAsync(64).DynamicContext());
-                    EncryptedValue = new(value.Encrypt(EncryptionKey.Array, Options));
+                    EncryptionKey = new(await RND.GetBytesAsync(_KeyLen).DynamicContext());
+                    EncryptedValue = new(secureValue.Array.Encrypt(EncryptionKey, Options));
                     RecryptTimer.Start();
-                    value.Clear();
                     return;
                 }
                 else
@@ -178,88 +223,30 @@ namespace wan24.Crypto
                 }
             }
             RawValue?.Dispose();
-            RawValue = new(value);
+            RawValue = new(secureValue.Array.CloneArray());
             EncryptTimer.Start();
-            RecryptTimer.Start();
         }
 
-        /// <inheritdoc/>
-        protected override void Dispose(bool disposing)
+        /// <summary>
+        /// Delegate for an <see cref="OnAccess"/> event handler
+        /// </summary>
+        /// <param name="value">Secure value</param>
+        /// <param name="e">Arguments</param>
+        public delegate void Access_Delegate(SecureValue value, EventArgs e);
+        /// <summary>
+        /// Raised on value access
+        /// </summary>
+        public event Access_Delegate? OnAccess;
+        /// <summary>
+        /// Raise the <see cref="OnAccess"/> event
+        /// </summary>
+        private void RaiseOnAccess()
         {
-            using (SemaphoreSyncContext ssc = Sync.SyncContext())
+            if (OnAccess is not null) _ = ((Func<Task>)(async () =>
             {
-                RecryptTimer.Stop();
-                RecryptTimer.Dispose();
-                EncryptTimer.Stop();
-                EncryptTimer.Dispose();
-                RawValue?.Dispose();
-                RawValue = null;
-                EncryptionKey?.Dispose();
-                EncryptionKey = null;
-                EncryptedValue?.Dispose();
-                EncryptedValue = null;
-            }
-            Sync.Dispose();
+                await Task.Yield();
+                OnAccess?.Invoke(this, new());
+            })).StartFairTask();
         }
-
-        /// <summary>
-        /// Encrypt
-        /// </summary>
-        /// <param name="sync">Thread synchronization?</param>
-        private void Encrypt(bool sync = true)
-        {
-            using SemaphoreSyncContext? ssc = sync ? Sync.SyncContext() : null;
-            if (RawValue is null) return;
-            EncryptTimer.Stop();
-            EncryptionKey = new(RND.GetBytes(64));
-            EncryptedValue = new(RawValue!.Array.Encrypt(EncryptionKey.Array, Options));
-            RawValue.Dispose();
-            RawValue = null;
-            RecryptTimer.Start();
-        }
-
-        /// <summary>
-        /// Decrypt
-        /// </summary>
-        /// <param name="sync">Thread synchronization?</param>
-        /// <returns>Value (should be cleared!)</returns>
-        private byte[] Decrypt(bool sync = false)
-        {
-            using SemaphoreSyncContext? ssc = sync ? Sync.SyncContext() : null;
-            if (RawValue is not null) return RawValue.Array.CloneArray();
-            if (EncryptTimeout == TimeSpan.Zero)
-                return EncryptedValue!.Array.Decrypt(EncryptionKey!.Array, Options);
-            RecryptTimer.Stop();
-            RawValue = new(EncryptedValue!.Array.Decrypt(EncryptionKey!.Array, Options));
-            EncryptedValue.Dispose();
-            EncryptedValue = null;
-            EncryptionKey.Dispose();
-            EncryptionKey = null;
-            EncryptTimer.Start();
-            return RawValue.Array.CloneArray();
-        }
-
-        /// <summary>
-        /// Re-crypt
-        /// </summary>
-        private void Recrypt()
-        {
-            using SemaphoreSyncContext ssc = Sync.SyncContext();
-            if (RawValue is not null) return;
-            RecryptTimer.Stop();
-            byte[] rawValue = EncryptedValue!.Array.Decrypt(EncryptionKey!.Array, Options);
-            EncryptedValue.Dispose();
-            SecureByteArray newEncryptionKey = new(RND.GetBytes(64));
-            EncryptedValue = new(rawValue.Encrypt(newEncryptionKey.Array, Options));
-            EncryptionKey.Dispose();
-            EncryptionKey = newEncryptionKey;
-            RecryptTimer.Start();
-        }
-
-        /// <summary>
-        /// Cast as value
-        /// </summary>
-        /// <param name="value">Value (should be cleared!)</param>
-        public static implicit operator byte[](SecureValue value) => value.Value;
     }
 }

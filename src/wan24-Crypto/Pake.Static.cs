@@ -34,13 +34,13 @@ namespace wan24.Crypto
         /// Cast as existing session flag
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
-        public static implicit operator bool(Pake pake) => pake.HasSession;
+        public static implicit operator bool(in Pake pake) => pake.HasSession;
 
         /// <summary>
         /// Cast as session key (should be cleared!)
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
-        public static implicit operator byte[](Pake pake) => pake.SessionKey.CloneArray();
+        public static implicit operator byte[](in Pake pake) => pake.SessionKey.CloneArray();
 
         /// <summary>
         /// Get the payload
@@ -48,7 +48,7 @@ namespace wan24.Crypto
         /// <param name="pake"><see cref="Pake"/></param>
         /// <param name="signup"><see cref="PakeSignup"/> (will be disposed!)</param>
         /// <returns>Payload</returns>
-        public static byte[] operator +(Pake pake, PakeSignup signup)
+        public static byte[] operator +(in Pake pake, in PakeSignup signup)
         {
             pake.HandleSignup(signup);
             return pake;
@@ -60,6 +60,6 @@ namespace wan24.Crypto
         /// <param name="pake"><see cref="Pake"/></param>
         /// <param name="auth"><see cref="PakeAuth"/> (will be disposed!)</param>
         /// <returns>Payload</returns>
-        public static byte[] operator +(Pake pake, PakeAuth auth) => pake.HandleAuth(auth).CloneArray();
+        public static byte[] operator +(in Pake pake, in PakeAuth auth) => pake.HandleAuth(auth).CloneArray();
     }
 }

@@ -15,7 +15,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="key">Private key (requires an identifier; initializes client operations; will be disposed!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public Pake(SymmetricKeySuite key, CryptoOptions? options = null) : this(options)
+        public Pake(in SymmetricKeySuite key, in CryptoOptions? options = null) : this(options)
         {
             if (key.Identifier is null) throw CryptographicException.From(new ArgumentException("Missing identifier", nameof(key)));
             Key = key;
@@ -27,7 +27,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <returns>Signup (send this to the server and don't forget to dispose!)</returns>
-        public PakeSignup CreateSignup(byte[]? payload = null)
+        public PakeSignup CreateSignup(in byte[]? payload = null)
         {
             EnsureUndisposed();
             if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation"));
@@ -66,7 +66,7 @@ namespace wan24.Crypto
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <param name="encryptPayload">Encrypt the payload?</param>
         /// <returns>Authentication (send this to the server and don't forget to dispose!)</returns>
-        public PakeAuth CreateAuth(byte[]? payload = null, bool encryptPayload = false)
+        public PakeAuth CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
         {
             EnsureUndisposed();
             if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
@@ -84,7 +84,8 @@ namespace wan24.Crypto
                 randomMac = random.Mac(signatureKey);
                 if (encryptPayload && payload is not null)
                 {
-                    byte[] dek = random.Mac(signatureKey, Options);
+                    byte[] dek = random.Mac(signatureKey, Options),
+                        temp = payload;
                     try
                     {
                         payload = payload.Encrypt(dek, Options);
@@ -92,6 +93,7 @@ namespace wan24.Crypto
                     finally
                     {
                         dek.Clear();
+                        temp.Clear();
                     }
                 }
                 signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
