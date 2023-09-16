@@ -95,6 +95,9 @@
       <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_CreateIvBytes">EncryptionAlgorithmBase.CreateIvBytes()</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_GetValidLengthKey_System_Byte___System_Int32_">EncryptionAlgorithmBase.GetValidLengthKey(Byte[], Int32)</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_ReadFixedIvBytes_Stream_wan24_Crypto_CryptoOptions_">EncryptionAlgorithmBase.ReadFixedIvBytes(Stream, CryptoOptions)</a>
     </div>
     <div>
@@ -660,7 +663,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_CreateAes_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.CreateAes(wan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L78">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L84">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_CreateAes_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.CreateAes*"></a>
   <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_CreateAes_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.CreateAes(wan24.Crypto.CryptoOptions)">CreateAes(CryptoOptions)</h4>
@@ -707,10 +710,62 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_EnsureValidKeyLength_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.EnsureValidKeyLength(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L74">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_EnsureValidKeyLength_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.EnsureValidKeyLength*"></a>
+  <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_EnsureValidKeyLength_System_Byte___" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.EnsureValidKeyLength(System.Byte[])">EnsureValidKeyLength(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Ensure a key with a valid length</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override byte[] EnsureValidKeyLength(byte[] key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Key (won't be cleared)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>Key with a valid length (if the given <code>key</code> had a valid length already, this is a copy; should be cleared)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_EnsureValidKeyLength_System_Byte___">EncryptionAlgorithmBase.EnsureValidKeyLength(Byte[])</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptor_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptor(Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L149">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L155">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptor_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptor*"></a>
   <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptor_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptor(Stream,wan24.Crypto.CryptoOptions)">GetDecryptor(Stream, CryptoOptions)</h4>
@@ -768,7 +823,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptorAsync(Stream%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L168">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L174">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptorAsync_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptorAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetDecryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetDecryptorAsync(Stream,wan24.Crypto.CryptoOptions,CancellationToken)">GetDecryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
@@ -832,7 +887,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_GetEncryptor_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.GetEncryptor(Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L109">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L115">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetEncryptor_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetEncryptor*"></a>
   <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetEncryptor_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetEncryptor(Stream,wan24.Crypto.CryptoOptions)">GetEncryptor(Stream, CryptoOptions)</h4>
@@ -890,7 +945,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_GetEncryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.GetEncryptorAsync(Stream%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L129">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L135">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetEncryptorAsync_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetEncryptorAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_GetEncryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.GetEncryptorAsync(Stream,wan24.Crypto.CryptoOptions,CancellationToken)">GetEncryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
@@ -949,6 +1004,58 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_GetEncryptorAsync_Stream_wan24_Crypto_CryptoOptions_CancellationToken_">EncryptionAlgorithmBase.GetEncryptorAsync(Stream, CryptoOptions, CancellationToken)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAes256CbcAlgorithm_IsKeyLengthValid_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAes256CbcAlgorithm.IsKeyLengthValid(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAes256CbcAlgorithm.cs/#L77">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionAes256CbcAlgorithm_IsKeyLengthValid_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.IsKeyLengthValid*"></a>
+  <h4 id="wan24_Crypto_EncryptionAes256CbcAlgorithm_IsKeyLengthValid_System_Int32_" data-uid="wan24.Crypto.EncryptionAes256CbcAlgorithm.IsKeyLengthValid(System.Int32)">IsKeyLengthValid(Int32)</h4>
+  <div class="markdown level1 summary"><p>Determine if a key length is valid</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsKeyLengthValid(int len)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">len</span></td>
+        <td><p>Key length in bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>If the key length is valid</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_IsKeyLengthValid_System_Int32_">EncryptionAlgorithmBase.IsKeyLengthValid(Int32)</a></div>
 </article>
           </div>
           

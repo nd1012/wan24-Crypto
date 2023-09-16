@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IPakeRecord
+    <title>Interface ISymmetricKeySuite
    | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IPakeRecord
+    <meta name="title" content="Interface ISymmetricKeySuite
    | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,99 +68,89 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.IPakeRecord">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.ISymmetricKeySuite">
   
   
-  <h1 id="wan24_Crypto_IPakeRecord" data-uid="wan24.Crypto.IPakeRecord" class="text-break">Interface IPakeRecord
+  <h1 id="wan24_Crypto_ISymmetricKeySuite" data-uid="wan24.Crypto.ISymmetricKeySuite" class="text-break">Interface ISymmetricKeySuite
   </h1>
-  <div class="markdown level0 summary"><p>Interface for a PAKE record</p>
+  <div class="markdown level0 summary"><p>Interface for a symmetric key suite</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.IDisposableObject.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.IDisposable.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.IAsyncDisposable.DisposeAsync()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
-  <h5 id="wan24_Crypto_IPakeRecord_syntax">Syntax</h5>
+  <h5 id="wan24_Crypto_ISymmetricKeySuite_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IPakeRecord</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ISymmetricKeySuite : IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_IPakeRecord_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.IPakeRecord.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ISymmetricKeySuite_ExpandedKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.ISymmetricKeySuite.ExpandedKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/IPakeRecord.cs/#L11">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ISymmetricKeySuite.cs/#L17">View Source</a>
   </span>
-  <a id="wan24_Crypto_IPakeRecord_Identifier_" data-uid="wan24.Crypto.IPakeRecord.Identifier*"></a>
-  <h4 id="wan24_Crypto_IPakeRecord_Identifier" data-uid="wan24.Crypto.IPakeRecord.Identifier">Identifier</h4>
-  <div class="markdown level1 summary"><p>Identifier (will be cleared!)</p>
+  <a id="wan24_Crypto_ISymmetricKeySuite_ExpandedKey_" data-uid="wan24.Crypto.ISymmetricKeySuite.ExpandedKey*"></a>
+  <h4 id="wan24_Crypto_ISymmetricKeySuite_ExpandedKey" data-uid="wan24.Crypto.ISymmetricKeySuite.ExpandedKey">ExpandedKey</h4>
+  <div class="markdown level1 summary"><p>Expanded symmetric key (private!; used for en-/decryption and authentication; will be disposed!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SecureByteArray ExpandedKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">wan24.Core.SecureByteArray</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ISymmetricKeySuite_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.ISymmetricKeySuite.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ISymmetricKeySuite.cs/#L13">View Source</a>
+  </span>
+  <a id="wan24_Crypto_ISymmetricKeySuite_Identifier_" data-uid="wan24.Crypto.ISymmetricKeySuite.Identifier*"></a>
+  <h4 id="wan24_Crypto_ISymmetricKeySuite_Identifier" data-uid="wan24.Crypto.ISymmetricKeySuite.Identifier">Identifier</h4>
+  <div class="markdown level1 summary"><p>Identifier (public; used for identification during authentication; will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">byte[] Identifier { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_IPakeRecord_Secret.md&amp;value=---%0Auid%3A%20wan24.Crypto.IPakeRecord.Secret%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/IPakeRecord.cs/#L15">View Source</a>
-  </span>
-  <a id="wan24_Crypto_IPakeRecord_Secret_" data-uid="wan24.Crypto.IPakeRecord.Secret*"></a>
-  <h4 id="wan24_Crypto_IPakeRecord_Secret" data-uid="wan24.Crypto.IPakeRecord.Secret">Secret</h4>
-  <div class="markdown level1 summary"><p>Secret (this is sensitive data and should be stored encrypted; will be cleared!)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">byte[] Secret { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_IPakeRecord_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.IPakeRecord.SignatureKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/IPakeRecord.cs/#L19">View Source</a>
-  </span>
-  <a id="wan24_Crypto_IPakeRecord_SignatureKey_" data-uid="wan24.Crypto.IPakeRecord.SignatureKey*"></a>
-  <h4 id="wan24_Crypto_IPakeRecord_SignatureKey" data-uid="wan24.Crypto.IPakeRecord.SignatureKey">SignatureKey</h4>
-  <div class="markdown level1 summary"><p>Signature key (this is sensitive data and should be stored encrypted; will be cleared!)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">byte[] SignatureKey { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,10 +175,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_IPakeRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.IPakeRecord%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ISymmetricKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.ISymmetricKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/IPakeRecord.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ISymmetricKeySuite.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

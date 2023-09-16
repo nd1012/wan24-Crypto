@@ -180,6 +180,12 @@ properties (can be done by calling the protected constructors); default max. len
       <h4><a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a></h4>
       <section><p>Encryption streams</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></h4>
+      <section><p>Fast PAKE authentication client (NOT thread-safe!)</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.FastPakeAuthServer.html">FastPakeAuthServer</a></h4>
+      <section><p>Fast PAKE authentication server (NOT thread-safe!)</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.ForcePostQuantumEventArgs.html">ForcePostQuantumEventArgs</a></h4>
       <section><p>Event arguments for the <a class="xref" href="wan24.Crypto.CryptoHelper.html#wan24_Crypto_CryptoHelper_OnForcePostQuantum">OnForcePostQuantum</a> event</p>
 </section>
@@ -258,6 +264,9 @@ properties (can be done by calling the protected constructors); default max. len
       <h4><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></h4>
       <section><p>PAKE</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.Pake.PakeServerEventArgs.html">Pake.PakeServerEventArgs</a></h4>
+      <section><p>PAKE server event arguments</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.PakeAuth.html">PakeAuth</a></h4>
       <section><p>PAKE authentication information (needs to be sent to the server, wrapped using a PFS protocol!)</p>
 </section>
@@ -275,6 +284,13 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h4><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></h4>
       <section><p>Public key suite</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RND.html">RND</a></h4>
+      <section><p>Random generators</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></h4>
+      <section><p>Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see
+<a href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf">https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf</a>)</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></h4>
       <section><p>Signature container</p>
@@ -323,11 +339,17 @@ properties (can be done by calling the protected constructors); default max. len
       <h4><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a></h4>
       <section><p>Interface for a PAKE record</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.IPakeRequest.html">IPakeRequest</a></h4>
+      <section><p>Interface for a PAKE request (all values will be cleared!)</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></h4>
       <section><p>Signature private key</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a></h4>
       <section><p>Signature public key</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></h4>
+      <section><p>Interface for a symmetric key suite</p>
 </section>
     <h3 id="enums">Enums
   </h3>
@@ -359,6 +381,18 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h4><a class="xref" href="wan24.Crypto.CryptoHelper.ForcePostQuantum_Delegate.html">CryptoHelper.ForcePostQuantum_Delegate</a></h4>
       <section><p>Delegate for a force</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.Pake.PakeServer_Delegate.html">Pake.PakeServer_Delegate</a></h4>
+      <section><p>Delegate for a PAKE server event handler delegate</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RND.RNG_Delegate.html">RND.RNG_Delegate</a></h4>
+      <section><p>Delegate for a random generator</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RND.RNGAsync_Delegate.html">RND.RNGAsync_Delegate</a></h4>
+      <section><p>Delegate for a random generator</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.SecureValue.Access_Delegate.html">SecureValue.Access_Delegate</a></h4>
+      <section><p>Delegate for an <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_OnAccess">OnAccess</a> event handler</p>
 </section>
 </article>
           </div>

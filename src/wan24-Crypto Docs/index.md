@@ -20,7 +20,7 @@ Per default these cryptographic algorithms are implemented:
 |  | XCrypt |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
-| **KDF key stretching** | PBKDF#2 (20,000 iterations per default) |
+| **KDF key stretching** | PBKDF#2 (250,000 iterations per default) |
 
 These elliptic curves are supported at present:
 
@@ -100,7 +100,7 @@ The default MAC algorithm is HMAC-SHA512.
 (byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 ```
 
-The default KDF algorithm is PBKDF#2, using 20,000 iterations.
+The default KDF algorithm is PBKDF#2, using 250,000 iterations.
 
 ### Encryption
 
@@ -254,11 +254,13 @@ sections, it's easy to overview:
 |  | `CounterPublicKey` | Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key) | `null` |
 | KDF | `KdfAlgorithm` | KDF algorithm name | `null` (`PBKDF2`) |
 |  | `KdfIterations` | KDF iteration count | `1` |
+|  | `KdfOptions` | String serialized KDF algorithm options | `null` |
 |  | `KdfSalt` | KDF salt (generated automatic) | `null` |
 |  | `KdfAlgorithmIncluded` | Include the KDF information in the header | `true` |
 |  | `RequireKdfAlgorithm` | Is the KDF information required in the header? | `true` |
 |  | `CounterKdfAlgorithm` | Counter KDF algorithm name | `null` |
 |  | `CounterKdfIterations` | Counter KDF iteration count | `1` |
+|  | `CounterKdfOptions` | String serialized KDF algorithm options | `null` |
 |  | `CounterKdfSalt` | Counter KDF salt (generated automatic) | `null` |
 |  | `CounterKdfAlgorithmIncluded` | Include the counter KDF information in the header | `false` |
 |  | `RequireCounterKdfAlgorithm` | Is the counter KDF information required in the header? | `false` |
@@ -421,6 +423,14 @@ attacker.
 **NOTE**: Default options for PAKE can be overridden by setting a custom value 
 to `Pake.DefaultOptions`.
 
+`FastPakeClient/Server` allow fast followup authentications after the first 
+authentication of an already known peer (after a signup was performed). 
+They're designed to be alive for a longer time, if the server expects a client 
+to perform multiple authentications. They're good for a single-directional UDP 
+protocol, for example, where each message is PAKE authenticated, and each 
+followup message is encrypted using the session key of the first 
+authentication message.
+
 ## Notes
 
 Sometimes you'll read something like "will be disposed" or "will be cleared" 
@@ -503,7 +513,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | HMAC-SHA384 | 2 | wan24-Crypto |
 | HMAC-SHA512 | 3 | wan24-Crypto |
 | **KDF** |  |  |
-| PBKDF2 | 0 | wan24-Crypto |
+| PBKDF#2 | 0 | wan24-Crypto |
+| Argon2id | 1 | wan24-Crypto-NaCl |
 
 ## Counter algorithms
 

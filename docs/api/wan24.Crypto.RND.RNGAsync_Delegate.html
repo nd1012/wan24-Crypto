@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum CryptoFlags
+    <title>Delegate RND.RNGAsync_Delegate
    | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum CryptoFlags
+    <meta name="title" content="Delegate RND.RNGAsync_Delegate
    | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,112 +68,53 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.CryptoFlags">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.RND.RNGAsync_Delegate">
   
   
-  <h1 id="wan24_Crypto_CryptoFlags" data-uid="wan24.Crypto.CryptoFlags" class="text-break">Enum CryptoFlags
+  <h1 id="wan24_Crypto_RND_RNGAsync_Delegate" data-uid="wan24.Crypto.RND.RNGAsync_Delegate" class="text-break">Delegate RND.RNGAsync_Delegate
   </h1>
-  <div class="markdown level0 summary"><p>Crypto flags</p>
+  <div class="markdown level0 summary"><p>Delegate for a random generator</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
-  <h5 id="wan24_Crypto_CryptoFlags_syntax">Syntax</h5>
+  <h5 id="wan24_Crypto_RND_RNGAsync_Delegate_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum CryptoFlags</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate Task RNGAsync_Delegate(Memory&lt;byte&gt; buffer);</code></pre>
   </div>
-  <h3 id="fields">Fields
-  </h3>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
+        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
-        <td id="wan24_Crypto_CryptoFlags_Compressed">Compressed</td>
-        <td><p>Compressed?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_FLAGS">FLAGS</td>
-        <td><p>All flags</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_ForceMacCoverWhole">ForceMacCoverWhole</td>
-        <td><p>Is the MAC forced to cover all data?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_HeaderVersionIncluded">HeaderVersionIncluded</td>
-        <td><p>Header version included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_KdfAlgorithmIncluded">KdfAlgorithmIncluded</td>
-        <td><p>KDF algorithm included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_KeyExchangeDataIncluded">KeyExchangeDataIncluded</td>
-        <td><p>Key exchange data included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_LatestVersion">LatestVersion</td>
-        <td><p>Latest crypto header data structure version</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_MacAlgorithmIncluded">MacAlgorithmIncluded</td>
-        <td><p>MAC algorithm included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_MacIncluded">MacIncluded</td>
-        <td><p>MAC included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_PayloadIncluded">PayloadIncluded</td>
-        <td><p>Payload included</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_RequireAsymmetricCounterAlgorithm">RequireAsymmetricCounterAlgorithm</td>
-        <td><p>Require an asymmetric counter algorithm</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_RequireCounterKdfAlgorithm">RequireCounterKdfAlgorithm</td>
-        <td><p>Require a counter KDF algorithm</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_RequireCounterMac">RequireCounterMac</td>
-        <td><p>Require a counter MAC</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_SerializerVersionIncluded">SerializerVersionIncluded</td>
-        <td><p>Serializer version included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_TimeIncluded">TimeIncluded</td>
-        <td><p>Time included?</p>
-</td>
-      </tr>
-      <tr>
-        <td id="wan24_Crypto_CryptoFlags_Version1">Version1</td>
-        <td><p>Crypto header data structure version 1</p>
+        <td><span class="xref">Memory</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>Buffer to fill with random material</p>
 </td>
       </tr>
     </tbody>
-  </thead></thead></table>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -182,10 +123,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoFlags.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RND_RNGAsync_Delegate.md&amp;value=---%0Auid%3A%20wan24.Crypto.RND.RNGAsync_Delegate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoFlags.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RND.cs/#L71" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -127,7 +127,7 @@ implemented cryptographic algorithm to be applied using a simple interface.</p>
 </tr>
 <tr>
 <td><strong>KDF key stretching</strong></td>
-<td>PBKDF#2 (20,000 iterations per default)</td>
+<td>PBKDF#2 (250,000 iterations per default)</td>
 </tr>
 </tbody>
 </table>
@@ -190,7 +190,7 @@ algorithms.</p>
 <h3 id="kdf-key-stretching">KDF (key stretching)</h3>
 <pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 </code></pre>
-<p>The default KDF algorithm is PBKDF#2, using 20,000 iterations.</p>
+<p>The default KDF algorithm is PBKDF#2, using 250,000 iterations.</p>
 <h3 id="encryption">Encryption</h3>
 <pre><code class="lang-cs">byte[] cipher = raw.Encrypt(password);
 byte[] raw = cipher.Decrypt(password);
@@ -448,6 +448,12 @@ sections, it's easy to overview:</p>
 </tr>
 <tr>
 <td></td>
+<td><code>KdfOptions</code></td>
+<td>String serialized KDF algorithm options</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
 <td><code>KdfSalt</code></td>
 <td>KDF salt (generated automatic)</td>
 <td><code>null</code></td>
@@ -475,6 +481,12 @@ sections, it's easy to overview:</p>
 <td><code>CounterKdfIterations</code></td>
 <td>Counter KDF iteration count</td>
 <td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfOptions</code></td>
+<td>String serialized KDF algorithm options</td>
+<td><code>null</code></td>
 </tr>
 <tr>
 <td></td>
@@ -733,6 +745,13 @@ a MAC was validated, which closes a door for DoS attacks by an anonymous
 attacker.</p>
 <p><strong>NOTE</strong>: Default options for PAKE can be overridden by setting a custom value
 to <code>Pake.DefaultOptions</code>.</p>
+<p><code>FastPakeClient/Server</code> allow fast followup authentications after the first
+authentication of an already known peer (after a signup was performed).
+They're designed to be alive for a longer time, if the server expects a client
+to perform multiple authentications. They're good for a single-directional UDP
+protocol, for example, where each message is PAKE authenticated, and each
+followup message is encrypted using the session key of the first
+authentication message.</p>
 <h2 id="notes">Notes</h2>
 <p>Sometimes you'll read something like &quot;will be disposed&quot; or &quot;will be cleared&quot;
 in the documentation. These are important diclaimers, which should be
@@ -912,9 +931,14 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td></td>
 </tr>
 <tr>
-<td>PBKDF2</td>
+<td>PBKDF#2</td>
 <td>0</td>
 <td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>Argon2id</td>
+<td>1</td>
+<td>wan24-Crypto-NaCl</td>
 </tr>
 </tbody>
 </table>

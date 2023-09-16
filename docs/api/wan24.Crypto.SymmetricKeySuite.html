@@ -84,6 +84,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></div>
     <div><span class="xref">wan24.Core.IDisposableObject</span></div>
     <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">System.IAsyncDisposable</span></div>
@@ -164,7 +165,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_SymmetricKeySuite_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SymmetricKeySuite : DisposableBase, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SymmetricKeySuite : DisposableBase, ISymmetricKeySuite, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -219,7 +220,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite__ctor_wan24_Crypto_CryptoOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.%23ctor(wan24.Crypto.CryptoOptions%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L43">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L44">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite__ctor_" data-uid="wan24.Crypto.SymmetricKeySuite.#ctor*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite__ctor_wan24_Crypto_CryptoOptions_System_Boolean_" data-uid="wan24.Crypto.SymmetricKeySuite.#ctor(wan24.Crypto.CryptoOptions,System.Boolean)">SymmetricKeySuite(CryptoOptions, Boolean)</h4>
@@ -261,16 +262,16 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite_ExpandedKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.ExpandedKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L63">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L60">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite_ExpandedKey_" data-uid="wan24.Crypto.SymmetricKeySuite.ExpandedKey*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite_ExpandedKey" data-uid="wan24.Crypto.SymmetricKeySuite.ExpandedKey">ExpandedKey</h4>
-  <div class="markdown level1 summary"><p>Expanded symmetric key (private!; used for en-/decryption and authentication; will be cleared!)</p>
+  <div class="markdown level1 summary"><p>Expanded symmetric key (private!; used for en-/decryption and authentication; will be disposed!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] ExpandedKey { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public SecureByteArray ExpandedKey { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -282,7 +283,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="xref">wan24.Core.SecureByteArray</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -292,7 +293,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L58">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L57">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite_Identifier_" data-uid="wan24.Crypto.SymmetricKeySuite.Identifier*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite_Identifier" data-uid="wan24.Crypto.SymmetricKeySuite.Identifier">Identifier</h4>
@@ -323,7 +324,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite_Options.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L53">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L54">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite_Options_" data-uid="wan24.Crypto.SymmetricKeySuite.Options*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite_Options" data-uid="wan24.Crypto.SymmetricKeySuite.Options">Options</h4>
@@ -356,7 +357,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L110">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L107">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite_Dispose_" data-uid="wan24.Crypto.SymmetricKeySuite.Dispose*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite_Dispose_System_Boolean_" data-uid="wan24.Crypto.SymmetricKeySuite.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -390,7 +391,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite_InitKeyAndIdentifier_System_Byte___System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier(System.Byte%5B%5D%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L89">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L86">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite_InitKeyAndIdentifier_" data-uid="wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite_InitKeyAndIdentifier_System_Byte___System_Byte___" data-uid="wan24.Crypto.SymmetricKeySuite.InitKeyAndIdentifier(System.Byte[],System.Byte[])">InitKeyAndIdentifier(Byte[], Byte[])</h4>
@@ -446,7 +447,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SymmetricKeySuite_InitKeyOnly_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.SymmetricKeySuite.InitKeyOnly(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L70">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SymmetricKeySuite.cs/#L67">View Source</a>
   </span>
   <a id="wan24_Crypto_SymmetricKeySuite_InitKeyOnly_" data-uid="wan24.Crypto.SymmetricKeySuite.InitKeyOnly*"></a>
   <h4 id="wan24_Crypto_SymmetricKeySuite_InitKeyOnly_System_Byte___" data-uid="wan24.Crypto.SymmetricKeySuite.InitKeyOnly(System.Byte[])">InitKeyOnly(Byte[])</h4>
@@ -492,6 +493,9 @@
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a>
+  </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
