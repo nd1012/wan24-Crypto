@@ -46,9 +46,11 @@ namespace wan24.Crypto
         public byte[] Identifier { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [SensitiveData]
         public byte[] Secret { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [SensitiveData]
         public byte[] SignatureKey { get; private set; } = null!;
 
         /// <summary>

@@ -95,7 +95,8 @@ namespace wan24.Crypto
         [MemberNotNull(nameof(Identity))]
         public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
-            byte[]? payload = null;
+            byte[]? payload = null,
+                randomMac = null;
             try
             {
                 EnsureUndisposed();
@@ -104,15 +105,8 @@ namespace wan24.Crypto
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
                     if (Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
-                    byte[] dek = auth.Random.Mac(Identity.SignatureKey, Options);
-                    try
-                    {
-                        payload = auth.Payload.Decrypt(dek, Options);
-                    }
-                    finally
-                    {
-                        dek.Clear();
-                    }
+                    randomMac = auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
+                    payload = auth.Payload.Decrypt(randomMac, Options);
                 }
                 // Run pre-actions
                 PakeServerEventArgs e = new(auth, payload);
@@ -128,7 +122,6 @@ namespace wan24.Crypto
                 if (!identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
                 byte[] key = null!,
                     secret = null!,
-                    randomMac = null!,
                     signatureKey = null!,
                     signature = null!;
                 int len = identifier.Length;
@@ -138,7 +131,7 @@ namespace wan24.Crypto
                     if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
                         throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
                     // Extract key and secret
-                    randomMac = auth.Random.CloneArray().Mac(Identity.SignatureKey);
+                    randomMac ??= auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
                     key = auth.Key.CloneArray().Xor(randomMac);
                     secret = Identity.Secret.CloneArray().Xor(key);
                     // Validate the signature and create the session key (MAC)
@@ -154,7 +147,6 @@ namespace wan24.Crypto
                 finally
                 {
                     key?.Clear();
-                    randomMac?.Clear();
                     secret?.Clear();
                     signatureKey?.Clear();
                     signature?.Clear();
@@ -171,6 +163,7 @@ namespace wan24.Crypto
             finally
             {
                 auth.Dispose();
+                randomMac?.Clear();
             }
         }
 

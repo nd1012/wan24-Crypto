@@ -28,7 +28,8 @@ namespace wan24.Crypto
             if (pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
             if (pake.Identity is null) throw CryptographicException.From(new ArgumentException("Identity record required", nameof(pake)));
             Pake = pake;
-            byte[]? payload = null;
+            byte[]? payload = null,
+                randomMac = null;
             try
             {
                 if (Key is not null) throw CryptographicException.From(new InvalidOperationException("Initialized for client operation"));
@@ -36,14 +37,14 @@ namespace wan24.Crypto
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
                     if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
-                    byte[] dek = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
+                    randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
                     try
                     {
-                        payload = auth.Payload.Decrypt(dek, Pake.Options);
+                        payload = auth.Payload.Decrypt(randomMac, Pake.Options);
                     }
                     finally
                     {
-                        dek.Clear();
+                        randomMac.Clear();
                     }
                 }
                 // Run pre-actions
@@ -60,7 +61,6 @@ namespace wan24.Crypto
                 if (!identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
                 byte[] key = null!,
                     secret = null!,
-                    randomMac = null!,
                     signatureKey = null!,
                     signature = null!;
                 int len = identifier.Length;
@@ -70,7 +70,7 @@ namespace wan24.Crypto
                     if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
                         throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
                     // Extract key and secret
-                    randomMac = auth.Random.CloneArray().Mac(Pake.Identity.SignatureKey);
+                    randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
                     key = auth.Key.CloneArray().Xor(randomMac);
                     secret = Pake.Identity.Secret.CloneArray().Xor(key);
                     // Validate the signature and create the session key (MAC)
@@ -93,7 +93,6 @@ namespace wan24.Crypto
                 }
                 finally
                 {
-                    randomMac?.Clear();
                     signatureKey?.Clear();
                     signature?.Clear();
                 }
@@ -110,6 +109,7 @@ namespace wan24.Crypto
             {
                 auth.Dispose();
                 payload?.Clear();
+                randomMac?.Clear();
             }
         }
 
@@ -205,6 +205,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Session key (available after authentication; will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[] SessionKey
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -220,7 +221,8 @@ namespace wan24.Crypto
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
-            byte[]? payload = null;
+            byte[]? payload = null,
+                randomMac = null;
             try
             {
                 EnsureUndisposed();
@@ -228,14 +230,14 @@ namespace wan24.Crypto
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
                     if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
-                    byte[] dek = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
+                    randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
                     try
                     {
-                        payload = auth.Payload.Decrypt(dek, Pake.Options);
+                        payload = auth.Payload.Decrypt(randomMac, Pake.Options);
                     }
                     finally
                     {
-                        dek.Clear();
+                        randomMac.Clear();
                     }
                 }
                 // Run pre-actions
@@ -250,8 +252,7 @@ namespace wan24.Crypto
                 if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
                 byte[] identifier = Identifier;
                 if (!identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
-                byte[] randomMac = null!,
-                    signature = null!;
+                byte[] signature = null!;
                 int len = identifier.Length;
                 try
                 {
@@ -259,17 +260,16 @@ namespace wan24.Crypto
                     if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
                         throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
                     // Extract key and secret
-                    randomMac = auth.Random.CloneArray().Mac(Pake.Identity.SignatureKey);
+                    randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
                     if(!auth.Key.Xor(randomMac).SlowCompare(Key.Span)) throw CryptographicException.From(new InvalidDataException("Authentication key invalid"));
                     // Validate the signature and create the session key (MAC)
                     signature = Pake.SignAndCreateSessionKey(Pake.Identity.SignatureKey, Key, auth.Random, auth.Payload, Secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
-                    return auth.Payload.CloneArray();
+                    return payload ?? auth.Payload.CloneArray();
                 }
                 finally
                 {
-                    randomMac?.Clear();
                     signature?.Clear();
                 }
             }
@@ -284,6 +284,7 @@ namespace wan24.Crypto
             finally
             {
                 auth.Dispose();
+                randomMac?.Clear();
             }
         }
 

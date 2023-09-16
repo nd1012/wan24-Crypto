@@ -44,9 +44,11 @@ namespace wan24.Crypto
         /// <summary>
         /// Secret (will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[] Secret { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [SensitiveData]
         public byte[] Key { get; private set; } = null!;
 
         /// <inheritdoc/>

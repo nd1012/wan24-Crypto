@@ -51,6 +51,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key (don't dispose - will be disposed when this private key instance disposes!)
         /// </summary>
+        [SensitiveData]
         public ECDiffieHellman PrivateKey
         {
             get

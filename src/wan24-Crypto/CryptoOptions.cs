@@ -97,6 +97,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key (for en-/decryption/key exchange/signature)
         /// </summary>
+        [SensitiveData]
         public IAsymmetricPrivateKey? PrivateKey { get; set; }
 
         /// <summary>

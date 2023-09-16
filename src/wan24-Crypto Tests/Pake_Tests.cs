@@ -150,7 +150,7 @@ namespace wan24_Crypto_Tests
 
             // Authenticate the client at the server
             byte[] payload = "test".GetBytes();
-            using PakeAuth auth = client.CreateAuth(payload, encryptPayload: true);
+            using PakeAuth auth = client.CreateAuth(payload.CloneArray(), encryptPayload: true);
             Assert.IsTrue(payload.Length < auth.Payload.Length);
             byte[] decryptedPayload = server.HandleAuth(auth, decryptPayload: true);
             Assert.IsTrue(client.SessionKey.SequenceEqual(server.SessionKey));

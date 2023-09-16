@@ -33,6 +33,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Symmetric key (won't be cleared!)
         /// </summary>
+        [SensitiveData]
         public virtual byte[]? SymmetricKey
         {
             get => StoreKeys ? _SymmetricKey ??= SymmetricKeyFactory?.Invoke() : SymmetricKeyFactory?.Invoke() ?? _SymmetricKey;
@@ -47,6 +48,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Asymmetric key (won't be disposed!)
         /// </summary>
+        [SensitiveData]
         public virtual IAsymmetricPrivateKey? AsymmetricKey
         {
             get => StoreKeys ? _AsymmetricKey ??= AsymmetricKeyFactory?.Invoke() : AsymmetricKeyFactory?.Invoke() ?? _AsymmetricKey;
@@ -81,6 +83,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Raw data (will be cloned for setting/getting; the store will be cleared when disposing)
         /// </summary>
+        [SensitiveData]
         public virtual byte[]? RawData
         {
             get

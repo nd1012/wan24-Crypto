@@ -81,18 +81,16 @@ namespace wan24.Crypto
                 key = CreateAuthKey();// MAC
                 secret = CreateSecret(key);// MAC
                 signatureKey = CreateSignatureKey(key, secret);// KDF
-                randomMac = random.Mac(signatureKey);
+                randomMac = random.Mac(signatureKey, Options);
                 if (encryptPayload && payload is not null)
                 {
-                    byte[] dek = random.Mac(signatureKey, Options),
-                        temp = payload;
+                    byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(dek, Options);
+                        payload = payload.Encrypt(randomMac, Options);
                     }
                     finally
                     {
-                        dek.Clear();
                         temp.Clear();
                     }
                 }

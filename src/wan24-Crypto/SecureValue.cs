@@ -75,6 +75,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Value (should/will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[] Value
         {
             get

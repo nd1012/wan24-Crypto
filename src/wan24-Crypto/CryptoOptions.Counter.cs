@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -38,6 +39,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Counter private key (for en-/decryption/key exchange/signature)
         /// </summary>
+        [SensitiveData]
         public IAsymmetricPrivateKey? CounterPrivateKey { get; set; }
 
         /// <summary>

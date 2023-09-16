@@ -254,11 +254,13 @@ sections, it's easy to overview:
 |  | `CounterPublicKey` | Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key) | `null` |
 | KDF | `KdfAlgorithm` | KDF algorithm name | `null` (`PBKDF2`) |
 |  | `KdfIterations` | KDF iteration count | `1` |
+|  | `KdfOptions` | String serialized KDF algorithm options | `null` |
 |  | `KdfSalt` | KDF salt (generated automatic) | `null` |
 |  | `KdfAlgorithmIncluded` | Include the KDF information in the header | `true` |
 |  | `RequireKdfAlgorithm` | Is the KDF information required in the header? | `true` |
 |  | `CounterKdfAlgorithm` | Counter KDF algorithm name | `null` |
 |  | `CounterKdfIterations` | Counter KDF iteration count | `1` |
+|  | `CounterKdfOptions` | String serialized KDF algorithm options | `null` |
 |  | `CounterKdfSalt` | Counter KDF salt (generated automatic) | `null` |
 |  | `CounterKdfAlgorithmIncluded` | Include the counter KDF information in the header | `false` |
 |  | `RequireCounterKdfAlgorithm` | Is the counter KDF information required in the header? | `false` |

@@ -39,6 +39,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Session key (available after signup/authentication; will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[] SessionKey
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]

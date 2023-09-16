@@ -60,6 +60,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Session key (available after authentication; will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[] SessionKey
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -81,21 +82,19 @@ namespace wan24.Crypto
                 signature = null!;
             try
             {
+                randomMac = random.Mac(SignatureKey, Pake.Options);
                 if (encryptPayload && payload is not null)
                 {
-                    byte[] dek = random.Mac(SignatureKey, Pake.Options),
-                        temp = payload;
+                    byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(dek, Pake.Options);
+                        payload = payload.Encrypt(randomMac, Pake.Options);
                     }
                     finally
                     {
-                        dek.Clear();
-                        payload.Clear();
+                        temp.Clear();
                     }
                 }
-                randomMac = random.Mac(SignatureKey);
                 signature = Pake.SignAndCreateSessionKey(SignatureKey, Key, random, payload ?? Array.Empty<byte>(), Secret);// MAC
                 return new PakeAuth(Identifier.CloneArray(), Key.Array.CloneArray().Xor(randomMac), signature, random, payload);
             }
