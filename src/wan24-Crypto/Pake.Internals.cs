@@ -110,6 +110,7 @@ namespace wan24.Crypto
             Identity.Identifier.Clear();
             Identity.Secret.Clear();
             Identity.SignatureKey.Clear();
+            Identity.TryDispose();
             Identity = null;
         }
     }

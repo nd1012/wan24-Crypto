@@ -12,6 +12,7 @@ key (HMAC-SHA-512 for example)
 salt, third parameter is the return value length (PBKDF#2 for example)
 - RND: A cryptographic random byte generator - first parameter is the return 
 value length
+- ASSERT: Fails, if the expression (first parameter) resolves to `false`
 
 It's possible to include any payload data (`payload`) which is required to 
 process a signup/authentication at the server side. It'd be possible to 
@@ -118,11 +119,11 @@ secret = identity.secret ^ auth_key
 
 // Calculate and validate the signature from mixed offline stored and received authentication data
 signature = MAC(auth.random+auth.payload+secret+auth.identifier+auth_key, identity.signature_key)
-auth.signature == signature
+ASSERT(auth.signature == signature)
 
 // Calculate and validate the signature key (KDF only after successful MAC validation, to prevent DoS!)
 signature_key = KDF(auth_key, secret, auth_key.length)
-signature_key == identity.signature_key
+ASSERT(signature_key == identity.signature_key)
 
 // Calculate the session key, which should then be the same as the one the client calculated
 session_key = MAC(auth.random, MAC(signature_key, secret))
@@ -140,9 +141,10 @@ information
 data subsets
 - A MiM can't get enough data to figure out anything more than who 
 authenticates
-- The servers DBMS doesn't offer enough information to do anything
+- The servers DBMS doesn't offer enough information to do anything (if values 
+have been stored properly)
 - Login username and password are never exposed anywhere and is also invisible 
-to the server
+to the server (!)
 - During authentication a calculated MAC must match, before a KDF generated 
 sequence is being generated and compared to finalize an authentication, which 
 protects from DoS using pure random data
@@ -152,8 +154,6 @@ takes an important part at the end
 
 ## Disadvantages of this PAKE implementation
 
-- A MiM which knows the server DBMS contents is able to reproduce client 
-authentication information as he want (this would break the PAKE security)
 - All communication must be wrapped using an asymmetric PFS protocol, because 
 PAKE signup (especially!) and authentication data is still sensitive and 
 shouldn't be exposed to any unauthorized party (for this a pre-shared key is 
@@ -164,20 +164,20 @@ required)
 Authentication shouldn't rely on PAKE only: It should be seen as a single part 
 of a larger authentication protocol, which ensures that the authentication 
 doesn't only rely on a mathematical problem (which may be solvable using QBits 
-already), as asymmetric algorithms from today do. The huge count of symmetric 
-one-way algorithm usages extends an authentication with an amount of security, 
-which noone really wants to miss.
+already), as common asymmetric algorithms from today do. The huge count of 
+symmetric one-way algorithm usages extends an authentication with an amount of 
+security, which noone really wants to miss.
 
 Anyway, to benefit from PAKE as an additional security component, a session 
 key could be a combination of an asymmetric exchanged session key with the 
 PAKE exchanged session key. This would require the algorithms of both 
-components to be broken in order to break in total - which is unlikely to 
-happen (also in the long term).
+components to be broken in order to break the security in total - which is 
+unlikely to happen (also in the long term).
 
 It's also still a good idea to include multiple factors at last for a signup. 
 An OTP, which was communicated using another channel, could be used as payload 
-to validate a non-robot peer. Or a token, which is being used by authenticator 
-apps.
+to validate a non-robot peer, or to add some independent communicated secret 
+to the final session key.
 
 And finally, don't miss to include and sign some important metrics into a 
 handshake:
@@ -191,8 +191,9 @@ fast key exchange, which could be automatted. It's more a signup and login
 helper, which exchanges a session key, but protects against brute force and 
 DoS attacks (depending on the servers additional security issue handling 
 algorithms) - not usable for a fast key exchange, where the speed is 
-important. Once a session key was established, the connection should be kept 
-alive as long as possible and required.
+important. Once a session key was exchanged, the connection should be kept 
+alive as long as possible and required. However, a periodical change of the 
+session key with another embedded key exchange can't be a mistake.
 
 This PAKE implementation is designed to protect the communicated and stored 
 information as good as possible. Finally the security relies on the security 
@@ -205,7 +206,8 @@ handled as recommended in this document, even a breach of the DBMS combined
 with a successful MiM attack wouldn't break the authentication security, as 
 long as the servers encryption key wasn't breached, too. Only a compromised 
 client would break the authentication security, if an attacker was able to 
-observe the used `id` and `key`, or the calculated PAKE values.
+observe the used `id` and `key`, or the calculated PAKE values during signup 
+or creating an authentication message.
 
 The signup message is a critical part of this PAKE implementations security, 
 because all PAKE values which can be used to perform a client authentication 

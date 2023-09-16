@@ -9,7 +9,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="identity">Identity (initializes server operations; will be cleared!)</param>
+        /// <param name="identity">Identity (initializes server operations; will be cleared (and disposed, if possible)!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
         /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
         public Pake(in IPakeRecord identity, in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : this(options, cryptoOptions)
@@ -19,7 +19,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Identity (will be cleared!)
+        /// Identity (will be cleared (and disposed, if possible)!)
         /// </summary>
         public IPakeRecord? Identity { get; internal set; }
 
