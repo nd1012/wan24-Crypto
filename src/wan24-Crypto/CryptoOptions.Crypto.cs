@@ -14,7 +14,7 @@ namespace wan24.Crypto
         public byte[] Encrypt(ReadOnlySpan<byte> rawData)
         {
             if (PrivateKey?.Algorithm.CanExchangeKey ?? false) return rawData.Encrypt(PrivateKey, this);
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= RND.GetBytes(64);
             return rawData.Encrypt(Password, this);
         }
 
@@ -37,7 +37,7 @@ namespace wan24.Crypto
                 rawData.Encrypt(cipherData, PrivateKey, this);
                 return;
             }
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= RND.GetBytes(64);
             rawData.Encrypt(cipherData, Password, this);
         }
 
@@ -54,7 +54,7 @@ namespace wan24.Crypto
                 await rawData.EncryptAsync(cipherData, PrivateKey, this, cancellationToken).DynamicContext();
                 return;
             }
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= await RND.GetBytesAsync(64).DynamicContext();
             await rawData.EncryptAsync(cipherData, Password, this, cancellationToken: cancellationToken).DynamicContext();
         }
         /// <summary>
@@ -116,7 +116,7 @@ namespace wan24.Crypto
         /// <returns>This</returns>
         public CryptoOptions CreateMac(ReadOnlySpan<byte> data)
         {
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= RND.GetBytes(64);
             Mac = data.Mac(Password, this);
             if (UsingCounterMac) HybridAlgorithmHelper.ComputeMac(this);
             return this;
@@ -136,7 +136,7 @@ namespace wan24.Crypto
         /// <returns>This</returns>
         public CryptoOptions CreateMac(Stream data)
         {
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= RND.GetBytes(64);
             Mac = data.Mac(Password, this);
             if (UsingCounterMac) HybridAlgorithmHelper.ComputeMac(this);
             return this;
@@ -150,7 +150,7 @@ namespace wan24.Crypto
         /// <returns>This</returns>
         public async Task CreateMacAsync(Stream data, CancellationToken cancellationToken = default)
         {
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= await RND.GetBytesAsync(64).DynamicContext();
             Mac = await data.MacAsync(Password, this, cancellationToken).DynamicContext();
             if (UsingCounterMac) HybridAlgorithmHelper.ComputeMac(this);
         }
@@ -162,7 +162,7 @@ namespace wan24.Crypto
         /// <returns>This</returns>
         public CryptoOptions StretchKey(int len)
         {
-            Password ??= RandomNumberGenerator.GetBytes(64);
+            Password ??= RND.GetBytes(64);
             (Password, KdfSalt) = Password.Stretch(len, options: this);
             if (UsingCounterKdf) HybridAlgorithmHelper.StretchPassword(this);
             return this;

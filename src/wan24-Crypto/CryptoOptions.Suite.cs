@@ -52,7 +52,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Createa public key suite
+        /// Create a public key suite
         /// </summary>
         /// <returns>Public key suite (don't forget to dispose)</returns>
         public PublicKeySuite CreatePublicKeySuite()

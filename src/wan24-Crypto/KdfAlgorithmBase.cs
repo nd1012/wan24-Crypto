@@ -28,6 +28,11 @@
         public virtual CryptoOptions DefaultOptions => _DefaultOptions.Clone().WithKdf(Name, DefaultIterations, DefaultKdfOptions);
 
         /// <summary>
+        /// Minimum number of iterations
+        /// </summary>
+        public abstract int MinIterations { get; }
+
+        /// <summary>
         /// Default number of iterations
         /// </summary>
         public abstract int DefaultIterations { get; set; }
@@ -36,6 +41,11 @@
         /// Default KDF options
         /// </summary>
         public string? DefaultKdfOptions { get; set; }
+
+        /// <summary>
+        /// Minimum salt length in bytes
+        /// </summary>
+        public abstract int MinSaltLength { get; }
 
         /// <summary>
         /// Salt length in bytes

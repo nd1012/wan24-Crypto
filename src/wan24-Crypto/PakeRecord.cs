@@ -16,10 +16,10 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="identifier">Identifier</param>
-        /// <param name="secret">Secret</param>
-        /// <param name="key">Key</param>
-        public PakeRecord(byte[] identifier, byte[] secret, byte[] key) : this()
+        /// <param name="identifier">Identifier (will be cleared!)</param>
+        /// <param name="secret">Secret (will be cleared!)</param>
+        /// <param name="key">Key (will be cleared!)</param>
+        public PakeRecord(in byte[] identifier, in byte[] secret, in byte[] key) : this()
         {
             Identifier = identifier;
             Secret = secret;
@@ -30,7 +30,7 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="existing">Existing PAKE record (values will be copied)</param>
-        public PakeRecord(IPakeRecord existing) : this()
+        public PakeRecord(in IPakeRecord existing) : this()
         {
             Identifier = existing.Identifier.CloneArray();
             Secret = existing.Secret.CloneArray();
@@ -46,9 +46,11 @@ namespace wan24.Crypto
         public byte[] Identifier { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [SensitiveData]
         public byte[] Secret { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [SensitiveData]
         public byte[] SignatureKey { get; private set; } = null!;
 
         /// <summary>
@@ -95,12 +97,12 @@ namespace wan24.Crypto
         /// Cast as serialized data
         /// </summary>
         /// <param name="signup"><see cref="PakeRecord"/></param>
-        public static implicit operator byte[](PakeRecord signup) => signup.ToBytes();
+        public static implicit operator byte[](in PakeRecord signup) => signup.ToBytes();
 
         /// <summary>
         /// Cast from serialized data
         /// </summary>
         /// <param name="data">Serialized data</param>
-        public static explicit operator PakeRecord(byte[] data) => data.ToObject<PakeRecord>();
+        public static explicit operator PakeRecord(in byte[] data) => data.ToObject<PakeRecord>();
     }
 }

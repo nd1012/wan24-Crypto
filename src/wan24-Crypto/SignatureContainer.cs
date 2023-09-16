@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
@@ -57,7 +56,7 @@ namespace wan24.Crypto
             Signer = signer.ID;
             SignerPublicKeyData = signer.PublicKey.KeyData.Array.CloneArray();
             CounterSigner = counterSigner?.ID;
-            CounterSignerPublicKeyData = (byte[]?)counterSigner?.PublicKey.KeyData.Array.Clone();
+            CounterSignerPublicKeyData = counterSigner?.PublicKey.KeyData.Array.CloneArray();
             Purpose = purpose;
         }
 
@@ -225,7 +224,7 @@ namespace wan24.Crypto
             byte[]? counterSignature = CounterSignature;
             try
             {
-                Nonce ??= RandomNumberGenerator.GetBytes(NONCE_LENGTH);
+                Nonce ??= RND.GetBytes(NONCE_LENGTH);
                 if (Signature == null) Signed = DateTime.UtcNow;
                 if (!forCounterSignature) Signature = Array.Empty<byte>();
                 CounterSignature = null;
@@ -264,7 +263,7 @@ namespace wan24.Crypto
                 {
                     HashAlgorithm = HashAlgorithm
                 });
-                using RentedArray<byte> buffer = new(HashHelper.GetAlgorithm(HashAlgorithm).HashLength);
+                using RentedArrayRefStruct<byte> buffer = new(HashHelper.GetAlgorithm(HashAlgorithm).HashLength);
                 data.AsSpan().Hash(buffer.Span, options);
                 bool res = buffer.Span.SlowCompare(SignedDataHash);
                 if (!res && throwOnError) throw new InvalidDataException("Signed data hash mismatch");
@@ -344,19 +343,19 @@ namespace wan24.Crypto
         /// <returns>Clone</returns>
         public SignatureContainer Clone() => new()
         {
-            SignedData = (byte[]?)SignedData?.Clone(),
+            SignedData = SignedData?.CloneArray(),
             Signed = Signed,
             HashAlgorithm = HashAlgorithm,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
             AsymmetricCounterAlgorithm = AsymmetricCounterAlgorithm,
             SignedDataHash = SignedDataHash.CloneArray(),
-            Nonce = (byte[])(Nonce?.Clone() ?? throw new InvalidOperationException()),
+            Nonce = Nonce?.CloneArray() ?? throw new InvalidOperationException(),
             Signature = Signature.CloneArray(),
             Signer = Signer.CloneArray(),
             SignerPublicKeyData = SignerPublicKeyData.CloneArray(),
-            CounterSignature = (byte[]?)CounterSignature?.Clone(),
-            CounterSigner = (byte[]?)CounterSigner?.Clone(),
-            CounterSignerPublicKeyData = (byte[]?)CounterSignerPublicKeyData?.Clone()
+            CounterSignature = CounterSignature?.CloneArray(),
+            CounterSigner = CounterSigner?.CloneArray(),
+            CounterSignerPublicKeyData = CounterSignerPublicKeyData?.CloneArray()
         };
 
         /// <inheritdoc/>

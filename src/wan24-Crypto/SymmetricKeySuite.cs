@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Symmetric key suite (used for PAKE)
     /// </summary>
-    public class SymmetricKeySuite : DisposableBase
+    public class SymmetricKeySuite : DisposableBase, ISymmetricKeySuite
     {
         /// <summary>
         /// Constructor
@@ -19,11 +19,12 @@ namespace wan24.Crypto
             {
                 if (identifier is null)
                 {
-                    ExpandedKey = InitKeyOnly(key);
+                    ExpandedKey = new(InitKeyOnly(key));
                 }
                 else
                 {
-                    (ExpandedKey, Identifier) = InitKeyAndIdentifier(key, identifier);
+                    (byte[] expandedKey, Identifier) = InitKeyAndIdentifier(key, identifier);
+                    ExpandedKey = new(expandedKey);
                 }
             }
             catch(Exception ex)
@@ -52,15 +53,11 @@ namespace wan24.Crypto
         /// </summary>
         public CryptoOptions Options { get; }
 
-        /// <summary>
-        /// Identifier (public; used for identification during authentication; will be cleared!)
-        /// </summary>
+        /// <inheritdoc/>
         public byte[]? Identifier { get; }
 
-        /// <summary>
-        /// Expanded symmetric key (private!; used for en-/decryption and authentication; will be cleared!)
-        /// </summary>
-        public byte[] ExpandedKey { get; }
+        /// <inheritdoc/>
+        public SecureByteArray ExpandedKey { get; }
 
         /// <summary>
         /// Initialize with only having a key
@@ -111,7 +108,7 @@ namespace wan24.Crypto
         {
             Options.Clear();
             Identifier?.Clear();
-            ExpandedKey?.Clear();
+            ExpandedKey?.Dispose();
         }
     }
 }

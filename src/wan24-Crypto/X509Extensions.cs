@@ -12,7 +12,7 @@ namespace wan24.Crypto
         /// Get the asymmetric algorithm
         /// </summary>
         /// <param name="cert">Certificate</param>
-        /// <returns>Algorithm</returns>
+        /// <returns>Algorithm or <see langword="null"/>, if the key algorithm isn't supported</returns>
         public static IAsymmetricAlgorithm? GetAsymmetricAlgorithm(this X509Certificate2 cert)
         {
             if (cert.PublicKey.GetECDiffieHellmanPublicKey() != null) return AsymmetricHelper.GetAlgorithm(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME);
@@ -24,7 +24,7 @@ namespace wan24.Crypto
         /// Get the asymmetric public key
         /// </summary>
         /// <param name="cert">Certificate</param>
-        /// <returns>Public key (don't forget to dispose!)</returns>
+        /// <returns>Public key (don't forget to dispose!) or <see langword="null"/>, if the key algorithm isn't supported</returns>
         public static IAsymmetricPublicKey? GetAsymmetricPublicKey(this X509Certificate2 cert)
         {
             if (cert.PublicKey.GetECDiffieHellmanPublicKey() is ECDiffieHellman ecDh) return new AsymmetricEcDiffieHellmanPublicKey(ecDh.ExportSubjectPublicKeyInfo());
@@ -36,7 +36,7 @@ namespace wan24.Crypto
         /// Get the asymmetric private key
         /// </summary>
         /// <param name="cert">Certificate</param>
-        /// <returns>Private key (don't forget to dispose!)</returns>
+        /// <returns>Private key (don't forget to dispose!) or <see langword="null"/>, if the key algorithm isn't supported</returns>
         public static IAsymmetricPrivateKey? GetAsymmetricPrivateKey(this X509Certificate2 cert)
         {
             if (!cert.HasPrivateKey) throw new ArgumentException("No private key", nameof(cert));

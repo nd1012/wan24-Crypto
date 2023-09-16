@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -10,49 +9,86 @@ namespace wan24.Crypto
         /// Default options
         /// </summary>
         private static CryptoOptions? _DefaultOptions = null;
+        /// <summary>
+        /// Default options for encryption
+        /// </summary>
+        private static CryptoOptions? _DefaultCryptoOptions = null;
 
         /// <summary>
-        /// Default options
+        /// Default options (should/will be cleared!)
         /// </summary>
         public static CryptoOptions DefaultOptions
         {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => _DefaultOptions ??= _DefaultOptions = new CryptoOptions()
+            get => (_DefaultOptions ??= new CryptoOptions()
                 .WithKdf()
-                .WithMac();
-            set => _DefaultOptions = value;
+                .WithMac()).Clone();
+            set
+            {
+                _DefaultOptions?.Clear();
+                _DefaultOptions = value;
+                if (value is null) return;
+                if (_DefaultOptions.KdfAlgorithm is null) _DefaultOptions.WithKdf();
+                if (_DefaultOptions.MacAlgorithm is null) _DefaultOptions.WithMac();
+            }
+        }
+
+        /// <summary>
+        /// Default options for encryption (should/will be cleared!)
+        /// </summary>
+        public static CryptoOptions DefaultCryptoOptions
+        {
+            get
+            {
+                if (_DefaultCryptoOptions is not null) return _DefaultCryptoOptions.Clone();
+                _DefaultCryptoOptions = new();
+                _DefaultCryptoOptions.WithEncryptionAlgorithm()
+                    .WithoutCompression()
+                    .WithoutKdf()
+                    .WithoutMac()
+                    .IncludeNothing()
+                    .WithoutRequirements(CryptoFlags.FLAGS);
+                if (EncryptionHelper.GetAlgorithm(_DefaultCryptoOptions.Algorithm!).RequireMacAuthentication)
+                    _DefaultCryptoOptions.WithMac()
+                        .WithFlagsIncluded(CryptoFlags.LatestVersion | CryptoFlags.MacIncluded, setRequirements: true);
+                return _DefaultCryptoOptions.Clone();
+            }
+            set
+            {
+                _DefaultCryptoOptions?.Clear();
+                _DefaultCryptoOptions = value;
+            }
         }
 
         /// <summary>
         /// Cast as existing session flag
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
-        public static implicit operator bool(Pake pake) => pake.HasSession;
+        public static implicit operator bool(in Pake pake) => pake.HasSession;
 
         /// <summary>
         /// Cast as session key (should be cleared!)
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
-        public static implicit operator byte[](Pake pake) => pake.SessionKey.CloneArray();
+        public static implicit operator byte[](in Pake pake) => pake.SessionKey.CloneArray();
 
         /// <summary>
-        /// Get a session key (should be cleared!)
+        /// Get the payload
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
         /// <param name="signup"><see cref="PakeSignup"/> (will be disposed!)</param>
-        /// <returns>Session key (should be cleared!)</returns>
-        public static byte[] operator +(Pake pake, PakeSignup signup)
+        /// <returns>Payload</returns>
+        public static byte[] operator +(in Pake pake, in PakeSignup signup)
         {
             pake.HandleSignup(signup);
             return pake;
         }
 
         /// <summary>
-        /// Get a session key (should be cleared!)
+        /// Get the payload
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>
         /// <param name="auth"><see cref="PakeAuth"/> (will be disposed!)</param>
-        /// <returns>Session key (should be cleared!)</returns>
-        public static byte[] operator +(Pake pake, PakeAuth auth) => pake.HandleAuth(auth).CloneArray();
+        /// <returns>Payload</returns>
+        public static byte[] operator +(in Pake pake, in PakeAuth auth) => pake.HandleAuth(auth).CloneArray();
     }
 }

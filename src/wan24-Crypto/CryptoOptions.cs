@@ -97,6 +97,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key (for en-/decryption/key exchange/signature)
         /// </summary>
+        [SensitiveData]
         public IAsymmetricPrivateKey? PrivateKey { get; set; }
 
         /// <summary>
@@ -348,7 +349,7 @@ namespace wan24.Crypto
             CounterKdfIterations = CounterKdfIterations,
             CounterKdfOptions = CounterKdfOptions,
             AsymmetricCounterAlgorithm = AsymmetricCounterAlgorithm,
-            PayloadData = (byte[]?)PayloadData?.Clone(),
+            PayloadData = PayloadData?.CloneArray(),
             Time = Time,
             HashAlgorithm = HashAlgorithm,
             AsymmetricKeyBits = AsymmetricKeyBits,
@@ -364,9 +365,9 @@ namespace wan24.Crypto
             MacPosition = MacPosition,
             Mac = Mac,
             HeaderProcessed = HeaderProcessed,
-            Password = (byte[]?)Password?.Clone(),
-            KdfSalt = (byte[]?)KdfSalt?.Clone(),
-            CounterKdfSalt = (byte[]?)CounterKdfSalt?.Clone(),
+            Password = Password?.CloneArray(),
+            KdfSalt = KdfSalt?.CloneArray(),
+            CounterKdfSalt = CounterKdfSalt?.CloneArray(),
             PrivateKey = PrivateKey,
             CounterPrivateKey = CounterPrivateKey,
             PublicKey = PublicKey,

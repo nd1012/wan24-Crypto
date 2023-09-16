@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using wan24.Compression;
+﻿using wan24.Compression;
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
@@ -40,10 +39,41 @@ namespace wan24.Crypto
             .WithKdf(KdfHelper.DefaultAlgorithm.Name, KdfHelper.DefaultAlgorithm.DefaultIterations, KdfHelper.DefaultAlgorithm.DefaultKdfOptions);
 
         /// <summary>
+        /// Ensure a key with a valid length
+        /// </summary>
+        /// <param name="key">Key (won't be cleared)</param>
+        /// <returns>Key with a valid length (if the given <c>key</c> had a valid length already, this is a copy; should be cleared)</returns>
+        public abstract byte[] EnsureValidKeyLength(byte[] key);
+
+        /// <summary>
+        /// Determine if a key length is valid
+        /// </summary>
+        /// <param name="len">Key length in bytes</param>
+        /// <returns>If the key length is valid</returns>
+        public abstract bool IsKeyLengthValid(int len);
+
+        /// <summary>
         /// Create random IV bytes
         /// </summary>
         /// <returns>IV bytes</returns>
-        protected virtual byte[] CreateIvBytes() => RandomNumberGenerator.GetBytes(IvSize);
+        protected virtual byte[] CreateIvBytes() => RND.GetBytes(IvSize);
+
+        /// <summary>
+        /// Get a key with a valid length
+        /// </summary>
+        /// <param name="key">Key (won't be cleared)</param>
+        /// <param name="len">Required key length in bytes</param>
+        /// <returns>Key with a valid length (if the given <c>key</c> had a valid length already, this is a copy; should be cleared)</returns>
+        protected virtual byte[] GetValidLengthKey(byte[] key, int len)
+            => key.Length == len ? key.CloneArray() : len switch
+            {
+                HashMd5Algorithm.HASH_LENGTH => HashMd5Algorithm.Instance.Hash(key),
+                HashSha1Algorithm.HASH_LENGTH => HashSha1Algorithm.Instance.Hash(key),
+                HashSha256Algorithm.HASH_LENGTH => HashSha256Algorithm.Instance.Hash(key),
+                HashSha384Algorithm.HASH_LENGTH => HashSha384Algorithm.Instance.Hash(key),
+                HashSha512Algorithm.HASH_LENGTH => HashSha512Algorithm.Instance.Hash(key),
+                _ => throw CryptographicException.From($"Can't process for desired key lengt {len} bytes", new NotSupportedException())
+            };
 
         /// <summary>
         /// Read the fixed IV bytes

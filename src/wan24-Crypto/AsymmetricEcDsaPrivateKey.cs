@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -67,6 +68,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key (don't dispose - will be disposed when this private key instance disposes!)
         /// </summary>
+        [SensitiveData]
         public ECDsa PrivateKey
         {
             get

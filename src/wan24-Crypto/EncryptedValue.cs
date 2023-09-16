@@ -23,7 +23,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public EncryptedValue() : base() { }
+        public EncryptedValue() : base(asyncDisposing: false) { }
 
         /// <summary>
         /// Options
@@ -33,6 +33,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Symmetric key (won't be cleared!)
         /// </summary>
+        [SensitiveData]
         public virtual byte[]? SymmetricKey
         {
             get => StoreKeys ? _SymmetricKey ??= SymmetricKeyFactory?.Invoke() : SymmetricKeyFactory?.Invoke() ?? _SymmetricKey;
@@ -47,6 +48,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Asymmetric key (won't be disposed!)
         /// </summary>
+        [SensitiveData]
         public virtual IAsymmetricPrivateKey? AsymmetricKey
         {
             get => StoreKeys ? _AsymmetricKey ??= AsymmetricKeyFactory?.Invoke() : AsymmetricKeyFactory?.Invoke() ?? _AsymmetricKey;
@@ -81,11 +83,12 @@ namespace wan24.Crypto
         /// <summary>
         /// Raw data (will be cloned for setting/getting; the store will be cleared when disposing)
         /// </summary>
+        [SensitiveData]
         public virtual byte[]? RawData
         {
             get
             {
-                if (_Decrypted != null || CipherData == null) return (byte[]?)_Decrypted?.Clone();
+                if (_Decrypted != null || CipherData == null) return _Decrypted?.CloneArray();
                 if (!HasKey) throw new InvalidOperationException("No key");
                 byte[]? res = SymmetricKey == null
                     ? CipherData.Decrypt(AsymmetricKey!, Options)
@@ -97,7 +100,7 @@ namespace wan24.Crypto
             {
                 if (!HasKey) throw new InvalidOperationException("No key");
                 _Decrypted?.Clear();
-                _Decrypted = (byte[]?)value?.Clone();
+                _Decrypted = value?.CloneArray();
                 if (value == null)
                 {
                     CipherData = null;
@@ -113,13 +116,6 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing) => _Decrypted?.Clear();
-
-        /// <inheritdoc/>
-        protected override Task DisposeCore()
-        {
-            _Decrypted?.Clear();
-            return Task.CompletedTask;
-        }
 
         /// <summary>
         /// Cast as cipher data

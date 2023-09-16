@@ -1,4 +1,5 @@
-﻿using wan24.ObjectValidation;
+﻿using wan24.Core;
+using wan24.ObjectValidation;
 
 namespace wan24.Crypto
 {
@@ -36,7 +37,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Password (used internal)
         /// </summary>
-        [CountLimit(byte.MaxValue)]
+        [SensitiveData, CountLimit(byte.MaxValue)]
         public byte[]? Password { get; set; }
     }
 }

@@ -9,48 +9,59 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="identity">Identity (initializes server operations; will be cleared!)</param>
+        /// <param name="identity">Identity (initializes server operations; will be cleared (and disposed, if possible)!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public Pake(IPakeRecord identity, CryptoOptions? options = null) : this(options)
+        /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
+        public Pake(in IPakeRecord identity, in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : this(options, cryptoOptions)
         {
             Key = null;
             Identity = identity;
         }
 
         /// <summary>
-        /// Identity (will be cleared!)
+        /// Identity (will be cleared (and disposed, if possible)!)
         /// </summary>
-        public IPakeRecord? Identity { get; private set; }
+        public IPakeRecord? Identity { get; internal set; }
 
         /// <summary>
         /// Handle a signup (server)
         /// </summary>
         /// <param name="signup">Signup (will be disposed!)</param>
-        /// <returns>Identity (will be cleared!)</returns>
+        /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid signup record</exception>
         [MemberNotNull(nameof(Identity))]
-        public IPakeRecord HandleSignup(PakeSignup signup)
+        public byte[] HandleSignup(in PakeSignup signup)
         {
             try
             {
                 EnsureUndisposed();
-                if (Key is not null) throw new InvalidOperationException("Initialized for client operation");
-                byte[] secret = null!,
-                    signatureKey = null!,
+                if (Key is not null) throw CryptographicException.From(new InvalidOperationException("Initialized for client operation"));
+                byte[] signatureKey = null!,
                     signature = null!;
+                int len = MacHelper.GetAlgorithm(Options.MacAlgorithm!).MacLength;
                 try
                 {
+                    // Validate the signup values lengths
+                    if (signup.Identifier.Length != len || signup.Secret.Length != len || signup.Key.Length != len || signup.Signature.Length != len || signup.Random.Length != len)
+                        throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
                     // Reset this instance
                     ClearSessionKey();
                     ClearIdentity();
                     // Create the identity (KDF)
-                    signatureKey = CreateSignatureKey(signup.Key, signup.Identifier);
-                    Identity = new PakeRecord(signup.Identifier.CloneArray(), signup.Secret.CloneArray(), signatureKey);
+                    signatureKey = CreateSignatureKey(signup.Key, signup.Secret);
+                    Identity = new PakeRecord(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey);
+                    PakeServerEventArgs e = new(signup);
+                    OnSignup?.Invoke(this, e);
+                    if (e.NewIdentity is not null)
+                    {
+                        ClearIdentity();
+                        Identity = e.NewIdentity;
+                    }
                     // Validate the signature and create the session key (MAC)
-                    signature = CreateSignatureAndSessionKey(signatureKey, signup.Key, signup.Random, signup.Secret);
+                    signature = SignAndCreateSessionKey(signatureKey, signup.Key, signup.Random, signup.Payload, signup.Secret);
                     if (!signup.Signature.SlowCompare(signature))
-                        throw new InvalidDataException("Signature validation failed");
-                    return Identity;
+                        throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
+                    return signup.Payload.CloneArray();
                 }
                 catch
                 {
@@ -59,15 +70,15 @@ namespace wan24.Crypto
                 }
                 finally
                 {
-                    secret?.Clear();
                     signature?.Clear();
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 ClearSessionKey();
                 ClearIdentity();
-                throw;
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
             }
             finally
             {
@@ -76,51 +87,161 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Handle an auuthentication (server)
+        /// Handle an authentication (server)
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
-        /// <returns>Session key (will be cleared!)</returns>
+        /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
+        /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleAuth(PakeAuth auth)
+        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
+            byte[]? payload = null,
+                randomMac = null;
             try
             {
                 EnsureUndisposed();
-                if (Key is not null) throw new InvalidOperationException("Initialized for client operation");
+                if (Key is not null) throw CryptographicException.From(new InvalidOperationException("Initialized for client operation"));
+                // Decrypt the payload
+                if (decryptPayload && auth.Payload.Length != 0)
+                {
+                    if (Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
+                    randomMac = auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
+                    payload = auth.Payload.Decrypt(randomMac, CryptoOptions);
+                }
+                // Run pre-actions
+                PakeServerEventArgs e = new(auth, payload);
+                OnAuth?.Invoke(this, e);
+                if (e.NewIdentity is not null)
+                {
+                    ClearIdentity();
+                    Identity = e.NewIdentity;
+                }
+                if (Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
                 // Validate pre-conditions
-                if (Identity is null) throw new InvalidOperationException("Unknown identity");
-                if (!Identity.Identifier.SlowCompare(auth.Identifier))
-                    throw new InvalidDataException("Identity mismatch");
-                byte[] signatureKey = null!,
+                byte[] identifier = Identifier;
+                if (!identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
+                byte[] key = null!,
+                    secret = null!,
+                    signatureKey = null!,
                     signature = null!;
+                int len = identifier.Length;
                 try
                 {
+                    // Validate the auth values lengths
+                    if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
+                        throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
+                    // Extract key and secret
+                    randomMac ??= auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
+                    key = auth.Key.CloneArray().Xor(randomMac);
+                    secret = Identity.Secret.CloneArray().Xor(key);
                     // Validate the signature and create the session key (MAC)
-                    signature = CreateSignatureAndSessionKey(Identity.SignatureKey, auth.Key, auth.Random, Identity.Secret);
+                    signature = SignAndCreateSessionKey(Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
-                        throw new InvalidDataException("Signature validation failed");
+                        throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    signatureKey = CreateSignatureKey(auth.Key);
+                    signatureKey = CreateSignatureKey(key, secret);
                     if (!Identity.SignatureKey.SlowCompare(signatureKey))
-                        throw new InvalidDataException("Authentication key validation failed");
-                    return _SessionKey;
+                        throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
+                    return payload ?? auth.Payload.CloneArray();
                 }
                 finally
                 {
+                    key?.Clear();
+                    secret?.Clear();
                     signatureKey?.Clear();
                     signature?.Clear();
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 ClearSessionKey();
-                throw;
+                OnAuthError?.Invoke(this, new(auth, payload, ex));
+                payload?.Clear();
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
             }
             finally
             {
                 auth.Dispose();
+                randomMac?.Clear();
             }
+        }
+
+        /// <summary>
+        /// Delegate for a PAKE server event handler delegate
+        /// </summary>
+        /// <param name="pake">PAKE</param>
+        /// <param name="e">Arguments</param>
+        public delegate void PakeServer_Delegate(Pake pake, PakeServerEventArgs e);
+
+        /// <summary>
+        /// Raised on signup
+        /// </summary>
+        public event PakeServer_Delegate? OnSignup;
+        /// <summary>
+        /// Raise the <see cref="OnSignup"/> event
+        /// </summary>
+        /// <param name="e">Arguments</param>
+        internal void RaiseOnSignup(in PakeServerEventArgs e) => OnSignup?.Invoke(this, e);
+
+        /// <summary>
+        /// Raised on authentication
+        /// </summary>
+        public event PakeServer_Delegate? OnAuth;
+        /// <summary>
+        /// Raise the <see cref="OnAuth"/> event
+        /// </summary>
+        /// <param name="e">Arguments</param>
+        internal void RaiseOnAuth(in PakeServerEventArgs e) => OnAuth?.Invoke(this, e);
+
+        /// <summary>
+        /// Raised on authentication
+        /// </summary>
+        public event PakeServer_Delegate? OnAuthError;
+        /// <summary>
+        /// Raise the <see cref="OnAuthError"/> event
+        /// </summary>
+        /// <param name="e">Arguments</param>
+        internal void RaiseOnAuthError(in PakeServerEventArgs e) => OnAuthError?.Invoke(this, e);
+
+        /// <summary>
+        /// PAKE server event arguments
+        /// </summary>
+        public sealed class PakeServerEventArgs : EventArgs
+        {
+            /// <summary>
+            /// Constructor
+            /// </summary>
+            /// <param name="request">Request</param>
+            /// <param name="payload">Decrypted payload, if any</param>
+            /// <param name="ex">Exception</param>
+            public PakeServerEventArgs(in IPakeRequest request, in byte[]? payload = null, in Exception? ex = null) : base()
+            {
+                Request = request;
+                Payload = payload;
+                Exception = ex;
+            }
+
+            /// <summary>
+            /// Request
+            /// </summary>
+            public IPakeRequest Request { get; }
+
+            /// <summary>
+            /// Decrypted payload, if any
+            /// </summary>
+            public byte[]? Payload { get; }
+
+            /// <summary>
+            /// Exception
+            /// </summary>
+            public Exception? Exception { get; }
+
+            /// <summary>
+            /// New PAKE identity record to use for the current process (being ignored in case this instance is used as arguments for the <see cref="OnAuthError"/> event!)
+            /// </summary>
+            public IPakeRecord? NewIdentity { get; set; }
         }
     }
 }

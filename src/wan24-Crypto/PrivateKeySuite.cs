@@ -52,7 +52,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Symmetric key (will be cleared)
         /// </summary>
-        [CountLimit(1, byte.MaxValue)]
+        [SensitiveData, CountLimit(1, byte.MaxValue)]
         public byte[]? SymmetricKey { get; set; }
 
         /// <summary>
