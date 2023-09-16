@@ -7,9 +7,15 @@
     public enum CryptoFlags : int
     {
         /// <summary>
+        /// Latest crypto header data structure version
+        /// </summary>
+        LatestVersion = Version1,
+#pragma warning disable CA1069 // Double constant value
+        /// <summary>
         /// Crypto header data structure version 1
         /// </summary>
         Version1 = 1,
+#pragma warning restore CA1069 // Double constant value
         /// <summary>
         /// Header version included?
         /// </summary>

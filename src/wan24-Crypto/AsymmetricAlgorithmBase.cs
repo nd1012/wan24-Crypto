@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using wan24.Core;
 
-//TODO Use SensitiveDataAttribute
-
 namespace wan24.Crypto
 {
     /// <summary>

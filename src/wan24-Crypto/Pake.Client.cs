@@ -8,14 +8,15 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key
         /// </summary>
-        internal readonly SymmetricKeySuite? Key;
+        internal readonly ISymmetricKeySuite? Key;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="key">Private key (requires an identifier; initializes client operations; will be disposed!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public Pake(in SymmetricKeySuite key, in CryptoOptions? options = null) : this(options)
+        /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
+        public Pake(in ISymmetricKeySuite key, in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : this(options, cryptoOptions)
         {
             if (key.Identifier is null) throw CryptographicException.From(new ArgumentException("Missing identifier", nameof(key)));
             Key = key;
@@ -87,7 +88,7 @@ namespace wan24.Crypto
                     byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(randomMac, Options);
+                        payload = payload.Encrypt(randomMac, CryptoOptions);
                     }
                     finally
                     {

@@ -11,28 +11,44 @@ namespace wan24.Crypto
         /// <summary>
         /// Key
         /// </summary>
-        private readonly SecureByteArray Key;
+        private readonly SecureValue Key;
         /// <summary>
         /// Secret
         /// </summary>
-        private readonly SecureByteArray Secret;
+        private readonly SecureValue Secret;
         /// <summary>
         /// Signature key
         /// </summary>
-        private readonly SecureByteArray SignatureKey;
+        private readonly SecureValue SignatureKey;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="key">Key (will be disposed!)</param>
-        /// <param name="options">Options (willbe cleared!)</param>
-        public FastPakeAuthClient(in SymmetricKeySuite key, in CryptoOptions? options = null) : base(asyncDisposing: false)
+        /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
+        /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
+        /// <param name="options">PAKE options (will be cleared!)</param>
+        /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
+        public FastPakeAuthClient(
+            in ISymmetricKeySuite key,
+            in TimeSpan? encryptTimeout = null,
+            in TimeSpan? recryptTimeout = null,
+            in CryptoOptions? options = null,
+            CryptoOptions? cryptoOptions = null
+            )
+            : base(asyncDisposing: false)
         {
-            Pake = new(key, options);
-            Key = new(Pake.CreateAuthKey());
-            Secret = new(Pake.CreateSecret(Key));
-            SignatureKey = new(Pake.CreateSignatureKey(Key, Secret));
+            cryptoOptions ??= Pake.DefaultCryptoOptions;
+            Pake = new(key, options, cryptoOptions);
+            Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, cryptoOptions.Clone());
+            Secret = new(Pake.CreateSecret(Key), encryptTimeout, recryptTimeout, cryptoOptions.Clone());
+            SignatureKey = new(Pake.CreateSignatureKey(Key, Secret), encryptTimeout, recryptTimeout, cryptoOptions.Clone());
         }
+
+        /// <summary>
+        /// External thread synchronizaion
+        /// </summary>
+        public SemaphoreSync Sync { get; } = new();
 
         /// <summary>
         /// PAKE instance
@@ -79,24 +95,30 @@ namespace wan24.Crypto
             if (Pake.Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
             byte[] random = RND.GetBytes(Pake.Key.ExpandedKey.Length),
                 randomMac = null!,
+                key = null!,
+                signatureKey = null!,
+                secret = null!,
                 signature = null!;
             try
             {
-                randomMac = random.Mac(SignatureKey, Pake.Options);
+                signatureKey = SignatureKey;
+                randomMac = random.Mac(signatureKey, Pake.Options);
                 if (encryptPayload && payload is not null)
                 {
                     byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(randomMac, Pake.Options);
+                        payload = payload.Encrypt(randomMac, Pake.CryptoOptions);
                     }
                     finally
                     {
                         temp.Clear();
                     }
                 }
-                signature = Pake.SignAndCreateSessionKey(SignatureKey, Key, random, payload ?? Array.Empty<byte>(), Secret);// MAC
-                return new PakeAuth(Identifier.CloneArray(), Key.Array.CloneArray().Xor(randomMac), signature, random, payload);
+                key = Key;
+                secret = Secret;
+                signature = Pake.SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                return new PakeAuth(Identifier.CloneArray(), Key.Value.Xor(randomMac), signature, random, payload);
             }
             catch (Exception ex)
             {
@@ -109,6 +131,9 @@ namespace wan24.Crypto
             finally
             {
                 randomMac?.Clear();
+                key?.Clear();
+                secret?.Clear();
+                signatureKey?.Clear();
             }
         }
 
@@ -116,7 +141,7 @@ namespace wan24.Crypto
         /// Clear the session key
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void ClearSessionKey() => Pake?.ClearSessionKey();
+        public void ClearSessionKey() => Pake.ClearSessionKey();
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
@@ -125,6 +150,7 @@ namespace wan24.Crypto
             Secret.Dispose();
             Key.Dispose();
             SignatureKey.Dispose();
+            Sync.Dispose();
         }
     }
 }

@@ -11,7 +11,8 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="identity">Identity (initializes server operations; will be cleared!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public Pake(in IPakeRecord identity, in CryptoOptions? options = null) : this(options)
+        /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
+        public Pake(in IPakeRecord identity, in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : this(options, cryptoOptions)
         {
             Key = null;
             Identity = identity;
@@ -106,7 +107,7 @@ namespace wan24.Crypto
                 {
                     if (Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
                     randomMac = auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
-                    payload = auth.Payload.Decrypt(randomMac, Options);
+                    payload = auth.Payload.Decrypt(randomMac, CryptoOptions);
                 }
                 // Run pre-actions
                 PakeServerEventArgs e = new(auth, payload);

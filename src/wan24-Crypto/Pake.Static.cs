@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -10,16 +9,19 @@ namespace wan24.Crypto
         /// Default options
         /// </summary>
         private static CryptoOptions? _DefaultOptions = null;
+        /// <summary>
+        /// Default options for encryption
+        /// </summary>
+        private static CryptoOptions? _DefaultCryptoOptions = null;
 
         /// <summary>
-        /// Default options
+        /// Default options (should/will be cleared!)
         /// </summary>
         public static CryptoOptions DefaultOptions
         {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => _DefaultOptions ??= new CryptoOptions()
+            get => (_DefaultOptions ??= new CryptoOptions()
                 .WithKdf()
-                .WithMac();
+                .WithMac()).Clone();
             set
             {
                 _DefaultOptions?.Clear();
@@ -27,6 +29,33 @@ namespace wan24.Crypto
                 if (value is null) return;
                 if (_DefaultOptions.KdfAlgorithm is null) _DefaultOptions.WithKdf();
                 if (_DefaultOptions.MacAlgorithm is null) _DefaultOptions.WithMac();
+            }
+        }
+
+        /// <summary>
+        /// Default options for encryption (should/will be cleared!)
+        /// </summary>
+        public static CryptoOptions DefaultCryptoOptions
+        {
+            get
+            {
+                if (_DefaultCryptoOptions is not null) return _DefaultCryptoOptions.Clone();
+                _DefaultCryptoOptions = new();
+                _DefaultCryptoOptions.WithEncryptionAlgorithm()
+                    .WithoutCompression()
+                    .WithoutKdf()
+                    .WithoutMac()
+                    .IncludeNothing()
+                    .WithoutRequirements(CryptoFlags.FLAGS);
+                if (EncryptionHelper.GetAlgorithm(_DefaultCryptoOptions.Algorithm!).RequireMacAuthentication)
+                    _DefaultCryptoOptions.WithMac()
+                        .WithFlagsIncluded(CryptoFlags.LatestVersion | CryptoFlags.MacIncluded, setRequirements: true);
+                return _DefaultCryptoOptions.Clone();
+            }
+            set
+            {
+                _DefaultCryptoOptions?.Clear();
+                _DefaultCryptoOptions = value;
             }
         }
 

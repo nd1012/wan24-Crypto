@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Symmetric key suite (used for PAKE)
     /// </summary>
-    public class SymmetricKeySuite : DisposableBase
+    public class SymmetricKeySuite : DisposableBase, ISymmetricKeySuite
     {
         /// <summary>
         /// Constructor
@@ -53,14 +53,10 @@ namespace wan24.Crypto
         /// </summary>
         public CryptoOptions Options { get; }
 
-        /// <summary>
-        /// Identifier (public; used for identification during authentication; will be cleared!)
-        /// </summary>
+        /// <inheritdoc/>
         public byte[]? Identifier { get; }
 
-        /// <summary>
-        /// Expanded symmetric key (private!; used for en-/decryption and authentication; will be cleared!)
-        /// </summary>
+        /// <inheritdoc/>
         public SecureByteArray ExpandedKey { get; }
 
         /// <summary>
