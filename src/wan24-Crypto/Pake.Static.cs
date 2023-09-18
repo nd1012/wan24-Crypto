@@ -95,5 +95,51 @@ namespace wan24.Crypto
         /// <param name="auth"><see cref="PakeAuth"/> (will be disposed!)</param>
         /// <returns>Payload</returns>
         public static byte[] operator +(in Pake pake, in PakeAuth auth) => pake.HandleAuth(auth).CloneArray();
+
+        /// <summary>
+        /// Derive a session key
+        /// </summary>
+        /// <param name="signup">Signup (will be disposed!)</param>
+        /// <param name="initializer">PAKE instance initializer</param>
+        /// <param name="options">Options</param>
+        /// <returns>Session key, payload and identity</returns>
+        public static (byte[] SessionKey, byte[] Payload, IPakeRecord Identity) DeriveSessionKey(
+            in PakeSignup signup,
+            in Action<Pake>? initializer = null,
+            in CryptoOptions? options = null
+            )
+        {
+            using PakeSignup request = signup;
+            using Pake pake = new(options?.Clone());
+            if (initializer is not null) initializer(pake);
+            byte[] payload = pake.HandleSignup(request);
+            return (pake.SessionKey.CloneArray(), payload, new PakeRecord(pake.Identity));
+        }
+
+        /// <summary>
+        /// Derive a session key
+        /// </summary>
+        /// <param name="identity">Identity (will be cleared/disposed!)</param>
+        /// <param name="auth">Authentication (will be disposed!)</param>
+        /// <param name="initializer">PAKE instance initializer</param>
+        /// <param name="options">Options</param>
+        /// <param name="cryptoOptions">Options for encryption</param>
+        /// <param name="decryptPayload">Decrypt the payload?</param>
+        /// <returns>Session key and payload</returns>
+        public static (byte[] SessionKey, byte[] Payload) DeriveSessionKey(
+            in IPakeRecord identity, 
+            in PakeAuth auth,
+            in Action<Pake>? initializer = null, 
+            in CryptoOptions? options = null, 
+            in CryptoOptions? cryptoOptions = null, 
+            in bool decryptPayload = false
+            )
+        {
+            using PakeAuth request = auth;
+            using Pake pake = new(new PakeRecord(identity), options?.Clone(), cryptoOptions?.Clone());
+            if (initializer is not null) initializer(pake);
+            byte[] payload = pake.HandleAuth(request, decryptPayload);
+            return (pake.SessionKey.CloneArray(), payload);
+        }
     }
 }
