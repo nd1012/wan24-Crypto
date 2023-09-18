@@ -175,7 +175,7 @@ namespace wan24.Crypto
             try
             {
 #pragma warning disable IDE0034 // default expression can be simplified
-                if (PayloadData == null) return default(T?);
+                if (PayloadData is null) return default(T?);
 #pragma warning restore IDE0034
                 serializerVersion ??= SerializerVersion;
                 if (typeof(IStreamSerializer).IsAssignableFrom(typeof(T)))
@@ -210,8 +210,8 @@ namespace wan24.Crypto
             try
             {
                 PrivateKey = privateKey;
-                if (publicKey != null) PublicKey = publicKey;
-                if (PublicKey != null && PublicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
+                if (publicKey is not null) PublicKey = publicKey;
+                if (PublicKey is not null && PublicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
                 AsymmetricAlgorithm = privateKey.Algorithm.Name;
                 KeyExchangeDataIncluded = true;
                 RequireKeyExchangeData = true;
@@ -265,7 +265,7 @@ namespace wan24.Crypto
             try
             {
                 if (PrivateKey is not IKeyExchangePrivateKey key) throw new InvalidOperationException("Missing or invalid private key");
-                if (KeyExchangeData == null) throw new InvalidOperationException("No key exchange data");
+                if (KeyExchangeData is null) throw new InvalidOperationException("No key exchange data");
                 if (UsingAsymmetricCounterAlgorithm)
                 {
                     HybridAlgorithmHelper.DeriveKey(KeyExchangeData, this);
@@ -300,28 +300,28 @@ namespace wan24.Crypto
                 PublicKey = null;
                 CounterPublicKey = null;
             }
-            if (KdfSalt != null)
+            if (KdfSalt is not null)
             {
                 KdfSalt.Clear();
                 KdfSalt = null;
             }
-            if (CounterKdfSalt != null)
+            if (CounterKdfSalt is not null)
             {
                 CounterKdfSalt?.Clear();
                 CounterKdfSalt = null;
             }
             KeyExchangeData = null;
-            if (PayloadData != null)
+            if (PayloadData is not null)
             {
                 PayloadData?.Clear();
                 PayloadData = null;
             }
-            if (Mac != null)
+            if (Mac is not null)
             {
                 Mac?.Clear();
                 Mac = null;
             }
-            if (Password != null)
+            if (Password is not null)
             {
                 Password?.Clear();
                 Password = null;

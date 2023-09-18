@@ -34,8 +34,8 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (data != null && !signature.ValidateSignedData(data, throwOnError)) return false;
-                return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
+                if (data is not null && !signature.ValidateSignedData(data, throwOnError)) return false;
+                return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner is null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
             }
             catch (CryptographicException)
             {
@@ -54,8 +54,8 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (data != null && !signature.ValidateSignedData(data, throwOnError)) return false;
-                return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
+                if (data is not null && !signature.ValidateSignedData(data, throwOnError)) return false;
+                return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner is null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
             }
             catch (CryptographicException)
             {
@@ -74,8 +74,8 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (data != null && !await signature.ValidateSignedDataAsync(data, throwOnError, cancellationToken).DynamicContext()) return false;
-                return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner == null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
+                if (data is not null && !await signature.ValidateSignedDataAsync(data, throwOnError, cancellationToken).DynamicContext()) return false;
+                return ValidateSignatureInt(signature, throwOnError) && (signature.CounterSigner is null || HybridAlgorithmHelper.ValidateCounterSignature(signature));
             }
             catch (CryptographicException)
             {

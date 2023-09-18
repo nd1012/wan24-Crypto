@@ -55,7 +55,7 @@ namespace wan24.Crypto
                 try
                 {
                     EnsureUndisposed();
-                    if (_PublicKey != null) return _PublicKey;
+                    if (_PublicKey is not null) return _PublicKey;
                     using ECDiffieHellman dh = ECDiffieHellman.Create();
                     dh.ImportSubjectPublicKeyInfo(KeyData.Span, out int red);
                     if (red != KeyData.Length) throw new InvalidDataException("The key data wasn't fully used");

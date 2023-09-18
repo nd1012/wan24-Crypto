@@ -33,7 +33,7 @@ namespace wan24.Crypto
         public AsymmetricSignedPublicKey(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null) : this()
         {
             PublicKey = publicKey.GetCopy();
-            if (attributes != null) Attributes.AddRange(attributes);
+            if (attributes is not null) Attributes.AddRange(attributes);
         }
 
         /// <summary>
@@ -130,11 +130,11 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (publicKey != null && !publicKey.PublicKey.ID.SequenceEqual(privateKey.ID)) throw new ArgumentException("Public key ID mismatch", nameof(publicKey));
-                if (counterPrivateKey != null && counterPublicKey != null && !counterPublicKey.PublicKey.ID.SequenceEqual(counterPrivateKey.ID))
+                if (publicKey is not null && !publicKey.PublicKey.ID.SequenceEqual(privateKey.ID)) throw new ArgumentException("Public key ID mismatch", nameof(publicKey));
+                if (counterPrivateKey is not null && counterPublicKey is not null && !counterPublicKey.PublicKey.ID.SequenceEqual(counterPrivateKey.ID))
                     throw new ArgumentException("Public key ID mismatch", nameof(counterPublicKey));
                 if (!privateKey.ID.SequenceEqual(PublicKey.ID)) Signer = publicKey;
-                if (counterPrivateKey != null) CounterSigner = counterPublicKey;
+                if (counterPrivateKey is not null) CounterSigner = counterPublicKey;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options)
                     .WithSignatureKey(privateKey, counterPrivateKey);
                 Signature = privateKey.SignData(CreateSignedData(), purpose, options);
@@ -170,12 +170,12 @@ namespace wan24.Crypto
                         if (throwOnError) throw new TimeoutException("Created after expired");
                         return false;
                     }
-                    if (now < (MaximumTimeDifference == null ? Created : Created - MaximumTimeDifference))
+                    if (now < (MaximumTimeDifference is null ? Created : Created - MaximumTimeDifference))
                     {
                         if (throwOnError) throw new TimeoutException("Created in the future");
                         return false;
                     }
-                    if (now > (MaximumTimeDifference == null ? Expires : Expires + MaximumTimeDifference))
+                    if (now > (MaximumTimeDifference is null ? Expires : Expires + MaximumTimeDifference))
                     {
                         if (throwOnError) throw new TimeoutException("Expired");
                         return false;
@@ -188,19 +188,19 @@ namespace wan24.Crypto
                 }
                 // Validate the signature
                 if (!Signature.SignerPublicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
-                if (Signature.CounterSigner != null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
+                if (Signature.CounterSigner is not null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
                     return false;
                 }
                 // Validate the signer
-                if (Signer != null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
+                if (Signer is not null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
                 {
                     if (throwOnError) throw new InvalidDataException("Signer mismatch");
                     return false;
                 }
                 // Validate the counter signer
-                if (CounterSigner != null && CounterSigner.PublicKey.ID.SequenceEqual(Signature.CounterSigner!))
+                if (CounterSigner is not null && CounterSigner.PublicKey.ID.SequenceEqual(Signature.CounterSigner!))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signer mismatch");
                     return false;
@@ -224,34 +224,34 @@ namespace wan24.Crypto
                             return false;
                         }
                     }
-                    else if (signer == null)
+                    else if (signer is null)
                     {
                         // Unknown signer
                         signer = SignedPublicKeyStore(Signature.Signer);
-                        if (signer == null)
+                        if (signer is null)
                         {
                             if (throwOnError) throw new InvalidDataException("Missing signed signer public key");
                             return false;
                         }
                     }
                     // Validate the signed signer public key
-                    if (signer != null && !signer.Validate(ignoreTime: ignoreTime, throwOnError: throwOnError)) return false;
+                    if (signer is not null && !signer.Validate(ignoreTime: ignoreTime, throwOnError: throwOnError)) return false;
                     // Validate the counter signer
-                    if (Signature.CounterSigner != null)
+                    if (Signature.CounterSigner is not null)
                     {
                         signer = CounterSigner;
-                        if (signer == null)
+                        if (signer is null)
                         {
                             // Unknown counter signer
                             signer = SignedPublicKeyStore(Signature.CounterSigner);
-                            if (signer == null)
+                            if (signer is null)
                             {
                                 if (throwOnError) throw new InvalidDataException("Missing signed counter signer public key");
                                 return false;
                             }
                         }
                         // Validate the signed counter signer public key
-                        if (signer != null && !signer.Validate(ignoreTime: ignoreTime, throwOnError: throwOnError)) return false;
+                        if (signer is not null && !signer.Validate(ignoreTime: ignoreTime, throwOnError: throwOnError)) return false;
                     }
                 }
                 return true;
@@ -290,12 +290,12 @@ namespace wan24.Crypto
                         if (throwOnError) throw new TimeoutException("Created after expired");
                         return false;
                     }
-                    if (now < (MaximumTimeDifference == null ? Created : Created - MaximumTimeDifference))
+                    if (now < (MaximumTimeDifference is null ? Created : Created - MaximumTimeDifference))
                     {
                         if (throwOnError) throw new TimeoutException("Created in the future");
                         return false;
                     }
-                    if (now > (MaximumTimeDifference == null ? Expires : Expires + MaximumTimeDifference))
+                    if (now > (MaximumTimeDifference is null ? Expires : Expires + MaximumTimeDifference))
                     {
                         if (throwOnError) throw new TimeoutException("Expired");
                         return false;
@@ -308,19 +308,19 @@ namespace wan24.Crypto
                 }
                 // Validate the signature
                 if (!Signature.SignerPublicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
-                if (Signature.CounterSigner != null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
+                if (Signature.CounterSigner is not null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
                     return false;
                 }
                 // Validate the signer
-                if (Signer != null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
+                if (Signer is not null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
                 {
                     if (throwOnError) throw new InvalidDataException("Signer mismatch");
                     return false;
                 }
                 // Validate the counter signer
-                if (CounterSigner != null && CounterSigner.PublicKey.ID.SequenceEqual(Signature.CounterSigner!))
+                if (CounterSigner is not null && CounterSigner.PublicKey.ID.SequenceEqual(Signature.CounterSigner!))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signer mismatch");
                     return false;
@@ -344,34 +344,35 @@ namespace wan24.Crypto
                             return false;
                         }
                     }
-                    else if (signer == null)
+                    else if (signer is null)
                     {
                         // Unknown signer
                         signer = await SignedPublicKeyStoreAsync(Signature.Signer, cancellationToken).DynamicContext();
-                        if (signer == null)
+                        if (signer is null)
                         {
                             if (throwOnError) throw new InvalidDataException("Missing signed signer public key");
                             return false;
                         }
                     }
                     // Validate the signed signer public key
-                    if (signer != null && !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext()) return false;
+                    if (signer is not null && !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext())
+                        return false;
                     // Validate the counter signer
-                    if (Signature.CounterSigner != null)
+                    if (Signature.CounterSigner is not null)
                     {
                         signer = CounterSigner;
-                        if (signer == null)
+                        if (signer is null)
                         {
                             // Unknown counter signer
                             signer = await SignedPublicKeyStoreAsync(Signature.CounterSigner, cancellationToken).DynamicContext();
-                            if (signer == null)
+                            if (signer is null)
                             {
                                 if (throwOnError) throw new InvalidDataException("Missing signed counter signer public key");
                                 return false;
                             }
                         }
                         // Validate the signed counter signer public key
-                        if (signer != null && !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext())
+                        if (signer is not null && !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext())
                             return false;
                     }
                 }
@@ -396,7 +397,7 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (SignedData != null) return SignedData;
+                if (SignedData is not null) return SignedData;
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
                     .WriteNumber(VERSION)
@@ -479,7 +480,7 @@ namespace wan24.Crypto
         private void DeserializeSignedData()
         {
             EnsureUndisposed();
-            if (SignedData == null) throw new InvalidOperationException();
+            if (SignedData is null) throw new InvalidOperationException();
             using MemoryStream ms = new();
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>(ssv);

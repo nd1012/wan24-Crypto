@@ -70,9 +70,9 @@ namespace wan24.Crypto
             Flags = stream.ReadEnum<CryptoFlags>(version);
             Requirements = stream.ReadEnum<CryptoFlags>(version);
             double? ms = stream.ReadNumberNullable<double>(version);
-            if (ms != null) MaximumAge = TimeSpan.FromMilliseconds(ms.Value);
+            if (ms is not null) MaximumAge = TimeSpan.FromMilliseconds(ms.Value);
             ms = stream.ReadNumberNullable<double>(version);
-            if (ms != null) MaximumTimeOffset = TimeSpan.FromMilliseconds(ms.Value);
+            if (ms is not null) MaximumTimeOffset = TimeSpan.FromMilliseconds(ms.Value);
         }
 
         /// <inheritdoc/>
@@ -94,9 +94,9 @@ namespace wan24.Crypto
             Flags = await stream.ReadEnumAsync<CryptoFlags>(version, cancellationToken: cancellationToken).DynamicContext();
             Requirements = await stream.ReadEnumAsync<CryptoFlags>(version, cancellationToken: cancellationToken).DynamicContext();
             double? ms = await stream.ReadNumberNullableAsync<double>(version, cancellationToken: cancellationToken).DynamicContext();
-            if (ms != null) MaximumAge = TimeSpan.FromMilliseconds(ms.Value);
+            if (ms is not null) MaximumAge = TimeSpan.FromMilliseconds(ms.Value);
             ms = await stream.ReadNumberNullableAsync<double>(version, cancellationToken: cancellationToken).DynamicContext();
-            if (ms != null) MaximumTimeOffset = TimeSpan.FromMilliseconds(ms.Value);
+            if (ms is not null) MaximumTimeOffset = TimeSpan.FromMilliseconds(ms.Value);
         }
     }
 }

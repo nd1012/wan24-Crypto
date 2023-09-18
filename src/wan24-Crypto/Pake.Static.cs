@@ -60,6 +60,11 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Skip the signature key validation (KDF) during authentication?
+        /// </summary>
+        public static bool SkipSignatureKeyValidation { get; set; }
+
+        /// <summary>
         /// Cast as existing session flag
         /// </summary>
         /// <param name="pake"><see cref="Pake"/></param>

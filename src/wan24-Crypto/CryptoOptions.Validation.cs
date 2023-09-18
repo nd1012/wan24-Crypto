@@ -32,27 +32,27 @@ namespace wan24.Crypto
         {
             try
             {
-                if (Algorithm != null) EncryptionHelper.GetAlgorithm(Algorithm);
-                if (MacAlgorithm != null) MacHelper.GetAlgorithm(MacAlgorithm);
-                if (KdfAlgorithm != null)
+                if (Algorithm is not null) EncryptionHelper.GetAlgorithm(Algorithm);
+                if (MacAlgorithm is not null) MacHelper.GetAlgorithm(MacAlgorithm);
+                if (KdfAlgorithm is not null)
                 {
                     KdfAlgorithmBase kdfAlgo = KdfHelper.GetAlgorithm(KdfAlgorithm);
                     if (kdfAlgo.DefaultIterations > KdfIterations) throw new InvalidDataException("Invalid KDF iteration count");
                 }
-                if (AsymmetricAlgorithm != null)
+                if (AsymmetricAlgorithm is not null)
                 {
                     IAsymmetricAlgorithm asymmetricAlgo = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm);
                     if (!asymmetricAlgo.AllowedKeySizes.Contains(AsymmetricKeyBits)) throw new InvalidDataException("Invalid asymmetric key size");
                 }
-                if (CounterMacAlgorithm != null) MacHelper.GetAlgorithm(CounterMacAlgorithm);
-                if (CounterKdfAlgorithm != null)
+                if (CounterMacAlgorithm is not null) MacHelper.GetAlgorithm(CounterMacAlgorithm);
+                if (CounterKdfAlgorithm is not null)
                 {
                     KdfAlgorithmBase kdfAlgo = KdfHelper.GetAlgorithm(CounterKdfAlgorithm);
                     if (kdfAlgo.DefaultIterations > KdfIterations) throw new InvalidDataException("Invalid counter KDF iteration count");
                 }
-                if (AsymmetricCounterAlgorithm != null) AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm);
-                if (HashAlgorithm != null) HashHelper.GetAlgorithm(HashAlgorithm);
-                if (Compression?.Algorithm != null) CompressionHelper.GetAlgorithm(Compression.Algorithm);
+                if (AsymmetricCounterAlgorithm is not null) AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm);
+                if (HashAlgorithm is not null) HashHelper.GetAlgorithm(HashAlgorithm);
+                if (Compression?.Algorithm is not null) CompressionHelper.GetAlgorithm(Compression.Algorithm);
 
             }
             catch (CryptographicException)

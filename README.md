@@ -405,6 +405,10 @@ generation. After signup, it can be seen as a symmetric PFS protocol, if the
 random bytes are random for each session and never stored as communicated 
 between the peers.
 
+**CAUTION**: PAKE doesn't support counter algorithms! For working with PQ 
+counter algorithms, you'll have to combine two PAKE with different options by 
+yourself.
+
 **NOTE**: For PAKE both peers need to use the same KDF and MAC options. If the 
 algorithm is going to be changed, a new signup has to be performed. In case a 
 peer changes its authentication (identifier or key), a new signup operation 

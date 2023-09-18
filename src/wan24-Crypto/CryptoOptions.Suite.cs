@@ -12,9 +12,9 @@ namespace wan24.Crypto
         /// <param name="withCounterAlgorithms">With counter algorithms?</param>
         public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true)
         {
-            if (suite.KeyExchangeKey != null) SetKeys(suite.KeyExchangeKey, suite.Public.KeyExchangeKey);
-            if (withCounterAlgorithms && suite.CounterKeyExchangeKey != null) SetCounterKeys(suite.CounterKeyExchangeKey, suite.Public.CounterKeyExchangeKey);
-            if (suite.KeyExchangeKey == null && suite.SymmetricKey != null) Password = suite.SymmetricKey.CloneArray();
+            if (suite.KeyExchangeKey is not null) SetKeys(suite.KeyExchangeKey, suite.Public.KeyExchangeKey);
+            if (withCounterAlgorithms && suite.CounterKeyExchangeKey is not null) SetCounterKeys(suite.CounterKeyExchangeKey, suite.Public.CounterKeyExchangeKey);
+            if (suite.KeyExchangeKey is null && suite.SymmetricKey is not null) Password = suite.SymmetricKey.CloneArray();
         }
 
         /// <summary>
@@ -24,8 +24,8 @@ namespace wan24.Crypto
         /// <param name="withCounterAlgorithms">With counter algorithms?</param>
         public void ApplyPublicKeySuite(PublicKeySuite suite, bool withCounterAlgorithms = true)
         {
-            if (suite.KeyExchangeKey != null) PublicKey = suite.KeyExchangeKey;
-            if (withCounterAlgorithms && suite.CounterKeyExchangeKey != null) CounterPublicKey = suite.CounterKeyExchangeKey;
+            if (suite.KeyExchangeKey is not null) PublicKey = suite.KeyExchangeKey;
+            if (withCounterAlgorithms && suite.CounterKeyExchangeKey is not null) CounterPublicKey = suite.CounterKeyExchangeKey;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace wan24.Crypto
                 if (PrivateKey?.Algorithm.CanSign ?? false) res.SignatureKey = (ISignaturePrivateKey)PrivateKey.GetCopy();
                 if (CounterPrivateKey?.Algorithm.CanExchangeKey ?? false) res.CounterKeyExchangeKey = (IKeyExchangePrivateKey)CounterPrivateKey.GetCopy();
                 if (CounterPrivateKey?.Algorithm.CanSign ?? false) res.CounterSignatureKey = (ISignaturePrivateKey)CounterPrivateKey.GetCopy();
-                if (Password != null) res.SymmetricKey = Password.CloneArray();
+                if (Password is not null) res.SymmetricKey = Password.CloneArray();
                 return res;
             }
             catch

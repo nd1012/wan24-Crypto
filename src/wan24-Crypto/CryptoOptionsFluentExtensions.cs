@@ -53,7 +53,7 @@ namespace wan24.Crypto
         public static CryptoOptions WithTimeCritics(this CryptoOptions options, TimeSpan maxAge, TimeSpan? maxTimeOffset = null)
         {
             options.MaximumAge = maxAge;
-            if (maxTimeOffset != null) options.MaximumTimeOffset = maxTimeOffset;
+            if (maxTimeOffset is not null) options.MaximumTimeOffset = maxTimeOffset;
             options.TimeIncluded = true;
             options.RequireTime = true;
             return options;
@@ -82,7 +82,7 @@ namespace wan24.Crypto
         public static CryptoOptions WithCompression(this CryptoOptions options, CompressionOptions? compressionOptions = null)
         {
             options.Compressed = true;
-            if (compressionOptions != null) options.Compression = compressionOptions;
+            if (compressionOptions is not null) options.Compression = compressionOptions;
             return options;
         }
 
@@ -116,10 +116,10 @@ namespace wan24.Crypto
             options.ForceMacCoverWhole = forceCoverWhole;
             options.RequireMac = true;
             options.RequireMacCoverWhole = forceCoverWhole;
-            if (EncryptionHelper.UseHybridOptions && options.CounterMacAlgorithm == null)
+            if (EncryptionHelper.UseHybridOptions && options.CounterMacAlgorithm is null)
             {
                 options.CounterMacAlgorithm = HybridAlgorithmHelper.MacAlgorithm?.Name;
-                options.RequireCounterMac = options.CounterMacAlgorithm != null;
+                options.RequireCounterMac = options.CounterMacAlgorithm is not null;
             }
             return options;
         }
@@ -197,10 +197,10 @@ namespace wan24.Crypto
             options.KdfOptions = kdfOptions;
             options.KdfAlgorithmIncluded = included;
             options.RequireKdf = true;
-            if (EncryptionHelper.UseHybridOptions && options.CounterKdfAlgorithm == null)
+            if (EncryptionHelper.UseHybridOptions && options.CounterKdfAlgorithm is null)
             {
                 options.CounterKdfAlgorithm = HybridAlgorithmHelper.KdfAlgorithm?.Name;
-                if (options.CounterKdfAlgorithm != null)
+                if (options.CounterKdfAlgorithm is not null)
                 {
                     KdfAlgorithmBase counterKdf = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm);
                     options.CounterKdfIterations = counterKdf.DefaultIterations;
@@ -371,7 +371,7 @@ namespace wan24.Crypto
         public static CryptoOptions WithSignatureKey(this CryptoOptions options, ISignaturePrivateKey key, ISignaturePrivateKey? counterKey = null)
         {
             options.SetKeys(key);
-            if (counterKey != null) options.SetCounterKeys(counterKey);
+            if (counterKey is not null) options.SetCounterKeys(counterKey);
             return options;
         }
 
@@ -383,7 +383,7 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions WithCounterSignature(this CryptoOptions options, ISignaturePrivateKey key)
         {
-            if (options.PrivateKey == null) throw new InvalidOperationException("Sinature key needs to be set befre setting a counter signature key");
+            if (options.PrivateKey is null) throw new InvalidOperationException("Sinature key needs to be set befre setting a counter signature key");
             options.SetCounterKeys(key);
             return options;
         }
@@ -532,7 +532,7 @@ namespace wan24.Crypto
         public static CryptoOptions WithFlagsIncluded(this CryptoOptions options, CryptoFlags? flags = null, bool setRequirements = true)
         {
             options.FlagsIncluded = true;
-            if (flags != null)
+            if (flags is not null)
             {
                 options.Flags = flags.Value;
                 if (setRequirements) options.Requirements = flags.Value;

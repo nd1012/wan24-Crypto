@@ -65,7 +65,7 @@ namespace wan24.Crypto
         public byte[] Decrypt(ReadOnlySpan<byte> cipherData)
         {
             if (PrivateKey?.Algorithm.CanExchangeKey ?? false) return cipherData.Decrypt(PrivateKey, this);
-            if (Password == null) throw new InvalidOperationException("No password, no private key");
+            if (Password is null) throw new InvalidOperationException("No password, no private key");
             return cipherData.Decrypt(Password, this);
         }
 
@@ -88,7 +88,7 @@ namespace wan24.Crypto
                 cipherData.Decrypt(rawData, PrivateKey, this);
                 return;
             }
-            if (Password == null) throw new InvalidOperationException("No password, no private key");
+            if (Password is null) throw new InvalidOperationException("No password, no private key");
             cipherData.Decrypt(rawData, Password, this);
         }
 
@@ -105,7 +105,7 @@ namespace wan24.Crypto
                 await cipherData.DecryptAsync(rawData, PrivateKey, this, cancellationToken).DynamicContext();
                 return;
             }
-            if (Password == null) throw new InvalidOperationException("No password, no private key");
+            if (Password is null) throw new InvalidOperationException("No password, no private key");
             await cipherData.DecryptAsync(rawData, Password, this, cancellationToken: cancellationToken).DynamicContext();
         }
 

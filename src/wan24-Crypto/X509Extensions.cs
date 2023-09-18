@@ -15,8 +15,8 @@ namespace wan24.Crypto
         /// <returns>Algorithm or <see langword="null"/>, if the key algorithm isn't supported</returns>
         public static IAsymmetricAlgorithm? GetAsymmetricAlgorithm(this X509Certificate2 cert)
         {
-            if (cert.PublicKey.GetECDiffieHellmanPublicKey() != null) return AsymmetricHelper.GetAlgorithm(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME);
-            if (cert.PublicKey.GetECDsaPublicKey() != null) return AsymmetricHelper.GetAlgorithm(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME);
+            if (cert.PublicKey.GetECDiffieHellmanPublicKey() is not null) return AsymmetricHelper.GetAlgorithm(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME);
+            if (cert.PublicKey.GetECDsaPublicKey() is not null) return AsymmetricHelper.GetAlgorithm(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME);
             return null;
         }
 

@@ -68,7 +68,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Has a key?
         /// </summary>
-        public bool HasKey => SymmetricKey != null || SymmetricKeyFactory != null || AsymmetricKey != null || AsymmetricKeyFactory != null;
+        public bool HasKey => SymmetricKey is not null || SymmetricKeyFactory is not null || AsymmetricKey is not null || AsymmetricKeyFactory is not null;
 
         /// <summary>
         /// Cipher data
@@ -88,9 +88,9 @@ namespace wan24.Crypto
         {
             get
             {
-                if (_Decrypted != null || CipherData == null) return _Decrypted?.CloneArray();
+                if (_Decrypted is not null || CipherData is null) return _Decrypted?.CloneArray();
                 if (!HasKey) throw new InvalidOperationException("No key");
-                byte[]? res = SymmetricKey == null
+                byte[]? res = SymmetricKey is null
                     ? CipherData.Decrypt(AsymmetricKey!, Options)
                     : CipherData.Decrypt(SymmetricKey, Options);
                 if (StoreDecrypted) _Decrypted = res.CloneArray();
@@ -101,13 +101,13 @@ namespace wan24.Crypto
                 if (!HasKey) throw new InvalidOperationException("No key");
                 _Decrypted?.Clear();
                 _Decrypted = value?.CloneArray();
-                if (value == null)
+                if (value is null)
                 {
                     CipherData = null;
                 }
                 else
                 {
-                    CipherData = SymmetricKey == null
+                    CipherData = SymmetricKey is null
                         ? value.Encrypt(AsymmetricKey!, Options)
                         : value.Encrypt(SymmetricKey, Options);
                 }

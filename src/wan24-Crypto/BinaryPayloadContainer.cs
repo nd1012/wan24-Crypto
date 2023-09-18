@@ -42,7 +42,7 @@ namespace wan24.Crypto
         /// <param name="hlVersion">Higher level object version</param>
         protected BinaryPayloadContainer(int minLen, int maxLen, int? hlVersion = null) : base(VERSION)
         {
-            if (hlVersion != null && hlVersion < 1) throw new ArgumentOutOfRangeException(nameof(hlVersion));
+            if (hlVersion is not null && hlVersion < 1) throw new ArgumentOutOfRangeException(nameof(hlVersion));
             HlObjectVersion = hlVersion;
             if (minLen < 0) throw new ArgumentOutOfRangeException(nameof(minLen));
             if (maxLen < minLen) throw new ArgumentOutOfRangeException(nameof(maxLen));
@@ -75,7 +75,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            if (Payload == null) throw new SerializerException("Missing payload", new InvalidOperationException());
+            if (Payload is null) throw new SerializerException("Missing payload", new InvalidOperationException());
             stream.WriteNumberNullable(HlObjectVersion);
             stream.WriteBytes(Payload);
         }
@@ -83,7 +83,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            if (Payload == null) throw new SerializerException("Missing payload", new InvalidOperationException());
+            if (Payload is null) throw new SerializerException("Missing payload", new InvalidOperationException());
             await stream.WriteNumberNullableAsync(HlObjectVersion, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(Payload, cancellationToken).DynamicContext();
         }
@@ -130,11 +130,11 @@ namespace wan24.Crypto
         /// </summary>
         protected virtual void EnsureValidHlVersion()
         {
-            if (DeserializedHlObjectVersion == null)
+            if (DeserializedHlObjectVersion is null)
             {
-                if (HlObjectVersion != null) throw new SerializerException("No deserialized higher level object version, but higher level object version defined", new InvalidDataException());
+                if (HlObjectVersion is not null) throw new SerializerException("No deserialized higher level object version, but higher level object version defined", new InvalidDataException());
             }
-            else if (HlObjectVersion == null)
+            else if (HlObjectVersion is null)
             {
                 throw new SerializerException("Deserialized higher level object version, but no higher level object version defined", new InvalidDataException());
             }

@@ -70,7 +70,7 @@
         /// <returns>If the options are valid</returns>
         public virtual bool ValidateOptions(string? kdfOptions, bool throwOnError = true)
         {
-            if (kdfOptions != null)
+            if (kdfOptions is not null)
             {
                 if (throwOnError) throw new CryptographicException($"KDF options for {Name} aren't upported and should be NULL");
                 return false;

@@ -40,7 +40,7 @@ namespace wan24.Crypto
             set
             {
                 EnsureUndisposed();
-                if (value != null && !value.Algorithm.CanExchangeKey) throw new ArgumentException("Key can't key exchange", nameof(value));
+                if (value is not null && !value.Algorithm.CanExchangeKey) throw new ArgumentException("Key can't key exchange", nameof(value));
                 _KeyExchangeKey = value;
             }
         }
@@ -54,7 +54,7 @@ namespace wan24.Crypto
             set
             {
                 EnsureUndisposed();
-                if (value != null && !value.Algorithm.CanExchangeKey) throw new ArgumentException("Key can't key exchange", nameof(value));
+                if (value is not null && !value.Algorithm.CanExchangeKey) throw new ArgumentException("Key can't key exchange", nameof(value));
                 _CounterKeyExchangeKey = value;
             }
         }
@@ -88,7 +88,7 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (SignedData != null) return SignedData;
+                if (SignedData is not null) return SignedData;
                 this.ValidateObject();
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
@@ -134,7 +134,7 @@ namespace wan24.Crypto
             _CounterKeyExchangeKey = _CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.GetCopy(),
             CounterSignatureKey = (ISignaturePublicKey?)CounterSignatureKey?.GetCopy(),
-            SignedPublicKey = SignedPublicKey == null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
+            SignedPublicKey = SignedPublicKey is null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
         });
 
         /// <inheritdoc/>
@@ -188,7 +188,7 @@ namespace wan24.Crypto
         private void DeserializeSignedData()
         {
             EnsureUndisposed();
-            if (SignedData == null) throw new InvalidOperationException();
+            if (SignedData is null) throw new InvalidOperationException();
             using MemoryStream ms = new();
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>(ssv);

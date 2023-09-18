@@ -75,6 +75,7 @@ This library is available as
 These extension NuGet packages are available:
 
 - [wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)](https://www.nuget.org/packages/wan24-Crypto-BC/)
+- [wan24-Crypto-NaCl (adopts the Argon2id KDF algorithm from NSec)](https://www.nuget.org/packages/wan24-Crypto-NaCl/)
 
 ## Usage
 
@@ -403,6 +404,10 @@ symmetric cryptographic algorithms only and uses random bytes for session key
 generation. After signup, it can be seen as a symmetric PFS protocol, if the 
 random bytes are random for each session and never stored as communicated 
 between the peers.
+
+**CAUTION**: PAKE doesn't support counter algorithms! For working with PQ 
+counter algorithms, you'll have to combine two PAKE with different options by 
+yourself.
 
 **NOTE**: For PAKE both peers need to use the same KDF and MAC options. If the 
 algorithm is going to be changed, a new signup has to be performed. In case a 

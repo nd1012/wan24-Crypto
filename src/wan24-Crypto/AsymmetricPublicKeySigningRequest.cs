@@ -34,7 +34,7 @@ namespace wan24.Crypto
         public AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null, string? purpose = null, CryptoOptions? options = null) : this()
         {
             PublicKey = publicKey.GetCopy();
-            if (attributes != null) Attributes.AddRange(attributes);
+            if (attributes is not null) Attributes.AddRange(attributes);
             if (options?.PrivateKey is not ISignaturePrivateKey signatureKey || !signatureKey.ID.SequenceEqual(publicKey.ID)) return;
             Signature = signatureKey.SignData(CreateSignedData(), purpose, options);
         }
@@ -76,7 +76,7 @@ namespace wan24.Crypto
         public bool ValidateRequestSignature(bool throwOnError = true)
         {
             EnsureUndisposed();
-            if (Signature == null) throw new InvalidOperationException();
+            if (Signature is null) throw new InvalidOperationException();
             using ISignaturePublicKey publicKey = Signature.SignerPublicKey;
             return publicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError);
         }
@@ -89,11 +89,11 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             this.ValidateObject();
-            if (Signature != null)
+            if (Signature is not null)
             {
                 using (ISignaturePublicKey signer = Signature.SignerPublicKey)
                     signer.ValidateSignature(Signature, CreateSignedData());
-                if (Signature.CounterSignature != null) HybridAlgorithmHelper.ValidateCounterSignature(Signature);
+                if (Signature.CounterSignature is not null) HybridAlgorithmHelper.ValidateCounterSignature(Signature);
             }
             return new(PublicKey, Attributes);
         }
@@ -107,7 +107,7 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (SignedData != null) return SignedData;
+                if (SignedData is not null) return SignedData;
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
                     .WriteNumber(VERSION)
@@ -133,7 +133,7 @@ namespace wan24.Crypto
         protected override void Serialize(Stream stream)
         {
             stream.WriteBytesNullable(SignedData);
-            if (SignedData == null)
+            if (SignedData is null)
             {
                 stream.WriteAny(PublicKey)
                     .WriteDict(Attributes);
@@ -148,7 +148,7 @@ namespace wan24.Crypto
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             stream.WriteBytesNullable(SignedData);
-            if (SignedData == null)
+            if (SignedData is null)
             {
                 await stream.WriteAnyAsync(PublicKey, cancellationToken).DynamicContext();
                 await stream.WriteDictAsync(Attributes, cancellationToken).DynamicContext();
@@ -163,7 +163,7 @@ namespace wan24.Crypto
         protected override void Deserialize(Stream stream, int version)
         {
             SignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
-            if (SignedData == null)
+            if (SignedData is null)
             {
                 PublicKey = stream.ReadAny(version) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
                 Attributes = stream.ReadDict<string, string>(version, maxLen: byte.MaxValue);
@@ -179,7 +179,7 @@ namespace wan24.Crypto
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             SignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
-            if (SignedData == null)
+            if (SignedData is null)
             {
                 PublicKey = await stream.ReadAnyAsync(version, cancellationToken: cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? 
                     throw new SerializerException("Failed to deserialize the public key");
@@ -198,7 +198,7 @@ namespace wan24.Crypto
         private void DeserializeSignedData()
         {
             EnsureUndisposed();
-            if (SignedData == null) throw new InvalidOperationException();
+            if (SignedData is null) throw new InvalidOperationException();
             using MemoryStream ms = new();
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>();

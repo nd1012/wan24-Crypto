@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Fast PAKE authentication server (NOT thread-safe!)
     /// </summary>
-    public sealed class FastPakeAuthServer : DisposableBase
+    public sealed class FastPakeAuthServer : DisposableBase, IStatusProvider
     {
         /// <summary>
         /// Key
@@ -64,13 +64,12 @@ namespace wan24.Crypto
                 }
                 // Validate pre-conditions
                 if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
-                byte[] identifier = Identifier;
-                if (!identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
+                if (!Pake.Identity.Identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
                 byte[] key = null!,
                     secret = null!,
                     signatureKey = null!,
                     signature = null!;
-                int len = identifier.Length;
+                int len = auth.Identifier.Length;
                 try
                 {
                     // Validate the auth values lengths
@@ -85,12 +84,21 @@ namespace wan24.Crypto
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    signatureKey = Pake.CreateSignatureKey(key, secret);
-                    if (!Pake.Identity.SignatureKey.SlowCompare(signatureKey))
-                        throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
+                    if (!Pake.SkipSignatureKeyValidation)
+                    {
+                        signatureKey = Pake.CreateSignatureKey(key, secret);
+                        if (!Pake.Identity.SignatureKey.SlowCompare(signatureKey))
+                            throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
+                    }
                     // Store the authentication key and the secret to this instance
-                    Key = new(key, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone());
-                    Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone());
+                    Key = new(key, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    {
+                        Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
+                    };
+                    Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    {
+                        Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
+                    };
                 }
                 catch
                 {
@@ -116,6 +124,7 @@ namespace wan24.Crypto
                 payload?.Clear();
                 randomMac?.Clear();
             }
+            FastPakeAuthServerTable.Servers[GUID] = this;
         }
 
         /// <summary>
@@ -162,8 +171,14 @@ namespace wan24.Crypto
                     if (!signup.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Store the authentication key and the secret to this instance
-                    Key = new(signup.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone());
-                    Secret = new(signup.Secret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone());
+                    Key = new(signup.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    {
+                        Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
+                    };
+                    Secret = new(signup.Secret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    {
+                        Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
+                    };
                 }
                 catch
                 {
@@ -185,7 +200,18 @@ namespace wan24.Crypto
             {
                 signup.Dispose();
             }
+            FastPakeAuthServerTable.Servers[GUID] = this;
         }
+
+        /// <summary>
+        /// GUID
+        /// </summary>
+        public string GUID { get; } = Guid.NewGuid().ToString();
+
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string? Name { get; set; }
 
         /// <summary>
         /// External thread synchronizaion
@@ -226,6 +252,29 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Authentication count (including errors)
+        /// </summary>
+        public long AuthCount { get; private set; }
+
+        /// <summary>
+        /// Authentication error count
+        /// </summary>
+        public long AuthErrorCount { get; private set; }
+
+        /// <inheritdoc/>
+        public IEnumerable<Status> State
+        {
+            get
+            {
+                yield return new("GUID", GUID, "Unique ID of the fast PAKE server");
+                yield return new("Name", Name, "Name of the fast PAKE server");
+                yield return new("Identifier", Convert.ToHexString(Identifier), "Peer identifier");
+                yield return new("Count", AuthCount, "Authentication count since initialization");
+                yield return new("Errors", AuthErrorCount, "Authentication error count since initialization");
+            }
+        }
+
+        /// <summary>
         /// Handle an authentication
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
@@ -234,6 +283,7 @@ namespace wan24.Crypto
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
+            AuthCount++;
             byte[]? payload = null,
                 randomMac = null;
             try
@@ -263,12 +313,11 @@ namespace wan24.Crypto
                 }
                 // Validate pre-conditions
                 if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
-                byte[] identifier = Identifier;
-                if (!identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
+                if (!Pake.Identity.Identifier.SlowCompare(auth.Identifier)) throw CryptographicException.From(new InvalidDataException("Identity mismatch"));
                 byte[] key = null!,
                     secret = null!,
                     signature = null!;
-                int len = identifier.Length;
+                int len = auth.Identifier.Length;
                 try
                 {
                     // Validate the auth values lengths
@@ -294,6 +343,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
+                AuthErrorCount++;
                 Pake.ClearSessionKey();
                 Pake.RaiseOnAuthError(new(auth, payload, ex));
                 payload?.Clear();
@@ -316,6 +366,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
+            FastPakeAuthServerTable.Servers.TryRemove(GUID, out _);
             Pake?.Dispose();
             Secret?.Dispose();
             Key?.Dispose();

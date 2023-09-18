@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see 
     /// <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>)
     /// </summary>
-    public sealed partial class SecureValue : DisposableBase
+    public sealed partial class SecureValue : DisposableBase, IStatusProvider
     {
         /// <summary>
         /// Constructor
@@ -60,6 +60,7 @@ namespace wan24.Crypto
                 if (ex is CryptographicException) throw;
                 throw CryptographicException.From(ex);
             }
+            SecureValueTable.Values[GUID] = this;
         }
 
         /// <summary>
@@ -73,6 +74,32 @@ namespace wan24.Crypto
         public static TimeSpan DefaultRecryptTimeout { get; set; } = TimeSpan.FromMinutes(1);
 
         /// <summary>
+        /// GUID
+        /// </summary>
+        public string GUID { get; } = Guid.NewGuid().ToString();
+
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string? Name { get; set; }
+
+        /// <inheritdoc/>
+        public IEnumerable<Status> State
+        {
+            get
+            {
+                yield return new("GUID", GUID, "Unique ID of the secure value");
+                yield return new("Name", Name, "Name of the secure value");
+                yield return new("Encrypted", IsEncrypted ? EncryptedSince : false, "If the secure value is encrypted at present (if encrypted, when it has been encrypted)");
+                yield return new("Encryption", IsEncrypted ? TimeSpan.Zero : LastAccess + EncryptTimeout, "When the raw value is going to be encrypted next time");
+                yield return new("Timeout", EncryptTimeout, "Value encryption timeout after the last access");
+                yield return new("Re-crypt", RecryptTimeout, "Encrypted value re-cryption interval");
+                yield return new("Access time", LastAccess, "Time of the last raw value access");
+                yield return new("Access count", AccessCount, "Number of value access since initialization");
+            }
+        }
+
+        /// <summary>
         /// Value (should/will be cleared!)
         /// </summary>
         [SensitiveData]
@@ -83,6 +110,7 @@ namespace wan24.Crypto
                 EnsureUndisposed();
                 using SemaphoreSyncContext ssc = Sync;
                 LastAccess = DateTime.Now;
+                AccessCount++;
                 if (RawValue is null) return Decrypt();
                 EncryptTimer.Stop();
                 try
@@ -172,6 +200,11 @@ namespace wan24.Crypto
         public DateTime EncryptedSince { get; private set; } = DateTime.MinValue;
 
         /// <summary>
+        /// Access count
+        /// </summary>
+        public long AccessCount { get; private set; }
+
+        /// <summary>
         /// Get the value
         /// </summary>
         /// <param name="cancellationToken">Cancellation token</param>
@@ -181,6 +214,7 @@ namespace wan24.Crypto
             EnsureUndisposed();
             using SemaphoreSyncContext ssc = await Sync.SyncContextAsync(cancellationToken).DynamicContext();
             LastAccess = DateTime.Now;
+            AccessCount++;
             if (RawValue is null) return Decrypt();
             EncryptTimer.Stop();
             try

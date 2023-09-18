@@ -429,7 +429,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options == null)
+                if (options is null)
                 {
                     options = DefaultAlgorithm.DefaultOptions;
                 }
@@ -437,7 +437,7 @@ namespace wan24.Crypto
                 {
                     options.Algorithm ??= DefaultAlgorithm.Name;
                     if (options.RequireMac) options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name;
-                    if (options.RequireKdf && options.KdfAlgorithm == null)
+                    if (options.RequireKdf && options.KdfAlgorithm is null)
                     {
                         options.KdfAlgorithm = KdfHelper.DefaultAlgorithm.Name;
                         options.KdfIterations = KdfHelper.DefaultAlgorithm.DefaultIterations;

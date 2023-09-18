@@ -6,20 +6,20 @@ namespace wan24.Crypto
     /// <summary>
     /// Fast PAKE authentication client (NOT thread-safe!)
     /// </summary>
-    public sealed class FastPakeAuthClient : DisposableBase
+    public sealed class FastPakeAuthClient : DisposableBase, IStatusProvider
     {
         /// <summary>
         /// Key
         /// </summary>
-        private readonly SecureValue Key;
+        private readonly SecureValue Key = null!;
         /// <summary>
         /// Secret
         /// </summary>
-        private readonly SecureValue Secret;
+        private readonly SecureValue Secret = null!;
         /// <summary>
         /// Signature key
         /// </summary>
-        private readonly SecureValue SignatureKey;
+        private readonly SecureValue SignatureKey = null!;
 
         /// <summary>
         /// Constructor
@@ -38,12 +38,49 @@ namespace wan24.Crypto
             )
             : base(asyncDisposing: false)
         {
-            cryptoOptions ??= Pake.DefaultCryptoOptions;
-            Pake = new(key, options, cryptoOptions);
-            Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, cryptoOptions.Clone());
-            Secret = new(Pake.CreateSecret(Key), encryptTimeout, recryptTimeout, cryptoOptions.Clone());
-            SignatureKey = new(Pake.CreateSignatureKey(Key, Secret), encryptTimeout, recryptTimeout, cryptoOptions.Clone());
+            byte[] authKey = null!,
+                secret = null!;
+            try
+            {
+                cryptoOptions ??= Pake.DefaultCryptoOptions;
+                Pake = new(key, options, cryptoOptions);
+                Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, cryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
+                };
+                authKey = Key;
+                Secret = new(Pake.CreateSecret(authKey), encryptTimeout, recryptTimeout, cryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth client {GUID} (\"{Name}\") secret"
+                };
+                secret = Secret;
+                SignatureKey = new(Pake.CreateSignatureKey(authKey, secret), encryptTimeout, recryptTimeout, cryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth client {GUID} (\"{Name}\") signature key"
+                };
+            }
+            catch (Exception ex)
+            {
+                Dispose();
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                authKey?.Clear();
+                secret?.Clear();
+            }
         }
+
+        /// <summary>
+        /// GUID
+        /// </summary>
+        public string GUID { get; } = Guid.NewGuid().ToString();
+
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string? Name { get; set; }
 
         /// <summary>
         /// External thread synchronizaion
@@ -53,7 +90,7 @@ namespace wan24.Crypto
         /// <summary>
         /// PAKE instance
         /// </summary>
-        public Pake Pake { get; }
+        public Pake Pake { get; } = null!;
 
         /// <summary>
         /// Identifier
@@ -84,6 +121,23 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Authentication count (including errors)
+        /// </summary>
+        public long AuthCount { get; private set; }
+
+        /// <inheritdoc/>
+        public IEnumerable<Status> State
+        {
+            get
+            {
+                yield return new("GUID", GUID, "Unique ID of the fast PAKE client");
+                yield return new("Name", Name, "Name of the fast PAKE client");
+                yield return new("Identifier", Convert.ToHexString(Identifier), "Client identifier");
+                yield return new("Count", AuthCount, "Authentication count since initialization");
+            }
+        }
+
+        /// <summary>
         /// Create an authentication
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
@@ -92,8 +146,9 @@ namespace wan24.Crypto
         public PakeAuth CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
         {
             EnsureUndisposed();
+            AuthCount++;
             if (Pake.Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
-            byte[] random = RND.GetBytes(Pake.Key.ExpandedKey.Length),
+            byte[] random = RND.GetBytes(Pake.Key.Identifier.Length),
                 randomMac = null!,
                 key = null!,
                 signatureKey = null!,
@@ -118,7 +173,7 @@ namespace wan24.Crypto
                 key = Key;
                 secret = Secret;
                 signature = Pake.SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
-                return new PakeAuth(Identifier.CloneArray(), Key.Value.Xor(randomMac), signature, random, payload);
+                return new PakeAuth(Pake.Key.Identifier.CloneArray(), key.CloneArray().Xor(randomMac), signature, random, payload);
             }
             catch (Exception ex)
             {
@@ -146,10 +201,10 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
-            Pake.Dispose();
-            Secret.Dispose();
-            Key.Dispose();
-            SignatureKey.Dispose();
+            Pake?.Dispose();
+            Secret?.Dispose();
+            Key?.Dispose();
+            SignatureKey?.Dispose();
             Sync.Dispose();
         }
     }

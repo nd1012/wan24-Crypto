@@ -202,12 +202,12 @@ namespace wan24.Crypto
         public byte[] Serialize(in byte[]? buffer = null, in ArrayPool<byte>? pool = null)
         {
             byte[] res;
-            if (buffer != null)
+            if (buffer is not null)
             {
                 if (buffer.Length < STRUCT_LENGTH) throw new ArgumentOutOfRangeException(nameof(buffer));
                 res = buffer;
             }
-            else if (pool != null)
+            else if (pool is not null)
             {
                 res = pool.Rent(STRUCT_LENGTH);
             }
@@ -230,7 +230,7 @@ namespace wan24.Crypto
         /// <param name="pool">Buffer pool</param>
         public void Serialize(in Stream stream, in byte[]? buffer = null, ArrayPool<byte>? pool = null)
         {
-            if (buffer == null) pool ??= ArrayPool<byte>.Shared;
+            if (buffer is null) pool ??= ArrayPool<byte>.Shared;
             byte[] data = Serialize(buffer, pool);
             try
             {
@@ -238,7 +238,7 @@ namespace wan24.Crypto
             }
             finally
             {
-                if (buffer == null) pool!.Return(data);
+                if (buffer is null) pool!.Return(data);
             }
         }
 
@@ -251,7 +251,7 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         public async ValueTask SerializeAsync(Stream stream, byte[]? buffer = null, ArrayPool<byte>? pool = null, CancellationToken cancellationToken = default)
         {
-            if (buffer == null) pool ??= ArrayPool<byte>.Shared;
+            if (buffer is null) pool ??= ArrayPool<byte>.Shared;
             byte[] data = Serialize(buffer, pool);
             try
             {
@@ -259,7 +259,7 @@ namespace wan24.Crypto
             }
             finally
             {
-                if (buffer == null) pool!.Return(data);
+                if (buffer is null) pool!.Return(data);
             }
         }
 
@@ -320,7 +320,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="ttData">Timeout token data</param>
         [return: NotNullIfNotNull(nameof(ttData))]
-        public static explicit operator TimeoutToken?(byte[]? ttData) => ttData == null ? null : new(ttData);
+        public static explicit operator TimeoutToken?(byte[]? ttData) => ttData is null ? null : new(ttData);
 
         /// <summary>
         /// Create a timeout token from a serialized stream

@@ -36,7 +36,7 @@ namespace wan24.Crypto
         /// <param name="obj">Object</param>
         public void SetHostedObject(object? obj)
         {
-            if (obj == null)
+            if (obj is null)
             {
                 HostedObjectType = null;
                 HostedObject = null;
@@ -57,8 +57,8 @@ namespace wan24.Crypto
         {
             try
             {
-                if (HostedObjectType != null && (TypeHelper.Instance.GetType(HostedObjectType) is not Type type || !typeof(T).IsAssignableFrom(type)))
-                    if (TypeHelper.Instance.GetType(HostedObjectType) == null)
+                if (HostedObjectType is not null && (TypeHelper.Instance.GetType(HostedObjectType) is not Type type || !typeof(T).IsAssignableFrom(type)))
+                    if (TypeHelper.Instance.GetType(HostedObjectType) is null)
                     {
                         throw new InvalidDataException($"Failed to load type \"{HostedObjectType}\"");
                     }
@@ -66,7 +66,7 @@ namespace wan24.Crypto
                     {
                         throw new ArgumentException($"Can't get type \"{typeof(T)}\" from \"{HostedObjectType}\"", nameof(T));
                     }
-                return HostedObject == null ? (T?)(object?)HostedObject : JsonHelper.Decode<T>(HostedObject.ToUtf8String());
+                return HostedObject is null ? (T?)(object?)HostedObject : JsonHelper.Decode<T>(HostedObject.ToUtf8String());
             }
             catch (CryptographicException)
             {
@@ -86,7 +86,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return HostedObject == null
+                return HostedObject is null
                     ? null
                     : JsonHelper.DecodeObject(
                         TypeHelper.Instance.GetType(HostedObjectType ?? throw new InvalidDataException("Missing hosted object type name"))
