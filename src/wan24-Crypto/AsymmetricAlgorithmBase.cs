@@ -49,10 +49,10 @@ namespace wan24.Crypto
         public abstract AsymmetricAlgorithmUsages Usages { get; }
 
         /// <inheritdoc/>
-        public bool CanExchangeKey => Usages.HasFlag(AsymmetricAlgorithmUsages.KeyExchange);
+        public bool CanExchangeKey => Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.KeyExchange);
 
         /// <inheritdoc/>
-        public bool CanSign => Usages.HasFlag(AsymmetricAlgorithmUsages.Signature);
+        public bool CanSign => Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.Signature);
 
         /// <inheritdoc/>
         public abstract bool IsEllipticCurveAlgorithm { get; }

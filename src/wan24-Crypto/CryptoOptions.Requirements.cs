@@ -83,17 +83,17 @@ namespace wan24.Crypto
             }
             set
             {
-                RequireSerializerVersion = value.HasFlag(CryptoFlags.SerializerVersionIncluded);
-                RequireMac = value.HasFlag(CryptoFlags.MacIncluded);
-                RequireKdf = value.HasFlag(CryptoFlags.KdfAlgorithmIncluded);
-                RequireCounterMac = value.HasFlag(CryptoFlags.RequireCounterMac);
-                RequireAsymmetricCounterAlgorithm = value.HasFlag(CryptoFlags.RequireAsymmetricCounterAlgorithm);
-                RequireCounterKdf = value.HasFlag(CryptoFlags.RequireCounterKdfAlgorithm);
-                RequireKeyExchangeData = value.HasFlag(CryptoFlags.KeyExchangeDataIncluded);
-                RequirePayload = value.HasFlag(CryptoFlags.PayloadIncluded);
-                RequireTime = value.HasFlag(CryptoFlags.TimeIncluded);
-                RequireMacCoverWhole = value.HasFlag(CryptoFlags.ForceMacCoverWhole);
-                RequireHeaderVersion = value.HasFlag(CryptoFlags.HeaderVersionIncluded);
+                RequireSerializerVersion = value.ContainsAnyFlag(CryptoFlags.SerializerVersionIncluded);
+                RequireMac = value.ContainsAnyFlag(CryptoFlags.MacIncluded);
+                RequireKdf = value.ContainsAnyFlag(CryptoFlags.KdfAlgorithmIncluded);
+                RequireCounterMac = value.ContainsAnyFlag(CryptoFlags.RequireCounterMac);
+                RequireAsymmetricCounterAlgorithm = value.ContainsAnyFlag(CryptoFlags.RequireAsymmetricCounterAlgorithm);
+                RequireCounterKdf = value.ContainsAnyFlag(CryptoFlags.RequireCounterKdfAlgorithm);
+                RequireKeyExchangeData = value.ContainsAnyFlag(CryptoFlags.KeyExchangeDataIncluded);
+                RequirePayload = value.ContainsAnyFlag(CryptoFlags.PayloadIncluded);
+                RequireTime = value.ContainsAnyFlag(CryptoFlags.TimeIncluded);
+                RequireMacCoverWhole = value.ContainsAnyFlag(CryptoFlags.ForceMacCoverWhole);
+                RequireHeaderVersion = value.ContainsAnyFlag(CryptoFlags.HeaderVersionIncluded);
             }
         }
     }
