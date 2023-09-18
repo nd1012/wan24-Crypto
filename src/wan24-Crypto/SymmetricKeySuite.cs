@@ -55,7 +55,7 @@ namespace wan24.Crypto
         /// <param name="identifier">Identifier (will be cleared!)</param>
         /// <param name="expandedKey">Expanded key (will be cleared!)</param>
         /// <param name="asyncDisposing">Implements asynchronous disposing?</param>
-        internal protected SymmetricKeySuite(in CryptoOptions? options, in byte[]? identifier, in byte[] expandedKey, in bool asyncDisposing = false) : base(asyncDisposing)
+        protected SymmetricKeySuite(in CryptoOptions? options, in byte[]? identifier, in byte[] expandedKey, in bool asyncDisposing = false) : base(asyncDisposing)
         {
             Identifier = identifier;
             ExpandedKey = new(expandedKey);
@@ -84,7 +84,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="key">Key</param>
         /// <returns>Expanded key</returns>
-        protected virtual byte[] InitKeyOnly(byte[] key)
+        protected virtual byte[] InitKeyOnly(in byte[] key)
         {
             byte[] mac = key.Mac(key, Options);
             try
@@ -103,7 +103,7 @@ namespace wan24.Crypto
         /// <param name="key">Key</param>
         /// <param name="identifier">Identifier</param>
         /// <returns>Expanded key and identifier</returns>
-        protected virtual (byte[] ExpandedKey, byte[] Identifier) InitKeyAndIdentifier(byte[] key, byte[] identifier)
+        protected virtual (byte[] ExpandedKey, byte[] Identifier) InitKeyAndIdentifier(in byte[] key, in byte[] identifier)
         {
             byte[] keyMac = key.Mac(key, Options),
                 mac = null!;
