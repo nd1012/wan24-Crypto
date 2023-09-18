@@ -512,11 +512,17 @@ are the official implementation IDs (not guaranteed to be complete):
 | SHA256 | 2 | wan24-Crypto |
 | SHA384 | 3 | wan24-Crypto |
 | SHA512 | 4 | wan24-Crypto |
+| SHA3-256 | 5 | wan24-Crypto-BC |
+| SHA3-384 | 6 | wan24-Crypto-BC |
+| SHA3-512 | 7 | wan24-Crypto-BC |
 | **MAC** |  |  |
 | HMAC-SHA1 | 0 | wan24-Crypto |
 | HMAC-SHA256 | 1 | wan24-Crypto |
 | HMAC-SHA384 | 2 | wan24-Crypto |
 | HMAC-SHA512 | 3 | wan24-Crypto |
+| HMAC-SHA3-256 | 4 | wan24-Crypto-BC |
+| HMAC-SHA3-384 | 5 | wan24-Crypto-BC |
+| HMAC-SHA3-512 | 6 | wan24-Crypto-BC |
 | **KDF** |  |  |
 | PBKDF#2 | 0 | wan24-Crypto |
 | Argon2id | 1 | wan24-Crypto-NaCl |
