@@ -103,6 +103,24 @@ The default MAC algorithm is HMAC-SHA512.
 
 The default KDF algorithm is PBKDF#2, using 250,000 iterations.
 
+**NOTE**: The used `Rfc2898DeriveBytes` uses SHA-1 as default hash algorithm, 
+which isn't recommended anymore. Another hash algorithm can be chosen by 
+setting `KdfPbKdf2Options`, which use SHA-384 per default. SHA-1 is still 
+being used as fallback, if no options are given, to stay downward compatible. 
+This fallback will be removed in a newer version of this library.
+
+Example options usage:
+
+```cs
+(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64, options: new KdfPbKdf2Options()
+    {
+        HashAlgorithm = HashSha3_384Algorithm.ALGORITHM_NAME
+    });// KdfPbKdf2Options cast implicit to CryptoOptions
+```
+
+**NOTE**: In order to be able to use SHA3 hash algorithms, you'll need to 
+reference the `wan24-Crypto-BC` NuGet package!
+
 ### Encryption
 
 ```cs
