@@ -4,10 +4,14 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Fast PAKE authentication server (NOT thread-safe!)
+    /// Fast PAKE authentication server
     /// </summary>
     public sealed class FastPakeAuthServer : DisposableBase, IStatusProvider
     {
+        /// <summary>
+        /// Thread synchronizaion
+        /// </summary>
+        private readonly SemaphoreSync Sync = new();
         /// <summary>
         /// Key
         /// </summary>
@@ -214,11 +218,6 @@ namespace wan24.Crypto
         public string? Name { get; set; }
 
         /// <summary>
-        /// External thread synchronizaion
-        /// </summary>
-        public SemaphoreSync Sync { get; } = new();
-
-        /// <summary>
         /// PAKE instance
         /// </summary>
         public Pake Pake { get; } = null!;
@@ -279,16 +278,17 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
-        /// <returns>Payload</returns>
+        /// <returns>Payload and session key (should be cleared!)</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
-        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
+        public (byte[] Payload, byte[] SessionKey) HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
-            AuthCount++;
             byte[]? payload = null,
                 randomMac = null;
             try
             {
                 EnsureUndisposed();
+                using SemaphoreSyncContext ssc = Sync;
+                AuthCount++;
                 // Decrypt the payload
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
@@ -332,7 +332,7 @@ namespace wan24.Crypto
                     signature = Pake.SignAndCreateSessionKey(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
-                    return payload ?? auth.Payload.CloneArray();
+                    return (payload ?? auth.Payload.CloneArray(), SessionKey.CloneArray());
                 }
                 finally
                 {

@@ -4,10 +4,14 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Fast PAKE authentication client (NOT thread-safe!)
+    /// Fast PAKE authentication client
     /// </summary>
     public sealed class FastPakeAuthClient : DisposableBase, IStatusProvider
     {
+        /// <summary>
+        /// Thread synchronizaion
+        /// </summary>
+        private readonly SemaphoreSync Sync = new();
         /// <summary>
         /// Key
         /// </summary>
@@ -83,11 +87,6 @@ namespace wan24.Crypto
         public string? Name { get; set; }
 
         /// <summary>
-        /// External thread synchronizaion
-        /// </summary>
-        public SemaphoreSync Sync { get; } = new();
-
-        /// <summary>
         /// PAKE instance
         /// </summary>
         public Pake Pake { get; } = null!;
@@ -142,10 +141,11 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <param name="encryptPayload">Encrypt the payload?</param>
-        /// <returns>Authentication (send this to the server and don't forget to dispose!)</returns>
-        public PakeAuth CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
+        /// <returns>Authentication (send this to the server and don't forget to dispose!) and session key (should be cleared!)</returns>
+        public (PakeAuth Auth, byte[] SessionKey) CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
         {
             EnsureUndisposed();
+            using SemaphoreSyncContext ssc = Sync;
             AuthCount++;
             if (Pake.Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
             byte[] random = RND.GetBytes(Pake.Key.Identifier.Length),
@@ -173,7 +173,7 @@ namespace wan24.Crypto
                 key = Key;
                 secret = Secret;
                 signature = Pake.SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
-                return new PakeAuth(Pake.Key.Identifier.CloneArray(), key.CloneArray().Xor(randomMac), signature, random, payload);
+                return (new PakeAuth(Pake.Key.Identifier.CloneArray(), key.CloneArray().Xor(randomMac), signature, random, payload), SessionKey.CloneArray());
             }
             catch (Exception ex)
             {
