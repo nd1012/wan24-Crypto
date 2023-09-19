@@ -177,6 +177,7 @@ algorithms.</p>
 <p>These extension NuGet packages are available:</p>
 <ul>
 <li><a href="https://www.nuget.org/packages/wan24-Crypto-BC/">wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)</a></li>
+<li><a href="https://www.nuget.org/packages/wan24-Crypto-NaCl/">wan24-Crypto-NaCl (adopts the Argon2id KDF algorithm from NSec)</a></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <h3 id="hashing">Hashing</h3>
@@ -191,6 +192,19 @@ algorithms.</p>
 <pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 </code></pre>
 <p>The default KDF algorithm is PBKDF#2, using 250,000 iterations.</p>
+<p><strong>NOTE</strong>: The used <code>Rfc2898DeriveBytes</code> uses SHA-1 as default hash algorithm,
+which isn't recommended anymore. Another hash algorithm can be chosen by
+setting <code>KdfPbKdf2Options</code>, which use SHA-384 per default. SHA-1 is still
+being used as fallback, if no options are given, to stay downward compatible.
+This fallback will be removed in a newer version of this library.</p>
+<p>Example options usage:</p>
+<pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64, options: new KdfPbKdf2Options()
+    {
+        HashAlgorithm = HashSha3_384Algorithm.ALGORITHM_NAME
+    });// KdfPbKdf2Options cast implicit to CryptoOptions
+</code></pre>
+<p><strong>NOTE</strong>: In order to be able to use SHA3 hash algorithms, you'll need to
+reference the <code>wan24-Crypto-BC</code> NuGet package!</p>
 <h3 id="encryption">Encryption</h3>
 <pre><code class="lang-cs">byte[] cipher = raw.Encrypt(password);
 byte[] raw = cipher.Decrypt(password);
@@ -730,6 +744,9 @@ symmetric cryptographic algorithms only and uses random bytes for session key
 generation. After signup, it can be seen as a symmetric PFS protocol, if the
 random bytes are random for each session and never stored as communicated
 between the peers.</p>
+<p><strong>CAUTION</strong>: PAKE doesn't support counter algorithms! For working with PQ
+counter algorithms, you'll have to combine two PAKE with different options by
+yourself.</p>
 <p><strong>NOTE</strong>: For PAKE both peers need to use the same KDF and MAC options. If the
 algorithm is going to be changed, a new signup has to be performed. In case a
 peer changes its authentication (identifier or key), a new signup operation
@@ -901,6 +918,21 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
+<td>SHA3-256</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>SHA3-384</td>
+<td>6</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>SHA3-512</td>
+<td>7</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
 <td><strong>MAC</strong></td>
 <td></td>
 <td></td>
@@ -924,6 +956,21 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td>HMAC-SHA512</td>
 <td>3</td>
 <td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA3-256</td>
+<td>4</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>HMAC-SHA3-384</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>HMAC-SHA3-512</td>
+<td>6</td>
+<td>wan24-Crypto-BC</td>
 </tr>
 <tr>
 <td><strong>KDF</strong></td>
