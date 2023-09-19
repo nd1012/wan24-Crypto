@@ -158,8 +158,7 @@ namespace wan24.Crypto.Tests
         public static void AllSyncEncryptionTests()
         {
             List<string> macSeen = new(),
-                asymmetricSeen = new(),
-                kdfSeen = new();
+                asymmetricSeen = new();
             IAsymmetricAlgorithm algo, counterAlgo;
             int done = 0;
             foreach (string name in EncryptionHelper.Algorithms.Keys)
@@ -184,34 +183,23 @@ namespace wan24.Crypto.Tests
                                 if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
                                     continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
-                                kdfSeen.Clear();
-                                foreach (string kdfName in KdfHelper.Algorithms.Keys)
-                                    foreach (string counterKdfName in KdfHelper.Algorithms.Keys)
+                                foreach (int keySize in algo.AllowedKeySizes)
+                                    foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
                                     {
-                                        if (KdfHelper.Algorithms.Count != 1 && kdfName == counterKdfName) continue;
-                                        if (kdfSeen.Contains($"{kdfName} {counterKdfName}") || kdfSeen.Contains($"{counterKdfName} {kdfName}")) continue;
-                                        kdfSeen.Add($"{kdfName} {counterKdfName}");
-                                        foreach (int keySize in algo.AllowedKeySizes)
-                                            foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
-                                            {
-                                                if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
-                                                SyncEncryptionTests(new()
-                                                {
-                                                    Algorithm = name,
-                                                    MacAlgorithm = macName,
-                                                    CounterMacAlgorithm = counterMacName,
-                                                    AsymmetricAlgorithm = asymmetricName,
-                                                    AsymmetricCounterAlgorithm = counterAsymmetricName,
-                                                    KdfAlgorithm = kdfName,
-                                                    KdfIterations = KdfHelper.GetAlgorithm(kdfName).DefaultIterations,
-                                                    CounterKdfAlgorithm = counterKdfName,
-                                                    CounterKdfIterations = KdfHelper.GetAlgorithm(counterKdfName).DefaultIterations,
-                                                    RequireCounterMac = true,
-                                                    RequireCounterKdf = true,
-                                                    LeaveOpen = true
-                                                }, keySize, counterKeySize);
-                                                done++;
-                                            }
+                                        if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
+                                        SyncEncryptionTests(new()
+                                        {
+                                            Algorithm = name,
+                                            MacAlgorithm = macName,
+                                            CounterMacAlgorithm = counterMacName,
+                                            AsymmetricAlgorithm = asymmetricName,
+                                            AsymmetricCounterAlgorithm = counterAsymmetricName,
+                                            RequireCounterMac = true,
+                                            KdfAlgorithmIncluded = false,
+                                            RequireKdf = false,
+                                            LeaveOpen = true
+                                        }, keySize, counterKeySize);
+                                        done++;
                                     }
                             }
                         }
@@ -223,8 +211,7 @@ namespace wan24.Crypto.Tests
         public static async Task AllAsyncEncryptionTests()
         {
             List<string> macSeen = new(),
-                asymmetricSeen = new(),
-                kdfSeen = new();
+                asymmetricSeen = new();
             IAsymmetricAlgorithm algo, counterAlgo;
             int done = 0;
             foreach (string name in EncryptionHelper.Algorithms.Keys)
@@ -249,34 +236,23 @@ namespace wan24.Crypto.Tests
                                 if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
                                     continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
-                                kdfSeen.Clear();
-                                foreach (string kdfName in KdfHelper.Algorithms.Keys)
-                                    foreach (string counterKdfName in KdfHelper.Algorithms.Keys)
+                                foreach (int keySize in algo.AllowedKeySizes)
+                                    foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
                                     {
-                                        if (KdfHelper.Algorithms.Count != 1 && kdfName == counterKdfName) continue;
-                                        if (kdfSeen.Contains($"{kdfName} {counterKdfName}") || kdfSeen.Contains($"{counterKdfName} {kdfName}")) continue;
-                                        kdfSeen.Add($"{kdfName} {counterKdfName}");
-                                        foreach (int keySize in algo.AllowedKeySizes)
-                                            foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
-                                            {
-                                                if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
-                                                await AsyncEncryptionTests(new()
-                                                {
-                                                    Algorithm = name,
-                                                    MacAlgorithm = macName,
-                                                    CounterMacAlgorithm = counterMacName,
-                                                    AsymmetricAlgorithm = asymmetricName,
-                                                    AsymmetricCounterAlgorithm = counterAsymmetricName,
-                                                    KdfAlgorithm = kdfName,
-                                                    KdfIterations = KdfHelper.GetAlgorithm(kdfName).DefaultIterations,
-                                                    CounterKdfAlgorithm = counterKdfName,
-                                                    CounterKdfIterations = KdfHelper.GetAlgorithm(counterKdfName).DefaultIterations,
-                                                    RequireCounterMac = true,
-                                                    RequireCounterKdf = true,
-                                                    LeaveOpen = true
-                                                }, keySize, counterKeySize);
-                                                done++;
-                                            }
+                                        if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
+                                        await AsyncEncryptionTests(new()
+                                        {
+                                            Algorithm = name,
+                                            MacAlgorithm = macName,
+                                            CounterMacAlgorithm = counterMacName,
+                                            AsymmetricAlgorithm = asymmetricName,
+                                            AsymmetricCounterAlgorithm = counterAsymmetricName,
+                                            RequireCounterMac = true,
+                                            KdfAlgorithmIncluded = false,
+                                            RequireKdf = false,
+                                            LeaveOpen = true
+                                        }, keySize, counterKeySize);
+                                        done++;
                                     }
                             }
                         }

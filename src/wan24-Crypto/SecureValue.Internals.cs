@@ -42,6 +42,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
+            SecureValueTable.Values.TryRemove(GUID, out _);
             using System.Timers.Timer? encryptTimer = EncryptTimer;
             using System.Timers.Timer? recryptTimer = RecryptTimer;
             using SemaphoreSync sync = Sync;
@@ -65,7 +66,7 @@ namespace wan24.Crypto
             EncryptTimer.Stop();
             EncryptionKey = new(RND.GetBytes(_KeyLen));
             using (SecureByteArray rawValue = RawValue)
-                EncryptedValue = new(RawValue!.Array.Encrypt(EncryptionKey, Options));
+                EncryptedValue = new(rawValue!.Array.Encrypt(EncryptionKey, Options));
             RawValue = null;
             RecryptTimer.Start();
         }
@@ -81,15 +82,19 @@ namespace wan24.Crypto
                 return EncryptedValue!.Array.Decrypt(EncryptionKey!, Options);
             EncryptedSince = DateTime.MinValue;
             RecryptTimer.Stop();
-            using (SecureByteArray encryptedValue = EncryptedValue!)
-            using (SecureByteArray encryptionKey = EncryptionKey!)
+            try
             {
+                using SecureByteArray encryptedValue = EncryptedValue!;
+                using SecureByteArray encryptionKey = EncryptionKey!;
                 RawValue = new(EncryptedValue!.Array.Decrypt(EncryptionKey!, Options));
                 EncryptedValue = null;
                 EncryptionKey = null;
+                return RawValue.Array.CloneArray();
             }
-            EncryptTimer.Start();
-            return RawValue.Array.CloneArray();
+            finally
+            {
+                EncryptTimer.Start();
+            }
         }
 
         /// <summary>

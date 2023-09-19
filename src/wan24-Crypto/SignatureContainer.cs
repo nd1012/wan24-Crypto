@@ -169,11 +169,11 @@ namespace wan24.Crypto
         {
             get
             {
-                if (AsymmetricCounterAlgorithm == null) return null;
+                if (AsymmetricCounterAlgorithm is null) return null;
                 try
                 {
                     IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
-                        (CounterSignerPublicKeyData?.CloneArray() ?? throw new InvalidDataException("No counter signer public key data"))
+                        CounterSignerPublicKeyData?.CloneArray() ?? throw new InvalidDataException("No counter signer public key data")
                         );
                     try
                     {
@@ -209,13 +209,13 @@ namespace wan24.Crypto
         /// <returns>Hash to sign</returns>
         public byte[] CreateSignatureHash(bool forCounterSignature = false)
         {
-            if (SignedData != null)
+            if (SignedData is not null)
             {
                 if (!forCounterSignature) return SignedData.Hash(new()
                 {
                     HashAlgorithm = HashAlgorithm
                 });
-                if (forCounterSignature && CounterSignedData != null) return CounterSignedData.Hash(new()
+                if (forCounterSignature && CounterSignedData is not null) return CounterSignedData.Hash(new()
                 {
                     HashAlgorithm = HashAlgorithm
                 });
@@ -225,7 +225,7 @@ namespace wan24.Crypto
             try
             {
                 Nonce ??= RND.GetBytes(NONCE_LENGTH);
-                if (Signature == null) Signed = DateTime.UtcNow;
+                if (Signature is null) Signed = DateTime.UtcNow;
                 if (!forCounterSignature) Signature = Array.Empty<byte>();
                 CounterSignature = null;
                 CreateSignedData(forCounterSignature);
@@ -364,7 +364,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            if (SignedData == null) throw new SerializerException("Missing signed data", new InvalidOperationException());
+            if (SignedData is null) throw new SerializerException("Missing signed data", new InvalidOperationException());
             stream.WriteBytes(SignedData)
                 .WriteBytesNullable(CounterSignedData)
                 .WriteBytes(Signature)
@@ -374,7 +374,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            if (SignedData == null) throw new SerializerException("Missing signed data", new InvalidOperationException());
+            if (SignedData is null) throw new SerializerException("Missing signed data", new InvalidOperationException());
             await stream.WriteBytesAsync(SignedData, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(CounterSignedData, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(Signature, cancellationToken).DynamicContext();

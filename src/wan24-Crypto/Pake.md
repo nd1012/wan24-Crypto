@@ -4,15 +4,16 @@ This is a Password Authenticated Key Exchange protocol, which uses symmetric
 cryptographic algorithms only. Messages are required to be exchanged wrapped 
 by a PFS protocol. All used/produced/communicated data IS sensitive!
 
-In the following pseudo codes there are some functions used:
+In the following pseudo codes there are some common functions being used:
 
-- MAC: Any MAC algorithm - first parameter is the data, second parameter the 
-key (HMAC-SHA-512 for example)
-- KDF: Any KDF algorithm - first parameter is the key, second parameter the 
-salt, third parameter is the return value length (PBKDF#2 for example)
-- RND: A cryptographic random byte generator - first parameter is the return 
+- `MAC`: Any MAC algorithm - first parameter is the data, second parameter the 
+key (use HMAC-SHA-512 for example)
+- `KDF`: Any KDF algorithm - first parameter is the key, second parameter the 
+salt, third parameter is the return value length (use PBKDF#2 for example)
+- `RND`: A cryptographic random byte generator - first parameter is the return 
 value length
-- ASSERT: Fails, if the expression (first parameter) resolves to `false`
+- `ASSERT`: Fails, if the given expression (first parameter) resolves to 
+`false`
 
 It's possible to include any payload data (`payload`) which is required to 
 process a signup/authentication at the server side. It'd be possible to 
@@ -25,7 +26,7 @@ required.
 **WARNING**: Since all symmetric algorithms can be attacked using brute force, 
 the length of the used symmetric algorithms output is important: The longer 
 the output, the more secure is the whole PAKE process. Because symmetric 
-algorithms which produce 512 bit (64 byte) output are quiet fast, you 
+algorithms which produce 512 bit (64 byte) output are still quiet fast, you 
 shouldn't have to think about reducing the lenght by using other (faster) 
 algorithms for saving bandwidth, computing resources or memory.
 
@@ -40,7 +41,12 @@ identifier = MAC(id, MAC(key, key))
 
 // Ensure to NEVER use the raw key again
 expanded_key = KDF(key, identifier, identifier.length)
+```
 
+These informations could be kept in memory, just in case they're going to be 
+used again later - but `id` and `key` should be disposed now.
+
+```js
 // Since the expanded_key is an unshared secret, the auth_key can't be calculated on the server
 auth_key = MAC(identifier, expanded_key)
 
@@ -54,11 +60,19 @@ signature_key = KDF(auth_key, secret, auth_key.length)
 random = RND(auth_key.length)
 
 // "Sign" the data INCLUDING the secret
-signature = MAC(random+payload+secret+identifier+auth_key, signature_key)
+signature = MAC(random ^ payload ^ secret ^ identifier ^ auth_key, signature_key)
 
 // This calculates the session key, which can be calculated by the server, too
 session_key = MAC(random, MAC(signature_key, secret))
 ```
+
+**NOTE**: The `^` character is used as XOR operator here.
+
+Since `payload` may have any length, it can't be XORed to a value which has 
+the same length as the `random`. For this "rotating XOR" is being used, where 
+when the second length overflows the first value, the index of the first value 
+is being reset to zero, and so on - until the second value was XORed to the 
+first value completely.
 
 This needs to be done for the signup and each later authentication.
 
@@ -80,15 +94,14 @@ signup.random = random
 ```
 
 The server will validate the received data (by calculating the 
-`signature_key` again) and store only some information:
+`signature_key`, `signature` and then compare the result with 
+`signup.signature`) and store only some information:
 
 ```js
 identity.identifier = signup.identifier
 identity.secret = signup.secret ^ signup.auth_key
 identity.signature_key = signature_key
 ```
-
-**NOTE**: The `^` character is used as XOR operator here.
 
 **CAUTION**: `identity.secret` and `identity.signature_key` should be stored 
 encrypted! Ensure the used encryption key is secured using a TPM hardware at 
@@ -118,7 +131,7 @@ auth_key = auth.auth_key ^ MAC(auth.random, identity.signature_key)
 secret = identity.secret ^ auth_key
 
 // Calculate and validate the signature from mixed offline stored and received authentication data
-signature = MAC(auth.random+auth.payload+secret+auth.identifier+auth_key, identity.signature_key)
+signature = MAC(auth.random ^ auth.payload ^ secret ^ auth.identifier ^ auth_key, identity.signature_key)
 ASSERT(auth.signature == signature)
 
 // Calculate and validate the signature key (KDF only after successful MAC validation, to prevent DoS!)
@@ -129,7 +142,12 @@ ASSERT(signature_key == identity.signature_key)
 session_key = MAC(auth.random, MAC(signature_key, secret))
 ```
 
-Also the session key (`session_key`) is exchanged now.
+Actually it's possible to skip the `signature_key` computation/validation, 
+because a wrong `auth_key` or `secret` value should let the `signature` 
+validation fail already. However, only an additional `signature_key` 
+calculation makes the validation process become truly complete, which ensures 
+that all values are exactly valid - which you want to ensure at last for 
+opening a fresh session.
 
 ## Advantages of PAKE wrapped by an asymmetric PFS protocol
 
@@ -184,7 +202,7 @@ handshake:
 
 - UTC time code (to avoid replay attacks)
 - Client meta data (signed from the server and validated by the client to 
-disclose a MiM)
+disclose/detect a MiM)
 
 Since this PAKE implementation uses KDF, it's not designed for a secure AND 
 fast key exchange, which could be automatted. It's more a signup and login 
@@ -207,7 +225,7 @@ with a successful MiM attack wouldn't break the authentication security, as
 long as the servers encryption key wasn't breached, too. Only a compromised 
 client would break the authentication security, if an attacker was able to 
 observe the used `id` and `key`, or the calculated PAKE values during signup 
-or creating an authentication message.
+or creating an authentication message. But this wouldn't affect a server.
 
 The signup message is a critical part of this PAKE implementations security, 
 because all PAKE values which can be used to perform a client authentication 
@@ -232,7 +250,7 @@ Client:
 - Creates an asymmetric PFS key to calculate a key using the pre-shared 
 servers public key (this is a temporary session key)
 - The asymmetric public PFS key will be sent to the server
-- The PAKE data will be send to the server encrypted using the calculated key
+- The PAKE data will be send to the server, encrypted using the calculated key
 - Signs the handshake data using his pre-shared asymmetric public key, and 
 encrypts the signature using a session key, which is a combination of the 
 calculated key and the PAKE exchanged key (this is a temporary session key, 

@@ -107,7 +107,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options.AsymmetricAlgorithm == null) throw new ArgumentException("Missing asymmetric algorithm name", nameof(options));
+                if (options.AsymmetricAlgorithm is null) throw new ArgumentException("Missing asymmetric algorithm name", nameof(options));
                 return GetAlgorithm(options.AsymmetricAlgorithm).CreateKeyPair(options);
             }
             catch (CryptographicException)
@@ -173,13 +173,13 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options == null)
+                if (options is null)
                 {
                     options = DefaultKeyExchangeAlgorithm.DefaultOptions;
                 }
                 else
                 {
-                    if (options.AsymmetricAlgorithm == null)
+                    if (options.AsymmetricAlgorithm is null)
                     {
                         options.AsymmetricAlgorithm = DefaultKeyExchangeAlgorithm.Name;
                         options.AsymmetricKeyBits = DefaultKeyExchangeAlgorithm.DefaultKeySize;
@@ -207,13 +207,13 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options == null)
+                if (options is null)
                 {
                     options = DefaultSignatureAlgorithm.DefaultOptions;
                 }
                 else
                 {
-                    if (options.AsymmetricAlgorithm == null)
+                    if (options.AsymmetricAlgorithm is null)
                     {
                         options.AsymmetricAlgorithm = DefaultSignatureAlgorithm.Name;
                         options.AsymmetricKeyBits = DefaultSignatureAlgorithm.DefaultKeySize;

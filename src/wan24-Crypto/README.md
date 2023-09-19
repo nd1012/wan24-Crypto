@@ -75,6 +75,7 @@ This library is available as
 These extension NuGet packages are available:
 
 - [wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)](https://www.nuget.org/packages/wan24-Crypto-BC/)
+- [wan24-Crypto-NaCl (adopts the Argon2id KDF algorithm from NSec)](https://www.nuget.org/packages/wan24-Crypto-NaCl/)
 
 ## Usage
 
@@ -101,6 +102,24 @@ The default MAC algorithm is HMAC-SHA512.
 ```
 
 The default KDF algorithm is PBKDF#2, using 250,000 iterations.
+
+**NOTE**: The used `Rfc2898DeriveBytes` uses SHA-1 as default hash algorithm, 
+which isn't recommended anymore. Another hash algorithm can be chosen by 
+setting `KdfPbKdf2Options`, which use SHA-384 per default. SHA-1 is still 
+being used as fallback, if no options are given, to stay downward compatible. 
+This fallback will be removed in a newer version of this library.
+
+Example options usage:
+
+```cs
+(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64, options: new KdfPbKdf2Options()
+    {
+        HashAlgorithm = HashSha3_384Algorithm.ALGORITHM_NAME
+    });// KdfPbKdf2Options cast implicit to CryptoOptions
+```
+
+**NOTE**: In order to be able to use SHA3 hash algorithms, you'll need to 
+reference the `wan24-Crypto-BC` NuGet package!
 
 ### Encryption
 
@@ -404,6 +423,10 @@ generation. After signup, it can be seen as a symmetric PFS protocol, if the
 random bytes are random for each session and never stored as communicated 
 between the peers.
 
+**CAUTION**: PAKE doesn't support counter algorithms! For working with PQ 
+counter algorithms, you'll have to combine two PAKE with different options by 
+yourself.
+
 **NOTE**: For PAKE both peers need to use the same KDF and MAC options. If the 
 algorithm is going to be changed, a new signup has to be performed. In case a 
 peer changes its authentication (identifier or key), a new signup operation 
@@ -507,11 +530,17 @@ are the official implementation IDs (not guaranteed to be complete):
 | SHA256 | 2 | wan24-Crypto |
 | SHA384 | 3 | wan24-Crypto |
 | SHA512 | 4 | wan24-Crypto |
+| SHA3-256 | 5 | wan24-Crypto-BC |
+| SHA3-384 | 6 | wan24-Crypto-BC |
+| SHA3-512 | 7 | wan24-Crypto-BC |
 | **MAC** |  |  |
 | HMAC-SHA1 | 0 | wan24-Crypto |
 | HMAC-SHA256 | 1 | wan24-Crypto |
 | HMAC-SHA384 | 2 | wan24-Crypto |
 | HMAC-SHA512 | 3 | wan24-Crypto |
+| HMAC-SHA3-256 | 4 | wan24-Crypto-BC |
+| HMAC-SHA3-384 | 5 | wan24-Crypto-BC |
+| HMAC-SHA3-512 | 6 | wan24-Crypto-BC |
 | **KDF** |  |  |
 | PBKDF#2 | 0 | wan24-Crypto |
 | Argon2id | 1 | wan24-Crypto-NaCl |

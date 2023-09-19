@@ -44,7 +44,7 @@ namespace wan24.Crypto
                 if (options.SerializerVersionIncluded) cipherData.WriteSerializerVersion();
                 // Finalize the password to use
                 if (options.KeyExchangeDataIncluded) options.SetKeyExchangeData();
-                if (options.Password == null) throw new ArgumentException("Password required", nameof(pwd));
+                if (options.Password is null) throw new ArgumentException("Password required", nameof(pwd));
                 if (options.KdfAlgorithmIncluded)
                 {
                     pwd = options.Password;
@@ -105,7 +105,7 @@ namespace wan24.Crypto
                 // Write authenticated options
                 if (options.KeyExchangeDataIncluded)
                 {
-                    if (options.KeyExchangeData == null) throw new InvalidOperationException("Missing key exchange data");
+                    if (options.KeyExchangeData is null) throw new InvalidOperationException("Missing key exchange data");
                     cipherData.WriteSerialized(options.KeyExchangeData);
                 }
                 if (options.KdfAlgorithmIncluded)
@@ -122,7 +122,7 @@ namespace wan24.Crypto
                         cipherData.WriteStringNullable(options.CounterKdfOptions);
                     }
                 }
-                if (options.PayloadData != null) cipherData.WriteBytes(options.PayloadData);
+                if (options.PayloadData is not null) cipherData.WriteBytes(options.PayloadData);
                 if (options.TimeIncluded) cipherData.WriteNumber((options.Time ??= DateTime.UtcNow).Ticks);
                 options.HeaderProcessed = true;
                 return (options, macStream);
@@ -179,7 +179,7 @@ namespace wan24.Crypto
                 if (options.SerializerVersionIncluded) await cipherData.WriteSerializerVersionAsync(cancellationToken).DynamicContext();
                 // Finalize the password to use
                 if (options.KeyExchangeDataIncluded) options.SetKeyExchangeData();
-                if (options.Password == null) throw new ArgumentException("Password required", nameof(pwd));
+                if (options.Password is null) throw new ArgumentException("Password required", nameof(pwd));
                 if (options.KdfAlgorithmIncluded)
                 {
                     pwd = options.Password;
@@ -242,7 +242,7 @@ namespace wan24.Crypto
                 // Write authenticated options
                 if (options.KeyExchangeDataIncluded)
                 {
-                    if (options.KeyExchangeData == null) throw new InvalidOperationException("Missing key exchange data");
+                    if (options.KeyExchangeData is null) throw new InvalidOperationException("Missing key exchange data");
                     await cipherData.WriteSerializedAsync(options.KeyExchangeData, cancellationToken).DynamicContext();
                 }
                 if (options.KdfAlgorithmIncluded)
@@ -261,7 +261,7 @@ namespace wan24.Crypto
                         await cipherData.WriteStringNullableAsync(options.CounterKdfOptions, cancellationToken).DynamicContext();
                     }
                 }
-                if (options.PayloadData != null) await cipherData.WriteBytesAsync(options.PayloadData, cancellationToken).DynamicContext();
+                if (options.PayloadData is not null) await cipherData.WriteBytesAsync(options.PayloadData, cancellationToken).DynamicContext();
                 if (options.TimeIncluded) await cipherData.WriteNumberAsync((options.Time ??= DateTime.UtcNow).Ticks, cancellationToken).DynamicContext();
                 options.HeaderProcessed = true;
                 return (options, macStream);
@@ -298,7 +298,7 @@ namespace wan24.Crypto
                 if (options.HeaderProcessed) return options;
                 options.ValidateObject();
                 // Prepare the password
-                if (pwd != null)
+                if (pwd is not null)
                 {
                     options.Password ??= pwd?.CloneArray();
                 }
@@ -347,7 +347,7 @@ namespace wan24.Crypto
                     options.KeyExchangeData = cipherData.ReadSerialized<KeyExchangeDataContainer>(serializerVersion);
                     options.Password = options.DeriveExchangedKey();
                 }
-                if (options.Password == null) throw new ArgumentException("Password required", nameof(pwd));
+                if (options.Password is null) throw new ArgumentException("Password required", nameof(pwd));
                 if (options.KdfAlgorithmIncluded)
                 {
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
@@ -394,8 +394,8 @@ namespace wan24.Crypto
                 if (options.TimeIncluded)
                 {
                     options.Time = new DateTime(cipherData.ReadNumber<long>(serializerVersion));
-                    if (options.MaximumTimeOffset != null) options.Time = options.Time.Value.ApplyOffset(options.MaximumTimeOffset.Value, DateTime.UtcNow);
-                    if (options.MaximumAge != null && DateTime.UtcNow - options.Time.Value > options.MaximumAge) throw new InvalidOperationException("Maximum age exceeded");
+                    if (options.MaximumTimeOffset is not null) options.Time = options.Time.Value.ApplyOffset(options.MaximumTimeOffset.Value, DateTime.UtcNow);
+                    if (options.MaximumAge is not null && DateTime.UtcNow - options.Time.Value > options.MaximumAge) throw new InvalidOperationException("Maximum age exceeded");
                 }
                 options.ValidateRequirements();
                 // Authenticate the options and the cipher data using the MAC
@@ -456,7 +456,7 @@ namespace wan24.Crypto
                 if (options.HeaderProcessed) return options;
                 options.ValidateObject();
                 // Prepare the password
-                if (pwd != null)
+                if (pwd is not null)
                 {
                     options.Password ??= pwd?.CloneArray();
                 }
@@ -507,7 +507,7 @@ namespace wan24.Crypto
                     options.KeyExchangeData = await cipherData.ReadSerializedAsync<KeyExchangeDataContainer>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
                     options.Password = options.DeriveExchangedKey();
                 }
-                if (options.Password == null) throw new ArgumentException("Password required", nameof(pwd));
+                if (options.Password is null) throw new ArgumentException("Password required", nameof(pwd));
                 if (options.KdfAlgorithmIncluded)
                 {
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()).Name;
@@ -553,8 +553,8 @@ namespace wan24.Crypto
                 if (options.TimeIncluded)
                 {
                     options.Time = new DateTime(await cipherData.ReadNumberAsync<long>(serializerVersion, cancellationToken: cancellationToken).DynamicContext());
-                    if (options.MaximumTimeOffset != null) options.Time = options.Time.Value.ApplyOffset(options.MaximumTimeOffset.Value, DateTime.UtcNow);
-                    if (options.MaximumAge != null && DateTime.UtcNow - options.Time.Value > options.MaximumAge) throw new InvalidOperationException("Maximum age exceeded");
+                    if (options.MaximumTimeOffset is not null) options.Time = options.Time.Value.ApplyOffset(options.MaximumTimeOffset.Value, DateTime.UtcNow);
+                    if (options.MaximumAge is not null && DateTime.UtcNow - options.Time.Value > options.MaximumAge) throw new InvalidOperationException("Maximum age exceeded");
                 }
                 options.ValidateRequirements();
                 // Authenticate the options and the cipher data using the MAC

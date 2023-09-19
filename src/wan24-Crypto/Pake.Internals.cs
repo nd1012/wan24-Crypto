@@ -62,32 +62,27 @@ namespace wan24.Crypto
         internal byte[] SignAndCreateSessionKey(in byte[] signatureKey, in byte[] key, in byte[] random, in byte[] payload, in byte[] secret)
         {
             byte[] identifier = Identifier,
-                signature = null!;
+                signature = null!,
+                sessionKey = null!;
             try
             {
                 // Sign the PAKE sequence
-                using (RentedArrayRefStruct<byte> signedData = new(len: random.Length + payload.Length + secret.Length + identifier.Length + key.Length, clean: false)
+                using (RentedArrayRefStruct<byte> signedData = new(len: key.Length)
                 {
                     Clear = true
                 })
                 {
-                    int offset = random.Length;
                     random.AsSpan().CopyTo(signedData.Span);
-                    if (payload.Length != 0)
-                    {
-                        payload.AsSpan().CopyTo(signedData.Span[offset..]);
-                        offset += payload.Length;
-                    }
-                    secret.AsSpan().CopyTo(signedData.Span[offset..]);
-                    offset += secret.Length;
-                    identifier.AsSpan().CopyTo(signedData.Span[offset..]);
-                    offset += identifier.Length;
-                    key.AsSpan().CopyTo(signedData.Span[offset..]);
-                    signature = signedData.Span.Mac(signatureKey, Options);
+                    if (payload.Length != 0) signedData.Span.RotatingXor(payload);
+                    signature = signedData.Span.Xor(secret)
+                        .Xor(identifier)
+                        .Xor(key)
+                        .Mac(signatureKey, Options);
                 }
                 // Create the session key
                 _SessionKey?.Clear();
-                _SessionKey = random.Mac(signatureKey.Mac(secret, Options), Options);
+                sessionKey = signatureKey.Mac(secret, Options);
+                _SessionKey = random.Mac(sessionKey, Options);
 #pragma warning disable CS8774 // Member "SessionKey" must not be NULL
                 return signature;
 #pragma warning restore CS8774 // Member "SessionKey" must not be NULL
@@ -97,6 +92,10 @@ namespace wan24.Crypto
                 signature?.Clear();
                 if (ex is CryptographicException) throw;
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                sessionKey?.Clear();
             }
         }
 

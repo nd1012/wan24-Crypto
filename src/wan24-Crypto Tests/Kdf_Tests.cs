@@ -1,4 +1,6 @@
-﻿using wan24.Crypto;
+﻿using System.Security.Cryptography;
+using wan24.Core;
+using wan24.Crypto;
 using wan24.Crypto.Tests;
 
 namespace wan24_Crypto_Tests
@@ -16,6 +18,16 @@ namespace wan24_Crypto_Tests
             Assert.AreEqual(KdfHelper.DefaultAlgorithm.SaltLength, TestData.Key.Stretch(64).Salt.Length);
             Assert.AreEqual(KdfHelper.DefaultAlgorithm, KdfHelper.GetAlgorithm(KdfHelper.DefaultAlgorithm.Name));
             Assert.AreEqual(KdfHelper.DefaultAlgorithm, KdfHelper.GetAlgorithm(KdfHelper.DefaultAlgorithm.Value));
+        }
+
+        [TestMethod]
+        public void Options_Tests()
+        {
+            KdfPbKdf2Options kdfOptions = new();
+            Assert.AreEqual(HashAlgorithmName.SHA384, kdfOptions.HashName);
+            CryptoOptions options = new();
+            options.WithKdf(KdfPbKdf2Algorithm.ALGORITHM_NAME, kdfOptions: kdfOptions);
+            KdfHelper.Stretch("test".GetBytes(), len: 32, options: options);
         }
     }
 }

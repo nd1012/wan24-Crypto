@@ -69,11 +69,11 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options == null)
+                if (options is null)
                 {
                     options = DefaultAlgorithm.DefaultOptions;
                 }
-                else if (options.KdfAlgorithm == null)
+                else if (options.KdfAlgorithm is null)
                 {
                     options.KdfAlgorithm = DefaultAlgorithm.Name;
                     options.KdfIterations = DefaultAlgorithm.DefaultIterations;

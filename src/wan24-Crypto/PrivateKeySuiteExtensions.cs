@@ -81,7 +81,7 @@ namespace wan24.Crypto
         /// <returns>Private key suite</returns>
         public static PrivateKeySuite WithSymmetricKey(this PrivateKeySuite suite, byte[]? key = null)
         {
-            if (key != null && (key.Length < 1 || key.Length > byte.MaxValue)) throw new ArgumentOutOfRangeException(nameof(key));
+            if (key is not null && (key.Length < 1 || key.Length > byte.MaxValue)) throw new ArgumentOutOfRangeException(nameof(key));
             suite.SymmetricKey?.Clear();
             suite.SymmetricKey = key ?? RND.GetBytes(64);
             return suite;

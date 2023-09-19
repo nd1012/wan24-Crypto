@@ -53,7 +53,7 @@ namespace wan24.Crypto
                 try
                 {
                     EnsureUndisposed();
-                    if (_PublicKey != null) return _PublicKey;
+                    if (_PublicKey is not null) return _PublicKey;
                     ECDsa dsa = ECDsa.Create();
                     dsa.ImportSubjectPublicKeyInfo(PrivateKey.ExportSubjectPublicKeyInfo(), out _);
                     return _PublicKey = new(dsa);
@@ -76,7 +76,7 @@ namespace wan24.Crypto
                 try
                 {
                     EnsureUndisposed();
-                    if (_PrivateKey != null) return _PrivateKey;
+                    if (_PrivateKey is not null) return _PrivateKey;
                     _PrivateKey = ECDsa.Create();
                     _PrivateKey.ImportECPrivateKey(KeyData.Span, out int red);
                     if (red != KeyData.Length) throw new InvalidDataException("The key data wasn't fully used");

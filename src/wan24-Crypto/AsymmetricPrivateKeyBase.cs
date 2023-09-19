@@ -127,7 +127,7 @@ namespace wan24.Crypto
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 SignatureContainer res = new(options.HashAlgorithm!, hash, (ISignaturePrivateKey)this, (ISignaturePrivateKey?)options.CounterPrivateKey, purpose);
                 res.Signature = SignHashRaw(res.CreateSignatureHash());
-                if (options.CounterPrivateKey != null) HybridAlgorithmHelper.Sign(res, options);
+                if (options.CounterPrivateKey is not null) HybridAlgorithmHelper.Sign(res, options);
                 PublicKey.ValidateSignature(res);
                 return res;
             }

@@ -24,14 +24,14 @@ namespace wan24.Crypto
                 // Write the header
                 if (!(options?.HeaderProcessed ?? false))
                 {
-                    if (macStream != null) throw new ArgumentException("MAC stream unexpected", nameof(macStream));
+                    if (macStream is not null) throw new ArgumentException("MAC stream unexpected", nameof(macStream));
                     (options, macStream) = WriteOptions(rawData, cipherData, pwd, options);
                     clearOptions = true;
                 }
                 // Create the crypto stream
                 using EncryptionStreams crypto = GetEncryptionStream(rawData, cipherData, macStream, options);
                 rawData.CopyTo(crypto.CryptoStream);
-                if (crypto.Mac == null) return cipherData;
+                if (crypto.Mac is null) return cipherData;
                 // Write the MAC
                 crypto.CryptoStream.Dispose();
                 long pos = cipherData.Position;
@@ -123,7 +123,7 @@ namespace wan24.Crypto
                 // Write the header
                 if (!(options?.HeaderProcessed ?? false))
                 {
-                    if (macStream != null) throw new ArgumentException("MAC stream unexpected", nameof(macStream));
+                    if (macStream is not null) throw new ArgumentException("MAC stream unexpected", nameof(macStream));
                     (options, macStream) = await WriteOptionsAsync(rawData, cipherData, pwd, options, cancellationToken).DynamicContext();
                     clearOptions = true;
                 }
@@ -132,7 +132,7 @@ namespace wan24.Crypto
                 await using (crypto.DynamicContext())
                 {
                     await rawData.CopyToAsync(crypto.CryptoStream, cancellationToken).DynamicContext();
-                    if (crypto.Mac == null) return;
+                    if (crypto.Mac is null) return;
                     // Write the MAC
                     await crypto.CryptoStream.DisposeAsync().DynamicContext();
                     long pos = cipherData.Position;

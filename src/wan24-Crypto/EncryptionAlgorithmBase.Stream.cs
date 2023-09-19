@@ -21,13 +21,13 @@ namespace wan24.Crypto
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
-                if (options.Password == null) throw new ArgumentException("Missing password", nameof(options));
+                if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 Stream? stream = null;
                 ICryptoTransform transform = GetEncryptor(macStream?.Stream ?? cipherData, options);
                 try
                 {
                     // Write the MAC
-                    if (!RequireMacAuthentication && !options.ForceMacCoverWhole && macStream != null)
+                    if (!RequireMacAuthentication && !options.ForceMacCoverWhole && macStream is not null)
                         try
                         {
                             macStream.Stream.Dispose();
@@ -44,7 +44,7 @@ namespace wan24.Crypto
                             macStream = null;
                         }
                     // Create the crypto stream
-                    stream = new CryptoStream(macStream?.Stream ?? cipherData, transform, CryptoStreamMode.Write, leaveOpen: macStream != null || options.LeaveOpen);
+                    stream = new CryptoStream(macStream?.Stream ?? cipherData, transform, CryptoStreamMode.Write, leaveOpen: macStream is not null || options.LeaveOpen);
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
@@ -94,13 +94,13 @@ namespace wan24.Crypto
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
-                if (options.Password == null) throw new ArgumentException("Missing password", nameof(options));
+                if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 Stream? stream = null;
                 ICryptoTransform transform = await GetEncryptorAsync(macStream?.Stream ?? cipherData, options, cancellationToken).DynamicContext();
                 try
                 {
                     // Write the MAC
-                    if (!RequireMacAuthentication && !options.ForceMacCoverWhole && macStream != null)
+                    if (!RequireMacAuthentication && !options.ForceMacCoverWhole && macStream is not null)
                         try
                         {
                             macStream.Stream.Dispose();
@@ -117,7 +117,7 @@ namespace wan24.Crypto
                             macStream = null;
                         }
                     // Create the crypto stream
-                    stream = new CryptoStream(macStream?.Stream ?? cipherData, transform, CryptoStreamMode.Write, leaveOpen: macStream != null || options.LeaveOpen);
+                    stream = new CryptoStream(macStream?.Stream ?? cipherData, transform, CryptoStreamMode.Write, leaveOpen: macStream is not null || options.LeaveOpen);
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
@@ -130,9 +130,9 @@ namespace wan24.Crypto
                 }
                 catch
                 {
-                    if (stream != null) await stream.DisposeAsync().DynamicContext();
+                    if (stream is not null) await stream.DisposeAsync().DynamicContext();
                     transform.Dispose();
-                    if (macStream != null) await macStream.DisposeAsync().DynamicContext();
+                    if (macStream is not null) await macStream.DisposeAsync().DynamicContext();
                     throw;
                 }
             }
@@ -158,7 +158,7 @@ namespace wan24.Crypto
             try
             {
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
-                if (options.Password == null) throw new ArgumentException("Missing password", nameof(options));
+                if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 Stream? stream = null;
                 ICryptoTransform transform = GetDecryptor(cipherData, options);
                 try
@@ -231,7 +231,7 @@ namespace wan24.Crypto
             try
             {
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
-                if (options.Password == null) throw new ArgumentException("Missing password", nameof(options));
+                if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 Stream? stream = null;
                 ICryptoTransform transform = await GetDecryptorAsync(cipherData, options, cancellationToken).DynamicContext();
                 try

@@ -84,16 +84,16 @@ namespace wan24.Crypto
             {
                 HeaderVersion = (int)value.RemoveFlags();
                 if (HeaderVersion < 1 || HeaderVersion > HEADER_VERSION) throw new ArgumentException($"Invalid header version {HeaderVersion} in crypto flags", nameof(value));
-                SerializerVersionIncluded = value.HasFlag(CryptoFlags.SerializerVersionIncluded);
-                MacIncluded = value.HasFlag(CryptoFlags.MacIncluded);
-                Compressed = value.HasFlag(CryptoFlags.Compressed);
-                MacIncluded = value.HasFlag(CryptoFlags.MacIncluded);
-                KdfAlgorithmIncluded = value.HasFlag(CryptoFlags.KdfAlgorithmIncluded);
-                KeyExchangeDataIncluded = value.HasFlag(CryptoFlags.KeyExchangeDataIncluded);
-                PayloadIncluded = value.HasFlag(CryptoFlags.PayloadIncluded);
-                TimeIncluded = value.HasFlag(CryptoFlags.TimeIncluded);
-                ForceMacCoverWhole = value.HasFlag(CryptoFlags.ForceMacCoverWhole);
-                HeaderVersionIncluded = value.HasFlag(CryptoFlags.HeaderVersionIncluded);
+                SerializerVersionIncluded = value.ContainsAnyFlag(CryptoFlags.SerializerVersionIncluded);
+                MacIncluded = value.ContainsAnyFlag(CryptoFlags.MacIncluded);
+                Compressed = value.ContainsAnyFlag(CryptoFlags.Compressed);
+                MacIncluded = value.ContainsAnyFlag(CryptoFlags.MacIncluded);
+                KdfAlgorithmIncluded = value.ContainsAnyFlag(CryptoFlags.KdfAlgorithmIncluded);
+                KeyExchangeDataIncluded = value.ContainsAnyFlag(CryptoFlags.KeyExchangeDataIncluded);
+                PayloadIncluded = value.ContainsAnyFlag(CryptoFlags.PayloadIncluded);
+                TimeIncluded = value.ContainsAnyFlag(CryptoFlags.TimeIncluded);
+                ForceMacCoverWhole = value.ContainsAnyFlag(CryptoFlags.ForceMacCoverWhole);
+                HeaderVersionIncluded = value.ContainsAnyFlag(CryptoFlags.HeaderVersionIncluded);
             }
         }
 

@@ -62,7 +62,7 @@ namespace wan24.Crypto
         {
             KeyExchangeKey = KeyExchangeKey?.PublicKey.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.PublicKey.GetCopy(),
-            SignedPublicKey = SignedPublicKey == null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
+            SignedPublicKey = SignedPublicKey is null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
         });
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace wan24.Crypto
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePrivateKey?)SignatureKey?.GetCopy(),
             CounterSignatureKey = (ISignaturePrivateKey?)CounterSignatureKey?.GetCopy(),
-            SignedPublicKey = SignedPublicKey == null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey,
+            SignedPublicKey = SignedPublicKey is null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey,
             SymmetricKey = (byte[]?)SymmetricKey?.Clone()
         });
 

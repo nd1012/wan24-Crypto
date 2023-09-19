@@ -37,7 +37,7 @@ namespace wan24.Crypto
             get => _KeyExchangeAlgorithm;
             set
             {
-                if (value != null && !value.CanExchangeKey) throw new ArgumentException("Algorithm can't key exchange", nameof(value));
+                if (value is not null && !value.CanExchangeKey) throw new ArgumentException("Algorithm can't key exchange", nameof(value));
                 lock (SyncObject) _KeyExchangeAlgorithm = value;
             }
         }
@@ -50,7 +50,7 @@ namespace wan24.Crypto
             get => _SignatureAlgorithm;
             set
             {
-                if (value != null && !value.CanSign) throw new ArgumentException("Algorithm can't sign", nameof(value));
+                if (value is not null && !value.CanSign) throw new ArgumentException("Algorithm can't sign", nameof(value));
                 lock (SyncObject) _SignatureAlgorithm = value;
             }
         }
@@ -99,13 +99,13 @@ namespace wan24.Crypto
                 }
                 options = EncryptionHelper.GetDefaultOptions(options);
                 // Key exchange algorithm
-                if (keyExchangeAlgorithm != null && options.AsymmetricAlgorithm != null && options.AsymmetricCounterAlgorithm == null)
+                if (keyExchangeAlgorithm is not null && options.AsymmetricAlgorithm is not null && options.AsymmetricCounterAlgorithm is null)
                     options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
                 // KDF algorithm
                 if (
-                    kdfAlgorithm != null &&
-                    (options.KdfAlgorithm != null || options.KdfAlgorithmIncluded || options.RequireKdf || options.RequireCounterKdf) &&
-                    options.CounterKdfAlgorithm == null
+                    kdfAlgorithm is not null &&
+                    (options.KdfAlgorithm is not null || options.KdfAlgorithmIncluded || options.RequireKdf || options.RequireCounterKdf) &&
+                    options.CounterKdfAlgorithm is null
                     )
                 {
                     options.CounterKdfAlgorithm = kdfAlgorithm.Name;
@@ -114,12 +114,12 @@ namespace wan24.Crypto
                 }
                 // MAC algorithm
                 if (
-                    macAlgorithm != null &&
+                    macAlgorithm is not null &&
                     (
                         EncryptionHelper.GetAlgorithm(options.Algorithm ?? EncryptionHelper.DefaultAlgorithm.Name).RequireMacAuthentication ||
-                        options.MacAlgorithm != null || options.MacIncluded || options.MacAlgorithmIncluded || options.RequireMac || options.RequireCounterMac
+                        options.MacAlgorithm is not null || options.MacIncluded || options.MacAlgorithmIncluded || options.RequireMac || options.RequireCounterMac
                     ) &&
-                    options.CounterMacAlgorithm == null
+                    options.CounterMacAlgorithm is null
                     )
                     options.CounterMacAlgorithm = macAlgorithm.Name;
                 return options;
@@ -147,7 +147,7 @@ namespace wan24.Crypto
                 lock (SyncObject) keyExchangeAlgorithm = _KeyExchangeAlgorithm;
                 options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
                 // Key exchange algorithm
-                if (keyExchangeAlgorithm != null && options.AsymmetricCounterAlgorithm == null) options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
+                if (keyExchangeAlgorithm is not null && options.AsymmetricCounterAlgorithm is null) options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
                 return options;
             }
             catch (CryptographicException)
@@ -173,7 +173,7 @@ namespace wan24.Crypto
                 lock (SyncObject) signatureAlgorithm = _SignatureAlgorithm;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 // Signature algorithm
-                if (signatureAlgorithm != null && options.AsymmetricCounterAlgorithm == null) options.AsymmetricCounterAlgorithm = signatureAlgorithm.Name;
+                if (signatureAlgorithm is not null && options.AsymmetricCounterAlgorithm is null) options.AsymmetricCounterAlgorithm = signatureAlgorithm.Name;
                 return options;
             }
             catch (CryptographicException)
@@ -200,7 +200,7 @@ namespace wan24.Crypto
             try
             {
                 if (options.CounterPrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing counter private key", nameof(options));
-                if (options.Password == null) throw new ArgumentException("No password yet", nameof(options));
+                if (options.Password is null) throw new ArgumentException("No password yet", nameof(options));
                 kedOptions = new()
                 {
                     PrivateKey = options.CounterPrivateKey,
@@ -240,7 +240,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (keyExchangeData.CounterKeyExchangeData == null) throw new ArgumentException("Missing counter key exchange data", nameof(keyExchangeData));
+                if (keyExchangeData.CounterKeyExchangeData is null) throw new ArgumentException("Missing counter key exchange data", nameof(keyExchangeData));
                 if (options.PrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing valid private key", nameof(options));
                 if (options.CounterPrivateKey is not IKeyExchangePrivateKey counterKey) throw new ArgumentException("Missing valid counter private key", nameof(options));
                 byte[]? key1 = null,
@@ -284,7 +284,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options.Password == null) throw new ArgumentException("No password", nameof(options));
+                if (options.Password is null) throw new ArgumentException("No password", nameof(options));
                 byte[] pwd = options.Password;
                 try
                 {
@@ -318,8 +318,8 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options.Mac == null) throw new ArgumentException("No MAC", nameof(options));
-                if (options.Password == null) throw new ArgumentException("No password", nameof(options));
+                if (options.Mac is null) throw new ArgumentException("No MAC", nameof(options));
+                if (options.Password is null) throw new ArgumentException("No password", nameof(options));
                 CryptoOptions hybridOptions = MacHelper.GetAlgorithm(options.CounterMacAlgorithm ?? _MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).DefaultOptions;
                 options.Mac = options.Mac.Mac(options.Password, hybridOptions);
             }
@@ -364,7 +364,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (signature.CounterSignature == null) throw new ArgumentException("No counter signature", nameof(signature));
+                if (signature.CounterSignature is null) throw new ArgumentException("No counter signature", nameof(signature));
                 using ISignaturePublicKey counterSignerPublicKey = signature.CounterSignerPublicKey ?? throw new InvalidDataException("Missing counter signer public key");
                 return counterSignerPublicKey.ValidateSignatureRaw(signature.CounterSignature, signature.CreateSignatureHash(forCounterSignature: true), throwOnError: false);
             }

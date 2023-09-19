@@ -22,7 +22,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Min. iterations
         /// </summary>
-        public const int MIN_ITERATIONS = 20_000;
+        public const int MIN_ITERATIONS = 20_000;//TODO Use 210_000 in newer versin
         /// <summary>
         /// Default salt bytes length
         /// </summary>
@@ -30,7 +30,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Min. salt bytes length
         /// </summary>
-        public const int MIN_SALT_LEN = 8;
+        public const int MIN_SALT_LEN = 8;//TODO Use 16 in newer version
         /// <summary>
         /// Display name
         /// </summary>
@@ -49,7 +49,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        public KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }//TODO Set default KDF options in a newer version
 
         /// <summary>
         /// Instance
@@ -93,7 +93,11 @@ namespace wan24.Crypto
                 if (options.KdfIterations < MIN_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
                 salt ??= RND.GetBytes(DEFAULT_SALT_LEN);
                 if (salt.Length < MIN_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));
-                using Rfc2898DeriveBytes kdf = new(pwd, salt, options.KdfIterations);
+                KdfPbKdf2Options kdfOptions = (options.KdfOptions ??= new KdfPbKdf2Options()
+                {
+                    HashAlgorithm = HashSha1Algorithm.ALGORITHM_NAME//TODO Use SHA-384 as default in newer version
+                })!;
+                using Rfc2898DeriveBytes kdf = new(pwd, salt, options.KdfIterations, kdfOptions.HashName);
                 return (kdf.GetBytes(len), salt);
             }
             catch (CryptographicException)

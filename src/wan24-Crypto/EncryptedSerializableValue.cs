@@ -37,7 +37,7 @@ namespace wan24.Crypto
         {
             get
             {
-                if (_Object != null) return _Object;
+                if (_Object is not null) return _Object;
                 T? res = default;
                 if (RawData is byte[] raw)
                     try

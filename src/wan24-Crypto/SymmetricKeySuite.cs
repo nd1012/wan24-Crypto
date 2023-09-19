@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// <param name="key">Symmetric key (private!; will be cleared!)</param>
         /// <param name="identifier">Identifier (private!; will be cleared!)</param>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
-        public SymmetricKeySuite(byte[] key, byte[]? identifier = null, CryptoOptions? options = null) : this(options)
+        public SymmetricKeySuite(in byte[] key, in byte[]? identifier = null, in CryptoOptions? options = null) : this(options)
         {
             try
             {
@@ -41,10 +41,24 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
         /// <param name="asyncDisposing">Implements asynchronous disposing?</param>
-        protected SymmetricKeySuite(CryptoOptions? options = null, bool asyncDisposing = false) : base(asyncDisposing)
+        protected SymmetricKeySuite(in CryptoOptions? options = null, in bool asyncDisposing = false) : base(asyncDisposing)
         {
             Identifier = null!;
             ExpandedKey = null!;
+            Options = options ?? Pake.DefaultOptions;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="identifier">Identifier (will be cleared!)</param>
+        /// <param name="expandedKey">Expanded key (will be cleared!)</param>
+        /// <param name="asyncDisposing">Implements asynchronous disposing?</param>
+        protected SymmetricKeySuite(in CryptoOptions? options, in byte[]? identifier, in byte[] expandedKey, in bool asyncDisposing = false) : base(asyncDisposing)
+        {
+            Identifier = identifier;
+            ExpandedKey = new(expandedKey);
             Options = options ?? Pake.DefaultOptions;
         }
 
@@ -60,11 +74,17 @@ namespace wan24.Crypto
         public SecureByteArray ExpandedKey { get; }
 
         /// <summary>
+        /// Clone this instance
+        /// </summary>
+        /// <returns>Cloned instance</returns>
+        public virtual SymmetricKeySuite Clone() => new(Options, Identifier?.CloneArray(), ExpandedKey.Array.CloneArray());
+
+        /// <summary>
         /// Initialize with only having a key
         /// </summary>
         /// <param name="key">Key</param>
         /// <returns>Expanded key</returns>
-        protected virtual byte[] InitKeyOnly(byte[] key)
+        protected virtual byte[] InitKeyOnly(in byte[] key)
         {
             byte[] mac = key.Mac(key, Options);
             try
@@ -83,7 +103,7 @@ namespace wan24.Crypto
         /// <param name="key">Key</param>
         /// <param name="identifier">Identifier</param>
         /// <returns>Expanded key and identifier</returns>
-        protected virtual (byte[] ExpandedKey, byte[] Identifier) InitKeyAndIdentifier(byte[] key, byte[] identifier)
+        protected virtual (byte[] ExpandedKey, byte[] Identifier) InitKeyAndIdentifier(in byte[] key, in byte[] identifier)
         {
             byte[] keyMac = key.Mac(key, Options),
                 mac = null!;

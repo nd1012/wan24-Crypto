@@ -59,7 +59,7 @@ namespace wan24.Crypto
                 try
                 {
                     EnsureUndisposed();
-                    if (_PrivateKey != null) return _PrivateKey;
+                    if (_PrivateKey is not null) return _PrivateKey;
                     _PrivateKey = ECDiffieHellman.Create();
                     int red;
                     try

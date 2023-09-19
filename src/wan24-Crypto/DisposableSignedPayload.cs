@@ -70,7 +70,7 @@ namespace wan24.Crypto
         public bool Validate(bool throwOnError = true)
         {
             EnsureUndisposed();
-            if (Signature == null) throw new InvalidOperationException();
+            if (Signature is null) throw new InvalidOperationException();
             using ISignaturePublicKey publicKey = Signature.SignerPublicKey;
             return publicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError);
         }
@@ -81,8 +81,8 @@ namespace wan24.Crypto
         /// <returns>Signed data</returns>
         public byte[] CreateSignedData()
         {
-            if (SignedData != null) return SignedData;
-            if (Payload == null) throw new InvalidOperationException("Missing payload");
+            if (SignedData is not null) return SignedData;
+            if (Payload is null) throw new InvalidOperationException("Missing payload");
             using MemoryStream ms = new();
             ms.WriteSerializerVersion()
                 .WriteNumber(VERSION)
@@ -97,7 +97,7 @@ namespace wan24.Crypto
         /// </summary>
         protected void DeserializeSignedData()
         {
-            if (SignedData == null) throw new InvalidOperationException("Missing signed data");
+            if (SignedData is null) throw new InvalidOperationException("Missing signed data");
             using MemoryStream ms = new(SignedData);
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>(ssv);
@@ -122,7 +122,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            if (Signature == null) throw new InvalidOperationException("Missing signature");
+            if (Signature is null) throw new InvalidOperationException("Missing signature");
             stream.WriteBytes(SignedData)
                 .WriteSerialized(Signature);
         }
@@ -130,7 +130,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            if (Signature == null) throw new InvalidOperationException("Missing signature");
+            if (Signature is null) throw new InvalidOperationException("Missing signature");
             await stream.WriteBytesAsync(SignedData, cancellationToken).DynamicContext();
             await stream.WriteSerializedAsync(Signature, cancellationToken).DynamicContext();
         }

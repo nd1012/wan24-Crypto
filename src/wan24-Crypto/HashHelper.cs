@@ -135,7 +135,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options == null)
+                if (options is null)
                 {
                     options = DefaultAlgorithm.DefaultOptions;
                 }

@@ -140,9 +140,12 @@ namespace wan24.Crypto
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    signatureKey = CreateSignatureKey(key, secret);
-                    if (!Identity.SignatureKey.SlowCompare(signatureKey))
-                        throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
+                    if (!SkipSignatureKeyValidation)
+                    {
+                        signatureKey = CreateSignatureKey(key, secret);
+                        if (!Identity.SignatureKey.SlowCompare(signatureKey))
+                            throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
+                    }
                     return payload ?? auth.Payload.CloneArray();
                 }
                 finally

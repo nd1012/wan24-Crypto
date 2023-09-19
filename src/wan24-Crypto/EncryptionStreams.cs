@@ -49,7 +49,7 @@ namespace wan24.Crypto
         {
             await CryptoStream.DisposeAsync().DynamicContext();
             Transform.Dispose();
-            if (Mac != null) await Mac.DisposeAsync().DynamicContext();
+            if (Mac is not null) await Mac.DisposeAsync().DynamicContext();
         }
     }
 }

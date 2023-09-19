@@ -50,17 +50,17 @@ namespace wan24.Crypto
         /// <summary>
         /// Using a counter MAC?
         /// </summary>
-        public bool UsingCounterMac => CounterMacAlgorithm != null || RequireCounterMac;
+        public bool UsingCounterMac => CounterMacAlgorithm is not null || RequireCounterMac;
 
         /// <summary>
         /// Using a counter KDF?
         /// </summary>
-        public bool UsingCounterKdf => CounterKdfAlgorithm != null || RequireCounterKdf;
+        public bool UsingCounterKdf => CounterKdfAlgorithm is not null || RequireCounterKdf;
 
         /// <summary>
         /// Using an asymmetric counter algorithm?
         /// </summary>
-        public bool UsingAsymmetricCounterAlgorithm => AsymmetricCounterAlgorithm != null;
+        public bool UsingAsymmetricCounterAlgorithm => AsymmetricCounterAlgorithm is not null;
 
         /// <summary>
         /// Set the counter keys (used for en-/decryption and signature only)
@@ -71,7 +71,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (publicKey != null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
+                if (publicKey is not null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
                 CounterPrivateKey = privateKey;
                 CounterPublicKey = publicKey;
                 AsymmetricAlgorithm = privateKey.Algorithm.Name;

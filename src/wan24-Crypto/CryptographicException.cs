@@ -84,7 +84,7 @@ namespace wan24.Crypto
         public static async Task<CryptographicException> FromAsync(Exception inner)
         {
             CryptographicException res = new(noDelay: true, message: null, inner);
-            if (Delay != null) await Task.Delay(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
+            if (Delay is not null) await Task.Delay(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
             return res;
         }
 
@@ -97,7 +97,7 @@ namespace wan24.Crypto
         public static async Task<CryptographicException> FromAsync(string message, Exception inner)
         {
             CryptographicException res = new(noDelay: true, message, inner);
-            if (Delay != null) await Task.Delay(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
+            if (Delay is not null) await Task.Delay(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
             return res;
         }
 
@@ -106,7 +106,7 @@ namespace wan24.Crypto
         /// </summary>
         private static void DoDelay()
         {
-            if (Delay == null) return;
+            if (Delay is null) return;
             Thread.Sleep(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
         }
     }
