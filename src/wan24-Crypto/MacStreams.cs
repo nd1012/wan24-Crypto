@@ -29,6 +29,29 @@ namespace wan24.Crypto
         /// </summary>
         public KeyedHashAlgorithm Transform { get; }
 
+        /// <summary>
+        /// MAC
+        /// </summary>
+        public byte[] Mac => Transform.Hash ?? throw new InvalidOperationException();
+
+        /// <summary>
+        /// Finalize the MAC
+        /// </summary>
+        public void FinalizeMac()
+        {
+            Stream.Dispose();
+            Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+        }
+
+        /// <summary>
+        /// Finalize the MAC
+        /// </summary>
+        public async Task FinalizeMacAsync()
+        {
+            await Stream.DisposeAsync().DynamicContext();
+            Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+        }
+
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {

@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using System.Buffers;
+using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto.Networking
@@ -21,8 +22,7 @@ namespace wan24.Crypto.Networking
         {
             bool disposeServerKey = options.PublicServerKeys is null;
             SymmetricKeySuite? symmetricKey = null;
-            byte[]? signedHash = null,
-                authPayload = null,
+            byte[]? authPayload = null,
                 sessionKey = null;
             CryptoOptions? hashOptions = null,
                 pakeOptions = null,
@@ -56,8 +56,15 @@ namespace wan24.Crypto.Networking
                     throw new ArgumentException("A cipher which requires MAC authentication isn't supported", nameof(options));
                 symmetricKey = new SymmetricKeySuite(options.Password ?? options.PrivateKeys.SymmetricKey!.CloneArray(), options.Login, pakeOptions);
                 stream.WriteByte((byte)AuthSequences.Signup);
-                using CountingStream cs = new(stream, leaveOpen: true);
-                using HashStreams hash = HashHelper.GetAlgorithm(hashOptions.HashAlgorithm!).GetHashStream(cs, options: hashOptions);
+                using MemoryPoolStream written = new()
+                {
+                    CleanReturned = true
+                };
+                using HubStream hub = new(stream, written)
+                {
+                    LeaveOpen = true
+                };
+                using HashStreams hash = HashHelper.GetAlgorithm(hashOptions.HashAlgorithm!).GetHashStream(hub, options: hashOptions);
                 hash.Stream.WriteByte(VERSION);
                 EncryptionStreams cipher = await StartEncryptionAsync(hash.Stream, options, encryption, cryptoOptions, cancellationToken).DynamicContext();
                 try
@@ -87,11 +94,12 @@ namespace wan24.Crypto.Networking
                         signup.Dispose();
                     }
                     await cipher.DisposeAsync().DynamicContext();
-                    await hash.Stream.DisposeAsync().DynamicContext();
+                    await hash.FinalizeHashAsync().DynamicContext();
+                    Logging.WriteInfo($"CLIENT HASH {Convert.ToHexString(hash.Hash)}");//FIXME Hash different from the one the server computes - WTH!? (Written/red data is equal on client/server, hash on the server DOES match)
+                    Logging.WriteInfo($"HUB HASH {Convert.ToHexString(written.ToArray().Hash(hashOptions))}");
                     cipher = await encryption.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, cryptoOptions, cancellationToken).DynamicContext();
                     // Sign the authentication and write the signature encrypted using the PAKE session key
-                    Logging.WriteInfo($"WRITTEN {cs.Written}");
-                    signedHash = await SignAuthSequenceAsync(cipher.CryptoStream, hash, options, hashOptions, SIGNUP_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
+                    await SignAuthSequenceAsync(cipher.CryptoStream, hash.Hash, options, hashOptions, SIGNUP_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
                     await stream.FlushAsync(cancellationToken).DynamicContext();
                 }
                 finally
@@ -116,7 +124,7 @@ namespace wan24.Crypto.Networking
                     // Exchange the PFS key
                     await ExtendEncryptionAsync(stream, decipher, encryption, options, cryptoOptions, cancellationToken).DynamicContext();
                     // Validate the server signature of the authentication sequence
-                    await ValidateServerSignatureAsync(decipher.CryptoStream, options, AUTH_SIGNATURE_PURPOSE, signedHash, cancellationToken).DynamicContext();
+                    await ValidateServerSignatureAsync(decipher.CryptoStream, options, AUTH_SIGNATURE_PURPOSE, hash.Hash, cancellationToken).DynamicContext();
                     // Get the signed public key
                     if (options.PublicKeySigningRequest is not null)
                     {
@@ -164,7 +172,6 @@ namespace wan24.Crypto.Networking
                 options.PfsKeys?.Dispose();
                 options.PreSharedSecret?.Clear();
                 options.PublicKeySigningRequest?.Dispose();
-                signedHash?.Clear();
                 authPayload?.Clear();
                 options.Payload?.Clear();
                 hashOptions?.Clear();

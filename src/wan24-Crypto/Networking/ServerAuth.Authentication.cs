@@ -48,13 +48,13 @@ namespace wan24.Crypto.Networking
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await Encryption!.GetDecryptionStreamAsync(stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                     // Validate the authentication sequence signature
-                    await ValidateAuthSequenceAsync(context, hash, decipher, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
+                    await ValidateAuthSequenceAsync(context, hash.Hash, decipher, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
                     // Sign the authentication sequence
                     if (!Options.SendAuthenticationResponse) return new(context, isNewClient: false);
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = null;
                     cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, context.CryptoOptions, cancellationToken).DynamicContext();
-                    await SignAuthSequenceAsync(context, cipher, hash.Transform.Hash!, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
+                    await SignAuthSequenceAsync(context, cipher, hash.Hash, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
                     // Exchange a PFS session key
                     cipher = await ExtendEncryptionAsync(context, cipher, returnCipher: false, cancellationToken).DynamicContext();
                     if (Options.AuthenticationHandler is not null) await Options.AuthenticationHandler(context, cancellationToken).DynamicContext();

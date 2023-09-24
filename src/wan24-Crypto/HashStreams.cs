@@ -29,6 +29,29 @@ namespace wan24.Crypto
         /// </summary>
         public HashAlgorithm Transform { get; }
 
+        /// <summary>
+        /// Hash
+        /// </summary>
+        public byte[] Hash => Transform.Hash ?? throw new InvalidOperationException();
+
+        /// <summary>
+        /// Finalize the hash
+        /// </summary>
+        public void FinalizeHash()
+        {
+            Stream.Dispose();
+            Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+        }
+
+        /// <summary>
+        /// Finalize the hash
+        /// </summary>
+        public async Task FinalizeHashAsync()
+        {
+            await Stream.DisposeAsync().DynamicContext();
+            Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+        }
+
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {

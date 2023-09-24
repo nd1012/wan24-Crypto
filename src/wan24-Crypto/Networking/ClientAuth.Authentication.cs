@@ -21,8 +21,7 @@ namespace wan24.Crypto.Networking
         {
             bool disposeServerKey = options.PublicServerKeys is null;
             SymmetricKeySuite? symmetricKey = null;
-            byte[]? signedHash = null,
-                authPayload = null,
+            byte[]? authPayload = null,
                 sessionKey = null;
             CryptoOptions? hashOptions = null,
                 pakeOptions = null,
@@ -77,9 +76,10 @@ namespace wan24.Crypto.Networking
                         auth.Dispose();
                     }
                     await cipher.DisposeAsync().DynamicContext();
+                    await hash.FinalizeHashAsync().DynamicContext();
                     cipher = await encryption.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, cryptoOptions, cancellationToken).DynamicContext();
                     // Sign the authentication and write the signature encrypted using the PAKE session key
-                    signedHash = await SignAuthSequenceAsync(cipher.CryptoStream, hash, options, hashOptions, AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
+                    await SignAuthSequenceAsync(cipher.CryptoStream, hash.Hash, options, hashOptions, AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
                     await stream.FlushAsync(cancellationToken).DynamicContext();
                 }
                 finally
@@ -104,7 +104,7 @@ namespace wan24.Crypto.Networking
                     // Extend the encryption
                     await ExtendEncryptionAsync(stream, decipher, encryption, options, cryptoOptions, cancellationToken).DynamicContext();
                     // Validate the server signature of the authentication sequence
-                    await ValidateServerSignatureAsync(decipher.CryptoStream, options, AUTH_SIGNATURE_PURPOSE, signedHash, cancellationToken).DynamicContext();
+                    await ValidateServerSignatureAsync(decipher.CryptoStream, options, AUTH_SIGNATURE_PURPOSE, hash.Hash, cancellationToken).DynamicContext();
                 }
                 finally
                 {
@@ -123,7 +123,6 @@ namespace wan24.Crypto.Networking
             finally
             {
                 options.PfsKeys?.Dispose();
-                signedHash?.Clear();
                 authPayload?.Clear();
                 options.Payload?.Clear();
                 hashOptions?.Clear();

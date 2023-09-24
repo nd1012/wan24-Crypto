@@ -88,35 +88,22 @@ namespace wan24.Crypto.Networking
         /// Sign the authentication sequence
         /// </summary>
         /// <param name="stream">Stream</param>
-        /// <param name="hash">Hash streams</param>
+        /// <param name="hash">Hash</param>
         /// <param name="options">Options</param>
         /// <param name="hashOptions">Hash options</param>
         /// <param name="purpose">Signature purpose</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Signed hash</returns>
-        private static async Task<byte[]> SignAuthSequenceAsync(
+        private static async Task SignAuthSequenceAsync(
             Stream stream,
-            HashStreams hash,
+            byte[] hash,
             ClientAuthOptions options,
             CryptoOptions hashOptions,
             string purpose,
             CancellationToken cancellationToken
             )
         {
-            hash.Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
-            Logging.WriteInfo($"HASH2 {Convert.ToHexString(hash.Transform.Hash!)}");
-            byte[] signedHash = hash.Transform.Hash!;
-            try
-            {
-                SignatureContainer signature = options.PrivateKeys.SignatureKey!.SignHash(signedHash.CloneArray(), purpose, hashOptions);
-                await stream.WriteSerializedAsync(signature, cancellationToken).DynamicContext();
-                return signedHash;
-            }
-            catch
-            {
-                signedHash.Clear();
-                throw;
-            }
+            SignatureContainer signature = options.PrivateKeys.SignatureKey!.SignHash(hash.CloneArray(), purpose, hashOptions);
+            await stream.WriteSerializedAsync(signature, cancellationToken).DynamicContext();
         }
 
         /// <summary>

@@ -62,18 +62,18 @@ namespace wan24.Crypto.Networking
         /// </summary>
         /// <param name="context">Context</param>
         /// <param name="cipher">Encryption streams</param>
-        /// <param name="signedHash">Signed hash</param>
+        /// <param name="hash">Hash</param>
         /// <param name="purpose">Purpose</param>
         /// <param name="cancellationToken">Cancellation token</param>
         private async Task SignAuthSequenceAsync(
             ServerAuthContext context, 
             EncryptionStreams cipher, 
-            byte[] signedHash, 
+            byte[] hash, 
             string purpose, 
             CancellationToken cancellationToken
             )
         {
-            SignatureContainer signature = Options.PrivateKeys.SignatureKey!.SignHash(signedHash.CloneArray(), purpose, context.HashOptions);
+            SignatureContainer signature = Options.PrivateKeys.SignatureKey!.SignHash(hash.CloneArray(), purpose, context.HashOptions);
             context.Stream.WriteByte((byte)(context.Authentication is null ? AuthSequences.Signup : AuthSequences.Authentication));
             await cipher.CryptoStream.WriteSerializedAsync(signature, cancellationToken).DynamicContext();
         }
@@ -143,26 +143,23 @@ namespace wan24.Crypto.Networking
         /// Validate the authentication sequence signature
         /// </summary>
         /// <param name="context">Context</param>
-        /// <param name="hash">Hash streams</param>
+        /// <param name="hash">Hash</param>
         /// <param name="decipher">Decryption streams</param>
         /// <param name="purpose">Expected signature purpose</param>
         /// <param name="cancellationToken">Cancellation token</param>
         private static async Task ValidateAuthSequenceAsync(
             ServerAuthContext context,
-            HashStreams hash,
+            byte[] hash,
             DecryptionStreams decipher,
             string purpose,
             CancellationToken cancellationToken
             )
         {
-            hash.Stream.Dispose();
-            hash.Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
-            Logging.WriteInfo($"HASH2 {Convert.ToHexString(hash.Transform.Hash!)}");
             SignatureContainer signature = await decipher.CryptoStream.ReadSerializedAsync<SignatureContainer>(cancellationToken: cancellationToken).DynamicContext();
             // Signature purpose must match
             if (signature.Purpose != purpose) throw new InvalidDataException("Invalid client signature purpose");
             // Signed hash must match
-            if (!signature.SignedDataHash.SlowCompare(hash.Transform.Hash!)) throw new InvalidDataException("Signed hash mismatch");
+            if (!signature.SignedDataHash.SlowCompare(hash)) throw new InvalidDataException("Signed hash mismatch");
             // Signer must match
             if (
                 !signature.SignerPublicKey.ID.SlowCompare(context.PublicClientKeys!.SignatureKey!.ID) ||
