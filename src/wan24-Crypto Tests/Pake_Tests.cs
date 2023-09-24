@@ -37,98 +37,57 @@ namespace wan24_Crypto_Tests
         public void FastPake_Tests()
         {
             // Fast client
-            using FastPakeAuthClient fastClient = new(new SymmetricKeySuite(
-                "login_username".GetBytes(),
-                RandomNumberGenerator.GetBytes(16)
-                ));
-
-            // Server
-            using Pake pake = new();
-            pake.HandleSignup(fastClient.Pake.CreateSignup());// Ensure having an identity record for the tests
-            Assert.IsTrue(pake.HasSession);
-            Assert.IsTrue(pake.SessionKey.SequenceEqual(fastClient.SessionKey));
-            byte[] signupSessionKey = pake.SessionKey.CloneArray();
-            pake.ClearSessionKey();
-            fastClient.ClearSessionKey();
+            DateTime start = DateTime.Now;
+            using FastPakeAuthClient fastClient = new(
+                new(new SymmetricKeySuite(
+                    "login_username".GetBytes(),
+                    RandomNumberGenerator.GetBytes(16)
+                )), 
+                out PakeSignup signup, 
+                out byte[] clientSignupSessionKey
+                );
+            TimeSpan clientInitTime = DateTime.Now - start;
+            Logging.WriteInfo($"Client Initialization: {clientInitTime}");
 
             // Fast server
-            DateTime start = DateTime.Now;
-            using FastPakeAuthServer fastServer = new(pake, fastClient.CreateAuth());
-            TimeSpan initTime = DateTime.Now - start;
-            Logging.WriteInfo($"Initialization: {initTime}");
-            Assert.IsTrue(fastServer.HasSession);
-            Assert.IsTrue(fastServer.SessionKey.SequenceEqual(fastClient.SessionKey));
-            Assert.IsFalse(signupSessionKey.SequenceEqual(fastServer.SessionKey));
-            byte[] firstSessionKey = fastServer.SessionKey.CloneArray();
-            pake.ClearSessionKey();
-            fastClient.ClearSessionKey();
+            start = DateTime.Now;
+            using FastPakeAuthServer fastServer = new(signup);
+            TimeSpan serverInitTime = DateTime.Now - start;
+            Logging.WriteInfo($"Server initialization: {serverInitTime}");
+            Assert.IsTrue(fastServer.Pake.HasSession);
+            Assert.IsTrue(fastServer.Pake.SessionKey.SequenceEqual(clientSignupSessionKey));
+            fastServer.Pake.ClearSessionKey();
 
             // Followup authentication
             start = DateTime.Now;
-            fastServer.HandleAuth(fastClient.CreateAuth());
-            TimeSpan nextTime = DateTime.Now - start;
-            Logging.WriteInfo($"Authentication: {nextTime}");
-            Assert.IsTrue(initTime > nextTime);
-            Assert.IsTrue(fastServer.HasSession);
-            Assert.IsTrue(fastServer.SessionKey.SequenceEqual(fastClient.SessionKey));
-            Assert.IsFalse(firstSessionKey.SequenceEqual(fastServer.SessionKey));
-            byte[] secondSessionKey = fastServer.SessionKey.CloneArray();
-            pake.ClearSessionKey();
-            fastClient.ClearSessionKey();
+            (PakeAuth auth1, byte[] clientSessionKey1) = fastClient.CreateAuth();
+            TimeSpan clientAuthTime = DateTime.Now - start;
+            Logging.WriteInfo($"Client authentication 1: {clientAuthTime}");
+            Assert.IsTrue(clientInitTime > clientAuthTime);
+            Assert.IsFalse(clientSignupSessionKey.SequenceEqual(clientSessionKey1));
+            start = DateTime.Now;
+            (_, byte[] serverSessionKey1) = fastServer.HandleAuth(auth1);
+            TimeSpan serverAuthTime = DateTime.Now - start;
+            Logging.WriteInfo($"Server authentication 1: {clientAuthTime}");
+            Assert.IsTrue(serverInitTime > serverAuthTime);
+            Assert.IsTrue(clientSessionKey1.SequenceEqual(serverSessionKey1));
 
             // Followup authentication
             start = DateTime.Now;
-            fastServer.HandleAuth(fastClient.CreateAuth());
-            nextTime = DateTime.Now - start;
-            Logging.WriteInfo($"Authentication: {nextTime}");
-            Assert.IsTrue(initTime > nextTime);
-            Assert.IsTrue(fastServer.HasSession);
-            Assert.IsTrue(fastServer.SessionKey.SequenceEqual(fastClient.SessionKey));
-            Assert.IsFalse(firstSessionKey.SequenceEqual(secondSessionKey));
-        }
-
-        [TestMethod]
-        public void FastPake2_Tests()
-        {
-            // Fast client
-            using FastPakeAuthClient fastClient = new(new SymmetricKeySuite(
-                "login_username".GetBytes(),
-                RandomNumberGenerator.GetBytes(16)
-                ));
-
-            // Fast server
-            DateTime start = DateTime.Now;
-            using FastPakeAuthServer fastServer = new(fastClient.Pake.CreateSignup());
-            TimeSpan initTime = DateTime.Now - start;
-            Logging.WriteInfo($"Initialization: {initTime}");
-            Assert.IsTrue(fastServer.HasSession);
-            Assert.IsTrue(fastServer.SessionKey.SequenceEqual(fastClient.SessionKey));
-            byte[] firstSessionKey = fastServer.SessionKey.CloneArray();
-            fastServer.ClearSessionKey();
-            fastClient.ClearSessionKey();
-
-            // Followup authentication
+            (PakeAuth auth2, byte[] clientSessionKey2) = fastClient.CreateAuth();
+            clientAuthTime = DateTime.Now - start;
+            Logging.WriteInfo($"Client authentication 2: {clientAuthTime}");
+            Assert.IsTrue(clientInitTime > clientAuthTime);
+            Assert.IsFalse(clientSignupSessionKey.SequenceEqual(clientSessionKey2));
+            Assert.IsFalse(clientSessionKey2.SequenceEqual(clientSessionKey1));
             start = DateTime.Now;
-            fastServer.HandleAuth(fastClient.CreateAuth());
-            TimeSpan nextTime = DateTime.Now - start;
-            Logging.WriteInfo($"Authentication: {nextTime}");
-            Assert.IsTrue(initTime > nextTime);
-            Assert.IsTrue(fastServer.HasSession);
-            Assert.IsTrue(fastServer.SessionKey.SequenceEqual(fastClient.SessionKey));
-            Assert.IsFalse(firstSessionKey.SequenceEqual(fastServer.SessionKey));
-            byte[] secondSessionKey = fastServer.SessionKey.CloneArray();
-            fastServer.ClearSessionKey();
-            fastClient.ClearSessionKey();
-
-            // Followup authentication
-            start = DateTime.Now;
-            fastServer.HandleAuth(fastClient.CreateAuth());
-            nextTime = DateTime.Now - start;
-            Logging.WriteInfo($"Authentication: {nextTime}");
-            Assert.IsTrue(initTime > nextTime);
-            Assert.IsTrue(fastServer.HasSession);
-            Assert.IsTrue(fastServer.SessionKey.SequenceEqual(fastClient.SessionKey));
-            Assert.IsFalse(firstSessionKey.SequenceEqual(secondSessionKey));
+            (_, byte[] serverSessionKey2) = fastServer.HandleAuth(auth2);
+            serverAuthTime = DateTime.Now - start;
+            Logging.WriteInfo($"Server authentication 2: {clientAuthTime}");
+            Assert.IsTrue(serverInitTime > serverAuthTime);
+            Assert.IsTrue(clientSessionKey2.SequenceEqual(serverSessionKey2));
+            Assert.IsFalse(clientSessionKey1.SequenceEqual(clientSessionKey2));
+            Assert.IsFalse(serverSessionKey1.SequenceEqual(serverSessionKey2));
         }
 
         [TestMethod]

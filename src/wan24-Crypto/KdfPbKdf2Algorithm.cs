@@ -88,8 +88,7 @@ namespace wan24.Crypto
             try
             {
                 if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
-                options ??= DefaultOptions;
-                options = KdfHelper.GetDefaultOptions(options);
+                options = KdfHelper.GetDefaultOptions(options?.Clone() ?? DefaultOptions);
                 if (options.KdfIterations < MIN_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
                 salt ??= RND.GetBytes(DEFAULT_SALT_LEN);
                 if (salt.Length < MIN_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));

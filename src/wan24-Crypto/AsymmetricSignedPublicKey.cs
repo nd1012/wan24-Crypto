@@ -401,12 +401,12 @@ namespace wan24.Crypto
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
                     .WriteNumber(VERSION)
-                    .WriteAny(PublicKey)
+                    .WriteBytes(PublicKey.Export())
                     .WriteNumber(Created.Ticks)
                     .WriteNumber(Expires.Ticks)
                     .WriteDict(Attributes)
-                    .WriteAnyNullable(Signer)
-                    .WriteAnyNullable(CounterSigner);
+                    .WriteSerializedNullable(Signer)
+                    .WriteSerializedNullable(CounterSigner);
                 SignedData = ms.ToArray();
                 return SignedData;
             }
@@ -481,16 +481,31 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             if (SignedData is null) throw new InvalidOperationException();
-            using MemoryStream ms = new();
+            using MemoryStream ms = new(SignedData);
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>(ssv);
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
-            PublicKey = (IAsymmetricPublicKey)ms.ReadAny(ssv);
+            byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: short.MaxValue).Value;
+            IAsymmetricKey? key = null;
+            try
+            {
+                key = AsymmetricKeyBase.Import(keyData);
+                if (key is not IAsymmetricPublicKey k) throw new SerializerException("Invalid public key");
+                PublicKey = k;
+                key = null;
+                keyData = null!;
+            }
+            catch
+            {
+                key?.Dispose();
+                keyData?.Clear();
+                throw;
+            }
             Created = new DateTime(ms.ReadNumber<long>(ssv));
             Expires = new DateTime(ms.ReadNumber<long>(ssv));
             Attributes = ms.ReadDict<string, string>(maxLen: byte.MaxValue);
-            Signer = ms.ReadAnyNullable(ssv) as AsymmetricSignedPublicKey;
-            CounterSigner = ms.ReadAnyNullable(ssv) as AsymmetricSignedPublicKey;
+            Signer = ms.ReadSerializedNullable<AsymmetricSignedPublicKey>(ssv);
+            CounterSigner = ms.ReadSerializedNullable<AsymmetricSignedPublicKey>(ssv);
         }
 
         /// <summary>

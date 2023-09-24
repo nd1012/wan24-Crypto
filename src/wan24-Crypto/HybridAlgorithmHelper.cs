@@ -97,7 +97,7 @@ namespace wan24.Crypto
                     kdfAlgorithm = _KdfAlgorithm;
                     macAlgorithm = _MacAlgorithm;
                 }
-                options = EncryptionHelper.GetDefaultOptions(options);
+                options ??= EncryptionHelper.GetDefaultOptions(options);
                 // Key exchange algorithm
                 if (keyExchangeAlgorithm is not null && options.AsymmetricAlgorithm is not null && options.AsymmetricCounterAlgorithm is null)
                     options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
@@ -110,14 +110,14 @@ namespace wan24.Crypto
                 {
                     options.CounterKdfAlgorithm = kdfAlgorithm.Name;
                     options.CounterKdfIterations = kdfAlgorithm.DefaultIterations;
-                    options.CounterKdfOptions = kdfAlgorithm.DefaultOptions.KdfOptions;
+                    options.CounterKdfOptions = kdfAlgorithm.DefaultKdfOptions;
                 }
                 // MAC algorithm
                 if (
                     macAlgorithm is not null &&
                     (
                         EncryptionHelper.GetAlgorithm(options.Algorithm ?? EncryptionHelper.DefaultAlgorithm.Name).RequireMacAuthentication ||
-                        options.MacAlgorithm is not null || options.MacIncluded || options.MacAlgorithmIncluded || options.RequireMac || options.RequireCounterMac
+                        options.MacAlgorithm is not null || options.MacIncluded || options.MacAlgorithmIncluded || options.RequireCounterMac
                     ) &&
                     options.CounterMacAlgorithm is null
                     )
@@ -145,7 +145,7 @@ namespace wan24.Crypto
             {
                 IAsymmetricAlgorithm? keyExchangeAlgorithm;
                 lock (SyncObject) keyExchangeAlgorithm = _KeyExchangeAlgorithm;
-                options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
+                options ??= AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
                 // Key exchange algorithm
                 if (keyExchangeAlgorithm is not null && options.AsymmetricCounterAlgorithm is null) options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
                 return options;
@@ -171,7 +171,7 @@ namespace wan24.Crypto
             {
                 IAsymmetricAlgorithm? signatureAlgorithm;
                 lock (SyncObject) signatureAlgorithm = _SignatureAlgorithm;
-                options = AsymmetricHelper.GetDefaultSignatureOptions(options);
+                options ??= AsymmetricHelper.GetDefaultSignatureOptions(options);
                 // Signature algorithm
                 if (signatureAlgorithm is not null && options.AsymmetricCounterAlgorithm is null) options.AsymmetricCounterAlgorithm = signatureAlgorithm.Name;
                 return options;
@@ -207,7 +207,7 @@ namespace wan24.Crypto
                     PublicKey = options.CounterPublicKey
                 };
                 (pwd, keyExchangeData.CounterKeyExchangeData) = key.GetKeyExchangeData(options: kedOptions);
-                newPwd = new byte[options.Password.Length + pwd.Length];
+                newPwd = new byte[options.Password.Length + pwd.Length];//TODO In v2 use ExtendKey
                 options.Password.AsSpan().CopyTo(newPwd);
                 pwd.AsSpan().CopyTo(newPwd.AsSpan(options.Password.Length, newPwd.Length - options.Password.Length));
                 options.Password.Clear();
@@ -243,7 +243,7 @@ namespace wan24.Crypto
                 if (keyExchangeData.CounterKeyExchangeData is null) throw new ArgumentException("Missing counter key exchange data", nameof(keyExchangeData));
                 if (options.PrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing valid private key", nameof(options));
                 if (options.CounterPrivateKey is not IKeyExchangePrivateKey counterKey) throw new ArgumentException("Missing valid counter private key", nameof(options));
-                byte[]? key1 = null,
+                byte[]? key1 = null,//TODO In v2 use ExtendKey
                     key2 = null,
                     res = null;
                 try
@@ -342,8 +342,8 @@ namespace wan24.Crypto
         {
             try
             {
-                if (options.CounterPrivateKey is not ISignaturePrivateKey) throw new ArgumentException("Missing counter private key", nameof(options));
-                signature.CounterSignature = ((ISignaturePrivateKey)options.CounterPrivateKey).SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
+                if (options.CounterPrivateKey is not ISignaturePrivateKey key) throw new ArgumentException("Missing counter private key", nameof(options));
+                signature.CounterSignature = key.SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
             }
             catch (CryptographicException)
             {

@@ -1,6 +1,5 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
-using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -96,8 +95,7 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
-                byte[] ked = PublicKey.KeyData.Array.CloneArray();
-                return (DeriveKey(publicKey.KeyData.Array.CloneArray()), ked);
+                return (DeriveKey(publicKey.KeyData.Array.CloneArray()), PublicKey.KeyData.Array.CloneArray());
             }
             catch (CryptographicException)
             {
@@ -116,8 +114,28 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
-                using AsymmetricEcDiffieHellmanPublicKey publicKey = new(keyExchangeData.CloneArray());
+                using AsymmetricEcDiffieHellmanPublicKey publicKey = new(keyExchangeData);
                 return PrivateKey.DeriveKeyMaterial(publicKey.PublicKey);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <inheritdoc/>
+        public override byte[] DeriveKey(IAsymmetricPublicKey publicKey)
+        {
+            try
+            {
+                EnsureUndisposed();
+                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                if (publicKey is not AsymmetricEcDiffieHellmanPublicKey key) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
+                return PrivateKey.DeriveKeyMaterial(key.PublicKey);
             }
             catch (CryptographicException)
             {
@@ -133,6 +151,7 @@ namespace wan24.Crypto
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
+            _PrivateKey?.PublicKey?.Dispose();
             _PrivateKey?.Dispose();
         }
 

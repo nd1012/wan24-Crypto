@@ -39,8 +39,8 @@ namespace wan24.Crypto
             get
             {
                 CryptoOptions res = _DefaultOptions.Clone();
-                res.AsymmetricAlgorithm = Name;
-                res.AsymmetricKeyBits = DefaultKeySize;
+                if (CanSign) AsymmetricHelper.GetDefaultSignatureOptions(res);
+                if (CanExchangeKey) AsymmetricHelper.GetDefaultKeyExchangeOptions(res);
                 return res;
             }
         }
@@ -79,6 +79,16 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
+        public virtual CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null)
+        {
+            if (options is null) return DefaultOptions;
+            options.AsymmetricAlgorithm = _DefaultOptions.AsymmetricAlgorithm;
+            options.AsymmetricKeyBits = _DefaultOptions.AsymmetricKeyBits;
+            if (CanSign && options.HashAlgorithm is null) HashHelper.GetDefaultOptions(options);
+            return options;
+        }
+
+        /// <inheritdoc/>
         public abstract tPrivate CreateKeyPair(CryptoOptions? options = null);
 
         /// <inheritdoc/>
@@ -113,9 +123,7 @@ namespace wan24.Crypto
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
-                if (CanExchangeKey) options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
-                if (CanSign) options = AsymmetricHelper.GetDefaultSignatureOptions(options);
+                options = options?.Clone() ?? DefaultOptions;
                 using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
                 return key.DeriveKey(keyExchangeData);
             }

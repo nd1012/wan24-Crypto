@@ -454,6 +454,134 @@ protocol, for example, where each message is PAKE authenticated, and each
 followup message is encrypted using the session key of the first 
 authentication message.
 
+**NOTE**: This PAKE implementation is patent free!
+
+## Client/server authentication protocol
+
+`wan24-Crypto` implements a client/server authentication protocol for stream 
+connections (like a TCP `NetworkStream`). This protocol allows
+
+- server public key request
+- signup
+- authentication
+
+while all features are optional. It implements Zero Knowledge Password Proof 
+(ZKPP) and Perfect Forward Secrecy (PFS).
+
+During a signup an asymmetric public key of the client can be signed by the 
+server for long term use.
+
+The authentication is encrypted using
+
+- (hopefully pre-shared) server public keys and PFS keys
+- PAKE
+
+If the public servers keys are not pre-shared, a PKI should be used to ensure 
+working with valid keys.
+
+See the tests for an example of a simple but working client/server 
+implementation.
+
+On signup, the server needs to store the PAKE identity and the clients public 
+keys, which then need to be provided for a later authentication process. The 
+`ClientAuthContext` has all the information required to handle a signup or an 
+authentication, and it contains the exchanged PFS session key for encrypted 
+communication, too.
+
+For optimal security (in 2023), you should use an asymmetric PQC algorithm for 
+the key exchange and signature key, and a common non-PQC algorithm as counter 
+key exchange and signature key. You can find asymmetric PQC algorithms in the 
+`wan24-Crypto-BC` library, for example.
+
+**NOTE**: Login username and password won't be communicated to the server. If 
+any authentication related information changes, a follow-up signup needs to be 
+performed.
+
+The signup process (as seen from the client):
+
+- Send the clients public PFS key
+- Start encryption using the servers public key and a private PFS key of the 
+client
+- Send the clients public counter PFS key
+- Extend the encryption using the servers public counter key and a private PFS 
+key of the client
+- Send the PAKE signup request and extend the encryption using the PAKE 
+session key (the request contains the public key suite and a key signing 
+request, if this is the signup of a new user, or the public key suite changed)
+- Sign the authentication sequence using the private client key
+- Validate the server signature of the authentication sequence
+- Receive the servers public PFS key
+- Extend the encryption using the private key and the servers public PFS key
+- Receive the servers public counter PFS key
+- Extend the encryption with the PFS key computed using the private PFS keys 
+and the servers public PFS keys
+- Get the signed public client key
+- Sign the public key suite including the signed public key and store the 
+private and public key suites
+
+**NOTE**: The PAKE authentication allows to attach any payload, which enables 
+the app to extend the process with additional meta data as required.
+
+A later authentication process (as seen from the client):
+
+- Send the clients public PFS key
+- Start encryption using the servers public key and a private PFS key of the 
+client
+- Send the clients public counter PFS key
+- Extend the encryption using the servers public counter key and a private PFS 
+key of the client
+- Send the PAKE authentication request and extend the encryption using the 
+PAKE session key
+- Sign the authentication sequence using the private client key
+
+For a bi-directional communication channel in addition:
+
+- Validate the server signature of the authentication sequence
+- Receive the servers public PFS key
+- Extend the encryption using the private key and the servers public PFS key
+- Receive the servers public counter PFS key
+- Extend the encryption using the PFS key computed using the private PFS keys 
+and the servers public PFS keys
+
+**NOTE**: Since a temporary client lik a browser may not be able to store the 
+private client keys, such a client may only use the signup and not send a key 
+signing request. Then the server is required to identify the authenticating 
+client using the PAKE identifier (not the public key ID).
+
+In total at last three session keys are being exchanged during a request (six 
+session keys for bi-directional communication). The first two keys are pseudo-
+PFS keys, while the third key is the PAKE session key. Each part of the 
+authentication sequence will be encrypted using the latest exchanged session 
+key (encryption does change each time a new session key can be derived at the 
+server).
+
+**NOTE**: The encryption key will always be _extended_ by the next derived 
+key, but _not replaced_.
+
+To avoid replay-attacks, the server should implement methods to deny re-using 
+PFS keys or random byte sequences. A timestamp validation is implemented 
+already (which defaults to a maximum time offset of 5 minutes to the clients 
+system time). So the server should ensure, that a (pseudo-)PFS key or random 
+byte sequence can't be re-used within five minutes after it was received from 
+a client.
+
+**NOTE**: The long term client key exchange keys can be used for encrypting an 
+off-session peer-to-peer message. They're not used for signup/authentication.
+
+Things that must be known in advance are the used algorithms, while the PFS 
+keys use the public server keys algorithms and key sizes. But these algorithms 
+must be pre-defined in both (client and server) apps anyway:
+
+- Hash algorithm
+- MAC algorithm
+- KDF algorithm
+- Encryption algorithm (and settings)
+
+**CAUTION**: The chosen encryption algorithm must not require MAC 
+authentication (while built-in MAC authentication like with AEAD is ok). The 
+encryption settings shouldn't use KDF to avoid too much overhead (KDF will be 
+used for PAKE already).
+
 ## Notes
 
 Sometimes you'll read something like "will be disposed" or "will be cleared" 

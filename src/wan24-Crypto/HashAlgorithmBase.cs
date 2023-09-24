@@ -26,12 +26,24 @@ namespace wan24.Crypto
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone().WithHashAlgorithm(Name);
+        public CryptoOptions DefaultOptions => HashHelper.GetDefaultOptions(_DefaultOptions.Clone());
 
         /// <summary>
         /// Hash length in bytes
         /// </summary>
         public abstract int HashLength { get; }
+
+        /// <summary>
+        /// Ensure that the given options include the default options for this algorithm
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        public virtual CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null)
+        {
+            if (options is null) return DefaultOptions;
+            options.HashAlgorithm = _DefaultOptions.Algorithm;
+            return options;
+        }
 
         /// <summary>
         /// Get the hash algorithm
@@ -67,14 +79,21 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
-                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options = options?.Clone() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 HashAlgorithm algo = GetHashAlgorithm(options);
                 try
                 {
-                    return new(new(target ?? Stream.Null, algo, writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, options?.LeaveOpen ?? true), algo);
+                    return new(
+                        new(
+                            new WrapperStream(target ?? Stream.Null, leaveOpen: options?.LeaveOpen ?? true),
+                            algo,
+                            writable ? CryptoStreamMode.Write : CryptoStreamMode.Read,
+                            leaveOpen: false
+                            ),
+                        algo
+                        );
                 }
                 catch
                 {
@@ -108,13 +127,10 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual byte[] Hash(ReadOnlySpan<byte> data, CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            options = HashHelper.GetDefaultOptions(options);
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
-                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options = options?.Clone() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 byte[] res = new byte[HashLength];
                 GetHashAlgorithm(options).TryComputeHash(data, res, out _);
@@ -139,14 +155,11 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual Span<byte> Hash(ReadOnlySpan<byte> data, Span<byte> outputBuffer, CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 if (outputBuffer.Length < HashLength) throw new ArgumentOutOfRangeException(nameof(outputBuffer));
-                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
-                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
+                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                options = options?.Clone() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 GetHashAlgorithm(options).TryComputeHash(data, outputBuffer, out _);
                 return outputBuffer;
@@ -169,13 +182,11 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual byte[] Hash(Stream data, CryptoOptions? options = null)
         {
-            options ??= DefaultOptions;
-            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
                     throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
+                options = options?.Clone() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 using HashStreams hash = GetHashStream(options: options);
                 data.CopyTo(hash.Stream);
@@ -201,13 +212,11 @@ namespace wan24.Crypto
         /// <returns>Hash</returns>
         public virtual async Task<byte[]> HashAsync(Stream data, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            options ??= DefaultOptions;
-            options = HashHelper.GetDefaultOptions(options);
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
                     throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
+                options = options?.Clone() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 HashStreams hash = GetHashStream(options: options);
                 await using (hash.DynamicContext())

@@ -129,7 +129,7 @@ namespace wan24.Crypto
         {
             try
             {
-                options = GetDefaultKeyExchangeOptions(options);
+                options = GetDefaultKeyExchangeOptions(options?.Clone());
                 return (IKeyExchangePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
             }
             catch (CryptographicException)
@@ -151,7 +151,7 @@ namespace wan24.Crypto
         {
             try
             {
-                options = GetDefaultSignatureOptions(options);
+                options = GetDefaultSignatureOptions(options?.Clone());
                 return (ISignaturePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
             }
             catch (CryptographicException)
@@ -219,6 +219,7 @@ namespace wan24.Crypto
                         options.AsymmetricKeyBits = DefaultSignatureAlgorithm.DefaultKeySize;
                     }
                 }
+                if (options.HashAlgorithm is null) HashHelper.GetDefaultOptions(options);
                 if (UseHybridSignatureOptions) options = HybridAlgorithmHelper.GetSignatureOptions(options);
                 return options;
             }

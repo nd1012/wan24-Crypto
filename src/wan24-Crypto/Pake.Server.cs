@@ -91,10 +91,11 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
+        /// <param name="skipSignatureKeyValidation">Skip the signature key validation (KDF)?</param>
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
+        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false, in bool skipSignatureKeyValidation = false)
         {
             byte[]? payload = null,
                 randomMac = null;
@@ -140,7 +141,7 @@ namespace wan24.Crypto
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    if (!SkipSignatureKeyValidation)
+                    if (!skipSignatureKeyValidation && !SkipSignatureKeyValidation)
                     {
                         signatureKey = CreateSignatureKey(key, secret);
                         if (!Identity.SignatureKey.SlowCompare(signatureKey))

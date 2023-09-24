@@ -1,46 +1,47 @@
-﻿using System.Runtime.CompilerServices;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Fast PAKE authentication server
+    /// Fast PAKE authentication server (will skip KDF after initialization)
     /// </summary>
     public sealed class FastPakeAuthServer : DisposableBase, IStatusProvider
     {
         /// <summary>
-        /// Thread synchronizaion
+        /// Authentication counter
         /// </summary>
-        private readonly SemaphoreSync Sync = new();
+        private volatile int _AuthCount = 0;
         /// <summary>
-        /// Key
+        /// Authentication error counter
         /// </summary>
-        private readonly SecureValue Key = null!;
-        /// <summary>
-        /// Secret
-        /// </summary>
-        private readonly SecureValue Secret = null!;
+        private volatile int _AuthErrorCount = 0;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="pake">PAKE instance (will be disposed!)</param>
         /// <param name="auth">Authentication (will be disposed!)</param>
+        /// <param name="payload">Payload (should be cleared!)</param>
         /// <param name="decryptPayload">Decrypt the payload (if any)?</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
+        /// <param name="name">Server name</param>
         public FastPakeAuthServer(
-            in Pake pake, 
-            in PakeAuth auth, 
+            in Pake pake,
+            in PakeAuth auth,
+            out byte[] payload,
             in bool decryptPayload = false,
             in TimeSpan? encryptTimeout = null,
-            in TimeSpan? recryptTimeout = null
-            ) : base(asyncDisposing: false)
+            in TimeSpan? recryptTimeout = null,
+            in string? name = null
+            )
+            : base()
         {
-            byte[]? payload = null,
-                randomMac = null;
+            payload = null!;
+            byte[]? randomMac = null;
             try
             {
+                Name = name;
                 if (pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
                 if (pake.Identity is null) throw CryptographicException.From(new ArgumentException("Identity record required", nameof(pake)));
                 Pake = pake;
@@ -118,6 +119,7 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
+                payload?.Clear();
                 Dispose();
                 if (ex is CryptographicException) throw;
                 throw CryptographicException.From(ex);
@@ -125,7 +127,6 @@ namespace wan24.Crypto
             finally
             {
                 auth.Dispose();
-                payload?.Clear();
                 randomMac?.Clear();
             }
             FastPakeAuthServerTable.Servers[GUID] = this;
@@ -138,15 +139,19 @@ namespace wan24.Crypto
         /// <param name="pake">PAKE instance (will be disposed!)</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example)</param>
+        /// <param name="name">Server name</param>
         public FastPakeAuthServer(
-            in PakeSignup signup, 
+            in PakeSignup signup,
             in Pake? pake = null,
             in TimeSpan? encryptTimeout = null,
-            in TimeSpan? recryptTimeout = null
-            ) : base(asyncDisposing: false)
+            in TimeSpan? recryptTimeout = null,
+            in string? name = null
+            )
+            : base()
         {
             try
             {
+                Name = name;
                 Pake = pake ?? new();
                 if (Pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
                 byte[] signatureKey = null!,
@@ -208,6 +213,60 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="identity">Identity (will be cleared/disposed!)</param>
+        /// <param name="authKey">Authentication key (will be cleared!)</param>
+        /// <param name="secret">Secret (will be cleared!)</param>
+        /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
+        /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
+        /// <param name="options">PAKE options (will be cleared!)</param>
+        /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
+        /// <param name="name">Server name</param>
+        public FastPakeAuthServer(
+            in IPakeRecord? identity,
+            in byte[] authKey,
+            in byte[] secret,
+            in TimeSpan? encryptTimeout = null,
+            in TimeSpan? recryptTimeout = null,
+            in CryptoOptions? options = null,
+            in CryptoOptions? cryptoOptions = null,
+            in string? name = null
+            )
+            : base()
+        {
+            try
+            {
+                Name = name;
+                Pake = identity is null ? new(options, cryptoOptions) : new(identity, options, cryptoOptions);
+                Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
+                };
+                Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
+                };
+            }
+            catch (Exception ex)
+            {
+                Dispose();
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
+        /// External thread synchronization
+        /// </summary>
+        public SemaphoreSync Sync { get; } = new();
+
+        /// <summary>
+        /// Use the external thread synchronization during the <c>HandleAuth*</c> methods to synchronize any identity access?
+        /// </summary>
+        public bool UseSync { get; set; }
+
+        /// <summary>
         /// GUID
         /// </summary>
         public string GUID { get; } = Guid.NewGuid().ToString();
@@ -223,42 +282,24 @@ namespace wan24.Crypto
         public Pake Pake { get; } = null!;
 
         /// <summary>
-        /// Identifier
+        /// Key
         /// </summary>
-        public byte[] Identifier
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => Pake.Identifier;
-        }
+        public SecureValue Key { get; } = null!;
 
         /// <summary>
-        /// Has a session key?
+        /// Secret
         /// </summary>
-        public bool HasSession
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => Pake.HasSession;
-        }
-
-        /// <summary>
-        /// Session key (available after authentication; will be cleared!)
-        /// </summary>
-        [SensitiveData]
-        public byte[] SessionKey
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get => Pake.SessionKey;
-        }
+        public SecureValue Secret { get; } = null!;
 
         /// <summary>
         /// Authentication count (including errors)
         /// </summary>
-        public long AuthCount { get; private set; }
+        public int AuthCount => _AuthCount;
 
         /// <summary>
         /// Authentication error count
         /// </summary>
-        public long AuthErrorCount { get; private set; }
+        public int AuthErrorCount => _AuthErrorCount;
 
         /// <inheritdoc/>
         public IEnumerable<Status> State
@@ -267,9 +308,9 @@ namespace wan24.Crypto
             {
                 yield return new("GUID", GUID, "Unique ID of the fast PAKE server");
                 yield return new("Name", Name, "Name of the fast PAKE server");
-                yield return new("Identifier", Convert.ToHexString(Identifier), "Peer identifier");
-                yield return new("Count", AuthCount, "Authentication count since initialization");
-                yield return new("Errors", AuthErrorCount, "Authentication error count since initialization");
+                yield return new("Identifier", Convert.ToHexString(Pake.Identifier), "Peer identifier");
+                yield return new("Count", _AuthCount, "Authentication count since initialization");
+                yield return new("Errors", _AuthErrorCount, "Authentication error count since initialization");
             }
         }
 
@@ -283,12 +324,14 @@ namespace wan24.Crypto
         public (byte[] Payload, byte[] SessionKey) HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
         {
             byte[]? payload = null,
-                randomMac = null;
+                randomMac = null,
+                sessionKey = null;
+            SemaphoreSyncContext? ssc = null;
             try
             {
                 EnsureUndisposed();
-                using SemaphoreSyncContext ssc = Sync;
-                AuthCount++;
+                if (UseSync) ssc = Sync;
+                _AuthCount++;
                 // Decrypt the payload
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
@@ -326,13 +369,13 @@ namespace wan24.Crypto
                     // Extract key and secret
                     randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
                     key = Key;
-                    if(!auth.Key.Xor(randomMac).SlowCompare(key)) throw CryptographicException.From(new InvalidDataException("Authentication key invalid"));
+                    if (!auth.Key.Xor(randomMac).SlowCompare(key)) throw CryptographicException.From(new InvalidDataException("Authentication key invalid"));
                     // Validate the signature and create the session key (MAC)
                     secret = Secret;
-                    signature = Pake.SignAndCreateSessionKey(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
+                    (signature, sessionKey) = Pake.SignAndCreateSessionKey2(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
-                    return (payload ?? auth.Payload.CloneArray(), SessionKey.CloneArray());
+                    return (payload ?? auth.Payload.CloneArray(), sessionKey);
                 }
                 finally
                 {
@@ -343,10 +386,10 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                AuthErrorCount++;
-                Pake.ClearSessionKey();
+                _AuthErrorCount++;
                 Pake.RaiseOnAuthError(new(auth, payload, ex));
                 payload?.Clear();
+                sessionKey?.Clear();
                 if (ex is CryptographicException) throw;
                 throw CryptographicException.From(ex);
             }
@@ -354,23 +397,122 @@ namespace wan24.Crypto
             {
                 auth.Dispose();
                 randomMac?.Clear();
+                ssc?.Dispose();
             }
         }
 
         /// <summary>
-        /// Clear the session key
+        /// Handle an authentication
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void ClearSessionKey() => Pake.ClearSessionKey();
+        /// <param name="auth">Authentication (will be disposed!)</param>
+        /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Payload and session key (should be cleared!)</returns>
+        /// <exception cref="InvalidDataException">Invalid authentication record</exception>
+        public async Task<(byte[] Payload, byte[] SessionKey)> HandleAuthAsync(IPakeRequest auth, bool decryptPayload = false, CancellationToken cancellationToken = default)
+        {
+            byte[]? payload = null,
+                randomMac = null,
+                sessionKey = null;
+            SemaphoreSyncContext? ssc = null;
+            try
+            {
+                EnsureUndisposed();
+                if (UseSync) ssc = await Sync.SyncContextAsync(cancellationToken).DynamicContext();
+                _AuthCount++;
+                // Decrypt the payload
+                if (decryptPayload && auth.Payload.Length != 0)
+                {
+                    if (Pake.Identity is null) throw await CryptographicException.FromAsync(new InvalidOperationException("Unknown identity")).DynamicContext();
+                    randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
+                    try
+                    {
+                        payload = auth.Payload.Decrypt(randomMac, Pake.CryptoOptions);
+                    }
+                    finally
+                    {
+                        randomMac.Clear();
+                    }
+                }
+                // Run pre-actions
+                Pake.PakeServerEventArgs e = new(auth, payload);
+                Pake.RaiseOnAuth(e);
+                if (e.NewIdentity is not null)
+                {
+                    Pake.ClearIdentity();
+                    Pake.Identity = e.NewIdentity;
+                }
+                // Validate pre-conditions
+                if (Pake.Identity is null) throw await CryptographicException.FromAsync(new InvalidOperationException("Unknown identity")).DynamicContext();
+                if (!Pake.Identity.Identifier.SlowCompare(auth.Identifier))
+                    throw await CryptographicException.FromAsync(new InvalidDataException("Identity mismatch")).DynamicContext();
+                byte[] key = null!,
+                    secret = null!,
+                    signature = null!;
+                int len = auth.Identifier.Length;
+                try
+                {
+                    // Validate the auth values lengths
+                    if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
+                        throw await CryptographicException.FromAsync(new InvalidDataException("Value lengths invalid")).DynamicContext();
+                    // Extract key and secret
+                    randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
+                    key = Key;
+                    if (!auth.Key.Xor(randomMac).SlowCompare(key))
+                        throw await CryptographicException.FromAsync(new InvalidDataException("Authentication key invalid")).DynamicContext();
+                    // Validate the signature and create the session key (MAC)
+                    secret = Secret;
+                    (signature, sessionKey) = Pake.SignAndCreateSessionKey2(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
+                    if (!auth.Signature.SlowCompare(signature))
+                        throw await CryptographicException.FromAsync(new InvalidDataException("Signature validation failed")).DynamicContext();
+                    return (payload ?? auth.Payload.CloneArray(), sessionKey);
+                }
+                finally
+                {
+                    signature?.Clear();
+                    key?.Clear();
+                    secret?.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                _AuthErrorCount++;
+                Pake.RaiseOnAuthError(new(auth, payload, ex));
+                payload?.Clear();
+                sessionKey?.Clear();
+                if (ex is CryptographicException) throw;
+                throw await CryptographicException.FromAsync(ex).DynamicContext();
+            }
+            finally
+            {
+                auth.Dispose();
+                randomMac?.Clear();
+                ssc?.Dispose();
+            }
+        }
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
             FastPakeAuthServerTable.Servers.TryRemove(GUID, out _);
+            using SemaphoreSync sync = Sync;
+            using SemaphoreSyncContext ssc = sync;
             Pake?.Dispose();
             Secret?.Dispose();
             Key?.Dispose();
-            Sync.Dispose();
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DisposeCore()
+        {
+            FastPakeAuthServerTable.Servers.TryRemove(GUID, out _);
+            await using (Sync.DynamicContext())
+            {
+                using SemaphoreSyncContext ssc = await Sync.SyncContextAsync().DynamicContext();
+                if (Secret is not null) await Secret.DisposeAsync().DynamicContext();
+                if (Key is not null) await Key.DisposeAsync().DynamicContext();
+                if (Pake is not null) await Pake.DisposeAsync().DynamicContext();
+            }
         }
     }
 }

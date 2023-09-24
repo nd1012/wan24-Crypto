@@ -61,8 +61,10 @@ namespace wan24.Crypto
         public PublicKeySuite Public => IfUndisposed(() => _Public ??= new()
         {
             KeyExchangeKey = KeyExchangeKey?.PublicKey.GetCopy(),
+            CounterKeyExchangeKey = CounterKeyExchangeKey?.PublicKey.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.PublicKey.GetCopy(),
-            SignedPublicKey = SignedPublicKey is null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
+            CounterSignatureKey = (ISignaturePublicKey?)CounterSignatureKey?.PublicKey.GetCopy(),
+            SignedPublicKey = SignedPublicKey?.Clone()
         });
 
         /// <summary>
@@ -118,10 +120,10 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
-            stream.WriteAnyNullable(KeyExchangeKey)
-                .WriteAnyNullable(CounterKeyExchangeKey)
-                .WriteAnyNullable(SignatureKey)
-                .WriteAnyNullable(CounterSignatureKey)
+            stream.WriteBytesNullable(KeyExchangeKey?.Export())
+                .WriteBytesNullable(CounterKeyExchangeKey?.Export())
+                .WriteBytesNullable(SignatureKey?.Export())
+                .WriteBytesNullable(CounterSignatureKey?.Export())
                 .WriteSerializedNullable(SignedPublicKey)
                 .WriteBytesNullable(SymmetricKey);
         }
@@ -129,10 +131,10 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
-            await stream.WriteAnyNullableAsync(KeyExchangeKey, cancellationToken).DynamicContext();
-            await stream.WriteAnyNullableAsync(CounterKeyExchangeKey, cancellationToken).DynamicContext();
-            await stream.WriteAnyNullableAsync(SignatureKey, cancellationToken).DynamicContext();
-            await stream.WriteAnyNullableAsync(CounterSignatureKey, cancellationToken).DynamicContext();
+            await stream.WriteBytesNullableAsync(KeyExchangeKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteBytesNullableAsync(CounterKeyExchangeKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteBytesNullableAsync(SignatureKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteBytesNullableAsync(CounterSignatureKey?.Export(), cancellationToken).DynamicContext();
             await stream.WriteSerializedNullableAsync(SignedPublicKey, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(SymmetricKey, cancellationToken).DynamicContext();
         }
@@ -140,10 +142,46 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            KeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
-            CounterKeyExchangeKey = (IKeyExchangePrivateKey?)stream.ReadAnyNullable(version);
-            SignatureKey = (ISignaturePrivateKey?)stream.ReadAnyNullable(version);
-            CounterSignatureKey = (ISignaturePrivateKey?)stream.ReadAnyNullable(version);
+            byte[]? keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+            IAsymmetricKey? key = null;
+            try
+            {
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not IKeyExchangePrivateKey k) throw new SerializerException("Invalid private key exchange key");
+                    KeyExchangeKey = k;
+                }
+                keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not IKeyExchangePrivateKey k) throw new SerializerException("Invalid private counter key exchange key");
+                    CounterKeyExchangeKey = k;
+                }
+                keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not ISignaturePrivateKey k) throw new SerializerException("Invalid private signature key");
+                    SignatureKey = k;
+                }
+                keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not ISignaturePrivateKey k) throw new SerializerException("Invalid private counter signature key");
+                    CounterSignatureKey = k;
+                }
+                key = null;
+                keyData = null;
+            }
+            catch
+            {
+                key?.Dispose();
+                keyData?.Clear();
+                throw;
+            }
             SignedPublicKey = stream.ReadSerializedNullable<AsymmetricSignedPublicKey>(version);
             SymmetricKey = stream.ReadBytesNullable(version, minLen: 1, maxLen: byte.MaxValue)?.Value;
         }
@@ -151,10 +189,46 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            KeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken: cancellationToken).DynamicContext();
-            CounterKeyExchangeKey = (IKeyExchangePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken: cancellationToken).DynamicContext();
-            SignatureKey = (ISignaturePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken: cancellationToken).DynamicContext();
-            CounterSignatureKey = (ISignaturePrivateKey?)await stream.ReadAnyNullableAsync(version, cancellationToken: cancellationToken).DynamicContext();
+            byte[]? keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            IAsymmetricKey? key = null;
+            try
+            {
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not IKeyExchangePrivateKey k) throw new SerializerException("Invalid private key exchange key");
+                    KeyExchangeKey = k;
+                }
+                keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not IKeyExchangePrivateKey k) throw new SerializerException("Invalid private counter key exchange key");
+                    CounterKeyExchangeKey = k;
+                }
+                keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not ISignaturePrivateKey k) throw new SerializerException("Invalid private signature key");
+                    SignatureKey = k;
+                }
+                keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import(keyData);
+                    if (key is not ISignaturePrivateKey k) throw new SerializerException("Invalid private counter signature key");
+                    CounterSignatureKey = k;
+                }
+                key = null;
+                keyData = null;
+            }
+            catch
+            {
+                key?.Dispose();
+                keyData?.Clear();
+                throw;
+            }
             SignedPublicKey = await stream.ReadSerializedNullableAsync<AsymmetricSignedPublicKey>(version, cancellationToken).DynamicContext();
             SymmetricKey = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
         }

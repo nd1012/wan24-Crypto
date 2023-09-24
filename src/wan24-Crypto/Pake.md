@@ -1,8 +1,8 @@
 ﻿# PAKE
 
-This is a Password Authenticated Key Exchange protocol, which uses symmetric 
-cryptographic algorithms only. Messages are required to be exchanged wrapped 
-by a PFS protocol. All used/produced/communicated data IS sensitive!
+This is an augmented Password Authenticated Key Exchange protocol, which uses 
+symmetric cryptographic algorithms only. Messages are required to be exchanged 
+wrapped by a PFS protocol. All used/produced/communicated data IS sensitive!
 
 In the following pseudo codes there are some common functions being used:
 

@@ -1,4 +1,6 @@
-﻿namespace wan24.Crypto
+﻿using wan24.Core;
+
+namespace wan24.Crypto
 {
     /// <summary>
     /// Encryption extensions
@@ -14,12 +16,14 @@
         /// <returns>Cipher data</returns>
         public static byte[] Encrypt(this ReadOnlySpan<byte> rawData, byte[] pwd, CryptoOptions? options = null)
         {
+            options = options?.Clone() ?? EncryptionHelper.GetDefaultOptions();
             try
             {
-                using MemoryStream ms = new();
+                options.LeaveOpen = true;
+                using MemoryPoolStream ms = new();
                 ms.Write(rawData);
                 ms.Position = 0;
-                using MemoryStream cipherData = new();
+                using MemoryPoolStream cipherData = new();
                 ms.Encrypt(cipherData, pwd, options);
                 return cipherData.ToArray();
             }
@@ -30,6 +34,10 @@
             catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                options.Clear();
             }
         }
 
@@ -82,12 +90,14 @@
         /// <returns>Cipher data</returns>
         public static byte[] Encrypt(this ReadOnlySpan<byte> rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
+            options = options?.Clone() ?? EncryptionHelper.GetDefaultOptions();
             try
             {
-                using MemoryStream ms = new();
+                options.LeaveOpen = true;
+                using MemoryPoolStream ms = new();
                 ms.Write(rawData);
                 ms.Position = 0;
-                using MemoryStream cipherData = new();
+                using MemoryPoolStream cipherData = new();
                 ms.Encrypt(cipherData, key, options);
                 return cipherData.ToArray();
             }
@@ -98,6 +108,10 @@
             catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                options.Clear();
             }
         }
 
@@ -150,12 +164,14 @@
         /// <returns>Raw data</returns>
         public static byte[] Decrypt(this ReadOnlySpan<byte> cipherData, byte[] pwd, CryptoOptions? options = null)
         {
+            options = options?.Clone() ?? EncryptionHelper.GetDefaultOptions();
             try
             {
-                using MemoryStream ms = new();
+                options.LeaveOpen = true;
+                using MemoryPoolStream ms = new();
                 ms.Write(cipherData);
                 ms.Position = 0;
-                using MemoryStream rawData = new();
+                using MemoryPoolStream rawData = new();
                 ms.Decrypt(rawData, pwd, options);
                 return rawData.ToArray();
             }
@@ -166,6 +182,10 @@
             catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                options.Clear();
             }
         }
 
@@ -218,12 +238,14 @@
         /// <returns>Raw data</returns>
         public static byte[] Decrypt(this ReadOnlySpan<byte> cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
+            options = options?.Clone() ?? EncryptionHelper.GetDefaultOptions();
             try
             {
-                using MemoryStream ms = new();
+                options.LeaveOpen = true;
+                using MemoryPoolStream ms = new();
                 ms.Write(cipherData);
                 ms.Position = 0;
-                using MemoryStream rawData = new();
+                using MemoryPoolStream rawData = new();
                 ms.Decrypt(rawData, key, options);
                 return rawData.ToArray();
             }
@@ -234,6 +256,10 @@
             catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                options.Clear();
             }
         }
 

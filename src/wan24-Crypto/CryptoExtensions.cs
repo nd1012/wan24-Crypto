@@ -159,5 +159,33 @@ namespace wan24.Crypto
                 throw await CryptographicException.FromAsync(ex);
             }
         }
+
+        /// <summary>
+        /// Extend a key by additional keys
+        /// </summary>
+        /// <param name="key">Key (will be cleared!)</param>
+        /// <param name="additionalKeys">Additional keys (will be cleared!)</param>
+        /// <returns>Extended key</returns>
+        public static byte[] ExtendKey(this byte[] key, params byte[]?[] additionalKeys)
+        {
+            int addLen = 0,
+                offset = 0,
+                len = additionalKeys.Length;
+            for (int i = 0; i != len; addLen += additionalKeys[i]?.Length ?? 0, i++) ;
+            byte[] res = new byte[addLen + key.Length];
+            byte[]? addKey;
+            Span<byte> resSpan = res.AsSpan();
+            for (int i = len - 1; i >= 0; i--)
+            {
+                addKey = additionalKeys[i];
+                if (addKey is null) continue;
+                addKey.CopyTo(resSpan[offset..]);
+                offset += addKey.Length;
+                addKey.Clear();
+            }
+            key.CopyTo(resSpan[offset..]);
+            key.Clear();
+            return res;
+        }
     }
 }

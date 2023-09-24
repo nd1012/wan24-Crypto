@@ -36,6 +36,12 @@ namespace wan24.Crypto
         /// </summary>
         int DefaultKeySize { get; }
         /// <summary>
+        /// Ensure that the given options include the default options for this algorithm
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null);
+        /// <summary>
         /// Create a new key pair
         /// </summary>
         /// <param name="options">Options</param>

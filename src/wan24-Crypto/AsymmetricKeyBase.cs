@@ -39,7 +39,10 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public byte[] Export()
         {
-            using MemoryStream ms = new();
+            using MemoryPoolStream ms = new()
+            {
+                CleanReturned = true
+            };
             ms.WriteSerializerVersion()
                 .WriteString(GetType().ToString())
                 .WriteBytes(KeyData.Array);
@@ -111,7 +114,16 @@ namespace wan24.Crypto
             if (!typeof(T).IsAssignableFrom(type) || type.IsAbstract || type.IsInterface) throw new InvalidDataException($"Type {type} isn't a valid asymmetric key type ({typeof(T)})");
             keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: ushort.MaxValue).Value;
             if (ms.Position != ms.Length) throw new InvalidDataException("Didn't use all available key data for deserializing asymmetric key");
-            return (T)(Activator.CreateInstance(type, keyData) ?? throw new InvalidProgramException($"Failed to instance asymmetric key {type} ({typeof(T)})"));
+            byte[] data = keyData.CloneArray();
+            try
+            {
+                return (T)(Activator.CreateInstance(type, data) ?? throw new InvalidProgramException($"Failed to instance asymmetric key {type} ({typeof(T)})"));
+            }
+            catch
+            {
+                data.Clear();
+                throw;
+            }
         }
 
         /// <summary>

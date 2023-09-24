@@ -93,10 +93,10 @@ namespace wan24.Crypto
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
                     .WriteNumber(VERSION)
-                    .WriteAnyNullable(_KeyExchangeKey)
-                    .WriteAnyNullable(_CounterKeyExchangeKey)
-                    .WriteAnyNullable(SignatureKey)
-                    .WriteAnyNullable(CounterSignatureKey)
+                    .WriteBytesNullable(_KeyExchangeKey?.Export())
+                    .WriteBytesNullable(_CounterKeyExchangeKey?.Export())
+                    .WriteBytesNullable(SignatureKey?.Export())
+                    .WriteBytesNullable(CounterSignatureKey?.Export())
                     .WriteSerializedNullable(SignedPublicKey);
                 SignedData = ms.ToArray();
                 return SignedData;
@@ -134,7 +134,7 @@ namespace wan24.Crypto
             _CounterKeyExchangeKey = _CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.GetCopy(),
             CounterSignatureKey = (ISignaturePublicKey?)CounterSignatureKey?.GetCopy(),
-            SignedPublicKey = SignedPublicKey is null ? null : (AsymmetricSignedPublicKey)(byte[])SignedPublicKey
+            SignedPublicKey = SignedPublicKey?.Clone()
         });
 
         /// <inheritdoc/>
@@ -189,14 +189,50 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             if (SignedData is null) throw new InvalidOperationException();
-            using MemoryStream ms = new();
+            using MemoryStream ms = new(SignedData);
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>(ssv);
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
-            _KeyExchangeKey = (IAsymmetricPublicKey?)ms.ReadAnyNullable(ssv);
-            _CounterKeyExchangeKey = (IAsymmetricPublicKey?)ms.ReadAnyNullable(ssv);
-            SignatureKey = (ISignaturePublicKey?)ms.ReadAnyNullable(ssv);
-            CounterSignatureKey = (ISignaturePublicKey?)ms.ReadAnyNullable(ssv);
+            byte[]? keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+            IAsymmetricKey? key = null;
+            try
+            {
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);
+                    if (key is not IAsymmetricPublicKey k || !k.Algorithm.CanExchangeKey) throw new SerializerException("Invalid public key exchange key");
+                    _KeyExchangeKey = k;
+                }
+                keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);
+                    if (key is not IAsymmetricPublicKey k || !k.Algorithm.CanExchangeKey) throw new SerializerException("Invalid public counter key exchange key");
+                    _CounterKeyExchangeKey = k;
+                }
+                keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import<ISignaturePublicKey>(keyData);
+                    if (key is not ISignaturePublicKey k) throw new SerializerException("Invalid public signature key");
+                    SignatureKey = k;
+                }
+                keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+                if (keyData is not null)
+                {
+                    key = AsymmetricKeyBase.Import<ISignaturePublicKey>(keyData);
+                    if (key is not ISignaturePublicKey k) throw new SerializerException("Invalid public counter signature key");
+                    CounterSignatureKey = k;
+                }
+                key = null;
+                keyData = null;
+            }
+            catch
+            {
+                key?.Dispose();
+                keyData?.Clear();
+                throw;
+            }
             SignedPublicKey = ms.ReadSerializedNullable<AsymmetricSignedPublicKey>(ssv);
         }
 

@@ -100,6 +100,52 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Create the signature and the session key
+        /// </summary>
+        /// <param name="signatureKey">Signature key</param>
+        /// <param name="key">Authentication key</param>
+        /// <param name="random">Random bytes</param>
+        /// <param name="payload">Payload</param>
+        /// <param name="secret">Secret</param>
+        /// <returns>Signature and session key</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal (byte[] Signature, byte[] SessionKey) SignAndCreateSessionKey2(in byte[] signatureKey, in byte[] key, in byte[] random, in byte[] payload, in byte[] secret)
+        {
+            byte[] identifier = Identifier,
+                signature = null!,
+                sessionKey = null!;
+            try
+            {
+                // Sign the PAKE sequence
+                using (RentedArrayRefStruct<byte> signedData = new(len: key.Length)
+                {
+                    Clear = true
+                })
+                {
+                    random.AsSpan().CopyTo(signedData.Span);
+                    if (payload.Length != 0) signedData.Span.RotatingXor(payload);
+                    signature = signedData.Span.Xor(secret)
+                        .Xor(identifier)
+                        .Xor(key)
+                        .Mac(signatureKey, Options);
+                }
+                // Create the session key
+                sessionKey = signatureKey.Mac(secret, Options);
+                return (signature, random.Mac(sessionKey, Options));
+            }
+            catch (Exception ex)
+            {
+                signature?.Clear();
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                sessionKey?.Clear();
+            }
+        }
+
+        /// <summary>
         /// Clear the identity
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

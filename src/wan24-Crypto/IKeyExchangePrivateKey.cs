@@ -18,5 +18,11 @@
         /// <param name="keyExchangeData">Key exchange data</param>
         /// <returns>Derived key</returns>
         byte[] DeriveKey(byte[] keyExchangeData);
+        /// <summary>
+        /// Get the derived key from a public key
+        /// </summary>
+        /// <param name="publicKey">Public key</param>
+        /// <returns>Derived key</returns>
+        byte[] DeriveKey(IAsymmetricPublicKey publicKey);
     }
 }

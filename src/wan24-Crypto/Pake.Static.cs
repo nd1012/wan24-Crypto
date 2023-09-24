@@ -40,11 +40,10 @@ namespace wan24.Crypto
             get
             {
                 if (_DefaultCryptoOptions is not null) return _DefaultCryptoOptions.Clone();
-                _DefaultCryptoOptions = new();
-                _DefaultCryptoOptions.WithEncryptionAlgorithm()
-                    .WithoutCompression()
-                    .WithoutKdf()
+                _DefaultCryptoOptions = EncryptionHelper.GetDefaultOptions();
+                _DefaultCryptoOptions.WithoutCompression()
                     .WithoutMac()
+                    .WithoutKdf()
                     .IncludeNothing()
                     .WithoutRequirements(CryptoFlags.FLAGS);
                 if (EncryptionHelper.GetAlgorithm(_DefaultCryptoOptions.Algorithm!).RequireMacAuthentication)
