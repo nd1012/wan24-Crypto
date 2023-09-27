@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <param name="transform">Transform</param>
-        public MacStreams(CryptoStream stream, KeyedHashAlgorithm transform) : base()
+        public MacStreams(in CryptoStream stream, in KeyedHashAlgorithm transform) : base()
         {
             Stream = stream;
             Transform = transform;
@@ -37,19 +37,23 @@ namespace wan24.Crypto
         /// <summary>
         /// Finalize the MAC
         /// </summary>
-        public void FinalizeMac()
+        /// <param name="transformFinal">Transform the final block?</param>
+        public void FinalizeMac(in bool transformFinal = true)
         {
             Stream.Dispose();
-            Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            //FIXME No problems with MAC as with hash yet - just in case
+            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
         }
 
         /// <summary>
         /// Finalize the MAC
         /// </summary>
-        public async Task FinalizeMacAsync()
+        /// <param name="transformFinal">Transform the final block?</param>
+        public async Task FinalizeMacAsync(bool transformFinal = true)
         {
             await Stream.DisposeAsync().DynamicContext();
-            Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            //FIXME No problems with MAC as with hash yet - just in case
+            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
         }
 
         /// <inheritdoc/>

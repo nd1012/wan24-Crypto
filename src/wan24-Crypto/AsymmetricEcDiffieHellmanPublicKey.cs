@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
+using wan24.ObjectValidation;
 
 namespace wan24.Crypto
 {
@@ -47,6 +48,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Public key (don't dispose - will be disposed when this public key instance disposes!)
         /// </summary>
+        [NoValidation]
         public ECDiffieHellmanPublicKey PublicKey
         {
             get

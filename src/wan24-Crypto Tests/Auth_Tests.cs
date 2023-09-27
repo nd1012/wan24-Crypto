@@ -9,7 +9,7 @@ namespace wan24_Crypto_Tests
     [TestClass]
     public class Auth_Tests
     {
-        [TestMethod, /*Timeout(3000)*/]
+        [TestMethod, Timeout(10000)]
         public async Task GeneralAsync_Tests()
         {
             try
@@ -28,6 +28,12 @@ namespace wan24_Crypto_Tests
                 using PrivateKeySuite serverKeys = PrivateKeySuite.CreateWithCounterAlgorithms();
                 serverKeys.SignedPublicKey = new(serverKeys.SignatureKey!.PublicKey);
                 serverKeys.SignedPublicKey.Sign(serverKeys.SignatureKey, counterPrivateKey: serverKeys.CounterSignatureKey);
+                serverKeys.SignedPublicCounterKey = new(serverKeys.CounterSignatureKey!.PublicKey);
+                serverKeys.SignedPublicCounterKey.Sign(serverKeys.CounterSignatureKey, counterPrivateKey: serverKeys.CounterSignatureKey);
+                using SignedPkiStore pki = new();
+                pki.AddTrustedRoot(serverKeys.SignedPublicKey);
+                pki.AddTrustedRoot(serverKeys.SignedPublicCounterKey);
+                pki.EnableLocalPki();
                 IPakeRecord? identity = null;
                 PublicKeySuite? publicClientKeys = null;
                 using ServerAuth server = new(new(serverKeys)
@@ -39,7 +45,8 @@ namespace wan24_Crypto_Tests
                         if (identity is not null)
                         {
                             Logging.WriteInfo("Loading identity");
-                            if (context.Authentication is not null) Assert.IsTrue(identity.Identifier.SequenceEqual(context.Authentication.Identifier));
+                            if (context.Authentication is not null)
+                                Assert.IsTrue(identity.Identifier.SequenceEqual(context.Authentication.Identifier), "Identifier mismatch");
                             context.Identity = identity;
                             context.PublicClientKeys = publicClientKeys;
                         }
@@ -62,19 +69,22 @@ namespace wan24_Crypto_Tests
                                 {
                                     Logging.WriteInfo("Client signed up");
                                     serverSignupSessionKey = context.SessionKey;
-                                    Assert.IsNotNull(context.Identity);
-                                    identity = context.Identity;
-                                    Assert.IsNotNull(context.PublicKeys);
-                                    Assert.IsNotNull(context.PublicKeys.SignedPublicKey);
-                                    publicClientKeys = context.PublicKeys;
+                                    Assert.IsNotNull(context.Identity, "Missing identity");
+                                    identity = new PakeRecord(context.Identity);
+                                    Assert.IsNotNull(context.PublicKeys, "Missing public keys");
+                                    Assert.IsNotNull(context.PublicKeys.SignedPublicKey, "Missing signed public key");
+                                    publicClientKeys = context.PublicKeys.Clone();
                                 }
                                 else
                                 {
                                     Logging.WriteInfo("Client authenticated");
                                     serverAuthSessionKey = context.SessionKey;
-                                    Assert.AreEqual(identity, context.Identity);
-                                    Assert.AreEqual(publicClientKeys, context.PublicKeys);
+                                    Assert.IsNotNull(identity);
+                                    Assert.IsTrue(identity.Identifier.SequenceEqual(context.Identity.Identifier), "Identity mismatch");
+                                    Assert.AreEqual(publicClientKeys, context.PublicKeys, "Public keys mismatch");
+                                    return;
                                 }
+                        Logging.WriteInfo("Server task ending");
                     }
                     catch (OperationCanceledException)
                     {
@@ -82,9 +92,14 @@ namespace wan24_Crypto_Tests
                     }
                     catch (Exception ex)
                     {
+                        Logging.WriteError("Server exception");
                         Logging.WriteError(ex.ToString());
                         //Debugger.Break();
                         //Assert.IsFalse(true);
+                    }
+                    finally
+                    {
+                        Logging.WriteInfo("Server task end");
                     }
                 });
 
@@ -93,9 +108,10 @@ namespace wan24_Crypto_Tests
                 using BiDirectionalStream emulatedClientSocket = new(channelB, channelA, leaveOpen: true);
                 Logging.WriteInfo("Client tests");
                 byte[] clientSignupSessionKey = await ClientAuth.SignupAsync(emulatedClientSocket, new(clientKeys, "test".GetBytes(), "test".GetBytes16(), new byte[] { 1, 2, 3 })
-                {
-                    CryptoOptions = cryptoOptions
-                }),
+                    {
+                        CryptoOptions = cryptoOptions,
+                        PublicKeySigningRequest = new(clientKeys.SignatureKey!.PublicKey)
+                    }),
                     clientAuthSessionKey = await ClientAuth.AuthenticateAsync(emulatedClientSocket, new(clientKeys, "test".GetBytes(), "test".GetBytes16())
                     {
                         CryptoOptions = cryptoOptions
@@ -116,15 +132,20 @@ namespace wan24_Crypto_Tests
                 cts.Cancel();
                 try
                 {
+                    Logging.WriteInfo("Waiting for server");
                     await serverTask;
+                    Logging.WriteInfo("Server task returned");
                 }
                 catch (Exception ex)
                 {
+                    Logging.WriteInfo("Server task exception");
                     Logging.WriteError(ex.ToString());
                 }
+                Logging.WriteInfo("Server stopped");
             }
             finally
             {
+                Logging.WriteInfo("End auth tests");
                 EncryptionHelper.Algorithms.TryRemove(EncryptionDummyAlgorithm.ALGORITHM_NAME, out _);
             }
         }

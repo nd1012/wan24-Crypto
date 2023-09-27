@@ -43,6 +43,7 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         [CountLimit(1, byte.MaxValue)]
+        [SensitiveData]
         public byte[] Key { get; private set; } = null!;
 
         /// <inheritdoc/>
@@ -51,6 +52,7 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         [CountLimit(0, ushort.MaxValue)]
+        [SensitiveData]
         public byte[] Payload { get; private set; } = null!;
 
         /// <inheritdoc/>

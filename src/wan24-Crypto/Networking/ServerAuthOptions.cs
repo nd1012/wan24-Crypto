@@ -1,4 +1,7 @@
-﻿namespace wan24.Crypto.Networking
+﻿using System.ComponentModel.DataAnnotations;
+using wan24.Core;
+
+namespace wan24.Crypto.Networking
 {
     /// <summary>
     /// Server authentication options
@@ -10,7 +13,7 @@
         /// </summary>
         /// <param name="privateKeys">Private keys (will be disposed!)</param>
         /// <param name="identityfactory">Identity factory (required for signup/authentication)</param>
-        public ServerAuthOptions(PrivateKeySuite privateKeys, ServerAuth.Identity_Delegate? identityfactory = null)
+        public ServerAuthOptions(in PrivateKeySuite privateKeys, in ServerAuth.Identity_Delegate? identityfactory = null)
         {
             PrivateKeys = privateKeys;
             IdentityFactory = identityfactory;
@@ -19,6 +22,7 @@
         /// <summary>
         /// Private keys (will be disposed!)
         /// </summary>
+        [SensitiveData]
         public PrivateKeySuite PrivateKeys { get; }
 
         /// <summary>
@@ -104,6 +108,37 @@
         /// <summary>
         /// Public client key signature purpose
         /// </summary>
+        [MinLength(1), MaxLength(byte.MaxValue)]
         public string PublicClientKeySignaturePurpose { get; set; } = ServerAuth.PUBLIC_KEY_SIGNATURE_PURPOSE;
+
+        /// <summary>
+        /// PFS key pool
+        /// </summary>
+        public IAsymmetricKeyPool? PfsKeyPool { get; set; }
+
+        /// <summary>
+        /// PFS counter key pool
+        /// </summary>
+        public IAsymmetricKeyPool? PfsCounterKeyPool { get; set; }
+
+        /// <summary>
+        /// Session key value encrypt timeout (<see cref="SecureValue"/>)
+        /// </summary>
+        public TimeSpan? EncryptTimeout { get; set; }
+
+        /// <summary>
+        /// Session key value re-crypt timeout (<see cref="SecureValue"/>)
+        /// </summary>
+        public TimeSpan? RecryptTimeout { get; set; }
+
+        /// <summary>
+        /// Options for encrypting the session key value (<see cref="SecureValue"/>)
+        /// </summary>
+        public CryptoOptions? SessionKeyCryptoOptions { get; set; }
+
+        /// <summary>
+        /// Session key KEK length in bytes (<see cref="SecureValue"/>)
+        /// </summary>
+        public int SessionKeyKeKLength { get; set; } = 64;
     }
 }

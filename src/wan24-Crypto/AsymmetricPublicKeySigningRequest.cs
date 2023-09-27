@@ -203,15 +203,12 @@ namespace wan24.Crypto
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>();
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
+            IAsymmetricPublicKey? key = null;
             byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: short.MaxValue).Value;
-            IAsymmetricKey? key = null;
             try
             {
-                key = AsymmetricKeyBase.Import(keyData);
-                if (key is not IAsymmetricPublicKey k) throw new SerializerException("Invalid public key");
-                PublicKey = k;
-                key = null;
-                keyData = null!;
+                key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);
+                PublicKey = key;
             }
             catch
             {

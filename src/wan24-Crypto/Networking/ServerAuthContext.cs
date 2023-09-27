@@ -1,4 +1,6 @@
-﻿namespace wan24.Crypto.Networking
+﻿using wan24.Core;
+
+namespace wan24.Crypto.Networking
 {
     /// <summary>
     /// Server authentication context
@@ -13,7 +15,7 @@
         /// <param name="hashOptions">Hash options</param>
         /// <param name="pakeOptions">PAKE options</param>
         /// <param name="cryptoOptions">Options for encryption</param>
-        internal ServerAuthContext(ServerAuth serverAuth, Stream stream, CryptoOptions hashOptions, CryptoOptions pakeOptions, CryptoOptions cryptoOptions)
+        internal ServerAuthContext(in ServerAuth serverAuth, in Stream stream, in CryptoOptions hashOptions, in CryptoOptions pakeOptions, in CryptoOptions cryptoOptions)
         {
             ServerAuthentication = serverAuth;
             Stream = stream;
@@ -50,6 +52,7 @@
         /// <summary>
         /// PAKE identity (will be disposed!)
         /// </summary>
+        [SensitiveData]
         public IPakeRecord? Identity { get; set; }
 
         /// <summary>
@@ -76,6 +79,11 @@
         /// PAKE options
         /// </summary>
         public CryptoOptions PakeOptions { get; }
+
+        /// <summary>
+        /// Fast PAKE authentication server (won't be disposed!)
+        /// </summary>
+        public FastPakeAuthServer? FastPakeAuth { get; set; }
 
         /// <summary>
         /// Options for encryption

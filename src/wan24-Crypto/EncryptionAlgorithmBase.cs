@@ -141,7 +141,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return cipherData.ReadBytes(options.SerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
+                return cipherData.ReadBytes(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
             }
             catch(Exception ex)
             {
@@ -160,7 +160,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return (await cipherData.ReadBytesAsync(options.SerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                return (await cipherData.ReadBytesAsync(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
             }
             catch (Exception ex)
             {

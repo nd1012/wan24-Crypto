@@ -32,12 +32,28 @@ namespace wan24.Crypto.Networking
                     await Options.IdentityFactory!(context, cancellationToken).DynamicContext();
                     if (context.Identity is null) throw new UnauthorizedAccessException("No identity found");
                     if (context.PublicClientKeys is null) throw new UnauthorizedAccessException("Missing client public keys");
-                    using (Pake pake = new(context.Identity, context.PakeOptions.Clone(), context.CryptoOptions.Clone()))
+                    if (context.FastPakeAuth is null)
                     {
+                        using Pake pake = new(context.Identity, context.PakeOptions.Clone(), context.CryptoOptions.Clone());
                         pake.OnAuth += (s, e) => OnPakeAuth?.Invoke(this, new(context, pake, e));
                         pake.OnAuthError += (s, e) => OnPakeAuthError?.Invoke(this, new(context, pake, e));
                         payload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipPakeSignatureKeyValidation);
                         context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(pake.SessionKey);
+                    }
+                    else
+                    {
+                        byte[]? pakeSessionKey = null!;
+                        try
+                        {
+                            (payload, pakeSessionKey) = await context.FastPakeAuth.HandleAuthAsync(auth, Options.DecryptPayload, cancellationToken).DynamicContext();
+                            context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(pakeSessionKey);
+                            pakeSessionKey = null;
+                        }
+                        catch
+                        {
+                            pakeSessionKey?.Clear();
+                            throw;
+                        }
                     }
                     context.Payload = payload;
                     context.ClientTimeOffset = DateTime.UtcNow - context.Payload.Created;
@@ -49,16 +65,18 @@ namespace wan24.Crypto.Networking
                     decipher = await Encryption!.GetDecryptionStreamAsync(stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                     // Validate the authentication sequence signature
                     await ValidateAuthSequenceAsync(context, hash.Hash, decipher, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
-                    // Sign the authentication sequence
-                    if (!Options.SendAuthenticationResponse) return new(context, isNewClient: false);
+                    // Exchange the PFS key and sign the authentication sequence
+                    if (!Options.SendAuthenticationResponse) return new(Options, context, isNewClient: false);
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = null;
+                    await stream.WriteAsync((byte)AuthSequences.Authentication, cancellationToken).DynamicContext();
                     cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, context.CryptoOptions, cancellationToken).DynamicContext();
+                    cipher = await ExtendEncryptionAsync(context, cipher, cancellationToken).DynamicContext();
                     await SignAuthSequenceAsync(context, cipher, hash.Hash, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
                     // Exchange a PFS session key
-                    cipher = await ExtendEncryptionAsync(context, cipher, returnCipher: false, cancellationToken).DynamicContext();
                     if (Options.AuthenticationHandler is not null) await Options.AuthenticationHandler(context, cancellationToken).DynamicContext();
-                    return new(context);
+                    await context.Stream.FlushAsync(cancellationToken).DynamicContext();
+                    return new(Options, context);
                 }
                 catch
                 {
@@ -73,13 +91,7 @@ namespace wan24.Crypto.Networking
                     context.ClientPfsKeys?.Dispose();
                     context.CryptoOptions.Clear();
                     context.PakeOptions.Clear();
-                    if (context.Identity is not null)
-                    {
-                        context.Identity.Identifier.Clear();
-                        context.Identity.Secret.Clear();
-                        context.Identity.SignatureKey.Clear();
-                        await context.Identity.TryDisposeAsync().DynamicContext();
-                    }
+                    if (context.Identity is not null) await context.Identity.DisposeAsync().DynamicContext();
                     context.Authentication?.Dispose();
                     payload?.Clear();
                 }

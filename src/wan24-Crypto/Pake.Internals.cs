@@ -152,10 +152,7 @@ namespace wan24.Crypto
         internal void ClearIdentity()
         {
             if (Identity is null) return;
-            Identity.Identifier.Clear();
-            Identity.Secret.Clear();
-            Identity.SignatureKey.Clear();
-            Identity.TryDispose();
+            Identity.Dispose();
             Identity = null;
         }
     }

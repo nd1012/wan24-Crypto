@@ -36,6 +36,14 @@ namespace wan24.Crypto
         /// </summary>
         int DefaultKeySize { get; }
         /// <summary>
+        /// Private key type
+        /// </summary>
+        Type PrivateKeyType { get; }
+        /// <summary>
+        /// Public key type
+        /// </summary>
+        Type PublicKeyType { get; }
+        /// <summary>
         /// Ensure that the given options include the default options for this algorithm
         /// </summary>
         /// <param name="options">Options</param>

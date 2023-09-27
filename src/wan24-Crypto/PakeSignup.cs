@@ -60,6 +60,7 @@ namespace wan24.Crypto
         public byte[] Random { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [SensitiveData]
         [CountLimit(0, ushort.MaxValue)]
         public byte[] Payload { get; private set; } = null!;
 

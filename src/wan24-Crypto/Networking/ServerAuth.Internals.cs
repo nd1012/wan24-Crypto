@@ -25,23 +25,25 @@ namespace wan24.Crypto.Networking
         private async Task<DecryptionStreams> StartDecryptionAsync(ServerAuthContext context, HashStreams hash, CancellationToken cancellationToken)
         {
             DecryptionStreams? decipher = null;
-            byte[]? keyData = null;
+            IAsymmetricPublicKey? key = null;
             PublicKeySuite clientPfsKeys = new();
             try
             {
-                keyData = (await hash.Stream.ReadBytesAsync(minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-                clientPfsKeys.KeyExchangeKey = Options.PrivateKeys.KeyExchangeKey!.Algorithm.DeserializePublicKey(keyData.CloneArray());
-                context.CryptoOptions.Password = Options.PrivateKeys.KeyExchangeKey.DeriveKey(clientPfsKeys.KeyExchangeKey);
+                key = (IAsymmetricPublicKey)Options.PrivateKeys!.KeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
+                await key.DeserializeAsync(hash.Stream, StreamSerializer.Version, cancellationToken).DynamicContext();
+                clientPfsKeys.KeyExchangeKey = key;
+                context.CryptoOptions.Password = Options.PrivateKeys.KeyExchangeKey.DeriveKey(key);
                 decipher = await Encryption!.GetDecryptionStreamAsync(hash.Stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                 if(Options.PrivateKeys.CounterKeyExchangeKey is not null)
                 {
-                    keyData.Clear();
-                    keyData = (await hash.Stream.ReadBytesAsync(minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-                    clientPfsKeys.CounterKeyExchangeKey = Options.PrivateKeys.CounterKeyExchangeKey!.Algorithm.DeserializePublicKey(keyData.CloneArray());
-                    context.CryptoOptions.Password = context.CryptoOptions.Password.ExtendKey(Options.PrivateKeys.CounterKeyExchangeKey.DeriveKey(clientPfsKeys.CounterKeyExchangeKey));
+                    key = (IAsymmetricPublicKey)Options.PrivateKeys!.CounterKeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
+                    await key.DeserializeAsync(hash.Stream, StreamSerializer.Version, cancellationToken).DynamicContext();
+                    clientPfsKeys.CounterKeyExchangeKey = key;
+                    context.CryptoOptions.Password = context.CryptoOptions.Password.ExtendKey(Options.PrivateKeys.CounterKeyExchangeKey.DeriveKey(key));
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await Encryption!.GetDecryptionStreamAsync(hash.Stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                 }
+                key = null;
                 context.ClientPfsKeys = clientPfsKeys;
                 return decipher;
             }
@@ -53,7 +55,7 @@ namespace wan24.Crypto.Networking
             }
             finally
             {
-                keyData?.Clear();
+                key?.Dispose();
             }
         }
 
@@ -73,8 +75,7 @@ namespace wan24.Crypto.Networking
             CancellationToken cancellationToken
             )
         {
-            SignatureContainer signature = Options.PrivateKeys.SignatureKey!.SignHash(hash.CloneArray(), purpose, context.HashOptions);
-            context.Stream.WriteByte((byte)(context.Authentication is null ? AuthSequences.Signup : AuthSequences.Authentication));
+            SignatureContainer signature = Options.PrivateKeys.SignatureKey!.SignHash(hash, purpose, context.HashOptions);
             await cipher.CryptoStream.WriteSerializedAsync(signature, cancellationToken).DynamicContext();
         }
 
@@ -83,43 +84,32 @@ namespace wan24.Crypto.Networking
         /// </summary>
         /// <param name="context">Context</param>
         /// <param name="cipher">Encryption streams</param>
-        /// <param name="returnCipher">Return new encryption streams?</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Encryption streams</returns>
-        private async Task<EncryptionStreams?> ExtendEncryptionAsync(
+        private async Task<EncryptionStreams> ExtendEncryptionAsync(
             ServerAuthContext context, 
             EncryptionStreams cipher, 
-            bool returnCipher,
             CancellationToken cancellationToken
             )
         {
             try
             {
-                using (IKeyExchangePrivateKey pfsKey = (IKeyExchangePrivateKey)Options.PrivateKeys.KeyExchangeKey!.Algorithm.CreateKeyPair(new()
+                using (IKeyExchangePrivateKey pfsKey = CreatePfsKey())
                 {
-                    AsymmetricKeyBits = Options.PrivateKeys.KeyExchangeKey.Bits
-                }))
-                {
-                    await cipher.CryptoStream.WriteBytesAsync(pfsKey.PublicKey.KeyData.Array, cancellationToken).DynamicContext();
+                    await pfsKey.PublicKey.SerializeAsync(cipher.CryptoStream, cancellationToken).DynamicContext();
                     context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(pfsKey.DeriveKey(context.ClientPfsKeys!.KeyExchangeKey!));
                 }
                 await cipher.DisposeAsync().DynamicContext();
-                if (returnCipher || Options.PrivateKeys.CounterKeyExchangeKey is not null)
-                    cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, context.Stream, macStream: null, context.CryptoOptions, cancellationToken).DynamicContext();
+                cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, context.Stream, macStream: null, context.CryptoOptions, cancellationToken).DynamicContext();
                 if (Options.PrivateKeys.CounterKeyExchangeKey is not null)
                 {
-                    using IKeyExchangePrivateKey counterPfsKey = (IKeyExchangePrivateKey)Options.PrivateKeys.CounterKeyExchangeKey!.Algorithm.CreateKeyPair(new()
-                    {
-                        AsymmetricKeyBits = Options.PrivateKeys.CounterKeyExchangeKey.Bits
-                    });
-                    await cipher.CryptoStream.WriteBytesAsync(counterPfsKey.PublicKey.KeyData.Array, cancellationToken).DynamicContext();
+                    using IKeyExchangePrivateKey counterPfsKey = CreatePfsCounterKey();
+                    await counterPfsKey.PublicKey.SerializeAsync(cipher.CryptoStream, cancellationToken).DynamicContext();
                     context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(counterPfsKey.DeriveKey(context.ClientPfsKeys!.CounterKeyExchangeKey!));
                     await cipher.DisposeAsync().DynamicContext();
-                    if (returnCipher)
-                        cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, context.Stream, macStream: null, context.CryptoOptions, cancellationToken)
-                            .DynamicContext();
+                    cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, context.Stream, macStream: null, context.CryptoOptions, cancellationToken).DynamicContext();
                 }
-                return returnCipher ? cipher : null;
+                return cipher;
             }
             catch
             {
@@ -127,6 +117,30 @@ namespace wan24.Crypto.Networking
                 throw;
             }
         }
+
+        /// <summary>
+        /// Create a PFS key
+        /// </summary>
+        /// <returns>PFS key</returns>
+        private IKeyExchangePrivateKey CreatePfsKey()
+            => (IKeyExchangePrivateKey)(Options.PfsKeyPool is null
+                ? Options.PrivateKeys.KeyExchangeKey!.Algorithm.CreateKeyPair(new()
+                {
+                    AsymmetricKeyBits = Options.PrivateKeys.KeyExchangeKey.Bits
+                })
+                : Options.PfsKeyPool.GetKey());
+
+        /// <summary>
+        /// Create a PFS counter key
+        /// </summary>
+        /// <returns>PFS key</returns>
+        private IKeyExchangePrivateKey CreatePfsCounterKey()
+            => (IKeyExchangePrivateKey)(Options.PfsCounterKeyPool is null
+                ? Options.PrivateKeys.CounterKeyExchangeKey!.Algorithm.CreateKeyPair(new()
+                {
+                    AsymmetricKeyBits = Options.PrivateKeys.CounterKeyExchangeKey.Bits
+                })
+                : Options.PfsCounterKeyPool.GetKey());
 
         /// <summary>
         /// Validate the protocol version

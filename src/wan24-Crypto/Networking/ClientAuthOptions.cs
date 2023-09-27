@@ -1,4 +1,6 @@
-﻿namespace wan24.Crypto.Networking
+﻿using wan24.Core;
+
+namespace wan24.Crypto.Networking
 {
     /// <summary>
     /// Client authentication options
@@ -12,7 +14,7 @@
         /// <param name="login">Login ID (will be cleared!)</param>
         /// <param name="pwd">Login password (will be cleared!)</param>
         /// <param name="preSharedSecret">Pre-shared signup secret (will be cleared!)</param>
-        public ClientAuthOptions(PrivateKeySuite privateKeys, byte[] login, byte[]? pwd = null, byte[]? preSharedSecret = null)
+        public ClientAuthOptions(in PrivateKeySuite privateKeys, in byte[] login, in byte[]? pwd = null, in byte[]? preSharedSecret = null)
         {
             PrivateKeys = privateKeys;
             Login = login;
@@ -33,16 +35,19 @@
         /// <summary>
         /// Login ID (will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[] Login { get; }
 
         /// <summary>
         /// Login password (will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[]? Password { get; }
 
         /// <summary>
         /// Pre-shared signup secret
         /// </summary>
+        [SensitiveData]
         public byte[]? PreSharedSecret { get; }
 
         /// <summary>
@@ -53,6 +58,7 @@
         /// <summary>
         /// Payload (will be cleared!)
         /// </summary>
+        [SensitiveData]
         public byte[]? Payload { get; set; }
 
         /// <summary>
@@ -69,6 +75,11 @@
         /// PAKE options (require KDF and MAC algorithms)
         /// </summary>
         public CryptoOptions? PakeOptions { get; set; }
+
+        /// <summary>
+        /// Fast PAKE authentication client (won't be disposed!)
+        /// </summary>
+        public FastPakeAuthClient? FastPakeAuth { get; set; }
 
         /// <summary>
         /// Crypto options (require encryption algorithms; shouldn't use KDF; cipher must not require MAC authentication)
@@ -88,6 +99,7 @@
         /// <summary>
         /// PFS keys
         /// </summary>
+        [SensitiveData]
         internal PrivateKeySuite? PfsKeys { get; set; }
     }
 }

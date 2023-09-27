@@ -21,6 +21,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Identity (will be cleared (and disposed, if possible)!)
         /// </summary>
+        [SensitiveData]
         public IPakeRecord? Identity { get; internal set; }
 
         /// <summary>

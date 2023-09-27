@@ -497,7 +497,7 @@ key exchange and signature key. You can find asymmetric PQC algorithms in the
 any authentication related information changes, a follow-up signup needs to be 
 performed.
 
-The signup process (as seen from the client):
+The signup process (as seen from the client; is bi-directional always):
 
 - Send the clients public PFS key
 - Start encryption using the servers public key and a private PFS key of the 
@@ -522,7 +522,8 @@ private and public key suites
 **NOTE**: The PAKE authentication allows to attach any payload, which enables 
 the app to extend the process with additional meta data as required.
 
-A later authentication process (as seen from the client):
+A later authentication process (as seen from the client; may be uni-
+directional):
 
 - Send the clients public PFS key
 - Start encryption using the servers public key and a private PFS key of the 
@@ -543,7 +544,10 @@ For a bi-directional communication channel in addition:
 - Extend the encryption using the PFS key computed using the private PFS keys 
 and the servers public PFS keys
 
-**NOTE**: Since a temporary client lik a browser may not be able to store the 
+**WARNING**: An uni-directional connection does use a PFS key, but this key is 
+being applied on a pre-shared long term key only.
+
+**NOTE**: Since a temporary client like a browser may not be able to store the 
 private client keys, such a client may only use the signup and not send a key 
 signing request. Then the server is required to identify the authenticating 
 client using the PAKE identifier (not the public key ID).
@@ -575,12 +579,66 @@ must be pre-defined in both (client and server) apps anyway:
 - Hash algorithm
 - MAC algorithm
 - KDF algorithm
-- Encryption algorithm (and settings)
+- Encryption algorithm (and other `CryptoOptions` settings for encryption)
 
 **CAUTION**: The chosen encryption algorithm must not require MAC 
-authentication (while built-in MAC authentication like with AEAD is ok). The 
+authentication (while built-in MAC authentication like with AEAD is ok). You 
+can find a stream cipher in the `wan24-Crypto-BC` library, for example. The 
 encryption settings shouldn't use KDF to avoid too much overhead (KDF will be 
 used for PAKE already).
+
+## Random number generator
+
+You can use `RND` as a random data source. `RND` is customizable and falls 
+back to `RandomNumberGenerator` from .NET. It uses `/dev/urandom` as data 
+source, if available.
+
+```cs
+byte[] randomData = RND.GetBytes(123);
+```
+
+**NOTE**: `/dev/urandom` may be too slow for your requirements. If you don't 
+want to use `RandomDataGenerator` (which can speed up `RND` a lot), you can 
+disable `/dev/urandom`:
+
+```cs
+RND.UseDevUrandom = false;
+```
+
+**NOTE**: In case you want to force using `/dev/urandom` _ONLY_:
+
+```cs
+RND.RequireDevUrandom = true;// This will cause RND to throw on Windows!
+```
+
+The `RandomDataGenerator` is an `IHostedService` which can be customized, but 
+falls back to `RND` per default. The service uses a buffer to pre-buffer 
+random data, in case your RNG is slow. It's possible to define custom 
+fallbacks which are being used in case the buffer doesn't have enough data to 
+satisfy a request. If you use a `RandomDataGenerator`, you can set the 
+instance to `RND.Generator` to use it per default.
+
+The full generator process is:
+
+1. Try reading pre-buffered random data
+2. If not satisfied, call the defined fallback RNG delegates (`RND` methods 
+are preset)
+3. Default `RND` methods use `RandomNumberGenerator`, finally
+
+Each step in this process can be customized in `RND` AND 
+`RandomDataGenerator`, while the defaults of `RandomDataGenerator` fall back 
+to `RandomStream` and `RND`, and the methods of `RND` use `RND.Generator` or 
+fall back to `RandomNumberGenerator`. To simplify that and avoid an endless 
+recursion in your code: **DO NOT** call `RND.Get/FillBytes(Async)` from a 
+customized `RandomDataGenerator`! **DO** call `RND.DefaultRng(Async)` instead.
+
+If you use the plain `RandomDataGenerator`, it uses the `RandomStream` as 
+random data source, if `/dev/urandom` isn't available or disabled. 
+(`RandomStream` uses `RandomNumberGenerator`, finally.)
+
+To sum it up: Use `RND` for (optional customized) getting cyptographic random 
+bytes. You can use `SecureRandomStream.Instance`, too (it uses `RND` on 
+request).
 
 ## Notes
 
@@ -687,9 +745,9 @@ The `HybridAlgorithmHelper` allows to set default hybrid algorithms for
 - KDF in `KdfAlgorithm`
 - MAC in `MacAlgorithm`
 
-and exports some helper methods, which are being used internal (you don't need 
-to use them unless you have to). If you want the additional hybrid algorithms 
-to be used every time, you can set the
+and exports some helper methods, which are being used internal during 
+encryption (you don't need to use them unless you have to). If you want the 
+additional hybrid algorithms to be used every time, you can set the
 
 - `EncryptionHelper.UseHybridOptions`
 - `AsymmetricHelper.UseHybridKeyExchangeOptions`
@@ -697,6 +755,11 @@ to be used every time, you can set the
 
 to `true` to extend used `CryptoOptions` instances by the algorithms defined 
 in the `HybridAlgorithmHelper` properties.
+
+**WARNING**: The `HybridAlgorithmHelper` counter MAC implementation isn't 
+really good - it's only a trade-off to gain compatibility and performance. You 
+should consinder to create a counter MAC from the whole raw data manually, if 
+possible, instead.
 
 ### Post quantum safety
 

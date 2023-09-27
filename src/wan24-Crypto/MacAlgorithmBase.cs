@@ -88,7 +88,7 @@ namespace wan24.Crypto
                 {
                     return new(
                         new(
-                            new WrapperStream(target ?? Stream.Null, leaveOpen: options?.LeaveOpen ?? true),
+                            new WrapperStream(target ?? Stream.Null, leaveOpen: options?.LeaveOpen ?? false),
                             algo, 
                             writable ? CryptoStreamMode.Write : CryptoStreamMode.Read, 
                             leaveOpen: false

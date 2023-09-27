@@ -17,7 +17,7 @@ namespace wan24.Crypto.Networking
             stream.WriteByte((byte)AuthSequences.PublicKeyRequest);
             stream.WriteByte(VERSION);
             await stream.FlushAsync(cancellationToken).DynamicContext();
-            AuthSequences sequence = (AuthSequences)stream.ReadByte();
+            AuthSequences sequence = (AuthSequences)await stream.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
             switch (sequence)
             {
                 case AuthSequences.PublicKeyRequest:
@@ -58,17 +58,17 @@ namespace wan24.Crypto.Networking
                 {
                     AsymmetricKeyBits = options.PublicServerKeys.KeyExchangeKey.Bits
                 });
-                if(options.PublicServerKeys.CounterKeyExchangeKey is not null)
+                if (options.PublicServerKeys.CounterKeyExchangeKey is not null)
                     pfsKeys.CounterKeyExchangeKey = (IKeyExchangePrivateKey)options.PublicServerKeys!.CounterKeyExchangeKey!.Algorithm.CreateKeyPair(new()
                     {
                         AsymmetricKeyBits = options.PublicServerKeys.CounterKeyExchangeKey.Bits
                     });
-                await stream.WriteBytesAsync(pfsKeys.KeyExchangeKey.PublicKey.KeyData.Array, cancellationToken).DynamicContext();
+                await stream.WriteSerializedAsync(pfsKeys.KeyExchangeKey.PublicKey, cancellationToken).DynamicContext();
                 cryptoOptions.Password = pfsKeys.KeyExchangeKey.DeriveKey(options.PublicServerKeys.KeyExchangeKey);
                 cipher = await encryption.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, cryptoOptions, cancellationToken).DynamicContext();
                 if (options.PublicServerKeys.CounterKeyExchangeKey is not null)
                 {
-                    await cipher.CryptoStream.WriteBytesAsync(pfsKeys.CounterKeyExchangeKey!.PublicKey.KeyData.Array, cancellationToken).DynamicContext();
+                    await stream.WriteSerializedAsync(pfsKeys.CounterKeyExchangeKey!.PublicKey, cancellationToken).DynamicContext();
                     cryptoOptions.Password = cryptoOptions.Password.ExtendKey(pfsKeys.CounterKeyExchangeKey.DeriveKey(options.PublicServerKeys.CounterKeyExchangeKey));
                     await cipher.DisposeAsync().DynamicContext();
                     cipher = await encryption.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, cryptoOptions, cancellationToken).DynamicContext();
@@ -102,7 +102,7 @@ namespace wan24.Crypto.Networking
             CancellationToken cancellationToken
             )
         {
-            SignatureContainer signature = options.PrivateKeys.SignatureKey!.SignHash(hash.CloneArray(), purpose, hashOptions);
+            SignatureContainer signature = options.PrivateKeys.SignatureKey!.SignHash(hash, purpose, hashOptions);
             await stream.WriteSerializedAsync(signature, cancellationToken).DynamicContext();
         }
 
@@ -125,19 +125,19 @@ namespace wan24.Crypto.Networking
             CancellationToken cancellationToken
             )
         {
-            byte[] keyData = (await decipher.CryptoStream.ReadBytesAsync(minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            IAsymmetricPublicKey key = (IAsymmetricPublicKey)options.PublicServerKeys!.KeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
             try
             {
-                using (IAsymmetricPublicKey serverPfsKey = options.PublicServerKeys!.KeyExchangeKey!.Algorithm.DeserializePublicKey(keyData))
-                    cryptoOptions.Password = cryptoOptions.Password!.ExtendKey(options.PfsKeys!.KeyExchangeKey!.DeriveKey(serverPfsKey));
+                await key.DeserializeAsync(decipher.CryptoStream, StreamSerializer.Version, cancellationToken).DynamicContext();
+                cryptoOptions.Password = cryptoOptions.Password!.ExtendKey(options.PfsKeys!.KeyExchangeKey!.DeriveKey(key));
                 await decipher.DisposeAsync().DynamicContext();
                 decipher = await encryption.GetDecryptionStreamAsync(stream, Stream.Null, cryptoOptions, cancellationToken).DynamicContext();
                 if (options.PublicServerKeys.CounterKeyExchangeKey is not null)
                 {
-                    keyData.Clear();
-                    keyData = (await decipher.CryptoStream.ReadBytesAsync(minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-                    using (IAsymmetricPublicKey serverPfsKey = options.PublicServerKeys!.CounterKeyExchangeKey!.Algorithm.DeserializePublicKey(keyData))
-                        cryptoOptions.Password = cryptoOptions.Password!.ExtendKey(options.PfsKeys!.CounterKeyExchangeKey!.DeriveKey(serverPfsKey));
+                    key.Dispose();
+                    key = (IAsymmetricPublicKey)options.PublicServerKeys!.KeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
+                    await key.DeserializeAsync(decipher.CryptoStream, StreamSerializer.Version, cancellationToken).DynamicContext();
+                    cryptoOptions.Password = cryptoOptions.Password!.ExtendKey(options.PfsKeys!.CounterKeyExchangeKey!.DeriveKey(key));
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await encryption.GetDecryptionStreamAsync(stream, Stream.Null, cryptoOptions, cancellationToken).DynamicContext();
                 }
@@ -145,7 +145,9 @@ namespace wan24.Crypto.Networking
             }
             finally
             {
-                keyData.Clear();
+                options.PfsKeys!.Dispose();
+                options.PfsKeys = null;
+                key.Dispose();
             }
         }
 

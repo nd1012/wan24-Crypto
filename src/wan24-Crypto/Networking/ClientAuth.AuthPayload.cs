@@ -30,7 +30,7 @@ namespace wan24.Crypto.Networking
             /// <param name="publicKeyId">ID of the public key (<see langword="null"/> during authentication, only required for the signup)</param>
             /// <param name="publickeys">Public keys (only during signup)</param>
             /// <param name="ksr">Key signing request (only during signup)</param>
-            public AuthPayload(byte[]? payload, byte[]? publicKeyId = null, PublicKeySuite? publickeys = null, AsymmetricPublicKeySigningRequest? ksr = null) : this()
+            public AuthPayload(in byte[]? payload, in byte[]? publicKeyId = null, in PublicKeySuite? publickeys = null, in AsymmetricPublicKeySigningRequest? ksr = null) : this()
             {
                 Payload = payload;
                 PublicKeyId = publicKeyId;
@@ -47,6 +47,7 @@ namespace wan24.Crypto.Networking
             /// Payload
             /// </summary>
             [CountLimit(short.MaxValue)]
+            [SensitiveData]
             public byte[]? Payload { get; private set; }
 
             /// <summary>
@@ -132,13 +133,13 @@ namespace wan24.Crypto.Networking
             /// Cast as serialized data
             /// </summary>
             /// <param name="payload">Payload</param>
-            public static implicit operator byte[](AuthPayload payload) => payload.ToBytes();
+            public static implicit operator byte[](in AuthPayload payload) => payload.ToBytes();
 
             /// <summary>
             /// Cast from serialized data
             /// </summary>
             /// <param name="data">Serialized data</param>
-            public static implicit operator AuthPayload(byte[] data) => data.ToObject<AuthPayload>();
+            public static implicit operator AuthPayload(in byte[] data) => data.ToObject<AuthPayload>();
         }
     }
 }

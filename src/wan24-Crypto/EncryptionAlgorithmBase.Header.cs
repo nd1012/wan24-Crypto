@@ -323,7 +323,7 @@ namespace wan24.Crypto
                     options.HeaderVersion = cipherData.ReadOneByte();
                     if (options.HeaderVersion < 1 || options.HeaderVersion > CryptoOptions.HEADER_VERSION) throw new InvalidDataException($"Invalid header version {options.HeaderVersion}");
                 }
-                int? serializerVersion = options.SerializerVersionIncluded ? options.SerializerVersion = cipherData.ReadSerializerVersion() : null;
+                int? serializerVersion = options.SerializerVersionIncluded ? options.CustomSerializerVersion = cipherData.ReadSerializerVersion() : null;
                 // Read the MAC
                 MacAlgorithmBase? mac = null;
                 if (options.MacIncluded)
@@ -481,7 +481,7 @@ namespace wan24.Crypto
                     options.HeaderVersion = await cipherData.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
                     if (options.HeaderVersion < 1 || options.HeaderVersion > CryptoOptions.HEADER_VERSION) throw new InvalidDataException($"Invalid header version {options.HeaderVersion}");
                 }
-                int? serializerVersion = options.SerializerVersionIncluded ? options.SerializerVersion = await cipherData.ReadSerializerVersionAsync(cancellationToken).DynamicContext() : null;
+                int? serializerVersion = options.SerializerVersionIncluded ? options.CustomSerializerVersion = await cipherData.ReadSerializerVersionAsync(cancellationToken).DynamicContext() : null;
                 // Read the MAC
                 MacAlgorithmBase? mac = null;
                 if (options.MacIncluded)

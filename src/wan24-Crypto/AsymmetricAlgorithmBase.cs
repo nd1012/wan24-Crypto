@@ -33,6 +33,16 @@ namespace wan24.Crypto
                 AsymmetricKeyBits = DefaultKeySize
             };
 
+        /// <summary>
+        /// Private key type
+        /// </summary>
+        public static Type PrivateKeyType { get; } = typeof(tPrivate);
+
+        /// <summary>
+        /// Public key type
+        /// </summary>
+        public static Type PublicKeyType { get; } = typeof(tPublic);
+
         /// <inheritdoc/>
         public CryptoOptions DefaultOptions
         {
@@ -59,6 +69,12 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public abstract ReadOnlyCollection<int> AllowedKeySizes { get; }
+
+        /// <inheritdoc/>
+        Type IAsymmetricAlgorithm.PrivateKeyType => PrivateKeyType;
+
+        /// <inheritdoc/>
+        Type IAsymmetricAlgorithm.PublicKeyType => PublicKeyType;
 
         /// <inheritdoc/>
         public int DefaultKeySize

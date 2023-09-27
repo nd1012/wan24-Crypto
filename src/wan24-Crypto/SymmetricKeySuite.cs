@@ -1,4 +1,6 @@
-﻿using wan24.Core;
+﻿using System.ComponentModel.DataAnnotations;
+using wan24.Core;
+using wan24.ObjectValidation;
 
 namespace wan24.Crypto
 {
@@ -68,16 +70,18 @@ namespace wan24.Crypto
         public CryptoOptions Options { get; }
 
         /// <inheritdoc/>
+        [Range(HashMd5Algorithm.HASH_LENGTH, HashSha512Algorithm.HASH_LENGTH)]
         public byte[]? Identifier { get; }
 
         /// <inheritdoc/>
+        [SensitiveData, NoValidation]
         public SecureByteArray ExpandedKey { get; }
 
         /// <summary>
         /// Clone this instance
         /// </summary>
         /// <returns>Cloned instance</returns>
-        public virtual SymmetricKeySuite Clone() => new(Options, Identifier?.CloneArray(), ExpandedKey.Array.CloneArray());
+        public virtual SymmetricKeySuite Clone() => new(Options.Clone(), Identifier?.CloneArray(), ExpandedKey.Array.CloneArray());
 
         /// <summary>
         /// Initialize with only having a key

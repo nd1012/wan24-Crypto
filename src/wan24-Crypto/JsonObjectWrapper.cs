@@ -1,6 +1,6 @@
-﻿using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
 using wan24.Core;
-using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -23,6 +23,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Hosted object type name
         /// </summary>
+        [MinLength(1), MaxLength(byte.MaxValue)]
         public string? HostedObjectType { get; set; }
 
         /// <summary>

@@ -1,4 +1,6 @@
-﻿using wan24.Core;
+﻿using System.ComponentModel.DataAnnotations;
+using wan24.Core;
+using wan24.ObjectValidation;
 
 namespace wan24.Crypto
 {
@@ -102,7 +104,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Value (should/will be cleared!)
         /// </summary>
-        [SensitiveData]
+        [NoValidation, SensitiveData]
         public byte[] Value
         {
             get
@@ -161,6 +163,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Random value encryption key length in bytes
         /// </summary>
+        [Range(1, byte.MaxValue)]
         public int KeyLen
         {
             get => _KeyLen;

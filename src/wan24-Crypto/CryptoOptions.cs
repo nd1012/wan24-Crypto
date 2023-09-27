@@ -42,10 +42,10 @@ namespace wan24.Crypto
         public int HeaderVersion { get; set; } = HEADER_VERSION;
 
         /// <summary>
-        /// Serializer version
+        /// Custom serializer version
         /// </summary>
         [Range(1, byte.MaxValue)]
-        public int? SerializerVersion { get; set; }
+        public int? CustomSerializerVersion { get; set; }
 
         /// <summary>
         /// Compression options
@@ -183,7 +183,7 @@ namespace wan24.Crypto
 #pragma warning disable IDE0034 // default expression can be simplified
                 if (PayloadData is null) return default(T?);
 #pragma warning restore IDE0034
-                serializerVersion ??= SerializerVersion;
+                serializerVersion ??= CustomSerializerVersion;
                 if (typeof(IStreamSerializer).IsAssignableFrom(typeof(T)))
                 {
                     using MemoryStream ms = new();
@@ -343,7 +343,7 @@ namespace wan24.Crypto
         public CryptoOptions Clone() => new()
         {
             // Algorithms and data
-            SerializerVersion = SerializerVersion,
+            CustomSerializerVersion = CustomSerializerVersion,
             Compression = Compression?.Clone(),
             MaxUncompressedDataLength = MaxUncompressedDataLength,
             Algorithm = Algorithm,

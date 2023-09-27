@@ -1,4 +1,5 @@
 ﻿using wan24.Core;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto.Networking
 {
@@ -16,7 +17,7 @@ namespace wan24.Crypto.Networking
         /// Constructor
         /// </summary>
         /// <param name="options">Options</param>
-        public ServerAuth(ServerAuthOptions options) : base(asyncDisposing: false)
+        public ServerAuth(in ServerAuthOptions options) : base(asyncDisposing: false)
         {
             Options = options;
             try
@@ -29,11 +30,27 @@ namespace wan24.Crypto.Networking
                         throw new ArgumentException("Missing signed public key", nameof(options));
                     if (options.IdentityFactory is null) throw new ArgumentException("Missing identity factory", nameof(options));
                     options.HashOptions ??= HashHelper.GetDefaultOptions();
+                    options.HashOptions.ApplyPrivateKeySuite(options.PrivateKeys, forSignature: true);
                     options.HashOptions.LeaveOpen = true;
                     options.PakeOptions ??= Pake.DefaultOptions;
                     options.CryptoOptions ??= Pake.DefaultCryptoOptions;
                     options.CryptoOptions.LeaveOpen = true;
                     Encryption = EncryptionHelper.GetAlgorithm(options.CryptoOptions.Algorithm!);
+                    if (options.PfsKeyPool is not null)
+                    {
+                        if (options.PfsKeyPool.Algorithm.Value != options.PrivateKeys.KeyExchangeKey.Algorithm.Value)
+                            throw new ArgumentException("PFS key pool algorithm mismatch", nameof(options));
+                        if (options.PfsKeyPool.Options.AsymmetricKeyBits != options.PrivateKeys.KeyExchangeKey.Bits)
+                            throw new ArgumentException("PFS key pool key size mismatch", nameof(options));
+                        if (options.PrivateKeys.CounterKeyExchangeKey is not null)
+                        {
+                            if (options.PfsCounterKeyPool is null) throw new ArgumentException("Missing PFS counter key pool", nameof(options));
+                            if (options.PfsCounterKeyPool.Algorithm.Value != options.PrivateKeys.CounterKeyExchangeKey.Algorithm.Value)
+                                throw new ArgumentException("PFS key pool algorithm mismatch", nameof(options));
+                            if (options.PfsCounterKeyPool.Options.AsymmetricKeyBits != options.PrivateKeys.CounterKeyExchangeKey.Bits)
+                                throw new ArgumentException("PFS key pool key size mismatch", nameof(options));
+                        }
+                    }
                 }
             }
             catch
@@ -67,15 +84,10 @@ namespace wan24.Crypto.Networking
             {
                 AuthSequences sequence;
                 bool publicKeysRequested = false;
-                using RentedArrayStructSimple<byte> buffer = new(len: 1);
                 for (cancellationToken.ThrowIfCancellationRequested(); ; cancellationToken.ThrowIfCancellationRequested())
                 {
-                    if(await stream.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != 1)
-                    {
-                        cancellationToken.ThrowIfCancellationRequested();
-                        throw new IOException("Failed to read authentication sequence header byte");
-                    }
-                    switch (sequence = (AuthSequences)buffer.Span[0])
+                    sequence = (AuthSequences)await stream.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
+                    switch (sequence)
                     {
                         case AuthSequences.Authentication:
                             if (!Options.AllowAuthentication) throw new UnauthorizedAccessException("Authentication denied");
@@ -99,7 +111,7 @@ namespace wan24.Crypto.Networking
                 if (ex is not OperationCanceledException ocEx || ocEx.CancellationToken != cancellationToken)
                     try
                     {
-                        stream.WriteByte((byte)AuthSequences.Error);
+                        await stream.WriteAsync((byte)AuthSequences.Error, cancellationToken).DynamicContext();
                     }
                     catch (Exception ex2)
                     {

@@ -14,7 +14,7 @@ namespace wan24.Crypto.Networking
         private async Task ProcessPublicKeyRequestAsync(Stream stream, CancellationToken cancellationToken)
         {
             await ValidateProtocolVersionAsync(stream, cancellationToken).DynamicContext();
-            stream.WriteByte((byte)AuthSequences.PublicKeyRequest);
+            await stream.WriteAsync((byte)AuthSequences.PublicKeyRequest, cancellationToken).DynamicContext();
             await stream.WriteSerializedAsync(Options.PrivateKeys.Public, cancellationToken).DynamicContext();
             await stream.FlushAsync(cancellationToken).DynamicContext();
         }

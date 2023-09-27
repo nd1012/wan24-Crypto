@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using System.ComponentModel.DataAnnotations;
+using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
@@ -21,16 +22,18 @@ namespace wan24.Crypto
         protected AsymmetricKeyBase(string algorithm) : base(VERSION) => Algorithm = AsymmetricHelper.GetAlgorithm(algorithm);
 
         /// <inheritdoc/>
+        [CountLimit(HashSha512Algorithm.HASH_LENGTH)]
         public abstract byte[] ID { get; }
 
         /// <inheritdoc/>
         public IAsymmetricAlgorithm Algorithm { get; }
 
         /// <inheritdoc/>
+        [Range(1, int.MaxValue)]
         public abstract int Bits { get; }
 
         /// <inheritdoc/>
-        [NoValidation]
+        [NoValidation, SensitiveData]
         public SecureByteArray KeyData { get; protected set; } = null!;
 
         /// <inheritdoc/>
@@ -44,7 +47,8 @@ namespace wan24.Crypto
                 CleanReturned = true
             };
             ms.WriteSerializerVersion()
-                .WriteString(GetType().ToString())
+                .WriteString(Algorithm.Name)
+                .Write(this is IAsymmetricPrivateKey)
                 .WriteBytes(KeyData.Array);
             return ms.ToArray();
         }
@@ -97,7 +101,7 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        protected override void Dispose(bool disposing) => KeyData.Dispose();
+        protected override void Dispose(bool disposing) => KeyData?.Dispose();
 
         /// <summary>
         /// Create a key instance from exported key data
@@ -110,14 +114,19 @@ namespace wan24.Crypto
             using MemoryStream ms = new(keyData);
             int ssv = ms.ReadSerializerVersion();
             string typeName = ms.ReadString(ssv, minLen: 1, maxLen: byte.MaxValue);
-            Type type = TypeHelper.Instance.GetType(typeName) ?? throw new InvalidDataException($"Failed to get serialized asymmetric key type \"{typeName}\"");
-            if (!typeof(T).IsAssignableFrom(type) || type.IsAbstract || type.IsInterface) throw new InvalidDataException($"Type {type} isn't a valid asymmetric key type ({typeof(T)})");
+            Type type = AsymmetricHelper.Algorithms.ContainsKey(typeName)
+                ? ms.ReadBool(ssv) 
+                    ? AsymmetricHelper.GetAlgorithm(typeName).PrivateKeyType 
+                    : AsymmetricHelper.GetAlgorithm(typeName).PublicKeyType
+                : TypeHelper.Instance.GetType(typeName) ?? throw new InvalidDataException($"Failed to get serialized asymmetric key type \"{typeName}\"");// For downward compatibility
+            if (!typeof(T).IsAssignableFrom(type) || type.IsAbstract || type.IsInterface)
+                throw new InvalidDataException($"Type {type} isn't a valid asymmetric key type (expected {typeof(T)})");
             keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: ushort.MaxValue).Value;
             if (ms.Position != ms.Length) throw new InvalidDataException("Didn't use all available key data for deserializing asymmetric key");
             byte[] data = keyData.CloneArray();
             try
             {
-                return (T)(Activator.CreateInstance(type, data) ?? throw new InvalidProgramException($"Failed to instance asymmetric key {type} ({typeof(T)})"));
+                return (T)type.ConstructAuto(usePrivate: false, data) ?? throw new InvalidProgramException($"Failed to instance asymmetric key {type} ({typeof(T)})");
             }
             catch
             {

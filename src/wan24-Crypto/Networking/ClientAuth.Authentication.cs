@@ -42,6 +42,7 @@ namespace wan24.Crypto.Networking
                     throw new ArgumentException("Key exchange key size mismatch", nameof(options));
                 // Prepare authentication
                 hashOptions = options.HashOptions?.Clone() ?? HashHelper.GetDefaultOptions();
+                hashOptions.ApplyPrivateKeySuite(options.PrivateKeys, forSignature: true);
                 hashOptions.LeaveOpen = true;
                 pakeOptions = options.PakeOptions?.Clone() ?? Pake.DefaultOptions;
                 cryptoOptions = options.CryptoOptions?.Clone() ?? Pake.DefaultCryptoOptions;
@@ -59,11 +60,16 @@ namespace wan24.Crypto.Networking
                 {
                     // Send the PAKE authentication and get the new session key
                     PakeAuth auth;
-                    using (Pake pake = new(symmetricKey, pakeOptions, pakeCryptoOptions))
+                    authPayload = new AuthPayload(options.Payload);
+                    if (options.FastPakeAuth is null)
                     {
-                        authPayload = new AuthPayload(options.Payload);
+                        using Pake pake = new(symmetricKey, pakeOptions, pakeCryptoOptions);
                         auth = pake.CreateAuth(authPayload, options.EncryptPayload);
                         sessionKey = pake.SessionKey.CloneArray();
+                    }
+                    else
+                    {
+                        (auth, sessionKey) = await options.FastPakeAuth.CreateAuthAsync(authPayload, options.EncryptPayload).DynamicContext();
                     }
                     try
                     {
@@ -80,15 +86,15 @@ namespace wan24.Crypto.Networking
                     cipher = await encryption.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, cryptoOptions, cancellationToken).DynamicContext();
                     // Sign the authentication and write the signature encrypted using the PAKE session key
                     await SignAuthSequenceAsync(cipher.CryptoStream, hash.Hash, options, hashOptions, AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
-                    await stream.FlushAsync(cancellationToken).DynamicContext();
                 }
                 finally
                 {
                     await cipher.DisposeAsync().DynamicContext();
                 }
                 // Get the server response
+                await stream.FlushAsync(cancellationToken).DynamicContext();
                 if (!options.GetAuthenticationResponse) return cryptoOptions.Password.CloneArray();
-                AuthSequences sequence = (AuthSequences)stream.ReadByte();
+                AuthSequences sequence = (AuthSequences)await stream.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
                 switch (sequence)
                 {
                     case AuthSequences.Authentication:
@@ -102,7 +108,7 @@ namespace wan24.Crypto.Networking
                 try
                 {
                     // Extend the encryption
-                    await ExtendEncryptionAsync(stream, decipher, encryption, options, cryptoOptions, cancellationToken).DynamicContext();
+                    decipher = await ExtendEncryptionAsync(stream, decipher, encryption, options, cryptoOptions, cancellationToken).DynamicContext();
                     // Validate the server signature of the authentication sequence
                     await ValidateServerSignatureAsync(decipher.CryptoStream, options, AUTH_SIGNATURE_PURPOSE, hash.Hash, cancellationToken).DynamicContext();
                 }

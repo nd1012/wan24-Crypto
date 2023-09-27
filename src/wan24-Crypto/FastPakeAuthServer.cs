@@ -23,6 +23,7 @@ namespace wan24.Crypto
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="payload">Payload (should be cleared!)</param>
         /// <param name="decryptPayload">Decrypt the payload (if any)?</param>
+        /// <param name="skipSignatureKeyValidation">Skip the signature key validation (KDF)?</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
         /// <param name="name">Server name</param>
@@ -31,6 +32,7 @@ namespace wan24.Crypto
             in PakeAuth auth,
             out byte[] payload,
             in bool decryptPayload = false,
+            in bool skipSignatureKeyValidation = false,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
             in string? name = null
@@ -89,7 +91,7 @@ namespace wan24.Crypto
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    if (!Pake.SkipSignatureKeyValidation)
+                    if (!skipSignatureKeyValidation && !Pake.SkipSignatureKeyValidation)
                     {
                         signatureKey = Pake.CreateSignatureKey(key, secret);
                         if (!Pake.Identity.SignatureKey.SlowCompare(signatureKey))
