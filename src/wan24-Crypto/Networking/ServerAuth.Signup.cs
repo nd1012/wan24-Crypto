@@ -42,10 +42,7 @@ namespace wan24.Crypto.Networking
                     context.Payload = payload;
                     context.ClientTimeOffset = DateTime.UtcNow - context.Payload.Created;
                     if(context.PublicClientKeys is null)
-                    {
-                        if (context.Payload.PublicKeys is null) throw new InvalidDataException("No public client keys loaded and in signup payload");
-                        context.PublicClientKeys = context.Payload.PublicKeys;
-                    }
+                        context.PublicClientKeys = context.Payload.PublicKeys ?? throw new InvalidDataException("No public client keys loaded and in signup payload");
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await Encryption!.GetDecryptionStreamAsync(stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                     // Validate the authentication sequence signature
@@ -87,6 +84,7 @@ namespace wan24.Crypto.Networking
                     }
                     if (Options.SignupValidator is not null && !await Options.SignupValidator(context, cancellationToken).DynamicContext())
                         throw new InvalidDataException("Client signup rejected");
+                    if (Options.PayloadHandler is not null) await Options.PayloadHandler(context, cancellationToken).DynamicContext();
                     // Exchange the PFS key and sign the authentication sequence
                     await stream.WriteAsync((byte)AuthSequences.Signup, cancellationToken).DynamicContext();
                     cipher = await Encryption!.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, context.CryptoOptions, cancellationToken).DynamicContext();
@@ -106,6 +104,7 @@ namespace wan24.Crypto.Networking
                                 Options.PublicClientKeySignaturePurpose,
                                 context.HashOptions
                                 );
+                            context.PublicClientKeys!.SignedPublicKey?.Dispose();
                             context.PublicClientKeys!.SignedPublicKey = signedKey;
                             await cipher!.CryptoStream.WriteSerializedAsync(signedKey, cancellationToken).DynamicContext();
                         }
@@ -117,7 +116,7 @@ namespace wan24.Crypto.Networking
                     }
                     if (Options.SignupHandler is not null) await Options.SignupHandler(context, cancellationToken).DynamicContext();
                     await context.Stream.FlushAsync(cancellationToken).DynamicContext();
-                    return new(Options, context, !context.FoundExistingClient && context.Payload.IsNewClient, !context.FoundExistingClient && context.Payload.IsTemporaryClient);
+                    return new(Options, context);
                 }
                 catch
                 {

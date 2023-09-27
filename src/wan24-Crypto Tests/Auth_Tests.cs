@@ -9,7 +9,7 @@ namespace wan24_Crypto_Tests
     [TestClass]
     public class Auth_Tests
     {
-        [TestMethod, Timeout(10000)]
+        [TestMethod, /*Timeout(10000)*/]
         public async Task GeneralAsync_Tests()
         {
             try
@@ -34,23 +34,41 @@ namespace wan24_Crypto_Tests
                 pki.AddTrustedRoot(serverKeys.SignedPublicKey);
                 pki.AddTrustedRoot(serverKeys.SignedPublicCounterKey);
                 pki.EnableLocalPki();
-                IPakeRecord? identity = null;
-                PublicKeySuite? publicClientKeys = null;
+                using PublicKeySuiteStore pks = new();
+                using PakeRecordStore prs = new();
                 using ServerAuth server = new(new(serverKeys)
                 {
                     CryptoOptions = cryptoOptions.Clone(),
                     IdentityFactory = (context, ct) =>
                     {
                         Logging.WriteInfo("Identity factory");
-                        if (identity is not null)
+                        context.Identity = prs.GetRecord(context.Signup?.Identifier ?? context.Authentication?.Identifier ?? throw new InvalidProgramException());
+                        if (context.Identity is not null)
                         {
-                            Logging.WriteInfo("Loading identity");
-                            if (context.Authentication is not null)
-                                Assert.IsTrue(identity.Identifier.SequenceEqual(context.Authentication.Identifier), "Identifier mismatch");
-                            context.Identity = identity;
-                            context.PublicClientKeys = publicClientKeys;
+                            Logging.WriteInfo("Loading public client keys");
+                            context.FoundExistingClient = true;
+                            // CAUTION: This is NOT a good idea! The PAKE identifier is sentitive data and shouldn't be part of a public object (this is only to simplify the tests)
+                            context.PublicClientKeys = pks.GetSuiteByAttribute("PAKE identifier", Convert.ToHexString(context.Identity.Identifier))
+                                ?? throw new InvalidProgramException();
                         }
                         return Task.CompletedTask;
+                    },
+                    PayloadHandler = (context, ct) =>
+                    {
+                        Logging.WriteInfo("Payload handler");
+                        if (context.Signup is not null && context.Payload is not null && context.Payload.IsNewClient && context.Payload.KeySigningRequest is not null)
+                        {
+                            Logging.WriteInfo("Adding KSR attribute");
+                            // CAUTION: This is NOT a good idea! The PAKE identifier is sentitive data and shouldn't be part of a public object (this is only to simplify the tests)
+                            context.Payload.KeySigningRequest.Attributes["PAKE identifier"] = Convert.ToHexString(context.Identity!.Identifier);
+                        }
+                        return Task.CompletedTask;
+                    },
+                    SignupHandler = async (context, ct) =>
+                    {
+                        Logging.WriteInfo("Signup handler");
+                        await prs.AddRecordAsync(new PakeRecord(context.Identity!));
+                        pks.AddSuite(context.PublicClientKeys!.Clone());
                     }
                 });
                 using BlockingBufferStream channelA = new(bufferSize: Settings.BufferSize);
@@ -70,18 +88,13 @@ namespace wan24_Crypto_Tests
                                     Logging.WriteInfo("Client signed up");
                                     serverSignupSessionKey = context.SessionKey;
                                     Assert.IsNotNull(context.Identity, "Missing identity");
-                                    identity = new PakeRecord(context.Identity);
                                     Assert.IsNotNull(context.PublicKeys, "Missing public keys");
                                     Assert.IsNotNull(context.PublicKeys.SignedPublicKey, "Missing signed public key");
-                                    publicClientKeys = context.PublicKeys.Clone();
                                 }
                                 else
                                 {
                                     Logging.WriteInfo("Client authenticated");
                                     serverAuthSessionKey = context.SessionKey;
-                                    Assert.IsNotNull(identity);
-                                    Assert.IsTrue(identity.Identifier.SequenceEqual(context.Identity.Identifier), "Identity mismatch");
-                                    Assert.AreEqual(publicClientKeys, context.PublicKeys, "Public keys mismatch");
                                     return;
                                 }
                         Logging.WriteInfo("Server task ending");

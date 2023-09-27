@@ -141,6 +141,13 @@ namespace wan24.Crypto.Networking
         public delegate Task Identity_Delegate(ServerAuthContext context, CancellationToken cancellationToken);
 
         /// <summary>
+        /// Delegate for a payload handler
+        /// </summary>
+        /// <param name="context">Context</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public delegate Task Payload_Delegate(ServerAuthContext context, CancellationToken cancellationToken);
+
+        /// <summary>
         /// Delegate for a signup handler
         /// </summary>
         /// <param name="context">Context</param>

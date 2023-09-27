@@ -30,8 +30,10 @@ namespace wan24.Crypto.Networking
                     using PakeAuth auth = await decipher.CryptoStream.ReadSerializedAsync<PakeAuth>(cancellationToken: cancellationToken).DynamicContext();
                     context.Authentication = auth;
                     await Options.IdentityFactory!(context, cancellationToken).DynamicContext();
-                    if (context.Identity is null) throw new UnauthorizedAccessException("No identity found");
-                    if (context.PublicClientKeys is null) throw new UnauthorizedAccessException("Missing client public keys");
+                    if (context.Identity is null)
+                        throw new UnauthorizedAccessException("No identity found");
+                    if (context.PublicClientKeys is null)
+                        throw new UnauthorizedAccessException("Missing client public keys");
                     if (context.FastPakeAuth is null)
                     {
                         using Pake pake = new(context.Identity, context.PakeOptions.Clone(), context.CryptoOptions.Clone());
@@ -66,7 +68,12 @@ namespace wan24.Crypto.Networking
                     // Validate the authentication sequence signature
                     await ValidateAuthSequenceAsync(context, hash.Hash, decipher, ClientAuth.AUTH_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();
                     // Exchange the PFS key and sign the authentication sequence
-                    if (!Options.SendAuthenticationResponse) return new(Options, context, isNewClient: false);
+                    if (Options.PayloadHandler is not null) await Options.PayloadHandler(context, cancellationToken).DynamicContext();
+                    if (!Options.SendAuthenticationResponse)
+                    {
+                        if (Options.AuthenticationHandler is not null) await Options.AuthenticationHandler(context, cancellationToken).DynamicContext();
+                        return new(Options, context);
+                    }
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = null;
                     await stream.WriteAsync((byte)AuthSequences.Authentication, cancellationToken).DynamicContext();

@@ -20,7 +20,7 @@ namespace wan24.Crypto.Networking
             )
         {
             bool disposeServerKey = options.PublicServerKeys is null;
-            SymmetricKeySuite? symmetricKey = null;
+            ISymmetricKeySuite? symmetricKey = null;
             byte[]? authPayload = null,
                 sessionKey = null;
             CryptoOptions? hashOptions = null,
@@ -32,7 +32,8 @@ namespace wan24.Crypto.Networking
                 // Ensure valid parameters
                 if (options.PrivateKeys.KeyExchangeKey is null) throw new ArgumentException("Missing private key exchange key", nameof(options));
                 if (options.PrivateKeys.SignatureKey is null) throw new ArgumentException("Missing private signature key", nameof(options));
-                if (options.Password is null && options.PrivateKeys.SymmetricKey is null) throw new ArgumentNullException(nameof(options), "Missing login password");
+                if (options.Password is null && options.PrivateKeys.SymmetricKey is null && options.SymmetricKey is null)
+                    throw new ArgumentNullException(nameof(options), "Missing login password");
                 if (options.PublicServerKeys is null) await GetPublicServerKeysAsync(stream, options, cancellationToken).DynamicContext();
                 if (options.PublicServerKeys!.KeyExchangeKey is null) throw new ArgumentException("Missing server key exchange key", nameof(options));
                 if (options.PublicServerKeys.SignatureKey is null) throw new ArgumentException("Missing server signature key", nameof(options));
@@ -51,7 +52,7 @@ namespace wan24.Crypto.Networking
                 EncryptionAlgorithmBase encryption = EncryptionHelper.GetAlgorithm(cryptoOptions.Algorithm!);
                 if (encryption.RequireMacAuthentication)
                     throw new ArgumentException("A cipher which requires MAC authentication isn't supported", nameof(options));
-                symmetricKey = new SymmetricKeySuite(options.Password ?? options.PrivateKeys.SymmetricKey!.CloneArray(), options.Login, pakeOptions);
+                symmetricKey = options.SymmetricKey ?? new SymmetricKeySuite(options.Password ?? options.PrivateKeys.SymmetricKey!.CloneArray(), options.Login, pakeOptions);
                 stream.WriteByte((byte)AuthSequences.Authentication);
                 using HashStreams hash = HashHelper.GetAlgorithm(hashOptions.HashAlgorithm!).GetHashStream(stream, options: hashOptions);
                 hash.Stream.WriteByte(VERSION);
@@ -64,6 +65,7 @@ namespace wan24.Crypto.Networking
                     if (options.FastPakeAuth is null)
                     {
                         using Pake pake = new(symmetricKey, pakeOptions, pakeCryptoOptions);
+                        symmetricKey = null;
                         auth = pake.CreateAuth(authPayload, options.EncryptPayload);
                         sessionKey = pake.SessionKey.CloneArray();
                     }
@@ -120,7 +122,7 @@ namespace wan24.Crypto.Networking
             }
             catch
             {
-                options.Login.Clear();
+                options.Login?.Clear();
                 options.Password?.Clear();
                 sessionKey?.Clear();
                 symmetricKey?.Dispose();

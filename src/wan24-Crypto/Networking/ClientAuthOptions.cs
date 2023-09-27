@@ -14,12 +14,34 @@ namespace wan24.Crypto.Networking
         /// <param name="login">Login ID (will be cleared!)</param>
         /// <param name="pwd">Login password (will be cleared!)</param>
         /// <param name="preSharedSecret">Pre-shared signup secret (will be cleared!)</param>
-        public ClientAuthOptions(in PrivateKeySuite privateKeys, in byte[] login, in byte[]? pwd = null, in byte[]? preSharedSecret = null)
+        public ClientAuthOptions(
+            in PrivateKeySuite privateKeys, 
+            in byte[] login, 
+            in byte[]? pwd = null, 
+            in byte[]? preSharedSecret = null
+            )
         {
             PrivateKeys = privateKeys;
             Login = login;
             Password = pwd;
             PreSharedSecret = preSharedSecret;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="privateKeys">Private keys</param>
+        /// <param name="preSharedSecret">Pre-shared signup secret (will be cleared!)</param>
+        /// <param name="symmetricKey">Symmetric key suite (won't be disposed!)</param>
+        public ClientAuthOptions(
+            in PrivateKeySuite privateKeys,
+            in ISymmetricKeySuite? symmetricKey, 
+            in byte[]? preSharedSecret = null
+            )
+        {
+            PrivateKeys = privateKeys;
+            PreSharedSecret = preSharedSecret;
+            SymmetricKey = symmetricKey;
         }
 
         /// <summary>
@@ -36,7 +58,7 @@ namespace wan24.Crypto.Networking
         /// Login ID (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[] Login { get; }
+        public byte[]? Login { get; }
 
         /// <summary>
         /// Login password (will be cleared!)
@@ -49,6 +71,11 @@ namespace wan24.Crypto.Networking
         /// </summary>
         [SensitiveData]
         public byte[]? PreSharedSecret { get; }
+
+        /// <summary>
+        /// Symmetric key suite
+        /// </summary>
+        public ISymmetricKeySuite? SymmetricKey { get; }
 
         /// <summary>
         /// Server public keys

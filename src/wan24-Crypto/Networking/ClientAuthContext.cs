@@ -13,13 +13,11 @@ namespace wan24.Crypto.Networking
         /// </summary>
         /// <param name="options">Options</param>
         /// <param name="context">Context</param>
-        /// <param name="isNewClient">Is a new client?</param>
-        /// <param name="isTemporaryClient">Is a temporary client?</param>
-        internal ClientAuthContext(in ServerAuthOptions options, in ServerAuthContext context, in bool isNewClient = false, in bool isTemporaryClient = false)
+        internal ClientAuthContext(in ServerAuthOptions options, in ServerAuthContext context)
             : base(asyncDisposing: false)
         {
-            IsNewClient = isNewClient;
-            IsTemporaryClient = isTemporaryClient;
+            IsNewClient = !context.FoundExistingClient && context.Payload!.IsNewClient;
+            IsTemporaryClient = !context.FoundExistingClient && context.Payload!.IsTemporaryClient;
             try
             {
                 PublicKeys = context.PublicClientKeys ?? throw new ArgumentException("Missing public client keys", nameof(context));
