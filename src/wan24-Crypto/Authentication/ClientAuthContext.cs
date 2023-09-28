@@ -1,7 +1,7 @@
 ﻿using wan24.Core;
 using wan24.ObjectValidation;
 
-namespace wan24.Crypto.Networking
+namespace wan24.Crypto.Authentication
 {
     /// <summary>
     /// Client authentication context

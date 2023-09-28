@@ -51,7 +51,7 @@ namespace wan24_Crypto_Tests
 
             // Fast server
             start = DateTime.Now;
-            using FastPakeAuthServer fastServer = new(signup);
+            using FastPakeAuthServer fastServer = new(signup, out PakeRecord signupIdentity, out byte[] signupPayload, out byte[] signupSessionKey);
             TimeSpan serverInitTime = DateTime.Now - start;
             Logging.WriteInfo($"Server initialization: {serverInitTime}");
             Assert.IsTrue(fastServer.Pake.HasSession);

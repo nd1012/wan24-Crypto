@@ -14,6 +14,7 @@ salt, third parameter is the return value length (use PBKDF#2 for example)
 value length
 - `ASSERT`: Fails, if the given expression (first parameter) resolves to 
 `false`
+- `MIN`: Returns the minimum of the given values
 
 It's possible to include any payload data (`payload`) which is required to 
 process a signup/authentication at the server side. It'd be possible to 
@@ -66,7 +67,7 @@ signature = MAC(random ^ payload ^ secret ^ identifier ^ auth_key, signature_key
 session_key = MAC(random, MAC(signature_key, secret))
 ```
 
-**NOTE**: The `^` character is used as XOR operator here.
+**NOTE**: The `^` operator is used as XOR operator here.
 
 Since `payload` may have any length, it can't be XORed to a value which has 
 the same length as the `random`. For this "rotating XOR" is being used, where 
@@ -148,6 +149,24 @@ validation fail already. However, only an additional `signature_key`
 calculation makes the validation process become truly complete, which ensures 
 that all values are exactly valid - which you want to ensure at last for 
 opening a fresh session.
+
+**NOTE**: When comparing two values, it's important to use a constant time 
+taking comparing algorithm (so called "slow equal") - for example:
+
+```js
+diff = valueA.length ^ valueB.length
+for(i = 0; i != valueA.length && i != valueB.length; i++)
+{
+	diff |= valueA[i] ^ valueB[i]
+}
+is_equal = diff == 0
+```
+
+The operator `|=` assigns the result of the right expression to the existing 
+left value with a logical OR. The resulting `diff` will be zero in case
+
+1. the length of both values was matching AND 
+2. both values have the same content
 
 ## Advantages of PAKE wrapped by an asymmetric PFS protocol
 
@@ -280,7 +299,7 @@ protection, etc. - but it shows a possible combination of asymmetric PFS with
 symmetric PAKE, which I'd call "secure" in these days (based on the chosen 
 underlying algorithms, of course).
 
-Using PAKE it's also possible to process a single-directional channel 
+Using PAKE it's also possible to process an unidirectional channel 
 communication, where the client does send payload encrypted using the PAKE 
 key. The server wouldn't need to answer such a message, which could be a 
 simple UDP packet for that reason.

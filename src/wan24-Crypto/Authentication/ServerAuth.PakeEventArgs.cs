@@ -1,4 +1,4 @@
-﻿namespace wan24.Crypto.Networking
+﻿namespace wan24.Crypto.Authentication
 {
     // PAKE event arguments
     public sealed partial class ServerAuth

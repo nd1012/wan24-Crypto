@@ -81,7 +81,7 @@ namespace wan24.Crypto
                 }
                 // Create the session key
                 _SessionKey?.Clear();
-                sessionKey = signatureKey.Mac(secret, Options);
+                sessionKey = CreateSessionKey(signature, sessionKey);
                 _SessionKey = random.Mac(sessionKey, Options);
 #pragma warning disable CS8774 // Member "SessionKey" must not be NULL
                 return signature;
@@ -130,7 +130,7 @@ namespace wan24.Crypto
                         .Mac(signatureKey, Options);
                 }
                 // Create the session key
-                sessionKey = signatureKey.Mac(secret, Options);
+                sessionKey = CreateSessionKey(signature, sessionKey);
                 return (signature, random.Mac(sessionKey, Options));
             }
             catch (Exception ex)
@@ -144,6 +144,14 @@ namespace wan24.Crypto
                 sessionKey?.Clear();
             }
         }
+
+        /// <summary>
+        /// Create a session key
+        /// </summary>
+        /// <param name="signatureKey">Signature key</param>
+        /// <param name="secret">Secret</param>
+        /// <returns>Session key</returns>
+        internal byte[] CreateSessionKey(in byte[] signatureKey, in byte[] secret) => signatureKey.Mac(secret, Options);
 
         /// <summary>
         /// Clear the identity

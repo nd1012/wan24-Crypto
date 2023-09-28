@@ -1,7 +1,7 @@
 ﻿using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
-namespace wan24.Crypto.Networking
+namespace wan24.Crypto.Authentication
 {
     // Public key request
     public sealed partial class ServerAuth

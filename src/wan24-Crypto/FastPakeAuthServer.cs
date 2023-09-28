@@ -22,8 +22,8 @@ namespace wan24.Crypto
         /// <param name="pake">PAKE instance (will be disposed!)</param>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="payload">Payload (should be cleared!)</param>
+        /// <param name="sessionKey">Session key (should be cleared!)</param>
         /// <param name="decryptPayload">Decrypt the payload (if any)?</param>
-        /// <param name="skipSignatureKeyValidation">Skip the signature key validation (KDF)?</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
         /// <param name="name">Server name</param>
@@ -31,8 +31,8 @@ namespace wan24.Crypto
             in Pake pake,
             in PakeAuth auth,
             out byte[] payload,
+            out byte[] sessionKey,
             in bool decryptPayload = false,
-            in bool skipSignatureKeyValidation = false,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
             in string? name = null
@@ -40,6 +40,7 @@ namespace wan24.Crypto
             : base()
         {
             payload = null!;
+            sessionKey = null!;
             byte[]? randomMac = null;
             try
             {
@@ -91,12 +92,11 @@ namespace wan24.Crypto
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    if (!skipSignatureKeyValidation && !Pake.SkipSignatureKeyValidation)
-                    {
-                        signatureKey = Pake.CreateSignatureKey(key, secret);
-                        if (!Pake.Identity.SignatureKey.SlowCompare(signatureKey))
-                            throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
-                    }
+                    signatureKey = Pake.CreateSignatureKey(key, secret);
+                    if (!Pake.Identity.SignatureKey.SlowCompare(signatureKey))
+                        throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
+                    // Create the session key
+                    sessionKey = Pake.CreateSessionKey(signatureKey, secret);
                     // Store the authentication key and the secret to this instance
                     Key = new(key, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
                     {
@@ -105,6 +105,10 @@ namespace wan24.Crypto
                     Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
+                    };
+                    SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    {
+                        Name = $"Fast PAKE auth server {GUID} (\"{Name}\") signature key"
                     };
                 }
                 catch
@@ -138,12 +142,18 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="signup">Signup (will be disposed!)</param>
+        /// <param name="identity">Identity (should be cleared!)</param>
+        /// <param name="payload">Payload (should be cleared!)</param>
+        /// <param name="sessionKey">Session key (should be cleared!)</param>
         /// <param name="pake">PAKE instance (will be disposed!)</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example)</param>
         /// <param name="name">Server name</param>
         public FastPakeAuthServer(
             in PakeSignup signup,
+            out PakeRecord identity, 
+            out byte[] payload,
+            out byte[] sessionKey,
             in Pake? pake = null,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
@@ -151,8 +161,12 @@ namespace wan24.Crypto
             )
             : base()
         {
+            payload = signup.Payload.CloneArray();
+            sessionKey = null!;
+            identity = null!;
             try
             {
+                _AuthCount = 1;
                 Name = name;
                 Pake = pake ?? new();
                 if (Pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
@@ -181,6 +195,10 @@ namespace wan24.Crypto
                     signature = Pake.SignAndCreateSessionKey(signatureKey, signup.Key, signup.Random, signup.Payload, signup.Secret);
                     if (!signup.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
+                    // Create the session key
+                    sessionKey = Pake.CreateSessionKey(signatureKey, signup.Secret);
+                    // Create the identity
+                    identity = new(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey.CloneArray());
                     // Store the authentication key and the secret to this instance
                     Key = new(signup.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
                     {
@@ -190,10 +208,16 @@ namespace wan24.Crypto
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
                     };
+                    SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    {
+                        Name = $"Fast PAKE auth server {GUID} (\"{Name}\") signature key"
+                    };
                 }
                 catch
                 {
+                    payload.Clear();
                     signatureKey?.Clear();
+                    identity?.Clear();
                     throw;
                 }
                 finally
@@ -220,15 +244,17 @@ namespace wan24.Crypto
         /// <param name="identity">Identity (will be cleared/disposed!)</param>
         /// <param name="authKey">Authentication key (will be cleared!)</param>
         /// <param name="secret">Secret (will be cleared!)</param>
+        /// <param name="signatureKey">Signature key (will be cleared!)</param>
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
         /// <param name="options">PAKE options (will be cleared!)</param>
         /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
         /// <param name="name">Server name</param>
         public FastPakeAuthServer(
-            in IPakeRecord? identity,
+            in IPakeRecord identity,
             in byte[] authKey,
             in byte[] secret,
+            in byte[] signatureKey,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
             in CryptoOptions? options = null,
@@ -240,7 +266,7 @@ namespace wan24.Crypto
             try
             {
                 Name = name;
-                Pake = identity is null ? new(options, cryptoOptions) : new(identity, options, cryptoOptions);
+                Pake = new(identity, options, cryptoOptions);
                 Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
                 {
                     Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
@@ -248,6 +274,10 @@ namespace wan24.Crypto
                 Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
                 {
                     Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
+                };
+                SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth server {GUID} (\"{Name}\") signature key"
                 };
             }
             catch (Exception ex)
@@ -292,6 +322,11 @@ namespace wan24.Crypto
         /// Secret
         /// </summary>
         public SecureValue Secret { get; } = null!;
+
+        /// <summary>
+        /// Signature key
+        /// </summary>
+        public SecureValue SignatureKey { get; } = null!;
 
         /// <summary>
         /// Authentication count (including errors)

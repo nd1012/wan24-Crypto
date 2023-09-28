@@ -2,7 +2,7 @@
 using System.Text;
 using wan24.Core;
 using wan24.Crypto;
-using wan24.Crypto.Networking;
+using wan24.Crypto.Authentication;
 
 namespace wan24_Crypto_Tests
 {

@@ -1,6 +1,6 @@
 ﻿using wan24.Core;
 
-namespace wan24.Crypto.Networking
+namespace wan24.Crypto.Authentication
 {
     /// <summary>
     /// Client authentication options
@@ -67,7 +67,7 @@ namespace wan24.Crypto.Networking
         public byte[]? Password { get; }
 
         /// <summary>
-        /// Pre-shared signup secret
+        /// Pre-shared signup secret (will be cleared!)
         /// </summary>
         [SensitiveData]
         public byte[]? PreSharedSecret { get; }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using wan24.Core;
 
-namespace wan24.Crypto.Networking
+namespace wan24.Crypto.Authentication
 {
     /// <summary>
     /// Server authentication options

@@ -1,7 +1,7 @@
 ﻿using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
-namespace wan24.Crypto.Networking
+namespace wan24.Crypto.Authentication
 {
     // Signup
     public sealed partial class ServerAuth
@@ -41,8 +41,7 @@ namespace wan24.Crypto.Networking
                     }
                     context.Payload = payload;
                     context.ClientTimeOffset = DateTime.UtcNow - context.Payload.Created;
-                    if(context.PublicClientKeys is null)
-                        context.PublicClientKeys = context.Payload.PublicKeys ?? throw new InvalidDataException("No public client keys loaded and in signup payload");
+                    context.PublicClientKeys ??= context.Payload.PublicKeys ?? throw new InvalidDataException("No public client keys loaded and in signup payload");
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await Encryption!.GetDecryptionStreamAsync(stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                     // Validate the authentication sequence signature

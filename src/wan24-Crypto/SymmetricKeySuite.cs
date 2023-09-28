@@ -42,6 +42,30 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
+        /// <param name="identifier">Identifier (will be cleared!)</param>
+        /// <param name="expandedKey">Expanded key (will be cleared!)</param>
+        public SymmetricKeySuite(in CryptoOptions? options, in byte[]? identifier, in byte[] expandedKey) : this(options)
+        {
+            Identifier = identifier;
+            ExpandedKey = new(expandedKey);
+            Options = options ?? Pake.DefaultOptions;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="existing">Existing symmetric key suite (will be cloned)</param>
+        /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
+        public SymmetricKeySuite(in ISymmetricKeySuite existing, in CryptoOptions? options = null) : this(options)
+        {
+            Identifier = existing.Identifier?.CloneArray();
+            ExpandedKey = new(existing.ExpandedKey.Array.CloneArray());
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
         /// <param name="asyncDisposing">Implements asynchronous disposing?</param>
         protected SymmetricKeySuite(in CryptoOptions? options = null, in bool asyncDisposing = false) : base(asyncDisposing)
         {
@@ -53,11 +77,11 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="options">Options</param>
+        /// <param name="options">Options with KDF and MAC settings (will be cleared!)</param>
         /// <param name="identifier">Identifier (will be cleared!)</param>
         /// <param name="expandedKey">Expanded key (will be cleared!)</param>
         /// <param name="asyncDisposing">Implements asynchronous disposing?</param>
-        protected SymmetricKeySuite(in CryptoOptions? options, in byte[]? identifier, in byte[] expandedKey, in bool asyncDisposing = false) : base(asyncDisposing)
+        protected SymmetricKeySuite(in CryptoOptions? options, in byte[]? identifier, in byte[] expandedKey, in bool asyncDisposing) : base(asyncDisposing)
         {
             Identifier = identifier;
             ExpandedKey = new(expandedKey);
