@@ -53,7 +53,7 @@ namespace wan24.Crypto
         public virtual PublicKeySuite? GetSuite(byte[] id)
         {
             EnsureUndisposed();
-            byte[]? suiteId = Suites.Keys.FirstOrDefault(k => k.SequenceEqual(id));
+            byte[]? suiteId = _Suites.Keys.FirstOrDefault(k => k.SequenceEqual(id));
             return suiteId is not null && _Suites.TryGetValue(suiteId, out PublicKeySuite? res) ? res : null;
         }
 
@@ -82,7 +82,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Remove a public key suite
+        /// Remove and dispose a public key suite
         /// </summary>
         /// <param name="id">Signed public key ID</param>
         public virtual void RemoveSuite(byte[] id)

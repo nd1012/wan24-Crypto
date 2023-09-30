@@ -18,12 +18,24 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="identifier">Identifier (will be cleared!)</param>
         /// <param name="secret">Secret (will be cleared!)</param>
-        /// <param name="key">Key (will be cleared!)</param>
-        public PakeRecord(in byte[] identifier, in byte[] secret, in byte[] key) : this()
+        /// <param name="signatureKey">Signature key (will be cleared!)</param>
+        public PakeRecord(in byte[] identifier, in byte[] secret, in byte[] signatureKey) : this()
         {
             Identifier = identifier;
             Secret = secret;
-            SignatureKey = key;
+            SignatureKey = signatureKey;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="signup">Signup</param>
+        /// <param name="signatureKey">Signature key (will be cleared!)</param>
+        public PakeRecord(in PakeSignup signup, in byte[] signatureKey) : this()
+        {
+            Identifier = signup.Identifier.CloneArray();
+            Secret = signup.Secret.CloneArray().Xor(signup.Key);
+            SignatureKey = signatureKey;
         }
 
         /// <summary>
@@ -65,32 +77,38 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)
-            => stream.WriteBytes(Identifier)
-                .WriteBytes(Secret)
-                .WriteBytes(SignatureKey);
+        {
+            stream.WriteBytes(Identifier);
+            stream.Write(Secret);
+            stream.Write(SignatureKey);
+        }
 
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             await stream.WriteBytesAsync(Identifier, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(Secret, cancellationToken).DynamicContext();
-            await stream.WriteBytesAsync(SignatureKey, cancellationToken).DynamicContext();
+            await stream.WriteAsync(Secret, cancellationToken).DynamicContext();
+            await stream.WriteAsync(SignatureKey, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
             Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
-            Secret = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
-            SignatureKey = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
+            Secret = new byte[Identifier.Length];
+            if (stream.Read(Secret) != Secret.Length) throw new IOException("Failed to read the secret");
+            SignatureKey = new byte[Identifier.Length];
+            if (stream.Read(SignatureKey) != SignatureKey.Length) throw new IOException("Failed to read the signature key");
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            Secret = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            SignatureKey = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Secret = new byte[Identifier.Length];
+            if (await stream.ReadAsync(Secret, cancellationToken).DynamicContext() != Secret.Length) throw new IOException("Failed to read the secret");
+            SignatureKey = new byte[Identifier.Length];
+            if (await stream.ReadAsync(SignatureKey, cancellationToken).DynamicContext() != SignatureKey.Length) throw new IOException("Failed to read the signature key");
         }
 
         /// <summary>

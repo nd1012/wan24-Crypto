@@ -1,12 +1,11 @@
 ﻿using wan24.Core;
-using wan24.Crypto.Authentication;
 
-namespace wan24.Crypto
+namespace wan24.Crypto.Authentication
 {
     /// <summary>
-    /// <see cref="IPakeRecord"/> extensions
+    /// <see cref="IPakeAuthRecord"/> extensions
     /// </summary>
-    public static class PakeRecordExtensions
+    public static class PakeAuthRecordExtensions
     {
         /// <summary>
         /// Derive a session key
@@ -19,7 +18,7 @@ namespace wan24.Crypto
         /// <param name="decryptPayload">Decrypt the payload?</param>
         /// <returns>Session key and payload</returns>
         public static (byte[] SessionKey, byte[] Payload) DeriveSessionKey(
-            this IPakeRecord record,
+            this IPakeAuthRecord record,
             in PakeAuth auth,
             in Action<Pake>? initializer = null,
             in CryptoOptions? options = null,
@@ -32,7 +31,7 @@ namespace wan24.Crypto
         /// Dispose the PAKE record
         /// </summary>
         /// <param name="record">Record</param>
-        public static void Dispose(this IPakeRecord record)
+        public static void Dispose(this IPakeAuthRecord record)
         {
             if (record is IDisposable disposable)
             {
@@ -42,13 +41,9 @@ namespace wan24.Crypto
             {
                 asyncDisposable.DisposeAsync().AsTask().Wait();
             }
-            else if(record is PakeRecord pakeRecord)
+            else if (record is PakeAuthRecord pakeRecord)
             {
                 pakeRecord.Clear();
-            }
-            else if (record is PakeAuthRecord pakeAuthRecord)
-            {
-                pakeAuthRecord.Clear();
             }
             else
             {
@@ -62,7 +57,7 @@ namespace wan24.Crypto
         /// Dispose the PAKE record
         /// </summary>
         /// <param name="record">Record</param>
-        public static async Task DisposeAsync(this IPakeRecord record)
+        public static async Task DisposeAsync(this IPakeAuthRecord record)
         {
             if (record is IAsyncDisposable asyncDisposable)
             {
@@ -72,13 +67,9 @@ namespace wan24.Crypto
             {
                 disposable.Dispose();
             }
-            else if (record is PakeRecord pakeRecord)
+            else if (record is PakeAuthRecord pakeRecord)
             {
                 pakeRecord.Clear();
-            }
-            else if (record is PakeAuthRecord pakeAuthRecord)
-            {
-                pakeAuthRecord.Clear();
             }
             else
             {

@@ -1,5 +1,4 @@
-﻿using wan24.Compression;
-using wan24.Core;
+﻿using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto

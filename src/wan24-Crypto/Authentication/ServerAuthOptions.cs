@@ -144,6 +144,6 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// Session key KEK length in bytes (<see cref="SecureValue"/>)
         /// </summary>
-        public int SessionKeyKeKLength { get; set; } = 64;
+        public int SessionKeyKekLength { get; set; } = 64;
     }
 }

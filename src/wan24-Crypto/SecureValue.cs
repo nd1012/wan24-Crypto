@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using wan24.Core;
 using wan24.ObjectValidation;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -8,7 +9,106 @@ namespace wan24.Crypto
     /// Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see 
     /// <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>)
     /// </summary>
-    public sealed partial class SecureValue : DisposableBase, IStatusProvider
+    public partial class SecureValue<T> : SecureValue where T : class, IStreamSerializer, new()
+    {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="value">Value (will be cleared!)</param>
+        /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time)</param>
+        /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example)</param>
+        /// <param name="options">Options (will be cleared!)</param>
+        /// <param name="keyLen">Random value encryption key length in bytes</param>
+        public SecureValue(
+            in byte[] value,
+            in TimeSpan? encryptTimeout = null,
+            in TimeSpan? recryptTimeout = null,
+            in CryptoOptions? options = null,
+            in int keyLen = DEFAULT_KEY_LEN
+            )
+            : base(value, encryptTimeout, recryptTimeout, options, keyLen)
+        { }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time)</param>
+        /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example)</param>
+        /// <param name="options">Options (will be cleared!)</param>
+        /// <param name="keyLen">Random value encryption key length in bytes</param>
+        public SecureValue(
+            in T value,
+            in TimeSpan? encryptTimeout = null,
+            in TimeSpan? recryptTimeout = null,
+            in CryptoOptions? options = null,
+            in int keyLen = DEFAULT_KEY_LEN
+            )
+            : base(value.ToBytes(), encryptTimeout, recryptTimeout, options, keyLen)
+        { }
+
+        /// <summary>
+        /// Get/set as object
+        /// </summary>
+        public virtual T Object
+        {
+            get
+            {
+                byte[] data = Value;
+                try
+                {
+                    return data.ToObject<T>();
+                }
+                finally
+                {
+                    data.Clear();
+                }
+            }
+            set => IfUndisposed(() => Value = value.ToBytes());
+        }
+
+        /// <summary>
+        /// Get the object
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Object</returns>
+        public async Task<T> GetObjectAsync(CancellationToken cancellationToken = default)
+        {
+            EnsureUndisposed();
+            byte[] data = await GetValueAsync(cancellationToken).DynamicContext();
+            try
+            {
+                return data.ToObject<T>();
+            }
+            finally
+            {
+                data.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Set the object
+        /// </summary>
+        /// <param name="obj">Object</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public async Task SetObjectAsync(T obj, CancellationToken cancellationToken = default)
+        {
+            EnsureUndisposed();
+            await SetValueAsync(obj.ToBytes(), cancellationToken).DynamicContext();
+        }
+
+        /// <summary>
+        /// Cast as object
+        /// </summary>
+        /// <param name="value">Value</param>
+        public static implicit operator T(SecureValue<T> value) => value.Object;
+    }
+
+    /// <summary>
+    /// Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see 
+    /// <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>)
+    /// </summary>
+    public partial class SecureValue : DisposableBase, IStatusProvider
     {
         /// <summary>
         /// Constructor
@@ -86,7 +186,7 @@ namespace wan24.Crypto
         public string? Name { get; set; }
 
         /// <inheritdoc/>
-        public IEnumerable<Status> State
+        public virtual IEnumerable<Status> State
         {
             get
             {
@@ -278,7 +378,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Raise the <see cref="OnAccess"/> event
         /// </summary>
-        private void RaiseOnAccess()
+        protected virtual void RaiseOnAccess()
         {
             if (OnAccess is not null) _ = ((Func<Task>)(async () =>
             {

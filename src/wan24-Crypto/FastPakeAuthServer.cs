@@ -1,4 +1,5 @@
 ﻿using wan24.Core;
+using wan24.Crypto.Authentication;
 
 namespace wan24.Crypto
 {
@@ -55,7 +56,7 @@ namespace wan24.Crypto
                     randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
                     try
                     {
-                        payload = auth.Payload.Decrypt(randomMac, Pake.CryptoOptions);
+                        payload = pake.DecryptPayload(auth.Payload, randomMac);
                     }
                     finally
                     {
@@ -95,8 +96,8 @@ namespace wan24.Crypto
                     signatureKey = Pake.CreateSignatureKey(key, secret);
                     if (!Pake.Identity.SignatureKey.SlowCompare(signatureKey))
                         throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
-                    // Create the session key
-                    sessionKey = Pake.CreateSessionKey(signatureKey, secret);
+                    // Store the session key
+                    sessionKey = Pake.SessionKey.CloneArray();
                     // Store the authentication key and the secret to this instance
                     Key = new(key, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
                     {
@@ -183,7 +184,7 @@ namespace wan24.Crypto
                     Pake.ClearIdentity();
                     // Create the identity (KDF)
                     signatureKey = Pake.CreateSignatureKey(signup.Key, signup.Secret);
-                    Pake.Identity = new PakeRecord(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey);
+                    Pake.Identity = new PakeRecord(signup, signatureKey);
                     Pake.PakeServerEventArgs e = new(signup);
                     Pake.RaiseOnSignup(e);
                     if (e.NewIdentity is not null)
@@ -196,7 +197,7 @@ namespace wan24.Crypto
                     if (!signup.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Create the session key
-                    sessionKey = Pake.CreateSessionKey(signatureKey, signup.Secret);
+                    sessionKey = Pake.SessionKey.CloneArray();
                     // Create the identity
                     identity = new(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey.CloneArray());
                     // Store the authentication key and the secret to this instance
@@ -376,7 +377,7 @@ namespace wan24.Crypto
                     randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
                     try
                     {
-                        payload = auth.Payload.Decrypt(randomMac, Pake.CryptoOptions);
+                        payload = Pake.DecryptPayload(auth.Payload, randomMac);
                     }
                     finally
                     {
@@ -464,7 +465,7 @@ namespace wan24.Crypto
                     randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
                     try
                     {
-                        payload = auth.Payload.Decrypt(randomMac, Pake.CryptoOptions);
+                        payload = Pake.DecryptPayload(auth.Payload, randomMac);
                     }
                     finally
                     {
@@ -526,6 +527,16 @@ namespace wan24.Crypto
                 randomMac?.Clear();
                 ssc?.Dispose();
             }
+        }
+
+        /// <summary>
+        /// Create a PAKE authentication record from this instance
+        /// </summary>
+        /// <returns>Record (don't forget to clear!)</returns>
+        public PakeAuthRecord CreateAuthRecord()
+        {
+            EnsureUndisposed();
+            return new(Pake.Identity!.Identifier.CloneArray(), Secret, Key, SignatureKey);
         }
 
         /// <inheritdoc/>

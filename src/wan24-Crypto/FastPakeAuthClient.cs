@@ -1,4 +1,6 @@
-﻿using wan24.Core;
+﻿using System.Net.Sockets;
+using wan24.Core;
+using wan24.Crypto.Authentication;
 
 namespace wan24.Crypto
 {
@@ -188,6 +190,50 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="record">PAKE authentication record</param>
+        /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
+        /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
+        /// <param name="options">PAKE options (will be cleared!)</param>
+        /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
+        /// <param name="name">Client name</param>
+        public FastPakeAuthClient(
+            in IPakeAuthRecord record,
+            in TimeSpan? encryptTimeout = null,
+            in TimeSpan? recryptTimeout = null,
+            in CryptoOptions? options = null,
+            in CryptoOptions? cryptoOptions = null,
+            in string? name = null
+            )
+            : base()
+        {
+            try
+            {
+                Name = name;
+                Pake = new(new SymmetricKeySuite(cryptoOptions, record.Identifier.CloneArray(), Array.Empty<byte>()), options, cryptoOptions);
+                Key = new(record.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
+                };
+                Secret = new(record.RawSecret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth client {GUID} (\"{Name}\") secret"
+                };
+                SignatureKey = new(record.SignatureKey.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                {
+                    Name = $"Fast PAKE auth client {GUID} (\"{Name}\") signature key"
+                };
+            }
+            catch (Exception ex)
+            {
+                Dispose();
+                if (ex is CryptographicException) throw;
+                throw CryptographicException.From(ex);
+            }
+        }
+
+        /// <summary>
         /// GUID
         /// </summary>
         public string GUID { get; } = Guid.NewGuid().ToString();
@@ -257,7 +303,7 @@ namespace wan24.Crypto
                     byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(randomMac, Pake.CryptoOptions);
+                        payload = Pake.EncryptPayload(payload, randomMac);
                     }
                     finally
                     {
@@ -316,7 +362,7 @@ namespace wan24.Crypto
                     byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(randomMac, Pake.CryptoOptions);
+                        payload = Pake.EncryptPayload(payload, randomMac);
                     }
                     finally
                     {
@@ -344,6 +390,16 @@ namespace wan24.Crypto
                 secret?.Clear();
                 signatureKey?.Clear();
             }
+        }
+
+        /// <summary>
+        /// Create a PAKE authentication record from this instance
+        /// </summary>
+        /// <returns>Record (don't forget to clear!)</returns>
+        public PakeAuthRecord CreateAuthRecord()
+        {
+            EnsureUndisposed();
+            return new(Pake.Key!.Identifier!.CloneArray(), Secret, Key, SignatureKey);
         }
 
         /// <inheritdoc/>

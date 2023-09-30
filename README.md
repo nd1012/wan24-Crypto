@@ -458,6 +458,8 @@ authentication message.
 
 ## Client/server authentication protocol
 
+### Asymmetric keys + PAKE
+
 `wan24-Crypto` implements a client/server authentication protocol for stream 
 connections (like a TCP `NetworkStream`). This protocol allows
 
@@ -479,8 +481,8 @@ The authentication is encrypted using
 If the public servers keys are not pre-shared, a PKI should be used to ensure 
 working with valid keys.
 
-See the tests for an example of a simple but working client/server 
-implementation.
+See the tests (`Auth_Tests.cs`) for an example of a simple but working client/
+server implementation.
 
 On signup, the server needs to store the PAKE identity and the clients public 
 keys, which then need to be provided for a later authentication process. The 
@@ -586,6 +588,63 @@ authentication (while built-in MAC authentication like with AEAD is ok). You
 can find a stream cipher in the `wan24-Crypto-BC` library, for example. The 
 encryption settings shouldn't use KDF to avoid too much overhead (KDF will be 
 used for PAKE already).
+
+### PAKE authentication only
+
+Quiet different from the "Asymmetric keys + PAKE" authentication protocol, 
+there is another implementation, which uses PAKE only. See the tests 
+(`PakeAuth_Tests.cs`) for an example of a simple but working client/server 
+implementation.
+
+This protocol allows
+
+- signup
+- authentication
+
+while all features are optional. It implements Zero Knowledge Password Proof 
+(ZKPP) and Perfect Forward Secrecy (PFS).
+
+**CAUTION**: At last the signup communication is required to be wrapped with 
+a PFS protocol! Use a TLS socket, for example. A later authentication _may_ be 
+performed using a raw socket.
+
+During the signup the server will respond a random signup to the client. The 
+produces PAKE values need to be stored on both peers for later authentication.
+
+**WARNING**: This authentication protocol doesn't support the use a pre-shared 
+key for the signup. This clearly opens doors for a MiM attack during the 
+signup: If the signup communication was compromised, the attacker will be able 
+to authenticate successful later! It's absolutely required to use a wrapping 
+PFS protocol which ensures the server identity, before sending any signup 
+information.
+
+For authentication, the client sends the identifier of the servers PAKE 
+values, which have been pre-shared during the signup. Using random bytes a 
+temporary session key will be calculated and used to send the PAKE 
+authentication request. The temporary session key will then be extended using 
+the now fully exchanged PAKE session key.
+
+**NOTE**: The authentication _may_ use a raw socket, while a wrapping PFS 
+protocol is of course never a mistake. However, if using raw sockets, a MiM is 
+able to know who is authenticating, because the servers random PAKE identifier 
+needs to be sent plain (and this value won't change, if not forced).
+
+Things that must be known in advance are the used algorithms, which must be 
+pre-defined in both (client and server) apps:
+
+- MAC algorithm
+- KDF algorithm
+- Encryption algorithm (and other `CryptoOptions` settings for encryption)
+
+**CAUTION**: The chosen encryption algorithm must not require MAC 
+authentication (while built-in MAC authentication like with AEAD is ok). You 
+can find a stream cipher in the `wan24-Crypto-BC` library, for example. The 
+encryption settings shouldn't use KDF to avoid too much overhead (KDF will be 
+used for PAKE already).
+
+In total this authentication may be a good choice for use with fixed client 
+devices, which are able to store the servers PAKE values in a safe way for the 
+long term.
 
 ## Random number generator
 

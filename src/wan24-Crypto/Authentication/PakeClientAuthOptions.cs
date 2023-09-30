@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using wan24.Core;
 
-//TODO Encrypt/Re-crypt timeouts
-
 namespace wan24.Crypto.Authentication
 {
     /// <summary>
@@ -29,7 +27,7 @@ namespace wan24.Crypto.Authentication
         /// <param name="login">Login ID (will be cleared!)</param>
         /// <param name="pwd">Login password (will be cleared!)</param>
         /// <param name="peerIdentity">Peer identity (won't be disposed)</param>
-        public PakeClientAuthOptions(in byte[] login, in byte[] pwd, in IPakeRecord peerIdentity) : base(asyncDisposing: false)
+        public PakeClientAuthOptions(in byte[] login, in byte[] pwd, in IPakeAuthRecord peerIdentity) : base(asyncDisposing: false)
         {
             Login = login;
             Password = pwd;
@@ -52,7 +50,7 @@ namespace wan24.Crypto.Authentication
         /// </summary>
         /// <param name="symmetricKey">Symmetric key suite (won't be disposed)</param>
         /// <param name="peerIdentity">Peer identity (won't be disposed)</param>
-        public PakeClientAuthOptions(in ISymmetricKeySuite symmetricKey, in IPakeRecord peerIdentity) : base(asyncDisposing: false)
+        public PakeClientAuthOptions(in ISymmetricKeySuite symmetricKey, in IPakeAuthRecord peerIdentity) : base(asyncDisposing: false)
         {
             SymmetricKey = symmetricKey;
             PeerIdentity = peerIdentity;
@@ -63,7 +61,7 @@ namespace wan24.Crypto.Authentication
         /// </summary>
         /// <param name="client">Fast PAKE authentication client (won't be disposed)</param>
         /// <param name="peerIdentity">Peer identity (won't be disposed)</param>
-        public PakeClientAuthOptions(in FastPakeAuthClient client, in IPakeRecord peerIdentity) : base(asyncDisposing: false)
+        public PakeClientAuthOptions(in FastPakeAuthClient client, in IPakeAuthRecord peerIdentity) : base(asyncDisposing: false)
         {
             FastPakeAuthClient = client;
             PeerIdentity = peerIdentity;
@@ -109,14 +107,9 @@ namespace wan24.Crypto.Authentication
         public FastPakeAuthClient? FastPakeAuthClient { get; }
 
         /// <summary>
-        /// Fast PAKE authentication server for the peer authentication handling (won't be disposed)
-        /// </summary>
-        public FastPakeAuthServer? FastPakeAuthServer { get; set; }
-
-        /// <summary>
         /// Peer identity (won't be disposed)
         /// </summary>
-        public IPakeRecord? PeerIdentity { get; }
+        public IPakeAuthRecord? PeerIdentity { get; }
 
         /// <summary>
         /// PAKE options (require KDF and MAC algorithms)
@@ -124,9 +117,34 @@ namespace wan24.Crypto.Authentication
         public CryptoOptions? PakeOptions { get; set; }
 
         /// <summary>
-        /// Crypto options (require encryption algorithms; shouldn't use KDF)
+        /// Crypto options (require encryption algorithms; shouldn't use KDF; cipher must not require MAC authentication)
         /// </summary>
         public CryptoOptions? CryptoOptions { get; set; }
+
+        /// <summary>
+        /// Session key value encrypt timeout (<see cref="SecureValue"/>)
+        /// </summary>
+        public TimeSpan? EncryptTimeout { get; set; }
+
+        /// <summary>
+        /// Session key value re-crypt timeout (<see cref="SecureValue"/>)
+        /// </summary>
+        public TimeSpan? RecryptTimeout { get; set; }
+
+        /// <summary>
+        /// Options for encrypting the session key value (<see cref="SecureValue"/>)
+        /// </summary>
+        public CryptoOptions? SessionKeyCryptoOptions { get; set; }
+
+        /// <summary>
+        /// Session key KEK length in bytes (<see cref="SecureValue"/>)
+        /// </summary>
+        public int SessionKeyKekLength { get; set; } = 64;
+
+        /// <summary>
+        /// Get the server authentication response? (the server will confirm a successful authentication)
+        /// </summary>
+        public bool GetAuthenticationResponse { get; set; } = true;
 
         /// <summary>
         /// Is for signup?

@@ -42,14 +42,14 @@ namespace wan24_Crypto_Tests
                     IdentityFactory = (context, ct) =>
                     {
                         Logging.WriteInfo("Identity factory");
-                        context.Identity = prs.GetRecord(context.Signup?.Identifier ?? context.Authentication?.Identifier ?? throw new InvalidProgramException());
+                        context.Identity = prs.GetRecord(context.Signup?.Identifier ?? context.Authentication?.Identifier ?? throw new InvalidProgramException("No identifier"));
                         if (context.Identity is not null)
                         {
                             Logging.WriteInfo("Loading public client keys");
                             context.FoundExistingClient = true;
                             // CAUTION: This is NOT a good idea! The PAKE identifier is sentitive data and shouldn't be part of a public object (this is only to simplify the tests)
                             context.PublicClientKeys = pks.GetSuiteByAttribute("PAKE identifier", Convert.ToHexString(context.Identity.Identifier))
-                                ?? throw new InvalidProgramException();
+                                ?? throw new InvalidProgramException("No public keys");
                         }
                         return Task.CompletedTask;
                     },
@@ -117,17 +117,21 @@ namespace wan24_Crypto_Tests
                 });
 
                 // Run the client
+                Task<bool> ValidateServerKeys(PublicKeySuite publicServerKeys, CancellationToken cancellationToken)
+                    => Task.FromResult(publicServerKeys.SignedPublicKey is not null && pki.IsTrustedRoot(publicServerKeys.SignedPublicKey.PublicKey.ID));
                 using PrivateKeySuite clientKeys = PrivateKeySuite.CreateWithCounterAlgorithms();
                 using BiDirectionalStream emulatedClientSocket = new(channelB, channelA, leaveOpen: true);
                 Logging.WriteInfo("Client tests");
                 byte[] clientSignupSessionKey = await ClientAuth.SignupAsync(emulatedClientSocket, new(clientKeys, "test".GetBytes(), "test".GetBytes16(), new byte[] { 1, 2, 3 })
                     {
                         CryptoOptions = cryptoOptions,
-                        PublicKeySigningRequest = new(clientKeys.SignatureKey!.PublicKey)
+                        PublicKeySigningRequest = new(clientKeys.SignatureKey!.PublicKey),
+                        ServerKeyValidator = ValidateServerKeys
                     }),
                     clientAuthSessionKey = await ClientAuth.AuthenticateAsync(emulatedClientSocket, new(clientKeys, "test".GetBytes(), "test".GetBytes16())
                     {
-                        CryptoOptions = cryptoOptions
+                        CryptoOptions = cryptoOptions,
+                        ServerKeyValidator = ValidateServerKeys
                     });
                 Logging.WriteInfo("Check signed public key");
                 Assert.IsNotNull(clientKeys.SignedPublicKey);

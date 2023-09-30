@@ -1,6 +1,4 @@
-﻿using wan24.Core;
-
-namespace wan24.Crypto.Authentication
+﻿namespace wan24.Crypto.Authentication
 {
     /// <summary>
     /// Server authentication context
@@ -42,7 +40,7 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// PAKE authentication (will be disposed!)
         /// </summary>
-        public Crypto.PakeAuth? Authentication { get; internal set; }
+        public PakeAuth? Authentication { get; internal set; }
 
         /// <summary>
         /// Client public keys (will be disposed!)
@@ -52,7 +50,6 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// PAKE identity (will be disposed!)
         /// </summary>
-        [SensitiveData]
         public IPakeRecord? Identity { get; set; }
 
         /// <summary>

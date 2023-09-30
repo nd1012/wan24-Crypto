@@ -4,7 +4,7 @@ using wan24.StreamSerializerExtensions;
 namespace wan24.Crypto.Authentication
 {
     /// <summary>
-    /// Server authentication
+    /// Authentication server
     /// </summary>
     public sealed partial class ServerAuth : DisposableBase
     {
@@ -73,7 +73,7 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// Authenticate
         /// </summary>
-        /// <param name="stream">Stream</param>
+        /// <param name="stream">Stream (requires blocking; should be encrypted)</param>
         /// <param name="preSharedSecret">Pre-shared secret (will be cleared!)</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Client authentication context (don't forget to dispose!)</returns>

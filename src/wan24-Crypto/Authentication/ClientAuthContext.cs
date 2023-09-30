@@ -27,7 +27,7 @@ namespace wan24.Crypto.Authentication
                     options.EncryptTimeout,
                     options.RecryptTimeout,
                     options.SessionKeyCryptoOptions,
-                    options.SessionKeyKeKLength
+                    options.SessionKeyKekLength
                     );
                 Payload = context.Payload?.Payload is null ? null : new(context.Payload.Payload);
                 TimeOffset = context.ClientTimeOffset;

@@ -27,7 +27,6 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key suites (key is the suite revision)
         /// </summary>
-        [SensitiveData]
         public ConcurrentDictionary<int, PrivateKeySuite> Suites => IfUndisposed(_Suites);
 
         /// <summary>
@@ -53,13 +52,38 @@ namespace wan24.Crypto
         public virtual PrivateKeySuite? GetSuite(in int revision) => _Suites.TryGetValue(revision, out PrivateKeySuite? res) ? res : null;
 
         /// <summary>
-        /// Remove a public key suite
+        /// Get a private key suite
+        /// </summary>
+        /// <param name="id">Signed public key ID</param>
+        /// <returns>Private key suite (will be disposed)</returns>
+        public virtual PrivateKeySuite? GetSuite(byte[] id)
+        {
+            EnsureUndisposed();
+            return _Suites.Values.FirstOrDefault(s => s.SignedPublicKey?.PublicKey.ID.SequenceEqual(id) ?? false);
+        }
+
+        /// <summary>
+        /// Remove and dispose a private key suite
         /// </summary>
         /// <param name="revision">Suite revision</param>
         public virtual void RemoveSuite(in int revision)
         {
             EnsureUndisposed();
             if (_Suites.TryRemove(revision, out PrivateKeySuite? suite))
+                suite.Dispose();
+        }
+
+        /// <summary>
+        /// Remove and dispose a private key suite
+        /// </summary>
+        /// <param name="id">Signed public key ID</param>
+        public virtual void RemoveSuite(byte[] id)
+        {
+            EnsureUndisposed();
+            if (
+                _Suites.FirstOrDefault(kvp => kvp.Value.SignedPublicKey?.PublicKey.ID.SequenceEqual(id) ?? false) is KeyValuePair<int, PrivateKeySuite> kvp &&
+                _Suites.TryRemove(kvp.Key, out PrivateKeySuite? suite)
+                )
                 suite.Dispose();
         }
 

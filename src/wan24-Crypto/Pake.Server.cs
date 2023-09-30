@@ -50,7 +50,7 @@ namespace wan24.Crypto
                     ClearIdentity();
                     // Create the identity (KDF)
                     signatureKey = CreateSignatureKey(signup.Key, signup.Secret);
-                    Identity = new PakeRecord(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey);
+                    Identity = new PakeRecord(signup, signatureKey);
                     PakeServerEventArgs e = new(signup);
                     OnSignup?.Invoke(this, e);
                     if (e.NewIdentity is not null)
@@ -109,7 +109,7 @@ namespace wan24.Crypto
                 {
                     if (Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
                     randomMac = auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
-                    payload = auth.Payload.Decrypt(randomMac, CryptoOptions);
+                    payload = DecryptPayload(auth.Payload, randomMac);
                 }
                 // Run pre-actions
                 PakeServerEventArgs e = new(auth, payload);

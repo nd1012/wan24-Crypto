@@ -1,43 +1,43 @@
 ﻿using System.Collections.Concurrent;
 using wan24.Core;
 
-namespace wan24.Crypto
+namespace wan24.Crypto.Authentication
 {
     /// <summary>
-    /// PAKE record store
+    /// PAKE authentication record store
     /// </summary>
-    public class PakeRecordStore : PakeRecordStore<IPakeRecord>
+    public class PakeAuthRecordStore : PakeRecordStore<IPakeAuthRecord>
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        public PakeRecordStore() : base() { }
+        public PakeAuthRecordStore() : base() { }
     }
 
     /// <summary>
-    /// PAKE record store
+    /// PAKE authentication record store
     /// </summary>
-    public class PakeRecordStore<T> : DisposableBase where T : notnull, IPakeRecord
+    public class PakeAuthRecordStore<T> : DisposableBase where T : notnull, IPakeAuthRecord
     {
         /// <summary>
-        /// PAKE records (key is the identifier)
+        /// PAKE authentication records (key is the identifier)
         /// </summary>
         protected readonly ConcurrentDictionary<byte[], T> _Records = new();
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public PakeRecordStore() : base(asyncDisposing: true) { }
+        public PakeAuthRecordStore() : base(asyncDisposing: true) { }
 
         /// <summary>
-        /// PAKE records (key is the identifier)
+        /// PAKE authentication records (key is the identifier)
         /// </summary>
         public ConcurrentDictionary<byte[], T> Records => IfUndisposed(_Records);
 
         /// <summary>
-        /// Add a PAKE record
+        /// Add a PAKE authentication record
         /// </summary>
-        /// <param name="record">PAKE record (will be cleared/disposed!)</param>
+        /// <param name="record">PAKE authentication record (will be cleared/disposed!)</param>
         public void AddRecord(in T record)
         {
             EnsureUndisposed();
@@ -50,9 +50,9 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Add a PAKE record
+        /// Add a PAKE authentication record
         /// </summary>
-        /// <param name="record">PAKE record (will be cleared/disposed!)</param>
+        /// <param name="record">PAKE authentication record (will be cleared/disposed!)</param>
         public async Task AddRecordAsync(T record)
         {
             EnsureUndisposed();
@@ -65,10 +65,10 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get a PAKE record
+        /// Get a PAKE authentication record
         /// </summary>
         /// <param name="identifier">Identifier</param>
-        /// <returns>PAKE record (will be cleared/disposed)</returns>
+        /// <returns>PAKE authentication record (will be cleared/disposed)</returns>
         public T? GetRecord(byte[] identifier)
         {
             EnsureUndisposed();
@@ -77,7 +77,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Remove and clear/dispose a PAKE record
+        /// Remove and clear/dispose a PAKE authentication record
         /// </summary>
         /// <param name="identifier">Identifier</param>
         public void RemoveRecord(byte[] identifier)
@@ -88,7 +88,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Remove and clear/dispose a PAKE record
+        /// Remove and clear/dispose a PAKE authentication record
         /// </summary>
         /// <param name="identifier">Identifier</param>
         public async Task RemoveRecordAsync(byte[] identifier)
