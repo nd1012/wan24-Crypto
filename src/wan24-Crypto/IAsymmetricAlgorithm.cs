@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 
 namespace wan24.Crypto
 {
@@ -74,5 +75,11 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <returns>Derived PFS key</returns>
         byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null);
+        /// <summary>
+        /// Determine if this asymmetric algorithm can handle a .NET asymmetric algorithm
+        /// </summary>
+        /// <param name="algo">Asymmetric algorithm</param>
+        /// <returns>If this asymmetric algorithm can handle the .NET asymmetric algorithm</returns>
+        bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo);
     }
 }

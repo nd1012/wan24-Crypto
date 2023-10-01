@@ -42,6 +42,26 @@ namespace wan24.Crypto
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="key">Private key (will be disposed!)</param>
+        public AsymmetricEcDiffieHellmanPublicKey(ECDiffieHellman key) : this()
+        {
+            try
+            {
+                KeyData = new(key.PublicKey.ExportSubjectPublicKeyInfo());
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                key.Dispose();
+            }
+        }
+
         /// <inheritdoc/>
         public override int Bits => EllipticCurves.GetKeySize(PublicKey.ExportParameters().Curve);
 

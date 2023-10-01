@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -152,6 +153,9 @@ namespace wan24.Crypto
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <inheritdoc/>
+        public virtual bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo) => false;
 
         /// <inheritdoc/>
         IAsymmetricPrivateKey IAsymmetricAlgorithm.CreateKeyPair(CryptoOptions? options) => CreateKeyPair(options);

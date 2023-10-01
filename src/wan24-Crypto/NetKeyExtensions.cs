@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -14,12 +15,7 @@ namespace wan24.Crypto
         /// <param name="algo">Algorithm</param>
         /// <returns>Algorithm</returns>
         public static IAsymmetricAlgorithm? GetAsymmetricAlgorithm(this AsymmetricAlgorithm algo)
-            => algo switch
-            {
-                ECDiffieHellman => AsymmetricHelper.GetAlgorithm(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME),
-                ECDsa => AsymmetricHelper.GetAlgorithm(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME),
-                _ => null
-            };
+            => AsymmetricHelper.Algorithms.Values.FirstOrDefault(a => a.CanHandleNetAlgorithm(algo));
 
         /// <summary>
         /// Get a private key instance
@@ -29,9 +25,7 @@ namespace wan24.Crypto
         public static IAsymmetricPrivateKey GetAsymmetricPrivateKey(this AsymmetricAlgorithm algo)
         {
             IAsymmetricAlgorithm aa = algo.GetAsymmetricAlgorithm() ?? throw new ArgumentException("Unsupported algorithm", nameof(algo));
-            if (aa is AsymmetricEcDiffieHellmanAlgorithm) return new AsymmetricEcDiffieHellmanPrivateKey(algo.ExportPkcs8PrivateKey());
-            if (aa is AsymmetricEcDsaAlgorithm) return new AsymmetricEcDsaPrivateKey(algo.ExportPkcs8PrivateKey());
-            throw new NotImplementedException($"Algorithm {aa.Name} wasn't implemented (this is a bug)");
+            return (IAsymmetricPrivateKey)aa.PrivateKeyType.ConstructAuto(usePrivate: false, algo);
         }
 
         /// <summary>
@@ -42,9 +36,7 @@ namespace wan24.Crypto
         public static IAsymmetricPublicKey GetAsymmetricPublicKey(this AsymmetricAlgorithm algo)
         {
             IAsymmetricAlgorithm aa = algo.GetAsymmetricAlgorithm() ?? throw new ArgumentException("Unsupported algorithm", nameof(algo));
-            if (aa is AsymmetricEcDiffieHellmanAlgorithm) return new AsymmetricEcDiffieHellmanPublicKey(algo.ExportSubjectPublicKeyInfo());
-            if (aa is AsymmetricEcDsaAlgorithm) return new AsymmetricEcDsaPublicKey(algo.ExportSubjectPublicKeyInfo());
-            throw new NotImplementedException($"Algorithm {aa.Name} wasn't implemented (this is a bug)");
+            return (IAsymmetricPublicKey)aa.PublicKeyType.ConstructAuto(usePrivate: false, algo);
         }
     }
 }
