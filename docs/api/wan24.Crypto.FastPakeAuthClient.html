@@ -73,7 +73,7 @@
   
   <h1 id="wan24_Crypto_FastPakeAuthClient" data-uid="wan24.Crypto.FastPakeAuthClient" class="text-break">Class FastPakeAuthClient
   </h1>
-  <div class="markdown level0 summary"><p>Fast PAKE authentication client (NOT thread-safe!)</p>
+  <div class="markdown level0 summary"><p>Fast PAKE authentication client (will skip KDF after initialization)</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -111,9 +111,6 @@
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
@@ -171,19 +168,165 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_ISymmetricKeySuite__System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.%23ctor(wan24.Crypto.ISymmetricKeySuite%40%2CSystem.Nullable%7BTimeSpan%7D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2Cwan24.Crypto.CryptoOptions%40%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_Authentication_IPakeAuthRecord__System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.%23ctor(wan24.Crypto.Authentication.IPakeAuthRecord%40%2CSystem.Nullable%7BTimeSpan%7D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2Cwan24.Crypto.CryptoOptions%40%2Cwan24.Crypto.CryptoOptions%40%2CSystem.String%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L32">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L201">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient__ctor_" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_ISymmetricKeySuite__System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.ISymmetricKeySuite@,System.Nullable{TimeSpan}@,System.Nullable{TimeSpan}@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions)">FastPakeAuthClient(in ISymmetricKeySuite, in Nullable&lt;TimeSpan&gt;, in Nullable&lt;TimeSpan&gt;, in CryptoOptions, CryptoOptions)</h4>
+  <h4 id="wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_Authentication_IPakeAuthRecord__System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.Authentication.IPakeAuthRecord@,System.Nullable{TimeSpan}@,System.Nullable{TimeSpan}@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions@,System.String@)">FastPakeAuthClient(in IPakeAuthRecord, in Nullable&lt;TimeSpan&gt;, in Nullable&lt;TimeSpan&gt;, in CryptoOptions, in CryptoOptions, in String)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FastPakeAuthClient(in ISymmetricKeySuite key, in TimeSpan? encryptTimeout = null, in TimeSpan? recryptTimeout = null, in CryptoOptions options = null, CryptoOptions cryptoOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public FastPakeAuthClient(in IPakeAuthRecord record, in TimeSpan? encryptTimeout = null, in TimeSpan? recryptTimeout = null, in CryptoOptions options = null, in CryptoOptions cryptoOptions = null, in string name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a></td>
+        <td><span class="parametername">record</span></td>
+        <td><p>PAKE authentication record</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">encryptTimeout</span></td>
+        <td><p>Encrypt timeout (<see cref="!:TimeSpan.Zero"></see> to keep encrypted all the time; default is <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_DefaultEncryptTimeout">DefaultEncryptTimeout</a>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">recryptTimeout</span></td>
+        <td><p>Re-crypt timeout (one minute, for example; default is <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_DefaultRecryptTimeout">DefaultRecryptTimeout</a>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>PAKE options (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">cryptoOptions</span></td>
+        <td><p>Options for encryption (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Client name</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_ISymmetricKeySuite__System_Byte____System_Byte____System_Byte____System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.%23ctor(wan24.Crypto.ISymmetricKeySuite%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2Cwan24.Crypto.CryptoOptions%40%2Cwan24.Crypto.CryptoOptions%40%2CSystem.String%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L154">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthClient__ctor_" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_ISymmetricKeySuite__System_Byte____System_Byte____System_Byte____System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.ISymmetricKeySuite@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Nullable{TimeSpan}@,System.Nullable{TimeSpan}@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions@,System.String@)">FastPakeAuthClient(in ISymmetricKeySuite, in Byte[], in Byte[], in Byte[], in Nullable&lt;TimeSpan&gt;, in Nullable&lt;TimeSpan&gt;, in CryptoOptions, in CryptoOptions, in String)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastPakeAuthClient(in ISymmetricKeySuite key, in byte[] authKey, in byte[] secret, in byte[] signatureKey, in TimeSpan? encryptTimeout = null, in TimeSpan? recryptTimeout = null, in CryptoOptions options = null, in CryptoOptions cryptoOptions = null, in string name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Key (will be disposed!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">authKey</span></td>
+        <td><p>Authentication key (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">secret</span></td>
+        <td><p>Secret (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">signatureKey</span></td>
+        <td><p>Signature key (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">encryptTimeout</span></td>
+        <td><p>Encrypt timeout (<see cref="!:TimeSpan.Zero"></see> to keep encrypted all the time; default is <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_DefaultEncryptTimeout">DefaultEncryptTimeout</a>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">recryptTimeout</span></td>
+        <td><p>Re-crypt timeout (one minute, for example; default is <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_DefaultRecryptTimeout">DefaultRecryptTimeout</a>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>PAKE options (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">cryptoOptions</span></td>
+        <td><p>Options for encryption (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Client name</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_ISymmetricKeySuite__System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.%23ctor(wan24.Crypto.ISymmetricKeySuite%40%2CSystem.Nullable%7BTimeSpan%7D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2Cwan24.Crypto.CryptoOptions%40%2Cwan24.Crypto.CryptoOptions%40%2CSystem.String%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L30">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthClient__ctor_" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_ISymmetricKeySuite__System_Nullable_TimeSpan___System_Nullable_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.ISymmetricKeySuite@,System.Nullable{TimeSpan}@,System.Nullable{TimeSpan}@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions@,System.String@)">FastPakeAuthClient(in ISymmetricKeySuite, in Nullable&lt;TimeSpan&gt;, in Nullable&lt;TimeSpan&gt;, in CryptoOptions, in CryptoOptions, in String)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastPakeAuthClient(in ISymmetricKeySuite key, in TimeSpan? encryptTimeout = null, in TimeSpan? recryptTimeout = null, in CryptoOptions options = null, in CryptoOptions cryptoOptions = null, in string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -225,6 +368,82 @@
         <td><p>Options for encryption (will be cleared!)</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Client name</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeSignup__System_Byte____System_Byte____System_Nullable_TimeSpan___System_Nullable_TimeSpan___System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.%23ctor(wan24.Crypto.Pake%40%2Cwan24.Crypto.PakeSignup%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2CSystem.Nullable%7BTimeSpan%7D%40%2CSystem.String%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L84">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthClient__ctor_" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeSignup__System_Byte____System_Byte____System_Nullable_TimeSpan___System_Nullable_TimeSpan___System_String__" data-uid="wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeSignup@,System.Byte[]@,System.Byte[]@,System.Nullable{TimeSpan}@,System.Nullable{TimeSpan}@,System.String@)">FastPakeAuthClient(in Pake, out PakeSignup, out Byte[], in Byte[], in Nullable&lt;TimeSpan&gt;, in Nullable&lt;TimeSpan&gt;, in String)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastPakeAuthClient(in Pake pake, out PakeSignup signup, out byte[] sessionKey, in byte[] payload = null, in TimeSpan? encryptTimeout = null, in TimeSpan? recryptTimeout = null, in string name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></td>
+        <td><span class="parametername">pake</span></td>
+        <td><p>PAKE instance (will be disposed!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PakeSignup.html">PakeSignup</a></td>
+        <td><span class="parametername">signup</span></td>
+        <td><p>PAKE signup (should be disposed!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">sessionKey</span></td>
+        <td><p>Session key (should be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>Payload</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">encryptTimeout</span></td>
+        <td><p>Encrypt timeout (<see cref="!:TimeSpan.Zero"></see> to keep encrypted all the time; default is <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_DefaultEncryptTimeout">DefaultEncryptTimeout</a>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">recryptTimeout</span></td>
+        <td><p>Re-crypt timeout (one minute, for example; default is <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_DefaultRecryptTimeout">DefaultRecryptTimeout</a>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Client name</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
@@ -234,7 +453,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_AuthCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.AuthCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L126">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L249">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient_AuthCount_" data-uid="wan24.Crypto.FastPakeAuthClient.AuthCount*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthClient_AuthCount" data-uid="wan24.Crypto.FastPakeAuthClient.AuthCount">AuthCount</h4>
@@ -243,7 +462,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public long AuthCount { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int AuthCount { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -255,7 +474,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int64</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -265,7 +484,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_GUID.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.GUID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L78">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L239">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient_GUID_" data-uid="wan24.Crypto.FastPakeAuthClient.GUID*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthClient_GUID" data-uid="wan24.Crypto.FastPakeAuthClient.GUID">GUID</h4>
@@ -293,19 +512,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_HasSession.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.HasSession%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Key.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Key%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L107">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L254">View Source</a>
   </span>
-  <a id="wan24_Crypto_FastPakeAuthClient_HasSession_" data-uid="wan24.Crypto.FastPakeAuthClient.HasSession*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient_HasSession" data-uid="wan24.Crypto.FastPakeAuthClient.HasSession">HasSession</h4>
-  <div class="markdown level1 summary"><p>Has a session key?</p>
+  <a id="wan24_Crypto_FastPakeAuthClient_Key_" data-uid="wan24.Crypto.FastPakeAuthClient.Key*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient_Key" data-uid="wan24.Crypto.FastPakeAuthClient.Key">Key</h4>
+  <div class="markdown level1 summary"><p>Key</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasSession { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public SecureValue Key { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -317,38 +536,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L98">View Source</a>
-  </span>
-  <a id="wan24_Crypto_FastPakeAuthClient_Identifier_" data-uid="wan24.Crypto.FastPakeAuthClient.Identifier*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient_Identifier" data-uid="wan24.Crypto.FastPakeAuthClient.Identifier">Identifier</h4>
-  <div class="markdown level1 summary"><p>Identifier</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Identifier { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -358,7 +546,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Name.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L83">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L244">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient_Name_" data-uid="wan24.Crypto.FastPakeAuthClient.Name*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthClient_Name" data-uid="wan24.Crypto.FastPakeAuthClient.Name">Name</h4>
@@ -386,19 +574,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Pake.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Pake%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Secret.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Secret%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L93">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L259">View Source</a>
   </span>
-  <a id="wan24_Crypto_FastPakeAuthClient_Pake_" data-uid="wan24.Crypto.FastPakeAuthClient.Pake*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient_Pake" data-uid="wan24.Crypto.FastPakeAuthClient.Pake">Pake</h4>
-  <div class="markdown level1 summary"><p>PAKE instance</p>
+  <a id="wan24_Crypto_FastPakeAuthClient_Secret_" data-uid="wan24.Crypto.FastPakeAuthClient.Secret*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient_Secret" data-uid="wan24.Crypto.FastPakeAuthClient.Secret">Secret</h4>
+  <div class="markdown level1 summary"><p>Secret</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Pake Pake { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public SecureValue Secret { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -410,27 +598,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></td>
+        <td><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_SessionKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.SessionKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.SignatureKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L116">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L264">View Source</a>
   </span>
-  <a id="wan24_Crypto_FastPakeAuthClient_SessionKey_" data-uid="wan24.Crypto.FastPakeAuthClient.SessionKey*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient_SessionKey" data-uid="wan24.Crypto.FastPakeAuthClient.SessionKey">SessionKey</h4>
-  <div class="markdown level1 summary"><p>Session key (available after authentication; will be cleared!)</p>
+  <a id="wan24_Crypto_FastPakeAuthClient_SignatureKey_" data-uid="wan24.Crypto.FastPakeAuthClient.SignatureKey*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient_SignatureKey" data-uid="wan24.Crypto.FastPakeAuthClient.SignatureKey">SignatureKey</h4>
+  <div class="markdown level1 summary"><p>Signature key</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[SensitiveData]
-public byte[] SessionKey { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public SecureValue SignatureKey { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -442,7 +629,7 @@ public byte[] SessionKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -452,7 +639,7 @@ public byte[] SessionKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L129">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L267">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient_State_" data-uid="wan24.Crypto.FastPakeAuthClient.State*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthClient_State" data-uid="wan24.Crypto.FastPakeAuthClient.State">State</h4>
@@ -477,61 +664,14 @@ public byte[] SessionKey { get; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Sync.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Sync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L88">View Source</a>
-  </span>
-  <a id="wan24_Crypto_FastPakeAuthClient_Sync_" data-uid="wan24.Crypto.FastPakeAuthClient.Sync*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient_Sync" data-uid="wan24.Crypto.FastPakeAuthClient.Sync">Sync</h4>
-  <div class="markdown level1 summary"><p>External thread synchronizaion</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SemaphoreSync Sync { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">wan24.Core.SemaphoreSync</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_ClearSessionKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.ClearSessionKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L198">View Source</a>
-  </span>
-  <a id="wan24_Crypto_FastPakeAuthClient_ClearSessionKey_" data-uid="wan24.Crypto.FastPakeAuthClient.ClearSessionKey*"></a>
-  <h4 id="wan24_Crypto_FastPakeAuthClient_ClearSessionKey" data-uid="wan24.Crypto.FastPakeAuthClient.ClearSessionKey">ClearSessionKey()</h4>
-  <div class="markdown level1 summary"><p>Clear the session key</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ClearSessionKey()</code></pre>
-  </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_CreateAuth_System_Byte___System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.CreateAuth(System.Byte%5B%5D%2CSystem.Boolean%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L146">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L284">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient_CreateAuth_" data-uid="wan24.Crypto.FastPakeAuthClient.CreateAuth*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthClient_CreateAuth_System_Byte___System_Boolean__" data-uid="wan24.Crypto.FastPakeAuthClient.CreateAuth(System.Byte[],System.Boolean@)">CreateAuth(Byte[], in Boolean)</h4>
@@ -540,7 +680,7 @@ public byte[] SessionKey { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PakeAuth CreateAuth(byte[] payload = null, in bool encryptPayload = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public (PakeAuth Auth, byte[] SessionKey) CreateAuth(byte[] payload = null, in bool encryptPayload = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -576,8 +716,96 @@ public byte[] SessionKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.PakeAuth.html">PakeAuth</a></td>
-        <td><p>Authentication (send this to the server and don't forget to dispose!)</p>
+        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.PakeAuth.html">PakeAuth</a>, <span class="xref">System.Byte</span>[]&gt;</td>
+        <td><p>Authentication (send this to the server and don't forget to dispose!) and session key (should be cleared!)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_CreateAuthAsync_System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(System.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L342">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthClient_CreateAuthAsync_" data-uid="wan24.Crypto.FastPakeAuthClient.CreateAuthAsync*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient_CreateAuthAsync_System_Byte___System_Boolean_" data-uid="wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(System.Byte[],System.Boolean)">CreateAuthAsync(Byte[], Boolean)</h4>
+  <div class="markdown level1 summary"><p>Create an authentication</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;(PakeAuth Auth, byte[] SessionKey)&gt; CreateAuthAsync(byte[] payload = null, bool encryptPayload = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>Payload (max. <span class="xref">System.UInt16.MaxValue</span> length; will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">encryptPayload</span></td>
+        <td><p>Encrypt the payload?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.PakeAuth.html">PakeAuth</a>, <span class="xref">System.Byte</span>[]&gt;&gt;</td>
+        <td><p>Authentication (send this to the server and don't forget to dispose!) and session key (should be cleared!)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_CreateAuthRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.CreateAuthRecord%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L399">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthClient_CreateAuthRecord_" data-uid="wan24.Crypto.FastPakeAuthClient.CreateAuthRecord*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient_CreateAuthRecord" data-uid="wan24.Crypto.FastPakeAuthClient.CreateAuthRecord">CreateAuthRecord()</h4>
+  <div class="markdown level1 summary"><p>Create a PAKE authentication record from this instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeAuthRecord CreateAuthRecord()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecord.html">PakeAuthRecord</a></td>
+        <td><p>Record (don't forget to clear!)</p>
 </td>
       </tr>
     </tbody>
@@ -587,7 +815,7 @@ public byte[] SessionKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L202">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L406">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthClient_Dispose_" data-uid="wan24.Crypto.FastPakeAuthClient.Dispose*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthClient_Dispose_System_Boolean_" data-uid="wan24.Crypto.FastPakeAuthClient.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -616,6 +844,38 @@ public byte[] SessionKey { get; }</code></pre>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L415">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthClient_DisposeCore_" data-uid="wan24.Crypto.FastPakeAuthClient.DisposeCore*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthClient_DisposeCore" data-uid="wan24.Crypto.FastPakeAuthClient.DisposeCore">DisposeCore()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task DisposeCore()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Core.DisposableBase.DisposeCore()</span></div>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
@@ -640,7 +900,7 @@ public byte[] SessionKey { get; }</code></pre>
                     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthClient.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthClient.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

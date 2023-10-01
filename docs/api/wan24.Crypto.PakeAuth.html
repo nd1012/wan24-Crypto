@@ -127,6 +127,12 @@
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializerVersion</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
@@ -215,7 +221,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L37">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L38">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth__ctor_" data-uid="wan24.Crypto.PakeAuth.#ctor*"></a>
   <h4 id="wan24_Crypto_PakeAuth__ctor" data-uid="wan24.Crypto.PakeAuth.#ctor">PakeAuth()</h4>
@@ -233,7 +239,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.VERSION%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L14">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L15">View Source</a>
   </span>
   <h4 id="wan24_Crypto_PakeAuth_VERSION" data-uid="wan24.Crypto.PakeAuth.VERSION">VERSION</h4>
   <div class="markdown level1 summary"><p>Object version</p>
@@ -265,7 +271,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L40">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L41">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Identifier_" data-uid="wan24.Crypto.PakeAuth.Identifier*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Identifier" data-uid="wan24.Crypto.PakeAuth.Identifier">Identifier</h4>
@@ -274,7 +280,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Identifier { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[CountLimit(1L, 255L)]
+public byte[] Identifier { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -296,7 +303,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Key.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Key%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L43">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L45">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Key_" data-uid="wan24.Crypto.PakeAuth.Key*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Key" data-uid="wan24.Crypto.PakeAuth.Key">Key</h4>
@@ -305,7 +312,9 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Key { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[CountLimit(1L, 255L)]
+[SensitiveData]
+public byte[] Key { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -327,7 +336,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Payload.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Payload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L49">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L54">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Payload_" data-uid="wan24.Crypto.PakeAuth.Payload*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Payload" data-uid="wan24.Crypto.PakeAuth.Payload">Payload</h4>
@@ -336,7 +345,9 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Payload { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[CountLimit(0L, 65535L)]
+[SensitiveData]
+public byte[] Payload { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -358,7 +369,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Random.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Random%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L52">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L59">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Random_" data-uid="wan24.Crypto.PakeAuth.Random*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Random" data-uid="wan24.Crypto.PakeAuth.Random">Random</h4>
@@ -367,7 +378,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Random { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[CountLimit(1L, 255L)]
+public byte[] Random { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -389,7 +401,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Signature.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Signature%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L46">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L50">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Signature_" data-uid="wan24.Crypto.PakeAuth.Signature*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Signature" data-uid="wan24.Crypto.PakeAuth.Signature">Signature</h4>
@@ -398,7 +410,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Signature { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[CountLimit(1L, 255L)]
+public byte[] Signature { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -422,7 +435,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L96">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L104">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Deserialize_" data-uid="wan24.Crypto.PakeAuth.Deserialize*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.PakeAuth.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -459,7 +472,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L109">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L117">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_DeserializeAsync_" data-uid="wan24.Crypto.PakeAuth.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_PakeAuth_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.PakeAuth.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -516,7 +529,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L55">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L63">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Dispose_" data-uid="wan24.Crypto.PakeAuth.Dispose*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Dispose_System_Boolean_" data-uid="wan24.Crypto.PakeAuth.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -550,7 +563,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L65">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L73">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_DisposeCore_" data-uid="wan24.Crypto.PakeAuth.DisposeCore*"></a>
   <h4 id="wan24_Crypto_PakeAuth_DisposeCore" data-uid="wan24.Crypto.PakeAuth.DisposeCore">DisposeCore()</h4>
@@ -582,7 +595,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L76">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L84">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_Serialize_" data-uid="wan24.Crypto.PakeAuth.Serialize*"></a>
   <h4 id="wan24_Crypto_PakeAuth_Serialize_Stream_" data-uid="wan24.Crypto.PakeAuth.Serialize(Stream)">Serialize(Stream)</h4>
@@ -614,7 +627,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L86">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L94">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_SerializeAsync_" data-uid="wan24.Crypto.PakeAuth.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_PakeAuth_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.PakeAuth.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
@@ -668,7 +681,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_op_Explicit_System_Byte_____wan24_Crypto_PakeAuth.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.op_Explicit(System.Byte%5B%5D%40)~wan24.Crypto.PakeAuth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L131">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L139">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_op_Explicit_" data-uid="wan24.Crypto.PakeAuth.op_Explicit*"></a>
   <h4 id="wan24_Crypto_PakeAuth_op_Explicit_System_Byte_____wan24_Crypto_PakeAuth" data-uid="wan24.Crypto.PakeAuth.op_Explicit(System.Byte[]@)~wan24.Crypto.PakeAuth">Explicit(in Byte[] to PakeAuth)</h4>
@@ -717,7 +730,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth_op_Implicit_wan24_Crypto_PakeAuth___System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth.op_Implicit(wan24.Crypto.PakeAuth%40)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L125">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L133">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeAuth_op_Implicit_" data-uid="wan24.Crypto.PakeAuth.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PakeAuth_op_Implicit_wan24_Crypto_PakeAuth___System_Byte__" data-uid="wan24.Crypto.PakeAuth.op_Implicit(wan24.Crypto.PakeAuth@)~System.Byte[]">Implicit(in PakeAuth to Byte[])</h4>
@@ -797,7 +810,7 @@
                     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeAuth.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeAuth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeAuth.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

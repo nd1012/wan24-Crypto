@@ -130,6 +130,12 @@
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializerVersion</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
@@ -221,7 +227,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase__ctor_System_String_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L21">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L22">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase__ctor_" data-uid="wan24.Crypto.AsymmetricKeyBase.#ctor*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase__ctor_System_String_" data-uid="wan24.Crypto.AsymmetricKeyBase.#ctor(System.String)">AsymmetricKeyBase(String)</h4>
@@ -257,7 +263,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.VERSION%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L15">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L16">View Source</a>
   </span>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_VERSION" data-uid="wan24.Crypto.AsymmetricKeyBase.VERSION">VERSION</h4>
   <div class="markdown level1 summary"><p>Object version</p>
@@ -289,7 +295,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Algorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Algorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L27">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L29">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Algorithm_" data-uid="wan24.Crypto.AsymmetricKeyBase.Algorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Algorithm" data-uid="wan24.Crypto.AsymmetricKeyBase.Algorithm">Algorithm</h4>
@@ -320,7 +326,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Bits.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Bits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L32">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Bits_" data-uid="wan24.Crypto.AsymmetricKeyBase.Bits*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Bits" data-uid="wan24.Crypto.AsymmetricKeyBase.Bits">Bits</h4>
@@ -329,7 +335,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract int Bits { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Range(1, 2147483647)]
+public abstract int Bits { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -351,7 +358,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_ID.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L24">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L25">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_ID_" data-uid="wan24.Crypto.AsymmetricKeyBase.ID*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_ID" data-uid="wan24.Crypto.AsymmetricKeyBase.ID">ID</h4>
@@ -360,7 +367,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract byte[] ID { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[CountLimit(64L)]
+public abstract byte[] ID { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -382,7 +390,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_KeyData.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.KeyData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L36">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_KeyData_" data-uid="wan24.Crypto.AsymmetricKeyBase.KeyData*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_KeyData" data-uid="wan24.Crypto.AsymmetricKeyBase.KeyData">KeyData</h4>
@@ -392,6 +400,7 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoValidation(false)]
+[SensitiveData]
 public SecureByteArray KeyData { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -416,7 +425,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L37">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L40">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Clone_" data-uid="wan24.Crypto.AsymmetricKeyBase.Clone*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Clone" data-uid="wan24.Crypto.AsymmetricKeyBase.Clone">Clone()</h4>
@@ -446,7 +455,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L75">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L82">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Deserialize_" data-uid="wan24.Crypto.AsymmetricKeyBase.Deserialize*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.AsymmetricKeyBase.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -486,7 +495,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L88">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L95">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_" data-uid="wan24.Crypto.AsymmetricKeyBase.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeyBase.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -547,7 +556,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L97">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L104">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Dispose_" data-uid="wan24.Crypto.AsymmetricKeyBase.Dispose*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Dispose_System_Boolean_" data-uid="wan24.Crypto.AsymmetricKeyBase.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -581,7 +590,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Export.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Export%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L40">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L43">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Export_" data-uid="wan24.Crypto.AsymmetricKeyBase.Export*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Export" data-uid="wan24.Crypto.AsymmetricKeyBase.Export">Export()</h4>
@@ -613,7 +622,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Import_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Import(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L122">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L143">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Import_" data-uid="wan24.Crypto.AsymmetricKeyBase.Import*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Import_System_Byte___" data-uid="wan24.Crypto.AsymmetricKeyBase.Import(System.Byte[])">Import(Byte[])</h4>
@@ -663,7 +672,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Import__1_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Import%60%601(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L105">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L112">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Import_" data-uid="wan24.Crypto.AsymmetricKeyBase.Import*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Import__1_System_Byte___" data-uid="wan24.Crypto.AsymmetricKeyBase.Import``1(System.Byte[])">Import&lt;T&gt;(Byte[])</h4>
@@ -730,7 +739,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L53">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L60">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_Serialize_" data-uid="wan24.Crypto.AsymmetricKeyBase.Serialize*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_Serialize_Stream_" data-uid="wan24.Crypto.AsymmetricKeyBase.Serialize(Stream)">Serialize(Stream)</h4>
@@ -764,7 +773,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L64">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L71">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricKeyBase_SerializeAsync_" data-uid="wan24.Crypto.AsymmetricKeyBase.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_AsymmetricKeyBase_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeyBase.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
@@ -853,7 +862,7 @@ public SecureByteArray KeyData { get; protected set; }</code></pre>
                     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyBase.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyBase.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

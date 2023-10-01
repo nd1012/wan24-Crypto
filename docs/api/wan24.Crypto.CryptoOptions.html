@@ -121,6 +121,12 @@
       <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializerVersion</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
@@ -229,7 +235,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
+    <pre><code class="lang-csharp hljs">public const int VERSION = 2</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -253,7 +259,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_Algorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.Algorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L58">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L64">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_Algorithm_" data-uid="wan24.Crypto.CryptoOptions.Algorithm*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_Algorithm" data-uid="wan24.Crypto.CryptoOptions.Algorithm">Algorithm</h4>
@@ -285,7 +291,7 @@ public string Algorithm { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_AsymmetricAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.AsymmetricAlgorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L88">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L94">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_AsymmetricAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricAlgorithm*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_AsymmetricAlgorithm" data-uid="wan24.Crypto.CryptoOptions.AsymmetricAlgorithm">AsymmetricAlgorithm</h4>
@@ -349,7 +355,7 @@ public string AsymmetricCounterAlgorithm { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_AsymmetricKeyBits.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.AsymmetricKeyBits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L94">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L100">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_AsymmetricKeyBits_" data-uid="wan24.Crypto.CryptoOptions.AsymmetricKeyBits*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_AsymmetricKeyBits" data-uid="wan24.Crypto.CryptoOptions.AsymmetricKeyBits">AsymmetricKeyBits</h4>
@@ -663,6 +669,38 @@ public IAsymmetricPrivateKey CounterPrivateKey { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_CustomSerializerVersion.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.CustomSerializerVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L47">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoOptions_CustomSerializerVersion_" data-uid="wan24.Crypto.CryptoOptions.CustomSerializerVersion*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_CustomSerializerVersion" data-uid="wan24.Crypto.CryptoOptions.CustomSerializerVersion">CustomSerializerVersion</h4>
+  <div class="markdown level1 summary"><p>Custom serializer version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 255)]
+public int? CustomSerializerVersion { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_DefaultMaximumAge.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.DefaultMaximumAge%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -821,7 +859,7 @@ public IAsymmetricPrivateKey CounterPrivateKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_HashAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.HashAlgorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L127">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L133">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_HashAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.HashAlgorithm*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_HashAlgorithm" data-uid="wan24.Crypto.CryptoOptions.HashAlgorithm">HashAlgorithm</h4>
@@ -947,7 +985,7 @@ public int HeaderVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_KdfAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.KdfAlgorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L70">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L76">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_KdfAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.KdfAlgorithm*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_KdfAlgorithm" data-uid="wan24.Crypto.CryptoOptions.KdfAlgorithm">KdfAlgorithm</h4>
@@ -1010,7 +1048,7 @@ public string KdfAlgorithm { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_KdfIterations.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.KdfIterations%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L76">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L82">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_KdfIterations_" data-uid="wan24.Crypto.CryptoOptions.KdfIterations*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_KdfIterations" data-uid="wan24.Crypto.CryptoOptions.KdfIterations">KdfIterations</h4>
@@ -1042,7 +1080,7 @@ public int KdfIterations { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_KdfOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.KdfOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L82">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L88">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_KdfOptions_" data-uid="wan24.Crypto.CryptoOptions.KdfOptions*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_KdfOptions" data-uid="wan24.Crypto.CryptoOptions.KdfOptions">KdfOptions</h4>
@@ -1106,7 +1144,7 @@ public byte[] KdfSalt { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_KeyExchangeData.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.KeyExchangeData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L111">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L117">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_KeyExchangeData_" data-uid="wan24.Crypto.CryptoOptions.KeyExchangeData*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_KeyExchangeData" data-uid="wan24.Crypto.CryptoOptions.KeyExchangeData">KeyExchangeData</h4>
@@ -1168,7 +1206,7 @@ public byte[] KdfSalt { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_LeaveOpen.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.LeaveOpen%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L133">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L139">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_LeaveOpen_" data-uid="wan24.Crypto.CryptoOptions.LeaveOpen*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_LeaveOpen" data-uid="wan24.Crypto.CryptoOptions.LeaveOpen">LeaveOpen</h4>
@@ -1231,7 +1269,7 @@ public byte[] Mac { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_MacAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.MacAlgorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L64">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L70">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_MacAlgorithm_" data-uid="wan24.Crypto.CryptoOptions.MacAlgorithm*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_MacAlgorithm" data-uid="wan24.Crypto.CryptoOptions.MacAlgorithm">MacAlgorithm</h4>
@@ -1415,6 +1453,38 @@ public string MacAlgorithm { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_MaxUncompressedDataLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.MaxUncompressedDataLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L58">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoOptions_MaxUncompressedDataLength_" data-uid="wan24.Crypto.CryptoOptions.MaxUncompressedDataLength*"></a>
+  <h4 id="wan24_Crypto_CryptoOptions_MaxUncompressedDataLength" data-uid="wan24.Crypto.CryptoOptions.MaxUncompressedDataLength">MaxUncompressedDataLength</h4>
+  <div class="markdown level1 summary"><p>Maximum uncompressed data length in bytes (or <code>-1</code> for no limit)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(-1, 9.2233720368547758E+18)]
+public long MaxUncompressedDataLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_Password.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.Password%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1451,7 +1521,7 @@ public byte[] Password { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_PayloadData.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.PayloadData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L116">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L122">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_PayloadData_" data-uid="wan24.Crypto.CryptoOptions.PayloadData*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_PayloadData" data-uid="wan24.Crypto.CryptoOptions.PayloadData">PayloadData</h4>
@@ -1514,7 +1584,7 @@ public byte[] PayloadData { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_PrivateKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.PrivateKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L100">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L106">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_PrivateKey_" data-uid="wan24.Crypto.CryptoOptions.PrivateKey*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_PrivateKey" data-uid="wan24.Crypto.CryptoOptions.PrivateKey">PrivateKey</h4>
@@ -1546,7 +1616,7 @@ public IAsymmetricPrivateKey PrivateKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_PublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.PublicKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L106">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L112">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_PublicKey_" data-uid="wan24.Crypto.CryptoOptions.PublicKey*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_PublicKey" data-uid="wan24.Crypto.CryptoOptions.PublicKey">PublicKey</h4>
@@ -1946,38 +2016,6 @@ public IAsymmetricPrivateKey PrivateKey { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_SerializerVersion.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.SerializerVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L47">View Source</a>
-  </span>
-  <a id="wan24_Crypto_CryptoOptions_SerializerVersion_" data-uid="wan24.Crypto.CryptoOptions.SerializerVersion*"></a>
-  <h4 id="wan24_Crypto_CryptoOptions_SerializerVersion" data-uid="wan24.Crypto.CryptoOptions.SerializerVersion">SerializerVersion</h4>
-  <div class="markdown level1 summary"><p>Serializer version</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Range(1, 255)]
-public int? SerializerVersion { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_SerializerVersionIncluded.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.SerializerVersionIncluded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -2012,7 +2050,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_Time.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.Time%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L122">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L128">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_Time_" data-uid="wan24.Crypto.CryptoOptions.Time*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_Time" data-uid="wan24.Crypto.CryptoOptions.Time">Time</h4>
@@ -2166,19 +2204,19 @@ public int? SerializerVersion { get; set; }</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_wan24_Crypto_PrivateKeySuite_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_wan24_Crypto_PrivateKeySuite_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L13">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L14">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_" data-uid="wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite*"></a>
-  <h4 id="wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_wan24_Crypto_PrivateKeySuite_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite,System.Boolean)">ApplyPrivateKeySuite(PrivateKeySuite, Boolean)</h4>
+  <h4 id="wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_wan24_Crypto_PrivateKeySuite_System_Boolean_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite,System.Boolean,System.Boolean)">ApplyPrivateKeySuite(PrivateKeySuite, Boolean, Boolean)</h4>
   <div class="markdown level1 summary"><p>Apply a private key suite (will set keys for PFS key encryption)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true, bool forSignature = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2202,23 +2240,29 @@ public int? SerializerVersion { get; set; }</code></pre>
         <td><p>With counter algorithms?</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">forSignature</span></td>
+        <td><p>Use the keys for signature?</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_ApplyPublicKeySuite_wan24_Crypto_PublicKeySuite_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.ApplyPublicKeySuite(wan24.Crypto.PublicKeySuite%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_ApplyPublicKeySuite_wan24_Crypto_PublicKeySuite_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.ApplyPublicKeySuite(wan24.Crypto.PublicKeySuite%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L25">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L33">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_ApplyPublicKeySuite_" data-uid="wan24.Crypto.CryptoOptions.ApplyPublicKeySuite*"></a>
-  <h4 id="wan24_Crypto_CryptoOptions_ApplyPublicKeySuite_wan24_Crypto_PublicKeySuite_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.ApplyPublicKeySuite(wan24.Crypto.PublicKeySuite,System.Boolean)">ApplyPublicKeySuite(PublicKeySuite, Boolean)</h4>
+  <h4 id="wan24_Crypto_CryptoOptions_ApplyPublicKeySuite_wan24_Crypto_PublicKeySuite_System_Boolean_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.ApplyPublicKeySuite(wan24.Crypto.PublicKeySuite,System.Boolean,System.Boolean)">ApplyPublicKeySuite(PublicKeySuite, Boolean, Boolean)</h4>
   <div class="markdown level1 summary"><p>Apply a public key suite (will set peer keys for PFS key encryption)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ApplyPublicKeySuite(PublicKeySuite suite, bool withCounterAlgorithms = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ApplyPublicKeySuite(PublicKeySuite suite, bool withCounterAlgorithms = true, bool forSignature = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2242,6 +2286,12 @@ public int? SerializerVersion { get; set; }</code></pre>
         <td><p>With counter algorithms?</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">forSignature</span></td>
+        <td><p>Use the keys for signature?</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
@@ -2249,7 +2299,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_Clear_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.Clear(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L293">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L301">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_Clear_" data-uid="wan24.Crypto.CryptoOptions.Clear*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_Clear_System_Boolean_" data-uid="wan24.Crypto.CryptoOptions.Clear(System.Boolean)">Clear(Boolean)</h4>
@@ -2283,7 +2333,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L335">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L343">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_Clone_" data-uid="wan24.Crypto.CryptoOptions.Clone*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_Clone" data-uid="wan24.Crypto.CryptoOptions.Clone">Clone()</h4>
@@ -2521,7 +2571,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_CreatePrivateKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.CreatePrivateKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L35">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L49">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_CreatePrivateKeySuite_" data-uid="wan24.Crypto.CryptoOptions.CreatePrivateKeySuite*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_CreatePrivateKeySuite" data-uid="wan24.Crypto.CryptoOptions.CreatePrivateKeySuite">CreatePrivateKeySuite()</h4>
@@ -2543,7 +2593,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="wan24.Crypto.PrivateKeySuite.html">PrivateKeySuite</a></td>
-        <td><p>Private key suite (don't forget to dispose)</p>
+        <td><p>Private key suite (keys will be cloned/copied; don't forget to dispose)</p>
 </td>
       </tr>
     </tbody>
@@ -2553,7 +2603,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_CreatePublicKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.CreatePublicKeySuite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L58">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Suite.cs/#L72">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_CreatePublicKeySuite_" data-uid="wan24.Crypto.CryptoOptions.CreatePublicKeySuite*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_CreatePublicKeySuite" data-uid="wan24.Crypto.CryptoOptions.CreatePublicKeySuite">CreatePublicKeySuite()</h4>
@@ -2575,7 +2625,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></td>
-        <td><p>Public key suite (don't forget to dispose)</p>
+        <td><p>Public key suite (keys will be cloned/copied; don't forget to dispose)</p>
 </td>
       </tr>
     </tbody>
@@ -2786,7 +2836,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_DeriveExchangedKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.DeriveExchangedKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L263">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L270">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_DeriveExchangedKey_" data-uid="wan24.Crypto.CryptoOptions.DeriveExchangedKey*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_DeriveExchangedKey" data-uid="wan24.Crypto.CryptoOptions.DeriveExchangedKey">DeriveExchangedKey()</h4>
@@ -2818,7 +2868,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Serialization.cs/#L55">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Serialization.cs/#L57">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_Deserialize_" data-uid="wan24.Crypto.CryptoOptions.Deserialize*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.CryptoOptions.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -2855,7 +2905,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Serialization.cs/#L79">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Serialization.cs/#L87">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_DeserializeAsync_" data-uid="wan24.Crypto.CryptoOptions.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.CryptoOptions.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -3113,7 +3163,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_GetPayload__1_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.GetPayload%60%601(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L173">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L179">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_GetPayload_" data-uid="wan24.Crypto.CryptoOptions.GetPayload*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_GetPayload__1_System_Nullable_System_Int32__" data-uid="wan24.Crypto.CryptoOptions.GetPayload``1(System.Nullable{System.Int32})">GetPayload&lt;T&gt;(Nullable&lt;Int32&gt;)</h4>
@@ -3261,7 +3311,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Serialization.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.Serialization.cs/#L34">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_SerializeAsync_" data-uid="wan24.Crypto.CryptoOptions.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.CryptoOptions.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
@@ -3353,7 +3403,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_SetKeyExchangeData.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.SetKeyExchangeData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L233">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L239">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_SetKeyExchangeData_" data-uid="wan24.Crypto.CryptoOptions.SetKeyExchangeData*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_SetKeyExchangeData" data-uid="wan24.Crypto.CryptoOptions.SetKeyExchangeData">SetKeyExchangeData()</h4>
@@ -3385,7 +3435,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_SetKeys_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_IAsymmetricPublicKey_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.SetKeys(wan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.IAsymmetricPublicKey)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L208">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L214">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_SetKeys_" data-uid="wan24.Crypto.CryptoOptions.SetKeys*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_SetKeys_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_IAsymmetricPublicKey_" data-uid="wan24.Crypto.CryptoOptions.SetKeys(wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.IAsymmetricPublicKey)">SetKeys(IAsymmetricPrivateKey, IAsymmetricPublicKey)</h4>
@@ -3425,7 +3475,7 @@ public int? SerializerVersion { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoOptions_SetPayload__1___0_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoOptions.SetPayload%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L140">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoOptions.cs/#L146">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoOptions_SetPayload_" data-uid="wan24.Crypto.CryptoOptions.SetPayload*"></a>
   <h4 id="wan24_Crypto_CryptoOptions_SetPayload__1___0_" data-uid="wan24.Crypto.CryptoOptions.SetPayload``1(``0)">SetPayload&lt;T&gt;(T)</h4>

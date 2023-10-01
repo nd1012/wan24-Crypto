@@ -121,6 +121,12 @@
       <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializerVersion</span>
+    </div>
+    <div>
       <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
     </div>
     <div>
@@ -173,7 +179,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L43">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L55">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord__ctor_" data-uid="wan24.Crypto.PakeRecord.#ctor*"></a>
   <h4 id="wan24_Crypto_PakeRecord__ctor" data-uid="wan24.Crypto.PakeRecord.#ctor">PakeRecord()</h4>
@@ -198,7 +204,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PakeRecord(in byte[] identifier, in byte[] secret, in byte[] key)</code></pre>
+    <pre><code class="lang-csharp hljs">public PakeRecord(in byte[] identifier, in byte[] secret, in byte[] signatureKey)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -224,8 +230,8 @@
       </tr>
       <tr>
         <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">key</span></td>
-        <td><p>Key (will be cleared!)</p>
+        <td><span class="parametername">signatureKey</span></td>
+        <td><p>Signature key (will be cleared!)</p>
 </td>
       </tr>
     </tbody>
@@ -235,7 +241,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord__ctor_wan24_Crypto_IPakeRecord__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.%23ctor(wan24.Crypto.IPakeRecord%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L45">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord__ctor_" data-uid="wan24.Crypto.PakeRecord.#ctor*"></a>
   <h4 id="wan24_Crypto_PakeRecord__ctor_wan24_Crypto_IPakeRecord__" data-uid="wan24.Crypto.PakeRecord.#ctor(wan24.Crypto.IPakeRecord@)">PakeRecord(in IPakeRecord)</h4>
@@ -260,6 +266,46 @@
         <td><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a></td>
         <td><span class="parametername">existing</span></td>
         <td><p>Existing PAKE record (values will be copied)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord__ctor_wan24_Crypto_PakeSignup__System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.%23ctor(wan24.Crypto.PakeSignup%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L34">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PakeRecord__ctor_" data-uid="wan24.Crypto.PakeRecord.#ctor*"></a>
+  <h4 id="wan24_Crypto_PakeRecord__ctor_wan24_Crypto_PakeSignup__System_Byte____" data-uid="wan24.Crypto.PakeRecord.#ctor(wan24.Crypto.PakeSignup@,System.Byte[]@)">PakeRecord(in PakeSignup, in Byte[])</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeRecord(in PakeSignup signup, in byte[] signatureKey)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PakeSignup.html">PakeSignup</a></td>
+        <td><span class="parametername">signup</span></td>
+        <td><p>Signup</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">signatureKey</span></td>
+        <td><p>Signature key (will be cleared!)</p>
 </td>
       </tr>
     </tbody>
@@ -303,7 +349,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L46">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L58">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_Identifier_" data-uid="wan24.Crypto.PakeRecord.Identifier*"></a>
   <h4 id="wan24_Crypto_PakeRecord_Identifier" data-uid="wan24.Crypto.PakeRecord.Identifier">Identifier</h4>
@@ -334,11 +380,11 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_Secret.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.Secret%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L49">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L61">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_Secret_" data-uid="wan24.Crypto.PakeRecord.Secret*"></a>
   <h4 id="wan24_Crypto_PakeRecord_Secret" data-uid="wan24.Crypto.PakeRecord.Secret">Secret</h4>
-  <div class="markdown level1 summary"><p>Secret (this is sensitive data and should be stored encrypted; will be cleared!)</p>
+  <div class="markdown level1 summary"><p>Secret (protected with the authentication key; this is sensitive data and should be stored encrypted; will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -366,7 +412,7 @@ public byte[] Secret { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.SignatureKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L53">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L65">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_SignatureKey_" data-uid="wan24.Crypto.PakeRecord.SignatureKey*"></a>
   <h4 id="wan24_Crypto_PakeRecord_SignatureKey" data-uid="wan24.Crypto.PakeRecord.SignatureKey">SignatureKey</h4>
@@ -400,7 +446,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_Clear.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L59">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L71">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_Clear_" data-uid="wan24.Crypto.PakeRecord.Clear*"></a>
   <h4 id="wan24_Crypto_PakeRecord_Clear" data-uid="wan24.Crypto.PakeRecord.Clear">Clear()</h4>
@@ -416,7 +462,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L81">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L95">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_Deserialize_" data-uid="wan24.Crypto.PakeRecord.Deserialize*"></a>
   <h4 id="wan24_Crypto_PakeRecord_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.PakeRecord.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -453,7 +499,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L89">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L105">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_DeserializeAsync_" data-uid="wan24.Crypto.PakeRecord.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_PakeRecord_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.PakeRecord.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -510,7 +556,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L67">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L79">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_Serialize_" data-uid="wan24.Crypto.PakeRecord.Serialize*"></a>
   <h4 id="wan24_Crypto_PakeRecord_Serialize_Stream_" data-uid="wan24.Crypto.PakeRecord.Serialize(Stream)">Serialize(Stream)</h4>
@@ -542,7 +588,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L73">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L87">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_SerializeAsync_" data-uid="wan24.Crypto.PakeRecord.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_PakeRecord_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.PakeRecord.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
@@ -596,7 +642,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_op_Explicit_System_Byte_____wan24_Crypto_PakeRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.op_Explicit(System.Byte%5B%5D%40)~wan24.Crypto.PakeRecord%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L106">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L124">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_op_Explicit_" data-uid="wan24.Crypto.PakeRecord.op_Explicit*"></a>
   <h4 id="wan24_Crypto_PakeRecord_op_Explicit_System_Byte_____wan24_Crypto_PakeRecord" data-uid="wan24.Crypto.PakeRecord.op_Explicit(System.Byte[]@)~wan24.Crypto.PakeRecord">Explicit(in Byte[] to PakeRecord)</h4>
@@ -645,7 +691,7 @@ public byte[] SignatureKey { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRecord_op_Implicit_wan24_Crypto_PakeRecord___System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRecord.op_Implicit(wan24.Crypto.PakeRecord%40)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L100">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeRecord.cs/#L118">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeRecord_op_Implicit_" data-uid="wan24.Crypto.PakeRecord.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PakeRecord_op_Implicit_wan24_Crypto_PakeRecord___System_Byte__" data-uid="wan24.Crypto.PakeRecord.op_Implicit(wan24.Crypto.PakeRecord@)~System.Byte[]">Implicit(in PakeRecord to Byte[])</h4>
@@ -708,6 +754,12 @@ public byte[] SignatureKey { get; }</code></pre>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_DeriveSessionKey_wan24_Crypto_IPakeRecord_wan24_Crypto_PakeAuth__System_Nullable_Action_wan24_Crypto_Pake____wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_Boolean__">PakeRecordExtensions.DeriveSessionKey(IPakeRecord, in PakeAuth, in Nullable&lt;Action&lt;Pake&gt;&gt;, in CryptoOptions, in CryptoOptions, in Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_Dispose_wan24_Crypto_IPakeRecord_">PakeRecordExtensions.Dispose(IPakeRecord)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_DisposeAsync_wan24_Crypto_IPakeRecord_">PakeRecordExtensions.DisposeAsync(IPakeRecord)</a>
   </div>
 </article>
           </div>

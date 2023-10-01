@@ -107,6 +107,9 @@
       <h4><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html">AsymmetricKeyBase</a></h4>
       <section><p>Base class for an asymmetric key</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeyPool-1.html">AsymmetricKeyPool&lt;T&gt;</a></h4>
+      <section><p>Asymmetric private key pool</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html">AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;</a></h4>
       <section><p>Base class for an asymmetric private key</p>
 </section>
@@ -125,6 +128,9 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h4><a class="xref" href="wan24.Crypto.Bootstrap.html">Bootstrap</a></h4>
       <section><p>Bootstrapper</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.Constants.html">Constants</a></h4>
+      <section><p>Constants</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a></h4>
       <section><p>Base class for a cryptographic algorithm</p>
@@ -146,6 +152,9 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h4><a class="xref" href="wan24.Crypto.CryptoProfiles.html">CryptoProfiles</a></h4>
       <section><p>Crypto profiles</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.CryptoRandomStream.html">CryptoRandomStream</a></h4>
+      <section><p>Crypto random stream (uses <a class="xref" href="wan24.Crypto.RND.html">RND</a> for reading cryptographic random bytes into the given buffers)</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a></h4>
       <section><p>Decryption streams</p>
@@ -181,10 +190,10 @@ properties (can be done by calling the protected constructors); default max. len
       <section><p>Encryption streams</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></h4>
-      <section><p>Fast PAKE authentication client (NOT thread-safe!)</p>
+      <section><p>Fast PAKE authentication client (will skip KDF after initialization)</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.FastPakeAuthServer.html">FastPakeAuthServer</a></h4>
-      <section><p>Fast PAKE authentication server (NOT thread-safe!)</p>
+      <section><p>Fast PAKE authentication server (will skip KDF after initialization)</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.FastPakeAuthServerTable.html">FastPakeAuthServerTable</a></h4>
       <section><p>Fast PAKE server table</p>
@@ -285,6 +294,12 @@ properties (can be done by calling the protected constructors); default max. len
       <h4><a class="xref" href="wan24.Crypto.PakeRecordExtensions.html">PakeRecordExtensions</a></h4>
       <section><p><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a> extensions</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.PakeRecordStore.html">PakeRecordStore</a></h4>
+      <section><p>PAKE record store</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.PakeRecordStore-1.html">PakeRecordStore&lt;T&gt;</a></h4>
+      <section><p>PAKE record store</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.PakeSignup.html">PakeSignup</a></h4>
       <section><p>PAKE signup information (needs to be sent to the server, wrapped using a PFS protocol!)</p>
 </section>
@@ -294,13 +309,26 @@ properties (can be done by calling the protected constructors); default max. len
       <h4><a class="xref" href="wan24.Crypto.PrivateKeySuiteExtensions.html">PrivateKeySuiteExtensions</a></h4>
       <section><p>Private key suite extensions</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.PrivateKeySuiteStore.html">PrivateKeySuiteStore</a></h4>
+      <section><p>Private key suite store</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></h4>
       <section><p>Public key suite</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.PublicKeySuiteStore.html">PublicKeySuiteStore</a></h4>
+      <section><p>Public key suite store</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RandomDataGenerator.html">RandomDataGenerator</a></h4>
+      <section><p>Random data generator (uses <code>/dev/urandom</code>, if possible; defaults to <span class="xref">System.Security.Cryptography.RandomNumberGenerator</span>)</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.RND.html">RND</a></h4>
       <section><p>Random generators</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></h4>
+      <section><p>Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see
+<a href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf">https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf</a>)</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.SecureValue-1.html">SecureValue&lt;T&gt;</a></h4>
       <section><p>Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see
 <a href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf">https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf</a>)</p>
 </section>
@@ -318,6 +346,9 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h4><a class="xref" href="wan24.Crypto.SignedPayload-1.html">SignedPayload&lt;T&gt;</a></h4>
       <section><p>Signed payload</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.SignedPkiStore.html">SignedPkiStore</a></h4>
+      <section><p>Signed PKI store</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html">StreamSerializerExtensions</a></h4>
       <section><p>Stream serializer extensions</p>
@@ -338,6 +369,9 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h4><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></h4>
       <section><p>Interface for an asymmetric key</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a></h4>
+      <section><p>Interface for an asymmetric private key pool</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></h4>
       <section><p>Interface for an asymmetric private key</p>

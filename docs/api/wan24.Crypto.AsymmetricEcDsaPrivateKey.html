@@ -141,6 +141,9 @@
       <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_DeriveKey_System_Byte___">AsymmetricPrivateKeyBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.DeriveKey(Byte[])</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_DeriveKey_wan24_Crypto_IAsymmetricPublicKey_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.DeriveKey(IAsymmetricPublicKey)</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_Dispose_System_Boolean_">AsymmetricPrivateKeyBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.Dispose(Boolean)</a>
     </div>
     <div>
@@ -208,6 +211,12 @@
     </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializedObjectVersion</span>
+    </div>
+    <div>
+      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializerVersion</span>
     </div>
     <div>
       <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
@@ -429,7 +438,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[SensitiveData]
+    <pre><code class="lang-csharp hljs">[NoValidation(false)]
+[SensitiveData]
 public ECDsa PrivateKey { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>

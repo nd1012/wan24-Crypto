@@ -1,0 +1,1036 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PakeClientAuthOptions
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PakeClientAuthOptions
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions">
+  
+  
+  <h1 id="wan24_Crypto_Authentication_PakeClientAuthOptions" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions" class="text-break">Class PakeClientAuthOptions
+  </h1>
+  <div class="markdown level0 summary"><p>PAKE authentication options</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
+    <div class="level2"><span class="xref">PakeClientAuthOptions</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.IAsyncDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.AsyncDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.Authentication.html">wan24.Crypto.Authentication</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_Authentication_PakeClientAuthOptions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PakeClientAuthOptions : DisposableBase, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_System_Byte____System_Byte____System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.%23ctor(System.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L22">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_System_Byte____System_Byte____System_Byte____" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor(System.Byte[]@,System.Byte[]@,System.Byte[]@)">PakeClientAuthOptions(in Byte[], in Byte[], in Byte[])</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeClientAuthOptions(in byte[] login, in byte[] pwd, in byte[] preSharedSecret = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">login</span></td>
+        <td><p>Login ID (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Login password (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">preSharedSecret</span></td>
+        <td><p>Pre-shared signup secret (will be cleared!)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_System_Byte____System_Byte____wan24_Crypto_Authentication_IPakeAuthRecord__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.%23ctor(System.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.Authentication.IPakeAuthRecord%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L35">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_System_Byte____System_Byte____wan24_Crypto_Authentication_IPakeAuthRecord__" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor(System.Byte[]@,System.Byte[]@,wan24.Crypto.Authentication.IPakeAuthRecord@)">PakeClientAuthOptions(in Byte[], in Byte[], in IPakeAuthRecord)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeClientAuthOptions(in byte[] login, in byte[] pwd, in IPakeAuthRecord peerIdentity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">login</span></td>
+        <td><p>Login ID (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Login password (will be cleared!)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a></td>
+        <td><span class="parametername">peerIdentity</span></td>
+        <td><p>Peer identity (won't be disposed)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_wan24_Crypto_FastPakeAuthClient__wan24_Crypto_Authentication_IPakeAuthRecord__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.%23ctor(wan24.Crypto.FastPakeAuthClient%40%2Cwan24.Crypto.Authentication.IPakeAuthRecord%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L69">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_wan24_Crypto_FastPakeAuthClient__wan24_Crypto_Authentication_IPakeAuthRecord__" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor(wan24.Crypto.FastPakeAuthClient@,wan24.Crypto.Authentication.IPakeAuthRecord@)">PakeClientAuthOptions(in FastPakeAuthClient, in IPakeAuthRecord)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeClientAuthOptions(in FastPakeAuthClient client, in IPakeAuthRecord peerIdentity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>Fast PAKE authentication client (won't be disposed)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a></td>
+        <td><span class="parametername">peerIdentity</span></td>
+        <td><p>Peer identity (won't be disposed)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_wan24_Crypto_ISymmetricKeySuite__System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.%23ctor(wan24.Crypto.ISymmetricKeySuite%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L47">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_wan24_Crypto_ISymmetricKeySuite__System_Byte____" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor(wan24.Crypto.ISymmetricKeySuite@,System.Byte[]@)">PakeClientAuthOptions(in ISymmetricKeySuite, in Byte[])</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeClientAuthOptions(in ISymmetricKeySuite symmetricKey, in byte[] preSharedSecret = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></td>
+        <td><span class="parametername">symmetricKey</span></td>
+        <td><p>Symmetric key suite (won't be disposed)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">preSharedSecret</span></td>
+        <td><p>Pre-shared signup secret (will be cleared!)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_wan24_Crypto_ISymmetricKeySuite__wan24_Crypto_Authentication_IPakeAuthRecord__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.%23ctor(wan24.Crypto.ISymmetricKeySuite%40%2Cwan24.Crypto.Authentication.IPakeAuthRecord%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L58">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions__ctor_wan24_Crypto_ISymmetricKeySuite__wan24_Crypto_Authentication_IPakeAuthRecord__" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.#ctor(wan24.Crypto.ISymmetricKeySuite@,wan24.Crypto.Authentication.IPakeAuthRecord@)">PakeClientAuthOptions(in ISymmetricKeySuite, in IPakeAuthRecord)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeClientAuthOptions(in ISymmetricKeySuite symmetricKey, in IPakeAuthRecord peerIdentity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></td>
+        <td><span class="parametername">symmetricKey</span></td>
+        <td><p>Symmetric key suite (won't be disposed)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a></td>
+        <td><span class="parametername">peerIdentity</span></td>
+        <td><p>Peer identity (won't be disposed)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_CryptoOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.CryptoOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L145">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_CryptoOptions_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.CryptoOptions*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_CryptoOptions" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.CryptoOptions">CryptoOptions</h4>
+  <div class="markdown level1 summary"><p>Crypto options (require encryption algorithms; shouldn't use KDF; cipher must not require MAC authentication)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions CryptoOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.DefaultOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L83">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_DefaultOptions_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.DefaultOptions*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_DefaultOptions" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.DefaultOptions">DefaultOptions</h4>
+  <div class="markdown level1 summary"><p>Default options (will be cloned for delivery; should/will be disposed!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PakeClientAuthOptions DefaultOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.PakeClientAuthOptions.html">PakeClientAuthOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_EncryptPayload.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.EncryptPayload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L125">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_EncryptPayload_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.EncryptPayload*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_EncryptPayload" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.EncryptPayload">EncryptPayload</h4>
+  <div class="markdown level1 summary"><p>Encrypt the payload?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EncryptPayload { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_EncryptTimeout.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.EncryptTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L150">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_EncryptTimeout_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.EncryptTimeout*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_EncryptTimeout" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.EncryptTimeout">EncryptTimeout</h4>
+  <div class="markdown level1 summary"><p>Session key value encrypt timeout (<a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? EncryptTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_FastPakeAuthClient.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.FastPakeAuthClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L130">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_FastPakeAuthClient_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.FastPakeAuthClient*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_FastPakeAuthClient" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.FastPakeAuthClient">FastPakeAuthClient</h4>
+  <div class="markdown level1 summary"><p>Fast PAKE authentication client (won't be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastPakeAuthClient FastPakeAuthClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_GetAuthenticationResponse.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.GetAuthenticationResponse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L170">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_GetAuthenticationResponse_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.GetAuthenticationResponse*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_GetAuthenticationResponse" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.GetAuthenticationResponse">GetAuthenticationResponse</h4>
+  <div class="markdown level1 summary"><p>Get the server authentication response? (the server will confirm a successful authentication)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetAuthenticationResponse { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_IsSignup.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.IsSignup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L175">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_IsSignup_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.IsSignup*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_IsSignup" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.IsSignup">IsSignup</h4>
+  <div class="markdown level1 summary"><p>Is for signup?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSignup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_Login.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.Login%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L96">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_Login_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Login*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_Login" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Login">Login</h4>
+  <div class="markdown level1 summary"><p>Login ID (will be cleared!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SensitiveData]
+public byte[] Login { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_PakeOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.PakeOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L140">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_PakeOptions_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.PakeOptions*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_PakeOptions" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.PakeOptions">PakeOptions</h4>
+  <div class="markdown level1 summary"><p>PAKE options (require KDF and MAC algorithms)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions PakeOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_Password.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.Password%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L102">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_Password_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Password*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_Password" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Password">Password</h4>
+  <div class="markdown level1 summary"><p>Login password (will be cleared!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SensitiveData]
+public byte[] Password { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_Payload.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.Payload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L119">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_Payload_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Payload*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_Payload" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Payload">Payload</h4>
+  <div class="markdown level1 summary"><p>Payload (will be cleared!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SensitiveData]
+public byte[] Payload { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_PeerIdentity.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.PeerIdentity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L135">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_PeerIdentity_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.PeerIdentity*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_PeerIdentity" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.PeerIdentity">PeerIdentity</h4>
+  <div class="markdown level1 summary"><p>Peer identity (won't be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPakeAuthRecord PeerIdentity { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_PreSharedSecret.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.PreSharedSecret%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L108">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_PreSharedSecret_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.PreSharedSecret*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_PreSharedSecret" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.PreSharedSecret">PreSharedSecret</h4>
+  <div class="markdown level1 summary"><p>Pre-shared signup secret (will be cleared!)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SensitiveData]
+public byte[] PreSharedSecret { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_RecryptTimeout.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.RecryptTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L155">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_RecryptTimeout_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.RecryptTimeout*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_RecryptTimeout" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.RecryptTimeout">RecryptTimeout</h4>
+  <div class="markdown level1 summary"><p>Session key value re-crypt timeout (<a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? RecryptTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyCryptoOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyCryptoOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L160">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyCryptoOptions_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyCryptoOptions*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyCryptoOptions" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyCryptoOptions">SessionKeyCryptoOptions</h4>
+  <div class="markdown level1 summary"><p>Options for encrypting the session key value (<a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CryptoOptions SessionKeyCryptoOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyKekLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyKekLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L165">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyKekLength_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyKekLength*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyKekLength" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyKekLength">SessionKeyKekLength</h4>
+  <div class="markdown level1 summary"><p>Session key KEK length in bytes (<a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SessionKeyKekLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_SymmetricKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.SymmetricKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L114">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_SymmetricKey_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.SymmetricKey*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_SymmetricKey" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.SymmetricKey">SymmetricKey</h4>
+  <div class="markdown level1 summary"><p>Symmetric key suite (won't be disposed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISymmetricKeySuite SymmetricKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L182">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_Clone_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Clone*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_Clone" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Get a clone of this instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PakeClientAuthOptions Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.Authentication.PakeClientAuthOptions.html">PakeClientAuthOptions</a></td>
+        <td><p>Clone</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L204">View Source</a>
+  </span>
+  <a id="wan24_Crypto_Authentication_PakeClientAuthOptions_Dispose_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Dispose*"></a>
+  <h4 id="wan24_Crypto_Authentication_PakeClientAuthOptions_Dispose_System_Boolean_" data-uid="wan24.Crypto.Authentication.PakeClientAuthOptions.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.IAsyncDisposable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeClientAuthOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeClientAuthOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeClientAuthOptions.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
