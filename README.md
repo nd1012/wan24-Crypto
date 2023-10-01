@@ -644,7 +644,8 @@ used for PAKE already).
 
 In total this authentication may be a good choice for use with fixed client 
 devices, which are able to store the servers PAKE values in a safe way for the 
-long term.
+long term. But also temporary devices may benefit, if they'll connect to a 
+server multiple times.
 
 ## Random number generator
 
