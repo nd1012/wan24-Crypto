@@ -14,7 +14,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Object version
         /// </summary>
-        public const int VERSION = 1;
+        public const int VERSION = 2;
         /// <summary>
         /// Header version
         /// </summary>
@@ -42,15 +42,21 @@ namespace wan24.Crypto
         public int HeaderVersion { get; set; } = HEADER_VERSION;
 
         /// <summary>
-        /// Serializer version
+        /// Custom serializer version
         /// </summary>
         [Range(1, byte.MaxValue)]
-        public int? SerializerVersion { get; set; }
+        public int? CustomSerializerVersion { get; set; }
 
         /// <summary>
         /// Compression options
         /// </summary>
         public CompressionOptions? Compression { get; set; }
+
+        /// <summary>
+        /// Maximum uncompressed data length in bytes (or <c>-1</c> for no limit)
+        /// </summary>
+        [Range(-1, long.MaxValue)]
+        public long MaxUncompressedDataLength { get; set; } = -1;
 
         /// <summary>
         /// Encryption algorithm name
@@ -130,7 +136,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Leave the processing stream open?
         /// </summary>
-        public bool LeaveOpen { get; set; } = false;
+        public bool LeaveOpen { get; set; }
 
         /// <summary>
         /// Set the payload
@@ -177,7 +183,7 @@ namespace wan24.Crypto
 #pragma warning disable IDE0034 // default expression can be simplified
                 if (PayloadData is null) return default(T?);
 #pragma warning restore IDE0034
-                serializerVersion ??= SerializerVersion;
+                serializerVersion ??= CustomSerializerVersion;
                 if (typeof(IStreamSerializer).IsAssignableFrom(typeof(T)))
                 {
                     using MemoryStream ms = new();
@@ -237,6 +243,7 @@ namespace wan24.Crypto
                 if (PrivateKey is not IKeyExchangePrivateKey key) throw new InvalidOperationException("Missing valid private key exchange key");
                 AsymmetricAlgorithm = PrivateKey.Algorithm.Name;
                 AsymmetricAlgorithm = key.Algorithm.Name;
+                Password?.Clear();
                 (Password, byte[] kex) = key.GetKeyExchangeData(PublicKey, options: this);
                 KeyExchangeData = new()
                 {
@@ -272,6 +279,7 @@ namespace wan24.Crypto
                 }
                 else
                 {
+                    Password?.Clear();
                     Password = key.DeriveKey(KeyExchangeData.KeyExchangeData);
                 }
                 return Password!;
@@ -307,23 +315,23 @@ namespace wan24.Crypto
             }
             if (CounterKdfSalt is not null)
             {
-                CounterKdfSalt?.Clear();
+                CounterKdfSalt.Clear();
                 CounterKdfSalt = null;
             }
             KeyExchangeData = null;
             if (PayloadData is not null)
             {
-                PayloadData?.Clear();
+                PayloadData.Clear();
                 PayloadData = null;
             }
             if (Mac is not null)
             {
-                Mac?.Clear();
+                Mac.Clear();
                 Mac = null;
             }
             if (Password is not null)
             {
-                Password?.Clear();
+                Password.Clear();
                 Password = null;
             }
         }
@@ -335,13 +343,14 @@ namespace wan24.Crypto
         public CryptoOptions Clone() => new()
         {
             // Algorithms and data
-            SerializerVersion = SerializerVersion,
+            CustomSerializerVersion = CustomSerializerVersion,
             Compression = Compression?.Clone(),
+            MaxUncompressedDataLength = MaxUncompressedDataLength,
             Algorithm = Algorithm,
             MacAlgorithm = MacAlgorithm,
             KdfAlgorithm = KdfAlgorithm,
-            KdfOptions = KdfOptions,
             KdfIterations = KdfIterations,
+            KdfOptions = KdfOptions,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
             KeyExchangeData = KeyExchangeData?.Clone(),
             CounterMacAlgorithm = CounterMacAlgorithm,

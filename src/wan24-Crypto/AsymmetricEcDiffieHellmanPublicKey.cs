@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
-using wan24.StreamSerializerExtensions;
+using wan24.ObjectValidation;
 
 namespace wan24.Crypto
 {
@@ -42,12 +42,33 @@ namespace wan24.Crypto
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="key">Private key (will be disposed!)</param>
+        public AsymmetricEcDiffieHellmanPublicKey(ECDiffieHellman key) : this()
+        {
+            try
+            {
+                KeyData = new(key.PublicKey.ExportSubjectPublicKeyInfo());
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                key.Dispose();
+            }
+        }
+
         /// <inheritdoc/>
         public override int Bits => EllipticCurves.GetKeySize(PublicKey.ExportParameters().Curve);
 
         /// <summary>
         /// Public key (don't dispose - will be disposed when this public key instance disposes!)
         /// </summary>
+        [NoValidation]
         public ECDiffieHellmanPublicKey PublicKey
         {
             get

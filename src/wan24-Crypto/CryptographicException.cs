@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -66,7 +67,12 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="inner">Inner exception</param>
         /// <returns>Exception</returns>
-        public static CryptographicException From(Exception inner) => new(inner.Message, inner);
+        public static CryptographicException From(Exception inner)
+        {
+            CryptographicException res = new(inner.Message, inner);
+            ErrorHandling.Handle(new(res, Constants.CRYPTO_ERROR_SOURCE));
+            return res;
+        }
 
         /// <summary>
         /// Create with an inner exception
@@ -74,7 +80,12 @@ namespace wan24.Crypto
         /// <param name="message">Overriding message</param>
         /// <param name="inner">Inner exception</param>
         /// <returns>Exception</returns>
-        public static CryptographicException From(string message, Exception inner) => new($"{message}: {inner.Message}", inner);
+        public static CryptographicException From(string message, Exception inner)
+        {
+            CryptographicException res = new($"{message}: {inner.Message}", inner);
+            ErrorHandling.Handle(new(res, Constants.CRYPTO_ERROR_SOURCE));
+            return res;
+        }
 
         /// <summary>
         /// Create with an inner exception
@@ -84,6 +95,7 @@ namespace wan24.Crypto
         public static async Task<CryptographicException> FromAsync(Exception inner)
         {
             CryptographicException res = new(noDelay: true, message: null, inner);
+            ErrorHandling.Handle(new(res, Constants.CRYPTO_ERROR_SOURCE));
             if (Delay is not null) await Task.Delay(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
             return res;
         }
@@ -97,6 +109,7 @@ namespace wan24.Crypto
         public static async Task<CryptographicException> FromAsync(string message, Exception inner)
         {
             CryptographicException res = new(noDelay: true, message, inner);
+            ErrorHandling.Handle(new(res, Constants.CRYPTO_ERROR_SOURCE));
             if (Delay is not null) await Task.Delay(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
             return res;
         }

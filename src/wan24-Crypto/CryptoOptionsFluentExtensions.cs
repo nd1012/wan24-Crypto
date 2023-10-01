@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using wan24.Compression;
+﻿using wan24.Compression;
 using wan24.Core;
 
 namespace wan24.Crypto

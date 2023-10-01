@@ -145,10 +145,14 @@ namespace wan24.Crypto
         public virtual byte[] SignHashRaw(byte[] hash) => throw new NotSupportedException();
 
         /// <inheritdoc/>
-        public virtual (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null) => throw new NotSupportedException();
+        public virtual (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null)
+            => throw new NotSupportedException();
 
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData) => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        public virtual byte[] DeriveKey(IAsymmetricPublicKey publicKey) => throw new NotSupportedException();
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)

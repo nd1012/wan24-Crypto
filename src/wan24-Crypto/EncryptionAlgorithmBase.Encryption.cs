@@ -16,17 +16,18 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public virtual Stream Encrypt(Stream rawData, Stream cipherData, byte[] pwd, CryptoOptions? options = null, MacStreams? macStream = null)
         {
-            bool clearOptions = false;
+            options = options?.Clone() ?? DefaultOptions;
             try
             {
+                options.Password?.Clear();
+                options.Password = pwd.CloneArray();
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
-                if (!(options?.HeaderProcessed ?? false))
+                if (!options.HeaderProcessed)
                 {
                     if (macStream is not null) throw new ArgumentException("MAC stream unexpected", nameof(macStream));
                     (options, macStream) = WriteOptions(rawData, cipherData, pwd, options);
-                    clearOptions = true;
                 }
                 // Create the crypto stream
                 using EncryptionStreams crypto = GetEncryptionStream(rawData, cipherData, macStream, options);
@@ -34,6 +35,7 @@ namespace wan24.Crypto
                 if (crypto.Mac is null) return cipherData;
                 // Write the MAC
                 crypto.CryptoStream.Dispose();
+                crypto.Mac.Stream.Dispose();
                 long pos = cipherData.Position;
                 cipherData.Position = options.MacPosition;
                 options.Mac = crypto.Mac.Transform!.Hash ?? throw new InvalidProgramException();
@@ -54,7 +56,7 @@ namespace wan24.Crypto
             }
             finally
             {
-                if (clearOptions) options?.Clear();
+                options.Clear();
             }
         }
 
@@ -68,12 +70,12 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public Stream Encrypt(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
+            options = options?.Clone() ?? DefaultOptions;
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
-                options ??= DefaultOptions;
-                options = EncryptionHelper.GetDefaultOptions(options);
+                EncryptionHelper.GetDefaultOptions(options);
                 options.SetKeys(key);
                 (options, MacStreams? macStream) = WriteOptions(rawData, cipherData, pwd: null, options);
                 try
@@ -82,7 +84,6 @@ namespace wan24.Crypto
                 }
                 finally
                 {
-                    options.Clear();
                     macStream?.Dispose();
                 }
             }
@@ -93,6 +94,10 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                options.Clear();
             }
         }
 
@@ -115,17 +120,18 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
-            bool clearOptions = false;
+            options = options?.Clone() ?? DefaultOptions;
             try
             {
+                options.Password?.Clear();
+                options.Password = pwd.CloneArray();
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
-                if (!(options?.HeaderProcessed ?? false))
+                if (!options.HeaderProcessed)
                 {
                     if (macStream is not null) throw new ArgumentException("MAC stream unexpected", nameof(macStream));
                     (options, macStream) = await WriteOptionsAsync(rawData, cipherData, pwd, options, cancellationToken).DynamicContext();
-                    clearOptions = true;
                 }
                 // Create the crypto stream
                 EncryptionStreams crypto = await GetEncryptionStreamAsync(rawData, cipherData, macStream, options, cancellationToken).DynamicContext();
@@ -135,6 +141,7 @@ namespace wan24.Crypto
                     if (crypto.Mac is null) return;
                     // Write the MAC
                     await crypto.CryptoStream.DisposeAsync().DynamicContext();
+                    crypto.Mac.Stream.Dispose();
                     long pos = cipherData.Position;
                     cipherData.Position = options.MacPosition;
                     options.Mac = crypto.Mac.Transform!.Hash ?? throw new InvalidProgramException();
@@ -155,7 +162,7 @@ namespace wan24.Crypto
             }
             finally
             {
-                if (clearOptions) options?.Clear();
+                options.Clear();
             }
         }
 
@@ -170,12 +177,12 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public async Task EncryptAsync(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
+            options = options?.Clone() ?? DefaultOptions;
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
-                options ??= DefaultOptions;
-                options = EncryptionHelper.GetDefaultOptions(options);
+                EncryptionHelper.GetDefaultOptions(options);
                 options.SetKeys(key);
                 (options, MacStreams? macStream) = await WriteOptionsAsync(rawData, cipherData, pwd: null, options, cancellationToken).DynamicContext();
                 try
@@ -184,7 +191,6 @@ namespace wan24.Crypto
                 }
                 finally
                 {
-                    options.Clear();
                     macStream?.Dispose();
                 }
             }
@@ -195,6 +201,10 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 throw await CryptographicException.FromAsync(ex);
+            }
+            finally
+            {
+                options.Clear();
             }
         }
     }

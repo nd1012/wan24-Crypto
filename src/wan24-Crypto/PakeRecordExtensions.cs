@@ -1,4 +1,7 @@
-﻿namespace wan24.Crypto
+﻿using wan24.Core;
+using wan24.Crypto.Authentication;
+
+namespace wan24.Crypto
 {
     /// <summary>
     /// <see cref="IPakeRecord"/> extensions
@@ -24,5 +27,65 @@
             in bool decryptPayload = false
             )
             => Pake.DeriveSessionKey(record, auth, initializer, options, cryptoOptions, decryptPayload);
+
+        /// <summary>
+        /// Dispose the PAKE record
+        /// </summary>
+        /// <param name="record">Record</param>
+        public static void Dispose(this IPakeRecord record)
+        {
+            if (record is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
+            else if (record is IAsyncDisposable asyncDisposable)
+            {
+                asyncDisposable.DisposeAsync().AsTask().Wait();
+            }
+            else if(record is PakeRecord pakeRecord)
+            {
+                pakeRecord.Clear();
+            }
+            else if (record is PakeAuthRecord pakeAuthRecord)
+            {
+                pakeAuthRecord.Clear();
+            }
+            else
+            {
+                record.Identifier.Clear();
+                record.Secret.Clear();
+                record.SignatureKey.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Dispose the PAKE record
+        /// </summary>
+        /// <param name="record">Record</param>
+        public static async Task DisposeAsync(this IPakeRecord record)
+        {
+            if (record is IAsyncDisposable asyncDisposable)
+            {
+                await asyncDisposable.DisposeAsync().DynamicContext();
+            }
+            else if (record is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
+            else if (record is PakeRecord pakeRecord)
+            {
+                pakeRecord.Clear();
+            }
+            else if (record is PakeAuthRecord pakeAuthRecord)
+            {
+                pakeAuthRecord.Clear();
+            }
+            else
+            {
+                record.Identifier.Clear();
+                record.Secret.Clear();
+                record.SignatureKey.Clear();
+            }
+        }
     }
 }

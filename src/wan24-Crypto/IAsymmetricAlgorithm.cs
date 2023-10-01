@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 
 namespace wan24.Crypto
 {
@@ -36,11 +37,32 @@ namespace wan24.Crypto
         /// </summary>
         int DefaultKeySize { get; }
         /// <summary>
+        /// Private key type
+        /// </summary>
+        Type PrivateKeyType { get; }
+        /// <summary>
+        /// Public key type
+        /// </summary>
+        Type PublicKeyType { get; }
+        /// <summary>
+        /// Ensure that the given options include the default options for this algorithm
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null);
+        /// <summary>
         /// Create a new key pair
         /// </summary>
         /// <param name="options">Options</param>
         /// <returns>Private key</returns>
         IAsymmetricPrivateKey CreateKeyPair(CryptoOptions? options = null);
+        /// <summary>
+        /// Create a new key pair
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Private key</returns>
+        Task<IAsymmetricPrivateKey> CreateKeyPairAsync(CryptoOptions? options = null, CancellationToken cancellationToken = default);
         /// <summary>
         /// Deserialize a public key from a stream
         /// </summary>
@@ -60,5 +82,11 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         /// <returns>Derived PFS key</returns>
         byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null);
+        /// <summary>
+        /// Determine if this asymmetric algorithm can handle a .NET asymmetric algorithm
+        /// </summary>
+        /// <param name="algo">Asymmetric algorithm</param>
+        /// <returns>If this asymmetric algorithm can handle the .NET asymmetric algorithm</returns>
+        bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo);
     }
 }

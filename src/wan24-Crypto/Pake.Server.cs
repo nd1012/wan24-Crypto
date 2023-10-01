@@ -21,6 +21,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Identity (will be cleared (and disposed, if possible)!)
         /// </summary>
+        [SensitiveData]
         public IPakeRecord? Identity { get; internal set; }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace wan24.Crypto
                     ClearIdentity();
                     // Create the identity (KDF)
                     signatureKey = CreateSignatureKey(signup.Key, signup.Secret);
-                    Identity = new PakeRecord(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey);
+                    Identity = new PakeRecord(signup, signatureKey);
                     PakeServerEventArgs e = new(signup);
                     OnSignup?.Invoke(this, e);
                     if (e.NewIdentity is not null)
@@ -91,10 +92,11 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
+        /// <param name="skipSignatureKeyValidation">Skip the signature key validation (KDF)?</param>
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
+        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false, in bool skipSignatureKeyValidation = false)
         {
             byte[]? payload = null,
                 randomMac = null;
@@ -107,7 +109,7 @@ namespace wan24.Crypto
                 {
                     if (Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
                     randomMac = auth.Random.CloneArray().Mac(Identity.SignatureKey, Options);
-                    payload = auth.Payload.Decrypt(randomMac, CryptoOptions);
+                    payload = DecryptPayload(auth.Payload, randomMac);
                 }
                 // Run pre-actions
                 PakeServerEventArgs e = new(auth, payload);
@@ -140,7 +142,7 @@ namespace wan24.Crypto
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     // Validate the signature key (KDF)
-                    if (!SkipSignatureKeyValidation)
+                    if (!skipSignatureKeyValidation && !SkipSignatureKeyValidation)
                     {
                         signatureKey = CreateSignatureKey(key, secret);
                         if (!Identity.SignatureKey.SlowCompare(signatureKey))

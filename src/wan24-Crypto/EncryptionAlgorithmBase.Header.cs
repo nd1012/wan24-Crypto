@@ -25,8 +25,9 @@ namespace wan24.Crypto
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.Clone() ?? DefaultOptions;
-                options = EncryptionHelper.GetDefaultOptions(options);
+                EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) throw new InvalidOperationException();
+                options.Password?.Clear();
                 options.Password = pwd?.CloneArray();
                 options.ValidateObject();
                 /*List<ValidationResult> results = new();
@@ -37,7 +38,7 @@ namespace wan24.Crypto
                 if (options.FlagsIncluded)
                     using (RentedArrayRefStruct<byte> buffer = new(len: 3))
                     {
-                        EncodeFlags(options.Flags, buffer.Array);
+                        EncodeFlags(options.Flags, buffer.Span);
                         cipherData.Write(buffer.Span);
                     }
                 if (options.HeaderVersionIncluded) cipherData.Write((byte)options.HeaderVersion);
@@ -63,7 +64,7 @@ namespace wan24.Crypto
                     pwd = options.Password;
                     try
                     {
-                        options.Password = EnsureValidKeyLength(options.Password);
+                        options.Password = EnsureValidKeyLength(pwd);
                     }
                     finally
                     {
@@ -165,14 +166,15 @@ namespace wan24.Crypto
                 options = options?.Clone() ?? DefaultOptions;
                 options = EncryptionHelper.GetDefaultOptions(options);
                 if (options.HeaderProcessed) throw new InvalidOperationException();
+                options.Password?.Clear();
                 options.Password = pwd?.CloneArray();
                 options.ValidateObject();
                 // Write unauthenticated options
                 MacStreams? macStream = null;
                 if (options.FlagsIncluded)
-                    using (RentedArrayStruct<byte> buffer = new(len: 3))
+                    using (RentedArrayStructSimple<byte> buffer = new(len: 3))
                     {
-                        EncodeFlags(options.Flags, buffer.Array);
+                        EncodeFlags(options.Flags, buffer.Span);
                         await cipherData.WriteAsync(buffer.Memory, cancellationToken).DynamicContext();
                     }
                 if (options.HeaderVersionIncluded) await cipherData.WriteAsync((byte)options.HeaderVersion, cancellationToken).DynamicContext();
@@ -198,7 +200,7 @@ namespace wan24.Crypto
                     pwd = options.Password;
                     try
                     {
-                        options.Password = EnsureValidKeyLength(options.Password);
+                        options.Password = EnsureValidKeyLength(pwd);
                     }
                     finally
                     {
@@ -300,7 +302,8 @@ namespace wan24.Crypto
                 // Prepare the password
                 if (pwd is not null)
                 {
-                    options.Password ??= pwd?.CloneArray();
+                    options.Password?.Clear();
+                    options.Password = pwd.CloneArray();
                 }
                 else
                 {
@@ -312,7 +315,7 @@ namespace wan24.Crypto
                     using (RentedArrayRefStruct<byte> buffer = new(len: 3))
                     {
                         if (cipherData.Read(buffer.Span) != buffer.Length) throw new IOException("Failed to read the crypto flags");
-                        options.Flags = DecodeFlags(buffer.Array);
+                        options.Flags = DecodeFlags(buffer.Span);
                     }
                 options.ValidateRequirements();
                 if (options.HeaderVersionIncluded)
@@ -320,7 +323,7 @@ namespace wan24.Crypto
                     options.HeaderVersion = cipherData.ReadOneByte();
                     if (options.HeaderVersion < 1 || options.HeaderVersion > CryptoOptions.HEADER_VERSION) throw new InvalidDataException($"Invalid header version {options.HeaderVersion}");
                 }
-                int? serializerVersion = options.SerializerVersionIncluded ? options.SerializerVersion = cipherData.ReadSerializerVersion() : null;
+                int? serializerVersion = options.SerializerVersionIncluded ? options.CustomSerializerVersion = cipherData.ReadSerializerVersion() : null;
                 // Read the MAC
                 MacAlgorithmBase? mac = null;
                 if (options.MacIncluded)
@@ -330,8 +333,7 @@ namespace wan24.Crypto
                         options.MacAlgorithm = options.MacAlgorithmIncluded
                             ? MacHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name
                             : options.MacAlgorithm ?? MacHelper.GetDefaultOptions(options).MacAlgorithm;
-                        if (options.UsingCounterMac)
-                            options.CounterMacAlgorithm = MacHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
+                        if (options.UsingCounterMac) options.CounterMacAlgorithm = MacHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                     }
                     options.MacPosition = cipherData.Position;
                     mac = MacHelper.GetAlgorithm(options.MacAlgorithm ??= MacHelper.DefaultAlgorithm.Name);
@@ -354,10 +356,10 @@ namespace wan24.Crypto
                     options.KdfIterations = cipherData.ReadNumber<int>(serializerVersion);
                     options.KdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
                     options.KdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
-                    pwd = options.Password ?? throw new ArgumentException("No password yet", nameof(pwd));
+                    pwd = options.Password;
                     try
                     {
-                        (options.Password, _) = pwd!.Stretch(KeySize, options.KdfSalt, options);
+                        (options.Password, _) = pwd.Stretch(KeySize, options.KdfSalt, options);
                     }
                     finally
                     {
@@ -383,7 +385,7 @@ namespace wan24.Crypto
                     pwd = options.Password;
                     try
                     {
-                        options.Password = EnsureValidKeyLength(options.Password);
+                        options.Password = EnsureValidKeyLength(pwd);
                     }
                     finally
                     {
@@ -458,7 +460,8 @@ namespace wan24.Crypto
                 // Prepare the password
                 if (pwd is not null)
                 {
-                    options.Password ??= pwd?.CloneArray();
+                    options.Password?.Clear();
+                    options.Password = pwd.CloneArray();
                 }
                 else
                 {
@@ -467,10 +470,10 @@ namespace wan24.Crypto
                 }
                 // Read unauthenticated options
                 if (options.FlagsIncluded)
-                    using (RentedArrayStruct<byte> buffer = new(len: 3))
+                    using (RentedArrayStructSimple<byte> buffer = new(len: 3))
                     {
                         if (await cipherData.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != buffer.Length) throw new IOException("Failed to read the crypto flags");
-                        options.Flags = DecodeFlags(buffer.Array);
+                        options.Flags = DecodeFlags(buffer.Span);
                     }
                 options.ValidateRequirements();
                 if (options.HeaderVersionIncluded)
@@ -478,7 +481,7 @@ namespace wan24.Crypto
                     options.HeaderVersion = await cipherData.ReadOneByteAsync(cancellationToken: cancellationToken).DynamicContext();
                     if (options.HeaderVersion < 1 || options.HeaderVersion > CryptoOptions.HEADER_VERSION) throw new InvalidDataException($"Invalid header version {options.HeaderVersion}");
                 }
-                int? serializerVersion = options.SerializerVersionIncluded ? options.SerializerVersion = await cipherData.ReadSerializerVersionAsync(cancellationToken).DynamicContext() : null;
+                int? serializerVersion = options.SerializerVersionIncluded ? options.CustomSerializerVersion = await cipherData.ReadSerializerVersionAsync(cancellationToken).DynamicContext() : null;
                 // Read the MAC
                 MacAlgorithmBase? mac = null;
                 if (options.MacIncluded)
@@ -514,10 +517,10 @@ namespace wan24.Crypto
                     options.KdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
                     options.KdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
                     options.KdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
-                    pwd = options.Password ?? throw new ArgumentException("No password yet", nameof(pwd));
+                    pwd = options.Password;
                     try
                     {
-                        (options.Password, _) = pwd!.Stretch(KeySize, options.KdfSalt, options);
+                        (options.Password, _) = pwd.Stretch(KeySize, options.KdfSalt, options);
                     }
                     finally
                     {
@@ -541,7 +544,7 @@ namespace wan24.Crypto
                     pwd = options.Password;
                     try
                     {
-                        options.Password = EnsureValidKeyLength(options.Password);
+                        options.Password = EnsureValidKeyLength(pwd);
                     }
                     finally
                     {

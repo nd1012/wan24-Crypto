@@ -88,7 +88,7 @@ namespace wan24.Crypto
                     byte[] temp = payload;
                     try
                     {
-                        payload = payload.Encrypt(randomMac, CryptoOptions);
+                        payload = EncryptPayload(payload, randomMac);
                     }
                     finally
                     {

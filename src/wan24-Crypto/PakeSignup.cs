@@ -1,4 +1,5 @@
 ﻿using wan24.Core;
+using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -39,26 +40,33 @@ namespace wan24.Crypto
         public PakeSignup() : base(VERSION) { }
 
         /// <inheritdoc/>
-        public byte[] Identifier { get; private set; } = null!;
+        [CountLimit(1, byte.MaxValue)]
+        public byte[] Identifier { get; internal set; } = null!;
 
         /// <summary>
         /// Secret (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[] Secret { get; private set; } = null!;
+        [CountLimit(1, byte.MaxValue)]
+        public byte[] Secret { get; internal set; } = null!;
 
         /// <inheritdoc/>
         [SensitiveData]
-        public byte[] Key { get; private set; } = null!;
+        [CountLimit(1, byte.MaxValue)]
+        public byte[] Key { get; internal set; } = null!;
 
         /// <inheritdoc/>
-        public byte[] Random { get; private set; } = null!;
+        [CountLimit(1, byte.MaxValue)]
+        public byte[] Random { get; internal set; } = null!;
 
         /// <inheritdoc/>
-        public byte[] Payload { get; private set; } = null!;
+        [SensitiveData]
+        [CountLimit(0, ushort.MaxValue)]
+        public byte[] Payload { get; internal set; } = null!;
 
         /// <inheritdoc/>
-        public byte[] Signature { get; private set; } = null!;
+        [CountLimit(1, byte.MaxValue)]
+        public byte[] Signature { get; internal set; } = null!;
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
@@ -132,7 +140,7 @@ namespace wan24.Crypto
             if (await stream.ReadAsync(Signature, cancellationToken).DynamicContext() != Signature.Length) throw new IOException($"Failed to read {Identifier.Length} signature bytes");
             Random = new byte[Identifier.Length];
             if (await stream.ReadAsync(Random, cancellationToken).DynamicContext() != Random.Length) throw new IOException($"Failed to read {Identifier.Length} random bytes");
-            Payload = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Payload = (await stream.ReadBytesAsync(version, minLen: 0, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
         }
 
         /// <summary>

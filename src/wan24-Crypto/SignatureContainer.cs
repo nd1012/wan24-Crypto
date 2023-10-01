@@ -134,6 +134,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Signer public key (don't forget to dispose!)
         /// </summary>
+        [NoValidation]
         public ISignaturePublicKey SignerPublicKey
         {
             get
@@ -165,6 +166,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Counter signer public key (don't forget to dispose!)
         /// </summary>
+        [NoValidation]
         public ISignaturePublicKey? CounterSignerPublicKey
         {
             get

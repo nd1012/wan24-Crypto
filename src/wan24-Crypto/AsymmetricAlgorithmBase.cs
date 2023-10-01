@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -33,14 +34,24 @@ namespace wan24.Crypto
                 AsymmetricKeyBits = DefaultKeySize
             };
 
+        /// <summary>
+        /// Private key type
+        /// </summary>
+        public static Type PrivateKeyType { get; } = typeof(tPrivate);
+
+        /// <summary>
+        /// Public key type
+        /// </summary>
+        public static Type PublicKeyType { get; } = typeof(tPublic);
+
         /// <inheritdoc/>
         public CryptoOptions DefaultOptions
         {
             get
             {
                 CryptoOptions res = _DefaultOptions.Clone();
-                res.AsymmetricAlgorithm = Name;
-                res.AsymmetricKeyBits = DefaultKeySize;
+                if (CanSign) AsymmetricHelper.GetDefaultSignatureOptions(res);
+                if (CanExchangeKey) AsymmetricHelper.GetDefaultKeyExchangeOptions(res);
                 return res;
             }
         }
@@ -61,6 +72,12 @@ namespace wan24.Crypto
         public abstract ReadOnlyCollection<int> AllowedKeySizes { get; }
 
         /// <inheritdoc/>
+        Type IAsymmetricAlgorithm.PrivateKeyType => PrivateKeyType;
+
+        /// <inheritdoc/>
+        Type IAsymmetricAlgorithm.PublicKeyType => PublicKeyType;
+
+        /// <inheritdoc/>
         public int DefaultKeySize
         {
             get => _DefaultKeySize;
@@ -79,7 +96,21 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
+        public virtual CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null)
+        {
+            if (options is null) return DefaultOptions;
+            options.AsymmetricAlgorithm = _DefaultOptions.AsymmetricAlgorithm;
+            options.AsymmetricKeyBits = _DefaultOptions.AsymmetricKeyBits;
+            if (CanSign && options.HashAlgorithm is null) HashHelper.GetDefaultOptions(options);
+            return options;
+        }
+
+        /// <inheritdoc/>
         public abstract tPrivate CreateKeyPair(CryptoOptions? options = null);
+
+        /// <inheritdoc/>
+        public virtual Task<tPrivate> CreateKeyPairAsync(CryptoOptions? options = null, CancellationToken cancellationToken = default)
+            => Task.FromResult(CreateKeyPair(options));
 
         /// <inheritdoc/>
         public tPublic DeserializePublicKey(byte[] keyData)
@@ -113,9 +144,7 @@ namespace wan24.Crypto
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options ??= DefaultOptions;
-                if (CanExchangeKey) options = AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
-                if (CanSign) options = AsymmetricHelper.GetDefaultSignatureOptions(options);
+                options = options?.Clone() ?? DefaultOptions;
                 using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
                 return key.DeriveKey(keyExchangeData);
             }
@@ -130,7 +159,13 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
+        public virtual bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo) => false;
+
+        /// <inheritdoc/>
         IAsymmetricPrivateKey IAsymmetricAlgorithm.CreateKeyPair(CryptoOptions? options) => CreateKeyPair(options);
+
+        async Task<IAsymmetricPrivateKey> IAsymmetricAlgorithm.CreateKeyPairAsync(CryptoOptions? options, CancellationToken cancellationToken)
+            => await CreateKeyPairAsync(options, cancellationToken).DynamicContext();
 
         /// <inheritdoc/>
         IAsymmetricPublicKey IAsymmetricAlgorithm.DeserializePublicKey(byte[] keyData) => DeserializePublicKey(keyData);

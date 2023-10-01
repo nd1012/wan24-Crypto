@@ -19,13 +19,14 @@
             => _DefaultOptions = new()
             {
                 KdfAlgorithm = Name,
-                KdfIterations = DefaultIterations
+                KdfIterations = DefaultIterations,
+                KdfOptions = DefaultKdfOptions
             };
 
         /// <summary>
         /// Default options
         /// </summary>
-        public virtual CryptoOptions DefaultOptions => _DefaultOptions.Clone().WithKdf(Name, DefaultIterations, DefaultKdfOptions);
+        public virtual CryptoOptions DefaultOptions => KdfHelper.GetDefaultOptions(_DefaultOptions.Clone());
 
         /// <summary>
         /// Minimum number of iterations
@@ -51,6 +52,20 @@
         /// Salt length in bytes
         /// </summary>
         public abstract int SaltLength { get; }
+
+        /// <summary>
+        /// Ensure that the given options include the default options for this algorithm
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        public virtual CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null)
+        {
+            if (options is null) return DefaultOptions;
+            options.KdfAlgorithm = _DefaultOptions.KdfAlgorithm;
+            options.KdfIterations = DefaultIterations;
+            options.KdfOptions = DefaultKdfOptions;
+            return options;
+        }
 
         /// <summary>
         /// Stretch a password

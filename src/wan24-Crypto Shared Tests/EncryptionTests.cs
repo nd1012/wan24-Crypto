@@ -26,10 +26,12 @@ namespace wan24.Crypto.Tests
                 byte[] cipher = TestData.Data.Encrypt(TestData.Key),
                     raw = cipher.Decrypt(TestData.Key);
                 Assert.IsTrue(raw.SequenceEqual(TestData.Data));
+                Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
                 using IAsymmetricPrivateKey key = AsymmetricHelper.CreateKeyExchangeKeyPair();
                 cipher = TestData.Data.Encrypt(key);
                 raw = cipher.Decrypt(key);
                 Assert.IsTrue(raw.SequenceEqual(TestData.Data));
+                Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
             }
             {
                 CryptoOptions options = new()
@@ -44,6 +46,7 @@ namespace wan24.Crypto.Tests
                 using MemoryStream raw = new();
                 cipher.Decrypt(raw, TestData.Key, options);
                 Assert.IsTrue(raw.ToArray().SequenceEqual(TestData.Data));
+                Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
                 cipher.SetLength(0);
                 raw.SetLength(0);
                 ms.Position = 0;
@@ -52,6 +55,7 @@ namespace wan24.Crypto.Tests
                 cipher.Position = 0;
                 cipher.Decrypt(raw, key, options);
                 Assert.IsTrue(raw.ToArray().SequenceEqual(TestData.Data));
+                Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
             }
             Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
@@ -72,6 +76,7 @@ namespace wan24.Crypto.Tests
             using MemoryStream raw = new();
             await cipher.DecryptAsync(raw, TestData.Key, options);
             Assert.IsTrue(raw.ToArray().SequenceEqual(TestData.Data));
+            Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
             cipher.SetLength(0);
             raw.SetLength(0);
             ms.Position = 0;
@@ -80,6 +85,7 @@ namespace wan24.Crypto.Tests
             cipher.Position = 0;
             await cipher.DecryptAsync(raw, key, options);
             Assert.IsTrue(raw.ToArray().SequenceEqual(TestData.Data));
+            Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
             Console.WriteLine($"\tRuntime {sw.Elapsed}");
         }
     }

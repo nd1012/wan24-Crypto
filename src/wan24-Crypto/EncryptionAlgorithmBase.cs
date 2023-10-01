@@ -1,5 +1,4 @@
-﻿using wan24.Compression;
-using wan24.Core;
+﻿using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -19,24 +18,31 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="name">Algorithm name</param>
         /// <param name="value">Algorithm value</param>
-        protected EncryptionAlgorithmBase(string name, int value) : base(name, value)
-            => _DefaultOptions = new()
+        protected EncryptionAlgorithmBase(string name, int value) : base(name, value) {
+            _DefaultOptions = new()
             {
-                Compression = CompressionHelper.GetDefaultOptions(),
-                Algorithm = name,
-                MacAlgorithm = MacHelper.DefaultAlgorithm.Name,
-                KdfAlgorithm = KdfHelper.DefaultAlgorithm.Name,
-                KdfIterations = KdfHelper.DefaultAlgorithm.DefaultIterations
+                Algorithm = name
             };
+            if (RequireMacAuthentication) _DefaultOptions.RequireMac = true;
+        }
 
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => _DefaultOptions.Clone()
-            .WithCompression(CompressionHelper.GetDefaultOptions())
-            .WithEncryptionAlgorithm(Name)
-            .WithMac(MacHelper.DefaultAlgorithm.Name)
-            .WithKdf(KdfHelper.DefaultAlgorithm.Name, KdfHelper.DefaultAlgorithm.DefaultIterations, KdfHelper.DefaultAlgorithm.DefaultKdfOptions);
+        public CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.Clone());
+
+        /// <summary>
+        /// Ensure that the given options include the default options for this algorithm
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        public virtual CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null)
+        {
+            if (options is null) return DefaultOptions;
+            options.Algorithm = _DefaultOptions.Algorithm;
+            if (RequireMacAuthentication && options.MacAlgorithm is null) MacHelper.GetDefaultOptions(options);
+            return options;
+        }
 
         /// <summary>
         /// Ensure a key with a valid length
@@ -72,7 +78,7 @@ namespace wan24.Crypto
                 HashSha256Algorithm.HASH_LENGTH => HashSha256Algorithm.Instance.Hash(key),
                 HashSha384Algorithm.HASH_LENGTH => HashSha384Algorithm.Instance.Hash(key),
                 HashSha512Algorithm.HASH_LENGTH => HashSha512Algorithm.Instance.Hash(key),
-                _ => throw CryptographicException.From($"Can't process for desired key lengt {len} bytes", new NotSupportedException())
+                _ => throw CryptographicException.From($"Can't process for desired key length {len} bytes", new NotSupportedException())
             };
 
         /// <summary>
@@ -134,11 +140,11 @@ namespace wan24.Crypto
         {
             try
             {
-                return cipherData.ReadBytes(options.SerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
+                return cipherData.ReadBytes(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
             }
             catch(Exception ex)
             {
-                throw new CryptographicException($"Failed to read IV bytes: {ex.Message}", ex);
+                throw CryptographicException.From($"Failed to read IV bytes: {ex.Message}", ex);
             }
         }
 
@@ -153,11 +159,11 @@ namespace wan24.Crypto
         {
             try
             {
-                return (await cipherData.ReadBytesAsync(options.SerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                return (await cipherData.ReadBytesAsync(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
             }
             catch (Exception ex)
             {
-                throw new CryptographicException($"Failed to read IV bytes: {ex.Message}", ex);
+                throw CryptographicException.From($"Failed to read IV bytes: {ex.Message}", ex);
             }
         }
 
@@ -166,7 +172,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="flags">Flags</param>
         /// <param name="buffer">Buffer</param>
-        protected virtual void EncodeFlags(CryptoFlags flags, byte[] buffer)
+        protected virtual void EncodeFlags(CryptoFlags flags, Span<byte> buffer)
         {
             if (buffer.Length < 3) throw new ArgumentException("Buffer soo small", nameof(buffer));
             int f = (int)flags;
@@ -180,7 +186,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="buffer">Buffer</param>
         /// <returns>Flags</returns>
-        protected virtual CryptoFlags DecodeFlags(byte[] buffer)
+        protected virtual CryptoFlags DecodeFlags(ReadOnlySpan<byte> buffer)
         {
             if (buffer.Length < 3) throw new ArgumentException("Buffer soo small", nameof(buffer));
             int res = buffer[0];

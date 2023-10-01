@@ -10,8 +10,15 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="suite">Private key suite</param>
         /// <param name="withCounterAlgorithms">With counter algorithms?</param>
-        public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true)
+        /// <param name="forSignature">Use the keys for signature?</param>
+        public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true, bool forSignature = false)
         {
+            if (forSignature)
+            {
+                if (suite.SignatureKey is not null) SetKeys(suite.SignatureKey, suite.Public.SignatureKey);
+                if (withCounterAlgorithms && suite.CounterSignatureKey is not null) SetCounterKeys(suite.CounterSignatureKey, suite.Public.CounterSignatureKey);
+                return;
+            }
             if (suite.KeyExchangeKey is not null) SetKeys(suite.KeyExchangeKey, suite.Public.KeyExchangeKey);
             if (withCounterAlgorithms && suite.CounterKeyExchangeKey is not null) SetCounterKeys(suite.CounterKeyExchangeKey, suite.Public.CounterKeyExchangeKey);
             if (suite.KeyExchangeKey is null && suite.SymmetricKey is not null) Password = suite.SymmetricKey.CloneArray();
@@ -22,8 +29,15 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="suite">Public key suite</param>
         /// <param name="withCounterAlgorithms">With counter algorithms?</param>
-        public void ApplyPublicKeySuite(PublicKeySuite suite, bool withCounterAlgorithms = true)
+        /// <param name="forSignature">Use the keys for signature?</param>
+        public void ApplyPublicKeySuite(PublicKeySuite suite, bool withCounterAlgorithms = true, bool forSignature = false)
         {
+            if (forSignature)
+            {
+                if (suite.SignatureKey is not null) PublicKey = suite.SignatureKey;
+                if (withCounterAlgorithms && suite.CounterSignatureKey is not null) CounterPublicKey = suite.CounterSignatureKey;
+                return;
+            }
             if (suite.KeyExchangeKey is not null) PublicKey = suite.KeyExchangeKey;
             if (withCounterAlgorithms && suite.CounterKeyExchangeKey is not null) CounterPublicKey = suite.CounterKeyExchangeKey;
         }
@@ -31,7 +45,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Create a private key suite
         /// </summary>
-        /// <returns>Private key suite (don't forget to dispose)</returns>
+        /// <returns>Private key suite (keys will be cloned/copied; don't forget to dispose)</returns>
         public PrivateKeySuite CreatePrivateKeySuite()
         {
             PrivateKeySuite res = new();
@@ -54,7 +68,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Create a public key suite
         /// </summary>
-        /// <returns>Public key suite (don't forget to dispose)</returns>
+        /// <returns>Public key suite (keys will be cloned/copied; don't forget to dispose)</returns>
         public PublicKeySuite CreatePublicKeySuite()
         {
             PublicKeySuite res = new();

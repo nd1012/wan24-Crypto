@@ -1,4 +1,5 @@
 ﻿using wan24.Core;
+using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -37,18 +38,25 @@ namespace wan24.Crypto
         public PakeAuth() : base(VERSION) { }
 
         /// <inheritdoc/>
+        [CountLimit(1, byte.MaxValue)]
         public byte[] Identifier { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [CountLimit(1, byte.MaxValue)]
+        [SensitiveData]
         public byte[] Key { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [CountLimit(1, byte.MaxValue)]
         public byte[] Signature { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [CountLimit(0, ushort.MaxValue)]
+        [SensitiveData]
         public byte[] Payload { get; private set; } = null!;
 
         /// <inheritdoc/>
+        [CountLimit(1, byte.MaxValue)]
         public byte[] Random { get; private set; } = null!;
 
         /// <inheritdoc/>
@@ -115,7 +123,7 @@ namespace wan24.Crypto
             if (await stream.ReadAsync(Signature, cancellationToken).DynamicContext() != Signature.Length) throw new IOException($"Failed to read {Identifier.Length} signature bytes");
             Random = new byte[Identifier.Length];
             if (await stream.ReadAsync(Random, cancellationToken).DynamicContext() != Random.Length) throw new IOException($"Failed to read {Identifier.Length} random bytes");
-            Payload = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Payload = (await stream.ReadBytesAsync(version, minLen: 0, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
         }
 
         /// <summary>

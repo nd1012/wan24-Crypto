@@ -10,7 +10,7 @@
         /// </summary>
         byte[] Identifier { get; }
         /// <summary>
-        /// Secret (this is sensitive data and should be stored encrypted; will be cleared!)
+        /// Secret (protected with the authentication key; this is sensitive data and should be stored encrypted; will be cleared!)
         /// </summary>
         byte[] Secret { get; }
         /// <summary>

@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <param name="transform">Transform</param>
-        public HashStreams(CryptoStream stream, HashAlgorithm transform) : base()
+        public HashStreams(in CryptoStream stream, in HashAlgorithm transform) : base()
         {
             Stream = stream;
             Transform = transform;
@@ -28,6 +28,33 @@ namespace wan24.Crypto
         /// Transform
         /// </summary>
         public HashAlgorithm Transform { get; }
+
+        /// <summary>
+        /// Hash
+        /// </summary>
+        public byte[] Hash => Transform.Hash ?? throw new InvalidOperationException();
+
+        /// <summary>
+        /// Finalize the hash
+        /// </summary>
+        /// <param name="transformFinal">Transform the final block?</param>
+        public void FinalizeHash(in bool transformFinal = false)
+        {
+            Stream.Dispose();
+            //FIXME Shouldn't be required, since the CryptoStream should transform the final block when disposed - but it doesn't work always :(
+            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+        }
+
+        /// <summary>
+        /// Finalize the hash
+        /// </summary>
+        /// <param name="transformFinal">Transform the final block?</param>
+        public async Task FinalizeHashAsync(bool transformFinal = false)
+        {
+            await Stream.DisposeAsync().DynamicContext();
+            //FIXME Shouldn't be required, since the CryptoStream should transform the final block when disposed - but it doesn't work always :(
+            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+        }
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)

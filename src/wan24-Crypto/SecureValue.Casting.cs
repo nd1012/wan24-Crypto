@@ -3,7 +3,7 @@
 namespace wan24.Crypto
 {
     // Casting
-    public sealed partial class SecureValue
+    public partial class SecureValue
     {
         /// <summary>
         /// Cast as value (should be cleared!)

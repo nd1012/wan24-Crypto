@@ -3,12 +3,12 @@
 namespace wan24.Crypto
 {
     // Internals
-    public sealed partial class SecureValue
+    public partial class SecureValue
     {
         /// <summary>
         /// Default value encryption random key length in bytes
         /// </summary>
-        private const int DEFAULT_KEY_LEN = 64;
+        protected const int DEFAULT_KEY_LEN = 64;
 
         /// <summary>
         /// Encrypt timer
@@ -39,26 +39,10 @@ namespace wan24.Crypto
         /// </summary>
         private SecureByteArray? EncryptionKey = null;
 
-        /// <inheritdoc/>
-        protected override void Dispose(bool disposing)
-        {
-            SecureValueTable.Values.TryRemove(GUID, out _);
-            using System.Timers.Timer? encryptTimer = EncryptTimer;
-            using System.Timers.Timer? recryptTimer = RecryptTimer;
-            using SemaphoreSync sync = Sync;
-            using SemaphoreSyncContext ssc = sync;
-            using SecureByteArray? encryptedValue = EncryptedValue;
-            using SecureByteArray? encryptionKey = EncryptionKey;
-            using SecureByteArray? rawValue = RawValue;
-            RecryptTimer?.Stop();
-            EncryptTimer?.Stop();
-            Options?.Clear();
-        }
-
         /// <summary>
         /// Encrypt
         /// </summary>
-        private void Encrypt()
+        protected virtual void Encrypt()
         {
             using SemaphoreSyncContext ssc = Sync;
             if (RawValue is null) return;
@@ -75,7 +59,7 @@ namespace wan24.Crypto
         /// Decrypt
         /// </summary>
         /// <returns>Value (should be cleared!)</returns>
-        private byte[] Decrypt()
+        protected virtual byte[] Decrypt()
         {
             if (RawValue is not null) return RawValue.Array.CloneArray();
             if (EncryptTimeout == TimeSpan.Zero)
@@ -100,7 +84,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Re-crypt
         /// </summary>
-        private void Recrypt()
+        protected virtual void Recrypt()
         {
             using SemaphoreSyncContext ssc = Sync;
             if (RawValue is not null) return;
@@ -113,6 +97,22 @@ namespace wan24.Crypto
                 EncryptedValue = new(rawValue.Array.Encrypt(EncryptionKey, Options));
             }
             RecryptTimer.Start();
+        }
+
+        /// <inheritdoc/>
+        protected override void Dispose(bool disposing)
+        {
+            SecureValueTable.Values.TryRemove(GUID, out _);
+            using System.Timers.Timer? encryptTimer = EncryptTimer;
+            using System.Timers.Timer? recryptTimer = RecryptTimer;
+            using SemaphoreSync sync = Sync;
+            using SemaphoreSyncContext ssc = sync;
+            using SecureByteArray? encryptedValue = EncryptedValue;
+            using SecureByteArray? encryptionKey = EncryptionKey;
+            using SecureByteArray? rawValue = RawValue;
+            RecryptTimer?.Stop();
+            EncryptTimer?.Stop();
+            Options?.Clear();
         }
     }
 }

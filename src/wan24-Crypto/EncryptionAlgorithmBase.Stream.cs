@@ -22,6 +22,7 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
+                EncryptionHelper.GetDefaultOptions(options);
                 Stream? stream = null;
                 ICryptoTransform transform = GetEncryptor(macStream?.Stream ?? cipherData, options);
                 try
@@ -44,11 +45,16 @@ namespace wan24.Crypto
                             macStream = null;
                         }
                     // Create the crypto stream
-                    stream = new CryptoStream(macStream?.Stream ?? cipherData, transform, CryptoStreamMode.Write, leaveOpen: macStream is not null || options.LeaveOpen);
+                    stream = new CryptoStream(
+                        new WrapperStream(macStream?.Stream ?? cipherData, leaveOpen: macStream is not null || options.LeaveOpen), 
+                        transform, 
+                        CryptoStreamMode.Write, 
+                        leaveOpen: false
+                        );
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
-                        options.Compression = CompressionHelper.GetDefaultOptions(options.Compression);
+                        options.Compression ??= CompressionHelper.GetDefaultOptions();
                         options.Compression.LeaveOpen = false;
                         CompressionHelper.WriteOptions(rawData, stream, options.Compression);
                         stream = stream.GetCompressionStream(options.Compression);
@@ -95,6 +101,7 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
+                EncryptionHelper.GetDefaultOptions(options);
                 Stream? stream = null;
                 ICryptoTransform transform = await GetEncryptorAsync(macStream?.Stream ?? cipherData, options, cancellationToken).DynamicContext();
                 try
@@ -117,11 +124,16 @@ namespace wan24.Crypto
                             macStream = null;
                         }
                     // Create the crypto stream
-                    stream = new CryptoStream(macStream?.Stream ?? cipherData, transform, CryptoStreamMode.Write, leaveOpen: macStream is not null || options.LeaveOpen);
+                    stream = new CryptoStream(
+                        new WrapperStream(macStream?.Stream ?? cipherData, leaveOpen: macStream is not null || options.LeaveOpen),
+                        transform,
+                        CryptoStreamMode.Write,
+                        leaveOpen: false
+                        );
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
-                        options.Compression = CompressionHelper.GetDefaultOptions(options.Compression);
+                        options.Compression ??= CompressionHelper.GetDefaultOptions();
                         options.Compression.LeaveOpen = false;
                         await CompressionHelper.WriteOptionsAsync(rawData, stream, options.Compression, cancellationToken).DynamicContext();
                         stream = stream.GetCompressionStream(options.Compression);
@@ -159,6 +171,7 @@ namespace wan24.Crypto
             {
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
+                EncryptionHelper.GetDefaultOptions(options);
                 Stream? stream = null;
                 ICryptoTransform transform = GetDecryptor(cipherData, options);
                 try
@@ -187,11 +200,12 @@ namespace wan24.Crypto
                         cipherData.Position = pos;
                     }
                     // Create the crypto stream
-                    stream = new CryptoStream(cipherData, transform, CryptoStreamMode.Read, leaveOpen: options.LeaveOpen);
+                    stream = new CryptoStream(new WrapperStream(cipherData, leaveOpen: options.LeaveOpen), transform, CryptoStreamMode.Read, leaveOpen: false);
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
                         options.Compression = CompressionHelper.ReadOptions(stream, rawData, options.Compression);
+                        options.Compression.MaxUncompressedDataLength = options.MaxUncompressedDataLength;
                         stream = stream.GetDecompressionStream(options.Compression);
                     }
                     return new(stream, transform);
@@ -232,6 +246,7 @@ namespace wan24.Crypto
             {
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
+                EncryptionHelper.GetDefaultOptions();
                 Stream? stream = null;
                 ICryptoTransform transform = await GetDecryptorAsync(cipherData, options, cancellationToken).DynamicContext();
                 try
@@ -260,11 +275,12 @@ namespace wan24.Crypto
                         cipherData.Position = pos;
                     }
                     // Create the crypto stream
-                    stream = new CryptoStream(cipherData, transform, CryptoStreamMode.Read, leaveOpen: options.LeaveOpen);
+                    stream = new CryptoStream(new WrapperStream(cipherData, leaveOpen: options.LeaveOpen), transform, CryptoStreamMode.Read, leaveOpen: false);
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
                         options.Compression = await CompressionHelper.ReadOptionsAsync(stream, rawData, options.Compression, cancellationToken).DynamicContext();
+                        options.Compression.MaxUncompressedDataLength = options.MaxUncompressedDataLength;
                         stream = stream.GetDecompressionStream(options.Compression);
                     }
                     return new(stream, transform);

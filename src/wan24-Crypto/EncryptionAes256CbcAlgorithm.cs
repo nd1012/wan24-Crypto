@@ -83,22 +83,32 @@ namespace wan24.Crypto
         /// <returns>AES instance</returns>
         public Aes CreateAes(CryptoOptions options)
         {
-            options = EncryptionHelper.GetDefaultOptions(options);
             try
             {
+                byte[] pwd = options.Password?.CloneArray() ?? throw new ArgumentException("Missing password", nameof(options));
                 Aes res = Aes.Create();
                 try
                 {
-                    res.KeySize = KeySize << 3;
+                    if (!IsKeyLengthValid(pwd.Length))
+                    {
+                        byte[] temp = EnsureValidKeyLength(pwd);
+                        pwd.Clear();
+                        pwd = temp;
+                    }
+                    res.KeySize = KEY_SIZE << 3;
                     res.Mode = CipherMode.CBC;
                     res.Padding = PaddingMode.ISO10126;
-                    res.Key = options.Password ?? throw new ArgumentException("Missing password", nameof(options));
+                    res.Key = pwd;
                     return res;
                 }
                 catch(Exception ex)
                 {
                     res.Dispose();
                     throw CryptographicException.From(ex);
+                }
+                finally
+                {
+                    pwd.Clear();
                 }
             }
             catch (CryptographicException)

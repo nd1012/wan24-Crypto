@@ -454,6 +454,251 @@ protocol, for example, where each message is PAKE authenticated, and each
 followup message is encrypted using the session key of the first 
 authentication message.
 
+**NOTE**: This PAKE implementation is patent free!
+
+## Client/server authentication protocol
+
+### Asymmetric keys + PAKE
+
+`wan24-Crypto` implements a client/server authentication protocol for stream 
+connections (like a TCP `NetworkStream`). This protocol allows
+
+- server public key request
+- signup
+- authentication
+
+while all features are optional. It implements Zero Knowledge Password Proof 
+(ZKPP) and Perfect Forward Secrecy (PFS).
+
+During a signup an asymmetric public key of the client can be signed by the 
+server for long term use.
+
+The authentication is encrypted using
+
+- (hopefully pre-shared) server public keys and PFS keys
+- PAKE
+
+If the public servers keys are not pre-shared, a PKI should be used to ensure 
+working with valid keys.
+
+See the tests (`Auth_Tests.cs`) for an example of a simple but working client/
+server implementation.
+
+On signup, the server needs to store the PAKE identity and the clients public 
+keys, which then need to be provided for a later authentication process. The 
+`ClientAuthContext` has all the information required to handle a signup or an 
+authentication, and it contains the exchanged PFS session key for encrypted 
+communication, too.
+
+For optimal security (in 2023), you should use an asymmetric PQC algorithm for 
+the key exchange and signature key, and a common non-PQC algorithm as counter 
+key exchange and signature key. You can find asymmetric PQC algorithms in the 
+`wan24-Crypto-BC` library, for example.
+
+**NOTE**: Login username and password won't be communicated to the server. If 
+any authentication related information changes, a follow-up signup needs to be 
+performed.
+
+The signup process (as seen from the client; is bi-directional always):
+
+- Send the clients public PFS key
+- Start encryption using the servers public key and a private PFS key of the 
+client
+- Send the clients public counter PFS key
+- Extend the encryption using the servers public counter key and a private PFS 
+key of the client
+- Send the PAKE signup request and extend the encryption using the PAKE 
+session key (the request contains the public key suite and a key signing 
+request, if this is the signup of a new user, or the public key suite changed)
+- Sign the authentication sequence using the private client key
+- Validate the server signature of the authentication sequence
+- Receive the servers public PFS key
+- Extend the encryption using the private key and the servers public PFS key
+- Receive the servers public counter PFS key
+- Extend the encryption with the PFS key computed using the private PFS keys 
+and the servers public PFS keys
+- Get the signed public client key
+- Sign the public key suite including the signed public key and store the 
+private and public key suites
+
+**NOTE**: The PAKE authentication allows to attach any payload, which enables 
+the app to extend the process with additional meta data as required.
+
+A later authentication process (as seen from the client; may be uni-
+directional):
+
+- Send the clients public PFS key
+- Start encryption using the servers public key and a private PFS key of the 
+client
+- Send the clients public counter PFS key
+- Extend the encryption using the servers public counter key and a private PFS 
+key of the client
+- Send the PAKE authentication request and extend the encryption using the 
+PAKE session key
+- Sign the authentication sequence using the private client key
+
+For a bi-directional communication channel in addition:
+
+- Validate the server signature of the authentication sequence
+- Receive the servers public PFS key
+- Extend the encryption using the private key and the servers public PFS key
+- Receive the servers public counter PFS key
+- Extend the encryption using the PFS key computed using the private PFS keys 
+and the servers public PFS keys
+
+**WARNING**: An uni-directional connection does use a PFS key, but this key is 
+being applied on a pre-shared long term key only.
+
+**NOTE**: Since a temporary client like a browser may not be able to store the 
+private client keys, such a client may only use the signup and not send a key 
+signing request. Then the server is required to identify the authenticating 
+client using the PAKE identifier (not the public key ID).
+
+In total at last three session keys are being exchanged during a request (six 
+session keys for bi-directional communication). The first two keys are pseudo-
+PFS keys, while the third key is the PAKE session key. Each part of the 
+authentication sequence will be encrypted using the latest exchanged session 
+key (encryption does change each time a new session key can be derived at the 
+server).
+
+**NOTE**: The encryption key will always be _extended_ by the next derived 
+key, but _not replaced_.
+
+To avoid replay-attacks, the server should implement methods to deny re-using 
+PFS keys or random byte sequences. A timestamp validation is implemented 
+already (which defaults to a maximum time offset of 5 minutes to the clients 
+system time). So the server should ensure, that a (pseudo-)PFS key or random 
+byte sequence can't be re-used within five minutes after it was received from 
+a client.
+
+**NOTE**: The long term client key exchange keys can be used for encrypting an 
+off-session peer-to-peer message. They're not used for signup/authentication.
+
+Things that must be known in advance are the used algorithms, while the PFS 
+keys use the public server keys algorithms and key sizes. But these algorithms 
+must be pre-defined in both (client and server) apps anyway:
+
+- Hash algorithm
+- MAC algorithm
+- KDF algorithm
+- Encryption algorithm (and other `CryptoOptions` settings for encryption)
+
+**CAUTION**: The chosen encryption algorithm must not require MAC 
+authentication (while built-in MAC authentication like with AEAD is ok). You 
+can find a stream cipher in the `wan24-Crypto-BC` library, for example. The 
+encryption settings shouldn't use KDF to avoid too much overhead (KDF will be 
+used for PAKE already).
+
+### PAKE authentication only
+
+Quiet different from the "Asymmetric keys + PAKE" authentication protocol, 
+there is another implementation, which uses PAKE only. See the tests 
+(`PakeAuth_Tests.cs`) for an example of a simple but working client/server 
+implementation.
+
+This protocol allows
+
+- signup
+- authentication
+
+while all features are optional. It implements Zero Knowledge Password Proof 
+(ZKPP) and Perfect Forward Secrecy (PFS).
+
+**CAUTION**: At last the signup communication is required to be wrapped with 
+a PFS protocol! Use a TLS socket, for example. A later authentication _may_ be 
+performed using a raw socket.
+
+During the signup the server will respond a random signup to the client. The 
+produces PAKE values need to be stored on both peers for later authentication.
+
+**WARNING**: This authentication protocol doesn't support the use a pre-shared 
+key for the signup. This clearly opens doors for a MiM attack during the 
+signup: If the signup communication was compromised, the attacker will be able 
+to authenticate successful later! It's absolutely required to use a wrapping 
+PFS protocol which ensures the server identity, before sending any signup 
+information.
+
+For authentication, the client sends the identifier of the servers PAKE 
+values, which have been pre-shared during the signup. Using random bytes a 
+temporary session key will be calculated and used to send the PAKE 
+authentication request. The temporary session key will then be extended using 
+the now fully exchanged PAKE session key.
+
+**NOTE**: The authentication _may_ use a raw socket, while a wrapping PFS 
+protocol is of course never a mistake. However, if using raw sockets, a MiM is 
+able to know who is authenticating, because the servers random PAKE identifier 
+needs to be sent plain (and this value won't change, if not forced).
+
+Things that must be known in advance are the used algorithms, which must be 
+pre-defined in both (client and server) apps:
+
+- MAC algorithm
+- KDF algorithm
+- Encryption algorithm (and other `CryptoOptions` settings for encryption)
+
+**CAUTION**: The chosen encryption algorithm must not require MAC 
+authentication (while built-in MAC authentication like with AEAD is ok). You 
+can find a stream cipher in the `wan24-Crypto-BC` library, for example. The 
+encryption settings shouldn't use KDF to avoid too much overhead (KDF will be 
+used for PAKE already).
+
+In total this authentication may be a good choice for use with fixed client 
+devices, which are able to store the servers PAKE values in a safe way for the 
+long term.
+
+## Random number generator
+
+You can use `RND` as a random data source. `RND` is customizable and falls 
+back to `RandomNumberGenerator` from .NET. It uses `/dev/urandom` as data 
+source, if available.
+
+```cs
+byte[] randomData = RND.GetBytes(123);
+```
+
+**NOTE**: `/dev/urandom` may be too slow for your requirements. If you don't 
+want to use `RandomDataGenerator` (which can speed up `RND` a lot), you can 
+disable `/dev/urandom`:
+
+```cs
+RND.UseDevUrandom = false;
+```
+
+**NOTE**: In case you want to force using `/dev/urandom` _ONLY_:
+
+```cs
+RND.RequireDevUrandom = true;// This will cause RND to throw on Windows!
+```
+
+The `RandomDataGenerator` is an `IHostedService` which can be customized, but 
+falls back to `RND` per default. The service uses a buffer to pre-buffer 
+random data, in case your RNG is slow. It's possible to define custom 
+fallbacks which are being used in case the buffer doesn't have enough data to 
+satisfy a request. If you use a `RandomDataGenerator`, you can set the 
+instance to `RND.Generator` to use it per default.
+
+The full generator process is:
+
+1. Try reading pre-buffered random data
+2. If not satisfied, call the defined fallback RNG delegates (`RND` methods 
+are preset)
+3. Default `RND` methods use `RandomNumberGenerator`, finally
+
+Each step in this process can be customized in `RND` AND 
+`RandomDataGenerator`, while the defaults of `RandomDataGenerator` fall back 
+to `RandomStream` and `RND`, and the methods of `RND` use `RND.Generator` or 
+fall back to `RandomNumberGenerator`. To simplify that and avoid an endless 
+recursion in your code: **DO NOT** call `RND.Get/FillBytes(Async)` from a 
+customized `RandomDataGenerator`! **DO** call `RND.DefaultRng(Async)` instead.
+
+If you use the plain `RandomDataGenerator`, it uses the `RandomStream` as 
+random data source, if `/dev/urandom` isn't available or disabled. 
+(`RandomStream` uses `RandomNumberGenerator`, finally.)
+
+To sum it up: Use `RND` for (optional customized) getting cyptographic random 
+bytes. You can use `SecureRandomStream.Instance`, too (it uses `RND` on 
+request).
+
 ## Notes
 
 Sometimes you'll read something like "will be disposed" or "will be cleared" 
@@ -559,9 +804,9 @@ The `HybridAlgorithmHelper` allows to set default hybrid algorithms for
 - KDF in `KdfAlgorithm`
 - MAC in `MacAlgorithm`
 
-and exports some helper methods, which are being used internal (you don't need 
-to use them unless you have to). If you want the additional hybrid algorithms 
-to be used every time, you can set the
+and exports some helper methods, which are being used internal during 
+encryption (you don't need to use them unless you have to). If you want the 
+additional hybrid algorithms to be used every time, you can set the
 
 - `EncryptionHelper.UseHybridOptions`
 - `AsymmetricHelper.UseHybridKeyExchangeOptions`
@@ -569,6 +814,11 @@ to be used every time, you can set the
 
 to `true` to extend used `CryptoOptions` instances by the algorithms defined 
 in the `HybridAlgorithmHelper` properties.
+
+**WARNING**: The `HybridAlgorithmHelper` counter MAC implementation isn't 
+really good - it's only a trade-off to gain compatibility and performance. You 
+should consinder to create a counter MAC from the whole raw data manually, if 
+possible, instead.
 
 ### Post quantum safety
 

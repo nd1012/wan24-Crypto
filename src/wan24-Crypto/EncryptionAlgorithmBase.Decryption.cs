@@ -15,10 +15,11 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public virtual Stream Decrypt(Stream cipherData, Stream rawData, byte[] pwd, CryptoOptions? options = null)
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
-            options = ReadOptions(cipherData, rawData, pwd, options);
+            CryptoOptions? givenOptions = options;
             try
             {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
+                options = ReadOptions(cipherData, rawData, pwd, options);
                 using DecryptionStreams crypto = GetDecryptionStream(cipherData, rawData, options);
                 crypto.CryptoStream.CopyTo(rawData);
                 return rawData;
@@ -33,7 +34,7 @@ namespace wan24.Crypto
             }
             finally
             {
-                options.Clear();
+                if (options != givenOptions) options!.Clear();
             }
         }
 
@@ -47,13 +48,12 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public Stream Decrypt(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
-            options ??= DefaultOptions;
-            options = EncryptionHelper.GetDefaultOptions(options);
-            options.SetKeys(key);
-            options = ReadOptions(cipherData, rawData, pwd: null, options);
+            options = options?.Clone() ?? DefaultOptions;
             try
             {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
+                options.SetKeys(key);
+                options = ReadOptions(cipherData, rawData, pwd: null, options);
                 return Decrypt(cipherData, rawData, options.Password!, options);
             }
             catch (CryptographicException)
@@ -81,10 +81,11 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public virtual async Task DecryptAsync(Stream cipherData, Stream rawData, byte[] pwd, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
-            options = await ReadOptionsAsync(cipherData, rawData, pwd, options, cancellationToken).DynamicContext();
+            CryptoOptions? givenOptions = options;
             try
             {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
+                options = await ReadOptionsAsync(cipherData, rawData, pwd, options, cancellationToken).DynamicContext();
                 DecryptionStreams crypto = await GetDecryptionStreamAsync(cipherData, rawData, options, cancellationToken).DynamicContext();
                 await using (crypto.DynamicContext())
                     await crypto.CryptoStream.CopyToAsync(rawData, cancellationToken).DynamicContext();
@@ -99,7 +100,7 @@ namespace wan24.Crypto
             }
             finally
             {
-                options.Clear();
+                if (options != givenOptions) options!.Clear();
             }
         }
 
@@ -114,13 +115,12 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public async Task DecryptAsync(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
-            options ??= DefaultOptions;
-            options = EncryptionHelper.GetDefaultOptions(options);
-            options.SetKeys(key);
-            options = await ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
+            options = options?.Clone() ?? DefaultOptions;
             try
             {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
+                options.SetKeys(key);
+                options = await ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
                 await DecryptAsync(cipherData, rawData, options.Password!, options, cancellationToken).DynamicContext();
             }
             catch (CryptographicException)

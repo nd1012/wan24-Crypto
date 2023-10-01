@@ -111,7 +111,7 @@ namespace wan24.Crypto
                 using MemoryStream ms = new();
                 ms.WriteSerializerVersion()
                     .WriteNumber(VERSION)
-                    .WriteAny(PublicKey)
+                    .WriteBytes(PublicKey.Export())
                     .WriteDict(Attributes);
                 SignedData = ms.ToArray();
                 return SignedData;
@@ -203,7 +203,19 @@ namespace wan24.Crypto
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>();
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
-            PublicKey = ms.ReadAny(ssv) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
+            IAsymmetricPublicKey? key = null;
+            byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: short.MaxValue).Value;
+            try
+            {
+                key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);
+                PublicKey = key;
+            }
+            catch
+            {
+                key?.Dispose();
+                keyData?.Clear();
+                throw;
+            }
             Attributes = ms.ReadDict<string, string>(ssv, maxLen: byte.MaxValue);
         }
 

@@ -92,5 +92,8 @@ namespace wan24.Crypto
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <inheritdoc/>
+        public override bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo) => typeof(ECDsa).IsAssignableFrom(algo.GetType());
     }
 }

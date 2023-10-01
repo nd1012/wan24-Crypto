@@ -2,6 +2,8 @@
 using System.Runtime.CompilerServices;
 using wan24.Core;
 
+// https://www.rfc-editor.org/rfc/rfc8125.html -> Requirements for Password-Authenticated Key Agreement (PAKE) Schemes
+
 namespace wan24.Crypto
 {
     /// <summary>
