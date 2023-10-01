@@ -9,6 +9,11 @@ namespace wan24.Crypto.Authentication
     public sealed class PakeClientAuthOptions : DisposableBase
     {
         /// <summary>
+        /// Default options
+        /// </summary>
+        private static PakeClientAuthOptions? _DefaultOptions = null;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="login">Login ID (will be cleared!)</param>
@@ -68,27 +73,45 @@ namespace wan24.Crypto.Authentication
         }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        private PakeClientAuthOptions() : base(asyncDisposing: false) { }
+
+        /// <summary>
+        /// Default options (will be cloned for delivery; should/will be disposed!)
+        /// </summary>
+        public static PakeClientAuthOptions? DefaultOptions
+        {
+            get => _DefaultOptions?.Clone();
+            set
+            {
+                value?.Dispose();
+                _DefaultOptions = value;
+            }
+        }
+
+        /// <summary>
         /// Login ID (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[]? Login { get; }
+        public byte[]? Login { get; private set; }
 
         /// <summary>
         /// Login password (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[]? Password { get; }
+        public byte[]? Password { get; private set; }
 
         /// <summary>
         /// Pre-shared signup secret (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[]? PreSharedSecret { get; }
+        public byte[]? PreSharedSecret { get; private set; }
 
         /// <summary>
         /// Symmetric key suite (won't be disposed)
         /// </summary>
-        public ISymmetricKeySuite? SymmetricKey { get; }
+        public ISymmetricKeySuite? SymmetricKey { get; private set; }
 
         /// <summary>
         /// Payload (will be cleared!)
@@ -104,12 +127,12 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// Fast PAKE authentication client (won't be disposed)
         /// </summary>
-        public FastPakeAuthClient? FastPakeAuthClient { get; }
+        public FastPakeAuthClient? FastPakeAuthClient { get; private set; }
 
         /// <summary>
         /// Peer identity (won't be disposed)
         /// </summary>
-        public IPakeAuthRecord? PeerIdentity { get; }
+        public IPakeAuthRecord? PeerIdentity { get; private set; }
 
         /// <summary>
         /// PAKE options (require KDF and MAC algorithms)
@@ -151,6 +174,31 @@ namespace wan24.Crypto.Authentication
         /// </summary>
         [MemberNotNullWhen(returnValue: false, nameof(PeerIdentity))]
         public bool IsSignup => PeerIdentity is null;
+
+        /// <summary>
+        /// Get a clone of this instance
+        /// </summary>
+        /// <returns>Clone</returns>
+        public PakeClientAuthOptions Clone() => new()
+        {
+            Login = Login?.CloneArray(),
+            Password = Password?.CloneArray(),
+            PreSharedSecret = PreSharedSecret?.CloneArray(),
+            SymmetricKey = SymmetricKey is null
+                ? null
+                : new SymmetricKeySuite(SymmetricKey, (SymmetricKey as SymmetricKeySuite)?.Options),
+            Payload = Payload?.CloneArray(),
+            EncryptPayload = EncryptPayload,
+            FastPakeAuthClient = FastPakeAuthClient,
+            PeerIdentity = PeerIdentity is null ? null : new PakeAuthRecord(PeerIdentity),
+            PakeOptions = PakeOptions?.Clone(),
+            CryptoOptions = CryptoOptions?.Clone(),
+            EncryptTimeout = EncryptTimeout,
+            RecryptTimeout = RecryptTimeout,
+            SessionKeyCryptoOptions = SessionKeyCryptoOptions?.Clone(),
+            SessionKeyKekLength = SessionKeyKekLength,
+            GetAuthenticationResponse = GetAuthenticationResponse
+        };
 
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)

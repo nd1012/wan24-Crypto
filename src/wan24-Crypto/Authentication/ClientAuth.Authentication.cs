@@ -15,10 +15,11 @@ namespace wan24.Crypto.Authentication
         /// <returns>PFS session key (should be cleared!)</returns>
         public static async Task<byte[]> AuthenticateAsync(
             this Stream stream,
-            ClientAuthOptions options,
+            ClientAuthOptions? options = null,
             CancellationToken cancellationToken = default
             )
         {
+            options ??= ClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
             bool disposeServerKey = options.PublicServerKeys is null;
             ISymmetricKeySuite? symmetricKey = null;
             byte[]? authPayload = null,
@@ -130,9 +131,13 @@ namespace wan24.Crypto.Authentication
             }
             finally
             {
-                options.PfsKeys?.Dispose();
-                authPayload?.Clear();
+                if (options.PfsKeys is not null)
+                {
+                    options.PfsKeys.Dispose();
+                    options.PfsKeys = null;
+                }
                 options.Payload?.Clear();
+                authPayload?.Clear();
                 hashOptions?.Clear();
                 pakeOptions?.Clear();
                 cryptoOptions?.Clear();

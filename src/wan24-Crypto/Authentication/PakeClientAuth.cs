@@ -16,9 +16,10 @@ namespace wan24.Crypto.Authentication
         /// <param name="options">Options (will be disposed!)</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Context (don't forget to dispose!)</returns>
-        public static async Task<PakeAuthContext> SignupAsync(this Stream stream, PakeClientAuthOptions options, CancellationToken cancellationToken = default)
+        public static async Task<PakeAuthContext> SignupAsync(this Stream stream, PakeClientAuthOptions? options = null, CancellationToken cancellationToken = default)
         {
             await Task.Yield();
+            options ??= PakeClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
             ISymmetricKeySuite? symmetricKey = null;
             PakeSignup? signup = null;
             PakeRecord? identity = null;
@@ -85,9 +86,10 @@ namespace wan24.Crypto.Authentication
         /// <param name="options">Options</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Context (don't forget to dispose!)</returns>
-        public static async Task<PakeAuthContext> AuthenticateAsync(this Stream stream, PakeClientAuthOptions options, CancellationToken cancellationToken = default)
+        public static async Task<PakeAuthContext> AuthenticateAsync(this Stream stream, PakeClientAuthOptions? options = null, CancellationToken cancellationToken = default)
         {
             await Task.Yield();
+            options ??= PakeClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
             EncryptionStreams? cipher = null;
             ISymmetricKeySuite? symmetricKey = null;
             PakeAuth? auth = null;

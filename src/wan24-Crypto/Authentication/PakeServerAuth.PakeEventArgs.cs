@@ -6,7 +6,7 @@
         /// <summary>
         /// PAKE event arguments
         /// </summary>
-        public sealed class PakeEventArgs : EventArgs//TODO
+        public sealed class PakeEventArgs : EventArgs
         {
             /// <summary>
             /// Constructor

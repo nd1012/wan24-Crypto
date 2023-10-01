@@ -8,6 +8,11 @@ namespace wan24.Crypto.Authentication
     public sealed class ClientAuthOptions
     {
         /// <summary>
+        /// Default options
+        /// </summary>
+        private static ClientAuthOptions? _DefaultOptions = null;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="privateKeys">Private keys</param>
@@ -15,9 +20,9 @@ namespace wan24.Crypto.Authentication
         /// <param name="pwd">Login password (will be cleared!)</param>
         /// <param name="preSharedSecret">Pre-shared signup secret (will be cleared!)</param>
         public ClientAuthOptions(
-            in PrivateKeySuite privateKeys, 
-            in byte[] login, 
-            in byte[]? pwd = null, 
+            in PrivateKeySuite privateKeys,
+            in byte[] login,
+            in byte[]? pwd = null,
             in byte[]? preSharedSecret = null
             )
         {
@@ -35,13 +40,27 @@ namespace wan24.Crypto.Authentication
         /// <param name="symmetricKey">Symmetric key suite (won't be disposed!)</param>
         public ClientAuthOptions(
             in PrivateKeySuite privateKeys,
-            in ISymmetricKeySuite? symmetricKey, 
+            in ISymmetricKeySuite? symmetricKey,
             in byte[]? preSharedSecret = null
             )
         {
             PrivateKeys = privateKeys;
             PreSharedSecret = preSharedSecret;
             SymmetricKey = symmetricKey;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        private ClientAuthOptions() { }
+
+        /// <summary>
+        /// Default options (will be cloned for delivery)
+        /// </summary>
+        public static ClientAuthOptions? DefaultOptions
+        {
+            get => _DefaultOptions?.Clone();
+            set => _DefaultOptions = value;
         }
 
         /// <summary>
@@ -52,30 +71,30 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// Private keys
         /// </summary>
-        public PrivateKeySuite PrivateKeys { get; }
+        public PrivateKeySuite PrivateKeys { get; private set; } = null!;
 
         /// <summary>
         /// Login ID (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[]? Login { get; }
+        public byte[]? Login { get; private set; }
 
         /// <summary>
         /// Login password (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[]? Password { get; }
+        public byte[]? Password { get; private set; }
 
         /// <summary>
         /// Pre-shared signup secret (will be cleared!)
         /// </summary>
         [SensitiveData]
-        public byte[]? PreSharedSecret { get; }
+        public byte[]? PreSharedSecret { get; private set; }
 
         /// <summary>
         /// Symmetric key suite
         /// </summary>
-        public ISymmetricKeySuite? SymmetricKey { get; }
+        public ISymmetricKeySuite? SymmetricKey { get; private set; }
 
         /// <summary>
         /// Server public keys
@@ -126,7 +145,30 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// PFS keys
         /// </summary>
-        [SensitiveData]
         internal PrivateKeySuite? PfsKeys { get; set; }
+
+        /// <summary>
+        /// Get a clone of this instance (only public properties - internal properties won't be cloned!)
+        /// </summary>
+        /// <returns>Clone</returns>
+        public ClientAuthOptions Clone() => new()
+        {
+            PrivateKeys = PrivateKeys.Clone(),
+            SymmetricKey = SymmetricKey is null
+                ? null
+                : new SymmetricKeySuite(SymmetricKey, (SymmetricKey as SymmetricKeySuite)?.Options.Clone()),
+            PreSharedSecret = PreSharedSecret?.CloneArray(),
+            Login = Login?.CloneArray(),
+            Password = Password?.CloneArray(),
+            PublicServerKeys = PublicServerKeys?.Clone(),
+            Payload = Payload?.CloneArray(),
+            EncryptPayload = EncryptPayload,
+            HashOptions = HashOptions?.Clone(),
+            PakeOptions = PakeOptions?.Clone(),
+            FastPakeAuth = FastPakeAuth,
+            CryptoOptions = CryptoOptions?.Clone(),
+            ServerKeyValidator = ServerKeyValidator,
+            GetAuthenticationResponse = GetAuthenticationResponse
+        };
     }
 }
