@@ -266,7 +266,6 @@ namespace wan24.Crypto.Tests
             Console.WriteLine($"Synchronous hybrid encryption tests with {options.Algorithm}");
             Console.WriteLine($"\tMAC algorithms: {options.MacAlgorithm} and {options.CounterMacAlgorithm}");
             Console.WriteLine($"\tAsymmetric algorithms: {options.AsymmetricAlgorithm} ({keySize}) and {options.AsymmetricCounterAlgorithm} ({counterKeySize})");
-            Console.WriteLine($"\tKDF algorithms: {options.KdfAlgorithm} and {options.CounterKdfAlgorithm}");
             Stopwatch sw = Stopwatch.StartNew();
             // With password
             Console.WriteLine("\t\tWith password");
@@ -304,7 +303,6 @@ namespace wan24.Crypto.Tests
             Console.WriteLine($"Asynchronous hybrid encryption tests with {options.Algorithm}");
             Console.WriteLine($"\tMAC algorithms: {options.MacAlgorithm} and {options.CounterMacAlgorithm}");
             Console.WriteLine($"\tAsymmetric algorithms: {options.AsymmetricAlgorithm} and {options.AsymmetricCounterAlgorithm}");
-            Console.WriteLine($"\tKDF algorithms: {options.KdfAlgorithm} and {options.CounterKdfAlgorithm}");
             Stopwatch sw = Stopwatch.StartNew();
             // With password
             Console.WriteLine("\t\tWith password");
