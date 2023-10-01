@@ -21,8 +21,9 @@ namespace wan24.Crypto
         /// </summary>
         public void ValidateRequirements()
         {
-            CryptoFlags requirements = Requirements;
-            if ((Flags.OnlyFlags() & requirements) != requirements) throw new CryptographicException("Requirements not met");
+            CryptoFlags requirements = Requirements,
+                flags = Flags.OnlyFlags() & ~CryptoFlags.Compressed;
+            if ((flags & requirements) != requirements) throw new CryptographicException("Requirements not met");
         }
 
         /// <summary>
@@ -53,7 +54,6 @@ namespace wan24.Crypto
                 if (AsymmetricCounterAlgorithm is not null) AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm);
                 if (HashAlgorithm is not null) HashHelper.GetAlgorithm(HashAlgorithm);
                 if (Compression?.Algorithm is not null) CompressionHelper.GetAlgorithm(Compression.Algorithm);
-
             }
             catch (CryptographicException)
             {

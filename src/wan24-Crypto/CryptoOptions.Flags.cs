@@ -69,11 +69,22 @@ namespace wan24.Crypto
             {
                 CryptoFlags res = (CryptoFlags)HeaderVersion;
                 if (SerializerVersionIncluded) res |= CryptoFlags.SerializerVersionIncluded;
-                if (MacIncluded) res |= CryptoFlags.MacIncluded;
                 if (Compressed) res |= CryptoFlags.Compressed;
-                if (MacIncluded) res |= CryptoFlags.MacIncluded;
-                if (KdfAlgorithmIncluded) res |= CryptoFlags.KdfAlgorithmIncluded;
-                if (KeyExchangeDataIncluded) res |= CryptoFlags.KeyExchangeDataIncluded;
+                if (MacIncluded)
+                {
+                    res |= CryptoFlags.MacIncluded;
+                    if (RequireCounterMac) res |= CryptoFlags.RequireCounterMac;
+                }
+                if (KdfAlgorithmIncluded)
+                {
+                    res |= CryptoFlags.KdfAlgorithmIncluded;
+                    if (RequireCounterKdf) res |= CryptoFlags.RequireCounterKdfAlgorithm;
+                }
+                if (KeyExchangeDataIncluded)
+                {
+                    res |= CryptoFlags.KeyExchangeDataIncluded;
+                    if (RequireAsymmetricCounterAlgorithm) res |= CryptoFlags.RequireAsymmetricCounterAlgorithm;
+                }
                 if (PayloadIncluded) res |= CryptoFlags.PayloadIncluded;
                 if (TimeIncluded) res |= CryptoFlags.TimeIncluded;
                 if (ForceMacCoverWhole) res |= CryptoFlags.ForceMacCoverWhole;
