@@ -57,6 +57,13 @@ namespace wan24.Crypto
         /// <returns>Private key</returns>
         IAsymmetricPrivateKey CreateKeyPair(CryptoOptions? options = null);
         /// <summary>
+        /// Create a new key pair
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Private key</returns>
+        Task<IAsymmetricPrivateKey> CreateKeyPairAsync(CryptoOptions? options = null, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Deserialize a public key from a stream
         /// </summary>
         /// <param name="keyData">Key data</param>

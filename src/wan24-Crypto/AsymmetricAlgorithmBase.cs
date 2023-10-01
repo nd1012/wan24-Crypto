@@ -109,6 +109,10 @@ namespace wan24.Crypto
         public abstract tPrivate CreateKeyPair(CryptoOptions? options = null);
 
         /// <inheritdoc/>
+        public virtual Task<tPrivate> CreateKeyPairAsync(CryptoOptions? options = null, CancellationToken cancellationToken = default)
+            => Task.FromResult(CreateKeyPair(options));
+
+        /// <inheritdoc/>
         public tPublic DeserializePublicKey(byte[] keyData)
         {
             try
@@ -159,6 +163,9 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         IAsymmetricPrivateKey IAsymmetricAlgorithm.CreateKeyPair(CryptoOptions? options) => CreateKeyPair(options);
+
+        async Task<IAsymmetricPrivateKey> IAsymmetricAlgorithm.CreateKeyPairAsync(CryptoOptions? options, CancellationToken cancellationToken)
+            => await CreateKeyPairAsync(options, cancellationToken).DynamicContext();
 
         /// <inheritdoc/>
         IAsymmetricPublicKey IAsymmetricAlgorithm.DeserializePublicKey(byte[] keyData) => DeserializePublicKey(keyData);
