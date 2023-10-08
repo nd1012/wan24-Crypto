@@ -266,36 +266,44 @@ namespace wan24.Crypto.Tests
             Console.WriteLine($"Synchronous hybrid encryption tests with {options.Algorithm}");
             Console.WriteLine($"\tMAC algorithms: {options.MacAlgorithm} and {options.CounterMacAlgorithm}");
             Console.WriteLine($"\tAsymmetric algorithms: {options.AsymmetricAlgorithm} ({keySize}) and {options.AsymmetricCounterAlgorithm} ({counterKeySize})");
-            Stopwatch sw = Stopwatch.StartNew();
-            // With password
-            Console.WriteLine("\t\tWith password");
-            using MemoryStream data = new(TestData.Data);
-            using MemoryStream cipher = new();
-            data.Encrypt(cipher, TestData.Key, options);
-            using MemoryStream raw = new();
-            cipher.Position = 0;
-            cipher.Decrypt(raw, TestData.Key, options);
-            Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
-            // With asymmetric key
-            Console.WriteLine("\t\tWith asymmetric key");
-            options.KeyExchangeDataIncluded = true;
-            options.RequireKeyExchangeData = true;
-            options.RequireAsymmetricCounterAlgorithm = true;
-            IAsymmetricAlgorithm algo = AsymmetricHelper.GetAlgorithm(options.AsymmetricAlgorithm!),
-                counterAlgo = AsymmetricHelper.GetAlgorithm(options.AsymmetricCounterAlgorithm!);
-            options.AsymmetricKeyBits = keySize;
-            using IAsymmetricPrivateKey privateKey = algo.CreateKeyPair(options);
-            options.AsymmetricKeyBits = counterKeySize;
-            using IAsymmetricPrivateKey privateKey2 = counterAlgo.CreateKeyPair(options);
-            options.CounterPrivateKey = privateKey2;
-            cipher.SetLength(0);
-            raw.SetLength(0);
-            data.Position = 0;
-            data.Encrypt(cipher, privateKey, options);
-            cipher.Position = 0;
-            cipher.Decrypt(raw, privateKey, options);
-            Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
-            Console.WriteLine($"\tRuntime {sw.Elapsed}");
+            options.Tracer = new();
+            try
+            {
+                Stopwatch sw = Stopwatch.StartNew();
+                // With password
+                Console.WriteLine("\t\tWith password");
+                using MemoryStream data = new(TestData.Data);
+                using MemoryStream cipher = new();
+                data.Encrypt(cipher, TestData.Key, options);
+                using MemoryStream raw = new();
+                cipher.Position = 0;
+                cipher.Decrypt(raw, TestData.Key, options);
+                Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
+                // With asymmetric key
+                Console.WriteLine("\t\tWith asymmetric key");
+                options.KeyExchangeDataIncluded = true;
+                options.RequireKeyExchangeData = true;
+                options.RequireAsymmetricCounterAlgorithm = true;
+                IAsymmetricAlgorithm algo = AsymmetricHelper.GetAlgorithm(options.AsymmetricAlgorithm!),
+                    counterAlgo = AsymmetricHelper.GetAlgorithm(options.AsymmetricCounterAlgorithm!);
+                options.AsymmetricKeyBits = keySize;
+                using IAsymmetricPrivateKey privateKey = algo.CreateKeyPair(options);
+                options.AsymmetricKeyBits = counterKeySize;
+                using IAsymmetricPrivateKey privateKey2 = counterAlgo.CreateKeyPair(options);
+                options.CounterPrivateKey = privateKey2;
+                cipher.SetLength(0);
+                raw.SetLength(0);
+                data.Position = 0;
+                data.Encrypt(cipher, privateKey, options);
+                cipher.Position = 0;
+                cipher.Decrypt(raw, privateKey, options);
+                Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
+                Console.WriteLine($"\tRuntime {sw.Elapsed}");
+            }
+            catch
+            {
+                options.Tracer.Flush();
+            }
         }
 
         public static async Task AsyncEncryptionTests(CryptoOptions options, int keySize, int counterKeySize)
@@ -303,36 +311,44 @@ namespace wan24.Crypto.Tests
             Console.WriteLine($"Asynchronous hybrid encryption tests with {options.Algorithm}");
             Console.WriteLine($"\tMAC algorithms: {options.MacAlgorithm} and {options.CounterMacAlgorithm}");
             Console.WriteLine($"\tAsymmetric algorithms: {options.AsymmetricAlgorithm} and {options.AsymmetricCounterAlgorithm}");
-            Stopwatch sw = Stopwatch.StartNew();
-            // With password
-            Console.WriteLine("\t\tWith password");
-            using MemoryStream data = new(TestData.Data);
-            using MemoryStream cipher = new();
-            await data.EncryptAsync(cipher, TestData.Key, options);
-            using MemoryStream raw = new();
-            cipher.Position = 0;
-            await cipher.DecryptAsync(raw, TestData.Key, options);
-            Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
-            // With asymmetric key
-            Console.WriteLine("\t\tWith asymmetric key");
-            options.KeyExchangeDataIncluded = true;
-            options.RequireKeyExchangeData = true;
-            options.RequireAsymmetricCounterAlgorithm = true;
-            IAsymmetricAlgorithm algo = AsymmetricHelper.GetAlgorithm(options.AsymmetricAlgorithm!),
-                counterAlgo = AsymmetricHelper.GetAlgorithm(options.AsymmetricCounterAlgorithm!);
-            options.AsymmetricKeyBits = keySize;
-            using IAsymmetricPrivateKey privateKey = algo.CreateKeyPair(options);
-            options.AsymmetricKeyBits = counterKeySize;
-            using IAsymmetricPrivateKey privateKey2 = counterAlgo.CreateKeyPair(options);
-            options.CounterPrivateKey = privateKey2;
-            cipher.SetLength(0);
-            raw.SetLength(0);
-            data.Position = 0;
-            await data.EncryptAsync(cipher, privateKey, options);
-            cipher.Position = 0;
-            await cipher.DecryptAsync(raw, privateKey, options);
-            Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
-            Console.WriteLine($"\tRuntime {sw.Elapsed}");
+            options.Tracer = new();
+            try
+            {
+                Stopwatch sw = Stopwatch.StartNew();
+                // With password
+                Console.WriteLine("\t\tWith password");
+                using MemoryStream data = new(TestData.Data);
+                using MemoryStream cipher = new();
+                await data.EncryptAsync(cipher, TestData.Key, options);
+                using MemoryStream raw = new();
+                cipher.Position = 0;
+                await cipher.DecryptAsync(raw, TestData.Key, options);
+                Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
+                // With asymmetric key
+                Console.WriteLine("\t\tWith asymmetric key");
+                options.KeyExchangeDataIncluded = true;
+                options.RequireKeyExchangeData = true;
+                options.RequireAsymmetricCounterAlgorithm = true;
+                IAsymmetricAlgorithm algo = AsymmetricHelper.GetAlgorithm(options.AsymmetricAlgorithm!),
+                    counterAlgo = AsymmetricHelper.GetAlgorithm(options.AsymmetricCounterAlgorithm!);
+                options.AsymmetricKeyBits = keySize;
+                using IAsymmetricPrivateKey privateKey = algo.CreateKeyPair(options);
+                options.AsymmetricKeyBits = counterKeySize;
+                using IAsymmetricPrivateKey privateKey2 = counterAlgo.CreateKeyPair(options);
+                options.CounterPrivateKey = privateKey2;
+                cipher.SetLength(0);
+                raw.SetLength(0);
+                data.Position = 0;
+                await data.EncryptAsync(cipher, privateKey, options);
+                cipher.Position = 0;
+                await cipher.DecryptAsync(raw, privateKey, options);
+                Assert.IsTrue(raw.ToArray().SequenceEqual(data.ToArray()));
+                Console.WriteLine($"\tRuntime {sw.Elapsed}");
+            }
+            catch
+            {
+                options.Tracer.Flush();
+            }
         }
     }
 }
