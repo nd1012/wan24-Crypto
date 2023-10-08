@@ -17,7 +17,6 @@ Per default these cryptographic algorithms are implemented:
 |  | HMAC-SHA-384 |
 |  | HMAC-SHA-512 |
 | **Symmetric encryption** | AES-256-CBC (ISO10126 padding) |
-|  | XCrypt |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
 | **KDF key stretching** | PBKDF#2 (250,000 iterations per default) |
@@ -656,12 +655,12 @@ performed using a raw socket.
 During the signup the server will respond a random signup to the client. The 
 produces PAKE values need to be stored on both peers for later authentication.
 
-**WARNING**: This authentication protocol doesn't support the use a pre-shared 
-key for the signup. This clearly opens doors for a MiM attack during the 
-signup: If the signup communication was compromised, the attacker will be able 
-to authenticate successful later! It's absolutely required to use a wrapping 
-PFS protocol which ensures the server identity, before sending any signup 
-information.
+**WARNING**: This authentication protocol doesn't support the use of a pre-
+shared key for the signup. This clearly opens doors for a MiM attack during 
+the signup: If the signup communication was compromised, the attacker will be 
+able to authenticate successful later! It's absolutely required to use a 
+wrapping PFS protocol which ensures the server identity, before sending any 
+signup information.
 
 For authentication, the client sends the identifier of the servers PAKE 
 values, which have been pre-shared during the signup. Using random bytes a 
