@@ -6,7 +6,7 @@ namespace wan24.Crypto.Authentication
     /// <summary>
     /// PAKE authentication record (keep the contents secret!)
     /// </summary>
-    public sealed class PakeAuthRecord : StreamSerializerBase, IPakeAuthRecord
+    public sealed record class PakeAuthRecord : StreamSerializerRecordBase, IPakeAuthRecord
     {
         /// <summary>
         /// Object version

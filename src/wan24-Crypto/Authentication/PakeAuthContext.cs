@@ -6,7 +6,7 @@ namespace wan24.Crypto.Authentication
     /// <summary>
     /// PAKE authentication context
     /// </summary>
-    public sealed class PakeAuthContext : DisposableBase
+    public sealed record class PakeAuthContext : DisposableRecordBase
     {
         /// <summary>
         /// Constructor

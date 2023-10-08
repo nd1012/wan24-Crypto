@@ -95,7 +95,8 @@ namespace wan24.Crypto.Authentication
             PakeAuth? auth = null;
             byte[]? serverRandom = null,
                 sessionKey = null;
-            CryptoOptions cryptoOptions = options.CryptoOptions?.Clone() ?? Pake.DefaultCryptoOptions;
+            CryptoOptions cryptoOptions = options.CryptoOptions?.GetCopy() ?? Pake.DefaultCryptoOptions;
+            EncryptionAlgorithmBase encryption;
             cryptoOptions.LeaveOpen = true;
             try
             {
@@ -111,7 +112,10 @@ namespace wan24.Crypto.Authentication
                 cryptoOptions.Password?.Clear();
                 cryptoOptions.Password = serverRandom.Mac(options.PeerIdentity.SignatureKey.Mac(options.PeerIdentity.Secret, options.PakeOptions), options.PakeOptions);
                 cryptoOptions.LeaveOpen = true;
-                cipher = await EncryptionHelper.GetAlgorithm(cryptoOptions.Algorithm!).GetEncryptionStreamAsync(
+                encryption = EncryptionHelper.GetAlgorithm(cryptoOptions.Algorithm!);
+                if (encryption.RequireMacAuthentication)
+                    throw new ArgumentException("A cipher which requires MAC authentication isn't supported", nameof(options));
+                cipher = await encryption.GetEncryptionStreamAsync(
                     Stream.Null,
                     stream,
                     macStream: null,
@@ -123,10 +127,10 @@ namespace wan24.Crypto.Authentication
                 {
                     // Ensure a symmetric key suite with an identifier
                     symmetricKey = options.SymmetricKey is null
-                        ? new SymmetricKeySuite(options.Password!, options.Login, options.PakeOptions?.Clone())
-                        : new SymmetricKeySuite(options.SymmetricKey, options.PakeOptions?.Clone());
+                        ? new SymmetricKeySuite(options.Password!, options.Login, options.PakeOptions?.GetCopy())
+                        : new SymmetricKeySuite(options.SymmetricKey, options.PakeOptions?.GetCopy());
                     // Create the authentication and store the session key
-                    using Pake pake = new(symmetricKey, options.PakeOptions?.Clone(), options.CryptoOptions?.Clone());
+                    using Pake pake = new(symmetricKey, options.PakeOptions?.GetCopy(), options.CryptoOptions?.GetCopy());
                     auth = pake.CreateAuth(new AuthPayload(options.Payload), options.EncryptPayload);
                     sessionKey = pake.SessionKey.CloneArray();
                 }

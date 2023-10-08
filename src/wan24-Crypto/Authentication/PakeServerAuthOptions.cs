@@ -3,7 +3,7 @@
     /// <summary>
     /// PAKE server authentication options
     /// </summary>
-    public sealed class PakeServerAuthOptions
+    public sealed record class PakeServerAuthOptions
     {
         /// <summary>
         /// Cnstructor
@@ -78,7 +78,7 @@
         /// <summary>
         /// PAKE authentication record pool
         /// </summary>
-        public IPakeAuthRecordPool? AuthRecordPool { get; set; }
+        public IPakeAuthRecordPool? AuthRecordPool { get; set; } = CryptoEnvironment.PakeAuthRecordPool;
 
         /// <summary>
         /// Max. time difference to a peers time

@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Key exchange data container
     /// </summary>
-    public sealed class KeyExchangeDataContainer : StreamSerializerBase, ICloneable
+    public sealed record class KeyExchangeDataContainer : StreamSerializerRecordBase, ICloneable
     {
         /// <summary>
         /// Object version
@@ -32,10 +32,10 @@ namespace wan24.Crypto
         public byte[]? CounterKeyExchangeData { get; set; }
 
         /// <summary>
-        /// Clone this instance
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public KeyExchangeDataContainer Clone() => new()
+        /// <returns>Instance copy</returns>
+        public KeyExchangeDataContainer GetCopy() => new()
         {
             KeyExchangeData = KeyExchangeData.CloneArray(),
             CounterKeyExchangeData = CounterKeyExchangeData?.CloneArray()
@@ -70,7 +70,7 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        object ICloneable.Clone() => Clone();
+        object ICloneable.Clone() => GetCopy();
 
         /// <summary>
         /// Cast as serialized data

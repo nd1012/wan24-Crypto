@@ -27,7 +27,7 @@ namespace wan24_Crypto_Tests
                 ConcurrentDictionary<byte[], (IPakeRecord Client, IPakeAuthRecord Server)> db = new();
                 using PakeServerAuth server = new(new()
                 {
-                    CryptoOptions = cryptoOptions.Clone(),
+                    CryptoOptions = cryptoOptions.GetCopy(),
                     ClientAuthFactory = (context, identifier, ct) =>
                     {
                         byte[] id = identifier.ToArray();
@@ -106,7 +106,7 @@ namespace wan24_Crypto_Tests
                 DateTime started = DateTime.Now;
                 using (PakeAuthContext context = await emulatedClientSocket.SignupAsync(new PakeClientAuthOptions(symmetricKey, new byte[] { 1, 2, 3 })
                 {
-                    CryptoOptions = cryptoOptions.Clone()
+                    CryptoOptions = cryptoOptions.GetCopy()
                 }))
                 {
                     Assert.IsNotNull(context.Record);
@@ -120,7 +120,7 @@ namespace wan24_Crypto_Tests
                 started = DateTime.Now;
                 using (PakeAuthContext context = await emulatedClientSocket.AuthenticateAsync(new PakeClientAuthOptions(symmetricKey, serverIdentity)
                 {
-                    CryptoOptions = cryptoOptions.Clone()
+                    CryptoOptions = cryptoOptions.GetCopy()
                 }))
                 {
                     Assert.IsNull(context.Record);

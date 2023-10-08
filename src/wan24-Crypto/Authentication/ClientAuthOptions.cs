@@ -5,7 +5,7 @@ namespace wan24.Crypto.Authentication
     /// <summary>
     /// Client authentication options
     /// </summary>
-    public sealed class ClientAuthOptions
+    public sealed record class ClientAuthOptions
     {
         /// <summary>
         /// Default options
@@ -59,7 +59,7 @@ namespace wan24.Crypto.Authentication
         /// </summary>
         public static ClientAuthOptions? DefaultOptions
         {
-            get => _DefaultOptions?.Clone();
+            get => _DefaultOptions?.GetCopy();
             set => _DefaultOptions = value;
         }
 
@@ -148,25 +148,25 @@ namespace wan24.Crypto.Authentication
         internal PrivateKeySuite? PfsKeys { get; set; }
 
         /// <summary>
-        /// Get a clone of this instance (only public properties - internal properties won't be cloned!)
+        /// Get a copy of this instance (only public properties - internal properties won't be cloned!)
         /// </summary>
-        /// <returns>Clone</returns>
-        public ClientAuthOptions Clone() => new()
+        /// <returns>Instance copy</returns>
+        public ClientAuthOptions GetCopy() => new()
         {
-            PrivateKeys = PrivateKeys.Clone(),
+            PrivateKeys = PrivateKeys.GetCopy(),
             SymmetricKey = SymmetricKey is null
                 ? null
-                : new SymmetricKeySuite(SymmetricKey, (SymmetricKey as SymmetricKeySuite)?.Options.Clone()),
+                : new SymmetricKeySuite(SymmetricKey, (SymmetricKey as SymmetricKeySuite)?.Options.GetCopy()),
             PreSharedSecret = PreSharedSecret?.CloneArray(),
             Login = Login?.CloneArray(),
             Password = Password?.CloneArray(),
-            PublicServerKeys = PublicServerKeys?.Clone(),
+            PublicServerKeys = PublicServerKeys?.GetCopy(),
             Payload = Payload?.CloneArray(),
             EncryptPayload = EncryptPayload,
-            HashOptions = HashOptions?.Clone(),
-            PakeOptions = PakeOptions?.Clone(),
+            HashOptions = HashOptions?.GetCopy(),
+            PakeOptions = PakeOptions?.GetCopy(),
             FastPakeAuth = FastPakeAuth,
-            CryptoOptions = CryptoOptions?.Clone(),
+            CryptoOptions = CryptoOptions?.GetCopy(),
             ServerKeyValidator = ServerKeyValidator,
             GetAuthenticationResponse = GetAuthenticationResponse
         };

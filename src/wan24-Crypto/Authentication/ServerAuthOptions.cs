@@ -6,7 +6,7 @@ namespace wan24.Crypto.Authentication
     /// <summary>
     /// Server authentication options
     /// </summary>
-    public sealed class ServerAuthOptions
+    public sealed record class ServerAuthOptions
     {
         /// <summary>
         /// Constructor
@@ -119,7 +119,7 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// PFS key pool
         /// </summary>
-        public IAsymmetricKeyPool? PfsKeyPool { get; set; }
+        public IAsymmetricKeyPool? PfsKeyPool { get; set; } = CryptoEnvironment.AsymmetricKeyPool;
 
         /// <summary>
         /// PFS counter key pool

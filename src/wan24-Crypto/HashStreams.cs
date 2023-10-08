@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Hash streams
     /// </summary>
-    public sealed class HashStreams : DisposableBase
+    public sealed record class HashStreams : DisposableRecordBase
     {
         /// <summary>
         /// Constructor

@@ -1,13 +1,19 @@
 ﻿using System.Collections.Concurrent;
 using wan24.Core;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
     /// <summary>
     /// Private key suite store
     /// </summary>
-    public class PrivateKeySuiteStore : DisposableBase
+    public class PrivateKeySuiteStore : DisposableStreamSerializerBase
     {
+        /// <summary>
+        /// Object version
+        /// </summary>
+        public const int VERSION = 1;
+
         /// <summary>
         /// Private key suites (key is the suite revision)
         /// </summary>
@@ -16,18 +22,35 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public PrivateKeySuiteStore() : this(asyncDisposing: false) { }
+        public PrivateKeySuiteStore() : base(VERSION) { }
 
         /// <summary>
-        /// Constructor
+        /// Get a revision
         /// </summary>
-        /// <param name="asyncDisposing">Asynchronous disposing?</param>
-        protected PrivateKeySuiteStore(in bool asyncDisposing) : base(asyncDisposing) { }
+        /// <param name="revision">Revision</param>
+        /// <returns>Private key suite</returns>
+        public PrivateKeySuite this[in int revision] => GetSuite(revision) ?? throw new KeyNotFoundException($"Private key suite #{revision} not found");
 
         /// <summary>
         /// Private key suites (key is the suite revision)
         /// </summary>
         public ConcurrentDictionary<int, PrivateKeySuite> Suites => IfUndisposed(_Suites);
+
+        /// <summary>
+        /// Number of private key suites
+        /// </summary>
+        public virtual int SuiteCount => IfUndisposed(_Suites.Count);
+
+        /// <summary>
+        /// Latest revision
+        /// </summary>
+        public int LatestRevision => IfUndisposed(() => _Suites.Keys.Cast<int?>().OrderByDescending(k => k).FirstOrDefault() ?? throw new InvalidOperationException("No revisions"));
+
+        /// <summary>
+        /// Latest private key suite
+        /// </summary>
+        public PrivateKeySuite LatestSuite
+            => IfUndisposed(() => _Suites.Cast<KeyValuePair<int, PrivateKeySuite>?>().OrderByDescending(kvp => kvp?.Key).Select(kvp => kvp?.Value).FirstOrDefault() ?? throw new InvalidOperationException("No suites"));
 
         /// <summary>
         /// Add a private key suite
@@ -85,6 +108,27 @@ namespace wan24.Crypto
                 _Suites.TryRemove(kvp.Key, out PrivateKeySuite? suite)
                 )
                 suite.Dispose();
+        }
+
+        /// <inheritdoc/>
+        protected override void Serialize(Stream stream) => stream.WriteDict(new Dictionary<int, PrivateKeySuite>(_Suites));
+
+        /// <inheritdoc/>
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+            => await stream.WriteDictAsync(new Dictionary<int, PrivateKeySuite>(_Suites), cancellationToken).DynamicContext();
+
+        /// <inheritdoc/>
+        protected override void Deserialize(Stream stream, int version)
+        {
+            Dictionary<int, PrivateKeySuite> suites = stream.ReadDict<int, PrivateKeySuite>(version);
+            foreach (KeyValuePair<int, PrivateKeySuite> kvp in suites) _Suites[kvp.Key] = kvp.Value;
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        {
+            Dictionary<int, PrivateKeySuite> suites = await stream.ReadDictAsync<int, PrivateKeySuite>(version, cancellationToken: cancellationToken).DynamicContext();
+            foreach (KeyValuePair<int, PrivateKeySuite> kvp in suites) _Suites[kvp.Key] = kvp.Value;
         }
 
         /// <inheritdoc/>

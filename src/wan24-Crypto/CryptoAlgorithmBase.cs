@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for a cryptographic algorithm
     /// </summary>
-    public abstract class CryptoAlgorithmBase
+    public abstract record class CryptoAlgorithmBase
     {
         /// <summary>
         /// Constructor

@@ -1,5 +1,4 @@
-﻿using System.Net.Sockets;
-using wan24.Core;
+﻿using wan24.Core;
 using wan24.Crypto.Authentication;
 
 namespace wan24.Crypto
@@ -43,17 +42,17 @@ namespace wan24.Crypto
             {
                 Name = name;
                 Pake = new(key, options, cryptoOptions);
-                Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
                 };
                 authKey = Key;
-                Secret = new(Pake.CreateSecret(authKey), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Secret = new(Pake.CreateSecret(authKey), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") secret"
                 };
                 secret = Secret;
-                SignatureKey = new(Pake.CreateSignatureKey(authKey, secret), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                SignatureKey = new(Pake.CreateSignatureKey(authKey, secret), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") signature key"
                 };
@@ -102,17 +101,17 @@ namespace wan24.Crypto
                 Name = name;
                 Pake = pake;
                 if (pake.Key?.Identifier is null) throw new ArgumentException("Initialized for server operation", nameof(pake));
-                Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, pake.CryptoOptions.Clone())
+                Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
                 };
                 authKey = Key;
-                Secret = new(Pake.CreateSecret(authKey), encryptTimeout, recryptTimeout, pake.CryptoOptions.Clone())
+                Secret = new(Pake.CreateSecret(authKey), encryptTimeout, recryptTimeout, pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") secret"
                 };
                 secret = Secret;
-                SignatureKey = new(Pake.CreateSignatureKey(authKey, secret), encryptTimeout, recryptTimeout, pake.CryptoOptions.Clone())
+                SignatureKey = new(Pake.CreateSignatureKey(authKey, secret), encryptTimeout, recryptTimeout, pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") signature key"
                 };
@@ -168,15 +167,15 @@ namespace wan24.Crypto
             {
                 Name = name;
                 Pake = new(key, options, cryptoOptions);
-                Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
                 };
-                Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") secret"
                 };
-                SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") signature key"
                 };
@@ -212,15 +211,15 @@ namespace wan24.Crypto
             {
                 Name = name;
                 Pake = new(new SymmetricKeySuite(cryptoOptions, record.Identifier.CloneArray(), Array.Empty<byte>()), options, cryptoOptions);
-                Key = new(record.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Key = new(record.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
                 };
-                Secret = new(record.RawSecret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Secret = new(record.RawSecret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") secret"
                 };
-                SignatureKey = new(record.SignatureKey.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                SignatureKey = new(record.SignatureKey.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") signature key"
                 };

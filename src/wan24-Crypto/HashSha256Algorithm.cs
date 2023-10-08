@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// SHA256 hash algorithm
     /// </summary>
-    public sealed class HashSha256Algorithm : HashAlgorithmBase
+    public sealed record class HashSha256Algorithm : HashAlgorithmBase
     {
         /// <summary>
         /// Algorithm name

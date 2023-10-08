@@ -667,5 +667,40 @@ namespace wan24.Crypto
             options.RequireSerializerVersion = false;
             return options;
         }
+
+        /// <summary>
+        /// Use a private key suite store as 
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="store">Private key suite store to use</param>
+        /// <param name="revision">Key revision to apply (to the private keys)</param>
+        /// <param name="includeKeyRevision">Include/require the key revision in the header?</param>
+        /// <returns>Options</returns>
+        public static CryptoOptions WithPrivateKeysStore(this CryptoOptions options, PrivateKeySuiteStore store, int? revision = null, bool includeKeyRevision = true)
+        {
+            options.PrivateKeysStore = store;
+            if (revision.HasValue)
+            {
+                options.PrivateKeyRevision = revision.Value;
+                options.ApplyPrivateKeySuite(store[revision.Value]);
+            }
+            options.PrivateKeyRevisionIncluded = includeKeyRevision;
+            options.RequirePrivateKeyRevision = includeKeyRevision;
+            return options;
+        }
+
+        /// <summary>
+        /// Exclude private keys store
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        public static CryptoOptions WithoutPrivateKeysStore(this CryptoOptions options)
+        {
+            options.PrivateKeysStore = null;
+            options.PrivateKeyRevision = 0;
+            options.PrivateKeyRevisionIncluded = false;
+            options.RequirePrivateKeyRevision = false;
+            return options;
+        }
     }
 }

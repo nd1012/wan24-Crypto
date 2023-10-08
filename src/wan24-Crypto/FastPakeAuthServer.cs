@@ -99,15 +99,15 @@ namespace wan24.Crypto
                     // Store the session key
                     sessionKey = Pake.SessionKey.CloneArray();
                     // Store the authentication key and the secret to this instance
-                    Key = new(key, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    Key = new(key, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
                     };
-                    Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
                     };
-                    SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") signature key"
                     };
@@ -201,15 +201,15 @@ namespace wan24.Crypto
                     // Create the identity
                     identity = new(signup.Identifier.CloneArray(), signup.Secret.CloneArray().Xor(signup.Key), signatureKey.CloneArray());
                     // Store the authentication key and the secret to this instance
-                    Key = new(signup.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    Key = new(signup.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
                     };
-                    Secret = new(signup.Secret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    Secret = new(signup.Secret.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
                     };
-                    SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                    SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                     {
                         Name = $"Fast PAKE auth server {GUID} (\"{Name}\") signature key"
                     };
@@ -268,15 +268,15 @@ namespace wan24.Crypto
             {
                 Name = name;
                 Pake = new(identity, options, cryptoOptions);
-                Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth server {GUID} (\"{Name}\") key"
                 };
-                Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                Secret = new(secret, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth server {GUID} (\"{Name}\") secret"
                 };
-                SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.Clone())
+                SignatureKey = new(signatureKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth server {GUID} (\"{Name}\") signature key"
                 };

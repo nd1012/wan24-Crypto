@@ -8,7 +8,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for an asymmetric key
     /// </summary>
-    public abstract class AsymmetricKeyBase : DisposableStreamSerializerBase, IAsymmetricKey
+    public abstract record class AsymmetricKeyBase : DisposableStreamSerializerRecordBase, IAsymmetricKey
     {
         /// <summary>
         /// Object version
@@ -35,9 +35,6 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         [NoValidation, SensitiveData]
         public SecureByteArray KeyData { get; protected set; } = null!;
-
-        /// <inheritdoc/>
-        public abstract object Clone();
 
         /// <inheritdoc/>
         public byte[] Export()

@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// HMAC-SHA384 MAC algorithm
     /// </summary>
-    public sealed class MacHmacSha384Algorithm : MacAlgorithmBase
+    public sealed record class MacHmacSha384Algorithm : MacAlgorithmBase
     {
         /// <summary>
         /// Algorithm name

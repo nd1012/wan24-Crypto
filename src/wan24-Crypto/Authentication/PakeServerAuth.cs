@@ -14,12 +14,22 @@ namespace wan24.Crypto.Authentication
         /// <param name="options">Options</param>
         public PakeServerAuth(in PakeServerAuthOptions options) : base(asyncDisposing: false)
         {
-            Options = options;
-            options.PakeOptions ??= Pake.DefaultOptions;
-            options.CryptoOptions ??= Pake.DefaultCryptoOptions;
-            options.CryptoOptions.LeaveOpen = true;
-            Encryption = EncryptionHelper.GetAlgorithm(options.CryptoOptions.Algorithm!);
-            ValueLength = MacHelper.GetAlgorithm(options.PakeOptions.MacAlgorithm!).MacLength;
+            try
+            {
+                Options = options;
+                options.PakeOptions ??= Pake.DefaultOptions;
+                options.CryptoOptions ??= Pake.DefaultCryptoOptions;
+                options.CryptoOptions.LeaveOpen = true;
+                Encryption = EncryptionHelper.GetAlgorithm(options.CryptoOptions.Algorithm!);
+                if (Encryption.RequireMacAuthentication)
+                    throw new ArgumentException("A cipher which requires MAC authentication isn't supported", nameof(options));
+                ValueLength = MacHelper.GetAlgorithm(options.PakeOptions.MacAlgorithm!).MacLength;
+            }
+            catch
+            {
+                Dispose();
+                throw;
+            }
         }
 
         /// <summary>

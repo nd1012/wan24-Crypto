@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for a symmetric encryption algorithm
     /// </summary>
-    public abstract partial class EncryptionAlgorithmBase : CryptoAlgorithmBase
+    public abstract partial record class EncryptionAlgorithmBase : CryptoAlgorithmBase
     {
         /// <summary>
         /// Default options
@@ -29,7 +29,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.Clone());
+        public CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.GetCopy());
 
         /// <summary>
         /// Ensure that the given options include the default options for this algorithm

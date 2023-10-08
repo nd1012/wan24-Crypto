@@ -21,7 +21,7 @@ namespace wan24.Crypto.Authentication
             try
             {
                 if (Options.ClientAuthFactory is null) throw new InvalidOperationException("No client authentication information factory");
-                using Pake pake = new(Options.PakeOptions?.Clone(), Options.CryptoOptions?.Clone());
+                using Pake pake = new(Options.PakeOptions?.GetCopy(), Options.CryptoOptions?.GetCopy());
                 pake.OnAuth += (s, e) => OnPakeAuth?.Invoke(this, new(context, pake, e));
                 pake.OnAuthError += (s, e) => OnPakeAuthError?.Invoke(this, new(context, pake, e));
                 // Receive the identifier, load the client authentication information, receive the random data, create the temporary session key and start decryption
@@ -40,7 +40,7 @@ namespace wan24.Crypto.Authentication
                     // Create the session key and start decryption
                     if (await stream.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != ValueLength)
                         throw new IOException("Failed to read the random data");
-                    cryptoOptions = Options.CryptoOptions!.Clone();
+                    cryptoOptions = Options.CryptoOptions!.GetCopy();
                     cryptoOptions.Password = pake.CreateSessionKey(context.ServerIdentity.SignatureKey, context.ServerIdentity.Secret, buffer.Span);
                     decipher = await Encryption.GetDecryptionStreamAsync(stream, Stream.Null, cryptoOptions, cancellationToken).DynamicContext();
                 }

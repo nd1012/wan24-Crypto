@@ -8,7 +8,7 @@ namespace wan24.Crypto
     /// <summary>
     /// PBKDF#2 KDF algorithm options
     /// </summary>
-    public sealed class KdfPbKdf2Options
+    public sealed record class KdfPbKdf2Options
     {
         /// <summary>
         /// Default hash algorithm name (SHA-384)
@@ -56,10 +56,10 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Clone
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public KdfPbKdf2Options Clone() => new()
+        /// <returns>Instance copy</returns>
+        public KdfPbKdf2Options GetCopy() => new()
         {
             _HashAlgorithm = _HashAlgorithm
         };

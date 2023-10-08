@@ -41,7 +41,7 @@ namespace wan24.Crypto
         IAsymmetricAlgorithm IAsymmetricKeyPool.Algorithm => Algorithm;
 
         /// <inheritdoc/>
-        CryptoOptions IAsymmetricKeyPool.Options => Options.Clone();
+        CryptoOptions IAsymmetricKeyPool.Options => Options.GetCopy();
 
         /// <inheritdoc/>
         IAsymmetricPrivateKey IAsymmetricKeyPool.GetKey() => GetOne();

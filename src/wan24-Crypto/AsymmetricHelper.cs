@@ -129,7 +129,7 @@ namespace wan24.Crypto
         {
             try
             {
-                options = GetDefaultKeyExchangeOptions(options?.Clone());
+                options = GetDefaultKeyExchangeOptions(options?.GetCopy());
                 return (IKeyExchangePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
             }
             catch (CryptographicException)
@@ -151,7 +151,7 @@ namespace wan24.Crypto
         {
             try
             {
-                options = GetDefaultSignatureOptions(options?.Clone());
+                options = GetDefaultSignatureOptions(options?.GetCopy());
                 return (ISignaturePrivateKey)GetAlgorithm(options.AsymmetricAlgorithm!).CreateKeyPair(options);
             }
             catch (CryptographicException)

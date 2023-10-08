@@ -4,7 +4,7 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     // Counter
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// Counter MAC algorithm name (used for en-/decryption only)

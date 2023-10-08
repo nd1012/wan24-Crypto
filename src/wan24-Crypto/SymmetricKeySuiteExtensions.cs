@@ -24,7 +24,7 @@ namespace wan24.Crypto
             in bool encryptPayload = false
             )
         {
-            using Pake pake = new(key, options?.Clone(), cryptoOptions?.Clone());
+            using Pake pake = new(key, options?.GetCopy(), cryptoOptions?.GetCopy());
             PakeAuth auth = pake.CreateAuth(payload, encryptPayload);
             return (pake.SessionKey.CloneArray(), auth);
         }
@@ -42,7 +42,7 @@ namespace wan24.Crypto
             in CryptoOptions? options = null
             )
         {
-            using Pake pake = new(key, options?.Clone());
+            using Pake pake = new(key, options?.GetCopy());
             PakeSignup signup = pake.CreateSignup(payload);
             return (pake.SessionKey.CloneArray(), signup);
         }

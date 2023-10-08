@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// AES-256-CBC symmetric encryption algorithm (using ISO10126 padding)
     /// </summary>
-    public sealed class EncryptionAes256CbcAlgorithm : EncryptionAlgorithmBase
+    public sealed record class EncryptionAes256CbcAlgorithm : EncryptionAlgorithmBase
     {
         /// <summary>
         /// Algorithm name

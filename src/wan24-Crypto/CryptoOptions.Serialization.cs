@@ -5,7 +5,7 @@ using wan24.StreamSerializerExtensions;
 namespace wan24.Crypto
 {
     // Serialization
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)

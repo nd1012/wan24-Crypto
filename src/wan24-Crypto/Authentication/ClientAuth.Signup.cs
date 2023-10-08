@@ -46,13 +46,13 @@ namespace wan24.Crypto.Authentication
                 if (options.PublicServerKeys.KeyExchangeKey.Bits != options.PrivateKeys.KeyExchangeKey.Bits)
                     throw new ArgumentException("Key exchange key size mismatch", nameof(options));
                 // Prepare signup
-                hashOptions = options.HashOptions?.Clone() ?? HashHelper.GetDefaultOptions();
+                hashOptions = options.HashOptions?.GetCopy() ?? HashHelper.GetDefaultOptions();
                 hashOptions.LeaveOpen = true;
                 hashOptions.ApplyPrivateKeySuite(options.PrivateKeys, forSignature: true);
-                pakeOptions = options.PakeOptions?.Clone() ?? Pake.DefaultOptions;
-                cryptoOptions = options.CryptoOptions?.Clone() ?? Pake.DefaultCryptoOptions;
+                pakeOptions = options.PakeOptions?.GetCopy() ?? Pake.DefaultOptions;
+                cryptoOptions = options.CryptoOptions?.GetCopy() ?? Pake.DefaultCryptoOptions;
                 cryptoOptions.LeaveOpen = true;
-                pakeCryptoOptions = cryptoOptions.Clone();
+                pakeCryptoOptions = cryptoOptions.GetCopy();
                 EncryptionAlgorithmBase encryption = EncryptionHelper.GetAlgorithm(cryptoOptions.Algorithm!);
                 if (encryption.RequireMacAuthentication)
                     throw new ArgumentException("A cipher which requires MAC authentication isn't supported", nameof(options));

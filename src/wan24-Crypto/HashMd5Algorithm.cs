@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// MD5 hash algorithm
     /// </summary>
-    public sealed class HashMd5Algorithm : HashAlgorithmBase
+    public sealed record class HashMd5Algorithm : HashAlgorithmBase
     {
         /// <summary>
         /// Algorithm name

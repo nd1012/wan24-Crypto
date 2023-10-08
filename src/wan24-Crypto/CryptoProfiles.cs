@@ -34,6 +34,6 @@ namespace wan24.Crypto
         /// <param name="key">Key</param>
         /// <returns>Profile</returns>
         public static CryptoOptions GetProfile(string key)
-            => Registered.TryGetValue(key, out CryptoOptions? res) ? res.Clone() : throw new ArgumentException("Unknown profile", nameof(key));
+            => Registered.TryGetValue(key, out CryptoOptions? res) ? res.GetCopy() : throw new ArgumentException("Unknown profile", nameof(key));
     }
 }

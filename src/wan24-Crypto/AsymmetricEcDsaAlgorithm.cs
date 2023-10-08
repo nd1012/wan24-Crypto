@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// EC DSA asymmetric algorithm
     /// </summary>
-    public sealed class AsymmetricEcDsaAlgorithm : AsymmetricAlgorithmBase<AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey>
+    public sealed record class AsymmetricEcDsaAlgorithm : AsymmetricAlgorithmBase<AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey>
     {
         /// <summary>
         /// Algorithm name

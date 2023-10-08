@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Asymmetric public key signing request
     /// </summary>
-    public sealed class AsymmetricPublicKeySigningRequest : DisposableStreamSerializerBase
+    public sealed record class AsymmetricPublicKeySigningRequest : DisposableStreamSerializerRecordBase
     {
         /// <summary>
         /// Object version
@@ -31,7 +31,8 @@ namespace wan24.Crypto
         /// <param name="attributes">Attributes</param>
         /// <param name="purpose">Request purpose (used for signing the request)</param>
         /// <param name="options">Options (if a private signature key of the given public key is included, this request will be signed)</param>
-        public AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null, string? purpose = null, CryptoOptions? options = null) : this()
+        public AsymmetricPublicKeySigningRequest(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null, string? purpose = null, CryptoOptions? options = null)
+            : this()
         {
             PublicKey = publicKey.GetCopy();
             if (attributes is not null) Attributes.AddRange(attributes);
@@ -199,7 +200,7 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             if (SignedData is null) throw new InvalidOperationException();
-            using MemoryStream ms = new();
+            using MemoryStream ms = new(SignedData);
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>();
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());

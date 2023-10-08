@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// </summary>
     /// <typeparam name="tPublic">Public key type</typeparam>
     /// <typeparam name="tPrivate">Private key type</typeparam>
-    public abstract class AsymmetricPrivateKeyBase<tPublic, tPrivate> : AsymmetricKeyBase, IAsymmetricPrivateKey
+    public abstract record class AsymmetricPrivateKeyBase<tPublic, tPrivate> : AsymmetricKeyBase, IAsymmetricPrivateKey
         where tPublic : AsymmetricPublicKeyBase, IAsymmetricPublicKey, new()
         where tPrivate: AsymmetricPrivateKeyBase<tPublic, tPrivate>, IAsymmetricPrivateKey, new()
     {
@@ -45,9 +45,6 @@ namespace wan24.Crypto
                 throw CryptographicException.From(ex);
             }
         }
-
-        /// <inheritdoc/>
-        public sealed override object Clone() => GetCopy();
 
         /// <inheritdoc/>
         public virtual SignatureContainer SignData(byte[] data, string? purpose = null, CryptoOptions? options = null)

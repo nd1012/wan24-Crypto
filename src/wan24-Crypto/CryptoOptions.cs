@@ -9,7 +9,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Crypto options
     /// </summary>
-    public sealed partial class CryptoOptions : StreamSerializerBase, ICloneable
+    public sealed partial record class CryptoOptions : StreamSerializerRecordBase, ICloneable
     {
         /// <summary>
         /// Object version
@@ -23,7 +23,19 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public CryptoOptions() : base(VERSION) { }
+        public CryptoOptions() : this(raiseEvent: true) { }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="raiseEvent">Raise the <see cref="OnInstanced"/> event?</param>
+        private CryptoOptions(bool raiseEvent) : base(VERSION)
+        {
+            Requirements = Flags = DefaultFlags;
+            RequirePrivateKeyRevision = DefaultPrivateKeysStore is not null;
+            PrivateKeyRevisionIncluded = DefaultPrivateKeysStore is not null;
+            if (raiseEvent) OnInstanced?.Invoke(this, new());
+        }
 
         /// <summary>
         /// Default maximum age
@@ -34,6 +46,27 @@ namespace wan24.Crypto
         /// Default maximum time offset
         /// </summary>
         public static TimeSpan? DefaultMaximumTimeOffset { get; set; }
+
+        /// <summary>
+        /// Default private key suite store
+        /// </summary>
+        public static PrivateKeySuiteStore? DefaultPrivateKeysStore { get; set; }
+
+        /// <summary>
+        /// Default flags (will be used for requirements, too)
+        /// </summary>
+        public static CryptoFlags DefaultFlags { get; set; }
+            = CryptoFlags.LatestVersion | 
+                CryptoFlags.SerializerVersionIncluded | 
+                CryptoFlags.HeaderVersionIncluded | 
+                CryptoFlags.MacIncluded | 
+                CryptoFlags.KdfAlgorithmIncluded | 
+                CryptoFlags.Compressed;
+
+        /// <summary>
+        /// Default for <see cref="FlagsIncluded"/>
+        /// </summary>
+        public static bool DefaultFlagsIncluded { get; set; } = true;
 
         /// <summary>
         /// Crypto header data structure version
@@ -101,6 +134,16 @@ namespace wan24.Crypto
         public int AsymmetricKeyBits { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
+        /// Private keys store (won't be serialized!)
+        /// </summary>
+        public PrivateKeySuiteStore? PrivateKeysStore { get; set; } = DefaultPrivateKeysStore;
+
+        /// <summary>
+        /// Private key revision
+        /// </summary>
+        public int PrivateKeyRevision { get; set; }
+
+        /// <summary>
         /// Private key (for en-/decryption/key exchange/signature)
         /// </summary>
         [SensitiveData]
@@ -137,6 +180,11 @@ namespace wan24.Crypto
         /// Leave the processing stream open?
         /// </summary>
         public bool LeaveOpen { get; set; }
+
+        /// <summary>
+        /// Tracer
+        /// </summary>
+        public Tracer? Tracer { get; set; }
 
         /// <summary>
         /// Set the payload
@@ -337,22 +385,24 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get a clone
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public CryptoOptions Clone() => new()
+        /// <returns>Instance copy</returns>
+        public CryptoOptions GetCopy() => new(raiseEvent: false)
         {
             // Algorithms and data
             CustomSerializerVersion = CustomSerializerVersion,
-            Compression = Compression?.Clone(),
+            Compression = Compression?.GetCopy(),
             MaxUncompressedDataLength = MaxUncompressedDataLength,
             Algorithm = Algorithm,
             MacAlgorithm = MacAlgorithm,
             KdfAlgorithm = KdfAlgorithm,
             KdfIterations = KdfIterations,
             KdfOptions = KdfOptions,
+            PrivateKeysStore = PrivateKeysStore,
+            PrivateKeyRevision = PrivateKeyRevision,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
-            KeyExchangeData = KeyExchangeData?.Clone(),
+            KeyExchangeData = KeyExchangeData?.GetCopy(),
             CounterMacAlgorithm = CounterMacAlgorithm,
             CounterKdfAlgorithm = CounterKdfAlgorithm,
             CounterKdfIterations = CounterKdfIterations,
@@ -381,10 +431,11 @@ namespace wan24.Crypto
             CounterPrivateKey = CounterPrivateKey,
             PublicKey = PublicKey,
             CounterPublicKey = CounterPublicKey,
-            LeaveOpen = LeaveOpen
+            LeaveOpen = LeaveOpen,
+            Tracer = Tracer
         };
 
         /// <inheritdoc/>
-        object ICloneable.Clone() => Clone();
+        object ICloneable.Clone() => GetCopy();
     }
 }

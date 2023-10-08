@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// Signed payload
     /// </summary>
     /// <typeparam name="T">Payload type</typeparam>
-    public class SignedPayload<T> : StreamSerializerBase where T : class, IStreamSerializer
+    public record class SignedPayload<T> : StreamSerializerRecordBase where T : class, IStreamSerializer
     {
         /// <summary>
         /// Object version
