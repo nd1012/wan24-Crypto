@@ -19,7 +19,7 @@ namespace wan24.Crypto
         public Pake(in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : base(asyncDisposing: false)
         {
             Key = null;
-            Options = options ?? DefaultOptions.Clone();
+            Options = options ?? DefaultOptions.GetCopy();
             if (Options.KdfAlgorithm is null) Options.WithKdf();
             if (Options.MacAlgorithm is null) Options.WithMac();
             CryptoOptions = cryptoOptions ?? DefaultCryptoOptions;

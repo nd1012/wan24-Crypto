@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// PAKE signup information (needs to be sent to the server, wrapped using a PFS protocol!)
     /// </summary>
-    public sealed class PakeSignup : DisposableStreamSerializerBase, IPakeRequest
+    public sealed record class PakeSignup : DisposableStreamSerializerRecordBase, IPakeRequest
     {
         /// <summary>
         /// Object version

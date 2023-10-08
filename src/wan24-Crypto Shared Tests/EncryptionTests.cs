@@ -21,24 +21,25 @@ namespace wan24.Crypto.Tests
         public static void AlgorithmTests(string name)
         {
             Console.WriteLine($"Synchronous encryption {name} tests");
+            CryptoOptions options = new()
+            {
+                Algorithm = name,
+                LeaveOpen = true
+            };
+            options.WithoutKdf();
             Stopwatch sw = Stopwatch.StartNew();
             {
-                byte[] cipher = TestData.Data.Encrypt(TestData.Key),
-                    raw = cipher.Decrypt(TestData.Key);
+                byte[] cipher = TestData.Data.Encrypt(TestData.Key, options),
+                    raw = cipher.Decrypt(TestData.Key, options);
                 Assert.IsTrue(raw.SequenceEqual(TestData.Data));
                 Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
                 using IAsymmetricPrivateKey key = AsymmetricHelper.CreateKeyExchangeKeyPair();
-                cipher = TestData.Data.Encrypt(key);
-                raw = cipher.Decrypt(key);
+                cipher = TestData.Data.Encrypt(key, options);
+                raw = cipher.Decrypt(key, options);
                 Assert.IsTrue(raw.SequenceEqual(TestData.Data));
                 Assert.IsTrue(new byte[] { 1, 2, 3 }.SequenceEqual(TestData.Key));
             }
             {
-                CryptoOptions options = new()
-                {
-                    Algorithm = name,
-                    LeaveOpen = true
-                };
                 using MemoryStream ms = new(TestData.Data);
                 using MemoryStream cipher = new();
                 ms.Encrypt(cipher, TestData.Key, options);
@@ -63,12 +64,13 @@ namespace wan24.Crypto.Tests
         public static async Task AlgorithmTestsAsync(string name)
         {
             Console.WriteLine($"Asynchronous encryption {name} tests");
-            Stopwatch sw = Stopwatch.StartNew();
             CryptoOptions options = new()
             {
                 Algorithm = name,
                 LeaveOpen = true
             };
+            options.WithoutKdf();
+            Stopwatch sw = Stopwatch.StartNew();
             using MemoryStream ms = new(TestData.Data);
             using MemoryStream cipher = new();
             await ms.EncryptAsync(cipher, TestData.Key, options);

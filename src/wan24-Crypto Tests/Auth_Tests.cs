@@ -30,15 +30,16 @@ namespace wan24_Crypto_Tests
                 serverKeys.SignedPublicKey.Sign(serverKeys.SignatureKey, counterPrivateKey: serverKeys.CounterSignatureKey);
                 serverKeys.SignedPublicCounterKey = new(serverKeys.CounterSignatureKey!.PublicKey);
                 serverKeys.SignedPublicCounterKey.Sign(serverKeys.CounterSignatureKey, counterPrivateKey: serverKeys.CounterSignatureKey);
-                using SignedPkiStore pki = new();
-                pki.AddTrustedRoot(serverKeys.SignedPublicKey);
-                pki.AddTrustedRoot(serverKeys.SignedPublicCounterKey);
-                pki.EnableLocalPki();
+                serverKeys.Public.Signature = serverKeys.SignatureKey.SignData(serverKeys.Public.CreateSignedData());
+                CryptoEnvironment.PKI = new();
+                CryptoEnvironment.PKI.AddTrustedRoot(serverKeys.SignedPublicKey);
+                CryptoEnvironment.PKI.AddTrustedRoot(serverKeys.SignedPublicCounterKey);
+                CryptoEnvironment.PKI.EnableLocalPki();
                 using PublicKeySuiteStore pks = new();
                 using PakeRecordStore prs = new();
                 using ServerAuth server = new(new(serverKeys)
                 {
-                    CryptoOptions = cryptoOptions.Clone(),
+                    CryptoOptions = cryptoOptions.GetCopy(),
                     IdentityFactory = (context, ct) =>
                     {
                         Logging.WriteInfo("Identity factory");
@@ -53,22 +54,24 @@ namespace wan24_Crypto_Tests
                         }
                         return Task.CompletedTask;
                     },
-                    PayloadHandler = (context, ct) =>
+                    PayloadHandler = async (context, ct) =>
                     {
                         Logging.WriteInfo("Payload handler");
+                        await ServerAuth.ValidateKeySuiteAsync(context, ct);
                         if (context.Signup is not null && context.Payload is not null && context.Payload.IsNewClient && context.Payload.KeySigningRequest is not null)
                         {
                             Logging.WriteInfo("Adding KSR attribute");
                             // CAUTION: This is NOT a good idea! The PAKE identifier is sentitive data and shouldn't be part of a public object (this is only to simplify the tests)
                             context.Payload.KeySigningRequest.Attributes["PAKE identifier"] = Convert.ToHexString(context.Identity!.Identifier);
                         }
-                        return Task.CompletedTask;
                     },
+                    SignupValidator = (context, ct) => ServerAuth.ValidateSignupAsync(context, allowAttributes: true, ct),
                     SignupHandler = async (context, ct) =>
                     {
                         Logging.WriteInfo("Signup handler");
                         await prs.AddRecordAsync(new PakeRecord(context.Identity!));
-                        pks.AddSuite(context.PublicClientKeys!.Clone());
+                        pks.AddSuite(context.PublicClientKeys!.GetCopy());
+                        await ServerAuth.UpdatePkiAsync(context, ct);
                     }
                 });
                 using BlockingBufferStream channelA = new(bufferSize: Settings.BufferSize);
@@ -117,21 +120,21 @@ namespace wan24_Crypto_Tests
                 });
 
                 // Run the client
-                Task<bool> ValidateServerKeys(PublicKeySuite publicServerKeys, CancellationToken cancellationToken)
-                    => Task.FromResult(publicServerKeys.SignedPublicKey is not null && pki.IsTrustedRoot(publicServerKeys.SignedPublicKey.PublicKey.ID));
                 using PrivateKeySuite clientKeys = PrivateKeySuite.CreateWithCounterAlgorithms();
                 using BiDirectionalStream emulatedClientSocket = new(channelB, channelA, leaveOpen: true);
                 Logging.WriteInfo("Client tests");
+                using AsymmetricPublicKeySigningRequest ksr = new(clientKeys.SignatureKey!.PublicKey);
+                ksr.SignRequest(clientKeys.SignatureKey);
                 byte[] clientSignupSessionKey = await ClientAuth.SignupAsync(emulatedClientSocket, new(clientKeys, "test".GetBytes(), "test".GetBytes16(), new byte[] { 1, 2, 3 })
                     {
                         CryptoOptions = cryptoOptions,
-                        PublicKeySigningRequest = new(clientKeys.SignatureKey!.PublicKey),
-                        ServerKeyValidator = ValidateServerKeys
+                        PublicKeySigningRequest = ksr,
+                        ServerKeyValidator = ClientAuth.ValidateServerPublicKeySuiteAsync
                     }),
                     clientAuthSessionKey = await ClientAuth.AuthenticateAsync(emulatedClientSocket, new(clientKeys, "test".GetBytes(), "test".GetBytes16())
                     {
                         CryptoOptions = cryptoOptions,
-                        ServerKeyValidator = ValidateServerKeys
+                        ServerKeyValidator = ClientAuth.ValidateServerPublicKeySuiteAsync
                     });
                 Logging.WriteInfo("Check signed public key");
                 Assert.IsNotNull(clientKeys.SignedPublicKey);
@@ -163,6 +166,11 @@ namespace wan24_Crypto_Tests
             finally
             {
                 Logging.WriteInfo("End auth tests");
+                if (CryptoEnvironment.PKI is not null)
+                {
+                    CryptoEnvironment.PKI.Dispose();
+                    CryptoEnvironment.PKI = null;
+                }
                 EncryptionHelper.Algorithms.TryRemove(EncryptionDummyAlgorithm.ALGORITHM_NAME, out _);
             }
         }

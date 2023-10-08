@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Private key suite (for storing long term keys)
     /// </summary>
-    public sealed class PrivateKeySuite : DisposableStreamSerializerBase, ICloneable
+    public sealed record class PrivateKeySuite : DisposableStreamSerializerRecordBase, ICloneable
     {
         /// <summary>
         /// Object version
@@ -73,8 +73,8 @@ namespace wan24.Crypto
             CounterKeyExchangeKey = CounterKeyExchangeKey?.PublicKey.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.PublicKey.GetCopy(),
             CounterSignatureKey = (ISignaturePublicKey?)CounterSignatureKey?.PublicKey.GetCopy(),
-            SignedPublicKey = SignedPublicKey?.Clone(),
-            SignedPublicCounterKey = SignedPublicCounterKey?.Clone()
+            SignedPublicKey = SignedPublicKey?.GetCopy(),
+            SignedPublicCounterKey = SignedPublicCounterKey?.GetCopy()
         });
 
         /// <summary>
@@ -98,18 +98,18 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Clone this private key suite
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public PrivateKeySuite Clone() => IfUndisposed(() => new PrivateKeySuite()
+        /// <returns>Instance copy</returns>
+        public PrivateKeySuite GetCopy() => IfUndisposed(() => new PrivateKeySuite()
         {
-            _Public = _Public?.Clone(),
+            _Public = _Public?.GetCopy(),
             KeyExchangeKey = (IKeyExchangePrivateKey?)KeyExchangeKey?.GetCopy(),
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePrivateKey?)SignatureKey?.GetCopy(),
             CounterSignatureKey = (ISignaturePrivateKey?)CounterSignatureKey?.GetCopy(),
-            SignedPublicKey = SignedPublicKey?.Clone(),
-            SignedPublicCounterKey = SignedPublicCounterKey?.Clone(),
+            SignedPublicKey = SignedPublicKey?.GetCopy(),
+            SignedPublicCounterKey = SignedPublicCounterKey?.GetCopy(),
             SymmetricKey = (byte[]?)SymmetricKey?.Clone()
         });
 
@@ -127,7 +127,7 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        object ICloneable.Clone() => Clone();
+        object ICloneable.Clone() => GetCopy();
 
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)

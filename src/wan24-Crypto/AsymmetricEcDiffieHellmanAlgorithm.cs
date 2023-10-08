@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// EC Diffie Hellman asymmetric algorithm
     /// </summary>
-    public sealed class AsymmetricEcDiffieHellmanAlgorithm : AsymmetricAlgorithmBase<AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey>
+    public sealed record class AsymmetricEcDiffieHellmanAlgorithm : AsymmetricAlgorithmBase<AsymmetricEcDiffieHellmanPublicKey, AsymmetricEcDiffieHellmanPrivateKey>
     {
         /// <summary>
         /// Algorithm name

@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for an asymmetric public key
     /// </summary>
-    public abstract class AsymmetricPublicKeyBase : AsymmetricKeyBase, IAsymmetricPublicKey
+    public abstract record class AsymmetricPublicKeyBase : AsymmetricKeyBase, IAsymmetricPublicKey
     {
         /// <summary>
         /// Key ID
@@ -23,9 +23,6 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public abstract IAsymmetricPublicKey GetCopy();
-
-        /// <inheritdoc/>
-        public sealed override object Clone() => GetCopy();
 
         /// <inheritdoc/>
         public virtual bool ValidateSignature(SignatureContainer signature, byte[]? data = null, bool throwOnError = true)

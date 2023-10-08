@@ -6,7 +6,7 @@ namespace wan24.Crypto.Authentication
     /// <summary>
     /// Client authentication context
     /// </summary>
-    public sealed class ClientAuthContext : DisposableBase
+    public sealed record class ClientAuthContext : DisposableRecordBase
     {
         /// <summary>
         /// Constructor

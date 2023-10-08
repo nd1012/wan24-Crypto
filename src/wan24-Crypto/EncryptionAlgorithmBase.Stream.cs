@@ -5,7 +5,7 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     // Stream methods
-    public partial class EncryptionAlgorithmBase
+    public partial record class EncryptionAlgorithmBase
     {
         /// <summary>
         /// Get an encryption stream
@@ -31,6 +31,7 @@ namespace wan24.Crypto
                     if (!RequireMacAuthentication && !options.ForceMacCoverWhole && macStream is not null)
                         try
                         {
+                            options.Tracer?.WriteTrace("Writing the crypto header MAC");
                             macStream.Stream.Dispose();
                             long pos = cipherData.Position;
                             cipherData.Position = options.MacPosition;
@@ -54,6 +55,7 @@ namespace wan24.Crypto
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
+                        options.Tracer?.WriteTrace($"Using compression {options.Compression?.Algorithm}");
                         options.Compression ??= CompressionHelper.GetDefaultOptions();
                         options.Compression.LeaveOpen = false;
                         CompressionHelper.WriteOptions(rawData, stream, options.Compression);
@@ -110,6 +112,7 @@ namespace wan24.Crypto
                     if (!RequireMacAuthentication && !options.ForceMacCoverWhole && macStream is not null)
                         try
                         {
+                            options.Tracer?.WriteTrace("Writing the crypto header MAC");
                             macStream.Stream.Dispose();
                             long pos = cipherData.Position;
                             cipherData.Position = options.MacPosition;
@@ -133,6 +136,7 @@ namespace wan24.Crypto
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
+                        options.Tracer?.WriteTrace($"Using compression {options.Compression?.Algorithm}");
                         options.Compression ??= CompressionHelper.GetDefaultOptions();
                         options.Compression.LeaveOpen = false;
                         await CompressionHelper.WriteOptionsAsync(rawData, stream, options.Compression, cancellationToken).DynamicContext();
@@ -179,6 +183,7 @@ namespace wan24.Crypto
                     // Authenticate the data which was red so far
                     if (options.MacIncluded && !RequireMacAuthentication && !options.ForceMacCoverWhole)
                     {
+                        options.Tracer?.WriteTrace("Authenticating the crypto header using the MAC");
                         long pos = cipherData.Position;
                         cipherData.Position = options.MacPosition + options.Mac!.Length;
                         MacAlgorithmBase mac = MacHelper.GetAlgorithm(options.MacAlgorithm ?? MacHelper.DefaultAlgorithm.Name);
@@ -204,8 +209,11 @@ namespace wan24.Crypto
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
+                        options.Tracer?.WriteTrace("Reading compression options");
                         options.Compression = CompressionHelper.ReadOptions(stream, rawData, options.Compression);
+                        options.Tracer?.WriteTrace($"Using compression {options.Compression.Algorithm}");
                         options.Compression.MaxUncompressedDataLength = options.MaxUncompressedDataLength;
+                        options.Tracer?.WriteTrace($"Maximum uncompressed data length {(options.MaxUncompressedDataLength < 1 ? "unlimited" : options.MaxUncompressedDataLength.ToString())}");
                         stream = stream.GetDecompressionStream(options.Compression);
                     }
                     return new(stream, transform);
@@ -254,6 +262,7 @@ namespace wan24.Crypto
                     // Authenticate the data which was red so far
                     if (options.MacIncluded && !RequireMacAuthentication && !options.ForceMacCoverWhole)
                     {
+                        options.Tracer?.WriteTrace("Authenticating the crypto header using the MAC");
                         long pos = cipherData.Position;
                         cipherData.Position = options.MacPosition + options.Mac!.Length;
                         MacAlgorithmBase mac = MacHelper.GetAlgorithm(options.MacAlgorithm ?? MacHelper.DefaultAlgorithm.Name);
@@ -279,8 +288,11 @@ namespace wan24.Crypto
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
+                        options.Tracer?.WriteTrace("Reading compression options");
                         options.Compression = await CompressionHelper.ReadOptionsAsync(stream, rawData, options.Compression, cancellationToken).DynamicContext();
+                        options.Tracer?.WriteTrace($"Using compression {options.Compression.Algorithm}");
                         options.Compression.MaxUncompressedDataLength = options.MaxUncompressedDataLength;
+                        options.Tracer?.WriteTrace($"Maximum uncompressed data length {(options.MaxUncompressedDataLength < 1 ? "unlimited" : options.MaxUncompressedDataLength.ToString())}");
                         stream = stream.GetDecompressionStream(options.Compression);
                     }
                     return new(stream, transform);

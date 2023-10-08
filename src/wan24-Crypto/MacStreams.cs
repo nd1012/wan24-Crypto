@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// MAC streams
     /// </summary>
-    public sealed class MacStreams : DisposableBase
+    public sealed record class MacStreams : DisposableRecordBase
     {
         /// <summary>
         /// Constructor

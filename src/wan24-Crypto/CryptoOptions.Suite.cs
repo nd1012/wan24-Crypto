@@ -3,7 +3,7 @@
 namespace wan24.Crypto
 {
     // Suite
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// Apply a private key suite (will set keys for PFS key encryption)

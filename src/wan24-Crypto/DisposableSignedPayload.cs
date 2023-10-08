@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// Signed payload
     /// </summary>
     /// <typeparam name="T">Payload type</typeparam>
-    public class DisposableSignedPayload<T> : DisposableStreamSerializerBase where T : class, IStreamSerializer, IDisposable
+    public record class DisposableSignedPayload<T> : DisposableStreamSerializerRecordBase where T : class, IStreamSerializer, IDisposable
     {
         /// <summary>
         /// Object version

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using wan24.Core;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -17,8 +18,13 @@ namespace wan24.Crypto
     /// <summary>
     /// PAKE record store
     /// </summary>
-    public class PakeRecordStore<T> : DisposableBase where T : notnull, IPakeRecord
+    public class PakeRecordStore<T> : DisposableStreamSerializerBase where T : notnull, IPakeRecord
     {
+        /// <summary>
+        /// Object version
+        /// </summary>
+        public const int VERSION = 1;
+
         /// <summary>
         /// PAKE records (key is the identifier)
         /// </summary>
@@ -27,12 +33,17 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public PakeRecordStore() : base(asyncDisposing: true) { }
+        public PakeRecordStore() : base(VERSION) { }
 
         /// <summary>
         /// PAKE records (key is the identifier)
         /// </summary>
         public ConcurrentDictionary<byte[], T> Records => IfUndisposed(_Records);
+
+        /// <summary>
+        /// Number of PAKE records
+        /// </summary>
+        public virtual int RecordsCount => IfUndisposed(_Records.Count);
 
         /// <summary>
         /// Add a PAKE record
@@ -96,6 +107,27 @@ namespace wan24.Crypto
             EnsureUndisposed();
             if (_Records.Keys.FirstOrDefault(k => k.SequenceEqual(identifier)) is byte[] id && _Records.TryRemove(id, out T? record))
                 await record.DisposeAsync().DynamicContext();
+        }
+
+        /// <inheritdoc/>
+        protected override void Serialize(Stream stream) => stream.WriteArray(_Records.Values.ToArray());
+
+        /// <inheritdoc/>
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+            => await stream.WriteArrayAsync(_Records.Values.ToArray(), cancellationToken).DynamicContext();
+
+        /// <inheritdoc/>
+        protected override void Deserialize(Stream stream, int version)
+        {
+            T[] records = stream.ReadArray<T>(version);
+            foreach (T record in records) _Records[record.Identifier] = record;
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        {
+            T[] records = await stream.ReadArrayAsync<T>(version, cancellationToken: cancellationToken).DynamicContext();
+            foreach (T record in records) _Records[record.Identifier] = record;
         }
 
         /// <inheritdoc/>

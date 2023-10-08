@@ -3,7 +3,7 @@
     /// <summary>
     /// PAKE authentication server context
     /// </summary>
-    public sealed class PakeServerAuthContext
+    public sealed record class PakeServerAuthContext
     {
         /// <summary>
         /// Constructor

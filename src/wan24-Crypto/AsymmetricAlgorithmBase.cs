@@ -9,7 +9,7 @@ namespace wan24.Crypto
     /// </summary>
     /// <typeparam name="tPublic">Public key type</typeparam>
     /// <typeparam name="tPrivate">Private key type</typeparam>
-    public abstract class AsymmetricAlgorithmBase<tPublic, tPrivate> : CryptoAlgorithmBase, IAsymmetricAlgorithm
+    public abstract record class AsymmetricAlgorithmBase<tPublic, tPrivate> : CryptoAlgorithmBase, IAsymmetricAlgorithm
         where tPublic : AsymmetricPublicKeyBase, IAsymmetricPublicKey, new()
         where tPrivate : AsymmetricPrivateKeyBase<tPublic, tPrivate>, IAsymmetricPrivateKey, new()
     {
@@ -49,7 +49,7 @@ namespace wan24.Crypto
         {
             get
             {
-                CryptoOptions res = _DefaultOptions.Clone();
+                CryptoOptions res = _DefaultOptions.GetCopy();
                 if (CanSign) AsymmetricHelper.GetDefaultSignatureOptions(res);
                 if (CanExchangeKey) AsymmetricHelper.GetDefaultKeyExchangeOptions(res);
                 return res;
@@ -144,7 +144,7 @@ namespace wan24.Crypto
             try
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
-                options = options?.Clone() ?? DefaultOptions;
+                options = options?.GetCopy() ?? DefaultOptions;
                 using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
                 return key.DeriveKey(keyExchangeData);
             }

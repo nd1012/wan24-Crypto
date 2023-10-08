@@ -1,5 +1,4 @@
 ﻿using System.Security;
-using System.Threading;
 using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
@@ -9,7 +8,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Signed asymmetric public key
     /// </summary>
-    public sealed class AsymmetricSignedPublicKey : DisposableStreamSerializerBase, ICloneable
+    public sealed record class AsymmetricSignedPublicKey : DisposableStreamSerializerRecordBase
     {
         /// <summary>
         /// Object version
@@ -413,23 +412,20 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Clone this instance
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public AsymmetricSignedPublicKey Clone() => IfUndisposed(() => new AsymmetricSignedPublicKey()
+        /// <returns>Instance copy</returns>
+        public AsymmetricSignedPublicKey GetCopy() => IfUndisposed(() => new AsymmetricSignedPublicKey()
         {
             SignedData = SignedData?.CloneArray(),
             PublicKey = PublicKey.GetCopy(),
             Created = Created,
             Expires = Expires,
             Attributes = new(Attributes),
-            Signature = Signature.Clone(),
-            Signer = Signer?.Clone(),
-            CounterSigner = CounterSigner?.Clone()
+            Signature = Signature.GetCopy(),
+            Signer = Signer?.GetCopy(),
+            CounterSigner = CounterSigner?.GetCopy()
         });
-
-        /// <inheritdoc/>
-        object ICloneable.Clone() => Clone();
 
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)

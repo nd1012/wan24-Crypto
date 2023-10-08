@@ -3,7 +3,7 @@
     /// <summary>
     /// Signed binary payload
     /// </summary>
-    public sealed class SignedBinaryPayload : SignedBinaryPayload<BinaryPayloadContainer>
+    public sealed record class SignedBinaryPayload : SignedBinaryPayload<BinaryPayloadContainer>
     {
         /// <summary>
         /// Constructor
@@ -23,7 +23,7 @@
     /// Signed binary payload
     /// </summary>
     /// <typeparam name="T">Binary payload container type</typeparam>
-    public abstract class SignedBinaryPayload<T> : SignedPayload<T> where T : BinaryPayloadContainer, new()
+    public abstract record class SignedBinaryPayload<T> : SignedPayload<T> where T : BinaryPayloadContainer, new()
     {
         /// <summary>
         /// Constructor

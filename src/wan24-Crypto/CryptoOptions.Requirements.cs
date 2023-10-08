@@ -3,32 +3,37 @@
 namespace wan24.Crypto
 {
     // Requirements
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// Require the header version (when decrypting)
         /// </summary>
-        public bool RequireHeaderVersion { get; set; } = true;
+        public bool RequireHeaderVersion { get; set; }
 
         /// <summary>
         /// Require the serializer version (when decrypting)
         /// </summary>
-        public bool RequireSerializerVersion { get; set; } = true;
+        public bool RequireSerializerVersion { get; set; }
 
         /// <summary>
         /// Require a MAC (when decrypting)
         /// </summary>
-        public bool RequireMac { get; set; } = true;
+        public bool RequireMac { get; set; }
 
         /// <summary>
         /// Require KDF (when decrypting)
         /// </summary>
-        public bool RequireKdf { get; set; } = true;
+        public bool RequireKdf { get; set; }
 
         /// <summary>
         /// Require a counter MAC (when decrypting)
         /// </summary>
         public bool RequireCounterMac { get; set; }
+
+        /// <summary>
+        /// Require a private key revision (when decrypting)
+        /// </summary>
+        public bool RequirePrivateKeyRevision { get; set; }
 
         /// <summary>
         /// Require an asymmetric counter algorithm (when decrypting)
@@ -72,6 +77,7 @@ namespace wan24.Crypto
                 if (RequireMac) res |= CryptoFlags.MacIncluded;
                 if (RequireKdf) res |= CryptoFlags.KdfAlgorithmIncluded;
                 if (RequireCounterMac) res |= CryptoFlags.RequireCounterMac;
+                if (RequirePrivateKeyRevision) res |= CryptoFlags.RequirePrivateKeyRevision;
                 if (RequireAsymmetricCounterAlgorithm) res |= CryptoFlags.RequireAsymmetricCounterAlgorithm;
                 if (RequireCounterKdf) res |= CryptoFlags.RequireCounterKdfAlgorithm;
                 if (RequireKeyExchangeData) res |= CryptoFlags.KeyExchangeDataIncluded;
@@ -87,6 +93,7 @@ namespace wan24.Crypto
                 RequireMac = value.ContainsAnyFlag(CryptoFlags.MacIncluded);
                 RequireKdf = value.ContainsAnyFlag(CryptoFlags.KdfAlgorithmIncluded);
                 RequireCounterMac = value.ContainsAnyFlag(CryptoFlags.RequireCounterMac);
+                RequirePrivateKeyRevision = value.ContainsAnyFlag(CryptoFlags.RequireAsymmetricCounterAlgorithm);
                 RequireAsymmetricCounterAlgorithm = value.ContainsAnyFlag(CryptoFlags.RequireAsymmetricCounterAlgorithm);
                 RequireCounterKdf = value.ContainsAnyFlag(CryptoFlags.RequireCounterKdfAlgorithm);
                 RequireKeyExchangeData = value.ContainsAnyFlag(CryptoFlags.KeyExchangeDataIncluded);

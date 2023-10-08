@@ -1,13 +1,19 @@
 ﻿using System.Collections.Concurrent;
 using wan24.Core;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
     /// <summary>
     /// Public key suite store
     /// </summary>
-    public class PublicKeySuiteStore : DisposableBase
+    public class PublicKeySuiteStore : DisposableStreamSerializerBase
     {
+        /// <summary>
+        /// Object version
+        /// </summary>
+        public const int VERSION = 1;
+
         /// <summary>
         /// Public key suites (key is the signed public key ID)
         /// </summary>
@@ -16,18 +22,17 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public PublicKeySuiteStore() : this(asyncDisposing: false) { }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="asyncDisposing">Asynchronous disposing?</param>
-        protected PublicKeySuiteStore(in bool asyncDisposing) : base(asyncDisposing) { }
+        public PublicKeySuiteStore() : base(VERSION) { }
 
         /// <summary>
         /// Public key suites (key is the signed public key ID)
         /// </summary>
-        public ConcurrentDictionary<byte[], PublicKeySuite> Suites => IfUndisposed(_Suites);
+        public virtual ConcurrentDictionary<byte[], PublicKeySuite> Suites => IfUndisposed(_Suites);
+
+        /// <summary>
+        /// Number of public key suites
+        /// </summary>
+        public virtual int SuiteCount => IfUndisposed(_Suites.Count);
 
         /// <summary>
         /// Add a public key suite
@@ -90,6 +95,27 @@ namespace wan24.Crypto
             EnsureUndisposed();
             if (_Suites.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is byte[] suiteId && _Suites.TryRemove(suiteId, out PublicKeySuite? suite))
                 suite.Dispose();
+        }
+
+        /// <inheritdoc/>
+        protected override void Serialize(Stream stream) => stream.WriteArray(_Suites.Values.ToArray());
+
+        /// <inheritdoc/>
+        protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
+            => await stream.WriteArrayAsync(_Suites.Values.ToArray(), cancellationToken).DynamicContext();
+
+        /// <inheritdoc/>
+        protected override void Deserialize(Stream stream, int version)
+        {
+            PublicKeySuite[] suites = stream.ReadArray<PublicKeySuite>(version);
+            foreach (PublicKeySuite suite in suites) _Suites[suite.SignedPublicKey!.PublicKey.ID] = suite;
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
+        {
+            PublicKeySuite[] suites = await stream.ReadArrayAsync<PublicKeySuite>(version, cancellationToken: cancellationToken).DynamicContext();
+            foreach (PublicKeySuite suite in suites) _Suites[suite.SignedPublicKey!.PublicKey.ID] = suite;
         }
 
         /// <inheritdoc/>

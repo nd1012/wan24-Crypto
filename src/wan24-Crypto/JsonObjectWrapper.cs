@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// JSON object wrapper
     /// </summary>
-    public sealed class JsonObjectWrapper
+    public sealed record class JsonObjectWrapper
     {
         /// <summary>
         /// Constructor

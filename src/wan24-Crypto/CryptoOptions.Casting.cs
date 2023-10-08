@@ -3,7 +3,7 @@
 namespace wan24.Crypto
 {
     // Casting
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// Cast as private key suite

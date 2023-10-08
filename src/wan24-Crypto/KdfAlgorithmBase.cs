@@ -3,7 +3,7 @@
     /// <summary>
     /// Base class for a KDF algorithm
     /// </summary>
-    public abstract class KdfAlgorithmBase : CryptoAlgorithmBase
+    public abstract record class KdfAlgorithmBase : CryptoAlgorithmBase
     {
         /// <summary>
         /// Default options
@@ -26,7 +26,7 @@
         /// <summary>
         /// Default options
         /// </summary>
-        public virtual CryptoOptions DefaultOptions => KdfHelper.GetDefaultOptions(_DefaultOptions.Clone());
+        public virtual CryptoOptions DefaultOptions => KdfHelper.GetDefaultOptions(_DefaultOptions.GetCopy());
 
         /// <summary>
         /// Minimum number of iterations

@@ -1,10 +1,9 @@
-﻿using System.Security.Cryptography;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
     // Crypto
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// Encrypt data

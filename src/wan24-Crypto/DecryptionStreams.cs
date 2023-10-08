@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Decryption streams
     /// </summary>
-    public sealed class DecryptionStreams : DisposableBase
+    public sealed record class DecryptionStreams : DisposableRecordBase
     {
         /// <summary>
         /// Constructor
@@ -18,7 +18,6 @@ namespace wan24.Crypto
             CryptoStream = cryptoStream;
             Transform = transform;
         }
-
 
         /// <summary>
         /// Crypto stream (written data will be written encrypted to the MAC or the cipher stream (while the MAC stream writes to the cipher stream))

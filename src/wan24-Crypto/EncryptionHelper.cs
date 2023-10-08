@@ -168,6 +168,19 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="rawData">Raw data</param>
         /// <param name="cipherData">Cipher data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Cipher data</returns>
+        public static Stream Encrypt(this Stream rawData, Stream cipherData, CryptoOptions options)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.Algorithm!).Encrypt(rawData, cipherData, options);
+        }
+
+        /// <summary>
+        /// Encrypt
+        /// </summary>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="cipherData">Cipher data</param>
         /// <param name="pwd">Password</param>
         /// <param name="options">Options</param>
         /// <param name="macStream">MAC stream</param>
@@ -202,6 +215,20 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Encrypt
+        /// </summary>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="cipherData">Cipher data</param>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Cipher data</returns>
+        public static async Task EncryptAsync(this Stream rawData, Stream cipherData, CryptoOptions options, CancellationToken cancellationToken = default)
+        {
+            options = GetDefaultOptions(options);
+            await GetAlgorithm(options.Algorithm!).EncryptAsync(rawData, cipherData, options, cancellationToken).DynamicContext();
+        }
+
+        /// <summary>
         /// Decrypt
         /// </summary>
         /// <param name="cipherData">Cipher data</param>
@@ -211,7 +238,7 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public static Stream Decrypt(this Stream cipherData, Stream rawData, byte[] pwd, CryptoOptions? options = null)
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options = ReadOptions(cipherData, rawData, pwd, options);
@@ -233,10 +260,31 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public static Stream Decrypt(this Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options = ReadOptions(cipherData, rawData, key, options);
+                return GetAlgorithm(options.Algorithm!).Decrypt(cipherData, rawData, options.Password!, options);
+            }
+            finally
+            {
+                options.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Decrypt
+        /// </summary>
+        /// <param name="cipherData">Cipher data</param>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Raw data</returns>
+        public static Stream Decrypt(this Stream cipherData, Stream rawData, CryptoOptions options)
+        {
+            options = GetDefaultOptions(options?.GetCopy());
+            try
+            {
+                options = ReadOptions(cipherData, rawData, pwd: null, options);
                 return GetAlgorithm(options.Algorithm!).Decrypt(cipherData, rawData, options.Password!, options);
             }
             finally
@@ -256,7 +304,7 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public static async Task DecryptAsync(this Stream cipherData, Stream rawData, byte[] pwd, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options = await ReadOptionsAsync(cipherData, rawData, pwd, options, cancellationToken).DynamicContext();
@@ -279,10 +327,32 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public static async Task DecryptAsync(this Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options = await ReadOptionsAsync(cipherData, rawData, key, options, cancellationToken).DynamicContext();
+                await GetAlgorithm(options.Algorithm!).DecryptAsync(cipherData, rawData, options.Password!, options, cancellationToken).DynamicContext();
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Decrypt
+        /// </summary>
+        /// <param name="cipherData">Cipher data</param>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Raw data</returns>
+        public static async Task DecryptAsync(this Stream cipherData, Stream rawData, CryptoOptions options, CancellationToken cancellationToken = default)
+        {
+            options = GetDefaultOptions(options?.GetCopy());
+            try
+            {
+                options = await ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
                 await GetAlgorithm(options.Algorithm!).DecryptAsync(cipherData, rawData, options.Password!, options, cancellationToken).DynamicContext();
             }
             finally
@@ -301,7 +371,7 @@ namespace wan24.Crypto
         /// <returns>Written options and used MAC stream</returns>
         public static (CryptoOptions Options, MacStreams? MacStream) WriteOptions(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options.SetKeys(key);
@@ -332,6 +402,19 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="rawData">Raw data</param>
         /// <param name="cipherData">Cipher data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Written options and used MAC stream</returns>
+        public static (CryptoOptions Options, MacStreams? MacStream) WriteOptions(Stream rawData, Stream cipherData, CryptoOptions options)
+        {
+            options = GetDefaultOptions(options);
+            return GetAlgorithm(options.Algorithm!).WriteOptions(rawData, cipherData, pwd: null, options);
+        }
+
+        /// <summary>
+        /// Write the options
+        /// </summary>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="cipherData">Cipher data</param>
         /// <param name="key">Private key</param>
         /// <param name="options">Options</param>
         /// <param name="cancellationToken">Cancellation token</param>
@@ -344,7 +427,7 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options.SetKeys(key);
@@ -378,6 +461,25 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Write the options
+        /// </summary>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="cipherData">Cipher data</param>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Written options and used MAC stream</returns>
+        public static async Task<(CryptoOptions Options, MacStreams? MacStream)> WriteOptionsAsync(
+            Stream rawData,
+            Stream cipherData,
+            CryptoOptions? options = null,
+            CancellationToken cancellationToken = default
+            )
+        {
+            options = GetDefaultOptions(options);
+            return await GetAlgorithm(options.Algorithm!).WriteOptionsAsync(rawData, cipherData, pwd: null, options, cancellationToken).DynamicContext();
+        }
+
+        /// <summary>
         /// Read the options
         /// </summary>
         /// <param name="cipherData">Cipher data</param>
@@ -387,7 +489,7 @@ namespace wan24.Crypto
         /// <returns>Red options</returns>
         public static CryptoOptions ReadOptions(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options.SetKeys(key);
@@ -430,7 +532,7 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
-            options = GetDefaultOptions(options?.Clone());
+            options = GetDefaultOptions(options?.GetCopy());
             try
             {
                 options.SetKeys(key);

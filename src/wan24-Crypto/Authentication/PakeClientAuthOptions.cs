@@ -6,7 +6,7 @@ namespace wan24.Crypto.Authentication
     /// <summary>
     /// PAKE authentication options
     /// </summary>
-    public sealed class PakeClientAuthOptions : DisposableBase
+    public sealed record class PakeClientAuthOptions : DisposableRecordBase
     {
         /// <summary>
         /// Default options
@@ -82,7 +82,7 @@ namespace wan24.Crypto.Authentication
         /// </summary>
         public static PakeClientAuthOptions? DefaultOptions
         {
-            get => _DefaultOptions?.Clone();
+            get => _DefaultOptions?.GetCopy();
             set
             {
                 value?.Dispose();
@@ -176,10 +176,10 @@ namespace wan24.Crypto.Authentication
         public bool IsSignup => PeerIdentity is null;
 
         /// <summary>
-        /// Get a clone of this instance
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public PakeClientAuthOptions Clone() => new()
+        /// <returns>Instance copy</returns>
+        public PakeClientAuthOptions GetCopy() => new()
         {
             Login = Login?.CloneArray(),
             Password = Password?.CloneArray(),
@@ -191,11 +191,11 @@ namespace wan24.Crypto.Authentication
             EncryptPayload = EncryptPayload,
             FastPakeAuthClient = FastPakeAuthClient,
             PeerIdentity = PeerIdentity is null ? null : new PakeAuthRecord(PeerIdentity),
-            PakeOptions = PakeOptions?.Clone(),
-            CryptoOptions = CryptoOptions?.Clone(),
+            PakeOptions = PakeOptions?.GetCopy(),
+            CryptoOptions = CryptoOptions?.GetCopy(),
             EncryptTimeout = EncryptTimeout,
             RecryptTimeout = RecryptTimeout,
-            SessionKeyCryptoOptions = SessionKeyCryptoOptions?.Clone(),
+            SessionKeyCryptoOptions = SessionKeyCryptoOptions?.GetCopy(),
             SessionKeyKekLength = SessionKeyKekLength,
             GetAuthenticationResponse = GetAuthenticationResponse
         };

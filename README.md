@@ -17,7 +17,6 @@ Per default these cryptographic algorithms are implemented:
 |  | HMAC-SHA-384 |
 |  | HMAC-SHA-512 |
 | **Symmetric encryption** | AES-256-CBC (ISO10126 padding) |
-|  | XCrypt |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
 | **KDF key stretching** | PBKDF#2 (250,000 iterations per default) |
@@ -271,6 +270,10 @@ sections, it's easy to overview:
 |  | `CounterPrivateKey` | Private key for counter key exchange (required when using a counter asymmetric algorithm) | `null` |
 |  | `PublicKey` | Public key for key exchange (if not using a PFS key) | `null` |
 |  | `CounterPublicKey` | Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key) | `null` |
+|  | `PrivateKeysStore` | Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to `DefaultPrivateKeysStore`) | `null` |
+|  | `PrivateKeyRevision` | Revision of the used private key suite (may be set automatic) | `0` |
+|  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
+|  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 | KDF | `KdfAlgorithm` | KDF algorithm name | `null` (`PBKDF2`) |
 |  | `KdfIterations` | KDF iteration count | `1` |
 |  | `KdfOptions` | String serialized KDF algorithm options | `null` |
@@ -286,7 +289,7 @@ sections, it's easy to overview:
 | Payload | `PayloadData` | Plain payload | `null` |
 |  | `PayloadIncluded` | Is the payload object data included in the header? | `false` |
 |  | `RequirePayload` | Is payload object data required in the header? | `false` |
-| Serializer version | `SerializerVersion` | Serializer version number (set automatic) | `null` |
+| Serializer version | `CustomSerializerVersion` | Serializer version number (set automatic) | `null` |
 |  | `SerializerVersionIncluded` | Include the serializer version number in the header | `true` |
 |  | `RequireSerializerVersion` | Is the serializer version number required in the header? | `true` |
 | Header version | `HeaderVersion` | Header version number (set automatic) | `1` |
@@ -299,9 +302,11 @@ sections, it's easy to overview:
 |  | `MaximumTimeOffset` | Maximum time offset for a peer with a different system time (the default can be set to `DefaultMaximumTimeOffset`) | `null` |
 | Compression | `Compressed` | Should the raw data be compressed before encryption? | `true` |
 |  | `Compression` | The `CompressionOptions` instance to use (will be set automatic, if not given) | `null` |
+|  | `MaxUncompressedDataLength` | Maximum uncompressed data length in bytes (when decrypting) | `-1` |
 | Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use | `null` (`SHA512`) |
 | Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair | `1` |
 | Stream options | `LeaveOpen` | Leave the processing stream open after operation? | `false` |
+| Debug options | `Tracer` | Collects tracing information during en-/decryption | `null` |
 
 Other options, which are not listed here, are used internal only.
 
@@ -344,6 +349,24 @@ For signature these sections matter:
 - Hashing
 - Stream options
 
+The `CryptoEnvironment` helps configuring the whole `wan24-Crypto` environment 
+at once by providing an options class which contains all the options that one 
+might miss, when not knowing where to look at:
+
+```cs
+CryptoEnvironment.Configure(new()
+{
+    ...
+});
+```
+
+**NOTE**: See the developer reference for details of the 
+`CryptoEnvironment.Options` class. Options will only be applied, if they have 
+a non-null value.
+
+The `CryptoEnvironment` has also some static properties for storing some 
+singleton instances (which are used as default for the configurable options).
+
 ## Crypto suite
 
 You can use a `CryptoOptions` instance as crypto suite. The type can be binary 
@@ -355,6 +378,9 @@ excludes:
 
 - `SerializerVersion`
 - `HeaderVersion`
+- `PrivateKeystore` (needs to be stored in another place; a default can be set 
+in `DefaultPrivateKeysStore`)
+- `PrivateKeyRevision` (will be managed automatic)
 - `PrivateKey` (needs to be stored in another place)
 - `CounterPrivateKey` (needs to be stored in another place)
 - `PublicKey`
@@ -367,6 +393,7 @@ excludes:
 - `Mac`
 - `HeaderProcessed`
 - `Password`
+- `Tracer`
 
 ## PKI
 
@@ -412,7 +439,24 @@ signedPublicKey.Validate();
 ```
 
 As you can see, it's a really simple PKI implementation. It's good for 
-internal use, and if there won't be too many keys to manage.
+internal use, and if there won't be too many keys to manage. For managing a 
+larger amount of keys, you can use the `SignedPkiStore`:
+
+```cs
+using SignedPkiStore pki = new();
+pki.AddTrustedRoot(signedPublicRootKey);
+pki.AddGrantedKey(signedPublicKey);
+pki.EnableLocalPki();
+```
+
+By calling `EnableLocalPki` all PKI callbacks in `AsymmetricSignedPublicKey` 
+will be set with methods from the `SignedPkiStore` instance. This allows 
+signed key and signature validations using your PKI.
+
+The `GetKey` methods will find the hosted key with the given ID of the public 
+key. The PKI may also host revoked keys. By revoking a key, it'll be removed 
+from the trusted root/granted key tables, and `GetKey` will throw on key 
+request.
 
 ## PAKE
 
@@ -611,12 +655,12 @@ performed using a raw socket.
 During the signup the server will respond a random signup to the client. The 
 produces PAKE values need to be stored on both peers for later authentication.
 
-**WARNING**: This authentication protocol doesn't support the use a pre-shared 
-key for the signup. This clearly opens doors for a MiM attack during the 
-signup: If the signup communication was compromised, the attacker will be able 
-to authenticate successful later! It's absolutely required to use a wrapping 
-PFS protocol which ensures the server identity, before sending any signup 
-information.
+**WARNING**: This authentication protocol doesn't support the use of a pre-
+shared key for the signup. This clearly opens doors for a MiM attack during 
+the signup: If the signup communication was compromised, the attacker will be 
+able to authenticate successful later! It's absolutely required to use a 
+wrapping PFS protocol which ensures the server identity, before sending any 
+signup information.
 
 For authentication, the client sends the identifier of the servers PAKE 
 values, which have been pre-shared during the signup. Using random bytes a 
@@ -765,31 +809,38 @@ are the official implementation IDs (not guaranteed to be complete):
 | SPHINCS+ | 5 | wan24-Crypto-BC |
 | FrodoKEM | 6 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
-| AES256CBC | 0 | wan24-Crypto |
-| CHACHA20 | 1 | wan24-Crypto-BC |
-| XSALSA20 | 2 | wan24-Crypto-BC |
-| AES256CM | 3 | wan24-Crypto-BC |
+| AES-256-CBC | 0 | wan24-Crypto |
+| ChaCha20 | 1 | wan24-Crypto-BC |
+| XSalsa20 | 2 | wan24-Crypto-BC |
+| AES-256-GCM | 3 | wan24-Crypto-BC |
 | XCrypt | 4 | (none) |
+| Serpent 256 CBC | 5 | wan24-Crypto-BC |
+| Serpent 256 GCM | 6 | wan24-Crypto-BC |
+| Twofish 256 CBC | 7 | wan24-Crypto-BC |
+| Twofish 256 GCM | 8 | wan24-Crypto-BC |
 | **Hashing** |  |  |
 | MD5 | 0 | wan24-Crypto |
-| SHA1 | 1 | wan24-Crypto |
-| SHA256 | 2 | wan24-Crypto |
-| SHA384 | 3 | wan24-Crypto |
-| SHA512 | 4 | wan24-Crypto |
+| SHA-1 | 1 | wan24-Crypto |
+| SHA-256 | 2 | wan24-Crypto |
+| SHA-384 | 3 | wan24-Crypto |
+| SHA-512 | 4 | wan24-Crypto |
 | SHA3-256 | 5 | wan24-Crypto-BC |
 | SHA3-384 | 6 | wan24-Crypto-BC |
 | SHA3-512 | 7 | wan24-Crypto-BC |
 | **MAC** |  |  |
-| HMAC-SHA1 | 0 | wan24-Crypto |
-| HMAC-SHA256 | 1 | wan24-Crypto |
-| HMAC-SHA384 | 2 | wan24-Crypto |
-| HMAC-SHA512 | 3 | wan24-Crypto |
+| HMAC-SHA-1 | 0 | wan24-Crypto |
+| HMAC-SHA-256 | 1 | wan24-Crypto |
+| HMAC-SHA-384 | 2 | wan24-Crypto |
+| HMAC-SHA-512 | 3 | wan24-Crypto |
 | HMAC-SHA3-256 | 4 | wan24-Crypto-BC |
 | HMAC-SHA3-384 | 5 | wan24-Crypto-BC |
 | HMAC-SHA3-512 | 6 | wan24-Crypto-BC |
 | **KDF** |  |  |
 | PBKDF#2 | 0 | wan24-Crypto |
 | Argon2id | 1 | wan24-Crypto-NaCl |
+
+PAKE has no algorithm ID, because it doesn't match into any category (there is 
+no PAKE multi-algorithm support implemented).
 
 ## Counter algorithms
 
@@ -833,8 +884,9 @@ case it's not possible to use post quantum algorithms for all defaults, this
 method will throw an exception.
 
 **NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
-quantum safe algorithms, while currently no post quantum-safe asymmetric 
-algorithms are implemented in this main library (`wan24-Crypto-BC` does).
+quantum-safe algorithms, while currently no post quantum-safe asymmetric 
+algorithms are implemented in this main library (`wan24-Crypto-BC` does 
+implement some).
 
 ## Disclaimer
 

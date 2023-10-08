@@ -21,7 +21,7 @@ namespace wan24.Crypto
         {
             get => (_DefaultOptions ??= new CryptoOptions()
                 .WithKdf()
-                .WithMac()).Clone();
+                .WithMac()).GetCopy();
             set
             {
                 _DefaultOptions?.Clear();
@@ -39,17 +39,16 @@ namespace wan24.Crypto
         {
             get
             {
-                if (_DefaultCryptoOptions is not null) return _DefaultCryptoOptions.Clone();
+                if (_DefaultCryptoOptions is not null) return _DefaultCryptoOptions.GetCopy();
                 _DefaultCryptoOptions = EncryptionHelper.GetDefaultOptions();
                 _DefaultCryptoOptions.WithoutCompression()
                     .WithoutMac()
                     .WithoutKdf()
-                    .IncludeNothing()
-                    .WithoutRequirements(CryptoFlags.FLAGS);
+                    .IncludeNothing();
                 if (EncryptionHelper.GetAlgorithm(_DefaultCryptoOptions.Algorithm!).RequireMacAuthentication)
                     _DefaultCryptoOptions.WithMac()
                         .WithFlagsIncluded(CryptoFlags.LatestVersion | CryptoFlags.MacIncluded, setRequirements: true);
-                return _DefaultCryptoOptions.Clone();
+                return _DefaultCryptoOptions.GetCopy();
             }
             set
             {
@@ -109,7 +108,7 @@ namespace wan24.Crypto
             )
         {
             using PakeSignup request = signup;
-            using Pake pake = new(options?.Clone());
+            using Pake pake = new(options?.GetCopy());
             if (initializer is not null) initializer(pake);
             byte[] payload = pake.HandleSignup(request);
             return (pake.SessionKey.CloneArray(), payload, new PakeRecord(pake.Identity));
@@ -135,7 +134,7 @@ namespace wan24.Crypto
             )
         {
             using PakeAuth request = auth;
-            using Pake pake = new(new PakeRecord(identity), options?.Clone(), cryptoOptions?.Clone());
+            using Pake pake = new(new PakeRecord(identity), options?.GetCopy(), cryptoOptions?.GetCopy());
             if (initializer is not null) initializer(pake);
             byte[] payload = pake.HandleAuth(request, decryptPayload);
             return (pake.SessionKey.CloneArray(), payload);

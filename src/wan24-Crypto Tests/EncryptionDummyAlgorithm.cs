@@ -4,7 +4,7 @@ using wan24.Crypto;
 
 namespace wan24_Crypto_Tests
 {
-    public sealed class EncryptionDummyAlgorithm : EncryptionAlgorithmBase
+    public sealed record class EncryptionDummyAlgorithm : EncryptionAlgorithmBase
     {
         public const string ALGORITHM_NAME = "DUMMY";
         public const int ALGORITHM_VALUE = int.MaxValue;

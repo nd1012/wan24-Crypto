@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// PAKE record (keep the contents secret!)
     /// </summary>
-    public sealed class PakeRecord : StreamSerializerBase, IPakeRecord
+    public sealed record class PakeRecord : StreamSerializerRecordBase, IPakeRecord
     {
         /// <summary>
         /// Object version

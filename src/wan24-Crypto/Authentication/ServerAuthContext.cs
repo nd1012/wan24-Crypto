@@ -3,7 +3,7 @@
     /// <summary>
     /// Server authentication context
     /// </summary>
-    public sealed class ServerAuthContext
+    public sealed record class ServerAuthContext
     {
         /// <summary>
         /// Constructor

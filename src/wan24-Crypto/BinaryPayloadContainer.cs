@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// Binary payload container (you should extend this type and define the min./max. payload length in bytes in the <see cref="MinPayloadLength"/> and <see cref="MaxPayloadLength"/> 
     /// properties (can be done by calling the protected constructors); default max. length is <see cref="ushort.MaxValue"/>, while the default min. length is <c>1</c> byte)
     /// </summary>
-    public class BinaryPayloadContainer : StreamSerializerBase, IBinaryPayloadContainer
+    public record class BinaryPayloadContainer : StreamSerializerRecordBase, IBinaryPayloadContainer
     {
         /// <summary>
         /// Object version

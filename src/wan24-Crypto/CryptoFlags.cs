@@ -69,6 +69,14 @@
         /// </summary>
         RequireCounterKdfAlgorithm = 1 << 16,
         /// <summary>
+        /// Include the private key revision?
+        /// </summary>
+        PrivateKeyRevisionIncluded = 1 << 17,
+        /// <summary>
+        /// Require the private key revision to be included
+        /// </summary>
+        RequirePrivateKeyRevision = 1 << 18,
+        /// <summary>
         /// All flags
         /// </summary>
         FLAGS = HeaderVersionIncluded |
@@ -80,9 +88,11 @@
             KeyExchangeDataIncluded |
             PayloadIncluded |
             TimeIncluded |
+            PrivateKeyRevisionIncluded |
             ForceMacCoverWhole |
             RequireCounterMac |
             RequireAsymmetricCounterAlgorithm |
-            RequireCounterKdfAlgorithm
+            RequireCounterKdfAlgorithm |
+            RequirePrivateKeyRevision
     }
 }

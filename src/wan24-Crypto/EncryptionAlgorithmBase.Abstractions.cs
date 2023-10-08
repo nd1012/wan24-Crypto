@@ -3,7 +3,7 @@
 namespace wan24.Crypto
 {
     // Abstractions
-    public partial class EncryptionAlgorithmBase
+    public partial record class EncryptionAlgorithmBase
     {
         /// <summary>
         /// Key size in bytes

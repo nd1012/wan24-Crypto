@@ -15,7 +15,7 @@ namespace wan24.Crypto.Authentication
         /// <returns>Client authentication context</returns>
         private async Task<ClientAuthContext> ProcessSignupAsync(Stream stream, byte[]? preSharedSecret, CancellationToken cancellationToken)
         {
-            CryptoOptions hashOptions = Options.HashOptions!.Clone();
+            CryptoOptions hashOptions = Options.HashOptions!.GetCopy();
             try
             {
                 using HashStreams hash = HashHelper.GetAlgorithm(hashOptions.HashAlgorithm!).GetHashStream(stream, writable: false, hashOptions);
@@ -23,7 +23,7 @@ namespace wan24.Crypto.Authentication
                 DecryptionStreams? decipher = null;
                 EncryptionStreams? cipher = null;
                 byte[]? payload = null;
-                ServerAuthContext context = new(this, stream, hashOptions, Options.PakeOptions!.Clone(), Options.CryptoOptions!.Clone());
+                ServerAuthContext context = new(this, stream, hashOptions, Options.PakeOptions!.GetCopy(), Options.CryptoOptions!.GetCopy());
                 try
                 {
                     decipher = await StartDecryptionAsync(context, hash, cancellationToken).DynamicContext();
@@ -32,7 +32,7 @@ namespace wan24.Crypto.Authentication
                     await hash.FinalizeHashAsync(transformFinal: true).DynamicContext();
                     context.Signup = signup;
                     await Options.IdentityFactory!(context, cancellationToken).DynamicContext();
-                    using (Pake pake = new(context.PakeOptions.Clone(), context.CryptoOptions.Clone()))
+                    using (Pake pake = new(context.PakeOptions.GetCopy(), context.CryptoOptions.GetCopy()))
                     {
                         pake.OnSignup += (s, e) => OnPakeSignup?.Invoke(this, new(context, pake, e));
                         payload = pake.HandleSignup(signup);

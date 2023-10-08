@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Public key suite
     /// </summary>
-    public sealed class PublicKeySuite : DisposableStreamSerializerBase, ICloneable
+    public sealed record class PublicKeySuite : DisposableStreamSerializerRecordBase, ICloneable
     {
         /// <summary>
         /// Object version
@@ -130,18 +130,18 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Clone this public key suite
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Clone</returns>
-        public PublicKeySuite Clone() => IfUndisposed(() => new PublicKeySuite()
+        /// <returns>Instance copy</returns>
+        public PublicKeySuite GetCopy() => IfUndisposed(() => new PublicKeySuite()
         {
             SignedData = (byte[]?)SignedData?.Clone(),
             _KeyExchangeKey = _KeyExchangeKey?.GetCopy(),
             _CounterKeyExchangeKey = _CounterKeyExchangeKey?.GetCopy(),
             SignatureKey = (ISignaturePublicKey?)SignatureKey?.GetCopy(),
             CounterSignatureKey = (ISignaturePublicKey?)CounterSignatureKey?.GetCopy(),
-            SignedPublicKey = SignedPublicKey?.Clone(),
-            SignedPublicCounterKey = SignedPublicCounterKey?.Clone()
+            SignedPublicKey = SignedPublicKey?.GetCopy(),
+            SignedPublicCounterKey = SignedPublicCounterKey?.GetCopy()
         });
 
         /// <inheritdoc/>
@@ -156,7 +156,7 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        object ICloneable.Clone() => Clone();
+        object ICloneable.Clone() => GetCopy();
 
         /// <inheritdoc/>
         protected override void Serialize(Stream stream)

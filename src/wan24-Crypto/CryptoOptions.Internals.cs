@@ -4,7 +4,7 @@ using wan24.ObjectValidation;
 namespace wan24.Crypto
 {
     // Internals
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// KDF salt (used internal)

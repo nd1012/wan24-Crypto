@@ -3,42 +3,47 @@
 namespace wan24.Crypto
 {
     // Flags
-    public partial class CryptoOptions
+    public partial record class CryptoOptions
     {
         /// <summary>
         /// Header version included?
         /// </summary>
-        public bool HeaderVersionIncluded { get; set; } = true;
+        public bool HeaderVersionIncluded { get; set; }
 
         /// <summary>
         /// Serializer version included?
         /// </summary>
-        public bool SerializerVersionIncluded { get; set; } = true;
+        public bool SerializerVersionIncluded { get; set; }
 
         /// <summary>
         /// MAC included?
         /// </summary>
-        public bool MacIncluded { get; set; } = true;
+        public bool MacIncluded { get; set; }
 
         /// <summary>
         /// Compressed?
         /// </summary>
-        public bool Compressed { get; set; } = true;
+        public bool Compressed { get; set; }
 
         /// <summary>
         /// MAC algorithm included?
         /// </summary>
-        public bool MacAlgorithmIncluded { get; set; } = true;
+        public bool MacAlgorithmIncluded { get; set; }
 
         /// <summary>
         /// KDF algorithm included?
         /// </summary>
-        public bool KdfAlgorithmIncluded { get; set; } = true;
+        public bool KdfAlgorithmIncluded { get; set; }
 
         /// <summary>
         /// Key exchange data included?
         /// </summary>
         public bool KeyExchangeDataIncluded { get; set; }
+
+        /// <summary>
+        /// Include the private key revision?
+        /// </summary>
+        public bool PrivateKeyRevisionIncluded { get; set; }
 
         /// <summary>
         /// Payload included?
@@ -58,7 +63,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Flags included?
         /// </summary>
-        public bool FlagsIncluded { get; set; } = true;
+        public bool FlagsIncluded { get; set; } = DefaultFlagsIncluded;
 
         /// <summary>
         /// Flags
@@ -80,6 +85,11 @@ namespace wan24.Crypto
                     res |= CryptoFlags.KdfAlgorithmIncluded;
                     if (RequireCounterKdf) res |= CryptoFlags.RequireCounterKdfAlgorithm;
                 }
+                if (PrivateKeyRevisionIncluded)
+                {
+                    res |= CryptoFlags.PrivateKeyRevisionIncluded;
+                    if (RequirePrivateKeyRevision) res |= CryptoFlags.RequirePrivateKeyRevision;
+                }
                 if (KeyExchangeDataIncluded)
                 {
                     res |= CryptoFlags.KeyExchangeDataIncluded;
@@ -100,6 +110,7 @@ namespace wan24.Crypto
                 Compressed = value.ContainsAnyFlag(CryptoFlags.Compressed);
                 MacIncluded = value.ContainsAnyFlag(CryptoFlags.MacIncluded);
                 KdfAlgorithmIncluded = value.ContainsAnyFlag(CryptoFlags.KdfAlgorithmIncluded);
+                PrivateKeyRevisionIncluded = value.ContainsAnyFlag(CryptoFlags.PrivateKeyRevisionIncluded);
                 KeyExchangeDataIncluded = value.ContainsAnyFlag(CryptoFlags.KeyExchangeDataIncluded);
                 PayloadIncluded = value.ContainsAnyFlag(CryptoFlags.PayloadIncluded);
                 TimeIncluded = value.ContainsAnyFlag(CryptoFlags.TimeIncluded);

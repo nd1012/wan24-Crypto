@@ -3,7 +3,7 @@
 namespace wan24.Crypto
 {
     // Decryption methods
-    public partial class EncryptionAlgorithmBase
+    public partial record class EncryptionAlgorithmBase
     {
         /// <summary>
         /// Decrypt
@@ -48,11 +48,43 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public Stream Decrypt(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
-            options = options?.Clone() ?? DefaultOptions;
+            options = options?.GetCopy() ?? DefaultOptions;
             try
             {
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 options.SetKeys(key);
+                options = ReadOptions(cipherData, rawData, pwd: null, options);
+                return Decrypt(cipherData, rawData, options.Password!, options);
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw CryptographicException.From(ex);
+            }
+            finally
+            {
+                options.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Decrypt
+        /// </summary>
+        /// <param name="cipherData">Cipher data</param>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="options">Options</param>
+        /// <returns>Raw data</returns>
+        public Stream Decrypt(Stream cipherData, Stream rawData, CryptoOptions options)
+        {
+            options = options.GetCopy();
+            try
+            {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
+                if (options.Password is null && options.PrivateKey is null && options.PrivateKeysStore is null)
+                    throw new ArgumentException("Missing password/private key (store)", nameof(options));
                 options = ReadOptions(cipherData, rawData, pwd: null, options);
                 return Decrypt(cipherData, rawData, options.Password!, options);
             }
@@ -115,11 +147,44 @@ namespace wan24.Crypto
         /// <returns>Raw data</returns>
         public async Task DecryptAsync(Stream cipherData, Stream rawData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
-            options = options?.Clone() ?? DefaultOptions;
+            options = options?.GetCopy() ?? DefaultOptions;
             try
             {
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
                 options.SetKeys(key);
+                options = await ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
+                await DecryptAsync(cipherData, rawData, options.Password!, options, cancellationToken).DynamicContext();
+            }
+            catch (CryptographicException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw await CryptographicException.FromAsync(ex);
+            }
+            finally
+            {
+                options.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Decrypt
+        /// </summary>
+        /// <param name="cipherData">Cipher data</param>
+        /// <param name="rawData">Raw data</param>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Raw data</returns>
+        public async Task DecryptAsync(Stream cipherData, Stream rawData, CryptoOptions options, CancellationToken cancellationToken = default)
+        {
+            options = options?.GetCopy() ?? DefaultOptions;
+            try
+            {
+                EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: false, options);
+                if (options.Password is null && options.PrivateKey is null && options.PrivateKeysStore is null)
+                    throw new ArgumentException("Missing password/private key (store)", nameof(options));
                 options = await ReadOptionsAsync(cipherData, rawData, pwd: null, options, cancellationToken).DynamicContext();
                 await DecryptAsync(cipherData, rawData, options.Password!, options, cancellationToken).DynamicContext();
             }

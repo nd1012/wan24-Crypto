@@ -29,7 +29,7 @@ namespace wan24.Crypto.Authentication
         }
 
         /// <inheritdoc/>
-        public CryptoOptions Options => Pake.Options.Clone();
+        public CryptoOptions Options => Pake.Options.GetCopy();
 
         /// <inheritdoc/>
         public IPakeAuthRecord GetRecord() => GetOne();

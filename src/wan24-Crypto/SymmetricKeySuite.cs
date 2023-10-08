@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Symmetric key suite (used for PAKE)
     /// </summary>
-    public class SymmetricKeySuite : DisposableBase, ISymmetricKeySuite
+    public record class SymmetricKeySuite : DisposableRecordBase, ISymmetricKeySuite
     {
         /// <summary>
         /// Constructor
@@ -102,10 +102,10 @@ namespace wan24.Crypto
         public SecureByteArray ExpandedKey { get; }
 
         /// <summary>
-        /// Clone this instance
+        /// Get a copy of this instance
         /// </summary>
-        /// <returns>Cloned instance</returns>
-        public virtual SymmetricKeySuite Clone() => new(Options.Clone(), Identifier?.CloneArray(), ExpandedKey.Array.CloneArray());
+        /// <returns>Instance copy</returns>
+        public virtual SymmetricKeySuite GetCopy() => new(Options.GetCopy(), Identifier?.CloneArray(), ExpandedKey.Array.CloneArray());
 
         /// <summary>
         /// Initialize with only having a key
