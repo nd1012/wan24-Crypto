@@ -114,10 +114,6 @@ implemented cryptographic algorithm to be applied using a simple interface.</p>
 <td>AES-256-CBC (ISO10126 padding)</td>
 </tr>
 <tr>
-<td></td>
-<td>XCrypt</td>
-</tr>
-<tr>
 <td><strong>Asymmetric keys</strong></td>
 <td>Elliptic Curve Diffie Hellman</td>
 </tr>
@@ -449,6 +445,30 @@ sections, it's easy to overview:</p>
 <td><code>null</code></td>
 </tr>
 <tr>
+<td></td>
+<td><code>PrivateKeysStore</code></td>
+<td>Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to <code>DefaultPrivateKeysStore</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKeyRevision</code></td>
+<td>Revision of the used private key suite (may be set automatic)</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKeyRevisionIncluded</code></td>
+<td>Is the private key suite revision included in the header?</td>
+<td><code>true</code>, if a <code>DefaultPrivateKeysStore</code> was set</td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequirePrivateKeyRevision</code></td>
+<td>Is the private key suite revision required to be included in the header?</td>
+<td><code>true</code>, if a <code>DefaultPrivateKeysStore</code> was set</td>
+</tr>
+<tr>
 <td>KDF</td>
 <td><code>KdfAlgorithm</code></td>
 <td>KDF algorithm name</td>
@@ -540,7 +560,7 @@ sections, it's easy to overview:</p>
 </tr>
 <tr>
 <td>Serializer version</td>
-<td><code>SerializerVersion</code></td>
+<td><code>CustomSerializerVersion</code></td>
 <td>Serializer version number (set automatic)</td>
 <td><code>null</code></td>
 </tr>
@@ -617,6 +637,12 @@ sections, it's easy to overview:</p>
 <td><code>null</code></td>
 </tr>
 <tr>
+<td></td>
+<td><code>MaxUncompressedDataLength</code></td>
+<td>Maximum uncompressed data length in bytes (when decrypting)</td>
+<td><code>-1</code></td>
+</tr>
+<tr>
 <td>Hashing / Signature</td>
 <td><code>HashAlgorithm</code></td>
 <td>The name of the hash algorithm to use</td>
@@ -633,6 +659,12 @@ sections, it's easy to overview:</p>
 <td><code>LeaveOpen</code></td>
 <td>Leave the processing stream open after operation?</td>
 <td><code>false</code></td>
+</tr>
+<tr>
+<td>Debug options</td>
+<td><code>Tracer</code></td>
+<td>Collects tracing information during en-/decryption</td>
+<td><code>null</code></td>
 </tr>
 </tbody>
 </table>
@@ -673,6 +705,19 @@ calling any method.</p>
 <li>Hashing</li>
 <li>Stream options</li>
 </ul>
+<p>The <code>CryptoEnvironment</code> helps configuring the whole <code>wan24-Crypto</code> environment
+at once by providing an options class which contains all the options that one
+might miss, when not knowing where to look at:</p>
+<pre><code class="lang-cs">CryptoEnvironment.Configure(new()
+{
+    ...
+});
+</code></pre>
+<p><strong>NOTE</strong>: See the developer reference for details of the
+<code>CryptoEnvironment.Options</code> class. Options will only be applied, if they have
+a non-null value.</p>
+<p>The <code>CryptoEnvironment</code> has also some static properties for storing some
+singleton instances (which are used as default for the configurable options).</p>
 <h2 id="crypto-suite">Crypto suite</h2>
 <p>You can use a <code>CryptoOptions</code> instance as crypto suite. The type can be binary
 serialized (using the <code>Stream-Serializer-Extensions</code>) for storing/restoring
@@ -682,6 +727,9 @@ excludes:</p>
 <ul>
 <li><code>SerializerVersion</code></li>
 <li><code>HeaderVersion</code></li>
+<li><code>PrivateKeystore</code> (needs to be stored in another place; a default can be set
+in <code>DefaultPrivateKeysStore</code>)</li>
+<li><code>PrivateKeyRevision</code> (will be managed automatic)</li>
 <li><code>PrivateKey</code> (needs to be stored in another place)</li>
 <li><code>CounterPrivateKey</code> (needs to be stored in another place)</li>
 <li><code>PublicKey</code></li>
@@ -694,6 +742,7 @@ excludes:</p>
 <li><code>Mac</code></li>
 <li><code>HeaderProcessed</code></li>
 <li><code>Password</code></li>
+<li><code>Tracer</code></li>
 </ul>
 <h2 id="pki">PKI</h2>
 <p>Using the <code>AsymmetricSignedPublicKey</code> type, you can implement a simple PKI,
@@ -736,7 +785,20 @@ AsymmetricSignedPublicKey.SignedPublicKeyStore = (id) =&gt;
 signedPublicKey.Validate();
 </code></pre>
 <p>As you can see, it's a really simple PKI implementation. It's good for
-internal use, and if there won't be too many keys to manage.</p>
+internal use, and if there won't be too many keys to manage. For managing a
+larger amount of keys, you can use the <code>SignedPkiStore</code>:</p>
+<pre><code class="lang-cs">using SignedPkiStore pki = new();
+pki.AddTrustedRoot(signedPublicRootKey);
+pki.AddGrantedKey(signedPublicKey);
+pki.EnableLocalPki();
+</code></pre>
+<p>By calling <code>EnableLocalPki</code> all PKI callbacks in <code>AsymmetricSignedPublicKey</code>
+will be set with methods from the <code>SignedPkiStore</code> instance. This allows
+signed key and signature validations using your PKI.</p>
+<p>The <code>GetKey</code> methods will find the hosted key with the given ID of the public
+key. The PKI may also host revoked keys. By revoking a key, it'll be removed
+from the trusted root/granted key tables, and <code>GetKey</code> will throw on key
+request.</p>
 <h2 id="pake">PAKE</h2>
 <p><code>Pake</code> (see tests) can be used for implementing a password authenticated key
 exchange, which should be wrapped with a PFS protocol in addition. PAKE uses
@@ -903,12 +965,12 @@ a PFS protocol! Use a TLS socket, for example. A later authentication <em>may</e
 performed using a raw socket.</p>
 <p>During the signup the server will respond a random signup to the client. The
 produces PAKE values need to be stored on both peers for later authentication.</p>
-<p><strong>WARNING</strong>: This authentication protocol doesn't support the use a pre-shared
-key for the signup. This clearly opens doors for a MiM attack during the
-signup: If the signup communication was compromised, the attacker will be able
-to authenticate successful later! It's absolutely required to use a wrapping
-PFS protocol which ensures the server identity, before sending any signup
-information.</p>
+<p><strong>WARNING</strong>: This authentication protocol doesn't support the use of a pre-
+shared key for the signup. This clearly opens doors for a MiM attack during
+the signup: If the signup communication was compromised, the attacker will be
+able to authenticate successful later! It's absolutely required to use a
+wrapping PFS protocol which ensures the server identity, before sending any
+signup information.</p>
 <p>For authentication, the client sends the identifier of the servers PAKE
 values, which have been pre-shared during the signup. Using random bytes a
 temporary session key will be calculated and used to send the PAKE
@@ -1067,22 +1129,22 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td></td>
 </tr>
 <tr>
-<td>AES256CBC</td>
+<td>AES-256-CBC</td>
 <td>0</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>CHACHA20</td>
+<td>ChaCha20</td>
 <td>1</td>
 <td>wan24-Crypto-BC</td>
 </tr>
 <tr>
-<td>XSALSA20</td>
+<td>XSalsa20</td>
 <td>2</td>
 <td>wan24-Crypto-BC</td>
 </tr>
 <tr>
-<td>AES256CM</td>
+<td>AES-256-GCM</td>
 <td>3</td>
 <td>wan24-Crypto-BC</td>
 </tr>
@@ -1090,6 +1152,26 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td>XCrypt</td>
 <td>4</td>
 <td>(none)</td>
+</tr>
+<tr>
+<td>Serpent 256 CBC</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Serpent 256 GCM</td>
+<td>6</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Twofish 256 CBC</td>
+<td>7</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Twofish 256 GCM</td>
+<td>8</td>
+<td>wan24-Crypto-BC</td>
 </tr>
 <tr>
 <td><strong>Hashing</strong></td>
@@ -1102,22 +1184,22 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>SHA1</td>
+<td>SHA-1</td>
 <td>1</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>SHA256</td>
+<td>SHA-256</td>
 <td>2</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>SHA384</td>
+<td>SHA-384</td>
 <td>3</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>SHA512</td>
+<td>SHA-512</td>
 <td>4</td>
 <td>wan24-Crypto</td>
 </tr>
@@ -1142,22 +1224,22 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <td></td>
 </tr>
 <tr>
-<td>HMAC-SHA1</td>
+<td>HMAC-SHA-1</td>
 <td>0</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>HMAC-SHA256</td>
+<td>HMAC-SHA-256</td>
 <td>1</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>HMAC-SHA384</td>
+<td>HMAC-SHA-384</td>
 <td>2</td>
 <td>wan24-Crypto</td>
 </tr>
 <tr>
-<td>HMAC-SHA512</td>
+<td>HMAC-SHA-512</td>
 <td>3</td>
 <td>wan24-Crypto</td>
 </tr>
@@ -1193,6 +1275,8 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 </tr>
 </tbody>
 </table>
+<p>PAKE has no algorithm ID, because it doesn't match into any category (there is
+no PAKE multi-algorithm support implemented).</p>
 <h2 id="counter-algorithms">Counter algorithms</h2>
 <p>A counter algorithm is being applied after the main algorithm. So the main
 algorithm result is secured by the counter algorithm result. You can use this
@@ -1229,8 +1313,9 @@ method will ensure that all used default algorithms are post quantum safe. In
 case it's not possible to use post quantum algorithms for all defaults, this
 method will throw an exception.</p>
 <p><strong>NOTE</strong>: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post
-quantum safe algorithms, while currently no post quantum-safe asymmetric
-algorithms are implemented in this main library (<code>wan24-Crypto-BC</code> does).</p>
+quantum-safe algorithms, while currently no post quantum-safe asymmetric
+algorithms are implemented in this main library (<code>wan24-Crypto-BC</code> does
+implement some).</p>
 <h2 id="disclaimer">Disclaimer</h2>
 <p><code>wan24-Crypto</code> and provided sub-libraries are provided &quot;as is&quot;, without any
 warranty of any kind. Please read the license for the full disclaimer.</p>

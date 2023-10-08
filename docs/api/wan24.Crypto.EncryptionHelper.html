@@ -138,7 +138,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">wan24.Crypto.EncryptionAlgorithmBase</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -171,7 +171,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a></td>
+        <td><span class="xref">wan24.Crypto.EncryptionAlgorithmBase</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -276,7 +276,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_Decrypt_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.Decrypt(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L212">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L239">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_Decrypt_" data-uid="wan24.Crypto.EncryptionHelper.Decrypt*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_Decrypt_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.Decrypt(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions)">Decrypt(Stream, Stream, Byte[], CryptoOptions)</h4>
@@ -316,7 +316,69 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_Decrypt_Stream_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.Decrypt(Stream%2CStream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L282">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionHelper_Decrypt_" data-uid="wan24.Crypto.EncryptionHelper.Decrypt*"></a>
+  <h4 id="wan24_Crypto_EncryptionHelper_Decrypt_Stream_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.Decrypt(Stream,Stream,wan24.Crypto.CryptoOptions)">Decrypt(Stream, Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Decrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Stream Decrypt(this Stream cipherData, Stream rawData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -344,7 +406,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_Decrypt_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.Decrypt(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L234">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L261">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_Decrypt_" data-uid="wan24.Crypto.EncryptionHelper.Decrypt*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_Decrypt_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.Decrypt(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions)">Decrypt(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions)</h4>
@@ -384,7 +446,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -412,7 +474,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_DecryptAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.DecryptAsync(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L257">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L305">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_DecryptAsync_" data-uid="wan24.Crypto.EncryptionHelper.DecryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_DecryptAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.DecryptAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,CancellationToken)">DecryptAsync(Stream, Stream, Byte[], CryptoOptions, CancellationToken)</h4>
@@ -452,7 +514,75 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_DecryptAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.DecryptAsync(Stream%2CStream%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L350">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionHelper_DecryptAsync_" data-uid="wan24.Crypto.EncryptionHelper.DecryptAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionHelper_DecryptAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.DecryptAsync(Stream,Stream,wan24.Crypto.CryptoOptions,CancellationToken)">DecryptAsync(Stream, Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Decrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task DecryptAsync(this Stream cipherData, Stream rawData, CryptoOptions options, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -486,7 +616,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_DecryptAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.DecryptAsync(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L280">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L328">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_DecryptAsync_" data-uid="wan24.Crypto.EncryptionHelper.DecryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_DecryptAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.DecryptAsync(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,CancellationToken)">DecryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions, CancellationToken)</h4>
@@ -526,7 +656,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -600,15 +730,77 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="xref">wan24.Crypto.MacStreams</span></td>
         <td><span class="parametername">macStream</span></td>
         <td><p>MAC stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_Encrypt_Stream_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.Encrypt(Stream%2CStream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L173">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionHelper_Encrypt_" data-uid="wan24.Crypto.EncryptionHelper.Encrypt*"></a>
+  <h4 id="wan24_Crypto_EncryptionHelper_Encrypt_Stream_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.Encrypt(Stream,Stream,wan24.Crypto.CryptoOptions)">Encrypt(Stream, Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Encrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Stream Encrypt(this Stream rawData, Stream cipherData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
 </td>
       </tr>
     </tbody>
@@ -674,7 +866,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -702,7 +894,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_EncryptAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.EncryptAsync(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2Cwan24.Crypto.MacStreams%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L176">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L189">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_EncryptAsync_" data-uid="wan24.Crypto.EncryptionHelper.EncryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_EncryptAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.EncryptAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,wan24.Crypto.MacStreams,CancellationToken)">EncryptAsync(Stream, Stream, Byte[], CryptoOptions, MacStreams, CancellationToken)</h4>
@@ -742,15 +934,83 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="xref">wan24.Crypto.MacStreams</span></td>
         <td><span class="parametername">macStream</span></td>
         <td><p>MAC stream</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_EncryptAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.EncryptAsync(Stream%2CStream%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L225">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionHelper_EncryptAsync_" data-uid="wan24.Crypto.EncryptionHelper.EncryptAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionHelper_EncryptAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.EncryptAsync(Stream,Stream,wan24.Crypto.CryptoOptions,CancellationToken)">EncryptAsync(Stream, Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Encrypt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task EncryptAsync(this Stream rawData, Stream cipherData, CryptoOptions options, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
 </td>
       </tr>
       <tr>
@@ -782,7 +1042,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_EncryptAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.EncryptAsync(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L198">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L211">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_EncryptAsync_" data-uid="wan24.Crypto.EncryptionHelper.EncryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_EncryptAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.EncryptAsync(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,CancellationToken)">EncryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions, CancellationToken)</h4>
@@ -822,7 +1082,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -856,7 +1116,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_GetAlgorithm_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.GetAlgorithm(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L562">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L664">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_GetAlgorithm_" data-uid="wan24.Crypto.EncryptionHelper.GetAlgorithm*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_GetAlgorithm_System_Int32_" data-uid="wan24.Crypto.EncryptionHelper.GetAlgorithm(System.Int32)">GetAlgorithm(Int32)</h4>
@@ -895,7 +1155,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a></td>
+        <td><span class="xref">wan24.Crypto.EncryptionAlgorithmBase</span></td>
         <td><p>Algorithm</p>
 </td>
       </tr>
@@ -906,7 +1166,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_GetAlgorithm_System_String_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.GetAlgorithm(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L552">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L654">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_GetAlgorithm_" data-uid="wan24.Crypto.EncryptionHelper.GetAlgorithm*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_GetAlgorithm_System_String_" data-uid="wan24.Crypto.EncryptionHelper.GetAlgorithm(System.String)">GetAlgorithm(String)</h4>
@@ -945,7 +1205,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a></td>
+        <td><span class="xref">wan24.Crypto.EncryptionAlgorithmBase</span></td>
         <td><p>Algorithm</p>
 </td>
       </tr>
@@ -990,7 +1250,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1007,7 +1267,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a></td>
+        <td><span class="xref">wan24.Crypto.DecryptionStreams</span></td>
         <td><p>Decryption stream and transform</p>
 </td>
       </tr>
@@ -1052,7 +1312,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1075,7 +1335,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">wan24.Crypto.DecryptionStreams</span>&gt;</td>
         <td><p>Decryption stream and transform</p>
 </td>
       </tr>
@@ -1086,7 +1346,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_GetDefaultOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.GetDefaultOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L471">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L573">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_GetDefaultOptions_" data-uid="wan24.Crypto.EncryptionHelper.GetDefaultOptions*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_GetDefaultOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.GetDefaultOptions(wan24.Crypto.CryptoOptions)">GetDefaultOptions(CryptoOptions)</h4>
@@ -1108,7 +1368,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1125,7 +1385,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><p>Options</p>
 </td>
       </tr>
@@ -1170,13 +1430,13 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="xref">wan24.Crypto.MacStreams</span></td>
         <td><span class="parametername">macStream</span></td>
         <td><p>MAC stream</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1193,7 +1453,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a></td>
+        <td><span class="xref">wan24.Crypto.EncryptionStreams</span></td>
         <td><p>Encryption stream, transform and MAC</p>
 </td>
       </tr>
@@ -1238,13 +1498,13 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></td>
+        <td><span class="xref">wan24.Crypto.MacStreams</span></td>
         <td><span class="parametername">macStream</span></td>
         <td><p>MAC stream</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1267,7 +1527,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">wan24.Crypto.EncryptionStreams</span>&gt;</td>
         <td><p>Encryption stream, transform and MAC</p>
 </td>
       </tr>
@@ -1278,7 +1538,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_ReadOptions_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.ReadOptions(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L410">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L512">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_ReadOptions_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptions*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_ReadOptions_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptions(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions)">ReadOptions(Stream, Stream, Byte[], CryptoOptions)</h4>
@@ -1318,7 +1578,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1335,7 +1595,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><p>Red options</p>
 </td>
       </tr>
@@ -1346,7 +1606,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_ReadOptions_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.ReadOptions(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L388">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L490">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_ReadOptions_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptions*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_ReadOptions_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptions(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions)">ReadOptions(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions)</h4>
@@ -1386,7 +1646,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1403,7 +1663,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><p>Red options</p>
 </td>
       </tr>
@@ -1414,7 +1674,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_ReadOptionsAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.ReadOptionsAsync(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L454">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L556">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_ReadOptionsAsync_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptionsAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_ReadOptionsAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptionsAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,CancellationToken)">ReadOptionsAsync(Stream, Stream, Byte[], CryptoOptions, CancellationToken)</h4>
@@ -1454,7 +1714,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1477,7 +1737,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>&gt;</td>
         <td><p>Red options</p>
 </td>
       </tr>
@@ -1488,7 +1748,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_ReadOptionsAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.ReadOptionsAsync(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L425">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L527">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_ReadOptionsAsync_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptionsAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_ReadOptionsAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.ReadOptionsAsync(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,CancellationToken)">ReadOptionsAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions, CancellationToken)</h4>
@@ -1528,7 +1788,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1551,7 +1811,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>&gt;</td>
         <td><p>Red options</p>
 </td>
       </tr>
@@ -1562,7 +1822,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_ValidateStreams_Stream_Stream_System_Boolean_wan24_Crypto_CryptoOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.ValidateStreams(Stream%2CStream%2CSystem.Boolean%2Cwan24.Crypto.CryptoOptions%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L508">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L610">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_ValidateStreams_" data-uid="wan24.Crypto.EncryptionHelper.ValidateStreams*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_ValidateStreams_Stream_Stream_System_Boolean_wan24_Crypto_CryptoOptions_System_Boolean_" data-uid="wan24.Crypto.EncryptionHelper.ValidateStreams(Stream,Stream,System.Boolean,wan24.Crypto.CryptoOptions,System.Boolean)">ValidateStreams(Stream, Stream, Boolean, CryptoOptions, Boolean)</h4>
@@ -1602,7 +1862,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1636,7 +1896,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_WriteOptions_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.WriteOptions(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L324">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L394">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_WriteOptions_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptions*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_WriteOptions_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptions(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions)">WriteOptions(Stream, Stream, Byte[], CryptoOptions)</h4>
@@ -1676,7 +1936,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1693,7 +1953,69 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>, <a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a>&gt;</td>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>, <span class="xref">wan24.Crypto.MacStreams</span>&gt;</td>
+        <td><p>Written options and used MAC stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_WriteOptions_Stream_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.WriteOptions(Stream%2CStream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L407">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionHelper_WriteOptions_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptions*"></a>
+  <h4 id="wan24_Crypto_EncryptionHelper_WriteOptions_Stream_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptions(Stream,Stream,wan24.Crypto.CryptoOptions)">WriteOptions(Stream, Stream, CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Write the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (CryptoOptions Options, MacStreams MacStream) WriteOptions(Stream rawData, Stream cipherData, CryptoOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>, <span class="xref">wan24.Crypto.MacStreams</span>&gt;</td>
         <td><p>Written options and used MAC stream</p>
 </td>
       </tr>
@@ -1704,7 +2026,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_WriteOptions_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.WriteOptions(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L302">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L372">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_WriteOptions_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptions*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_WriteOptions_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptions(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions)">WriteOptions(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions)</h4>
@@ -1744,7 +2066,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1761,7 +2083,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>, <a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a>&gt;</td>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>, <span class="xref">wan24.Crypto.MacStreams</span>&gt;</td>
         <td><p>Written options and used MAC stream</p>
 </td>
       </tr>
@@ -1772,7 +2094,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_WriteOptionsAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.WriteOptionsAsync(Stream%2CStream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L368">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L451">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_WriteOptionsAsync_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptionsAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_WriteOptionsAsync_Stream_Stream_System_Byte___wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptionsAsync(Stream,Stream,System.Byte[],wan24.Crypto.CryptoOptions,CancellationToken)">WriteOptionsAsync(Stream, Stream, Byte[], CryptoOptions, CancellationToken)</h4>
@@ -1812,7 +2134,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1835,7 +2157,75 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>, <a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>, <span class="xref">wan24.Crypto.MacStreams</span>&gt;&gt;</td>
+        <td><p>Written options and used MAC stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_WriteOptionsAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.WriteOptionsAsync(Stream%2CStream%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L471">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionHelper_WriteOptionsAsync_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptionsAsync*"></a>
+  <h4 id="wan24_Crypto_EncryptionHelper_WriteOptionsAsync_Stream_Stream_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptionsAsync(Stream,Stream,wan24.Crypto.CryptoOptions,CancellationToken)">WriteOptionsAsync(Stream, Stream, CryptoOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Write the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;(CryptoOptions Options, MacStreams MacStream)&gt; WriteOptionsAsync(Stream rawData, Stream cipherData, CryptoOptions options = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">rawData</span></td>
+        <td><p>Raw data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">cipherData</span></td>
+        <td><p>Cipher data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>, <span class="xref">wan24.Crypto.MacStreams</span>&gt;&gt;</td>
         <td><p>Written options and used MAC stream</p>
 </td>
       </tr>
@@ -1846,7 +2236,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionHelper_WriteOptionsAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionHelper.WriteOptionsAsync(Stream%2CStream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L339">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionHelper.cs/#L422">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionHelper_WriteOptionsAsync_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptionsAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionHelper_WriteOptionsAsync_Stream_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_CancellationToken_" data-uid="wan24.Crypto.EncryptionHelper.WriteOptionsAsync(Stream,Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,CancellationToken)">WriteOptionsAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions, CancellationToken)</h4>
@@ -1886,7 +2276,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options</p>
 </td>
@@ -1909,7 +2299,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>, <a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">wan24.Crypto.CryptoOptions</span>, <span class="xref">wan24.Crypto.MacStreams</span>&gt;&gt;</td>
         <td><p>Written options and used MAC stream</p>
 </td>
       </tr>
