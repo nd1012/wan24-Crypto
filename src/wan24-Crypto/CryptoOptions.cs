@@ -104,6 +104,11 @@ namespace wan24.Crypto
         public string? MacAlgorithm { get; set; }
 
         /// <summary>
+        /// MAC password
+        /// </summary>
+        public byte[]? MacPassword { get; set; }
+
+        /// <summary>
         /// KDF algorithm name
         /// </summary>
         [StringLength(byte.MaxValue)]
@@ -377,6 +382,11 @@ namespace wan24.Crypto
                 Mac.Clear();
                 Mac = null;
             }
+            if(MacPassword is not null)
+            {
+                MacPassword.Clear();
+                MacPassword = null;
+            }
             if (Password is not null)
             {
                 Password.Clear();
@@ -396,6 +406,7 @@ namespace wan24.Crypto
             MaxUncompressedDataLength = MaxUncompressedDataLength,
             Algorithm = Algorithm,
             MacAlgorithm = MacAlgorithm,
+            MacPassword = MacPassword?.CloneArray(),
             KdfAlgorithm = KdfAlgorithm,
             KdfIterations = KdfIterations,
             KdfOptions = KdfOptions,

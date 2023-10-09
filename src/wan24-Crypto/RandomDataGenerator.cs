@@ -150,6 +150,26 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Add seed to the RNG
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        public virtual void AddSeed(ReadOnlySpan<byte> seed)
+        {
+            if (RND.Generator != this) RND.AddSeed(seed);
+            else RND.AddURandomSeed(seed);
+        }
+
+        /// <summary>
+        /// Add seed to the RNG
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public virtual Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+            => RND.Generator != this
+                ? RND.AddSeedAsync(seed, cancellationToken)
+                : RND.AddURandomSeedAsync(seed, cancellationToken);
+
+        /// <summary>
         /// Fill a buffer with random data (used as fallback; override to define a custom fallback RNG, when not using the <see cref="Rng"/> and <see cref="RngAsync"/> delegates)
         /// </summary>
         /// <param name="buffer">Buffer</param>

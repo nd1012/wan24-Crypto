@@ -22,6 +22,10 @@ namespace wan24.Crypto
         /// </summary>
         internal static RNGAsync_Delegate _FillBytesAsync = DefaultRngAsync;
         /// <summary>
+        /// URandom seeder
+        /// </summary>
+        private static readonly Stream? URandomSeeder;
+        /// <summary>
         /// Has <c>/dev/urandom</c>?
         /// </summary>
         public static readonly bool HasDevUrandom;
@@ -29,7 +33,13 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        static RND() => UseDevUrandom = HasDevUrandom = !ENV.IsBrowserApp && !ENV.IsWindows && File.Exists(URANDOM);
+        static RND()
+        {
+            UseDevUrandom = HasDevUrandom = !ENV.IsBrowserApp && !ENV.IsWindows && File.Exists(URANDOM);
+            URandomSeeder = HasDevUrandom
+                ? new SynchronizedStream(new FileStream(URANDOM, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
+                : null;
+        }
 
         /// <summary>
         /// Random data generator service
@@ -88,6 +98,40 @@ namespace wan24.Crypto
             byte[] res = new byte[count];
             await FillBytesAsync(res).DynamicContext();
             return res;
+        }
+
+        /// <summary>
+        /// Add seed to the RNG
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        public static void AddSeed(ReadOnlySpan<byte> seed)
+        {
+            if (Generator is not null) Generator.AddSeed(seed);
+            else AddURandomSeed(seed);
+        }
+
+        /// <summary>
+        /// Add seed to the RNG
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public static Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+            => Generator is null ? AddURandomSeedAsync(seed, cancellationToken) : Generator.AddSeedAsync(seed, cancellationToken);
+
+        /// <summary>
+        /// Add seed to <c>/dev/urandom</c> (if available)
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        public static void AddURandomSeed(ReadOnlySpan<byte> seed) => URandomSeeder?.Write(seed);
+
+        /// <summary>
+        /// Add seed to <c>/dev/urandom</c> (if available)
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public static async Task AddURandomSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+        {
+            if (URandomSeeder is not null) await URandomSeeder.WriteAsync(seed, cancellationToken).DynamicContext();
         }
 
         /// <summary>

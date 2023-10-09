@@ -94,6 +94,10 @@ byte[] mac = rawData.Mac(password);
 
 The default MAC algorithm is HMAC-SHA512.
 
+**NOTE**: The `CryptoOptions.MacPassword` won't be used here, since you have 
+to specify the MAC password in the method call already. The `MacPassword` is 
+only used during encryption, if it is different from the encryption key.
+
 ### KDF (key stretching)
 
 ```cs
@@ -137,6 +141,11 @@ The default algorithms used:
 | HMAC | HMAC-SHA512 |
 | KDF | PBKDF#2 |
 | Asymmetric key exchange and digital signature | Diffie Hellman secp521r1 |
+
+**NOTE**: The `CryptoOptions.MacPassword` will optionally be used, if an 
+additional MAC is being computed, but it doesn't affect the AEAD included MAC, 
+which is going to be calculated separately. If no `MacPassword` was set, the 
+final encryption password is going to be used instead.
 
 #### Using asymmetric keys for encryption
 
@@ -254,6 +263,10 @@ sections, it's easy to overview:
 | Encryption | `Algorithm` | Encryption algorithm name | `null` (`AES256CBC`) |
 |  | `FlagsIncluded` | Are the flags included in the header? | `true` |
 |  | `RequireFlags` | Are the flags required to be included in the header? | `true` |
+|  | `PrivateKeysStore` | Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to `DefaultPrivateKeysStore`) | `null` |
+|  | `PrivateKeyRevision` | Revision of the used private key suite (may be set automatic) | `0` |
+|  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
+|  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 | MAC | `MacAlgorithm` | MAC algorithm name | `null` (`HMAC-SHA512`) |
 |  | `MacIncluded` | Include a MAC in the header | `true` |
 |  | `RequireMac` | Is the MAC required in the header? | `true` |
@@ -262,6 +275,7 @@ sections, it's easy to overview:
 |  | `RequireCounterMac` | Is the counter MAC required in the header? | `false` |
 |  | `ForceMacCoverWhole` | Force the MAC to cover all data | `false` |
 |  | `RequireMacCoverWhole` | Is the MAC required to cover all data? | `false` |
+|  | `MacPassword` | Password to use for a MAC | `null` |
 | Encryption / Key creation / Signature | `AsymmetricAlgorithm` | Asymmetric algorithm name | `null` (`ECDH` for encryption, `ECDSA` for signature) |
 |  | `AsymmetricCounterAlgorithm` | Asymmetric counter algorithm name | `null` |
 |  | `KeyExchangeData` | Key exchange data (includes counter key exchange data; generated automatic) | `null` |
@@ -270,10 +284,6 @@ sections, it's easy to overview:
 |  | `CounterPrivateKey` | Private key for counter key exchange (required when using a counter asymmetric algorithm) | `null` |
 |  | `PublicKey` | Public key for key exchange (if not using a PFS key) | `null` |
 |  | `CounterPublicKey` | Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key) | `null` |
-|  | `PrivateKeysStore` | Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to `DefaultPrivateKeysStore`) | `null` |
-|  | `PrivateKeyRevision` | Revision of the used private key suite (may be set automatic) | `0` |
-|  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
-|  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 | KDF | `KdfAlgorithm` | KDF algorithm name | `null` (`PBKDF2`) |
 |  | `KdfIterations` | KDF iteration count | `1` |
 |  | `KdfOptions` | String serialized KDF algorithm options | `null` |
@@ -393,6 +403,7 @@ in `DefaultPrivateKeysStore`)
 - `Mac`
 - `HeaderProcessed`
 - `Password`
+- `MacPassword`
 - `Tracer`
 
 ## PKI
@@ -740,9 +751,21 @@ If you use the plain `RandomDataGenerator`, it uses the `RandomStream` as
 random data source, if `/dev/urandom` isn't available or disabled. 
 (`RandomStream` uses `RandomNumberGenerator`, finally.)
 
+There's another `Rng` type, which is a `RandomNumberGenerator` implementation 
+that skips the OS random number generator implementation and uses `RND` 
+instead (also the static methods of `RandomNumberGenerator` are overridden). 
+The `RngHelper` extends any `RandomNumberGenerator` instance with a `GetInt32` 
+method (which applies to customized `Rng` instances, too, since they extend 
+`RandomNumberGenerator`).
+
+**NOTE**: `Rng` implements non-zero random number generation. However, any non-
+zero random byte sequence isn't as random as it could be anymore - keep that 
+in mind.
+
 To sum it up: Use `RND` for (optional customized) getting cyptographic random 
 bytes. You can use `SecureRandomStream.Instance`, too (it uses `RND` on 
-request).
+request). Use `Rng` as (also asynchronous) random integer generator, or where 
+a `RandomNumberGenerator` instance is required.
 
 ## Notes
 
