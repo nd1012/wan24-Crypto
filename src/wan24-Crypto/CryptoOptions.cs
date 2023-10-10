@@ -192,6 +192,11 @@ namespace wan24.Crypto
         public Tracer? Tracer { get; set; }
 
         /// <summary>
+        /// RNG seeding flags (to override <see cref="RND.AutoRngSeeding"/>; won't be serialized!)
+        /// </summary>
+        public RngSeedingTypes? RngSeeding { get; set; }
+
+        /// <summary>
         /// Set the payload
         /// </summary>
         /// <typeparam name="T">Payload type</typeparam>
@@ -443,7 +448,8 @@ namespace wan24.Crypto
             PublicKey = PublicKey,
             CounterPublicKey = CounterPublicKey,
             LeaveOpen = LeaveOpen,
-            Tracer = Tracer
+            Tracer = Tracer,
+            RngSeeding = RngSeeding
         };
 
         /// <inheritdoc/>

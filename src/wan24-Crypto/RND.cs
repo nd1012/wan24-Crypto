@@ -47,6 +47,11 @@ namespace wan24.Crypto
         public static RandomDataGenerator? Generator { get; set; }
 
         /// <summary>
+        /// RNG seed consumer
+        /// </summary>
+        public static ISeedableRng? SeedConsumer { get; set; }
+
+        /// <summary>
         /// Use <c>/dev/urandom</c>, if available?
         /// </summary>
         [CliConfig]
@@ -57,6 +62,12 @@ namespace wan24.Crypto
         /// </summary>
         [CliConfig]
         public static bool RequireDevUrandom { get; set; }
+
+        /// <summary>
+        /// Automatic RNG seeding flags
+        /// </summary>
+        [CliConfig]
+        public static RngSeedingTypes AutoRngSeeding { get; set; }
 
         /// <summary>
         /// Fill a buffer with random bytes
@@ -106,7 +117,8 @@ namespace wan24.Crypto
         /// <param name="seed">Seed</param>
         public static void AddSeed(ReadOnlySpan<byte> seed)
         {
-            if (Generator is not null) Generator.AddSeed(seed);
+            if (SeedConsumer is not null) SeedConsumer.AddSeed(seed);
+            else if (Generator is not null) Generator.AddSeed(seed);
             else AddURandomSeed(seed);
         }
 
@@ -116,7 +128,9 @@ namespace wan24.Crypto
         /// <param name="seed">Seed</param>
         /// <param name="cancellationToken">Cancellation token</param>
         public static Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
-            => Generator is null ? AddURandomSeedAsync(seed, cancellationToken) : Generator.AddSeedAsync(seed, cancellationToken);
+            => SeedConsumer?.AddSeedAsync(seed, cancellationToken) ??
+                Generator?.AddSeedAsync(seed, cancellationToken) ??
+                AddURandomSeedAsync(seed, cancellationToken);
 
         /// <summary>
         /// Add seed to <c>/dev/urandom</c> (if available)

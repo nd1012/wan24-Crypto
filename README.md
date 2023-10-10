@@ -1,7 +1,10 @@
 # wan24-Crypto
 
 This library exports a generic high level crypto API, which allows to use an 
-implemented cryptographic algorithm to be applied using a simple interface.
+implemented cryptographic algorithm to be applied using a simple interface. It 
+also implements abstract and configurable RNG handling, which uses a local 
+(CS)RNG entrophy source, if not overridden and extended with a customized RNG 
+algorithm, which may use a physical entrophy source, too.
 
 Per default these cryptographic algorithms are implemented:
 
@@ -267,6 +270,7 @@ sections, it's easy to overview:
 |  | `PrivateKeyRevision` | Revision of the used private key suite (may be set automatic) | `0` |
 |  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 |  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
+|  | `RngSeeding` | RNG seeding options (overrides `RND.AutoRngSeeding`) | `null` |
 | MAC | `MacAlgorithm` | MAC algorithm name | `null` (`HMAC-SHA512`) |
 |  | `MacIncluded` | Include a MAC in the header | `true` |
 |  | `RequireMac` | Is the MAC required in the header? | `true` |
@@ -766,6 +770,60 @@ To sum it up: Use `RND` for (optional customized) getting cyptographic random
 bytes. You can use `SecureRandomStream.Instance`, too (it uses `RND` on 
 request). Use `Rng` as (also asynchronous) random integer generator, or where 
 a `RandomNumberGenerator` instance is required.
+
+**CAUTION**: True randomness is the most important source of security for any 
+crypto application. PRNG and CSRNG random sources, and even physical phenomen 
+based hardware random sources won't produce _true_ random, and/or can be 
+manipulated in some way to produce predictable random data, unless it's a QRNG 
+source.
+
+### Seeding
+
+Use the `RND.AddSeed(Async)` methods for seeding your RNG. The 
+`AddURandomSeed(Async)` only seed `/dev/urandom`, while when calling 
+`AddSeed(Async)`, the method will try to seed
+
+1. the `RND.SeedConsumer`
+2. the `RND.Generator`
+3. `/dev/urandom`
+
+and return after providing the seed to the first available target, or when 
+there's no target for consuming the seed.
+
+**CAUTION**: Be aware of the patent US10402172B1!
+
+### Seeding automatic
+
+A seedable RNG (`ISeedableRng`) can be seeded automatic using
+
+- received IV bytes
+- received cipher data
+- received random bytes
+
+**CAUTION**: Even if it's extremely unlikely, an untrusted seed source _may_ 
+be able to cause a RNG to produce predictable random data, unless it combines 
+QRNG entrophy.
+
+To enable automatic seeding, set the seed source flags to `RND.AutoRngSeeding`.
+
+Per default the `RND.Generator` will be seeded, unless you specify another 
+seed target in `RND.SeedConsumer`. A seed consumer needs to implement the 
+`ISeedableRng` interface, which `RandomDataGenerator` does, for example.
+
+Seeding during encryption can be overridden using `CryptoOptions.RngSeeding`.
+
+Seeding during PAKE authentication can be overridden using the given options 
+for encryption.
+
+When deserializing the `SignatureContainer` embedded signed data, the nonce 
+will be seeded, if `RND.AutoRngSeeding` has the `Random` flag.
+
+Because seeding may be synchronized, there's a `RngSeederQueue` queue worker, 
+which is a simple hosted service that seeds the given target `ISeedableRng` in 
+background, using a copy of the given seeds. The `RngSeederQueue` may be 
+customized easily by extending the type (pregnant methods are virtual).
+
+**CAUTION**: Be aware of the patent US10402172B1!
 
 ## Notes
 

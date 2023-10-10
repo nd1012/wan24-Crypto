@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Random data generator (uses <c>/dev/urandom</c>, if possible; defaults to <see cref="RandomNumberGenerator"/>)
     /// </summary>
-    public class RandomDataGenerator : HostedServiceBase
+    public class RandomDataGenerator : HostedServiceBase, ISeedableRng
     {
         /// <summary>
         /// Random data
@@ -149,21 +149,14 @@ namespace wan24.Crypto
             return buffer;
         }
 
-        /// <summary>
-        /// Add seed to the RNG
-        /// </summary>
-        /// <param name="seed">Seed</param>
+        /// <inheritdoc/>
         public virtual void AddSeed(ReadOnlySpan<byte> seed)
         {
             if (RND.Generator != this) RND.AddSeed(seed);
             else RND.AddURandomSeed(seed);
         }
 
-        /// <summary>
-        /// Add seed to the RNG
-        /// </summary>
-        /// <param name="seed">Seed</param>
-        /// <param name="cancellationToken">Cancellation token</param>
+        /// <inheritdoc/>
         public virtual Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
             => RND.Generator != this
                 ? RND.AddSeedAsync(seed, cancellationToken)

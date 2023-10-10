@@ -93,6 +93,8 @@ namespace wan24.Crypto
             {
                 byte[] res = new byte[IvSize];
                 if (cipherData.Read(res) != IvSize) throw new IOException($"Failed to read {IvSize} IV bytes");
+                if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
+                    RND.AddSeed(res);
                 return res;
             }
             catch (CryptographicException)
@@ -118,6 +120,8 @@ namespace wan24.Crypto
             {
                 byte[] res = new byte[IvSize];
                 if (await cipherData.ReadAsync(res, cancellationToken).DynamicContext() != IvSize) throw new IOException($"Failed to read {IvSize} IV bytes");
+                if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
+                    await RND.AddSeedAsync(res, cancellationToken).DynamicContext();
                 return res;
             }
             catch (CryptographicException)
@@ -140,9 +144,12 @@ namespace wan24.Crypto
         {
             try
             {
-                return cipherData.ReadBytes(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
+                byte[] res = cipherData.ReadBytes(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
+                if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
+                    RND.AddSeed(res);
+                return res;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw CryptographicException.From($"Failed to read IV bytes: {ex.Message}", ex);
             }
@@ -159,7 +166,10 @@ namespace wan24.Crypto
         {
             try
             {
-                return (await cipherData.ReadBytesAsync(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                byte[] res = (await cipherData.ReadBytesAsync(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
+                    await RND.AddSeedAsync(res, cancellationToken).DynamicContext();
+                return res;
             }
             catch (Exception ex)
             {
