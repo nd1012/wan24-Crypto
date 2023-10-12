@@ -61,11 +61,7 @@ namespace wan24.Crypto
         /// </summary>
         public bool UseDevUrandom { get; set; } = RND.UseDevUrandom;
 
-        /// <summary>
-        /// Get random bytes
-        /// </summary>
-        /// <param name="count">Count</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public byte[] GetBytes(in int count)
         {
             EnsureUndisposed();
@@ -83,12 +79,7 @@ namespace wan24.Crypto
             return res;
         }
 
-        /// <summary>
-        /// Get random bytes
-        /// </summary>
-        /// <param name="count">Count</param>
-        /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public async Task<byte[]> GetBytesAsync(int count, CancellationToken cancellationToken = default)
         {
             EnsureUndisposed();
@@ -106,11 +97,7 @@ namespace wan24.Crypto
             return res;
         }
 
-        /// <summary>
-        /// Fill random bytes
-        /// </summary>
-        /// <param name="buffer">Buffer</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public Span<byte> FillBytes(in Span<byte> buffer)
         {
             EnsureUndisposed();
@@ -127,12 +114,7 @@ namespace wan24.Crypto
             return buffer;
         }
 
-        /// <summary>
-        /// Fill random bytes
-        /// </summary>
-        /// <param name="buffer">Buffer</param>
-        /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public async Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             EnsureUndisposed();

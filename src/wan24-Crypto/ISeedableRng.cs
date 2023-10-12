@@ -1,9 +1,9 @@
 ﻿namespace wan24.Crypto
 {
     /// <summary>
-    /// Interface for a seedable RNG
+    /// Interface for a seedable <see cref="IRng"/>
     /// </summary>
-    public interface ISeedableRng
+    public interface ISeedableRng : IRng
     {
         /// <summary>
         /// Add seed to the RNG

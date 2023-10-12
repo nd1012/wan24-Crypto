@@ -60,11 +60,11 @@ namespace wan24.Crypto
         /// <summary>
         /// Get a random 32 bit integer
         /// </summary>
-        /// <param name="rdg">Random data generator</param>
+        /// <param name="rng">Random data generator</param>
         /// <param name="fromInclusive">From inclusive</param>
         /// <param name="toExclusive">To exclusive</param>
         /// <returns>Random integer</returns>
-        public static int GetInt32(this RandomDataGenerator rdg, int fromInclusive, int toExclusive)
+        public static int GetInt32(this IRng rng, int fromInclusive, int toExclusive)
         {
             /*
              * NOTE: This piece of code is almost a 1:1 copy of the RandomNumberGenerator code, which is licensed under the MIT license by the .NET Foundation. See 
@@ -85,7 +85,7 @@ namespace wan24.Crypto
                 uint result;
                 do
                 {
-                    rdg.FillBytes(MemoryMarshal.AsBytes(resultSpan));
+                    rng.FillBytes(MemoryMarshal.AsBytes(resultSpan));
                     result = mask & resultSpan[0];
                 }
                 while (result > range);
@@ -100,20 +100,20 @@ namespace wan24.Crypto
         /// <summary>
         /// Get a random 32 bit integer
         /// </summary>
-        /// <param name="rdg">Random data generator</param>
+        /// <param name="rng">Random number generator</param>
         /// <param name="toExclusive">To exclusive</param>
         /// <returns>Random integer</returns>
-        public static int GetInt32(this RandomDataGenerator rdg, int toExclusive) => GetInt32(rdg, fromInclusive: 0, toExclusive);
+        public static int GetInt32(this IRng rng, int toExclusive) => GetInt32(rng, fromInclusive: 0, toExclusive);
 
         /// <summary>
         /// Get a random 32 bit integer
         /// </summary>
-        /// <param name="rdg">Random data generator</param>
+        /// <param name="rng">Random number generator</param>
         /// <param name="fromInclusive">From inclusive</param>
         /// <param name="toExclusive">To exclusive</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Random integer</returns>
-        public static async Task<int> GetInt32Async(this RandomDataGenerator rdg, int fromInclusive, int toExclusive, CancellationToken cancellationToken = default)
+        public static async Task<int> GetInt32Async(this IRng rng, int fromInclusive, int toExclusive, CancellationToken cancellationToken = default)
         {
             /*
              * NOTE: This piece of code is almost a 1:1 copy of the RandomNumberGenerator code, which is licensed under the MIT license by the .NET Foundation. See 
@@ -135,7 +135,7 @@ namespace wan24.Crypto
             })
                 do
                 {
-                    await rdg.FillBytesAsync(buffer.Memory, cancellationToken).DynamicContext();
+                    await rng.FillBytesAsync(buffer.Memory, cancellationToken).DynamicContext();
                     result = mask & buffer.Span.ToUInt();
                 }
                 while (result > range);
@@ -145,21 +145,21 @@ namespace wan24.Crypto
         /// <summary>
         /// Get a random 32 bit integer
         /// </summary>
-        /// <param name="rdg">Random data generator</param>
+        /// <param name="rng">Random number generator</param>
         /// <param name="toExclusive">To exclusive</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Random integer</returns>
-        public static Task<int> GetInt32Async(this RandomDataGenerator rdg, int toExclusive, CancellationToken cancellationToken = default)
-            => GetInt32Async(rdg, fromInclusive: 0, toExclusive, cancellationToken);
+        public static Task<int> GetInt32Async(this IRng rng, int toExclusive, CancellationToken cancellationToken = default)
+            => GetInt32Async(rng, fromInclusive: 0, toExclusive, cancellationToken);
 
         /// <summary>
         /// Get non-zero random bytes
         /// </summary>
-        /// <param name="rdg">Random data generator</param>
+        /// <param name="rng">Random number generator</param>
         /// <param name="data">Data</param>
-        public static void GetNonZeroBytes(this RandomDataGenerator rdg, Span<byte> data)
+        public static void GetNonZeroBytes(this IRng rng, Span<byte> data)
         {
-            rdg.FillBytes(data);
+            rng.FillBytes(data);
             if (data.IndexOf((byte)0) == -1) return;
             int i;
             List<int> zeroIndex = new(),
@@ -172,9 +172,9 @@ namespace wan24.Crypto
                     Clear = true
                 };
                 for (
-                    rdg.FillBytes(buffer.Span);
+                    rng.FillBytes(buffer.Span);
                     ;
-                    zeroIndex.Clear(), zeroIndex.AddRange(newZeroIndex), newZeroIndex.Clear(), rdg.FillBytes(buffer.Span[..zeroIndex.Count])
+                    zeroIndex.Clear(), zeroIndex.AddRange(newZeroIndex), newZeroIndex.Clear(), rng.FillBytes(buffer.Span[..zeroIndex.Count])
                     )
                 {
                     for (i = 0; i != zeroIndex.Count; i++)
@@ -195,12 +195,12 @@ namespace wan24.Crypto
         /// <summary>
         /// Get non-zero random bytes
         /// </summary>
-        /// <param name="rdg">Random data generator</param>
+        /// <param name="rng">Random number generator</param>
         /// <param name="data">Data</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        public static async Task GetNonZeroBytesAsync(this RandomDataGenerator rdg, Memory<byte> data, CancellationToken cancellationToken = default)
+        public static async Task GetNonZeroBytesAsync(this IRng rng, Memory<byte> data, CancellationToken cancellationToken = default)
         {
-            await rdg.FillBytesAsync(data, cancellationToken).DynamicContext();
+            await rng.FillBytesAsync(data, cancellationToken).DynamicContext();
             if (data.IndexOf((byte)0) == -1) return;
             int i;
             List<int> zeroIndex = new(),
@@ -212,7 +212,7 @@ namespace wan24.Crypto
                 {
                     Clear = true
                 };
-                await rdg.FillBytesAsync(buffer.Memory, cancellationToken).DynamicContext();
+                await rng.FillBytesAsync(buffer.Memory, cancellationToken).DynamicContext();
                 for (
                     ;
                     ;
@@ -230,7 +230,7 @@ namespace wan24.Crypto
                             data.Span[i] = buffer.Span[i];
                         }
                     if (newZeroIndex is null || newZeroIndex.Count == 0) return;
-                    await rdg.FillBytesAsync(buffer.Memory[..newZeroIndex.Count], cancellationToken).DynamicContext();
+                    await rng.FillBytesAsync(buffer.Memory[..newZeroIndex.Count], cancellationToken).DynamicContext();
                 }
             }
         }

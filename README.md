@@ -473,6 +473,49 @@ key. The PKI may also host revoked keys. By revoking a key, it'll be removed
 from the trusted root/granted key tables, and `GetKey` will throw on key 
 request.
 
+### Signed attributes and other PKI extensions
+
+The signed attributes are fully customizable and not pre-defined at all, 
+you're the designer of your own PKI implementation. In order you want some 
+inspiration and ideas, you may have a look at the `SignedAttributes` class, 
+wich contains some examples/suggestions for signed attributes and their names.
+
+| Name | Usage |
+| ---- | ----- |
+| Domain | PKI domain name to identify/validate the keys PKI |
+| OwnerId | Foreign owner ID for loading meta data from a store (should be encrypted by the PKI host) |
+| KeyValidationUri | URI that should point to a RESTful API for online key revokation validation |
+| GrantedKeyUsages | Allowed usages for the signed key |
+| KePublicKey | Identifier of the public key for the key exchange with the owner |
+| KePublicCounterKey | Identifier of the public counter key for the key exchange with the owner |
+| SigPublicKey | Identifier of the public signature key of the owner |
+| SigPublicCounterKey | Identifier of the public signature counter key of the owner |
+| CipherSuite | Serialized `CryptoOptions` to use with the signed key owner |
+| Serial | Serial number (the key revision of the owner context) |
+
+Some key meta data like the creation and expiration time, or a nonce, is 
+included in a lower level in the `AsymmetricSignedPublicKey` already, and 
+don't need to appear in the signed attribute list again.
+
+A key signing request may algo contain more attributes than the final signed 
+key, if you want to give signing instructions to the PKI, for example. The PKI 
+may remove/replace those instructions, for example.
+
+As said before, the list above doesn't need to be implemented fully, and it 
+may be extended with any attribute that your PKI requires in addition. There 
+are only suggestions for value formats - but how you implement it finally, is 
+your business only. If you implement the suggested attributes and value 
+formats, you'll have a fully usable PKI. In addition a key revokation list 
+would be a nice feature (as a part of a RESTful PKI API). For a trusted root 
+key list you could use the `PublicKeySuiteStore`, for example. A key 
+revokation list may only contain the IDs of revoked keys, which are not yet 
+expired.
+
+You can use the `AsymmetricKeySigner` as template for a key signing request 
+handler, which supports the attributes from above. You should implement 
+algorithm validation etc. for a key signing request by yourself, since such 
+requirements are not really good to match with a basic API.
+
 ## PAKE
 
 `Pake` (see tests) can be used for implementing a password authenticated key 
@@ -825,6 +868,86 @@ customized easily by extending the type (pregnant methods are virtual).
 
 **CAUTION**: Be aware of the patent US10402172B1!
 
+### Online seeding
+
+The `RngOnlineSeedTimer` is a hosted service, which receives fresh seed bytes 
+in an interval from an URI by sending a GET request. The basic implementation 
+is highly customizable and uses `https://qrng.wan24.de/seed/qrng256.bin` per 
+default. The first seed will be received during startup, and then refreshed 
+about every 8 hours.
+
+**CAUTION**: Be aware of the patent US10402172B1! The used default seed 
+service is free and private and comes without any warranty!
+
+`https://qrng.wan24.de/seed/qrng256.bin` contains 256 fresh CSRNG generated 
+bytes about every 60 seconds. The CSRNG will be seeded with fresh QRNG bytes 
+every 8 hours. When using this service, the best practice would be to combine 
+the received seed with random bytes from `RND`, which is the default behavior 
+of `RngOnlineSeedTimer` and may be disabled by setting `XorRnd` to `false`.
+
+**TIP**: By giving a pre-configured `HttpClient` to the constructor, you may 
+also pre-define headers to send (for authentication, for example), to attach 
+to any online seed service, which returns a binary stream. If the returned 
+value is a JSON object, for example, you'd need to extend the 
+`RngOnlineSeedTimer` class and override the `RequestSeedAsync` method in order 
+to be able to use the result.
+
+### Some words on secure seeding
+
+A PRNG isn't enough, and even a CSRNG isn't enough, if the RNG's seed is not 
+good. Modern OS CSRNG implementations use hardware and software environment 
+information like
+
+- system clock
+- IP stack I/O timings
+- temperature sensors values
+- environment sounds
+- harddisc values
+- user information digest
+- process ID
+- thread ID
+- ...and so on.
+
+But this still isn't really good, because all sources can be manipulated 
+and/or predicted. The only really good seed source is a quantum device which 
+is used by a QRNG. But not everyone has access to a QRNG, and the hardware is 
+expensive, too.
+
+A company may decide to buy a QRNG hardware, which is a good investment in 
+2023, since quantum computing resources are becoming available to anyone now, 
+and the development speed is really amazing (and will speed up more with the 
+also fast growing AI possibilities!).
+
+But a private person might run into problems, unless there's a free QRNG seed 
+source available online, hopefully for free. It'll take some time until 
+enduser systems will contain a chip which can produce QRNG sequences on the 
+local mashine, and isn't too expensive, so everyone can afford to own one.
+
+Anyway, when using a CSRNG, finally, it should be re-seeded as often as 
+possible, because if a CSRNG output is being collected over a time, and the 
+underlaying algorithm is known, the future output becomes predictable - and 
+this is something you'd like to avoid as good as possible. There are several 
+steps that you should implement fully, if possible in any way:
+
+1. Use a PRNG and seed it with CSRNG data from the operating system
+2. Wrap the PRNG with a CSRNG which uses an underlaying stream cipher to 
+encrypt the PRNG's random data stream
+3. Re-seed the PRNG as often as possible using at last CSRNG data from the 
+operating system, and if possible in combination with entrophy from a QRNG
+
+Of course the best solution would be to use a QRNG instead of a PRNG in step 
+1, because then you wouldn't need to re-seed usually. But step 2 is important 
+in all cases, please don't miss it! A good practice is to combine multiple 
+entrophy sources, at last for seeding, but also for the RNG's output, which 
+you're going to use for symmetric keys (DEK), for example.
+
+If you carefully red and understood this information, you should get quiet 
+good results with a CSRNG already, even you don't have access to a quantum 
+entrophy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should 
+offer everything a C# developer needs for a better random number source.
+
+**NOTE**: Even the best PQC algorithm will _fail_ without a good RNG!
+
 ## Notes
 
 Sometimes you'll read something like "will be disposed" or "will be cleared" 
@@ -967,7 +1090,8 @@ method will throw an exception.
 **NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
 quantum-safe algorithms, while currently no post quantum-safe asymmetric 
 algorithms are implemented in this main library (`wan24-Crypto-BC` does 
-implement some).
+implement some), since .NET doesn't offer any API (this may change with 
+coming .NET releases).
 
 ## Disclaimer
 

@@ -47,5 +47,17 @@ namespace wan24.Crypto
             using SecureByteArrayStructSimple seed = new(item);
             await RNG.AddSeedAsync(seed.Memory, cancellationToken).DynamicContext();
         }
+
+        /// <inheritdoc/>
+        Span<byte> IRng.FillBytes(in Span<byte> buffer) => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        Task<Memory<byte>> IRng.FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken) => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        byte[] IRng.GetBytes(in int count) => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        Task<byte[]> IRng.GetBytesAsync(int count, CancellationToken cancellationToken) => throw new NotSupportedException();
     }
 }

@@ -42,9 +42,9 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Random data generator service
+        /// Random data generator
         /// </summary>
-        public static RandomDataGenerator? Generator { get; set; }
+        public static IRng? Generator { get; set; }
 
         /// <summary>
         /// RNG seed consumer
@@ -118,7 +118,7 @@ namespace wan24.Crypto
         public static void AddSeed(ReadOnlySpan<byte> seed)
         {
             if (SeedConsumer is not null) SeedConsumer.AddSeed(seed);
-            else if (Generator is not null) Generator.AddSeed(seed);
+            else if (Generator is ISeedableRng seedableRng) seedableRng.AddSeed(seed);
             else AddURandomSeed(seed);
         }
 
@@ -129,7 +129,7 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         public static Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
             => SeedConsumer?.AddSeedAsync(seed, cancellationToken) ??
-                Generator?.AddSeedAsync(seed, cancellationToken) ??
+                (Generator as ISeedableRng)?.AddSeedAsync(seed, cancellationToken) ??
                 AddURandomSeedAsync(seed, cancellationToken);
 
         /// <summary>

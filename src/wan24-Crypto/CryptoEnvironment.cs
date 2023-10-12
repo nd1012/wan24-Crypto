@@ -43,6 +43,8 @@ namespace wan24.Crypto
             if (options.DefaultServerPublicKeyValidator is not null) ClientAuth.DefaultServerPublicKeyValidator = options.DefaultServerPublicKeyValidator;
             if (options.DefaultClientAuthOptions is not null) ClientAuthOptions.DefaultOptions = options.DefaultClientAuthOptions;
             if (options.DefaultPakeClientAuthOptions is not null) PakeClientAuthOptions.DefaultOptions = options.DefaultPakeClientAuthOptions;
+            if (options.AsymmetricKeySigner is not null) AsymmetricKeySigner.Instance = options.AsymmetricKeySigner;
+            if (options.AsymmetricKeySignerService is not null) AsymmetricKeySignerService.Instance = options.AsymmetricKeySignerService;
         }
 
         /// <summary>

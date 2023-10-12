@@ -174,6 +174,16 @@ namespace wan24.Crypto
             /// Default for <see cref="CryptoOptions.DefaultFlagsIncluded"/>
             /// </summary>
             public bool? DefaultFlagsIncluded { get; set; }
+
+            /// <summary>
+            /// <see cref="AsymmetricPublicKeySigningRequest"/> signer
+            /// </summary>
+            public AsymmetricKeySigner? AsymmetricKeySigner { get; set; }
+
+            /// <summary>
+            /// <see cref="AsymmetricPublicKeySigningRequest"/> signer service
+            /// </summary>
+            public AsymmetricKeySignerService? AsymmetricKeySignerService { get; set; }
         }
     }
 }
