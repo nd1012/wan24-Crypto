@@ -2,6 +2,8 @@
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
+//TODO Use EquatableArray
+
 namespace wan24.Crypto
 {
     /// <summary>

@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Random number generator
     /// </summary>
-    public class Rng : RandomNumberGenerator
+    public class Rng : RandomNumberGenerator, IRng
     {
         /// <summary>
         /// Singleton instance
@@ -115,6 +115,38 @@ namespace wan24.Crypto
                     await RND.FillBytesAsync(buffer.Memory[..newZeroIndex.Count]).DynamicContext();
                 }
             }
+        }
+
+        /// <inheritdoc/>
+        public virtual byte[] GetBytes(in int count)
+        {
+            if (count < 1) return Array.Empty<byte>();
+            byte[] res = new byte[count];
+            GetBytes(res);
+            return res;
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<byte[]> GetBytesAsync(int count, CancellationToken cancellationToken = default)
+        {
+            if (count < 1) return Task.FromResult(Array.Empty<byte>());
+            byte[] res = new byte[count];
+            GetBytes(res);
+            return Task.FromResult(res);
+        }
+
+        /// <inheritdoc/>
+        public virtual Span<byte> FillBytes(in Span<byte> buffer)
+        {
+            GetBytes(buffer);
+            return buffer;
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
+        {
+            GetBytes(buffer.Span);
+            return Task.FromResult(buffer);
         }
 
         /// <inheritdoc/>

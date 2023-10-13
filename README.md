@@ -868,30 +868,6 @@ customized easily by extending the type (pregnant methods are virtual).
 
 **CAUTION**: Be aware of the patent US10402172B1!
 
-### Online seeding
-
-The `RngOnlineSeedTimer` is a hosted service, which receives fresh seed bytes 
-in an interval from an URI by sending a GET request. The basic implementation 
-is highly customizable and uses `https://qrng.wan24.de/seed/qrng256.bin` per 
-default. The first seed will be received during startup, and then refreshed 
-about every 8 hours.
-
-**CAUTION**: Be aware of the patent US10402172B1! The used default seed 
-service is free and private and comes without any warranty!
-
-`https://qrng.wan24.de/seed/qrng256.bin` contains 256 fresh CSRNG generated 
-bytes about every 60 seconds. The CSRNG will be seeded with fresh QRNG bytes 
-every 8 hours. When using this service, the best practice would be to combine 
-the received seed with random bytes from `RND`, which is the default behavior 
-of `RngOnlineSeedTimer` and may be disabled by setting `XorRnd` to `false`.
-
-**TIP**: By giving a pre-configured `HttpClient` to the constructor, you may 
-also pre-define headers to send (for authentication, for example), to attach 
-to any online seed service, which returns a binary stream. If the returned 
-value is a JSON object, for example, you'd need to extend the 
-`RngOnlineSeedTimer` class and override the `RequestSeedAsync` method in order 
-to be able to use the result.
-
 ### Some words on secure seeding
 
 A PRNG isn't enough, and even a CSRNG isn't enough, if the RNG's seed is not 
@@ -946,7 +922,55 @@ good results with a CSRNG already, even you don't have access to a quantum
 entrophy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should 
 offer everything a C# developer needs for a better random number source.
 
-**NOTE**: Even the best PQC algorithm will _fail_ without a good RNG!
+**NOTE**: Even the best PQC algorithm will _fail_ when not using a good RNG!
+
+## Object encryption
+
+By using the `DekAttribute` and `EncryptAttribute` (and optional the 
+`IEncryptProperties` interface) you can en-/decrypt objects with the 
+`ObjectEncryption` helper methods/extensions:
+
+```cs
+public class YourType : IEncryptProperties
+{
+    [Dek]
+    public byte[] Dek { get; set; } = null!;
+
+    [Encrypt]
+    public byte[] Raw { get; set; } = null!;
+}
+```
+
+**NOTE**: `null` values won't be en-/decrypted! Using the 
+`IEncryptPropertiesExt` interface your object can define en-/decryption 
+handler methods.
+
+The `Dek` will hold a random data encryption key, while all properties having 
+the `Encrypt` attribute will be encrypted using that DEK:
+
+```cs
+YourType obj = new()
+{
+    Raw = ...
+};
+obj.EncryptObject(kek);
+```
+
+**NOTE**: The real object type will be used for finding properties to process, 
+not the generic method argument of `EncryptObject` and `DecryptObject`.
+
+The `kek` holds the key, which is used for the DEK encryption. Use 
+`DecryptObject` for decryption.
+
+The `DekAttribute` and `EncryptAttribute` can be extended to override the 
+methods that are used to get/set values.
+
+The rules for the used keys are simple:
+
+1. If you have a `Dek` property, it'll be used to store a KEK encrypted random 
+DEK (which will be (re-)generated for each encryption)
+2. If you don't have a `Dek` property, you'll need to specify the DEK in the 
+method parameters (and of course no KEK parameter value is required)
 
 ## Notes
 

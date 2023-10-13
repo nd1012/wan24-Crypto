@@ -8,6 +8,11 @@ namespace wan24.Crypto
     public sealed class XorRng : RngBase
     {
         /// <summary>
+        /// Number of RNGs to combine
+        /// </summary>
+        private readonly int Count;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="rngs">RNGs to use</param>
@@ -15,6 +20,7 @@ namespace wan24.Crypto
         {
             if (rngs.Length < 2) throw new ArgumentOutOfRangeException(nameof(rngs), "Need at last 2 RNGs");
             RNG = rngs;
+            Count = rngs.Length;
         }
 
         /// <summary>
@@ -30,7 +36,7 @@ namespace wan24.Crypto
             {
                 Clear = true
             };
-            for (int i = 0, len = RNG.Length; i != len; RNG[i].FillBytes(res.Span), buffer.Xor(res.Span), i++) ;
+            for (int i = 0; i != Count; RNG[i].FillBytes(res.Span), buffer.Xor(res.Span), i++) ;
             return buffer;
         }
 
@@ -42,7 +48,7 @@ namespace wan24.Crypto
             {
                 Clear = true
             };
-            for (int i = 0, len = RNG.Length; i != len; await RNG[i].FillBytesAsync(res.Memory, cancellationToken).DynamicContext(), buffer.Span.Xor(res.Span), i++) ;
+            for (int i = 0; i != Count; await RNG[i].FillBytesAsync(res.Memory, cancellationToken).DynamicContext(), buffer.Span.Xor(res.Span), i++) ;
             return buffer;
         }
     }

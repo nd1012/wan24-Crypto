@@ -3,14 +3,15 @@
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Base class for a RNG
+    /// Base class for a disposable RNG
     /// </summary>
-    public abstract class RngBase : IRng
+    public abstract class DisposableRngBase : DisposableBase, IRng
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        protected RngBase() { }
+        /// <param name="asyncDisposing">Asynchronous disposing?</param>
+        protected DisposableRngBase(bool asyncDisposing = true) : base(asyncDisposing) { }
 
         /// <inheritdoc/>
         public abstract Span<byte> FillBytes(in Span<byte> buffer);
