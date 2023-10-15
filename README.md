@@ -1036,6 +1036,7 @@ are the official implementation IDs (not guaranteed to be complete):
 | FALCON | 4 | wan24-Crypto-BC |
 | SPHINCS+ | 5 | wan24-Crypto-BC |
 | FrodoKEM | 6 | wan24-Crypto-BC |
+| NTRUEncrypt | 7 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
 | AES-256-CBC | 0 | wan24-Crypto |
 | ChaCha20 | 1 | wan24-Crypto-BC |
