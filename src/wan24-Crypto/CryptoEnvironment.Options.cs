@@ -116,6 +116,11 @@ namespace wan24.Crypto
             public RandomDataGenerator? RandomGenerator { get; set; } = CryptoEnvironment.RandomGenerator;
 
             /// <summary>
+            /// RNG seed consumer
+            /// </summary>
+            public ISeedableRng? SeedConsumer { get; set; }
+
+            /// <summary>
             /// Use <c>/dev/urandom</c>, if available?
             /// </summary>
             public bool? UseDevUrandom { get; set; }
@@ -124,6 +129,11 @@ namespace wan24.Crypto
             /// Require <c>/dev/urandom</c> (will throw, if not available)?
             /// </summary>
             public bool? RequireDevUrandom { get; set; }
+
+            /// <summary>
+            /// Automatic RNG seeding flags
+            /// </summary>
+            public RngSeedingTypes? AutoRngSeeding { get; set; }
 
             /// <summary>
             /// Delegate for filling a buffer with random bytes
@@ -164,6 +174,16 @@ namespace wan24.Crypto
             /// Default for <see cref="CryptoOptions.DefaultFlagsIncluded"/>
             /// </summary>
             public bool? DefaultFlagsIncluded { get; set; }
+
+            /// <summary>
+            /// <see cref="AsymmetricPublicKeySigningRequest"/> signer
+            /// </summary>
+            public AsymmetricKeySigner? AsymmetricKeySigner { get; set; }
+
+            /// <summary>
+            /// <see cref="AsymmetricPublicKeySigningRequest"/> signer service
+            /// </summary>
+            public AsymmetricKeySignerService? AsymmetricKeySignerService { get; set; }
         }
     }
 }

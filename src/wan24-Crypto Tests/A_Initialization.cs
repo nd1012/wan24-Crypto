@@ -16,8 +16,13 @@ namespace wan24_Crypto_Tests
             Logging.Logger = LoggerFactory.CreateLogger("Tests");
             ValidateObject.Logger = (message) => Logging.WriteDebug(message);
             TypeHelper.Instance.ScanAssemblies(typeof(A_Initialization).Assembly);
-            wan24.Core.Bootstrap.Async().Wait();
+            Bootstrap.Async().Wait();
             wan24.Crypto.Bootstrap.Boot();
+            DisposableBase.CreateStackInfo = true;
+            ErrorHandling.ErrorHandler = (info) =>
+            {
+                if(info.Exception is StackInfoException six) Logging.WriteError(six.StackInfo.Stack);
+            };
             ValidateObject.Logger("wan24-Crypto Tests initialized");
         }
     }

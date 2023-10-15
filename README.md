@@ -1,7 +1,10 @@
 # wan24-Crypto
 
 This library exports a generic high level crypto API, which allows to use an 
-implemented cryptographic algorithm to be applied using a simple interface.
+implemented cryptographic algorithm to be applied using a simple interface. It 
+also implements abstract and configurable RNG handling, which uses a local 
+(CS)RNG entropy source, if not overridden and extended with a customized RNG 
+algorithm, which may use a physical entropy source, too.
 
 Per default these cryptographic algorithms are implemented:
 
@@ -94,6 +97,10 @@ byte[] mac = rawData.Mac(password);
 
 The default MAC algorithm is HMAC-SHA512.
 
+**NOTE**: The `CryptoOptions.MacPassword` won't be used here, since you have 
+to specify the MAC password in the method call already. The `MacPassword` is 
+only used during encryption, if it is different from the encryption key.
+
 ### KDF (key stretching)
 
 ```cs
@@ -137,6 +144,11 @@ The default algorithms used:
 | HMAC | HMAC-SHA512 |
 | KDF | PBKDF#2 |
 | Asymmetric key exchange and digital signature | Diffie Hellman secp521r1 |
+
+**NOTE**: The `CryptoOptions.MacPassword` will optionally be used, if an 
+additional MAC is being computed, but it doesn't affect the AEAD included MAC, 
+which is going to be calculated separately. If no `MacPassword` was set, the 
+final encryption password is going to be used instead.
 
 #### Using asymmetric keys for encryption
 
@@ -254,6 +266,11 @@ sections, it's easy to overview:
 | Encryption | `Algorithm` | Encryption algorithm name | `null` (`AES256CBC`) |
 |  | `FlagsIncluded` | Are the flags included in the header? | `true` |
 |  | `RequireFlags` | Are the flags required to be included in the header? | `true` |
+|  | `PrivateKeysStore` | Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to `DefaultPrivateKeysStore`) | `null` |
+|  | `PrivateKeyRevision` | Revision of the used private key suite (may be set automatic) | `0` |
+|  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
+|  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
+|  | `RngSeeding` | RNG seeding options (overrides `RND.AutoRngSeeding`) | `null` |
 | MAC | `MacAlgorithm` | MAC algorithm name | `null` (`HMAC-SHA512`) |
 |  | `MacIncluded` | Include a MAC in the header | `true` |
 |  | `RequireMac` | Is the MAC required in the header? | `true` |
@@ -262,6 +279,7 @@ sections, it's easy to overview:
 |  | `RequireCounterMac` | Is the counter MAC required in the header? | `false` |
 |  | `ForceMacCoverWhole` | Force the MAC to cover all data | `false` |
 |  | `RequireMacCoverWhole` | Is the MAC required to cover all data? | `false` |
+|  | `MacPassword` | Password to use for a MAC | `null` |
 | Encryption / Key creation / Signature | `AsymmetricAlgorithm` | Asymmetric algorithm name | `null` (`ECDH` for encryption, `ECDSA` for signature) |
 |  | `AsymmetricCounterAlgorithm` | Asymmetric counter algorithm name | `null` |
 |  | `KeyExchangeData` | Key exchange data (includes counter key exchange data; generated automatic) | `null` |
@@ -270,10 +288,6 @@ sections, it's easy to overview:
 |  | `CounterPrivateKey` | Private key for counter key exchange (required when using a counter asymmetric algorithm) | `null` |
 |  | `PublicKey` | Public key for key exchange (if not using a PFS key) | `null` |
 |  | `CounterPublicKey` | Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key) | `null` |
-|  | `PrivateKeysStore` | Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to `DefaultPrivateKeysStore`) | `null` |
-|  | `PrivateKeyRevision` | Revision of the used private key suite (may be set automatic) | `0` |
-|  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
-|  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 | KDF | `KdfAlgorithm` | KDF algorithm name | `null` (`PBKDF2`) |
 |  | `KdfIterations` | KDF iteration count | `1` |
 |  | `KdfOptions` | String serialized KDF algorithm options | `null` |
@@ -393,6 +407,7 @@ in `DefaultPrivateKeysStore`)
 - `Mac`
 - `HeaderProcessed`
 - `Password`
+- `MacPassword`
 - `Tracer`
 
 ## PKI
@@ -457,6 +472,49 @@ The `GetKey` methods will find the hosted key with the given ID of the public
 key. The PKI may also host revoked keys. By revoking a key, it'll be removed 
 from the trusted root/granted key tables, and `GetKey` will throw on key 
 request.
+
+### Signed attributes and other PKI extensions
+
+The signed attributes are fully customizable and not pre-defined at all, 
+you're the designer of your own PKI implementation. In order you want some 
+inspiration and ideas, you may have a look at the `SignedAttributes` class, 
+wich contains some examples/suggestions for signed attributes and their names.
+
+| Name | Usage |
+| ---- | ----- |
+| Domain | PKI domain name to identify/validate the keys PKI |
+| OwnerId | Foreign owner ID for loading meta data from a store (should be encrypted by the PKI host) |
+| KeyValidationUri | URI that should point to a RESTful API for online key revokation validation |
+| GrantedKeyUsages | Allowed usages for the signed key |
+| KePublicKey | Identifier of the public key for the key exchange with the owner |
+| KePublicCounterKey | Identifier of the public counter key for the key exchange with the owner |
+| SigPublicKey | Identifier of the public signature key of the owner |
+| SigPublicCounterKey | Identifier of the public signature counter key of the owner |
+| CipherSuite | Serialized `CryptoOptions` to use with the signed key owner |
+| Serial | Serial number (the key revision of the owner context) |
+
+Some key meta data like the creation and expiration time, or a nonce, is 
+included in a lower level in the `AsymmetricSignedPublicKey` already, and 
+don't need to appear in the signed attribute list again.
+
+A key signing request may algo contain more attributes than the final signed 
+key, if you want to give signing instructions to the PKI, for example. The PKI 
+may remove/replace those instructions, for example.
+
+As said before, the list above doesn't need to be implemented fully, and it 
+may be extended with any attribute that your PKI requires in addition. There 
+are only suggestions for value formats - but how you implement it finally, is 
+your business only. If you implement the suggested attributes and value 
+formats, you'll have a fully usable PKI. In addition a key revokation list 
+would be a nice feature (as a part of a RESTful PKI API). For a trusted root 
+key list you could use the `PublicKeySuiteStore`, for example. A key 
+revokation list may only contain the IDs of revoked keys, which are not yet 
+expired.
+
+You can use the `AsymmetricKeySigner` as template for a key signing request 
+handler, which supports the attributes from above. You should implement 
+algorithm validation etc. for a key signing request by yourself, since such 
+requirements are not really good to match with a basic API.
 
 ## PAKE
 
@@ -740,9 +798,179 @@ If you use the plain `RandomDataGenerator`, it uses the `RandomStream` as
 random data source, if `/dev/urandom` isn't available or disabled. 
 (`RandomStream` uses `RandomNumberGenerator`, finally.)
 
+There's another `Rng` type, which is a `RandomNumberGenerator` implementation 
+that skips the OS random number generator implementation and uses `RND` 
+instead (also the static methods of `RandomNumberGenerator` are overridden). 
+The `RngHelper` extends any `RandomNumberGenerator` instance with a `GetInt32` 
+method (which applies to customized `Rng` instances, too, since they extend 
+`RandomNumberGenerator`).
+
+**NOTE**: `Rng` implements non-zero random number generation. However, any non-
+zero random byte sequence isn't as random as it could be anymore - keep that 
+in mind.
+
 To sum it up: Use `RND` for (optional customized) getting cyptographic random 
 bytes. You can use `SecureRandomStream.Instance`, too (it uses `RND` on 
-request).
+request). Use `Rng` as (also asynchronous) random integer generator, or where 
+a `RandomNumberGenerator` instance is required.
+
+**CAUTION**: True randomness is the most important source of security for any 
+crypto application. PRNG and CSRNG random sources, and even physical phenomen 
+based hardware random sources won't produce _true_ random, and/or can be 
+manipulated in some way to produce predictable random data, unless it's a QRNG 
+source.
+
+### Seeding
+
+Use the `RND.AddSeed(Async)` methods for seeding your RNG. The 
+`AddURandomSeed(Async)` only seed `/dev/urandom`, while when calling 
+`AddSeed(Async)`, the method will try to seed
+
+1. the `RND.SeedConsumer`
+2. the `RND.Generator`
+3. `/dev/urandom`
+
+and return after providing the seed to the first available target, or when 
+there's no target for consuming the seed.
+
+**CAUTION**: Be aware of the patent US10402172B1!
+
+### Seeding automatic
+
+A seedable RNG (`ISeedableRng`) can be seeded automatic using
+
+- received IV bytes
+- received cipher data
+- received random bytes
+
+**CAUTION**: Even if it's extremely unlikely, an untrusted seed source _may_ 
+be able to cause a RNG to produce predictable random data, unless it combines 
+QRNG entropy.
+
+To enable automatic seeding, set the seed source flags to `RND.AutoRngSeeding`.
+
+Per default the `RND.Generator` will be seeded, unless you specify another 
+seed target in `RND.SeedConsumer`. A seed consumer needs to implement the 
+`ISeedableRng` interface, which `RandomDataGenerator` does, for example.
+
+Seeding during encryption can be overridden using `CryptoOptions.RngSeeding`.
+
+Seeding during PAKE authentication can be overridden using the given options 
+for encryption.
+
+When deserializing the `SignatureContainer` embedded signed data, the nonce 
+will be seeded, if `RND.AutoRngSeeding` has the `Random` flag.
+
+Because seeding may be synchronized, there's a `RngSeederQueue` queue worker, 
+which is a simple hosted service that seeds the given target `ISeedableRng` in 
+background, using a copy of the given seeds. The `RngSeederQueue` may be 
+customized easily by extending the type (pregnant methods are virtual).
+
+**CAUTION**: Be aware of the patent US10402172B1!
+
+### Some words on secure seeding
+
+A PRNG isn't enough, and even a CSRNG isn't enough, if the RNG's seed is not 
+good. Modern OS CSRNG implementations use hardware and software environment 
+information like
+
+- system clock
+- IP stack I/O timings
+- temperature sensors values
+- environment sounds
+- harddisc values
+- user information digest
+- process ID
+- thread ID
+- ...and so on.
+
+But this still isn't really good, because all sources can be manipulated 
+and/or predicted. The only really good seed source is a quantum device which 
+is used by a QRNG. But not everyone has access to a QRNG, and the hardware is 
+expensive, too.
+
+A company may decide to buy a QRNG hardware, which is a good investment in 
+2023, since quantum computing resources are becoming available to anyone now, 
+and the development speed is really amazing (and will speed up more with the 
+also fast growing AI possibilities!).
+
+But a private person might run into problems, unless there's a free QRNG seed 
+source available online, hopefully for free. It'll take some time until 
+enduser systems will contain a chip which can produce QRNG sequences on the 
+local mashine, and isn't too expensive, so everyone can afford to own one.
+
+Anyway, when using a CSRNG, finally, it should be re-seeded as often as 
+possible, because if a CSRNG output is being collected over a time, and the 
+underlaying algorithm is known, the future output becomes predictable - and 
+this is something you'd like to avoid as good as possible. There are several 
+steps that you should implement fully, if possible in any way:
+
+1. Use a PRNG and seed it with CSRNG data from the operating system
+2. Wrap the PRNG with a CSRNG which uses an underlaying stream cipher to 
+encrypt the PRNG's random data stream
+3. Re-seed the PRNG as often as possible using at last CSRNG data from the 
+operating system, and if possible in combination with entropy from a QRNG
+
+Of course the best solution would be to use a QRNG instead of a PRNG in step 
+1, because then you wouldn't need to re-seed usually. But step 2 is important 
+in all cases, please don't miss it! A good practice is to combine multiple 
+entropy sources, at last for seeding, but also for the RNG's output, which 
+you're going to use for symmetric keys (DEK), for example.
+
+If you carefully red and understood this information, you should get quiet 
+good results with a CSRNG already, even you don't have access to a quantum 
+entropy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should 
+offer everything a C# developer needs for a better random number source.
+
+**NOTE**: Even the best PQC algorithm will _fail_ when not using a good RNG!
+
+## Object encryption
+
+By using the `DekAttribute` and `EncryptAttribute` (and optional the 
+`IEncryptProperties` interface) you can en-/decrypt objects with the 
+`ObjectEncryption` helper methods/extensions:
+
+```cs
+public class YourType : IEncryptProperties
+{
+    [Dek]
+    public byte[] Dek { get; set; } = null!;
+
+    [Encrypt]
+    public byte[] Raw { get; set; } = null!;
+}
+```
+
+**NOTE**: `null` values won't be en-/decrypted! Using the 
+`IEncryptPropertiesExt` interface your object can define en-/decryption 
+handler methods.
+
+The `Dek` will hold a random data encryption key, while all properties having 
+the `Encrypt` attribute will be encrypted using that DEK:
+
+```cs
+YourType obj = new()
+{
+    Raw = ...
+};
+obj.EncryptObject(kek);
+```
+
+**NOTE**: The real object type will be used for finding properties to process, 
+not the generic method argument of `EncryptObject` and `DecryptObject`.
+
+The `kek` holds the key, which is used for the DEK encryption. Use 
+`DecryptObject` for decryption.
+
+The `DekAttribute` and `EncryptAttribute` can be extended to override the 
+methods that are used to get/set values.
+
+The rules for the used keys are simple:
+
+1. If you have a `Dek` property, it'll be used to store a KEK encrypted random 
+DEK (which will be (re-)generated for each encryption)
+2. If you don't have a `Dek` property, you'll need to specify the DEK in the 
+method parameters (and of course no KEK parameter value is required)
 
 ## Notes
 
@@ -886,7 +1114,8 @@ method will throw an exception.
 **NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
 quantum-safe algorithms, while currently no post quantum-safe asymmetric 
 algorithms are implemented in this main library (`wan24-Crypto-BC` does 
-implement some).
+implement some), since .NET doesn't offer any API (this may change with 
+coming .NET releases).
 
 ## Disclaimer
 

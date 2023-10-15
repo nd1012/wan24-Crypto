@@ -17,7 +17,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Public key suites (key is the signed public key ID)
         /// </summary>
-        protected readonly ConcurrentDictionary<byte[], PublicKeySuite> _Suites = new();
+        protected readonly ConcurrentDictionary<EquatableArray<byte>, PublicKeySuite> _Suites = new(new EquatableArray<byte>.EqualityComparer());
 
         /// <summary>
         /// Constructor
@@ -27,7 +27,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Public key suites (key is the signed public key ID)
         /// </summary>
-        public virtual ConcurrentDictionary<byte[], PublicKeySuite> Suites => IfUndisposed(_Suites);
+        public virtual ConcurrentDictionary<EquatableArray<byte>, PublicKeySuite> Suites => IfUndisposed(_Suites);
 
         /// <summary>
         /// Number of public key suites
@@ -58,8 +58,7 @@ namespace wan24.Crypto
         public virtual PublicKeySuite? GetSuite(byte[] id)
         {
             EnsureUndisposed();
-            byte[]? suiteId = _Suites.Keys.FirstOrDefault(k => k.SequenceEqual(id));
-            return suiteId is not null && _Suites.TryGetValue(suiteId, out PublicKeySuite? res) ? res : null;
+            return _Suites.TryGetValue(id, out PublicKeySuite? res) ? res : null;
         }
 
         /// <summary>
@@ -93,8 +92,7 @@ namespace wan24.Crypto
         public virtual void RemoveSuite(byte[] id)
         {
             EnsureUndisposed();
-            if (_Suites.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is byte[] suiteId && _Suites.TryRemove(suiteId, out PublicKeySuite? suite))
-                suite.Dispose();
+            if (_Suites.TryRemove(id, out PublicKeySuite? suite)) suite.Dispose();
         }
 
         /// <inheritdoc/>
@@ -123,6 +121,14 @@ namespace wan24.Crypto
         {
             _Suites.Values.DisposeAll();
             _Suites.Clear();
+        }
+
+        /// <inheritdoc/>
+        protected override Task DisposeCore()
+        {
+            _Suites.Values.DisposeAll();
+            _Suites.Clear();
+            return Task.CompletedTask;
         }
     }
 }

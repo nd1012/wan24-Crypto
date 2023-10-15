@@ -32,7 +32,7 @@ namespace wan24.Crypto.Authentication
                 Payload = context.Payload?.Payload is null ? null : new(context.Payload.Payload);
                 TimeOffset = context.ClientTimeOffset;
                 Tag = context.Tag;
-           }
+            }
             catch
             {
                 Dispose();

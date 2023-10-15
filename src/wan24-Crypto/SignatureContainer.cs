@@ -452,6 +452,9 @@ namespace wan24.Crypto
             CounterSigner = ms.ReadBytesNullable(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue)?.Value;
             CounterSignerPublicKeyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: ushort.MaxValue)?.Value;
             Purpose = ms.ReadStringNullable(ssv, minLen: 1, maxLen: ushort.MaxValue);
+            // Apply RNG seeding
+            if ((RND.AutoRngSeeding & RngSeedingTypes.Random) == RngSeedingTypes.Random)
+                RND.AddSeed(Nonce);
         }
 
         /// <summary>

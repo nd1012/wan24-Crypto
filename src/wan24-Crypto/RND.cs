@@ -22,6 +22,10 @@ namespace wan24.Crypto
         /// </summary>
         internal static RNGAsync_Delegate _FillBytesAsync = DefaultRngAsync;
         /// <summary>
+        /// URandom seeder
+        /// </summary>
+        private static readonly Stream? URandomSeeder;
+        /// <summary>
         /// Has <c>/dev/urandom</c>?
         /// </summary>
         public static readonly bool HasDevUrandom;
@@ -29,12 +33,23 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        static RND() => UseDevUrandom = HasDevUrandom = !ENV.IsBrowserApp && !ENV.IsWindows && File.Exists(URANDOM);
+        static RND()
+        {
+            UseDevUrandom = HasDevUrandom = !ENV.IsBrowserApp && !ENV.IsWindows && File.Exists(URANDOM);
+            URandomSeeder = HasDevUrandom
+                ? new SynchronizedStream(new FileStream(URANDOM, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
+                : null;
+        }
 
         /// <summary>
-        /// Random data generator service
+        /// Random data generator
         /// </summary>
-        public static RandomDataGenerator? Generator { get; set; }
+        public static IRng? Generator { get; set; }
+
+        /// <summary>
+        /// RNG seed consumer
+        /// </summary>
+        public static ISeedableRng? SeedConsumer { get; set; }
 
         /// <summary>
         /// Use <c>/dev/urandom</c>, if available?
@@ -47,6 +62,12 @@ namespace wan24.Crypto
         /// </summary>
         [CliConfig]
         public static bool RequireDevUrandom { get; set; }
+
+        /// <summary>
+        /// Automatic RNG seeding flags
+        /// </summary>
+        [CliConfig]
+        public static RngSeedingTypes AutoRngSeeding { get; set; }
 
         /// <summary>
         /// Fill a buffer with random bytes
@@ -88,6 +109,43 @@ namespace wan24.Crypto
             byte[] res = new byte[count];
             await FillBytesAsync(res).DynamicContext();
             return res;
+        }
+
+        /// <summary>
+        /// Add seed to the RNG
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        public static void AddSeed(ReadOnlySpan<byte> seed)
+        {
+            if (SeedConsumer is not null) SeedConsumer.AddSeed(seed);
+            else if (Generator is ISeedableRng seedableRng) seedableRng.AddSeed(seed);
+            else AddURandomSeed(seed);
+        }
+
+        /// <summary>
+        /// Add seed to the RNG
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public static Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+            => SeedConsumer?.AddSeedAsync(seed, cancellationToken) ??
+                (Generator as ISeedableRng)?.AddSeedAsync(seed, cancellationToken) ??
+                AddURandomSeedAsync(seed, cancellationToken);
+
+        /// <summary>
+        /// Add seed to <c>/dev/urandom</c> (if available)
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        public static void AddURandomSeed(ReadOnlySpan<byte> seed) => URandomSeeder?.Write(seed);
+
+        /// <summary>
+        /// Add seed to <c>/dev/urandom</c> (if available)
+        /// </summary>
+        /// <param name="seed">Seed</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public static async Task AddURandomSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+        {
+            if (URandomSeeder is not null) await URandomSeeder.WriteAsync(seed, cancellationToken).DynamicContext();
         }
 
         /// <summary>

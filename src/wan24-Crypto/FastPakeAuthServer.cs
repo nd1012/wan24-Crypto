@@ -84,6 +84,9 @@ namespace wan24.Crypto
                     // Validate the auth values lengths
                     if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
                         throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
+                    // Apply RNG seeding
+                    if (((Pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
+                        RND.AddSeed(auth.Random);
                     // Extract key and secret
                     randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
                     key = auth.Key.CloneArray().Xor(randomMac);
@@ -182,6 +185,9 @@ namespace wan24.Crypto
                     // Reset the PAKE instance
                     Pake.ClearSessionKey();
                     Pake.ClearIdentity();
+                    // Apply RNG seeding
+                    if (((Pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
+                        RND.AddSeed(signup.Random);
                     // Create the identity (KDF)
                     signatureKey = Pake.CreateSignatureKey(signup.Key, signup.Secret);
                     Pake.Identity = new PakeRecord(signup, signatureKey);
@@ -404,6 +410,9 @@ namespace wan24.Crypto
                     // Validate the auth values lengths
                     if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
                         throw CryptographicException.From(new InvalidDataException("Value lengths invalid"));
+                    // Apply RNG seeding
+                    if (((Pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
+                        RND.AddSeed(auth.Random);
                     // Extract key and secret
                     randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
                     key = Key;
@@ -493,6 +502,9 @@ namespace wan24.Crypto
                     // Validate the auth values lengths
                     if (auth.Key.Length != len || auth.Signature.Length != len || auth.Random.Length != len)
                         throw await CryptographicException.FromAsync(new InvalidDataException("Value lengths invalid")).DynamicContext();
+                    // Apply RNG seeding
+                    if (((Pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
+                        await RND.AddSeedAsync(auth.Random, cancellationToken).DynamicContext();
                     // Extract key and secret
                     randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
                     key = Key;

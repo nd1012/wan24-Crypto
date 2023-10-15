@@ -43,6 +43,9 @@ namespace wan24.Crypto.Authentication
                     cryptoOptions = Options.CryptoOptions!.GetCopy();
                     cryptoOptions.Password = pake.CreateSessionKey(context.ServerIdentity.SignatureKey, context.ServerIdentity.Secret, buffer.Span);
                     decipher = await Encryption.GetDecryptionStreamAsync(stream, Stream.Null, cryptoOptions, cancellationToken).DynamicContext();
+                    // Apply RNG seeding
+                    if (((pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
+                        await RND.AddSeedAsync(buffer.Memory, cancellationToken).DynamicContext();
                 }
                 // Receive the authentication request
                 if (context.FastPakeAuthServer is null)

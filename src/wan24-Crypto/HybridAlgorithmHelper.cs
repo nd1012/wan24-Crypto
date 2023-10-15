@@ -285,19 +285,12 @@ namespace wan24.Crypto
             try
             {
                 if (options.Password is null) throw new ArgumentException("No password", nameof(options));
-                byte[] pwd = options.Password;
-                try
-                {
-                    KdfAlgorithmBase algo = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm ?? _KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name);
-                    CryptoOptions hybridOptions = algo.DefaultOptions;
-                    hybridOptions.KdfIterations = options.CounterKdfIterations;
-                    hybridOptions.KdfOptions = options.CounterKdfOptions;
-                    (options.Password, options.CounterKdfSalt) = algo.Stretch(options.Password, pwd.Length, options.CounterKdfSalt, hybridOptions);
-                }
-                finally
-                {
-                    pwd.Clear();
-                }
+                KdfAlgorithmBase algo = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm ?? _KdfAlgorithm?.Name ?? KdfHelper.DefaultAlgorithm.Name);
+                CryptoOptions hybridOptions = algo.DefaultOptions;
+                hybridOptions.KdfIterations = options.CounterKdfIterations;
+                hybridOptions.KdfOptions = options.CounterKdfOptions;
+                using SecureByteArrayRefStruct oldPwd = new(options.Password);
+                (options.Password, options.CounterKdfSalt) = algo.Stretch(options.Password, options.Password.Length, options.CounterKdfSalt, hybridOptions);
             }
             catch (CryptographicException)
             {
@@ -319,9 +312,9 @@ namespace wan24.Crypto
             try
             {
                 if (options.Mac is null) throw new ArgumentException("No MAC", nameof(options));
-                if (options.Password is null) throw new ArgumentException("No password", nameof(options));
+                if (options.Password is null && options.MacPassword is null) throw new ArgumentException("No password", nameof(options));
                 CryptoOptions hybridOptions = MacHelper.GetAlgorithm(options.CounterMacAlgorithm ?? _MacAlgorithm?.Name ?? MacHelper.DefaultAlgorithm.Name).DefaultOptions;
-                options.Mac = options.Mac.Mac(options.Password, hybridOptions);
+                options.Mac = options.Mac.Mac(options.MacPassword ?? options.Password!, hybridOptions);
             }
             catch (CryptographicException)
             {

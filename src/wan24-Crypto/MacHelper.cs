@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Security.Cryptography;
 using wan24.Core;
 
 namespace wan24.Crypto

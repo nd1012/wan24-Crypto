@@ -63,15 +63,8 @@ namespace wan24.Crypto
                 if (options.KdfAlgorithmIncluded)
                 {
                     options.Tracer?.WriteTrace($"Applying KDF {options.KdfAlgorithm}");
-                    pwd = options.Password;
-                    try
-                    {
-                        (options.Password, options.KdfSalt) = pwd.Stretch(KeySize, options: options);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using (SecureByteArrayRefStruct oldPwd = new(options.Password))
+                        (options.Password, options.KdfSalt) = options.Password.Stretch(KeySize, options: options);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace($"Applying counter KDF {options.CounterKdfAlgorithm}");
@@ -81,15 +74,8 @@ namespace wan24.Crypto
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    pwd = options.Password;
-                    try
-                    {
-                        options.Password = EnsureValidKeyLength(pwd);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using SecureByteArrayRefStruct oldPwd = new(options.Password);
+                    options.Password = EnsureValidKeyLength(options.Password);
                 }
                 // Switch to a MAC stream
                 MacStreams? macStream = null;
@@ -120,7 +106,7 @@ namespace wan24.Crypto
                     try
                     {
                         if (!coverWhole) macOptions.LeaveOpen = true;
-                        macStream = MacHelper.GetMacStream(options.Password, cipherData, options: macOptions);
+                        macStream = MacHelper.GetMacStream(options.MacPassword ?? options.Password, cipherData, options: macOptions);
                     }
                     finally
                     {
@@ -244,15 +230,8 @@ namespace wan24.Crypto
                 if (options.KdfAlgorithmIncluded)
                 {
                     options.Tracer?.WriteTrace($"Applying KDF {options.KdfAlgorithm}");
-                    pwd = options.Password;
-                    try
-                    {
-                        (options.Password, options.KdfSalt) = pwd.Stretch(KeySize, options: options);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using (SecureByteArrayStructSimple oldPwd = new(options.Password))
+                        (options.Password, options.KdfSalt) = options.Password.Stretch(KeySize, options: options);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace($"Applying counter KDF {options.CounterKdfAlgorithm}");
@@ -262,15 +241,8 @@ namespace wan24.Crypto
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    pwd = options.Password;
-                    try
-                    {
-                        options.Password = EnsureValidKeyLength(pwd);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using SecureByteArrayStructSimple oldPwd = new(options.Password);
+                    options.Password = EnsureValidKeyLength(options.Password);
                 }
                 // Switch to a MAC stream
                 if (options.MacIncluded)
@@ -300,7 +272,7 @@ namespace wan24.Crypto
                     try
                     {
                         if (!coverWhole) macOptions.LeaveOpen = true;
-                        macStream = MacHelper.GetMacStream(options.Password ?? throw new ArgumentException("Password required", nameof(pwd)), cipherData, options: macOptions);
+                        macStream = MacHelper.GetMacStream(options.MacPassword ?? options.Password, cipherData, options: macOptions);
                     }
                     finally
                     {
@@ -474,45 +446,26 @@ namespace wan24.Crypto
                     options.KdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                     options.Tracer?.WriteTrace($"Using KDF algorithm {options.KdfAlgorithm} with {options.KdfIterations} iterations and {options.KdfSalt.Length} byte salt");
                     if (options.KdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.KdfOptions}");
-                    pwd = options.Password;
-                    try
-                    {
-                        (options.Password, _) = pwd.Stretch(KeySize, options.KdfSalt, options);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using (SecureByteArrayRefStruct oldPwd = new(options.Password))
+                        (options.Password, _) = options.Password.Stretch(KeySize, options.KdfSalt, options);
                     if (options.UsingCounterKdf)
-                        try
-                        {
-                            options.Tracer?.WriteTrace("Reading counter KDF algorithm");
-                            pwd = options.Password;
-                            options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
-                            options.CounterKdfIterations = cipherData.ReadNumber<int>(serializerVersion);
-                            options.CounterKdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
-                            options.CounterKdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
-                            options.Tracer?.WriteTrace($"Using KDF algorithm {options.CounterKdfAlgorithm} with {options.CounterKdfIterations} iterations and {options.CounterKdfSalt.Length} byte salt");
-                            if (options.CounterKdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.CounterKdfOptions}");
-                            HybridAlgorithmHelper.StretchPassword(options);
-                        }
-                        finally
-                        {
-                            pwd.Clear();
-                        }
+                    {
+                        options.Tracer?.WriteTrace("Reading counter KDF algorithm");
+                        options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
+                        options.CounterKdfIterations = cipherData.ReadNumber<int>(serializerVersion);
+                        options.CounterKdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
+                        options.CounterKdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
+                        options.Tracer?.WriteTrace($"Using KDF algorithm {options.CounterKdfAlgorithm} with {options.CounterKdfIterations} iterations and {options.CounterKdfSalt.Length} byte salt");
+                        if (options.CounterKdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.CounterKdfOptions}");
+                        using SecureByteArrayRefStruct oldPwd = new(options.Password);
+                        HybridAlgorithmHelper.StretchPassword(options);
+                    }
                 }
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    pwd = options.Password;
-                    try
-                    {
-                        options.Password = EnsureValidKeyLength(pwd);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using SecureByteArrayRefStruct oldPwd = new(options.Password);
+                    options.Password = EnsureValidKeyLength(options.Password);
                 }
                 if (options.PayloadIncluded)
                 {
@@ -541,7 +494,7 @@ namespace wan24.Crypto
                     cipherData.Position = options.MacPosition + options.Mac!.Length;
                     CryptoOptions macOptions = mac!.DefaultOptions;
                     macOptions.LeaveOpen = true;
-                    using MacStreams macStream = mac.GetMacStream(options.Password, options: macOptions);
+                    using MacStreams macStream = mac.GetMacStream(options.MacPassword ?? options.Password, options: macOptions);
                     cipherData.CopyTo(macStream.Stream);
                     macStream.Stream.Dispose();
                     byte[] redMac = options.Mac;
@@ -685,15 +638,8 @@ namespace wan24.Crypto
                     options.KdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     options.Tracer?.WriteTrace($"Using KDF algorithm {options.KdfAlgorithm} with {options.KdfIterations} iterations and {options.KdfSalt.Length} byte salt");
                     if (options.KdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.KdfOptions}");
-                    pwd = options.Password;
-                    try
-                    {
-                        (options.Password, _) = pwd.Stretch(KeySize, options.KdfSalt, options);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using (SecureByteArrayStructSimple oldPwd = new(options.Password))
+                        (options.Password, _) = options.Password.Stretch(KeySize, options.KdfSalt, options);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace("Reading counter KDF algorithm");
@@ -707,21 +653,15 @@ namespace wan24.Crypto
                             .DynamicContext();
                         options.Tracer?.WriteTrace($"Using KDF algorithm {options.CounterKdfAlgorithm} with {options.CounterKdfIterations} iterations and {options.CounterKdfSalt.Length} byte salt");
                         if (options.CounterKdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.CounterKdfOptions}");
+                        using SecureByteArrayStructSimple oldPwd = new(options.Password);
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
                 }
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    pwd = options.Password;
-                    try
-                    {
-                        options.Password = EnsureValidKeyLength(pwd);
-                    }
-                    finally
-                    {
-                        pwd.Clear();
-                    }
+                    using SecureByteArrayStructSimple oldPwd = new(options.Password);
+                    options.Password = EnsureValidKeyLength(options.Password);
                 }
                 if (options.PayloadIncluded)
                 {
@@ -750,7 +690,7 @@ namespace wan24.Crypto
                     cipherData.Position = options.MacPosition + options.Mac!.Length;
                     CryptoOptions macOptions = mac!.DefaultOptions;
                     macOptions.LeaveOpen = true;
-                    using MacStreams macStream = mac.GetMacStream(options.Password, options: macOptions);
+                    using MacStreams macStream = mac.GetMacStream(options.MacPassword ?? options.Password, options: macOptions);
                     await cipherData.CopyToAsync(macStream.Stream, cancellationToken).DynamicContext();
                     macStream.Stream.Dispose();
                     byte[] redMac = options.Mac;

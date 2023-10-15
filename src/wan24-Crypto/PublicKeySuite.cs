@@ -156,6 +156,18 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
+        protected override Task DisposeCore()
+        {
+            _KeyExchangeKey?.Dispose();
+            _CounterKeyExchangeKey?.Dispose();
+            SignatureKey?.Dispose();
+            CounterSignatureKey?.Dispose();
+            SignedPublicKey?.Dispose();
+            SignedPublicCounterKey?.Dispose();
+            return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
         object ICloneable.Clone() => GetCopy();
 
         /// <inheritdoc/>

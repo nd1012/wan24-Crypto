@@ -190,7 +190,8 @@ namespace wan24.Crypto
                     }
                 }
                 // Validate the signature
-                if (!Signature.SignerPublicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
+                using (ISignaturePublicKey signerKey = Signature.SignerPublicKey)
+                    if (!signerKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
                 if (Signature.CounterSigner is not null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
@@ -305,7 +306,8 @@ namespace wan24.Crypto
                     }
                 }
                 // Validate the signature
-                if (!Signature.SignerPublicKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
+                using (ISignaturePublicKey signerKey = Signature.SignerPublicKey)
+                    if (!signerKey.ValidateSignature(Signature, CreateSignedData(), throwOnError)) return false;
                 if (Signature.CounterSigner is not null && !HybridAlgorithmHelper.ValidateCounterSignature(Signature))
                 {
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");

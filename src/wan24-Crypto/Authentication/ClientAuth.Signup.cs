@@ -136,7 +136,9 @@ namespace wan24.Crypto.Authentication
                         {
                             if (options.PublicServerKeys.CounterSignatureKey is null)
                                 throw new InvalidDataException("Unexpected counter signature");
-                            if (!signedPublicKey.Signature.CounterSignerPublicKey!.ID.SlowCompare(options.PublicServerKeys.CounterSignatureKey.ID))
+                            if (signedPublicKey.Signature.CounterSigner is null)
+                                throw new InvalidDataException("Missing counter signer public key ID");
+                            if (!signedPublicKey.Signature.CounterSigner.SlowCompare(options.PublicServerKeys.CounterSignatureKey.ID))
                                 throw new InvalidDataException("Counter signer key mismatch");
                         }
                         await signedPublicKey.ValidateAsync(cancellationToken: cancellationToken).DynamicContext();

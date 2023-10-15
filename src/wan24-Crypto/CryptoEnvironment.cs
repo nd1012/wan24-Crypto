@@ -32,7 +32,9 @@ namespace wan24.Crypto
             if (options.DefaultPakeCryptoOptions is not null) Pake.DefaultCryptoOptions = options.DefaultPakeCryptoOptions;
             if (options.SkipPakeSignatureKeyValidation.HasValue) Pake.SkipSignatureKeyValidation = options.SkipPakeSignatureKeyValidation.Value;
             if (options.RandomGenerator is not null) RND.Generator = options.RandomGenerator;
+            if (options.SeedConsumer is not null) RND.SeedConsumer = options.SeedConsumer;
             if (options.UseDevUrandom.HasValue) RND.UseDevUrandom = options.UseDevUrandom.Value;
+            if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
             if (options.RequireDevUrandom.HasValue) RND.RequireDevUrandom = options.RequireDevUrandom.Value;
             if (options.FillRandomBytes is not null) RND.FillBytes = options.FillRandomBytes;
             if (options.FillRandomBytesAsync is not null) RND.FillBytesAsync = options.FillRandomBytesAsync;
@@ -41,6 +43,8 @@ namespace wan24.Crypto
             if (options.DefaultServerPublicKeyValidator is not null) ClientAuth.DefaultServerPublicKeyValidator = options.DefaultServerPublicKeyValidator;
             if (options.DefaultClientAuthOptions is not null) ClientAuthOptions.DefaultOptions = options.DefaultClientAuthOptions;
             if (options.DefaultPakeClientAuthOptions is not null) PakeClientAuthOptions.DefaultOptions = options.DefaultPakeClientAuthOptions;
+            if (options.AsymmetricKeySigner is not null) AsymmetricKeySigner.Instance = options.AsymmetricKeySigner;
+            if (options.AsymmetricKeySignerService is not null) AsymmetricKeySignerService.Instance = options.AsymmetricKeySignerService;
         }
 
         /// <summary>

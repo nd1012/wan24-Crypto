@@ -92,24 +92,38 @@ namespace wan24.Crypto.Authentication
                     // Send the signed public key
                     if (context.Payload.KeySigningRequest is not null)
                     {
-                        AsymmetricSignedPublicKey signedKey = context.Payload.KeySigningRequest.GetAsUnsignedKey();
+                        AsymmetricSignedPublicKey signedKey;
+                        if (AsymmetricKeySignerService.Instance is not null)
+                        {
+                            signedKey = await AsymmetricKeySignerService.Instance.SignAsync(context.Payload.KeySigningRequest, cancellationToken).DynamicContext();
+                        }
+                        else if(AsymmetricKeySigner.Instance is not null)
+                        {
+                            signedKey = AsymmetricKeySigner.Instance.SignKey(context.Payload.KeySigningRequest);
+                        }
+                        else
+                        {
+                            signedKey = context.Payload.KeySigningRequest.GetAsUnsignedKey();
+                        }
                         try
                         {
-                            signedKey.Sign(
-                                Options.PrivateKeys.SignatureKey!,
-                                Options.PrivateKeys.SignedPublicKey,
-                                Options.PrivateKeys.CounterSignatureKey,
-                                Options.PrivateKeys.SignedPublicCounterKey,
-                                Options.PublicClientKeySignaturePurpose,
-                                context.HashOptions
-                                );
+                            if (AsymmetricKeySignerService.Instance is null && AsymmetricKeySigner.Instance is null)
+                                signedKey.Sign(
+                                    Options.PrivateKeys.SignatureKey!,
+                                    Options.PrivateKeys.SignedPublicKey,
+                                    Options.PrivateKeys.CounterSignatureKey,
+                                    Options.PrivateKeys.SignedPublicCounterKey,
+                                    Options.PublicClientKeySignaturePurpose,
+                                    context.HashOptions
+                                    );
                             context.PublicClientKeys!.SignedPublicKey?.Dispose();
                             context.PublicClientKeys!.SignedPublicKey = signedKey;
                             await cipher!.CryptoStream.WriteSerializedAsync(signedKey, cancellationToken).DynamicContext();
                         }
                         catch
                         {
-                            signedKey.Dispose();
+                            if (AsymmetricKeySignerService.Instance?.Signer.PKI is null && AsymmetricKeySigner.Instance?.PKI is null)
+                                signedKey.Dispose();
                             throw;
                         }
                     }

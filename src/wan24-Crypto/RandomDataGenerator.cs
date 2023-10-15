@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Random data generator (uses <c>/dev/urandom</c>, if possible; defaults to <see cref="RandomNumberGenerator"/>)
     /// </summary>
-    public class RandomDataGenerator : HostedServiceBase
+    public class RandomDataGenerator : HostedServiceBase, ISeedableRng
     {
         /// <summary>
         /// Random data
@@ -61,11 +61,7 @@ namespace wan24.Crypto
         /// </summary>
         public bool UseDevUrandom { get; set; } = RND.UseDevUrandom;
 
-        /// <summary>
-        /// Get random bytes
-        /// </summary>
-        /// <param name="count">Count</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public byte[] GetBytes(in int count)
         {
             EnsureUndisposed();
@@ -83,12 +79,7 @@ namespace wan24.Crypto
             return res;
         }
 
-        /// <summary>
-        /// Get random bytes
-        /// </summary>
-        /// <param name="count">Count</param>
-        /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public async Task<byte[]> GetBytesAsync(int count, CancellationToken cancellationToken = default)
         {
             EnsureUndisposed();
@@ -106,11 +97,7 @@ namespace wan24.Crypto
             return res;
         }
 
-        /// <summary>
-        /// Fill random bytes
-        /// </summary>
-        /// <param name="buffer">Buffer</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public Span<byte> FillBytes(in Span<byte> buffer)
         {
             EnsureUndisposed();
@@ -127,12 +114,7 @@ namespace wan24.Crypto
             return buffer;
         }
 
-        /// <summary>
-        /// Fill random bytes
-        /// </summary>
-        /// <param name="buffer">Buffer</param>
-        /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Random bytes</returns>
+        /// <inheritdoc/>
         public async Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             EnsureUndisposed();
@@ -148,6 +130,19 @@ namespace wan24.Crypto
             }
             return buffer;
         }
+
+        /// <inheritdoc/>
+        public virtual void AddSeed(ReadOnlySpan<byte> seed)
+        {
+            if (RND.Generator != this) RND.AddSeed(seed);
+            else RND.AddURandomSeed(seed);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+            => RND.Generator != this
+                ? RND.AddSeedAsync(seed, cancellationToken)
+                : RND.AddURandomSeedAsync(seed, cancellationToken);
 
         /// <summary>
         /// Fill a buffer with random data (used as fallback; override to define a custom fallback RNG, when not using the <see cref="Rng"/> and <see cref="RngAsync"/> delegates)

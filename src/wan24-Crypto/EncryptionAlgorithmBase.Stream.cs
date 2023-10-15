@@ -45,9 +45,14 @@ namespace wan24.Crypto
                             macStream.Dispose();
                             macStream = null;
                         }
+                    // Define the target cipher stream
+                    stream = new WrapperStream(macStream?.Stream ?? cipherData, leaveOpen: macStream is not null || options.LeaveOpen);
+                    // Apply RNG seeding
+                    if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.CipherData) == RngSeedingTypes.CipherData)
+                        stream = new RngSeedingStream(stream);
                     // Create the crypto stream
                     stream = new CryptoStream(
-                        new WrapperStream(macStream?.Stream ?? cipherData, leaveOpen: macStream is not null || options.LeaveOpen), 
+                        stream, 
                         transform, 
                         CryptoStreamMode.Write, 
                         leaveOpen: false
@@ -126,9 +131,14 @@ namespace wan24.Crypto
                             macStream.Dispose();
                             macStream = null;
                         }
+                    // Define the target cipher stream
+                    stream = new WrapperStream(macStream?.Stream ?? cipherData, leaveOpen: macStream is not null || options.LeaveOpen);
+                    // Apply RNG seeding
+                    if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.CipherData) == RngSeedingTypes.CipherData)
+                        stream = new RngSeedingStream(stream);
                     // Create the crypto stream
                     stream = new CryptoStream(
-                        new WrapperStream(macStream?.Stream ?? cipherData, leaveOpen: macStream is not null || options.LeaveOpen),
+                        stream,
                         transform,
                         CryptoStreamMode.Write,
                         leaveOpen: false
@@ -204,8 +214,13 @@ namespace wan24.Crypto
                         if (!options.Mac!.AsSpan().SlowCompare(redMac)) throw new InvalidDataException("MAC mismatch");
                         cipherData.Position = pos;
                     }
+                    // Define the target cipher stream
+                    stream = new WrapperStream(cipherData, leaveOpen: options.LeaveOpen);
+                    // Apply RNG seeding
+                    if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.CipherData) == RngSeedingTypes.CipherData)
+                        stream = new RngSeedingStream(stream);
                     // Create the crypto stream
-                    stream = new CryptoStream(new WrapperStream(cipherData, leaveOpen: options.LeaveOpen), transform, CryptoStreamMode.Read, leaveOpen: false);
+                    stream = new CryptoStream(stream, transform, CryptoStreamMode.Read, leaveOpen: false);
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
@@ -283,8 +298,13 @@ namespace wan24.Crypto
                         if (!options.Mac!.AsSpan().SlowCompare(redMac)) throw new InvalidDataException("MAC mismatch");
                         cipherData.Position = pos;
                     }
+                    // Define the target cipher stream
+                    stream = new WrapperStream(cipherData, leaveOpen: options.LeaveOpen);
+                    // Apply RNG seeding
+                    if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.CipherData) == RngSeedingTypes.CipherData)
+                        stream = new RngSeedingStream(stream);
                     // Create the crypto stream
-                    stream = new CryptoStream(new WrapperStream(cipherData, leaveOpen: options.LeaveOpen), transform, CryptoStreamMode.Read, leaveOpen: false);
+                    stream = new CryptoStream(stream, transform, CryptoStreamMode.Read, leaveOpen: false);
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
