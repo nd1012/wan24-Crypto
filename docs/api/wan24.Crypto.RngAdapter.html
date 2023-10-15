@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RngAdapter
+   | wan24-Crypto </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RngAdapter
+   | wan24-Crypto ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.RngAdapter">
+  
+  
+  <h1 id="wan24_Crypto_RngAdapter" data-uid="wan24.Crypto.RngAdapter" class="text-break">Class RngAdapter
+  </h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="wan24.Crypto.IRng.html">IRng</a> to <span class="xref">System.Security.Cryptography.RandomNumberGenerator</span> adapter</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.Security.Cryptography.RandomNumberGenerator</span></div>
+    <div class="level2"><a class="xref" href="wan24.Crypto.Rng.html">Rng</a></div>
+    <div class="level3"><span class="xref">RngAdapter</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_Instance">Rng.Instance</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Int32__">Rng.GetBytes(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytesAsync_System_Int32_CancellationToken_">Rng.GetBytesAsync(Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_FillBytes_Span_System_Byte___">Rng.FillBytes(Span&lt;Byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_FillBytesAsync_Memory_System_Byte__CancellationToken_">Rng.FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_Fill_Span_System_Byte__">Rng.Fill(Span&lt;Byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32_System_Int32_System_Int32_">Rng.GetInt32(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32_System_Int32_">Rng.GetInt32(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32Async_System_Int32_System_Int32_">Rng.GetInt32Async(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32Async_System_Int32_">Rng.GetInt32Async(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Int32_">Rng.GetBytes(Int32)</a>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.Create()</span>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.Create(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.Dispose(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.Fill(System.Span&lt;System.Byte&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.GetBytes(System.Span&lt;System.Byte&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">System.Security.Cryptography.RandomNumberGenerator.GetNonZeroBytes(System.Span&lt;System.Byte&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_RngAdapter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RngAdapter : Rng, IDisposable, IRng</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter__ctor_wan24_Crypto_IRng_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.%23ctor(wan24.Crypto.IRng)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L15">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter__ctor_" data-uid="wan24.Crypto.RngAdapter.#ctor*"></a>
+  <h4 id="wan24_Crypto_RngAdapter__ctor_wan24_Crypto_IRng_" data-uid="wan24.Crypto.RngAdapter.#ctor(wan24.Crypto.IRng)">RngAdapter(IRng)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RngAdapter(IRng rng)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></td>
+        <td><span class="parametername">rng</span></td>
+        <td><p>Random number generator</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_RNG.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.RNG%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L20">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_RNG_" data-uid="wan24.Crypto.RngAdapter.RNG*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_RNG" data-uid="wan24.Crypto.RngAdapter.RNG">RNG</h4>
+  <div class="markdown level1 summary"><p>Random number generator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRng RNG { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_GetBytes_Span_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.GetBytes(Span%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L26">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_GetBytes_" data-uid="wan24.Crypto.RngAdapter.GetBytes*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_GetBytes_Span_System_Byte__" data-uid="wan24.Crypto.RngAdapter.GetBytes(Span{System.Byte})">GetBytes(Span&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GetBytes(Span&lt;byte&gt; data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Span</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_Span_System_Byte__">Rng.GetBytes(Span&lt;Byte&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_GetBytes_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.GetBytes(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L23">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_GetBytes_" data-uid="wan24.Crypto.RngAdapter.GetBytes*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_GetBytes_System_Byte___" data-uid="wan24.Crypto.RngAdapter.GetBytes(System.Byte[])">GetBytes(Byte[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GetBytes(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Byte___">Rng.GetBytes(Byte[])</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_GetBytes_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.GetBytes(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L29">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_GetBytes_" data-uid="wan24.Crypto.RngAdapter.GetBytes*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_GetBytes_System_Byte___System_Int32_System_Int32_" data-uid="wan24.Crypto.RngAdapter.GetBytes(System.Byte[],System.Int32,System.Int32)">GetBytes(Byte[], Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GetBytes(byte[] data, int offset, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">offset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Byte___System_Int32_System_Int32_">Rng.GetBytes(Byte[], Int32, Int32)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_GetNonZeroBytes_Span_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.GetNonZeroBytes(Span%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L35">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_GetNonZeroBytes_" data-uid="wan24.Crypto.RngAdapter.GetNonZeroBytes*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_GetNonZeroBytes_Span_System_Byte__" data-uid="wan24.Crypto.RngAdapter.GetNonZeroBytes(Span{System.Byte})">GetNonZeroBytes(Span&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GetNonZeroBytes(Span&lt;byte&gt; data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Span</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytes_Span_System_Byte__">Rng.GetNonZeroBytes(Span&lt;Byte&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_GetNonZeroBytes_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.GetNonZeroBytes(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L32">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_GetNonZeroBytes_" data-uid="wan24.Crypto.RngAdapter.GetNonZeroBytes*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_GetNonZeroBytes_System_Byte___" data-uid="wan24.Crypto.RngAdapter.GetNonZeroBytes(System.Byte[])">GetNonZeroBytes(Byte[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GetNonZeroBytes(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytes_System_Byte___">Rng.GetNonZeroBytes(Byte[])</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter_GetNonZeroBytesAsync_Memory_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter.GetNonZeroBytesAsync(Memory%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L71">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngAdapter_GetNonZeroBytesAsync_" data-uid="wan24.Crypto.RngAdapter.GetNonZeroBytesAsync*"></a>
+  <h4 id="wan24_Crypto_RngAdapter_GetNonZeroBytesAsync_Memory_System_Byte__" data-uid="wan24.Crypto.RngAdapter.GetNonZeroBytesAsync(Memory{System.Byte})">GetNonZeroBytesAsync(Memory&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get non-zero random bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task GetNonZeroBytesAsync(Memory&lt;byte&gt; data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Memory</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytesAsync_Memory_System_Byte__">Rng.GetNonZeroBytesAsync(Memory&lt;Byte&gt;)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.IRng.html">IRng</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_System_Security_Cryptography_RandomNumberGenerator_System_Int32_System_Int32_">RngExtensions.GetInt32(RandomNumberGenerator, Int32, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_System_Security_Cryptography_RandomNumberGenerator_System_Int32_">RngExtensions.GetInt32(RandomNumberGenerator, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_System_Int32_">RngExtensions.GetInt32(IRng, Int32, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_">RngExtensions.GetInt32(IRng, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_wan24_Crypto_IRng_System_Int32_System_Int32_CancellationToken_">RngExtensions.GetInt32Async(IRng, Int32, Int32, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_wan24_Crypto_IRng_System_Int32_CancellationToken_">RngExtensions.GetInt32Async(IRng, Int32, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytes_wan24_Crypto_IRng_Span_System_Byte__">RngExtensions.GetNonZeroBytes(IRng, Span&lt;Byte&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytesAsync_wan24_Crypto_IRng_Memory_System_Byte__CancellationToken_">RngExtensions.GetNonZeroBytesAsync(IRng, Memory&lt;Byte&gt;, CancellationToken)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngAdapter.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngAdapter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngAdapter.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            (c) 2023 Andreas Zimmermann, wan24.de
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

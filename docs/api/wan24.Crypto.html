@@ -86,6 +86,12 @@
       <h4><a class="xref" href="wan24.Crypto.AsymmetricKeyPool-1.html">AsymmetricKeyPool&lt;T&gt;</a></h4>
       <section><p>Asymmetric private key pool</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeySigner.html">AsymmetricKeySigner</a></h4>
+      <section><p>Asymmetric key signer</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeySignerService.html">AsymmetricKeySignerService</a></h4>
+      <section><p>Parallel <span class="xref">wan24.Crypto.AsymmetricPublicKeySigningRequest</span> signer service</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.Bootstrap.html">Bootstrap</a></h4>
       <section><p>Bootstrapper</p>
 </section>
@@ -116,8 +122,23 @@
       <h4><a class="xref" href="wan24.Crypto.CryptoRandomStream.html">CryptoRandomStream</a></h4>
       <section><p>Crypto random stream (uses <a class="xref" href="wan24.Crypto.RND.html">RND</a> for reading cryptographic random bytes into the given buffers)</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a></h4>
+      <section><p>Attribute for a data encryption key (DEK) of an object</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.DisposableRngBase.html">DisposableRngBase</a></h4>
+      <section><p>Base class for a disposable RNG</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.DisposableSeedableRngBase.html">DisposableSeedableRngBase</a></h4>
+      <section><p>Base class for a disposable seedable RNG</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.DisposableXorRng.html">DisposableXorRng</a></h4>
+      <section><p>RNG which combines two or more RNGs with XOR</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.EllipticCurves.html">EllipticCurves</a></h4>
       <section><p>Elliptic curves</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a></h4>
+      <section><p>Attribute for a property which can be encrypted/decrypted</p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.EncryptedJsonValue-1.html">EncryptedJsonValue&lt;T&gt;</a></h4>
       <section><p>Encrypted JSON value</p>
@@ -170,6 +191,9 @@
       <h4><a class="xref" href="wan24.Crypto.NetKeyExtensions.html">NetKeyExtensions</a></h4>
       <section><p>.NET asymmetric keys extensions</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.ObjectEncryption.html">ObjectEncryption</a></h4>
+      <section><p>Object encryption helper</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></h4>
       <section><p>PAKE</p>
 </section>
@@ -200,6 +224,30 @@
       <h4><a class="xref" href="wan24.Crypto.RND.html">RND</a></h4>
       <section><p>Random generators</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.Rng.html">Rng</a></h4>
+      <section><p>Random number generator</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngAdapter.html">RngAdapter</a></h4>
+      <section><p><a class="xref" href="wan24.Crypto.IRng.html">IRng</a> to <span class="xref">System.Security.Cryptography.RandomNumberGenerator</span> adapter</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngBase.html">RngBase</a></h4>
+      <section><p>Base class for a RNG</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngExtensions.html">RngExtensions</a></h4>
+      <section><p><a class="xref" href="wan24.Crypto.Rng.html">Rng</a> extensions</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngOnlineSeedTimer.html">RngOnlineSeedTimer</a></h4>
+      <section><p>The online seed timer applies https received seeds in an interval (requests the first seed during startup)</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngSeederQueue.html">RngSeederQueue</a></h4>
+      <section><p>RNG seeder (added seeds will be copied)</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngSeedingStream.html">RngSeedingStream</a></h4>
+      <section><p>Seeds an RNG with streamed cipher data</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngSeedingStream-1.html">RngSeedingStream&lt;T&gt;</a></h4>
+      <section><p>Seeds an RNG with streamed cipher data</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></h4>
       <section><p>Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see
 <a href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf">https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf</a>)</p>
@@ -210,6 +258,12 @@
 </section>
       <h4><a class="xref" href="wan24.Crypto.SecureValueTable.html">SecureValueTable</a></h4>
       <section><p>Secure value table</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.SeedableRngBase.html">SeedableRngBase</a></h4>
+      <section><p>Base class for a seedable RNG</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.SignedAttributes.html">SignedAttributes</a></h4>
+      <section><p>Signed attribute name examples/suggestions for an <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span> / <span class="xref">wan24.Crypto.AsymmetricPublicKeySigningRequest</span></p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.SignedPkiStore.html">SignedPkiStore</a></h4>
       <section><p>Signed PKI store</p>
@@ -222,6 +276,9 @@
 </section>
       <h4><a class="xref" href="wan24.Crypto.X509Extensions.html">X509Extensions</a></h4>
       <section><p>X509 extensions</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.XorRng.html">XorRng</a></h4>
+      <section><p>RNG which combines two or more RNGs with XOR</p>
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
@@ -246,6 +303,12 @@
       <h4><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></h4>
       <section><p>Interface for a cryptographic algorithm</p>
 </section>
+      <h4><a class="xref" href="wan24.Crypto.IEncryptProperties.html">IEncryptProperties</a></h4>
+      <section><p>Interface for an object which has encrypted properties (<a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a> and <a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a>)</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.IEncryptPropertiesExt.html">IEncryptPropertiesExt</a></h4>
+      <section><p>Interface for an object which contains methods for extended en-/decryption</p>
+</section>
       <h4><a class="xref" href="wan24.Crypto.IKeyExchangePrivateKey.html">IKeyExchangePrivateKey</a></h4>
       <section><p>Key exchange private key</p>
 </section>
@@ -254,6 +317,12 @@
 </section>
       <h4><a class="xref" href="wan24.Crypto.IPakeRequest.html">IPakeRequest</a></h4>
       <section><p>Interface for a PAKE request (all values will be cleared!)</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></h4>
+      <section><p>Interface for an RNG</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></h4>
+      <section><p>Interface for a seedable <a class="xref" href="wan24.Crypto.IRng.html">IRng</a></p>
 </section>
       <h4><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></h4>
       <section><p>Signature private key</p>
@@ -271,6 +340,9 @@
 </section>
       <h4><a class="xref" href="wan24.Crypto.CryptoFlags.html">CryptoFlags</a></h4>
       <section><p>Crypto flags</p>
+</section>
+      <h4><a class="xref" href="wan24.Crypto.RngSeedingTypes.html">RngSeedingTypes</a></h4>
+      <section><p>RNG seeding types (CAUTION: be aware of patent US10402172B1!)</p>
 </section>
     <h3 id="delegates">Delegates
   </h3>

@@ -294,6 +294,228 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricKeyPool(Of T).wan24.Crypto.IAsymmetricKeyPool.Options
   nameWithType: AsymmetricKeyPool<T>.IAsymmetricKeyPool.Options
   nameWithType.vb: AsymmetricKeyPool(Of T).wan24.Crypto.IAsymmetricKeyPool.Options
+- uid: wan24.Crypto.AsymmetricKeySigner
+  name: AsymmetricKeySigner
+  href: api/wan24.Crypto.AsymmetricKeySigner.html
+  commentId: T:wan24.Crypto.AsymmetricKeySigner
+  fullName: wan24.Crypto.AsymmetricKeySigner
+  nameWithType: AsymmetricKeySigner
+- uid: wan24.Crypto.AsymmetricKeySigner.#ctor(wan24.Crypto.PrivateKeySuite)
+  name: AsymmetricKeySigner(PrivateKeySuite)
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner__ctor_wan24_Crypto_PrivateKeySuite_
+  commentId: M:wan24.Crypto.AsymmetricKeySigner.#ctor(wan24.Crypto.PrivateKeySuite)
+  fullName: wan24.Crypto.AsymmetricKeySigner.AsymmetricKeySigner(wan24.Crypto.PrivateKeySuite)
+  nameWithType: AsymmetricKeySigner.AsymmetricKeySigner(PrivateKeySuite)
+- uid: wan24.Crypto.AsymmetricKeySigner.#ctor*
+  name: AsymmetricKeySigner
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner__ctor_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.AsymmetricKeySigner
+  nameWithType: AsymmetricKeySigner.AsymmetricKeySigner
+- uid: wan24.Crypto.AsymmetricKeySigner.CipherSuite
+  name: CipherSuite
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_CipherSuite
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.CipherSuite
+  fullName: wan24.Crypto.AsymmetricKeySigner.CipherSuite
+  nameWithType: AsymmetricKeySigner.CipherSuite
+- uid: wan24.Crypto.AsymmetricKeySigner.CipherSuite*
+  name: CipherSuite
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_CipherSuite_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.CipherSuite
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.CipherSuite
+  nameWithType: AsymmetricKeySigner.CipherSuite
+- uid: wan24.Crypto.AsymmetricKeySigner.ClearRequestAttributes
+  name: ClearRequestAttributes
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_ClearRequestAttributes
+  commentId: F:wan24.Crypto.AsymmetricKeySigner.ClearRequestAttributes
+  fullName: wan24.Crypto.AsymmetricKeySigner.ClearRequestAttributes
+  nameWithType: AsymmetricKeySigner.ClearRequestAttributes
+- uid: wan24.Crypto.AsymmetricKeySigner.Instance
+  name: Instance
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_Instance
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.Instance
+  fullName: wan24.Crypto.AsymmetricKeySigner.Instance
+  nameWithType: AsymmetricKeySigner.Instance
+- uid: wan24.Crypto.AsymmetricKeySigner.Instance*
+  name: Instance
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_Instance_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.Instance
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.Instance
+  nameWithType: AsymmetricKeySigner.Instance
+- uid: wan24.Crypto.AsymmetricKeySigner.KeyValidationUriTemplate
+  name: KeyValidationUriTemplate
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_KeyValidationUriTemplate
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.KeyValidationUriTemplate
+  fullName: wan24.Crypto.AsymmetricKeySigner.KeyValidationUriTemplate
+  nameWithType: AsymmetricKeySigner.KeyValidationUriTemplate
+- uid: wan24.Crypto.AsymmetricKeySigner.KeyValidationUriTemplate*
+  name: KeyValidationUriTemplate
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_KeyValidationUriTemplate_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.KeyValidationUriTemplate
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.KeyValidationUriTemplate
+  nameWithType: AsymmetricKeySigner.KeyValidationUriTemplate
+- uid: wan24.Crypto.AsymmetricKeySigner.PKI
+  name: PKI
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_PKI
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.PKI
+  fullName: wan24.Crypto.AsymmetricKeySigner.PKI
+  nameWithType: AsymmetricKeySigner.PKI
+- uid: wan24.Crypto.AsymmetricKeySigner.PKI*
+  name: PKI
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_PKI_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.PKI
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.PKI
+  nameWithType: AsymmetricKeySigner.PKI
+- uid: wan24.Crypto.AsymmetricKeySigner.PkiDomain
+  name: PkiDomain
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_PkiDomain
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.PkiDomain
+  fullName: wan24.Crypto.AsymmetricKeySigner.PkiDomain
+  nameWithType: AsymmetricKeySigner.PkiDomain
+- uid: wan24.Crypto.AsymmetricKeySigner.PkiDomain*
+  name: PkiDomain
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_PkiDomain_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.PkiDomain
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.PkiDomain
+  nameWithType: AsymmetricKeySigner.PkiDomain
+- uid: wan24.Crypto.AsymmetricKeySigner.RequireRequestSignature
+  name: RequireRequestSignature
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_RequireRequestSignature
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.RequireRequestSignature
+  fullName: wan24.Crypto.AsymmetricKeySigner.RequireRequestSignature
+  nameWithType: AsymmetricKeySigner.RequireRequestSignature
+- uid: wan24.Crypto.AsymmetricKeySigner.RequireRequestSignature*
+  name: RequireRequestSignature
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_RequireRequestSignature_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.RequireRequestSignature
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.RequireRequestSignature
+  nameWithType: AsymmetricKeySigner.RequireRequestSignature
+- uid: wan24.Crypto.AsymmetricKeySigner.SignatureKeys
+  name: SignatureKeys
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignatureKeys
+  commentId: F:wan24.Crypto.AsymmetricKeySigner.SignatureKeys
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignatureKeys
+  nameWithType: AsymmetricKeySigner.SignatureKeys
+- uid: wan24.Crypto.AsymmetricKeySigner.SignatureOptions
+  name: SignatureOptions
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignatureOptions
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.SignatureOptions
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignatureOptions
+  nameWithType: AsymmetricKeySigner.SignatureOptions
+- uid: wan24.Crypto.AsymmetricKeySigner.SignatureOptions*
+  name: SignatureOptions
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignatureOptions_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.SignatureOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignatureOptions
+  nameWithType: AsymmetricKeySigner.SignatureOptions
+- uid: wan24.Crypto.AsymmetricKeySigner.SignaturePurpose
+  name: SignaturePurpose
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignaturePurpose
+  commentId: P:wan24.Crypto.AsymmetricKeySigner.SignaturePurpose
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignaturePurpose
+  nameWithType: AsymmetricKeySigner.SignaturePurpose
+- uid: wan24.Crypto.AsymmetricKeySigner.SignaturePurpose*
+  name: SignaturePurpose
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignaturePurpose_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.SignaturePurpose
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignaturePurpose
+  nameWithType: AsymmetricKeySigner.SignaturePurpose
+- uid: wan24.Crypto.AsymmetricKeySigner.SignKey(wan24.Crypto.AsymmetricPublicKeySigningRequest)
+  name: SignKey(AsymmetricPublicKeySigningRequest)
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignKey_wan24_Crypto_AsymmetricPublicKeySigningRequest_
+  commentId: M:wan24.Crypto.AsymmetricKeySigner.SignKey(wan24.Crypto.AsymmetricPublicKeySigningRequest)
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignKey(wan24.Crypto.AsymmetricPublicKeySigningRequest)
+  nameWithType: AsymmetricKeySigner.SignKey(AsymmetricPublicKeySigningRequest)
+- uid: wan24.Crypto.AsymmetricKeySigner.SignKey*
+  name: SignKey
+  href: api/wan24.Crypto.AsymmetricKeySigner.html#wan24_Crypto_AsymmetricKeySigner_SignKey_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySigner.SignKey
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySigner.SignKey
+  nameWithType: AsymmetricKeySigner.SignKey
+- uid: wan24.Crypto.AsymmetricKeySignerService
+  name: AsymmetricKeySignerService
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html
+  commentId: T:wan24.Crypto.AsymmetricKeySignerService
+  fullName: wan24.Crypto.AsymmetricKeySignerService
+  nameWithType: AsymmetricKeySignerService
+- uid: wan24.Crypto.AsymmetricKeySignerService.#ctor(System.Int32@,System.Int32@,wan24.Crypto.AsymmetricKeySigner@)
+  name: AsymmetricKeySignerService(in Int32, in Int32, in AsymmetricKeySigner)
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService__ctor_System_Int32__System_Int32__wan24_Crypto_AsymmetricKeySigner__
+  commentId: M:wan24.Crypto.AsymmetricKeySignerService.#ctor(System.Int32@,System.Int32@,wan24.Crypto.AsymmetricKeySigner@)
+  name.vb: AsymmetricKeySignerService(ByRef Int32, ByRef Int32, ByRef AsymmetricKeySigner)
+  fullName: wan24.Crypto.AsymmetricKeySignerService.AsymmetricKeySignerService(in System.Int32, in System.Int32, in wan24.Crypto.AsymmetricKeySigner)
+  fullName.vb: wan24.Crypto.AsymmetricKeySignerService.AsymmetricKeySignerService(ByRef System.Int32, ByRef System.Int32, ByRef wan24.Crypto.AsymmetricKeySigner)
+  nameWithType: AsymmetricKeySignerService.AsymmetricKeySignerService(in Int32, in Int32, in AsymmetricKeySigner)
+  nameWithType.vb: AsymmetricKeySignerService.AsymmetricKeySignerService(ByRef Int32, ByRef Int32, ByRef AsymmetricKeySigner)
+- uid: wan24.Crypto.AsymmetricKeySignerService.#ctor*
+  name: AsymmetricKeySignerService
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService__ctor_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySignerService.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySignerService.AsymmetricKeySignerService
+  nameWithType: AsymmetricKeySignerService.AsymmetricKeySignerService
+- uid: wan24.Crypto.AsymmetricKeySignerService.Instance
+  name: Instance
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_Instance
+  commentId: P:wan24.Crypto.AsymmetricKeySignerService.Instance
+  fullName: wan24.Crypto.AsymmetricKeySignerService.Instance
+  nameWithType: AsymmetricKeySignerService.Instance
+- uid: wan24.Crypto.AsymmetricKeySignerService.Instance*
+  name: Instance
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_Instance_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySignerService.Instance
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySignerService.Instance
+  nameWithType: AsymmetricKeySignerService.Instance
+- uid: wan24.Crypto.AsymmetricKeySignerService.ProcessItem(Action,CancellationToken)
+  name: ProcessItem(Action, CancellationToken)
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_ProcessItem_Action_CancellationToken_
+  commentId: M:wan24.Crypto.AsymmetricKeySignerService.ProcessItem(Action,CancellationToken)
+  fullName: wan24.Crypto.AsymmetricKeySignerService.ProcessItem(Action, CancellationToken)
+  nameWithType: AsymmetricKeySignerService.ProcessItem(Action, CancellationToken)
+- uid: wan24.Crypto.AsymmetricKeySignerService.ProcessItem*
+  name: ProcessItem
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_ProcessItem_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySignerService.ProcessItem
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySignerService.ProcessItem
+  nameWithType: AsymmetricKeySignerService.ProcessItem
+- uid: wan24.Crypto.AsymmetricKeySignerService.SignAsync(wan24.Crypto.AsymmetricPublicKeySigningRequest,CancellationToken)
+  name: SignAsync(AsymmetricPublicKeySigningRequest, CancellationToken)
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_SignAsync_wan24_Crypto_AsymmetricPublicKeySigningRequest_CancellationToken_
+  commentId: M:wan24.Crypto.AsymmetricKeySignerService.SignAsync(wan24.Crypto.AsymmetricPublicKeySigningRequest,CancellationToken)
+  fullName: wan24.Crypto.AsymmetricKeySignerService.SignAsync(wan24.Crypto.AsymmetricPublicKeySigningRequest, CancellationToken)
+  nameWithType: AsymmetricKeySignerService.SignAsync(AsymmetricPublicKeySigningRequest, CancellationToken)
+- uid: wan24.Crypto.AsymmetricKeySignerService.SignAsync*
+  name: SignAsync
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_SignAsync_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySignerService.SignAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySignerService.SignAsync
+  nameWithType: AsymmetricKeySignerService.SignAsync
+- uid: wan24.Crypto.AsymmetricKeySignerService.Signer
+  name: Signer
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_Signer
+  commentId: P:wan24.Crypto.AsymmetricKeySignerService.Signer
+  fullName: wan24.Crypto.AsymmetricKeySignerService.Signer
+  nameWithType: AsymmetricKeySignerService.Signer
+- uid: wan24.Crypto.AsymmetricKeySignerService.Signer*
+  name: Signer
+  href: api/wan24.Crypto.AsymmetricKeySignerService.html#wan24_Crypto_AsymmetricKeySignerService_Signer_
+  commentId: Overload:wan24.Crypto.AsymmetricKeySignerService.Signer
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeySignerService.Signer
+  nameWithType: AsymmetricKeySignerService.Signer
 - uid: wan24.Crypto.Authentication
   name: wan24.Crypto.Authentication
   href: api/wan24.Crypto.Authentication.html
@@ -1801,6 +2023,45 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.Options
   nameWithType: CryptoEnvironment.Options.Options
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
+  name: AsymmetricKeySigner
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeySigner
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeySigner
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner*
+  name: AsymmetricKeySigner
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeySigner_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeySigner
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySignerService
+  name: AsymmetricKeySignerService
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeySignerService
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySignerService
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySignerService
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeySignerService
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySignerService*
+  name: AsymmetricKeySignerService
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeySignerService_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySignerService
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySignerService
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeySignerService
+- uid: wan24.Crypto.CryptoEnvironment.Options.AutoRngSeeding
+  name: AutoRngSeeding
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AutoRngSeeding
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.AutoRngSeeding
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AutoRngSeeding
+  nameWithType: CryptoEnvironment.Options.AutoRngSeeding
+- uid: wan24.Crypto.CryptoEnvironment.Options.AutoRngSeeding*
+  name: AutoRngSeeding
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AutoRngSeeding_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.AutoRngSeeding
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AutoRngSeeding
+  nameWithType: CryptoEnvironment.Options.AutoRngSeeding
 - uid: wan24.Crypto.CryptoEnvironment.Options.CounterKdfAlgorithm
   name: CounterKdfAlgorithm
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_CounterKdfAlgorithm
@@ -2165,6 +2426,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom
   nameWithType: CryptoEnvironment.Options.RequireDevUrandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
+  name: SeedConsumer
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SeedConsumer
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
+  fullName: wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
+  nameWithType: CryptoEnvironment.Options.SeedConsumer
+- uid: wan24.Crypto.CryptoEnvironment.Options.SeedConsumer*
+  name: SeedConsumer
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SeedConsumer_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
+  nameWithType: CryptoEnvironment.Options.SeedConsumer
 - uid: wan24.Crypto.CryptoEnvironment.Options.SkipPakeSignatureKeyValidation
   name: SkipPakeSignatureKeyValidation
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SkipPakeSignatureKeyValidation
@@ -3503,6 +3777,281 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoRandomStream.Write
   nameWithType: CryptoRandomStream.Write
+- uid: wan24.Crypto.DekAttribute
+  name: DekAttribute
+  href: api/wan24.Crypto.DekAttribute.html
+  commentId: T:wan24.Crypto.DekAttribute
+  fullName: wan24.Crypto.DekAttribute
+  nameWithType: DekAttribute
+- uid: wan24.Crypto.DekAttribute.#ctor
+  name: DekAttribute()
+  href: api/wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute__ctor
+  commentId: M:wan24.Crypto.DekAttribute.#ctor
+  fullName: wan24.Crypto.DekAttribute.DekAttribute()
+  nameWithType: DekAttribute.DekAttribute()
+- uid: wan24.Crypto.DekAttribute.#ctor*
+  name: DekAttribute
+  href: api/wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute__ctor_
+  commentId: Overload:wan24.Crypto.DekAttribute.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DekAttribute.DekAttribute
+  nameWithType: DekAttribute.DekAttribute
+- uid: wan24.Crypto.DekAttribute.GetValue*
+  name: GetValue
+  href: api/wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_GetValue_
+  commentId: Overload:wan24.Crypto.DekAttribute.GetValue
+  isSpec: "True"
+  fullName: wan24.Crypto.DekAttribute.GetValue
+  nameWithType: DekAttribute.GetValue
+- uid: wan24.Crypto.DekAttribute.GetValue``1(``0,wan24.Core.PropertyInfoExt)
+  name: GetValue<T>(T, PropertyInfoExt)
+  href: api/wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_GetValue__1___0_wan24_Core_PropertyInfoExt_
+  commentId: M:wan24.Crypto.DekAttribute.GetValue``1(``0,wan24.Core.PropertyInfoExt)
+  name.vb: GetValue(Of T)(T, PropertyInfoExt)
+  fullName: wan24.Crypto.DekAttribute.GetValue<T>(T, wan24.Core.PropertyInfoExt)
+  fullName.vb: wan24.Crypto.DekAttribute.GetValue(Of T)(T, wan24.Core.PropertyInfoExt)
+  nameWithType: DekAttribute.GetValue<T>(T, PropertyInfoExt)
+  nameWithType.vb: DekAttribute.GetValue(Of T)(T, PropertyInfoExt)
+- uid: wan24.Crypto.DekAttribute.SetValue*
+  name: SetValue
+  href: api/wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_SetValue_
+  commentId: Overload:wan24.Crypto.DekAttribute.SetValue
+  isSpec: "True"
+  fullName: wan24.Crypto.DekAttribute.SetValue
+  nameWithType: DekAttribute.SetValue
+- uid: wan24.Crypto.DekAttribute.SetValue``1(``0,wan24.Core.PropertyInfoExt,System.Byte[])
+  name: SetValue<T>(T, PropertyInfoExt, Byte[])
+  href: api/wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_SetValue__1___0_wan24_Core_PropertyInfoExt_System_Byte___
+  commentId: M:wan24.Crypto.DekAttribute.SetValue``1(``0,wan24.Core.PropertyInfoExt,System.Byte[])
+  name.vb: SetValue(Of T)(T, PropertyInfoExt, Byte())
+  fullName: wan24.Crypto.DekAttribute.SetValue<T>(T, wan24.Core.PropertyInfoExt, System.Byte[])
+  fullName.vb: wan24.Crypto.DekAttribute.SetValue(Of T)(T, wan24.Core.PropertyInfoExt, System.Byte())
+  nameWithType: DekAttribute.SetValue<T>(T, PropertyInfoExt, Byte[])
+  nameWithType.vb: DekAttribute.SetValue(Of T)(T, PropertyInfoExt, Byte())
+- uid: wan24.Crypto.DisposableRngBase
+  name: DisposableRngBase
+  href: api/wan24.Crypto.DisposableRngBase.html
+  commentId: T:wan24.Crypto.DisposableRngBase
+  fullName: wan24.Crypto.DisposableRngBase
+  nameWithType: DisposableRngBase
+- uid: wan24.Crypto.DisposableRngBase.#ctor(System.Boolean)
+  name: DisposableRngBase(Boolean)
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase__ctor_System_Boolean_
+  commentId: M:wan24.Crypto.DisposableRngBase.#ctor(System.Boolean)
+  fullName: wan24.Crypto.DisposableRngBase.DisposableRngBase(System.Boolean)
+  nameWithType: DisposableRngBase.DisposableRngBase(Boolean)
+- uid: wan24.Crypto.DisposableRngBase.#ctor*
+  name: DisposableRngBase
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase__ctor_
+  commentId: Overload:wan24.Crypto.DisposableRngBase.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableRngBase.DisposableRngBase
+  nameWithType: DisposableRngBase.DisposableRngBase
+- uid: wan24.Crypto.DisposableRngBase.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.DisposableRngBase.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.DisposableRngBase.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.DisposableRngBase.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: DisposableRngBase.FillBytes(in Span<Byte>)
+  nameWithType.vb: DisposableRngBase.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.DisposableRngBase.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_FillBytes_
+  commentId: Overload:wan24.Crypto.DisposableRngBase.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableRngBase.FillBytes
+  nameWithType: DisposableRngBase.FillBytes
+- uid: wan24.Crypto.DisposableRngBase.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.DisposableRngBase.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DisposableRngBase.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.DisposableRngBase.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: DisposableRngBase.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: DisposableRngBase.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DisposableRngBase.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.DisposableRngBase.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableRngBase.FillBytesAsync
+  nameWithType: DisposableRngBase.FillBytesAsync
+- uid: wan24.Crypto.DisposableRngBase.GetBytes(System.Int32@)
+  name: GetBytes(in Int32)
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_GetBytes_System_Int32__
+  commentId: M:wan24.Crypto.DisposableRngBase.GetBytes(System.Int32@)
+  name.vb: GetBytes(ByRef Int32)
+  fullName: wan24.Crypto.DisposableRngBase.GetBytes(in System.Int32)
+  fullName.vb: wan24.Crypto.DisposableRngBase.GetBytes(ByRef System.Int32)
+  nameWithType: DisposableRngBase.GetBytes(in Int32)
+  nameWithType.vb: DisposableRngBase.GetBytes(ByRef Int32)
+- uid: wan24.Crypto.DisposableRngBase.GetBytes*
+  name: GetBytes
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_GetBytes_
+  commentId: Overload:wan24.Crypto.DisposableRngBase.GetBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableRngBase.GetBytes
+  nameWithType: DisposableRngBase.GetBytes
+- uid: wan24.Crypto.DisposableRngBase.GetBytesAsync(System.Int32,CancellationToken)
+  name: GetBytesAsync(Int32, CancellationToken)
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_GetBytesAsync_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.DisposableRngBase.GetBytesAsync(System.Int32,CancellationToken)
+  fullName: wan24.Crypto.DisposableRngBase.GetBytesAsync(System.Int32, CancellationToken)
+  nameWithType: DisposableRngBase.GetBytesAsync(Int32, CancellationToken)
+- uid: wan24.Crypto.DisposableRngBase.GetBytesAsync*
+  name: GetBytesAsync
+  href: api/wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_GetBytesAsync_
+  commentId: Overload:wan24.Crypto.DisposableRngBase.GetBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableRngBase.GetBytesAsync
+  nameWithType: DisposableRngBase.GetBytesAsync
+- uid: wan24.Crypto.DisposableSeedableRngBase
+  name: DisposableSeedableRngBase
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html
+  commentId: T:wan24.Crypto.DisposableSeedableRngBase
+  fullName: wan24.Crypto.DisposableSeedableRngBase
+  nameWithType: DisposableSeedableRngBase
+- uid: wan24.Crypto.DisposableSeedableRngBase.#ctor(System.Boolean)
+  name: DisposableSeedableRngBase(Boolean)
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html#wan24_Crypto_DisposableSeedableRngBase__ctor_System_Boolean_
+  commentId: M:wan24.Crypto.DisposableSeedableRngBase.#ctor(System.Boolean)
+  fullName: wan24.Crypto.DisposableSeedableRngBase.DisposableSeedableRngBase(System.Boolean)
+  nameWithType: DisposableSeedableRngBase.DisposableSeedableRngBase(Boolean)
+- uid: wan24.Crypto.DisposableSeedableRngBase.#ctor*
+  name: DisposableSeedableRngBase
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html#wan24_Crypto_DisposableSeedableRngBase__ctor_
+  commentId: Overload:wan24.Crypto.DisposableSeedableRngBase.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSeedableRngBase.DisposableSeedableRngBase
+  nameWithType: DisposableSeedableRngBase.DisposableSeedableRngBase
+- uid: wan24.Crypto.DisposableSeedableRngBase.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html#wan24_Crypto_DisposableSeedableRngBase_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.DisposableSeedableRngBase.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.DisposableSeedableRngBase.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.DisposableSeedableRngBase.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: DisposableSeedableRngBase.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: DisposableSeedableRngBase.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.DisposableSeedableRngBase.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html#wan24_Crypto_DisposableSeedableRngBase_AddSeed_
+  commentId: Overload:wan24.Crypto.DisposableSeedableRngBase.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSeedableRngBase.AddSeed
+  nameWithType: DisposableSeedableRngBase.AddSeed
+- uid: wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html#wan24_Crypto_DisposableSeedableRngBase_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: DisposableSeedableRngBase.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: DisposableSeedableRngBase.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.DisposableSeedableRngBase.html#wan24_Crypto_DisposableSeedableRngBase_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableSeedableRngBase.AddSeedAsync
+  nameWithType: DisposableSeedableRngBase.AddSeedAsync
+- uid: wan24.Crypto.DisposableXorRng
+  name: DisposableXorRng
+  href: api/wan24.Crypto.DisposableXorRng.html
+  commentId: T:wan24.Crypto.DisposableXorRng
+  fullName: wan24.Crypto.DisposableXorRng
+  nameWithType: DisposableXorRng
+- uid: wan24.Crypto.DisposableXorRng.#ctor(wan24.Crypto.IRng[])
+  name: DisposableXorRng(IRng[])
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng__ctor_wan24_Crypto_IRng___
+  commentId: M:wan24.Crypto.DisposableXorRng.#ctor(wan24.Crypto.IRng[])
+  name.vb: DisposableXorRng(IRng())
+  fullName: wan24.Crypto.DisposableXorRng.DisposableXorRng(wan24.Crypto.IRng[])
+  fullName.vb: wan24.Crypto.DisposableXorRng.DisposableXorRng(wan24.Crypto.IRng())
+  nameWithType: DisposableXorRng.DisposableXorRng(IRng[])
+  nameWithType.vb: DisposableXorRng.DisposableXorRng(IRng())
+- uid: wan24.Crypto.DisposableXorRng.#ctor*
+  name: DisposableXorRng
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng__ctor_
+  commentId: Overload:wan24.Crypto.DisposableXorRng.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableXorRng.DisposableXorRng
+  nameWithType: DisposableXorRng.DisposableXorRng
+- uid: wan24.Crypto.DisposableXorRng.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.DisposableXorRng.Dispose(System.Boolean)
+  fullName: wan24.Crypto.DisposableXorRng.Dispose(System.Boolean)
+  nameWithType: DisposableXorRng.Dispose(Boolean)
+- uid: wan24.Crypto.DisposableXorRng.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_Dispose_
+  commentId: Overload:wan24.Crypto.DisposableXorRng.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableXorRng.Dispose
+  nameWithType: DisposableXorRng.Dispose
+- uid: wan24.Crypto.DisposableXorRng.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_DisposeCore
+  commentId: M:wan24.Crypto.DisposableXorRng.DisposeCore
+  fullName: wan24.Crypto.DisposableXorRng.DisposeCore()
+  nameWithType: DisposableXorRng.DisposeCore()
+- uid: wan24.Crypto.DisposableXorRng.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_DisposeCore_
+  commentId: Overload:wan24.Crypto.DisposableXorRng.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableXorRng.DisposeCore
+  nameWithType: DisposableXorRng.DisposeCore
+- uid: wan24.Crypto.DisposableXorRng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.DisposableXorRng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.DisposableXorRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.DisposableXorRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: DisposableXorRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: DisposableXorRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.DisposableXorRng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_FillBytes_
+  commentId: Overload:wan24.Crypto.DisposableXorRng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableXorRng.FillBytes
+  nameWithType: DisposableXorRng.FillBytes
+- uid: wan24.Crypto.DisposableXorRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.DisposableXorRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DisposableXorRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.DisposableXorRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: DisposableXorRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: DisposableXorRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DisposableXorRng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.DisposableXorRng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableXorRng.FillBytesAsync
+  nameWithType: DisposableXorRng.FillBytesAsync
+- uid: wan24.Crypto.DisposableXorRng.RNG
+  name: RNG
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_RNG
+  commentId: P:wan24.Crypto.DisposableXorRng.RNG
+  fullName: wan24.Crypto.DisposableXorRng.RNG
+  nameWithType: DisposableXorRng.RNG
+- uid: wan24.Crypto.DisposableXorRng.RNG*
+  name: RNG
+  href: api/wan24.Crypto.DisposableXorRng.html#wan24_Crypto_DisposableXorRng_RNG_
+  commentId: Overload:wan24.Crypto.DisposableXorRng.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableXorRng.RNG
+  nameWithType: DisposableXorRng.RNG
 - uid: wan24.Crypto.EllipticCurves
   name: EllipticCurves
   href: api/wan24.Crypto.EllipticCurves.html
@@ -3620,6 +4169,89 @@ references:
   commentId: F:wan24.Crypto.EllipticCurves.SECP521R1_KEY_SIZE
   fullName: wan24.Crypto.EllipticCurves.SECP521R1_KEY_SIZE
   nameWithType: EllipticCurves.SECP521R1_KEY_SIZE
+- uid: wan24.Crypto.EncryptAttribute
+  name: EncryptAttribute
+  href: api/wan24.Crypto.EncryptAttribute.html
+  commentId: T:wan24.Crypto.EncryptAttribute
+  fullName: wan24.Crypto.EncryptAttribute
+  nameWithType: EncryptAttribute
+- uid: wan24.Crypto.EncryptAttribute.#ctor
+  name: EncryptAttribute()
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute__ctor
+  commentId: M:wan24.Crypto.EncryptAttribute.#ctor
+  fullName: wan24.Crypto.EncryptAttribute.EncryptAttribute()
+  nameWithType: EncryptAttribute.EncryptAttribute()
+- uid: wan24.Crypto.EncryptAttribute.#ctor*
+  name: EncryptAttribute
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute__ctor_
+  commentId: Overload:wan24.Crypto.EncryptAttribute.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptAttribute.EncryptAttribute
+  nameWithType: EncryptAttribute.EncryptAttribute
+- uid: wan24.Crypto.EncryptAttribute.GetCipher*
+  name: GetCipher
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_GetCipher_
+  commentId: Overload:wan24.Crypto.EncryptAttribute.GetCipher
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptAttribute.GetCipher
+  nameWithType: EncryptAttribute.GetCipher
+- uid: wan24.Crypto.EncryptAttribute.GetCipher``1(``0,wan24.Core.PropertyInfoExt)
+  name: GetCipher<T>(T, PropertyInfoExt)
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_GetCipher__1___0_wan24_Core_PropertyInfoExt_
+  commentId: M:wan24.Crypto.EncryptAttribute.GetCipher``1(``0,wan24.Core.PropertyInfoExt)
+  name.vb: GetCipher(Of T)(T, PropertyInfoExt)
+  fullName: wan24.Crypto.EncryptAttribute.GetCipher<T>(T, wan24.Core.PropertyInfoExt)
+  fullName.vb: wan24.Crypto.EncryptAttribute.GetCipher(Of T)(T, wan24.Core.PropertyInfoExt)
+  nameWithType: EncryptAttribute.GetCipher<T>(T, PropertyInfoExt)
+  nameWithType.vb: EncryptAttribute.GetCipher(Of T)(T, PropertyInfoExt)
+- uid: wan24.Crypto.EncryptAttribute.GetRaw*
+  name: GetRaw
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_GetRaw_
+  commentId: Overload:wan24.Crypto.EncryptAttribute.GetRaw
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptAttribute.GetRaw
+  nameWithType: EncryptAttribute.GetRaw
+- uid: wan24.Crypto.EncryptAttribute.GetRaw``1(``0,wan24.Core.PropertyInfoExt)
+  name: GetRaw<T>(T, PropertyInfoExt)
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_GetRaw__1___0_wan24_Core_PropertyInfoExt_
+  commentId: M:wan24.Crypto.EncryptAttribute.GetRaw``1(``0,wan24.Core.PropertyInfoExt)
+  name.vb: GetRaw(Of T)(T, PropertyInfoExt)
+  fullName: wan24.Crypto.EncryptAttribute.GetRaw<T>(T, wan24.Core.PropertyInfoExt)
+  fullName.vb: wan24.Crypto.EncryptAttribute.GetRaw(Of T)(T, wan24.Core.PropertyInfoExt)
+  nameWithType: EncryptAttribute.GetRaw<T>(T, PropertyInfoExt)
+  nameWithType.vb: EncryptAttribute.GetRaw(Of T)(T, PropertyInfoExt)
+- uid: wan24.Crypto.EncryptAttribute.SetCipher*
+  name: SetCipher
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_SetCipher_
+  commentId: Overload:wan24.Crypto.EncryptAttribute.SetCipher
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptAttribute.SetCipher
+  nameWithType: EncryptAttribute.SetCipher
+- uid: wan24.Crypto.EncryptAttribute.SetCipher``1(``0,wan24.Core.PropertyInfoExt,System.Byte[])
+  name: SetCipher<T>(T, PropertyInfoExt, Byte[])
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_SetCipher__1___0_wan24_Core_PropertyInfoExt_System_Byte___
+  commentId: M:wan24.Crypto.EncryptAttribute.SetCipher``1(``0,wan24.Core.PropertyInfoExt,System.Byte[])
+  name.vb: SetCipher(Of T)(T, PropertyInfoExt, Byte())
+  fullName: wan24.Crypto.EncryptAttribute.SetCipher<T>(T, wan24.Core.PropertyInfoExt, System.Byte[])
+  fullName.vb: wan24.Crypto.EncryptAttribute.SetCipher(Of T)(T, wan24.Core.PropertyInfoExt, System.Byte())
+  nameWithType: EncryptAttribute.SetCipher<T>(T, PropertyInfoExt, Byte[])
+  nameWithType.vb: EncryptAttribute.SetCipher(Of T)(T, PropertyInfoExt, Byte())
+- uid: wan24.Crypto.EncryptAttribute.SetRaw*
+  name: SetRaw
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_SetRaw_
+  commentId: Overload:wan24.Crypto.EncryptAttribute.SetRaw
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptAttribute.SetRaw
+  nameWithType: EncryptAttribute.SetRaw
+- uid: wan24.Crypto.EncryptAttribute.SetRaw``1(``0,wan24.Core.PropertyInfoExt,System.Byte[])
+  name: SetRaw<T>(T, PropertyInfoExt, Byte[])
+  href: api/wan24.Crypto.EncryptAttribute.html#wan24_Crypto_EncryptAttribute_SetRaw__1___0_wan24_Core_PropertyInfoExt_System_Byte___
+  commentId: M:wan24.Crypto.EncryptAttribute.SetRaw``1(``0,wan24.Core.PropertyInfoExt,System.Byte[])
+  name.vb: SetRaw(Of T)(T, PropertyInfoExt, Byte())
+  fullName: wan24.Crypto.EncryptAttribute.SetRaw<T>(T, wan24.Core.PropertyInfoExt, System.Byte[])
+  fullName.vb: wan24.Crypto.EncryptAttribute.SetRaw(Of T)(T, wan24.Core.PropertyInfoExt, System.Byte())
+  nameWithType: EncryptAttribute.SetRaw<T>(T, PropertyInfoExt, Byte[])
+  nameWithType.vb: EncryptAttribute.SetRaw(Of T)(T, PropertyInfoExt, Byte())
 - uid: wan24.Crypto.EncryptedJsonValue`1
   name: EncryptedJsonValue<T>
   href: api/wan24.Crypto.EncryptedJsonValue-1.html
@@ -6171,6 +6803,82 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.ICryptoAlgorithm.Value
   nameWithType: ICryptoAlgorithm.Value
+- uid: wan24.Crypto.IEncryptProperties
+  name: IEncryptProperties
+  href: api/wan24.Crypto.IEncryptProperties.html
+  commentId: T:wan24.Crypto.IEncryptProperties
+  fullName: wan24.Crypto.IEncryptProperties
+  nameWithType: IEncryptProperties
+- uid: wan24.Crypto.IEncryptPropertiesExt
+  name: IEncryptPropertiesExt
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html
+  commentId: T:wan24.Crypto.IEncryptPropertiesExt
+  fullName: wan24.Crypto.IEncryptPropertiesExt
+  nameWithType: IEncryptPropertiesExt
+- uid: wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name: AfterDecrypt(Byte[], Byte[], CryptoOptions)
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_AfterDecrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: AfterDecrypt(Byte(), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt(System.Byte[], System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt(System.Byte(), System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: IEncryptPropertiesExt.AfterDecrypt(Byte[], Byte[], CryptoOptions)
+  nameWithType.vb: IEncryptPropertiesExt.AfterDecrypt(Byte(), Byte(), CryptoOptions)
+- uid: wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt*
+  name: AfterDecrypt
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_AfterDecrypt_
+  commentId: Overload:wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt
+  isSpec: "True"
+  fullName: wan24.Crypto.IEncryptPropertiesExt.AfterDecrypt
+  nameWithType: IEncryptPropertiesExt.AfterDecrypt
+- uid: wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt(System.Byte[],System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name: AfterEncrypt(Byte[], Int32, Byte[], CryptoOptions)
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_AfterEncrypt_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt(System.Byte[],System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: AfterEncrypt(Byte(), Int32, Byte(), CryptoOptions)
+  fullName: wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt(System.Byte[], System.Int32, System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt(System.Byte(), System.Int32, System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: IEncryptPropertiesExt.AfterEncrypt(Byte[], Int32, Byte[], CryptoOptions)
+  nameWithType.vb: IEncryptPropertiesExt.AfterEncrypt(Byte(), Int32, Byte(), CryptoOptions)
+- uid: wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt*
+  name: AfterEncrypt
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_AfterEncrypt_
+  commentId: Overload:wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt
+  isSpec: "True"
+  fullName: wan24.Crypto.IEncryptPropertiesExt.AfterEncrypt
+  nameWithType: IEncryptPropertiesExt.AfterEncrypt
+- uid: wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name: BeforeDecrypt(Byte[], Byte[], CryptoOptions)
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_BeforeDecrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: BeforeDecrypt(Byte(), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt(System.Byte[], System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt(System.Byte(), System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: IEncryptPropertiesExt.BeforeDecrypt(Byte[], Byte[], CryptoOptions)
+  nameWithType.vb: IEncryptPropertiesExt.BeforeDecrypt(Byte(), Byte(), CryptoOptions)
+- uid: wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt*
+  name: BeforeDecrypt
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_BeforeDecrypt_
+  commentId: Overload:wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt
+  isSpec: "True"
+  fullName: wan24.Crypto.IEncryptPropertiesExt.BeforeDecrypt
+  nameWithType: IEncryptPropertiesExt.BeforeDecrypt
+- uid: wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt(System.Byte[],System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name: BeforeEncrypt(Byte[], Int32, Byte[], CryptoOptions)
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_BeforeEncrypt_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt(System.Byte[],System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: BeforeEncrypt(Byte(), Int32, Byte(), CryptoOptions)
+  fullName: wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt(System.Byte[], System.Int32, System.Byte[], wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt(System.Byte(), System.Int32, System.Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: IEncryptPropertiesExt.BeforeEncrypt(Byte[], Int32, Byte[], CryptoOptions)
+  nameWithType.vb: IEncryptPropertiesExt.BeforeEncrypt(Byte(), Int32, Byte(), CryptoOptions)
+- uid: wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt*
+  name: BeforeEncrypt
+  href: api/wan24.Crypto.IEncryptPropertiesExt.html#wan24_Crypto_IEncryptPropertiesExt_BeforeEncrypt_
+  commentId: Overload:wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt
+  isSpec: "True"
+  fullName: wan24.Crypto.IEncryptPropertiesExt.BeforeEncrypt
+  nameWithType: IEncryptPropertiesExt.BeforeEncrypt
 - uid: wan24.Crypto.IKeyExchangePrivateKey
   name: IKeyExchangePrivateKey
   href: api/wan24.Crypto.IKeyExchangePrivateKey.html
@@ -6328,6 +7036,111 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IPakeRequest.Signature
   nameWithType: IPakeRequest.Signature
+- uid: wan24.Crypto.IRng
+  name: IRng
+  href: api/wan24.Crypto.IRng.html
+  commentId: T:wan24.Crypto.IRng
+  fullName: wan24.Crypto.IRng
+  nameWithType: IRng
+- uid: wan24.Crypto.IRng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.IRng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.IRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.IRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: IRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: IRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.IRng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_FillBytes_
+  commentId: Overload:wan24.Crypto.IRng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.IRng.FillBytes
+  nameWithType: IRng.FillBytes
+- uid: wan24.Crypto.IRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.IRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.IRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.IRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: IRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: IRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.IRng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.IRng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.IRng.FillBytesAsync
+  nameWithType: IRng.FillBytesAsync
+- uid: wan24.Crypto.IRng.GetBytes(System.Int32@)
+  name: GetBytes(in Int32)
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_GetBytes_System_Int32__
+  commentId: M:wan24.Crypto.IRng.GetBytes(System.Int32@)
+  name.vb: GetBytes(ByRef Int32)
+  fullName: wan24.Crypto.IRng.GetBytes(in System.Int32)
+  fullName.vb: wan24.Crypto.IRng.GetBytes(ByRef System.Int32)
+  nameWithType: IRng.GetBytes(in Int32)
+  nameWithType.vb: IRng.GetBytes(ByRef Int32)
+- uid: wan24.Crypto.IRng.GetBytes*
+  name: GetBytes
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_GetBytes_
+  commentId: Overload:wan24.Crypto.IRng.GetBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.IRng.GetBytes
+  nameWithType: IRng.GetBytes
+- uid: wan24.Crypto.IRng.GetBytesAsync(System.Int32,CancellationToken)
+  name: GetBytesAsync(Int32, CancellationToken)
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_GetBytesAsync_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.IRng.GetBytesAsync(System.Int32,CancellationToken)
+  fullName: wan24.Crypto.IRng.GetBytesAsync(System.Int32, CancellationToken)
+  nameWithType: IRng.GetBytesAsync(Int32, CancellationToken)
+- uid: wan24.Crypto.IRng.GetBytesAsync*
+  name: GetBytesAsync
+  href: api/wan24.Crypto.IRng.html#wan24_Crypto_IRng_GetBytesAsync_
+  commentId: Overload:wan24.Crypto.IRng.GetBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.IRng.GetBytesAsync
+  nameWithType: IRng.GetBytesAsync
+- uid: wan24.Crypto.ISeedableRng
+  name: ISeedableRng
+  href: api/wan24.Crypto.ISeedableRng.html
+  commentId: T:wan24.Crypto.ISeedableRng
+  fullName: wan24.Crypto.ISeedableRng
+  nameWithType: ISeedableRng
+- uid: wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: ISeedableRng.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: ISeedableRng.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.ISeedableRng.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeed_
+  commentId: Overload:wan24.Crypto.ISeedableRng.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.ISeedableRng.AddSeed
+  nameWithType: ISeedableRng.AddSeed
+- uid: wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: ISeedableRng.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: ISeedableRng.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.ISeedableRng.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.ISeedableRng.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.ISeedableRng.AddSeedAsync
+  nameWithType: ISeedableRng.AddSeedAsync
 - uid: wan24.Crypto.ISignaturePrivateKey
   name: ISignaturePrivateKey
   href: api/wan24.Crypto.ISignaturePrivateKey.html
@@ -6864,6 +7677,117 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.NetKeyExtensions.GetAsymmetricPublicKey
   nameWithType: NetKeyExtensions.GetAsymmetricPublicKey
+- uid: wan24.Crypto.ObjectEncryption
+  name: ObjectEncryption
+  href: api/wan24.Crypto.ObjectEncryption.html
+  commentId: T:wan24.Crypto.ObjectEncryption
+  fullName: wan24.Crypto.ObjectEncryption
+  nameWithType: ObjectEncryption
+- uid: wan24.Crypto.ObjectEncryption.DecryptObject*
+  name: DecryptObject
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_DecryptObject_
+  commentId: Overload:wan24.Crypto.ObjectEncryption.DecryptObject
+  isSpec: "True"
+  fullName: wan24.Crypto.ObjectEncryption.DecryptObject
+  nameWithType: ObjectEncryption.DecryptObject
+- uid: wan24.Crypto.ObjectEncryption.DecryptObject``1(``0,System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name: DecryptObject<T>(T, in Byte[], in Byte[], in CryptoOptions)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_DecryptObject__1___0_System_Byte____System_Byte____wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.ObjectEncryption.DecryptObject``1(``0,System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name.vb: DecryptObject(Of T)(T, ByRef Byte(), ByRef Byte(), ByRef CryptoOptions)
+  fullName: wan24.Crypto.ObjectEncryption.DecryptObject<T>(T, in System.Byte[], in System.Byte[], in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ObjectEncryption.DecryptObject(Of T)(T, ByRef System.Byte(), ByRef System.Byte(), ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: ObjectEncryption.DecryptObject<T>(T, in Byte[], in Byte[], in CryptoOptions)
+  nameWithType.vb: ObjectEncryption.DecryptObject(Of T)(T, ByRef Byte(), ByRef Byte(), ByRef CryptoOptions)
+- uid: wan24.Crypto.ObjectEncryption.DecryptProperties*
+  name: DecryptProperties
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_DecryptProperties_
+  commentId: Overload:wan24.Crypto.ObjectEncryption.DecryptProperties
+  isSpec: "True"
+  fullName: wan24.Crypto.ObjectEncryption.DecryptProperties
+  nameWithType: ObjectEncryption.DecryptProperties
+- uid: wan24.Crypto.ObjectEncryption.DecryptProperties``1(``0@,System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name: DecryptProperties<T>(in T, in Byte[], in Byte[], in CryptoOptions)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_DecryptProperties__1___0__System_Byte____System_Byte____wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.ObjectEncryption.DecryptProperties``1(``0@,System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name.vb: DecryptProperties(Of T)(ByRef T, ByRef Byte(), ByRef Byte(), ByRef CryptoOptions)
+  fullName: wan24.Crypto.ObjectEncryption.DecryptProperties<T>(in T, in System.Byte[], in System.Byte[], in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ObjectEncryption.DecryptProperties(Of T)(ByRef T, ByRef System.Byte(), ByRef System.Byte(), ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: ObjectEncryption.DecryptProperties<T>(in T, in Byte[], in Byte[], in CryptoOptions)
+  nameWithType.vb: ObjectEncryption.DecryptProperties(Of T)(ByRef T, ByRef Byte(), ByRef Byte(), ByRef CryptoOptions)
+- uid: wan24.Crypto.ObjectEncryption.EncryptObject*
+  name: EncryptObject
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_EncryptObject_
+  commentId: Overload:wan24.Crypto.ObjectEncryption.EncryptObject
+  isSpec: "True"
+  fullName: wan24.Crypto.ObjectEncryption.EncryptObject
+  nameWithType: ObjectEncryption.EncryptObject
+- uid: wan24.Crypto.ObjectEncryption.EncryptObject``1(``0,System.Byte[]@,System.Int32@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name: EncryptObject<T>(T, in Byte[], in Int32, in Byte[], in CryptoOptions)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_EncryptObject__1___0_System_Byte____System_Int32__System_Byte____wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.ObjectEncryption.EncryptObject``1(``0,System.Byte[]@,System.Int32@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name.vb: EncryptObject(Of T)(T, ByRef Byte(), ByRef Int32, ByRef Byte(), ByRef CryptoOptions)
+  fullName: wan24.Crypto.ObjectEncryption.EncryptObject<T>(T, in System.Byte[], in System.Int32, in System.Byte[], in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ObjectEncryption.EncryptObject(Of T)(T, ByRef System.Byte(), ByRef System.Int32, ByRef System.Byte(), ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: ObjectEncryption.EncryptObject<T>(T, in Byte[], in Int32, in Byte[], in CryptoOptions)
+  nameWithType.vb: ObjectEncryption.EncryptObject(Of T)(T, ByRef Byte(), ByRef Int32, ByRef Byte(), ByRef CryptoOptions)
+- uid: wan24.Crypto.ObjectEncryption.EncryptProperties*
+  name: EncryptProperties
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_EncryptProperties_
+  commentId: Overload:wan24.Crypto.ObjectEncryption.EncryptProperties
+  isSpec: "True"
+  fullName: wan24.Crypto.ObjectEncryption.EncryptProperties
+  nameWithType: ObjectEncryption.EncryptProperties
+- uid: wan24.Crypto.ObjectEncryption.EncryptProperties``1(``0@,System.Byte[]@,System.Int32@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name: EncryptProperties<T>(in T, in Byte[], in Int32, in Byte[], in CryptoOptions)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_EncryptProperties__1___0__System_Byte____System_Int32__System_Byte____wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.ObjectEncryption.EncryptProperties``1(``0@,System.Byte[]@,System.Int32@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name.vb: EncryptProperties(Of T)(ByRef T, ByRef Byte(), ByRef Int32, ByRef Byte(), ByRef CryptoOptions)
+  fullName: wan24.Crypto.ObjectEncryption.EncryptProperties<T>(in T, in System.Byte[], in System.Int32, in System.Byte[], in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ObjectEncryption.EncryptProperties(Of T)(ByRef T, ByRef System.Byte(), ByRef System.Int32, ByRef System.Byte(), ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: ObjectEncryption.EncryptProperties<T>(in T, in Byte[], in Int32, in Byte[], in CryptoOptions)
+  nameWithType.vb: ObjectEncryption.EncryptProperties(Of T)(ByRef T, ByRef Byte(), ByRef Int32, ByRef Byte(), ByRef CryptoOptions)
+- uid: wan24.Crypto.ObjectEncryption.GetDek*
+  name: GetDek
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_GetDek_
+  commentId: Overload:wan24.Crypto.ObjectEncryption.GetDek
+  isSpec: "True"
+  fullName: wan24.Crypto.ObjectEncryption.GetDek
+  nameWithType: ObjectEncryption.GetDek
+- uid: wan24.Crypto.ObjectEncryption.GetDek``1(``0)
+  name: GetDek<T>(T)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_GetDek__1___0_
+  commentId: M:wan24.Crypto.ObjectEncryption.GetDek``1(``0)
+  name.vb: GetDek(Of T)(T)
+  fullName: wan24.Crypto.ObjectEncryption.GetDek<T>(T)
+  fullName.vb: wan24.Crypto.ObjectEncryption.GetDek(Of T)(T)
+  nameWithType: ObjectEncryption.GetDek<T>(T)
+  nameWithType.vb: ObjectEncryption.GetDek(Of T)(T)
+- uid: wan24.Crypto.ObjectEncryption.GetDek``1(``0,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name: GetDek<T>(T, in Byte[], in CryptoOptions)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_GetDek__1___0_System_Byte____wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.ObjectEncryption.GetDek``1(``0,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name.vb: GetDek(Of T)(T, ByRef Byte(), ByRef CryptoOptions)
+  fullName: wan24.Crypto.ObjectEncryption.GetDek<T>(T, in System.Byte[], in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.ObjectEncryption.GetDek(Of T)(T, ByRef System.Byte(), ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: ObjectEncryption.GetDek<T>(T, in Byte[], in CryptoOptions)
+  nameWithType.vb: ObjectEncryption.GetDek(Of T)(T, ByRef Byte(), ByRef CryptoOptions)
+- uid: wan24.Crypto.ObjectEncryption.HasDek*
+  name: HasDek
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_HasDek_
+  commentId: Overload:wan24.Crypto.ObjectEncryption.HasDek
+  isSpec: "True"
+  fullName: wan24.Crypto.ObjectEncryption.HasDek
+  nameWithType: ObjectEncryption.HasDek
+- uid: wan24.Crypto.ObjectEncryption.HasDek``1(``0)
+  name: HasDek<T>(T)
+  href: api/wan24.Crypto.ObjectEncryption.html#wan24_Crypto_ObjectEncryption_HasDek__1___0_
+  commentId: M:wan24.Crypto.ObjectEncryption.HasDek``1(``0)
+  name.vb: HasDek(Of T)(T)
+  fullName: wan24.Crypto.ObjectEncryption.HasDek<T>(T)
+  fullName.vb: wan24.Crypto.ObjectEncryption.HasDek(Of T)(T)
+  nameWithType: ObjectEncryption.HasDek<T>(T)
+  nameWithType.vb: ObjectEncryption.HasDek(Of T)(T)
 - uid: wan24.Crypto.Pake
   name: Pake
   href: api/wan24.Crypto.Pake.html
@@ -7794,6 +8718,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PrivateKeySuiteStore.Dispose
   nameWithType: PrivateKeySuiteStore.Dispose
+- uid: wan24.Crypto.PrivateKeySuiteStore.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.PrivateKeySuiteStore.html#wan24_Crypto_PrivateKeySuiteStore_DisposeCore
+  commentId: M:wan24.Crypto.PrivateKeySuiteStore.DisposeCore
+  fullName: wan24.Crypto.PrivateKeySuiteStore.DisposeCore()
+  nameWithType: PrivateKeySuiteStore.DisposeCore()
+- uid: wan24.Crypto.PrivateKeySuiteStore.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.PrivateKeySuiteStore.html#wan24_Crypto_PrivateKeySuiteStore_DisposeCore_
+  commentId: Overload:wan24.Crypto.PrivateKeySuiteStore.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuiteStore.DisposeCore
+  nameWithType: PrivateKeySuiteStore.DisposeCore
 - uid: wan24.Crypto.PrivateKeySuiteStore.GetSuite(System.Byte[])
   name: GetSuite(Byte[])
   href: api/wan24.Crypto.PrivateKeySuiteStore.html#wan24_Crypto_PrivateKeySuiteStore_GetSuite_System_Byte___
@@ -8024,6 +8961,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PublicKeySuiteStore.Dispose
   nameWithType: PublicKeySuiteStore.Dispose
+- uid: wan24.Crypto.PublicKeySuiteStore.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.PublicKeySuiteStore.html#wan24_Crypto_PublicKeySuiteStore_DisposeCore
+  commentId: M:wan24.Crypto.PublicKeySuiteStore.DisposeCore
+  fullName: wan24.Crypto.PublicKeySuiteStore.DisposeCore()
+  nameWithType: PublicKeySuiteStore.DisposeCore()
+- uid: wan24.Crypto.PublicKeySuiteStore.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.PublicKeySuiteStore.html#wan24_Crypto_PublicKeySuiteStore_DisposeCore_
+  commentId: Overload:wan24.Crypto.PublicKeySuiteStore.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.PublicKeySuiteStore.DisposeCore
+  nameWithType: PublicKeySuiteStore.DisposeCore
 - uid: wan24.Crypto.PublicKeySuiteStore.GetSuite(System.Byte[])
   name: GetSuite(Byte[])
   href: api/wan24.Crypto.PublicKeySuiteStore.html#wan24_Crypto_PublicKeySuiteStore_GetSuite_System_Byte___
@@ -8180,6 +9130,38 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.RandomDataGenerator.RandomDataGenerator
   nameWithType: RandomDataGenerator.RandomDataGenerator
+- uid: wan24.Crypto.RandomDataGenerator.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RandomDataGenerator.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RandomDataGenerator.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RandomDataGenerator.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: RandomDataGenerator.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: RandomDataGenerator.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RandomDataGenerator.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_AddSeed_
+  commentId: Overload:wan24.Crypto.RandomDataGenerator.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.RandomDataGenerator.AddSeed
+  nameWithType: RandomDataGenerator.AddSeed
+- uid: wan24.Crypto.RandomDataGenerator.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RandomDataGenerator.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RandomDataGenerator.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RandomDataGenerator.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RandomDataGenerator.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RandomDataGenerator.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RandomDataGenerator.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.RandomDataGenerator.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RandomDataGenerator.AddSeedAsync
+  nameWithType: RandomDataGenerator.AddSeedAsync
 - uid: wan24.Crypto.RandomDataGenerator.Dispose(System.Boolean)
   name: Dispose(Boolean)
   href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_Dispose_System_Boolean_
@@ -8368,6 +9350,83 @@ references:
   commentId: T:wan24.Crypto.RND
   fullName: wan24.Crypto.RND
   nameWithType: RND
+- uid: wan24.Crypto.RND.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RND.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RND.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RND.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: RND.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: RND.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RND.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddSeed_
+  commentId: Overload:wan24.Crypto.RND.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AddSeed
+  nameWithType: RND.AddSeed
+- uid: wan24.Crypto.RND.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RND.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RND.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RND.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RND.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RND.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RND.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.RND.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AddSeedAsync
+  nameWithType: RND.AddSeedAsync
+- uid: wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan{System.Byte})
+  name: AddURandomSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddURandomSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: RND.AddURandomSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: RND.AddURandomSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RND.AddURandomSeed*
+  name: AddURandomSeed
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeed_
+  commentId: Overload:wan24.Crypto.RND.AddURandomSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AddURandomSeed
+  nameWithType: RND.AddURandomSeed
+- uid: wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddURandomSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddURandomSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RND.AddURandomSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RND.AddURandomSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RND.AddURandomSeedAsync*
+  name: AddURandomSeedAsync
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeedAsync_
+  commentId: Overload:wan24.Crypto.RND.AddURandomSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AddURandomSeedAsync
+  nameWithType: RND.AddURandomSeedAsync
+- uid: wan24.Crypto.RND.AutoRngSeeding
+  name: AutoRngSeeding
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AutoRngSeeding
+  commentId: P:wan24.Crypto.RND.AutoRngSeeding
+  fullName: wan24.Crypto.RND.AutoRngSeeding
+  nameWithType: RND.AutoRngSeeding
+- uid: wan24.Crypto.RND.AutoRngSeeding*
+  name: AutoRngSeeding
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AutoRngSeeding_
+  commentId: Overload:wan24.Crypto.RND.AutoRngSeeding
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AutoRngSeeding
+  nameWithType: RND.AutoRngSeeding
 - uid: wan24.Crypto.RND.DefaultRng(Span{System.Byte})
   name: DefaultRng(Span<Byte>)
   href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_DefaultRng_Span_System_Byte__
@@ -8512,6 +9571,19 @@ references:
   commentId: T:wan24.Crypto.RND.RNGAsync_Delegate
   fullName: wan24.Crypto.RND.RNGAsync_Delegate
   nameWithType: RND.RNGAsync_Delegate
+- uid: wan24.Crypto.RND.SeedConsumer
+  name: SeedConsumer
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_SeedConsumer
+  commentId: P:wan24.Crypto.RND.SeedConsumer
+  fullName: wan24.Crypto.RND.SeedConsumer
+  nameWithType: RND.SeedConsumer
+- uid: wan24.Crypto.RND.SeedConsumer*
+  name: SeedConsumer
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_SeedConsumer_
+  commentId: Overload:wan24.Crypto.RND.SeedConsumer
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.SeedConsumer
+  nameWithType: RND.SeedConsumer
 - uid: wan24.Crypto.RND.UseDevUrandom
   name: UseDevUrandom
   href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_UseDevUrandom
@@ -8525,6 +9597,1105 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.RND.UseDevUrandom
   nameWithType: RND.UseDevUrandom
+- uid: wan24.Crypto.Rng
+  name: Rng
+  href: api/wan24.Crypto.Rng.html
+  commentId: T:wan24.Crypto.Rng
+  fullName: wan24.Crypto.Rng
+  nameWithType: Rng
+- uid: wan24.Crypto.Rng.#ctor
+  name: Rng()
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng__ctor
+  commentId: M:wan24.Crypto.Rng.#ctor
+  fullName: wan24.Crypto.Rng.Rng()
+  nameWithType: Rng.Rng()
+- uid: wan24.Crypto.Rng.#ctor*
+  name: Rng
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng__ctor_
+  commentId: Overload:wan24.Crypto.Rng.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.Rng
+  nameWithType: Rng.Rng
+- uid: wan24.Crypto.Rng.Fill(Span{System.Byte})
+  name: Fill(Span<Byte>)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_Fill_Span_System_Byte__
+  commentId: M:wan24.Crypto.Rng.Fill(Span{System.Byte})
+  name.vb: Fill(Span(Of Byte))
+  fullName: wan24.Crypto.Rng.Fill(Span<System.Byte>)
+  fullName.vb: wan24.Crypto.Rng.Fill(Span(Of System.Byte))
+  nameWithType: Rng.Fill(Span<Byte>)
+  nameWithType.vb: Rng.Fill(Span(Of Byte))
+- uid: wan24.Crypto.Rng.Fill*
+  name: Fill
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_Fill_
+  commentId: Overload:wan24.Crypto.Rng.Fill
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.Fill
+  nameWithType: Rng.Fill
+- uid: wan24.Crypto.Rng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.Rng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.Rng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.Rng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: Rng.FillBytes(in Span<Byte>)
+  nameWithType.vb: Rng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.Rng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_FillBytes_
+  commentId: Overload:wan24.Crypto.Rng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.FillBytes
+  nameWithType: Rng.FillBytes
+- uid: wan24.Crypto.Rng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.Rng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.Rng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.Rng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: Rng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: Rng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.Rng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.Rng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.FillBytesAsync
+  nameWithType: Rng.FillBytesAsync
+- uid: wan24.Crypto.Rng.GetBytes(Span{System.Byte})
+  name: GetBytes(Span<Byte>)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_Span_System_Byte__
+  commentId: M:wan24.Crypto.Rng.GetBytes(Span{System.Byte})
+  name.vb: GetBytes(Span(Of Byte))
+  fullName: wan24.Crypto.Rng.GetBytes(Span<System.Byte>)
+  fullName.vb: wan24.Crypto.Rng.GetBytes(Span(Of System.Byte))
+  nameWithType: Rng.GetBytes(Span<Byte>)
+  nameWithType.vb: Rng.GetBytes(Span(Of Byte))
+- uid: wan24.Crypto.Rng.GetBytes(System.Byte[])
+  name: GetBytes(Byte[])
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Byte___
+  commentId: M:wan24.Crypto.Rng.GetBytes(System.Byte[])
+  name.vb: GetBytes(Byte())
+  fullName: wan24.Crypto.Rng.GetBytes(System.Byte[])
+  fullName.vb: wan24.Crypto.Rng.GetBytes(System.Byte())
+  nameWithType: Rng.GetBytes(Byte[])
+  nameWithType.vb: Rng.GetBytes(Byte())
+- uid: wan24.Crypto.Rng.GetBytes(System.Byte[],System.Int32,System.Int32)
+  name: GetBytes(Byte[], Int32, Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Byte___System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.Rng.GetBytes(System.Byte[],System.Int32,System.Int32)
+  name.vb: GetBytes(Byte(), Int32, Int32)
+  fullName: wan24.Crypto.Rng.GetBytes(System.Byte[], System.Int32, System.Int32)
+  fullName.vb: wan24.Crypto.Rng.GetBytes(System.Byte(), System.Int32, System.Int32)
+  nameWithType: Rng.GetBytes(Byte[], Int32, Int32)
+  nameWithType.vb: Rng.GetBytes(Byte(), Int32, Int32)
+- uid: wan24.Crypto.Rng.GetBytes(System.Int32)
+  name: GetBytes(Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Int32_
+  commentId: M:wan24.Crypto.Rng.GetBytes(System.Int32)
+  fullName: wan24.Crypto.Rng.GetBytes(System.Int32)
+  nameWithType: Rng.GetBytes(Int32)
+- uid: wan24.Crypto.Rng.GetBytes(System.Int32@)
+  name: GetBytes(in Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_System_Int32__
+  commentId: M:wan24.Crypto.Rng.GetBytes(System.Int32@)
+  name.vb: GetBytes(ByRef Int32)
+  fullName: wan24.Crypto.Rng.GetBytes(in System.Int32)
+  fullName.vb: wan24.Crypto.Rng.GetBytes(ByRef System.Int32)
+  nameWithType: Rng.GetBytes(in Int32)
+  nameWithType.vb: Rng.GetBytes(ByRef Int32)
+- uid: wan24.Crypto.Rng.GetBytes*
+  name: GetBytes
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytes_
+  commentId: Overload:wan24.Crypto.Rng.GetBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.GetBytes
+  nameWithType: Rng.GetBytes
+- uid: wan24.Crypto.Rng.GetBytesAsync(System.Int32,CancellationToken)
+  name: GetBytesAsync(Int32, CancellationToken)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytesAsync_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.Rng.GetBytesAsync(System.Int32,CancellationToken)
+  fullName: wan24.Crypto.Rng.GetBytesAsync(System.Int32, CancellationToken)
+  nameWithType: Rng.GetBytesAsync(Int32, CancellationToken)
+- uid: wan24.Crypto.Rng.GetBytesAsync*
+  name: GetBytesAsync
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetBytesAsync_
+  commentId: Overload:wan24.Crypto.Rng.GetBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.GetBytesAsync
+  nameWithType: Rng.GetBytesAsync
+- uid: wan24.Crypto.Rng.GetInt32(System.Int32)
+  name: GetInt32(Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32_System_Int32_
+  commentId: M:wan24.Crypto.Rng.GetInt32(System.Int32)
+  fullName: wan24.Crypto.Rng.GetInt32(System.Int32)
+  nameWithType: Rng.GetInt32(Int32)
+- uid: wan24.Crypto.Rng.GetInt32(System.Int32,System.Int32)
+  name: GetInt32(Int32, Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32_System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.Rng.GetInt32(System.Int32,System.Int32)
+  fullName: wan24.Crypto.Rng.GetInt32(System.Int32, System.Int32)
+  nameWithType: Rng.GetInt32(Int32, Int32)
+- uid: wan24.Crypto.Rng.GetInt32*
+  name: GetInt32
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32_
+  commentId: Overload:wan24.Crypto.Rng.GetInt32
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.GetInt32
+  nameWithType: Rng.GetInt32
+- uid: wan24.Crypto.Rng.GetInt32Async(System.Int32)
+  name: GetInt32Async(Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32Async_System_Int32_
+  commentId: M:wan24.Crypto.Rng.GetInt32Async(System.Int32)
+  fullName: wan24.Crypto.Rng.GetInt32Async(System.Int32)
+  nameWithType: Rng.GetInt32Async(Int32)
+- uid: wan24.Crypto.Rng.GetInt32Async(System.Int32,System.Int32)
+  name: GetInt32Async(Int32, Int32)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32Async_System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.Rng.GetInt32Async(System.Int32,System.Int32)
+  fullName: wan24.Crypto.Rng.GetInt32Async(System.Int32, System.Int32)
+  nameWithType: Rng.GetInt32Async(Int32, Int32)
+- uid: wan24.Crypto.Rng.GetInt32Async*
+  name: GetInt32Async
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetInt32Async_
+  commentId: Overload:wan24.Crypto.Rng.GetInt32Async
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.GetInt32Async
+  nameWithType: Rng.GetInt32Async
+- uid: wan24.Crypto.Rng.GetNonZeroBytes(Span{System.Byte})
+  name: GetNonZeroBytes(Span<Byte>)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytes_Span_System_Byte__
+  commentId: M:wan24.Crypto.Rng.GetNonZeroBytes(Span{System.Byte})
+  name.vb: GetNonZeroBytes(Span(Of Byte))
+  fullName: wan24.Crypto.Rng.GetNonZeroBytes(Span<System.Byte>)
+  fullName.vb: wan24.Crypto.Rng.GetNonZeroBytes(Span(Of System.Byte))
+  nameWithType: Rng.GetNonZeroBytes(Span<Byte>)
+  nameWithType.vb: Rng.GetNonZeroBytes(Span(Of Byte))
+- uid: wan24.Crypto.Rng.GetNonZeroBytes(System.Byte[])
+  name: GetNonZeroBytes(Byte[])
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytes_System_Byte___
+  commentId: M:wan24.Crypto.Rng.GetNonZeroBytes(System.Byte[])
+  name.vb: GetNonZeroBytes(Byte())
+  fullName: wan24.Crypto.Rng.GetNonZeroBytes(System.Byte[])
+  fullName.vb: wan24.Crypto.Rng.GetNonZeroBytes(System.Byte())
+  nameWithType: Rng.GetNonZeroBytes(Byte[])
+  nameWithType.vb: Rng.GetNonZeroBytes(Byte())
+- uid: wan24.Crypto.Rng.GetNonZeroBytes*
+  name: GetNonZeroBytes
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytes_
+  commentId: Overload:wan24.Crypto.Rng.GetNonZeroBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.GetNonZeroBytes
+  nameWithType: Rng.GetNonZeroBytes
+- uid: wan24.Crypto.Rng.GetNonZeroBytesAsync(Memory{System.Byte})
+  name: GetNonZeroBytesAsync(Memory<Byte>)
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytesAsync_Memory_System_Byte__
+  commentId: M:wan24.Crypto.Rng.GetNonZeroBytesAsync(Memory{System.Byte})
+  name.vb: GetNonZeroBytesAsync(Memory(Of Byte))
+  fullName: wan24.Crypto.Rng.GetNonZeroBytesAsync(Memory<System.Byte>)
+  fullName.vb: wan24.Crypto.Rng.GetNonZeroBytesAsync(Memory(Of System.Byte))
+  nameWithType: Rng.GetNonZeroBytesAsync(Memory<Byte>)
+  nameWithType.vb: Rng.GetNonZeroBytesAsync(Memory(Of Byte))
+- uid: wan24.Crypto.Rng.GetNonZeroBytesAsync*
+  name: GetNonZeroBytesAsync
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_GetNonZeroBytesAsync_
+  commentId: Overload:wan24.Crypto.Rng.GetNonZeroBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.GetNonZeroBytesAsync
+  nameWithType: Rng.GetNonZeroBytesAsync
+- uid: wan24.Crypto.Rng.Instance
+  name: Instance
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_Instance
+  commentId: P:wan24.Crypto.Rng.Instance
+  fullName: wan24.Crypto.Rng.Instance
+  nameWithType: Rng.Instance
+- uid: wan24.Crypto.Rng.Instance*
+  name: Instance
+  href: api/wan24.Crypto.Rng.html#wan24_Crypto_Rng_Instance_
+  commentId: Overload:wan24.Crypto.Rng.Instance
+  isSpec: "True"
+  fullName: wan24.Crypto.Rng.Instance
+  nameWithType: Rng.Instance
+- uid: wan24.Crypto.RngAdapter
+  name: RngAdapter
+  href: api/wan24.Crypto.RngAdapter.html
+  commentId: T:wan24.Crypto.RngAdapter
+  fullName: wan24.Crypto.RngAdapter
+  nameWithType: RngAdapter
+- uid: wan24.Crypto.RngAdapter.#ctor(wan24.Crypto.IRng)
+  name: RngAdapter(IRng)
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter__ctor_wan24_Crypto_IRng_
+  commentId: M:wan24.Crypto.RngAdapter.#ctor(wan24.Crypto.IRng)
+  fullName: wan24.Crypto.RngAdapter.RngAdapter(wan24.Crypto.IRng)
+  nameWithType: RngAdapter.RngAdapter(IRng)
+- uid: wan24.Crypto.RngAdapter.#ctor*
+  name: RngAdapter
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter__ctor_
+  commentId: Overload:wan24.Crypto.RngAdapter.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngAdapter.RngAdapter
+  nameWithType: RngAdapter.RngAdapter
+- uid: wan24.Crypto.RngAdapter.GetBytes(Span{System.Byte})
+  name: GetBytes(Span<Byte>)
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetBytes_Span_System_Byte__
+  commentId: M:wan24.Crypto.RngAdapter.GetBytes(Span{System.Byte})
+  name.vb: GetBytes(Span(Of Byte))
+  fullName: wan24.Crypto.RngAdapter.GetBytes(Span<System.Byte>)
+  fullName.vb: wan24.Crypto.RngAdapter.GetBytes(Span(Of System.Byte))
+  nameWithType: RngAdapter.GetBytes(Span<Byte>)
+  nameWithType.vb: RngAdapter.GetBytes(Span(Of Byte))
+- uid: wan24.Crypto.RngAdapter.GetBytes(System.Byte[])
+  name: GetBytes(Byte[])
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetBytes_System_Byte___
+  commentId: M:wan24.Crypto.RngAdapter.GetBytes(System.Byte[])
+  name.vb: GetBytes(Byte())
+  fullName: wan24.Crypto.RngAdapter.GetBytes(System.Byte[])
+  fullName.vb: wan24.Crypto.RngAdapter.GetBytes(System.Byte())
+  nameWithType: RngAdapter.GetBytes(Byte[])
+  nameWithType.vb: RngAdapter.GetBytes(Byte())
+- uid: wan24.Crypto.RngAdapter.GetBytes(System.Byte[],System.Int32,System.Int32)
+  name: GetBytes(Byte[], Int32, Int32)
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetBytes_System_Byte___System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.RngAdapter.GetBytes(System.Byte[],System.Int32,System.Int32)
+  name.vb: GetBytes(Byte(), Int32, Int32)
+  fullName: wan24.Crypto.RngAdapter.GetBytes(System.Byte[], System.Int32, System.Int32)
+  fullName.vb: wan24.Crypto.RngAdapter.GetBytes(System.Byte(), System.Int32, System.Int32)
+  nameWithType: RngAdapter.GetBytes(Byte[], Int32, Int32)
+  nameWithType.vb: RngAdapter.GetBytes(Byte(), Int32, Int32)
+- uid: wan24.Crypto.RngAdapter.GetBytes*
+  name: GetBytes
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetBytes_
+  commentId: Overload:wan24.Crypto.RngAdapter.GetBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.RngAdapter.GetBytes
+  nameWithType: RngAdapter.GetBytes
+- uid: wan24.Crypto.RngAdapter.GetNonZeroBytes(Span{System.Byte})
+  name: GetNonZeroBytes(Span<Byte>)
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetNonZeroBytes_Span_System_Byte__
+  commentId: M:wan24.Crypto.RngAdapter.GetNonZeroBytes(Span{System.Byte})
+  name.vb: GetNonZeroBytes(Span(Of Byte))
+  fullName: wan24.Crypto.RngAdapter.GetNonZeroBytes(Span<System.Byte>)
+  fullName.vb: wan24.Crypto.RngAdapter.GetNonZeroBytes(Span(Of System.Byte))
+  nameWithType: RngAdapter.GetNonZeroBytes(Span<Byte>)
+  nameWithType.vb: RngAdapter.GetNonZeroBytes(Span(Of Byte))
+- uid: wan24.Crypto.RngAdapter.GetNonZeroBytes(System.Byte[])
+  name: GetNonZeroBytes(Byte[])
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetNonZeroBytes_System_Byte___
+  commentId: M:wan24.Crypto.RngAdapter.GetNonZeroBytes(System.Byte[])
+  name.vb: GetNonZeroBytes(Byte())
+  fullName: wan24.Crypto.RngAdapter.GetNonZeroBytes(System.Byte[])
+  fullName.vb: wan24.Crypto.RngAdapter.GetNonZeroBytes(System.Byte())
+  nameWithType: RngAdapter.GetNonZeroBytes(Byte[])
+  nameWithType.vb: RngAdapter.GetNonZeroBytes(Byte())
+- uid: wan24.Crypto.RngAdapter.GetNonZeroBytes*
+  name: GetNonZeroBytes
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetNonZeroBytes_
+  commentId: Overload:wan24.Crypto.RngAdapter.GetNonZeroBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.RngAdapter.GetNonZeroBytes
+  nameWithType: RngAdapter.GetNonZeroBytes
+- uid: wan24.Crypto.RngAdapter.GetNonZeroBytesAsync(Memory{System.Byte})
+  name: GetNonZeroBytesAsync(Memory<Byte>)
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetNonZeroBytesAsync_Memory_System_Byte__
+  commentId: M:wan24.Crypto.RngAdapter.GetNonZeroBytesAsync(Memory{System.Byte})
+  name.vb: GetNonZeroBytesAsync(Memory(Of Byte))
+  fullName: wan24.Crypto.RngAdapter.GetNonZeroBytesAsync(Memory<System.Byte>)
+  fullName.vb: wan24.Crypto.RngAdapter.GetNonZeroBytesAsync(Memory(Of System.Byte))
+  nameWithType: RngAdapter.GetNonZeroBytesAsync(Memory<Byte>)
+  nameWithType.vb: RngAdapter.GetNonZeroBytesAsync(Memory(Of Byte))
+- uid: wan24.Crypto.RngAdapter.GetNonZeroBytesAsync*
+  name: GetNonZeroBytesAsync
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_GetNonZeroBytesAsync_
+  commentId: Overload:wan24.Crypto.RngAdapter.GetNonZeroBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngAdapter.GetNonZeroBytesAsync
+  nameWithType: RngAdapter.GetNonZeroBytesAsync
+- uid: wan24.Crypto.RngAdapter.RNG
+  name: RNG
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_RNG
+  commentId: P:wan24.Crypto.RngAdapter.RNG
+  fullName: wan24.Crypto.RngAdapter.RNG
+  nameWithType: RngAdapter.RNG
+- uid: wan24.Crypto.RngAdapter.RNG*
+  name: RNG
+  href: api/wan24.Crypto.RngAdapter.html#wan24_Crypto_RngAdapter_RNG_
+  commentId: Overload:wan24.Crypto.RngAdapter.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.RngAdapter.RNG
+  nameWithType: RngAdapter.RNG
+- uid: wan24.Crypto.RngBase
+  name: RngBase
+  href: api/wan24.Crypto.RngBase.html
+  commentId: T:wan24.Crypto.RngBase
+  fullName: wan24.Crypto.RngBase
+  nameWithType: RngBase
+- uid: wan24.Crypto.RngBase.#ctor
+  name: RngBase()
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase__ctor
+  commentId: M:wan24.Crypto.RngBase.#ctor
+  fullName: wan24.Crypto.RngBase.RngBase()
+  nameWithType: RngBase.RngBase()
+- uid: wan24.Crypto.RngBase.#ctor*
+  name: RngBase
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase__ctor_
+  commentId: Overload:wan24.Crypto.RngBase.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngBase.RngBase
+  nameWithType: RngBase.RngBase
+- uid: wan24.Crypto.RngBase.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.RngBase.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.RngBase.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.RngBase.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: RngBase.FillBytes(in Span<Byte>)
+  nameWithType.vb: RngBase.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.RngBase.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytes_
+  commentId: Overload:wan24.Crypto.RngBase.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.RngBase.FillBytes
+  nameWithType: RngBase.FillBytes
+- uid: wan24.Crypto.RngBase.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngBase.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngBase.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngBase.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: RngBase.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: RngBase.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngBase.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.RngBase.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngBase.FillBytesAsync
+  nameWithType: RngBase.FillBytesAsync
+- uid: wan24.Crypto.RngBase.GetBytes(System.Int32@)
+  name: GetBytes(in Int32)
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_GetBytes_System_Int32__
+  commentId: M:wan24.Crypto.RngBase.GetBytes(System.Int32@)
+  name.vb: GetBytes(ByRef Int32)
+  fullName: wan24.Crypto.RngBase.GetBytes(in System.Int32)
+  fullName.vb: wan24.Crypto.RngBase.GetBytes(ByRef System.Int32)
+  nameWithType: RngBase.GetBytes(in Int32)
+  nameWithType.vb: RngBase.GetBytes(ByRef Int32)
+- uid: wan24.Crypto.RngBase.GetBytes*
+  name: GetBytes
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_GetBytes_
+  commentId: Overload:wan24.Crypto.RngBase.GetBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.RngBase.GetBytes
+  nameWithType: RngBase.GetBytes
+- uid: wan24.Crypto.RngBase.GetBytesAsync(System.Int32,CancellationToken)
+  name: GetBytesAsync(Int32, CancellationToken)
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_GetBytesAsync_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.RngBase.GetBytesAsync(System.Int32,CancellationToken)
+  fullName: wan24.Crypto.RngBase.GetBytesAsync(System.Int32, CancellationToken)
+  nameWithType: RngBase.GetBytesAsync(Int32, CancellationToken)
+- uid: wan24.Crypto.RngBase.GetBytesAsync*
+  name: GetBytesAsync
+  href: api/wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_GetBytesAsync_
+  commentId: Overload:wan24.Crypto.RngBase.GetBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngBase.GetBytesAsync
+  nameWithType: RngBase.GetBytesAsync
+- uid: wan24.Crypto.RngExtensions
+  name: RngExtensions
+  href: api/wan24.Crypto.RngExtensions.html
+  commentId: T:wan24.Crypto.RngExtensions
+  fullName: wan24.Crypto.RngExtensions
+  nameWithType: RngExtensions
+- uid: wan24.Crypto.RngExtensions.GetInt32(System.Security.Cryptography.RandomNumberGenerator,System.Int32)
+  name: GetInt32(RandomNumberGenerator, Int32)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_System_Security_Cryptography_RandomNumberGenerator_System_Int32_
+  commentId: M:wan24.Crypto.RngExtensions.GetInt32(System.Security.Cryptography.RandomNumberGenerator,System.Int32)
+  fullName: wan24.Crypto.RngExtensions.GetInt32(System.Security.Cryptography.RandomNumberGenerator, System.Int32)
+  nameWithType: RngExtensions.GetInt32(RandomNumberGenerator, Int32)
+- uid: wan24.Crypto.RngExtensions.GetInt32(System.Security.Cryptography.RandomNumberGenerator,System.Int32,System.Int32)
+  name: GetInt32(RandomNumberGenerator, Int32, Int32)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_System_Security_Cryptography_RandomNumberGenerator_System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.RngExtensions.GetInt32(System.Security.Cryptography.RandomNumberGenerator,System.Int32,System.Int32)
+  fullName: wan24.Crypto.RngExtensions.GetInt32(System.Security.Cryptography.RandomNumberGenerator, System.Int32, System.Int32)
+  nameWithType: RngExtensions.GetInt32(RandomNumberGenerator, Int32, Int32)
+- uid: wan24.Crypto.RngExtensions.GetInt32(wan24.Crypto.IRng,System.Int32)
+  name: GetInt32(IRng, Int32)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_
+  commentId: M:wan24.Crypto.RngExtensions.GetInt32(wan24.Crypto.IRng,System.Int32)
+  fullName: wan24.Crypto.RngExtensions.GetInt32(wan24.Crypto.IRng, System.Int32)
+  nameWithType: RngExtensions.GetInt32(IRng, Int32)
+- uid: wan24.Crypto.RngExtensions.GetInt32(wan24.Crypto.IRng,System.Int32,System.Int32)
+  name: GetInt32(IRng, Int32, Int32)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.RngExtensions.GetInt32(wan24.Crypto.IRng,System.Int32,System.Int32)
+  fullName: wan24.Crypto.RngExtensions.GetInt32(wan24.Crypto.IRng, System.Int32, System.Int32)
+  nameWithType: RngExtensions.GetInt32(IRng, Int32, Int32)
+- uid: wan24.Crypto.RngExtensions.GetInt32*
+  name: GetInt32
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_
+  commentId: Overload:wan24.Crypto.RngExtensions.GetInt32
+  isSpec: "True"
+  fullName: wan24.Crypto.RngExtensions.GetInt32
+  nameWithType: RngExtensions.GetInt32
+- uid: wan24.Crypto.RngExtensions.GetInt32Async(wan24.Crypto.IRng,System.Int32,CancellationToken)
+  name: GetInt32Async(IRng, Int32, CancellationToken)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_wan24_Crypto_IRng_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.RngExtensions.GetInt32Async(wan24.Crypto.IRng,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.RngExtensions.GetInt32Async(wan24.Crypto.IRng, System.Int32, CancellationToken)
+  nameWithType: RngExtensions.GetInt32Async(IRng, Int32, CancellationToken)
+- uid: wan24.Crypto.RngExtensions.GetInt32Async(wan24.Crypto.IRng,System.Int32,System.Int32,CancellationToken)
+  name: GetInt32Async(IRng, Int32, Int32, CancellationToken)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_wan24_Crypto_IRng_System_Int32_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.RngExtensions.GetInt32Async(wan24.Crypto.IRng,System.Int32,System.Int32,CancellationToken)
+  fullName: wan24.Crypto.RngExtensions.GetInt32Async(wan24.Crypto.IRng, System.Int32, System.Int32, CancellationToken)
+  nameWithType: RngExtensions.GetInt32Async(IRng, Int32, Int32, CancellationToken)
+- uid: wan24.Crypto.RngExtensions.GetInt32Async*
+  name: GetInt32Async
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_
+  commentId: Overload:wan24.Crypto.RngExtensions.GetInt32Async
+  isSpec: "True"
+  fullName: wan24.Crypto.RngExtensions.GetInt32Async
+  nameWithType: RngExtensions.GetInt32Async
+- uid: wan24.Crypto.RngExtensions.GetNonZeroBytes(wan24.Crypto.IRng,Span{System.Byte})
+  name: GetNonZeroBytes(IRng, Span<Byte>)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytes_wan24_Crypto_IRng_Span_System_Byte__
+  commentId: M:wan24.Crypto.RngExtensions.GetNonZeroBytes(wan24.Crypto.IRng,Span{System.Byte})
+  name.vb: GetNonZeroBytes(IRng, Span(Of Byte))
+  fullName: wan24.Crypto.RngExtensions.GetNonZeroBytes(wan24.Crypto.IRng, Span<System.Byte>)
+  fullName.vb: wan24.Crypto.RngExtensions.GetNonZeroBytes(wan24.Crypto.IRng, Span(Of System.Byte))
+  nameWithType: RngExtensions.GetNonZeroBytes(IRng, Span<Byte>)
+  nameWithType.vb: RngExtensions.GetNonZeroBytes(IRng, Span(Of Byte))
+- uid: wan24.Crypto.RngExtensions.GetNonZeroBytes*
+  name: GetNonZeroBytes
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytes_
+  commentId: Overload:wan24.Crypto.RngExtensions.GetNonZeroBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.RngExtensions.GetNonZeroBytes
+  nameWithType: RngExtensions.GetNonZeroBytes
+- uid: wan24.Crypto.RngExtensions.GetNonZeroBytesAsync(wan24.Crypto.IRng,Memory{System.Byte},CancellationToken)
+  name: GetNonZeroBytesAsync(IRng, Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytesAsync_wan24_Crypto_IRng_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngExtensions.GetNonZeroBytesAsync(wan24.Crypto.IRng,Memory{System.Byte},CancellationToken)
+  name.vb: GetNonZeroBytesAsync(IRng, Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngExtensions.GetNonZeroBytesAsync(wan24.Crypto.IRng, Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngExtensions.GetNonZeroBytesAsync(wan24.Crypto.IRng, Memory(Of System.Byte), CancellationToken)
+  nameWithType: RngExtensions.GetNonZeroBytesAsync(IRng, Memory<Byte>, CancellationToken)
+  nameWithType.vb: RngExtensions.GetNonZeroBytesAsync(IRng, Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngExtensions.GetNonZeroBytesAsync*
+  name: GetNonZeroBytesAsync
+  href: api/wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytesAsync_
+  commentId: Overload:wan24.Crypto.RngExtensions.GetNonZeroBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngExtensions.GetNonZeroBytesAsync
+  nameWithType: RngExtensions.GetNonZeroBytesAsync
+- uid: wan24.Crypto.RngOnlineSeedTimer
+  name: RngOnlineSeedTimer
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html
+  commentId: T:wan24.Crypto.RngOnlineSeedTimer
+  fullName: wan24.Crypto.RngOnlineSeedTimer
+  nameWithType: RngOnlineSeedTimer
+- uid: wan24.Crypto.RngOnlineSeedTimer.#ctor(System.Double@,wan24.Crypto.ISeedableRng@,System.String@,System.Int32@,System.Nullable{HttpClient}@)
+  name: RngOnlineSeedTimer(in Double, in ISeedableRng, in String, in Int32, in Nullable<HttpClient>)
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer__ctor_System_Double__wan24_Crypto_ISeedableRng__System_String__System_Int32__System_Nullable_HttpClient___
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.#ctor(System.Double@,wan24.Crypto.ISeedableRng@,System.String@,System.Int32@,System.Nullable{HttpClient}@)
+  name.vb: RngOnlineSeedTimer(ByRef Double, ByRef ISeedableRng, ByRef String, ByRef Int32, ByRef Nullable(Of HttpClient))
+  fullName: wan24.Crypto.RngOnlineSeedTimer.RngOnlineSeedTimer(in System.Double, in wan24.Crypto.ISeedableRng, in System.String, in System.Int32, in System.Nullable<HttpClient>)
+  fullName.vb: wan24.Crypto.RngOnlineSeedTimer.RngOnlineSeedTimer(ByRef System.Double, ByRef wan24.Crypto.ISeedableRng, ByRef System.String, ByRef System.Int32, ByRef System.Nullable(Of HttpClient))
+  nameWithType: RngOnlineSeedTimer.RngOnlineSeedTimer(in Double, in ISeedableRng, in String, in Int32, in Nullable<HttpClient>)
+  nameWithType.vb: RngOnlineSeedTimer.RngOnlineSeedTimer(ByRef Double, ByRef ISeedableRng, ByRef String, ByRef Int32, ByRef Nullable(Of HttpClient))
+- uid: wan24.Crypto.RngOnlineSeedTimer.#ctor*
+  name: RngOnlineSeedTimer
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer__ctor_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.RngOnlineSeedTimer
+  nameWithType: RngOnlineSeedTimer.RngOnlineSeedTimer
+- uid: wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync(CancellationToken)
+  name: BeforeStartAsync(CancellationToken)
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_BeforeStartAsync_CancellationToken_
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync(CancellationToken)
+  fullName: wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync(CancellationToken)
+  nameWithType: RngOnlineSeedTimer.BeforeStartAsync(CancellationToken)
+- uid: wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync*
+  name: BeforeStartAsync
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_BeforeStartAsync_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync
+  nameWithType: RngOnlineSeedTimer.BeforeStartAsync
+- uid: wan24.Crypto.RngOnlineSeedTimer.DEFAULT_INTERVAL
+  name: DEFAULT_INTERVAL
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_DEFAULT_INTERVAL
+  commentId: F:wan24.Crypto.RngOnlineSeedTimer.DEFAULT_INTERVAL
+  fullName: wan24.Crypto.RngOnlineSeedTimer.DEFAULT_INTERVAL
+  nameWithType: RngOnlineSeedTimer.DEFAULT_INTERVAL
+- uid: wan24.Crypto.RngOnlineSeedTimer.DEFAULT_SEED_LENGTH
+  name: DEFAULT_SEED_LENGTH
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_DEFAULT_SEED_LENGTH
+  commentId: F:wan24.Crypto.RngOnlineSeedTimer.DEFAULT_SEED_LENGTH
+  fullName: wan24.Crypto.RngOnlineSeedTimer.DEFAULT_SEED_LENGTH
+  nameWithType: RngOnlineSeedTimer.DEFAULT_SEED_LENGTH
+- uid: wan24.Crypto.RngOnlineSeedTimer.DEFAULT_URI
+  name: DEFAULT_URI
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_DEFAULT_URI
+  commentId: F:wan24.Crypto.RngOnlineSeedTimer.DEFAULT_URI
+  fullName: wan24.Crypto.RngOnlineSeedTimer.DEFAULT_URI
+  nameWithType: RngOnlineSeedTimer.DEFAULT_URI
+- uid: wan24.Crypto.RngOnlineSeedTimer.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.Dispose(System.Boolean)
+  fullName: wan24.Crypto.RngOnlineSeedTimer.Dispose(System.Boolean)
+  nameWithType: RngOnlineSeedTimer.Dispose(Boolean)
+- uid: wan24.Crypto.RngOnlineSeedTimer.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_Dispose_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.Dispose
+  nameWithType: RngOnlineSeedTimer.Dispose
+- uid: wan24.Crypto.RngOnlineSeedTimer.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_DisposeCore
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.DisposeCore
+  fullName: wan24.Crypto.RngOnlineSeedTimer.DisposeCore()
+  nameWithType: RngOnlineSeedTimer.DisposeCore()
+- uid: wan24.Crypto.RngOnlineSeedTimer.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_DisposeCore_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.DisposeCore
+  nameWithType: RngOnlineSeedTimer.DisposeCore
+- uid: wan24.Crypto.RngOnlineSeedTimer.Http
+  name: Http
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_Http
+  commentId: F:wan24.Crypto.RngOnlineSeedTimer.Http
+  fullName: wan24.Crypto.RngOnlineSeedTimer.Http
+  nameWithType: RngOnlineSeedTimer.Http
+- uid: wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync(CancellationToken)
+  name: RequestSeedAsync(CancellationToken)
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_RequestSeedAsync_CancellationToken_
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync(CancellationToken)
+  fullName: wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync(CancellationToken)
+  nameWithType: RngOnlineSeedTimer.RequestSeedAsync(CancellationToken)
+- uid: wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync*
+  name: RequestSeedAsync
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_RequestSeedAsync_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync
+  nameWithType: RngOnlineSeedTimer.RequestSeedAsync
+- uid: wan24.Crypto.RngOnlineSeedTimer.RNG
+  name: RNG
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_RNG
+  commentId: P:wan24.Crypto.RngOnlineSeedTimer.RNG
+  fullName: wan24.Crypto.RngOnlineSeedTimer.RNG
+  nameWithType: RngOnlineSeedTimer.RNG
+- uid: wan24.Crypto.RngOnlineSeedTimer.RNG*
+  name: RNG
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_RNG_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.RNG
+  nameWithType: RngOnlineSeedTimer.RNG
+- uid: wan24.Crypto.RngOnlineSeedTimer.Seed
+  name: Seed
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_Seed
+  commentId: F:wan24.Crypto.RngOnlineSeedTimer.Seed
+  fullName: wan24.Crypto.RngOnlineSeedTimer.Seed
+  nameWithType: RngOnlineSeedTimer.Seed
+- uid: wan24.Crypto.RngOnlineSeedTimer.SeedLength
+  name: SeedLength
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_SeedLength
+  commentId: P:wan24.Crypto.RngOnlineSeedTimer.SeedLength
+  fullName: wan24.Crypto.RngOnlineSeedTimer.SeedLength
+  nameWithType: RngOnlineSeedTimer.SeedLength
+- uid: wan24.Crypto.RngOnlineSeedTimer.SeedLength*
+  name: SeedLength
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_SeedLength_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.SeedLength
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.SeedLength
+  nameWithType: RngOnlineSeedTimer.SeedLength
+- uid: wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync
+  name: TimedWorkerAsync()
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync
+  fullName: wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync()
+  nameWithType: RngOnlineSeedTimer.TimedWorkerAsync()
+- uid: wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync(CancellationToken)
+  name: TimedWorkerAsync(CancellationToken)
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync_CancellationToken_
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync(CancellationToken)
+  fullName: wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync(CancellationToken)
+  nameWithType: RngOnlineSeedTimer.TimedWorkerAsync(CancellationToken)
+- uid: wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync*
+  name: TimedWorkerAsync
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync
+  nameWithType: RngOnlineSeedTimer.TimedWorkerAsync
+- uid: wan24.Crypto.RngOnlineSeedTimer.URI
+  name: URI
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_URI
+  commentId: P:wan24.Crypto.RngOnlineSeedTimer.URI
+  fullName: wan24.Crypto.RngOnlineSeedTimer.URI
+  nameWithType: RngOnlineSeedTimer.URI
+- uid: wan24.Crypto.RngOnlineSeedTimer.URI*
+  name: URI
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_URI_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.URI
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.URI
+  nameWithType: RngOnlineSeedTimer.URI
+- uid: wan24.Crypto.RngOnlineSeedTimer.XorRnd
+  name: XorRnd
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_XorRnd
+  commentId: P:wan24.Crypto.RngOnlineSeedTimer.XorRnd
+  fullName: wan24.Crypto.RngOnlineSeedTimer.XorRnd
+  nameWithType: RngOnlineSeedTimer.XorRnd
+- uid: wan24.Crypto.RngOnlineSeedTimer.XorRnd*
+  name: XorRnd
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_XorRnd_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.XorRnd
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.XorRnd
+  nameWithType: RngOnlineSeedTimer.XorRnd
+- uid: wan24.Crypto.RngSeederQueue
+  name: RngSeederQueue
+  href: api/wan24.Crypto.RngSeederQueue.html
+  commentId: T:wan24.Crypto.RngSeederQueue
+  fullName: wan24.Crypto.RngSeederQueue
+  nameWithType: RngSeederQueue
+- uid: wan24.Crypto.RngSeederQueue.#ctor(System.Int32@,wan24.Crypto.ISeedableRng@)
+  name: RngSeederQueue(in Int32, in ISeedableRng)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue__ctor_System_Int32__wan24_Crypto_ISeedableRng__
+  commentId: M:wan24.Crypto.RngSeederQueue.#ctor(System.Int32@,wan24.Crypto.ISeedableRng@)
+  name.vb: RngSeederQueue(ByRef Int32, ByRef ISeedableRng)
+  fullName: wan24.Crypto.RngSeederQueue.RngSeederQueue(in System.Int32, in wan24.Crypto.ISeedableRng)
+  fullName.vb: wan24.Crypto.RngSeederQueue.RngSeederQueue(ByRef System.Int32, ByRef wan24.Crypto.ISeedableRng)
+  nameWithType: RngSeederQueue.RngSeederQueue(in Int32, in ISeedableRng)
+  nameWithType.vb: RngSeederQueue.RngSeederQueue(ByRef Int32, ByRef ISeedableRng)
+- uid: wan24.Crypto.RngSeederQueue.#ctor*
+  name: RngSeederQueue
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue__ctor_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeederQueue.RngSeederQueue
+  nameWithType: RngSeederQueue.RngSeederQueue
+- uid: wan24.Crypto.RngSeederQueue.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RngSeederQueue.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RngSeederQueue.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RngSeederQueue.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: RngSeederQueue.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: RngSeederQueue.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RngSeederQueue.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_AddSeed_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeederQueue.AddSeed
+  nameWithType: RngSeederQueue.AddSeed
+- uid: wan24.Crypto.RngSeederQueue.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngSeederQueue.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngSeederQueue.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeederQueue.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RngSeederQueue.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RngSeederQueue.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngSeederQueue.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeederQueue.AddSeedAsync
+  nameWithType: RngSeederQueue.AddSeedAsync
+- uid: wan24.Crypto.RngSeederQueue.ProcessItem(System.Byte[],CancellationToken)
+  name: ProcessItem(Byte[], CancellationToken)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_ProcessItem_System_Byte___CancellationToken_
+  commentId: M:wan24.Crypto.RngSeederQueue.ProcessItem(System.Byte[],CancellationToken)
+  name.vb: ProcessItem(Byte(), CancellationToken)
+  fullName: wan24.Crypto.RngSeederQueue.ProcessItem(System.Byte[], CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeederQueue.ProcessItem(System.Byte(), CancellationToken)
+  nameWithType: RngSeederQueue.ProcessItem(Byte[], CancellationToken)
+  nameWithType.vb: RngSeederQueue.ProcessItem(Byte(), CancellationToken)
+- uid: wan24.Crypto.RngSeederQueue.ProcessItem*
+  name: ProcessItem
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_ProcessItem_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.ProcessItem
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeederQueue.ProcessItem
+  nameWithType: RngSeederQueue.ProcessItem
+- uid: wan24.Crypto.RngSeederQueue.RNG
+  name: RNG
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_RNG
+  commentId: P:wan24.Crypto.RngSeederQueue.RNG
+  fullName: wan24.Crypto.RngSeederQueue.RNG
+  nameWithType: RngSeederQueue.RNG
+- uid: wan24.Crypto.RngSeederQueue.RNG*
+  name: RNG
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_RNG_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeederQueue.RNG
+  nameWithType: RngSeederQueue.RNG
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytes(Span{System.Byte}@)
+  name: IRng.FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytes(Span{System.Byte}@)
+  name.vb: wan24.Crypto.IRng.FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: RngSeederQueue.IRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytes*
+  name: IRng.FillBytes
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_FillBytes_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytes
+  isSpec: "True"
+  name.vb: wan24.Crypto.IRng.FillBytes
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.FillBytes
+  nameWithType: RngSeederQueue.IRng.FillBytes
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.FillBytes
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: IRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: wan24.Crypto.IRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: RngSeederQueue.IRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytesAsync*
+  name: IRng.FillBytesAsync
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#FillBytesAsync
+  isSpec: "True"
+  name.vb: wan24.Crypto.IRng.FillBytesAsync
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.FillBytesAsync
+  nameWithType: RngSeederQueue.IRng.FillBytesAsync
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.FillBytesAsync
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytes(System.Int32@)
+  name: IRng.GetBytes(in Int32)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_GetBytes_System_Int32__
+  commentId: M:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytes(System.Int32@)
+  name.vb: wan24.Crypto.IRng.GetBytes(ByRef Int32)
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.GetBytes(in System.Int32)
+  fullName.vb: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.GetBytes(ByRef System.Int32)
+  nameWithType: RngSeederQueue.IRng.GetBytes(in Int32)
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.GetBytes(ByRef Int32)
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytes*
+  name: IRng.GetBytes
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_GetBytes_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytes
+  isSpec: "True"
+  name.vb: wan24.Crypto.IRng.GetBytes
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.GetBytes
+  nameWithType: RngSeederQueue.IRng.GetBytes
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.GetBytes
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytesAsync(System.Int32,CancellationToken)
+  name: IRng.GetBytesAsync(Int32, CancellationToken)
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_GetBytesAsync_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytesAsync(System.Int32,CancellationToken)
+  name.vb: wan24.Crypto.IRng.GetBytesAsync(Int32, CancellationToken)
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.GetBytesAsync(System.Int32, CancellationToken)
+  nameWithType: RngSeederQueue.IRng.GetBytesAsync(Int32, CancellationToken)
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.GetBytesAsync(Int32, CancellationToken)
+- uid: wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytesAsync*
+  name: IRng.GetBytesAsync
+  href: api/wan24.Crypto.RngSeederQueue.html#wan24_Crypto_RngSeederQueue_wan24_Crypto_IRng_GetBytesAsync_
+  commentId: Overload:wan24.Crypto.RngSeederQueue.wan24#Crypto#IRng#GetBytesAsync
+  isSpec: "True"
+  name.vb: wan24.Crypto.IRng.GetBytesAsync
+  fullName: wan24.Crypto.RngSeederQueue.wan24.Crypto.IRng.GetBytesAsync
+  nameWithType: RngSeederQueue.IRng.GetBytesAsync
+  nameWithType.vb: RngSeederQueue.wan24.Crypto.IRng.GetBytesAsync
+- uid: wan24.Crypto.RngSeedingStream
+  name: RngSeedingStream
+  href: api/wan24.Crypto.RngSeedingStream.html
+  commentId: T:wan24.Crypto.RngSeedingStream
+  fullName: wan24.Crypto.RngSeedingStream
+  nameWithType: RngSeedingStream
+- uid: wan24.Crypto.RngSeedingStream.#ctor(Stream@,wan24.Crypto.ISeedableRng@,System.Boolean@)
+  name: RngSeedingStream(in Stream, in ISeedableRng, in Boolean)
+  href: api/wan24.Crypto.RngSeedingStream.html#wan24_Crypto_RngSeedingStream__ctor_Stream__wan24_Crypto_ISeedableRng__System_Boolean__
+  commentId: M:wan24.Crypto.RngSeedingStream.#ctor(Stream@,wan24.Crypto.ISeedableRng@,System.Boolean@)
+  name.vb: RngSeedingStream(ByRef Stream, ByRef ISeedableRng, ByRef Boolean)
+  fullName: wan24.Crypto.RngSeedingStream.RngSeedingStream(in Stream, in wan24.Crypto.ISeedableRng, in System.Boolean)
+  fullName.vb: wan24.Crypto.RngSeedingStream.RngSeedingStream(ByRef Stream, ByRef wan24.Crypto.ISeedableRng, ByRef System.Boolean)
+  nameWithType: RngSeedingStream.RngSeedingStream(in Stream, in ISeedableRng, in Boolean)
+  nameWithType.vb: RngSeedingStream.RngSeedingStream(ByRef Stream, ByRef ISeedableRng, ByRef Boolean)
+- uid: wan24.Crypto.RngSeedingStream.#ctor*
+  name: RngSeedingStream
+  href: api/wan24.Crypto.RngSeedingStream.html#wan24_Crypto_RngSeedingStream__ctor_
+  commentId: Overload:wan24.Crypto.RngSeedingStream.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream.RngSeedingStream
+  nameWithType: RngSeedingStream.RngSeedingStream
+- uid: wan24.Crypto.RngSeedingStream`1
+  name: RngSeedingStream<T>
+  href: api/wan24.Crypto.RngSeedingStream-1.html
+  commentId: T:wan24.Crypto.RngSeedingStream`1
+  name.vb: RngSeedingStream(Of T)
+  fullName: wan24.Crypto.RngSeedingStream<T>
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T)
+  nameWithType: RngSeedingStream<T>
+  nameWithType.vb: RngSeedingStream(Of T)
+- uid: wan24.Crypto.RngSeedingStream`1.#ctor(`0@,wan24.Crypto.ISeedableRng@,System.Boolean@)
+  name: RngSeedingStream(in T, in ISeedableRng, in Boolean)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1__ctor__0__wan24_Crypto_ISeedableRng__System_Boolean__
+  commentId: M:wan24.Crypto.RngSeedingStream`1.#ctor(`0@,wan24.Crypto.ISeedableRng@,System.Boolean@)
+  name.vb: RngSeedingStream(ByRef T, ByRef ISeedableRng, ByRef Boolean)
+  fullName: wan24.Crypto.RngSeedingStream<T>.RngSeedingStream(in T, in wan24.Crypto.ISeedableRng, in System.Boolean)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).RngSeedingStream(ByRef T, ByRef wan24.Crypto.ISeedableRng, ByRef System.Boolean)
+  nameWithType: RngSeedingStream<T>.RngSeedingStream(in T, in ISeedableRng, in Boolean)
+  nameWithType.vb: RngSeedingStream(Of T).RngSeedingStream(ByRef T, ByRef ISeedableRng, ByRef Boolean)
+- uid: wan24.Crypto.RngSeedingStream`1.#ctor*
+  name: RngSeedingStream
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1__ctor_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.RngSeedingStream
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).RngSeedingStream
+  nameWithType: RngSeedingStream<T>.RngSeedingStream
+  nameWithType.vb: RngSeedingStream(Of T).RngSeedingStream
+- uid: wan24.Crypto.RngSeedingStream`1.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RngSeedingStream`1.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RngSeedingStream<T>.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: RngSeedingStream<T>.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: RngSeedingStream(Of T).AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RngSeedingStream`1.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_AddSeed_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.AddSeed
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).AddSeed
+  nameWithType: RngSeedingStream<T>.AddSeed
+  nameWithType.vb: RngSeedingStream(Of T).AddSeed
+- uid: wan24.Crypto.RngSeedingStream`1.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngSeedingStream<T>.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RngSeedingStream<T>.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RngSeedingStream(Of T).AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngSeedingStream`1.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.AddSeedAsync
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).AddSeedAsync
+  nameWithType: RngSeedingStream<T>.AddSeedAsync
+  nameWithType.vb: RngSeedingStream(Of T).AddSeedAsync
+- uid: wan24.Crypto.RngSeedingStream`1.Read(Span{System.Byte})
+  name: Read(Span<Byte>)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_Read_Span_System_Byte__
+  commentId: M:wan24.Crypto.RngSeedingStream`1.Read(Span{System.Byte})
+  name.vb: Read(Span(Of Byte))
+  fullName: wan24.Crypto.RngSeedingStream<T>.Read(Span<System.Byte>)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).Read(Span(Of System.Byte))
+  nameWithType: RngSeedingStream<T>.Read(Span<Byte>)
+  nameWithType.vb: RngSeedingStream(Of T).Read(Span(Of Byte))
+- uid: wan24.Crypto.RngSeedingStream`1.Read(System.Byte[],System.Int32,System.Int32)
+  name: Read(Byte[], Int32, Int32)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_Read_System_Byte___System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.Read(System.Byte[],System.Int32,System.Int32)
+  name.vb: Read(Byte(), Int32, Int32)
+  fullName: wan24.Crypto.RngSeedingStream<T>.Read(System.Byte[], System.Int32, System.Int32)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).Read(System.Byte(), System.Int32, System.Int32)
+  nameWithType: RngSeedingStream<T>.Read(Byte[], Int32, Int32)
+  nameWithType.vb: RngSeedingStream(Of T).Read(Byte(), Int32, Int32)
+- uid: wan24.Crypto.RngSeedingStream`1.Read*
+  name: Read
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_Read_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.Read
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.Read
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).Read
+  nameWithType: RngSeedingStream<T>.Read
+  nameWithType.vb: RngSeedingStream(Of T).Read
+- uid: wan24.Crypto.RngSeedingStream`1.ReadAsync(Memory{System.Byte},CancellationToken)
+  name: ReadAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_ReadAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.ReadAsync(Memory{System.Byte},CancellationToken)
+  name.vb: ReadAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngSeedingStream<T>.ReadAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).ReadAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: RngSeedingStream<T>.ReadAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: RngSeedingStream(Of T).ReadAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngSeedingStream`1.ReadAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  name: ReadAsync(Byte[], Int32, Int32, CancellationToken)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_ReadAsync_System_Byte___System_Int32_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.ReadAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  name.vb: ReadAsync(Byte(), Int32, Int32, CancellationToken)
+  fullName: wan24.Crypto.RngSeedingStream<T>.ReadAsync(System.Byte[], System.Int32, System.Int32, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).ReadAsync(System.Byte(), System.Int32, System.Int32, CancellationToken)
+  nameWithType: RngSeedingStream<T>.ReadAsync(Byte[], Int32, Int32, CancellationToken)
+  nameWithType.vb: RngSeedingStream(Of T).ReadAsync(Byte(), Int32, Int32, CancellationToken)
+- uid: wan24.Crypto.RngSeedingStream`1.ReadAsync*
+  name: ReadAsync
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_ReadAsync_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.ReadAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.ReadAsync
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).ReadAsync
+  nameWithType: RngSeedingStream<T>.ReadAsync
+  nameWithType.vb: RngSeedingStream(Of T).ReadAsync
+- uid: wan24.Crypto.RngSeedingStream`1.ReadByte
+  name: ReadByte()
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_ReadByte
+  commentId: M:wan24.Crypto.RngSeedingStream`1.ReadByte
+  fullName: wan24.Crypto.RngSeedingStream<T>.ReadByte()
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).ReadByte()
+  nameWithType: RngSeedingStream<T>.ReadByte()
+  nameWithType.vb: RngSeedingStream(Of T).ReadByte()
+- uid: wan24.Crypto.RngSeedingStream`1.ReadByte*
+  name: ReadByte
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_ReadByte_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.ReadByte
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.ReadByte
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).ReadByte
+  nameWithType: RngSeedingStream<T>.ReadByte
+  nameWithType.vb: RngSeedingStream(Of T).ReadByte
+- uid: wan24.Crypto.RngSeedingStream`1.RNG
+  name: RNG
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_RNG
+  commentId: P:wan24.Crypto.RngSeedingStream`1.RNG
+  fullName: wan24.Crypto.RngSeedingStream<T>.RNG
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).RNG
+  nameWithType: RngSeedingStream<T>.RNG
+  nameWithType.vb: RngSeedingStream(Of T).RNG
+- uid: wan24.Crypto.RngSeedingStream`1.RNG*
+  name: RNG
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_RNG_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.RNG
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).RNG
+  nameWithType: RngSeedingStream<T>.RNG
+  nameWithType.vb: RngSeedingStream(Of T).RNG
+- uid: wan24.Crypto.RngSeedingStream`1.Write(ReadOnlySpan{System.Byte})
+  name: Write(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_Write_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RngSeedingStream`1.Write(ReadOnlySpan{System.Byte})
+  name.vb: Write(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RngSeedingStream<T>.Write(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).Write(ReadOnlySpan(Of System.Byte))
+  nameWithType: RngSeedingStream<T>.Write(ReadOnlySpan<Byte>)
+  nameWithType.vb: RngSeedingStream(Of T).Write(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RngSeedingStream`1.Write(System.Byte[],System.Int32,System.Int32)
+  name: Write(Byte[], Int32, Int32)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_Write_System_Byte___System_Int32_System_Int32_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.Write(System.Byte[],System.Int32,System.Int32)
+  name.vb: Write(Byte(), Int32, Int32)
+  fullName: wan24.Crypto.RngSeedingStream<T>.Write(System.Byte[], System.Int32, System.Int32)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).Write(System.Byte(), System.Int32, System.Int32)
+  nameWithType: RngSeedingStream<T>.Write(Byte[], Int32, Int32)
+  nameWithType.vb: RngSeedingStream(Of T).Write(Byte(), Int32, Int32)
+- uid: wan24.Crypto.RngSeedingStream`1.Write*
+  name: Write
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_Write_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.Write
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.Write
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).Write
+  nameWithType: RngSeedingStream<T>.Write
+  nameWithType.vb: RngSeedingStream(Of T).Write
+- uid: wan24.Crypto.RngSeedingStream`1.WriteAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: WriteAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_WriteAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.WriteAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: WriteAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RngSeedingStream<T>.WriteAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).WriteAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RngSeedingStream<T>.WriteAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RngSeedingStream(Of T).WriteAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RngSeedingStream`1.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  name: WriteAsync(Byte[], Int32, Int32, CancellationToken)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_WriteAsync_System_Byte___System_Int32_System_Int32_CancellationToken_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  name.vb: WriteAsync(Byte(), Int32, Int32, CancellationToken)
+  fullName: wan24.Crypto.RngSeedingStream<T>.WriteAsync(System.Byte[], System.Int32, System.Int32, CancellationToken)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).WriteAsync(System.Byte(), System.Int32, System.Int32, CancellationToken)
+  nameWithType: RngSeedingStream<T>.WriteAsync(Byte[], Int32, Int32, CancellationToken)
+  nameWithType.vb: RngSeedingStream(Of T).WriteAsync(Byte(), Int32, Int32, CancellationToken)
+- uid: wan24.Crypto.RngSeedingStream`1.WriteAsync*
+  name: WriteAsync
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_WriteAsync_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.WriteAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.WriteAsync
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).WriteAsync
+  nameWithType: RngSeedingStream<T>.WriteAsync
+  nameWithType.vb: RngSeedingStream(Of T).WriteAsync
+- uid: wan24.Crypto.RngSeedingStream`1.WriteByte(System.Byte)
+  name: WriteByte(Byte)
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_WriteByte_System_Byte_
+  commentId: M:wan24.Crypto.RngSeedingStream`1.WriteByte(System.Byte)
+  fullName: wan24.Crypto.RngSeedingStream<T>.WriteByte(System.Byte)
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).WriteByte(System.Byte)
+  nameWithType: RngSeedingStream<T>.WriteByte(Byte)
+  nameWithType.vb: RngSeedingStream(Of T).WriteByte(Byte)
+- uid: wan24.Crypto.RngSeedingStream`1.WriteByte*
+  name: WriteByte
+  href: api/wan24.Crypto.RngSeedingStream-1.html#wan24_Crypto_RngSeedingStream_1_WriteByte_
+  commentId: Overload:wan24.Crypto.RngSeedingStream`1.WriteByte
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedingStream<T>.WriteByte
+  fullName.vb: wan24.Crypto.RngSeedingStream(Of T).WriteByte
+  nameWithType: RngSeedingStream<T>.WriteByte
+  nameWithType.vb: RngSeedingStream(Of T).WriteByte
+- uid: wan24.Crypto.RngSeedingTypes
+  name: RngSeedingTypes
+  href: api/wan24.Crypto.RngSeedingTypes.html
+  commentId: T:wan24.Crypto.RngSeedingTypes
+  fullName: wan24.Crypto.RngSeedingTypes
+  nameWithType: RngSeedingTypes
+- uid: wan24.Crypto.RngSeedingTypes.CipherData
+  name: CipherData
+  href: api/wan24.Crypto.RngSeedingTypes.html#wan24_Crypto_RngSeedingTypes_CipherData
+  commentId: F:wan24.Crypto.RngSeedingTypes.CipherData
+  fullName: wan24.Crypto.RngSeedingTypes.CipherData
+  nameWithType: RngSeedingTypes.CipherData
+- uid: wan24.Crypto.RngSeedingTypes.Iv
+  name: Iv
+  href: api/wan24.Crypto.RngSeedingTypes.html#wan24_Crypto_RngSeedingTypes_Iv
+  commentId: F:wan24.Crypto.RngSeedingTypes.Iv
+  fullName: wan24.Crypto.RngSeedingTypes.Iv
+  nameWithType: RngSeedingTypes.Iv
+- uid: wan24.Crypto.RngSeedingTypes.None
+  name: None
+  href: api/wan24.Crypto.RngSeedingTypes.html#wan24_Crypto_RngSeedingTypes_None
+  commentId: F:wan24.Crypto.RngSeedingTypes.None
+  fullName: wan24.Crypto.RngSeedingTypes.None
+  nameWithType: RngSeedingTypes.None
+- uid: wan24.Crypto.RngSeedingTypes.Random
+  name: Random
+  href: api/wan24.Crypto.RngSeedingTypes.html#wan24_Crypto_RngSeedingTypes_Random
+  commentId: F:wan24.Crypto.RngSeedingTypes.Random
+  fullName: wan24.Crypto.RngSeedingTypes.Random
+  nameWithType: RngSeedingTypes.Random
 - uid: wan24.Crypto.SecureValue
   name: SecureValue
   href: api/wan24.Crypto.SecureValue.html
@@ -9068,6 +11239,123 @@ references:
   commentId: F:wan24.Crypto.SecureValueTable.Values
   fullName: wan24.Crypto.SecureValueTable.Values
   nameWithType: SecureValueTable.Values
+- uid: wan24.Crypto.SeedableRngBase
+  name: SeedableRngBase
+  href: api/wan24.Crypto.SeedableRngBase.html
+  commentId: T:wan24.Crypto.SeedableRngBase
+  fullName: wan24.Crypto.SeedableRngBase
+  nameWithType: SeedableRngBase
+- uid: wan24.Crypto.SeedableRngBase.#ctor
+  name: SeedableRngBase()
+  href: api/wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase__ctor
+  commentId: M:wan24.Crypto.SeedableRngBase.#ctor
+  fullName: wan24.Crypto.SeedableRngBase.SeedableRngBase()
+  nameWithType: SeedableRngBase.SeedableRngBase()
+- uid: wan24.Crypto.SeedableRngBase.#ctor*
+  name: SeedableRngBase
+  href: api/wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase__ctor_
+  commentId: Overload:wan24.Crypto.SeedableRngBase.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.SeedableRngBase.SeedableRngBase
+  nameWithType: SeedableRngBase.SeedableRngBase
+- uid: wan24.Crypto.SeedableRngBase.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.SeedableRngBase.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.SeedableRngBase.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.SeedableRngBase.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: SeedableRngBase.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: SeedableRngBase.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.SeedableRngBase.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase_AddSeed_
+  commentId: Overload:wan24.Crypto.SeedableRngBase.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.SeedableRngBase.AddSeed
+  nameWithType: SeedableRngBase.AddSeed
+- uid: wan24.Crypto.SeedableRngBase.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.SeedableRngBase.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.SeedableRngBase.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.SeedableRngBase.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: SeedableRngBase.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: SeedableRngBase.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.SeedableRngBase.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.SeedableRngBase.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.SeedableRngBase.AddSeedAsync
+  nameWithType: SeedableRngBase.AddSeedAsync
+- uid: wan24.Crypto.SignedAttributes
+  name: SignedAttributes
+  href: api/wan24.Crypto.SignedAttributes.html
+  commentId: T:wan24.Crypto.SignedAttributes
+  fullName: wan24.Crypto.SignedAttributes
+  nameWithType: SignedAttributes
+- uid: wan24.Crypto.SignedAttributes.CIPHER_SUITE
+  name: CIPHER_SUITE
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_CIPHER_SUITE
+  commentId: F:wan24.Crypto.SignedAttributes.CIPHER_SUITE
+  fullName: wan24.Crypto.SignedAttributes.CIPHER_SUITE
+  nameWithType: SignedAttributes.CIPHER_SUITE
+- uid: wan24.Crypto.SignedAttributes.GRANTED_KEY_USAGES
+  name: GRANTED_KEY_USAGES
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_GRANTED_KEY_USAGES
+  commentId: F:wan24.Crypto.SignedAttributes.GRANTED_KEY_USAGES
+  fullName: wan24.Crypto.SignedAttributes.GRANTED_KEY_USAGES
+  nameWithType: SignedAttributes.GRANTED_KEY_USAGES
+- uid: wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  name: KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  commentId: F:wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  fullName: wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  nameWithType: SignedAttributes.KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER
+- uid: wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER
+  name: KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER
+  commentId: F:wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER
+  fullName: wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER
+  nameWithType: SignedAttributes.KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER
+- uid: wan24.Crypto.SignedAttributes.ONLINE_KEY_VALIDATION_API_URI
+  name: ONLINE_KEY_VALIDATION_API_URI
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_ONLINE_KEY_VALIDATION_API_URI
+  commentId: F:wan24.Crypto.SignedAttributes.ONLINE_KEY_VALIDATION_API_URI
+  fullName: wan24.Crypto.SignedAttributes.ONLINE_KEY_VALIDATION_API_URI
+  nameWithType: SignedAttributes.ONLINE_KEY_VALIDATION_API_URI
+- uid: wan24.Crypto.SignedAttributes.OWNER_IDENTIFIER
+  name: OWNER_IDENTIFIER
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_OWNER_IDENTIFIER
+  commentId: F:wan24.Crypto.SignedAttributes.OWNER_IDENTIFIER
+  fullName: wan24.Crypto.SignedAttributes.OWNER_IDENTIFIER
+  nameWithType: SignedAttributes.OWNER_IDENTIFIER
+- uid: wan24.Crypto.SignedAttributes.PKI_DOMAIN
+  name: PKI_DOMAIN
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_PKI_DOMAIN
+  commentId: F:wan24.Crypto.SignedAttributes.PKI_DOMAIN
+  fullName: wan24.Crypto.SignedAttributes.PKI_DOMAIN
+  nameWithType: SignedAttributes.PKI_DOMAIN
+- uid: wan24.Crypto.SignedAttributes.SERIAL
+  name: SERIAL
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_SERIAL
+  commentId: F:wan24.Crypto.SignedAttributes.SERIAL
+  fullName: wan24.Crypto.SignedAttributes.SERIAL
+  nameWithType: SignedAttributes.SERIAL
+- uid: wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  name: SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  commentId: F:wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  fullName: wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER
+  nameWithType: SignedAttributes.SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER
+- uid: wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER
+  name: SIGNATURE_PUBLIC_KEY_IDENTIFIER
+  href: api/wan24.Crypto.SignedAttributes.html#wan24_Crypto_SignedAttributes_SIGNATURE_PUBLIC_KEY_IDENTIFIER
+  commentId: F:wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER
+  fullName: wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER
+  nameWithType: SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER
 - uid: wan24.Crypto.SignedPkiStore
   name: SignedPkiStore
   href: api/wan24.Crypto.SignedPkiStore.html
@@ -9196,6 +11484,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.SignedPkiStore.Dispose
   nameWithType: SignedPkiStore.Dispose
+- uid: wan24.Crypto.SignedPkiStore.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.SignedPkiStore.html#wan24_Crypto_SignedPkiStore_DisposeCore
+  commentId: M:wan24.Crypto.SignedPkiStore.DisposeCore
+  fullName: wan24.Crypto.SignedPkiStore.DisposeCore()
+  nameWithType: SignedPkiStore.DisposeCore()
+- uid: wan24.Crypto.SignedPkiStore.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.SignedPkiStore.html#wan24_Crypto_SignedPkiStore_DisposeCore_
+  commentId: Overload:wan24.Crypto.SignedPkiStore.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.SignedPkiStore.DisposeCore
+  nameWithType: SignedPkiStore.DisposeCore
 - uid: wan24.Crypto.SignedPkiStore.EnableLocalPki
   name: EnableLocalPki()
   href: api/wan24.Crypto.SignedPkiStore.html#wan24_Crypto_SignedPkiStore_EnableLocalPki
@@ -9680,3 +11981,70 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.X509Extensions.GetAsymmetricPublicKey
   nameWithType: X509Extensions.GetAsymmetricPublicKey
+- uid: wan24.Crypto.XorRng
+  name: XorRng
+  href: api/wan24.Crypto.XorRng.html
+  commentId: T:wan24.Crypto.XorRng
+  fullName: wan24.Crypto.XorRng
+  nameWithType: XorRng
+- uid: wan24.Crypto.XorRng.#ctor(wan24.Crypto.IRng[])
+  name: XorRng(IRng[])
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng__ctor_wan24_Crypto_IRng___
+  commentId: M:wan24.Crypto.XorRng.#ctor(wan24.Crypto.IRng[])
+  name.vb: XorRng(IRng())
+  fullName: wan24.Crypto.XorRng.XorRng(wan24.Crypto.IRng[])
+  fullName.vb: wan24.Crypto.XorRng.XorRng(wan24.Crypto.IRng())
+  nameWithType: XorRng.XorRng(IRng[])
+  nameWithType.vb: XorRng.XorRng(IRng())
+- uid: wan24.Crypto.XorRng.#ctor*
+  name: XorRng
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng__ctor_
+  commentId: Overload:wan24.Crypto.XorRng.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.XorRng.XorRng
+  nameWithType: XorRng.XorRng
+- uid: wan24.Crypto.XorRng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.XorRng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.XorRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.XorRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: XorRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: XorRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.XorRng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng_FillBytes_
+  commentId: Overload:wan24.Crypto.XorRng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.XorRng.FillBytes
+  nameWithType: XorRng.FillBytes
+- uid: wan24.Crypto.XorRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.XorRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.XorRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.XorRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: XorRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: XorRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.XorRng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.XorRng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.XorRng.FillBytesAsync
+  nameWithType: XorRng.FillBytesAsync
+- uid: wan24.Crypto.XorRng.RNG
+  name: RNG
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng_RNG
+  commentId: P:wan24.Crypto.XorRng.RNG
+  fullName: wan24.Crypto.XorRng.RNG
+  nameWithType: XorRng.RNG
+- uid: wan24.Crypto.XorRng.RNG*
+  name: RNG
+  href: api/wan24.Crypto.XorRng.html#wan24_Crypto_XorRng_RNG_
+  commentId: Overload:wan24.Crypto.XorRng.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.XorRng.RNG
+  nameWithType: XorRng.RNG

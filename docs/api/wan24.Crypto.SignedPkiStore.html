@@ -147,6 +147,9 @@
       <span class="xref">wan24.Core.DisposableBase.AsyncDisposing</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.DisposableBase.AllowFinalizer</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.DisposableBase.StackInfo</span>
     </div>
     <div>
@@ -165,9 +168,6 @@
       <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
-    </div>
-    <div>
       <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
     </div>
     <div>
@@ -178,6 +178,9 @@
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.CreateStackInfo</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
@@ -252,7 +255,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected readonly ConcurrentDictionary&lt;byte[], AsymmetricSignedPublicKey&gt; _GrantedKeys</code></pre>
+    <pre><code class="lang-csharp hljs">protected readonly ConcurrentDictionary&lt;EquatableArray&lt;byte&gt;, AsymmetricSignedPublicKey&gt; _GrantedKeys</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -264,7 +267,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">wan24.Core.EquatableArray</span>&lt;<span class="xref">System.Byte</span>&gt;, <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -282,7 +285,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected readonly ConcurrentDictionary&lt;byte[], AsymmetricSignedPublicKey&gt; _RevokedKeys</code></pre>
+    <pre><code class="lang-csharp hljs">protected readonly ConcurrentDictionary&lt;EquatableArray&lt;byte&gt;, AsymmetricSignedPublicKey&gt; _RevokedKeys</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -294,7 +297,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">wan24.Core.EquatableArray</span>&lt;<span class="xref">System.Byte</span>&gt;, <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -312,7 +315,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected readonly ConcurrentDictionary&lt;byte[], AsymmetricSignedPublicKey&gt; _RootKeys</code></pre>
+    <pre><code class="lang-csharp hljs">protected readonly ConcurrentDictionary&lt;EquatableArray&lt;byte&gt;, AsymmetricSignedPublicKey&gt; _RootKeys</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -324,7 +327,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">wan24.Core.EquatableArray</span>&lt;<span class="xref">System.Byte</span>&gt;, <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -406,7 +409,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ConcurrentDictionary&lt;byte[], AsymmetricSignedPublicKey&gt; GrantedKeys { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual ConcurrentDictionary&lt;EquatableArray&lt;byte&gt;, AsymmetricSignedPublicKey&gt; GrantedKeys { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -418,7 +421,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">wan24.Core.EquatableArray</span>&lt;<span class="xref">System.Byte</span>&gt;, <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -468,7 +471,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ConcurrentDictionary&lt;byte[], AsymmetricSignedPublicKey&gt; RevokedKeys { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual ConcurrentDictionary&lt;EquatableArray&lt;byte&gt;, AsymmetricSignedPublicKey&gt; RevokedKeys { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -480,7 +483,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">wan24.Core.EquatableArray</span>&lt;<span class="xref">System.Byte</span>&gt;, <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -530,7 +533,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ConcurrentDictionary&lt;byte[], AsymmetricSignedPublicKey&gt; RootKeys { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual ConcurrentDictionary&lt;EquatableArray&lt;byte&gt;, AsymmetricSignedPublicKey&gt; RootKeys { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -542,7 +545,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentDictionary</span>&lt;<span class="xref">wan24.Core.EquatableArray</span>&lt;<span class="xref">System.Byte</span>&gt;, <span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -732,7 +735,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L345">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L336">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_Deserialize_" data-uid="wan24.Crypto.SignedPkiStore.Deserialize*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.SignedPkiStore.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
@@ -769,7 +772,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L356">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L347">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_DeserializeAsync_" data-uid="wan24.Crypto.SignedPkiStore.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.SignedPkiStore.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
@@ -826,7 +829,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L367">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L358">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_Dispose_" data-uid="wan24.Crypto.SignedPkiStore.Dispose*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_Dispose_System_Boolean_" data-uid="wan24.Crypto.SignedPkiStore.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -855,6 +858,38 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L369">View Source</a>
+  </span>
+  <a id="wan24_Crypto_SignedPkiStore_DisposeCore_" data-uid="wan24.Crypto.SignedPkiStore.DisposeCore*"></a>
+  <h4 id="wan24_Crypto_SignedPkiStore_DisposeCore" data-uid="wan24.Crypto.SignedPkiStore.DisposeCore">DisposeCore()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task DisposeCore()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Core.DisposableBase.DisposeCore()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_EnableLocalPki.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.EnableLocalPki%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -926,7 +961,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_GetKeyAsync_System_Byte___CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.GetKeyAsync(System.Byte%5B%5D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L233">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L225">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_GetKeyAsync_" data-uid="wan24.Crypto.SignedPkiStore.GetKeyAsync*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_GetKeyAsync_System_Byte___CancellationToken_" data-uid="wan24.Crypto.SignedPkiStore.GetKeyAsync(System.Byte[],CancellationToken)">GetKeyAsync(Byte[], CancellationToken)</h4>
@@ -982,7 +1017,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_GetRevokedKey_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.GetRevokedKey(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L259">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L251">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_GetRevokedKey_" data-uid="wan24.Crypto.SignedPkiStore.GetRevokedKey*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_GetRevokedKey_System_Byte___" data-uid="wan24.Crypto.SignedPkiStore.GetRevokedKey(System.Byte[])">GetRevokedKey(Byte[])</h4>
@@ -1032,7 +1067,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_GetRevokedKeyAsync_System_Byte___CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.GetRevokedKeyAsync(System.Byte%5B%5D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L272">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L263">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_GetRevokedKeyAsync_" data-uid="wan24.Crypto.SignedPkiStore.GetRevokedKeyAsync*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_GetRevokedKeyAsync_System_Byte___CancellationToken_" data-uid="wan24.Crypto.SignedPkiStore.GetRevokedKeyAsync(System.Byte[],CancellationToken)">GetRevokedKeyAsync(Byte[], CancellationToken)</h4>
@@ -1088,7 +1123,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_IsKeyRevoked_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.IsKeyRevoked(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L240">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L232">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_IsKeyRevoked_" data-uid="wan24.Crypto.SignedPkiStore.IsKeyRevoked*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_IsKeyRevoked_System_Byte___" data-uid="wan24.Crypto.SignedPkiStore.IsKeyRevoked(System.Byte[])">IsKeyRevoked(Byte[])</h4>
@@ -1138,7 +1173,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_IsKeyRevokedAsync_System_Byte___CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.IsKeyRevokedAsync(System.Byte%5B%5D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L252">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L244">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_IsKeyRevokedAsync_" data-uid="wan24.Crypto.SignedPkiStore.IsKeyRevokedAsync*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_IsKeyRevokedAsync_System_Byte___CancellationToken_" data-uid="wan24.Crypto.SignedPkiStore.IsKeyRevokedAsync(System.Byte[],CancellationToken)">IsKeyRevokedAsync(Byte[], CancellationToken)</h4>
@@ -1356,7 +1391,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_RemoveRevokedKey_System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.RemoveRevokedKey(System.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L317">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L308">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_RemoveRevokedKey_" data-uid="wan24.Crypto.SignedPkiStore.RemoveRevokedKey*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_RemoveRevokedKey_System_Byte___System_Boolean_" data-uid="wan24.Crypto.SignedPkiStore.RemoveRevokedKey(System.Byte[],System.Boolean)">RemoveRevokedKey(Byte[], Boolean)</h4>
@@ -1468,7 +1503,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_Revoke_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.Revoke(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L279">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L270">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_Revoke_" data-uid="wan24.Crypto.SignedPkiStore.Revoke*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_Revoke_System_Byte___" data-uid="wan24.Crypto.SignedPkiStore.Revoke(System.Byte[])">Revoke(Byte[])</h4>
@@ -1518,7 +1553,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_RevokeAsync_System_Byte___CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.RevokeAsync(System.Byte%5B%5D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L309">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L300">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_RevokeAsync_" data-uid="wan24.Crypto.SignedPkiStore.RevokeAsync*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_RevokeAsync_System_Byte___CancellationToken_" data-uid="wan24.Crypto.SignedPkiStore.RevokeAsync(System.Byte[],CancellationToken)">RevokeAsync(Byte[], CancellationToken)</h4>
@@ -1574,7 +1609,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L329">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L320">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_Serialize_" data-uid="wan24.Crypto.SignedPkiStore.Serialize*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_Serialize_Stream_" data-uid="wan24.Crypto.SignedPkiStore.Serialize(Stream)">Serialize(Stream)</h4>
@@ -1606,7 +1641,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedPkiStore_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedPkiStore.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L337">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedPkiStore.cs/#L328">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedPkiStore_SerializeAsync_" data-uid="wan24.Crypto.SignedPkiStore.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_SignedPkiStore_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.SignedPkiStore.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>

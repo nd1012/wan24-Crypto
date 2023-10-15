@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Delegate Pake.PakeServer_Delegate
+    <title>Enum RngSeedingTypes
    | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Delegate Pake.PakeServer_Delegate
+    <meta name="title" content="Enum RngSeedingTypes
    | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,44 +68,52 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.Pake.PakeServer_Delegate">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.RngSeedingTypes">
   
   
-  <h1 id="wan24_Crypto_Pake_PakeServer_Delegate" data-uid="wan24.Crypto.Pake.PakeServer_Delegate" class="text-break">Delegate Pake.PakeServer_Delegate
+  <h1 id="wan24_Crypto_RngSeedingTypes" data-uid="wan24.Crypto.RngSeedingTypes" class="text-break">Enum RngSeedingTypes
   </h1>
-  <div class="markdown level0 summary"><p>Delegate for a PAKE server event handler delegate</p>
+  <div class="markdown level0 summary"><p>RNG seeding types (CAUTION: be aware of patent US10402172B1!)</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
-  <h5 id="wan24_Crypto_Pake_PakeServer_Delegate_syntax">Syntax</h5>
+  <h5 id="wan24_Crypto_RngSeedingTypes_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate void PakeServer_Delegate(Pake pake, Pake.PakeServerEventArgs e);</code></pre>
+    <pre><code class="lang-csharp hljs">public enum RngSeedingTypes</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h3 id="fields">Fields
+  </h3>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
-    </thead>
+    <thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></td>
-        <td><span class="parametername">pake</span></td>
-        <td><p>PAKE</p>
+        <td id="wan24_Crypto_RngSeedingTypes_CipherData">CipherData</td>
+        <td><p>Seed received cipher data during decryption</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.Pake.PakeServerEventArgs.html">Pake.PakeServerEventArgs</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>Arguments</p>
+        <td id="wan24_Crypto_RngSeedingTypes_Iv">Iv</td>
+        <td><p>Seed received IV bytes during decryption</p>
+</td>
+      </tr>
+      <tr>
+        <td id="wan24_Crypto_RngSeedingTypes_None">None</td>
+        <td><p>None (no automatic RNG seeding from decryption or external random sources)</p>
+</td>
+      </tr>
+      <tr>
+        <td id="wan24_Crypto_RngSeedingTypes_Random">Random</td>
+        <td><p>Seed received random data</p>
 </td>
       </tr>
     </tbody>
-  </table>
+  </thead></thead></table>
 </article>
           </div>
           
@@ -114,10 +122,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Pake_PakeServer_Delegate.md&amp;value=---%0Auid%3A%20wan24.Crypto.Pake.PakeServer_Delegate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngSeedingTypes.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngSeedingTypes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Pake.Server.cs/#L187" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngSeedingTypes.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

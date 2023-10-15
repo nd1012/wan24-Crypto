@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AsymmetricKeyPool&lt;T&gt;
+    <title>Class AsymmetricKeySignerService
    | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AsymmetricKeyPool&lt;T&gt;
+    <meta name="title" content="Class AsymmetricKeySignerService
    | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,12 +68,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricKeyPool`1">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricKeySignerService">
   
   
-  <h1 id="wan24_Crypto_AsymmetricKeyPool_1" data-uid="wan24.Crypto.AsymmetricKeyPool`1" class="text-break">Class AsymmetricKeyPool&lt;T&gt;
+  <h1 id="wan24_Crypto_AsymmetricKeySignerService" data-uid="wan24.Crypto.AsymmetricKeySignerService" class="text-break">Class AsymmetricKeySignerService
   </h1>
-  <div class="markdown level0 summary"><p>Asymmetric private key pool</p>
+  <div class="markdown level0 summary"><p>Parallel <span class="xref">wan24.Crypto.AsymmetricPublicKeySigningRequest</span> signer service</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -81,14 +81,16 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
     <div class="level2"><span class="xref">wan24.Core.HostedServiceBase</span></div>
-    <div class="level3"><span class="xref">wan24.Core.InstancePool</span>&lt;T&gt;</div>
-    <div class="level4"><span class="xref">AsymmetricKeyPool&lt;T&gt;</span></div>
+    <div class="level3"><span class="xref">wan24.Core.QueueWorker</span></div>
+    <div class="level4"><span class="xref">wan24.Core.ParallelQueueWorker</span></div>
+    <div class="level5"><span class="xref">wan24.Core.ParallelItemQueueWorkerBase</span>&lt;<span class="xref">Action</span>&gt;</div>
+    <div class="level6"><span class="xref">AsymmetricKeySignerService</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">wan24.Core.IInstancePool</span>&lt;T&gt;</div>
-    <div><a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a></div>
-    <div><span class="xref">wan24.Core.IInstancePool</span></div>
+    <div><span class="xref">wan24.Core.IParallelQueueWorker</span></div>
+    <div><span class="xref">wan24.Core.IItemQueueWorker</span>&lt;<span class="xref">Action</span>&gt;</div>
+    <div><span class="xref">wan24.Core.IQueueWorker</span></div>
     <div><span class="xref">wan24.Core.IServiceWorkerStatus</span></div>
     <div><span class="xref">wan24.Core.IServiceWorker</span></div>
     <div><span class="xref">Microsoft.Extensions.Hosting.IHostedService</span></div>
@@ -100,64 +102,82 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.SyncFactory</span>
+      <span class="xref">wan24.Core.ParallelItemQueueWorkerBase&lt;Action&gt;.EnqueueAsync(Action, System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.AsyncFactory</span>
+      <span class="xref">wan24.Core.ParallelItemQueueWorkerBase&lt;Action&gt;.TryEnqueue(Action)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Instances</span>
+      <span class="xref">wan24.Core.ParallelItemQueueWorkerBase&lt;Action&gt;.EnqueueRangeAsync(System.Collections.Generic.IEnumerable&lt;Action&gt;, System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.BufferSync</span>
+      <span class="xref">wan24.Core.ParallelItemQueueWorkerBase&lt;Action&gt;.EnqueueRangeAsync(System.Collections.Generic.IAsyncEnumerable&lt;Action&gt;, System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;._Created</span>
+      <span class="xref">wan24.Core.ParallelItemQueueWorkerBase&lt;Action&gt;.ProcessItem(Action, System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;._CreatedOnDemand</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.Busy</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetOne()</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.Processing</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetOneAsync(System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.WorkerSync</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetMany(System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.ProcessCount</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetManyAsync(System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.WaitBoring(System.TimeSpan)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.BeforeStopAsync(System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.WaitBoringAsync(System.TimeSpan)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.WorkerAsync()</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.WaitBoring(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Dispose(System.Boolean)</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.WaitBoringAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.DisposeCore()</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.AfterStopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GUID</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.WorkerAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Capacity</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.Process(wan24.Core.QueueWorker.Task_Delegate, System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Available</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.Dispose(System.Boolean)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Created</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.Threads</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.CreatedOnDemand</span>
+      <span class="xref">wan24.Core.ParallelQueueWorker.State</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.State</span>
+      <span class="xref">wan24.Core.QueueWorker.Queue</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.QueueWorker.EnqueueAsync(wan24.Core.QueueWorker.Task_Delegate, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.QueueWorker.TryEnqueue(wan24.Core.QueueWorker.Task_Delegate, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.QueueWorker.EnqueueRangeAsync(System.Collections.Generic.IEnumerable&lt;wan24.Core.QueueWorker.Task_Delegate&gt;, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.QueueWorker.EnqueueRangeAsync(System.Collections.Generic.IAsyncEnumerable&lt;wan24.Core.QueueWorker.Task_Delegate&gt;, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.QueueWorker.GUID</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.QueueWorker.Queued</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.Sync</span>
@@ -217,7 +237,7 @@
       <span class="xref">wan24.Core.HostedServiceBase.AfterStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.HostedServiceBase.AfterStopAsync(System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.HostedServiceBase.BeforeStopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforePauseAsync(System.Threading.CancellationToken)</span>
@@ -233,6 +253,9 @@
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.RunServiceAsync()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.HostedServiceBase.DisposeCore()</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.RaiseOnException()</span>
@@ -351,43 +374,27 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
-  <h5 id="wan24_Crypto_AsymmetricKeyPool_1_syntax">Syntax</h5>
+  <h5 id="wan24_Crypto_AsymmetricKeySignerService_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeyPool&lt;T&gt; : InstancePool&lt;T&gt;, IInstancePool&lt;T&gt;, IAsymmetricKeyPool, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider where T : class, IAsymmetricPrivateKey, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeySignerService : ParallelItemQueueWorkerBase&lt;Action&gt;, IParallelQueueWorker, IItemQueueWorker&lt;Action&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>Asymmetric private key type</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1__ctor_System_Int32__wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.%23ctor(System.Int32%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeySignerService__ctor_System_Int32__System_Int32__wan24_Crypto_AsymmetricKeySigner__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeySignerService.%23ctor(System.Int32%40%2CSystem.Int32%40%2Cwan24.Crypto.AsymmetricKeySigner%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L34">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeySignerService.cs/#L16">View Source</a>
   </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1__ctor_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.#ctor*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1__ctor_System_Int32__wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.AsymmetricKeyPool`1.#ctor(System.Int32@,wan24.Crypto.CryptoOptions@)">AsymmetricKeyPool(in Int32, in CryptoOptions)</h4>
+  <a id="wan24_Crypto_AsymmetricKeySignerService__ctor_" data-uid="wan24.Crypto.AsymmetricKeySignerService.#ctor*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeySignerService__ctor_System_Int32__System_Int32__wan24_Crypto_AsymmetricKeySigner__" data-uid="wan24.Crypto.AsymmetricKeySignerService.#ctor(System.Int32@,System.Int32@,wan24.Crypto.AsymmetricKeySigner@)">AsymmetricKeySignerService(in Int32, in Int32, in AsymmetricKeySigner)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AsymmetricKeyPool(in int capacity, in CryptoOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public AsymmetricKeySignerService(in int capacity, in int threads, in AsymmetricKeySigner signer = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -402,36 +409,42 @@
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">capacity</span></td>
-        <td><p>Capacity</p>
+        <td><p>Key signing request queue capacity</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
-        <td><span class="parametername">options</span></td>
-        <td><p>Options</p>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">threads</span></td>
+        <td><p>Number of threads to use for parallel processing</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricKeySigner.html">AsymmetricKeySigner</a></td>
+        <td><span class="parametername">signer</span></td>
+        <td><p>Signer to use</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h3 id="eii">Explicit Interface Implementations
+  <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Algorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23Algorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeySignerService_Instance.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeySignerService.Instance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L41">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeySignerService.cs/#L22">View Source</a>
   </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Algorithm_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Algorithm*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Algorithm" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Algorithm">IAsymmetricKeyPool.Algorithm</h4>
-  <div class="markdown level1 summary"><p>Algorithm</p>
+  <a id="wan24_Crypto_AsymmetricKeySignerService_Instance_" data-uid="wan24.Crypto.AsymmetricKeySignerService.Instance*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeySignerService_Instance" data-uid="wan24.Crypto.AsymmetricKeySignerService.Instance">Instance</h4>
+  <div class="markdown level1 summary"><p>Singleton instance</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IAsymmetricAlgorithm IAsymmetricKeyPool.Algorithm { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static AsymmetricKeySignerService Instance { get; set; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -441,28 +454,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></td>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricKeySignerService.html">AsymmetricKeySignerService</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23GetKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeySignerService_Signer.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeySignerService.Signer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L47">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeySignerService.cs/#L27">View Source</a>
   </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKey_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKey*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKey" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKey">IAsymmetricKeyPool.GetKey()</h4>
-  <div class="markdown level1 summary"><p>Get a key</p>
+  <a id="wan24_Crypto_AsymmetricKeySignerService_Signer_" data-uid="wan24.Crypto.AsymmetricKeySignerService.Signer*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeySignerService_Signer" data-uid="wan24.Crypto.AsymmetricKeySignerService.Signer">Signer</h4>
+  <div class="markdown level1 summary"><p>Used signer</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IAsymmetricPrivateKey IAsymmetricKeyPool.GetKey()</code></pre>
+    <pre><code class="lang-csharp hljs">public AsymmetricKeySigner Signer { get; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -472,27 +485,27 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
-        <td><p>Asymmetric private key</p>
-</td>
+        <td><a class="xref" href="wan24.Crypto.AsymmetricKeySigner.html">AsymmetricKeySigner</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKeyAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23GetKeyAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeySignerService_ProcessItem_Action_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeySignerService.ProcessItem(Action%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L50">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeySignerService.cs/#L53">View Source</a>
   </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKeyAsync_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKeyAsync*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKeyAsync_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKeyAsync(CancellationToken)">IAsymmetricKeyPool.GetKeyAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Get a key</p>
-</div>
+  <a id="wan24_Crypto_AsymmetricKeySignerService_ProcessItem_" data-uid="wan24.Crypto.AsymmetricKeySignerService.ProcessItem*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeySignerService_ProcessItem_Action_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeySignerService.ProcessItem(Action,CancellationToken)">ProcessItem(Action, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">async Task&lt;IAsymmetricPrivateKey&gt; IAsymmetricKeyPool.GetKeyAsync(CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override async Task ProcessItem(Action item, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -504,6 +517,65 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeySignerService_SignAsync_wan24_Crypto_AsymmetricPublicKeySigningRequest_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeySignerService.SignAsync(wan24.Crypto.AsymmetricPublicKeySigningRequest%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeySignerService.cs/#L35">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricKeySignerService_SignAsync_" data-uid="wan24.Crypto.AsymmetricKeySignerService.SignAsync*"></a>
+  <h4 id="wan24_Crypto_AsymmetricKeySignerService_SignAsync_wan24_Crypto_AsymmetricPublicKeySigningRequest_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeySignerService.SignAsync(wan24.Crypto.AsymmetricPublicKeySigningRequest,CancellationToken)">SignAsync(AsymmetricPublicKeySigningRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sign a key signing request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;AsymmetricSignedPublicKey&gt; SignAsync(AsymmetricPublicKeySigningRequest request, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">wan24.Crypto.AsymmetricPublicKeySigningRequest</span></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>Key signing request</p>
+</td>
+      </tr>
       <tr>
         <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
@@ -522,52 +594,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a>&gt;</td>
-        <td><p>Asymmetric private key</p>
+        <td><span class="xref">Task</span>&lt;<span class="xref">wan24.Crypto.AsymmetricSignedPublicKey</span>&gt;</td>
+        <td><p>Signed key (will be disposed, if the used signer stored the signed key in a signed PKI store)</p>
 </td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Options.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L44">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Options_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Options*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Options" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Options">IAsymmetricKeyPool.Options</h4>
-  <div class="markdown level1 summary"><p>Options (returns a clone of the used options)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">CryptoOptions IAsymmetricKeyPool.Options { get; }</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">wan24.Core.IInstancePool&lt;T&gt;</span>
+      <span class="xref">wan24.Core.IParallelQueueWorker</span>
   </div>
   <div>
-      <a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a>
+      <span class="xref">wan24.Core.IItemQueueWorker&lt;T&gt;</span>
   </div>
   <div>
-      <span class="xref">wan24.Core.IInstancePool</span>
+      <span class="xref">wan24.Core.IQueueWorker</span>
   </div>
   <div>
       <span class="xref">wan24.Core.IServiceWorkerStatus</span>
@@ -598,10 +639,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeySignerService.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeySignerService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeySignerService.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
