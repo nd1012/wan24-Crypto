@@ -137,5 +137,13 @@ namespace wan24.Crypto
             _Suites.Values.DisposeAll();
             _Suites.Clear();
         }
+
+        /// <inheritdoc/>
+        protected override Task DisposeCore()
+        {
+            _Suites.Values.DisposeAll();
+            _Suites.Clear();
+            return Task.CompletedTask;
+        }
     }
 }

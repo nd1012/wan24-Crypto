@@ -53,7 +53,7 @@ namespace wan24.Crypto.Authentication
             if (!serverPublicKey.SignedPublicKey.CreateSignedData().SlowCompare(knownKey.CreateSignedData())) throw new InvalidDataException("Server signed public key mismatch");
             // Validate the key suite signature
             if (serverPublicKey.Signature is null) return true;
-            if (!serverPublicKey.Signature.SignerPublicKey.KeyData.Array.SlowCompare(serverPublicKey.SignedPublicKey.PublicKey.KeyData.Array))
+            if (!serverPublicKey.Signature.SignerPublicKeyData.SlowCompare(serverPublicKey.SignedPublicKey.PublicKey.KeyData.Array))
                 throw new InvalidDataException("Server public key suite signer mismatch");
             using MemoryPoolStream ms = new(serverPublicKey.CreateSignedData());
             await serverPublicKey.Signature.ValidateSignedDataAsync(ms, cancellationToken: cancellationToken).DynamicContext();
@@ -80,7 +80,7 @@ namespace wan24.Crypto.Authentication
             // Compare signed keys
             if (!serverPublicKey.SignedPublicKey.CreateSignedData().SlowCompare(knownKey.CreateSignedData())) throw new InvalidDataException("Server signed public key mismatch");
             // Validate the key suite signature
-            if (!serverPublicKey.Signature.SignerPublicKey.KeyData.Array.SlowCompare(serverPublicKey.SignedPublicKey.PublicKey.KeyData.Array))
+            if (!serverPublicKey.Signature.SignerPublicKeyData.SlowCompare(serverPublicKey.SignedPublicKey.PublicKey.KeyData.Array))
                 throw new InvalidDataException("Server public key suite signer mismatch");
             using MemoryPoolStream ms = new(serverPublicKey.CreateSignedData());
             await serverPublicKey.Signature.ValidateSignedDataAsync(ms, cancellationToken: cancellationToken).DynamicContext();

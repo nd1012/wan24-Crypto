@@ -175,8 +175,9 @@ namespace wan24.Crypto.Authentication
             // Signed hash must match
             if (!signature.SignedDataHash.SlowCompare(hash)) throw new InvalidDataException("Signed hash mismatch");
             // Signer must match
+            using ISignaturePublicKey signerKey = signature.SignerPublicKey;
             if (
-                !signature.SignerPublicKey.ID.SlowCompare(context.PublicClientKeys!.SignatureKey!.ID) ||
+                !signerKey.ID.SlowCompare(context.PublicClientKeys!.SignatureKey!.ID) ||
                 !signature.Signer.SlowCompare(context.PublicClientKeys.SignatureKey.ID)
                 )
                 throw new InvalidDataException("Signer key mismatch");
@@ -185,14 +186,15 @@ namespace wan24.Crypto.Authentication
             {
                 if (signature.CounterSignature is null || signature.CounterSignerPublicKeyData is null || signature.CounterSigner is null)
                     throw new InvalidDataException("Invalid counter signature configuration");
+                using IAsymmetricPublicKey? signerCounterKey = signature.CounterSignerPublicKey;
                 if (
-                    !signature.CounterSignerPublicKey!.ID.SlowCompare(context.PublicClientKeys.CounterSignatureKey.ID) ||
+                    !signerCounterKey!.ID.SlowCompare(context.PublicClientKeys.CounterSignatureKey.ID) ||
                     !signature.CounterSigner.SlowCompare(context.PublicClientKeys.CounterSignatureKey.ID)
                     )
                     throw new InvalidDataException("Counter signer key mismatch");
             }
             // Signature must be valid
-            signature.SignerPublicKey.ValidateSignature(signature);
+            signerKey.ValidateSignature(signature);
         }
     }
 }

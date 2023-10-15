@@ -156,6 +156,14 @@ namespace wan24.Crypto
             _PrivateKey?.Dispose();
         }
 
+        /// <inheritdoc/>
+        protected override async Task DisposeCore()
+        {
+            await base.DisposeCore().DynamicContext();
+            _PrivateKey?.PublicKey?.Dispose();
+            _PrivateKey?.Dispose();
+        }
+
         /// <summary>
         /// Cast to public key
         /// </summary>

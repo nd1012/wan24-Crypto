@@ -122,9 +122,9 @@ namespace wan24.Crypto
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
-                SignatureContainer res = new(options.HashAlgorithm!, hash, (ISignaturePrivateKey)this, (ISignaturePrivateKey?)options.CounterPrivateKey, purpose);
+                SignatureContainer res = new(options.HashAlgorithm!, hash, (ISignaturePrivateKey)this, options.CounterPrivateKey as ISignaturePrivateKey, purpose);
                 res.Signature = SignHashRaw(res.CreateSignatureHash());
-                if (options.CounterPrivateKey is not null) HybridAlgorithmHelper.Sign(res, options);
+                if (options.CounterPrivateKey is ISignaturePrivateKey) HybridAlgorithmHelper.Sign(res, options);
                 PublicKey.ValidateSignature(res);
                 return res;
             }
@@ -155,6 +155,13 @@ namespace wan24.Crypto
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
+            _PublicKey?.Dispose();
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DisposeCore()
+        {
+            await base.DisposeCore().DynamicContext();
             _PublicKey?.Dispose();
         }
 

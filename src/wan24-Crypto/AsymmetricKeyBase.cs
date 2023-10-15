@@ -100,6 +100,13 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Dispose(bool disposing) => KeyData?.Dispose();
 
+        /// <inheritdoc/>
+        protected override Task DisposeCore()
+        {
+            KeyData?.Dispose();
+            return Task.CompletedTask;
+        }
+
         /// <summary>
         /// Create a key instance from exported key data
         /// </summary>

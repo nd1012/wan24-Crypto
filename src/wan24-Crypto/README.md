@@ -3,8 +3,8 @@
 This library exports a generic high level crypto API, which allows to use an 
 implemented cryptographic algorithm to be applied using a simple interface. It 
 also implements abstract and configurable RNG handling, which uses a local 
-(CS)RNG entrophy source, if not overridden and extended with a customized RNG 
-algorithm, which may use a physical entrophy source, too.
+(CS)RNG entropy source, if not overridden and extended with a customized RNG 
+algorithm, which may use a physical entropy source, too.
 
 Per default these cryptographic algorithms are implemented:
 
@@ -845,7 +845,7 @@ A seedable RNG (`ISeedableRng`) can be seeded automatic using
 
 **CAUTION**: Even if it's extremely unlikely, an untrusted seed source _may_ 
 be able to cause a RNG to produce predictable random data, unless it combines 
-QRNG entrophy.
+QRNG entropy.
 
 To enable automatic seeding, set the seed source flags to `RND.AutoRngSeeding`.
 
@@ -909,17 +909,17 @@ steps that you should implement fully, if possible in any way:
 2. Wrap the PRNG with a CSRNG which uses an underlaying stream cipher to 
 encrypt the PRNG's random data stream
 3. Re-seed the PRNG as often as possible using at last CSRNG data from the 
-operating system, and if possible in combination with entrophy from a QRNG
+operating system, and if possible in combination with entropy from a QRNG
 
 Of course the best solution would be to use a QRNG instead of a PRNG in step 
 1, because then you wouldn't need to re-seed usually. But step 2 is important 
 in all cases, please don't miss it! A good practice is to combine multiple 
-entrophy sources, at last for seeding, but also for the RNG's output, which 
+entropy sources, at last for seeding, but also for the RNG's output, which 
 you're going to use for symmetric keys (DEK), for example.
 
 If you carefully red and understood this information, you should get quiet 
 good results with a CSRNG already, even you don't have access to a quantum 
-entrophy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should 
+entropy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should 
 offer everything a C# developer needs for a better random number source.
 
 **NOTE**: Even the best PQC algorithm will _fail_ when not using a good RNG!

@@ -183,24 +183,19 @@ namespace wan24.Crypto.Tests
                                 if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
                                     continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
-                                foreach (int keySize in algo.AllowedKeySizes)
-                                    foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
-                                    {
-                                        if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
-                                        SyncEncryptionTests(new()
-                                        {
-                                            Algorithm = name,
-                                            MacAlgorithm = macName,
-                                            CounterMacAlgorithm = counterMacName,
-                                            AsymmetricAlgorithm = asymmetricName,
-                                            AsymmetricCounterAlgorithm = counterAsymmetricName,
-                                            RequireCounterMac = true,
-                                            KdfAlgorithmIncluded = false,
-                                            RequireKdf = false,
-                                            LeaveOpen = true
-                                        }, keySize, counterKeySize);
-                                        done++;
-                                    }
+                                SyncEncryptionTests(new()
+                                {
+                                    Algorithm = name,
+                                    MacAlgorithm = macName,
+                                    CounterMacAlgorithm = counterMacName,
+                                    AsymmetricAlgorithm = asymmetricName,
+                                    AsymmetricCounterAlgorithm = counterAsymmetricName,
+                                    RequireCounterMac = true,
+                                    KdfAlgorithmIncluded = false,
+                                    RequireKdf = false,
+                                    LeaveOpen = true
+                                }, algo.DefaultKeySize, counterAlgo.DefaultKeySize);
+                                done++;
                             }
                         }
                     }
@@ -236,24 +231,19 @@ namespace wan24.Crypto.Tests
                                 if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
                                     continue;
                                 asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
-                                foreach (int keySize in algo.AllowedKeySizes)
-                                    foreach (int counterKeySize in counterAlgo.AllowedKeySizes)
-                                    {
-                                        if (algo.AllowedKeySizes.Count != 1 && keySize == counterKeySize) continue;
-                                        await AsyncEncryptionTests(new()
-                                        {
-                                            Algorithm = name,
-                                            MacAlgorithm = macName,
-                                            CounterMacAlgorithm = counterMacName,
-                                            AsymmetricAlgorithm = asymmetricName,
-                                            AsymmetricCounterAlgorithm = counterAsymmetricName,
-                                            RequireCounterMac = true,
-                                            KdfAlgorithmIncluded = false,
-                                            RequireKdf = false,
-                                            LeaveOpen = true
-                                        }, keySize, counterKeySize);
-                                        done++;
-                                    }
+                                await AsyncEncryptionTests(new()
+                                {
+                                    Algorithm = name,
+                                    MacAlgorithm = macName,
+                                    CounterMacAlgorithm = counterMacName,
+                                    AsymmetricAlgorithm = asymmetricName,
+                                    AsymmetricCounterAlgorithm = counterAsymmetricName,
+                                    RequireCounterMac = true,
+                                    KdfAlgorithmIncluded = false,
+                                    RequireKdf = false,
+                                    LeaveOpen = true
+                                }, algo.DefaultKeySize, counterAlgo.DefaultKeySize);
+                                done++;
                             }
                         }
                     }

@@ -2,8 +2,6 @@
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
-//TODO Use EquatableArray
-
 namespace wan24.Crypto
 {
     /// <summary>
@@ -19,15 +17,15 @@ namespace wan24.Crypto
         /// <summary>
         /// Trusted root keys (key is the keys ID)
         /// </summary>
-        protected readonly ConcurrentDictionary<byte[], AsymmetricSignedPublicKey> _RootKeys = new();
+        protected readonly ConcurrentDictionary<EquatableArray<byte>, AsymmetricSignedPublicKey> _RootKeys = new(new EquatableArray<byte>.EqualityComparer());
         /// <summary>
         /// Granted keys (key is the keys ID)
         /// </summary>
-        protected readonly ConcurrentDictionary<byte[], AsymmetricSignedPublicKey> _GrantedKeys = new();
+        protected readonly ConcurrentDictionary<EquatableArray<byte>, AsymmetricSignedPublicKey> _GrantedKeys = new(new EquatableArray<byte>.EqualityComparer());
         /// <summary>
         /// Revoked keys (key is the keys ID)
         /// </summary>
-        protected readonly ConcurrentDictionary<byte[], AsymmetricSignedPublicKey> _RevokedKeys = new();
+        protected readonly ConcurrentDictionary<EquatableArray<byte>, AsymmetricSignedPublicKey> _RevokedKeys = new(new EquatableArray<byte>.EqualityComparer());
 
         /// <summary>
         /// Constructor
@@ -37,7 +35,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Trusted root keys (key is the keys ID)
         /// </summary>
-        public virtual ConcurrentDictionary<byte[], AsymmetricSignedPublicKey> RootKeys => IfUndisposed(_RootKeys);
+        public virtual ConcurrentDictionary<EquatableArray<byte>, AsymmetricSignedPublicKey> RootKeys => IfUndisposed(_RootKeys);
 
         /// <summary>
         /// Number of trusted root keys
@@ -47,7 +45,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Granted keys (key is the keys ID)
         /// </summary>
-        public virtual ConcurrentDictionary<byte[], AsymmetricSignedPublicKey> GrantedKeys => IfUndisposed(_GrantedKeys);
+        public virtual ConcurrentDictionary<EquatableArray<byte>, AsymmetricSignedPublicKey> GrantedKeys => IfUndisposed(_GrantedKeys);
 
         /// <summary>
         /// Number of granted keys
@@ -57,7 +55,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Revoked keys (key is the keys ID)
         /// </summary>
-        public virtual ConcurrentDictionary<byte[], AsymmetricSignedPublicKey> RevokedKeys => IfUndisposed(_RevokedKeys);
+        public virtual ConcurrentDictionary<EquatableArray<byte>, AsymmetricSignedPublicKey> RevokedKeys => IfUndisposed(_RevokedKeys);
 
         /// <summary>
         /// Number of revoked keys
@@ -123,7 +121,7 @@ namespace wan24.Crypto
         public virtual AsymmetricSignedPublicKey? RemoveTrustedRoot(byte[] id, bool dispose = true)
         {
             EnsureUndisposed();
-            if (_RootKeys.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is byte[] keyId && _RootKeys.TryRemove(keyId, out AsymmetricSignedPublicKey? key))
+            if (_RootKeys.TryRemove(id, out AsymmetricSignedPublicKey? key))
             {
                 if (dispose) key.Dispose();
                 return key;
@@ -176,7 +174,7 @@ namespace wan24.Crypto
         public virtual AsymmetricSignedPublicKey? RemoveGrantedKey(byte[] id, bool dispose = true)
         {
             EnsureUndisposed();
-            if (_GrantedKeys.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is byte[] keyId && _GrantedKeys.TryRemove(keyId, out AsymmetricSignedPublicKey? key))
+            if (_GrantedKeys.TryRemove(id, out AsymmetricSignedPublicKey? key))
             {
                 if (dispose) key.Dispose();
                 return key;
@@ -192,7 +190,7 @@ namespace wan24.Crypto
         public virtual bool IsTrustedRoot(byte[] id)
         {
             EnsureUndisposed();
-            return _RootKeys.Keys.Any(k => k.SequenceEqual(id));
+            return _RootKeys.Keys.Any(k => k == id);
         }
 
         /// <summary>
@@ -212,18 +210,10 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             if (IsKeyRevoked(id)) return null;
-            if (_GrantedKeys.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is not byte[] keyId)
-            {
-                return _RootKeys.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is byte[] rootKeyId &&
-                    _RootKeys.TryGetValue(rootKeyId, out AsymmetricSignedPublicKey? rootKey)
-                    ? rootKey
-                    : null;
-            }
-            else if(_GrantedKeys.TryGetValue(keyId, out AsymmetricSignedPublicKey? key))
-            {
-                return key;
-            }
-            return null;
+            if (_GrantedKeys.TryGetValue(id, out AsymmetricSignedPublicKey? key)) return key;
+            return _RootKeys.TryGetValue(id, out AsymmetricSignedPublicKey? rootKey)
+                ? rootKey
+                : null;
         }
 
         /// <summary>
@@ -242,7 +232,7 @@ namespace wan24.Crypto
         public virtual bool IsKeyRevoked(byte[] id)
         {
             EnsureUndisposed();
-            return _RevokedKeys.Keys.Any(k => k.SequenceEqual(id));
+            return _RevokedKeys.Keys.Any(k => k == id);
         }
 
         /// <summary>
@@ -261,8 +251,7 @@ namespace wan24.Crypto
         public virtual AsymmetricSignedPublicKey? GetRevokedKey(byte[] id)
         {
             EnsureUndisposed();
-            if (_RevokedKeys.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is not byte[] keyId) return null;
-            return _RevokedKeys.TryGetValue(keyId, out AsymmetricSignedPublicKey? key) ? key : null;
+            return _RevokedKeys.TryGetValue(id, out AsymmetricSignedPublicKey? key) ? key : null;
         }
 
         /// <summary>
@@ -319,7 +308,7 @@ namespace wan24.Crypto
         public virtual AsymmetricSignedPublicKey? RemoveRevokedKey(byte[] id, bool dispose = true)
         {
             EnsureUndisposed();
-            if (_RevokedKeys.Keys.FirstOrDefault(k => k.SequenceEqual(id)) is byte[] keyId && _RevokedKeys.TryRemove(keyId, out AsymmetricSignedPublicKey? key))
+            if (_RevokedKeys.TryRemove(id, out AsymmetricSignedPublicKey? key))
             {
                 if (dispose) key.Dispose();
                 return key;
@@ -374,6 +363,18 @@ namespace wan24.Crypto
             _RootKeys.Clear();
             _GrantedKeys.Clear();
             _RevokedKeys.Clear();
+        }
+
+        /// <inheritdoc/>
+        protected override Task DisposeCore()
+        {
+            _RootKeys.Values.DisposeAll();
+            _GrantedKeys.Values.DisposeAll();
+            _RevokedKeys.Values.DisposeAll();
+            _RootKeys.Clear();
+            _GrantedKeys.Clear();
+            _RevokedKeys.Clear();
+            return Task.CompletedTask;
         }
     }
 }

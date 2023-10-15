@@ -28,7 +28,7 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// PAKE authentication records (key is the identifier)
         /// </summary>
-        protected readonly ConcurrentDictionary<byte[], T> _Records = new();
+        protected readonly ConcurrentDictionary<EquatableArray<byte>, T> _Records = new(new EquatableArray<byte>.EqualityComparer());
 
         /// <summary>
         /// Constructor
@@ -38,7 +38,7 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// PAKE authentication records (key is the identifier)
         /// </summary>
-        public ConcurrentDictionary<byte[], T> Records => IfUndisposed(_Records);
+        public ConcurrentDictionary<EquatableArray<byte>, T> Records => IfUndisposed(_Records);
 
         /// <summary>
         /// Number of PAKE authentication records
@@ -83,8 +83,7 @@ namespace wan24.Crypto.Authentication
         public T? GetRecord(byte[] identifier)
         {
             EnsureUndisposed();
-            byte[]? recordId = _Records.Keys.FirstOrDefault(k => k.SequenceEqual(identifier));
-            return recordId is not null && _Records.TryGetValue(recordId, out T? res) ? res : default;
+            return _Records.TryGetValue(identifier, out T? res) ? res : default;
         }
 
         /// <summary>
@@ -94,8 +93,7 @@ namespace wan24.Crypto.Authentication
         public void RemoveRecord(byte[] identifier)
         {
             EnsureUndisposed();
-            if (_Records.Keys.FirstOrDefault(k => k.SequenceEqual(identifier)) is byte[] id && _Records.TryRemove(id, out T? record))
-                record.Dispose();
+            if (_Records.TryRemove(identifier, out T? record)) record.Dispose();
         }
 
         /// <summary>
@@ -105,8 +103,7 @@ namespace wan24.Crypto.Authentication
         public async Task RemoveRecordAsync(byte[] identifier)
         {
             EnsureUndisposed();
-            if (_Records.Keys.FirstOrDefault(k => k.SequenceEqual(identifier)) is byte[] id && _Records.TryRemove(id, out T? record))
-                await record.DisposeAsync().DynamicContext();
+            if (_Records.TryRemove(identifier, out T? record)) await record.DisposeAsync().DynamicContext();
         }
 
         /// <inheritdoc/>
@@ -140,7 +137,6 @@ namespace wan24.Crypto.Authentication
         /// <inheritdoc/>
         protected override async Task DisposeCore()
         {
-            await base.DisposeCore().DynamicContext();
             foreach (T record in _Records.Values) await record.DisposeAsync().DynamicContext();
             _Records.Clear();
         }
