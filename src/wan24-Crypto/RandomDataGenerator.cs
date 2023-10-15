@@ -44,11 +44,10 @@ namespace wan24.Crypto
         /// <param name="capacity">Capacity in bytes</param>
         /// <param name="rng">RNG</param>
         /// <param name="rngAsync">RNG</param>
-        public RandomDataGenerator(in int capacity, in RND.RNG_Delegate rng, in RND.RNGAsync_Delegate rngAsync) : this(capacity)
+        public RandomDataGenerator(in int capacity, in RND.RNG_Delegate rng, in RND.RNGAsync_Delegate rngAsync) : this(capacity, useRnd: true)
         {
             Rng = rng;
             RngAsync = rngAsync;
-            UseRng = true;
         }
 
         /// <summary>
