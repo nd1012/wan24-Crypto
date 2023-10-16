@@ -11,7 +11,7 @@ namespace wan24.Crypto
         /// <summary>
         /// URandom filename
         /// </summary>
-        internal const string URANDOM = "/dev/urandom";
+        public const string URANDOM = "/dev/urandom";
 
         /// <summary>
         /// Fill a buffer with random bytes
@@ -62,6 +62,11 @@ namespace wan24.Crypto
         /// </summary>
         [CliConfig]
         public static bool RequireDevUrandom { get; set; }
+
+        /// <summary>
+        /// <c>/dev/urandom</c> readable stream pool
+        /// </summary>
+        public static DevURandomStreamPool? DevURandomPool { get; set; }
 
         /// <summary>
         /// Automatic RNG seeding flags
@@ -157,9 +162,18 @@ namespace wan24.Crypto
             if (UseDevUrandom && HasDevUrandom)
                 try
                 {
-                    using Stream urandom = GetDevUrandom();
-                    if (urandom.Read(buffer) != buffer.Length)
-                        throw new IOException("Failed to read random bytes");
+                    if (DevURandomPool is null)
+                    {
+                        using Stream urandom = GetDevUrandom();
+                        if (urandom.Read(buffer) != buffer.Length)
+                            throw new IOException("Failed to read random bytes");
+                    }
+                    else
+                    {
+                        using RentedObject<Stream> urandom = new(DevURandomPool);
+                        if (urandom.Object.Read(buffer) != buffer.Length)
+                            throw new IOException("Failed to read random bytes");
+                    }
                     return;
                 }
                 catch (Exception ex)
@@ -183,10 +197,19 @@ namespace wan24.Crypto
             if (UseDevUrandom && HasDevUrandom)
                 try
                 {
-                    Stream urandom = GetDevUrandom();
-                    await using (urandom.DynamicContext())
-                        if (await urandom.ReadAsync(buffer).DynamicContext() != buffer.Length)
+                    if (DevURandomPool is null)
+                    {
+                        Stream urandom = GetDevUrandom();
+                        await using (urandom.DynamicContext())
+                            if (await urandom.ReadAsync(buffer).DynamicContext() != buffer.Length)
+                                throw new IOException("Failed to read random bytes");
+                    }
+                    else
+                    {
+                        using RentedObject<Stream> urandom = new(DevURandomPool);
+                        if (await urandom.Object.ReadAsync(buffer).DynamicContext() != buffer.Length)
                             throw new IOException("Failed to read random bytes");
+                    }
                     return;
                 }
                 catch (Exception ex)

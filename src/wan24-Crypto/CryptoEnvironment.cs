@@ -34,8 +34,9 @@ namespace wan24.Crypto
             if (options.RandomGenerator is not null) RND.Generator = options.RandomGenerator;
             if (options.SeedConsumer is not null) RND.SeedConsumer = options.SeedConsumer;
             if (options.UseDevUrandom.HasValue) RND.UseDevUrandom = options.UseDevUrandom.Value;
-            if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
             if (options.RequireDevUrandom.HasValue) RND.RequireDevUrandom = options.RequireDevUrandom.Value;
+            if (options.DevURandomPool is not null) RND.DevURandomPool = options.DevURandomPool;
+            if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
             if (options.FillRandomBytes is not null) RND.FillBytes = options.FillRandomBytes;
             if (options.FillRandomBytesAsync is not null) RND.FillBytesAsync = options.FillRandomBytesAsync;
             if (options.DefaultEncryptTimeout.HasValue) SecureValue.DefaultEncryptTimeout = options.DefaultEncryptTimeout.Value;

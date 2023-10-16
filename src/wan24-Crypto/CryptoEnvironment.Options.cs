@@ -131,6 +131,11 @@ namespace wan24.Crypto
             public bool? RequireDevUrandom { get; set; }
 
             /// <summary>
+            /// <c>/dev/urandom</c> readable stream pool
+            /// </summary>
+            public DevURandomStreamPool? DevURandomPool { get; set; }
+
+            /// <summary>
             /// Automatic RNG seeding flags
             /// </summary>
             public RngSeedingTypes? AutoRngSeeding { get; set; }

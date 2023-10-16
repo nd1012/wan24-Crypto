@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
+using System.Threading;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -133,15 +135,18 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public virtual void AddSeed(ReadOnlySpan<byte> seed)
         {
-            if (RND.Generator != this) RND.AddSeed(seed);
+            if (RND.SeedConsumer is not null && RND.SeedConsumer != this) RND.SeedConsumer.AddSeed(seed);
+            else if (RND.Generator is ISeedableRng seedableGenerator && seedableGenerator != this) seedableGenerator.AddSeed(seed);
             else RND.AddURandomSeed(seed);
         }
 
         /// <inheritdoc/>
         public virtual Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
-            => RND.Generator != this
-                ? RND.AddSeedAsync(seed, cancellationToken)
-                : RND.AddURandomSeedAsync(seed, cancellationToken);
+        {
+            if (RND.SeedConsumer is not null && RND.SeedConsumer != this) return RND.SeedConsumer.AddSeedAsync(seed, cancellationToken);
+            if (RND.Generator is ISeedableRng seedableGenerator && seedableGenerator != this) return seedableGenerator.AddSeedAsync(seed, cancellationToken);
+            return RND.AddURandomSeedAsync(seed, cancellationToken);
+        }
 
         /// <summary>
         /// Fill a buffer with random data (used as fallback; override to define a custom fallback RNG, when not using the <see cref="Rng"/> and <see cref="RngAsync"/> delegates)
@@ -182,8 +187,16 @@ namespace wan24.Crypto
                 // Use /dev/urandom
                 try
                 {
-                    Stream urandom = RND.GetDevUrandom();
-                    await using (urandom.DynamicContext()) await urandom.CopyToAsync(RandomData, CancelToken).DynamicContext();
+                    if (RND.DevURandomPool is null)
+                    {
+                        Stream urandom = RND.GetDevUrandom();
+                        await using (urandom.DynamicContext()) await urandom.CopyToAsync(RandomData, CancelToken).DynamicContext();
+                    }
+                    else
+                    {
+                        using RentedObject<Stream> urandom = new(RND.DevURandomPool);
+                        await urandom.Object.CopyToAsync(RandomData, CancelToken).DynamicContext();
+                    }
                     return;
                 }
                 catch(Exception ex)
