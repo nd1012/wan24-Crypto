@@ -9,9 +9,9 @@ namespace wan24.Crypto
     public static class RND
     {
         /// <summary>
-        /// URandom filename
+        /// Random filename
         /// </summary>
-        public const string URANDOM = "/dev/urandom";
+        public const string RANDOM = "/dev/random";// https://www.2uo.de/myths-about-urandom/
 
         /// <summary>
         /// Fill a buffer with random bytes
@@ -22,22 +22,22 @@ namespace wan24.Crypto
         /// </summary>
         internal static RNGAsync_Delegate _FillBytesAsync = DefaultRngAsync;
         /// <summary>
-        /// URandom seeder
+        /// Random seeder
         /// </summary>
-        private static readonly Stream? URandomSeeder;
+        private static readonly Stream? RandomSeeder;
         /// <summary>
-        /// Has <c>/dev/urandom</c>?
+        /// Has <c>/dev/random</c>?
         /// </summary>
-        public static readonly bool HasDevUrandom;
+        public static readonly bool HasDevRandom;
 
         /// <summary>
         /// Constructor
         /// </summary>
         static RND()
         {
-            UseDevUrandom = HasDevUrandom = !ENV.IsBrowserApp && !ENV.IsWindows && File.Exists(URANDOM);
-            URandomSeeder = HasDevUrandom
-                ? new SynchronizedStream(new FileStream(URANDOM, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
+            HasDevRandom = !ENV.IsBrowserApp && !ENV.IsWindows && File.Exists(RANDOM);
+            RandomSeeder = HasDevRandom
+                ? new SynchronizedStream(new FileStream(RANDOM, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
                 : null;
         }
 
@@ -49,24 +49,24 @@ namespace wan24.Crypto
         /// <summary>
         /// RNG seed consumer
         /// </summary>
-        public static ISeedableRng? SeedConsumer { get; set; }
+        public static ISeedConsumer? SeedConsumer { get; set; }
 
         /// <summary>
-        /// Use <c>/dev/urandom</c>, if available?
+        /// Use <c>/dev/random</c>, if available?
         /// </summary>
         [CliConfig]
-        public static bool UseDevUrandom { get; set; }
+        public static bool UseDevRandom { get; set; }
 
         /// <summary>
-        /// Require <c>/dev/urandom</c> (will throw, if not available)?
+        /// Require <c>/dev/random</c> (will throw, if not available)?
         /// </summary>
         [CliConfig]
-        public static bool RequireDevUrandom { get; set; }
+        public static bool RequireDevRandom { get; set; }
 
         /// <summary>
-        /// <c>/dev/urandom</c> readable stream pool
+        /// <c>/dev/random</c> readable stream pool
         /// </summary>
-        public static DevURandomStreamPool? DevURandomPool { get; set; }
+        public static DevRandomStreamPool? DevRandomPool { get; set; }
 
         /// <summary>
         /// Automatic RNG seeding flags
@@ -124,7 +124,7 @@ namespace wan24.Crypto
         {
             if (SeedConsumer is not null) SeedConsumer.AddSeed(seed);
             else if (Generator is ISeedableRng seedableRng) seedableRng.AddSeed(seed);
-            else AddURandomSeed(seed);
+            else AddDevRandomSeed(seed);
         }
 
         /// <summary>
@@ -135,101 +135,111 @@ namespace wan24.Crypto
         public static Task AddSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
             => SeedConsumer?.AddSeedAsync(seed, cancellationToken) ??
                 (Generator as ISeedableRng)?.AddSeedAsync(seed, cancellationToken) ??
-                AddURandomSeedAsync(seed, cancellationToken);
+                AddDevRandomSeedAsync(seed, cancellationToken);
 
         /// <summary>
-        /// Add seed to <c>/dev/urandom</c> (if available)
+        /// Add seed to <c>/dev/random</c> (if available)
         /// </summary>
         /// <param name="seed">Seed</param>
-        public static void AddURandomSeed(ReadOnlySpan<byte> seed) => URandomSeeder?.Write(seed);
+        public static void AddDevRandomSeed(ReadOnlySpan<byte> seed) => RandomSeeder?.Write(seed);
 
         /// <summary>
-        /// Add seed to <c>/dev/urandom</c> (if available)
+        /// Add seed to <c>/dev/random</c> (if available)
         /// </summary>
         /// <param name="seed">Seed</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        public static async Task AddURandomSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
+        public static async Task AddDevRandomSeedAsync(ReadOnlyMemory<byte> seed, CancellationToken cancellationToken = default)
         {
-            if (URandomSeeder is not null) await URandomSeeder.WriteAsync(seed, cancellationToken).DynamicContext();
+            if (RandomSeeder is not null) await RandomSeeder.WriteAsync(seed, cancellationToken).DynamicContext();
         }
 
         /// <summary>
-        /// Default RNG (uses <c>/dev/urandom</c>, if possible; falls back to <see cref="RandomNumberGenerator"/>)
+        /// Default RNG (uses <c>/dev/random</c>, if possible; falls back to <see cref="RandomNumberGenerator"/>)
         /// </summary>
         /// <param name="buffer">Buffer to fill with random material</param>
         public static void DefaultRng(Span<byte> buffer)
         {
-            if (UseDevUrandom && HasDevUrandom)
+            if (UseDevRandom && HasDevRandom)
                 try
                 {
-                    if (DevURandomPool is null)
+                    DateTime started = DateTime.Now;
+                    if (DevRandomPool is null)
                     {
-                        using Stream urandom = GetDevUrandom();
-                        if (urandom.Read(buffer) != buffer.Length)
+                        using Stream random = GetDevRandom();
+                        if (random.Read(buffer) != buffer.Length)
                             throw new IOException("Failed to read random bytes");
                     }
                     else
                     {
-                        using RentedObject<Stream> urandom = new(DevURandomPool);
-                        if (urandom.Object.Read(buffer) != buffer.Length)
+                        using RentedObject<Stream> random = new(DevRandomPool);
+                        if (random.Object.Read(buffer) != buffer.Length)
                             throw new IOException("Failed to read random bytes");
                     }
+                    if (DateTime.Now - started > TimeSpan.FromSeconds(10))
+                        Logging.WriteWarning(
+                            $"{RANDOM} doesn't get enough entropy for returning {buffer.Length} byte random data within 10 seconds (took {DateTime.Now - started} instead)"
+                            );
                     return;
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.Handle(new($"Failed to use {URANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
-                    if (RequireDevUrandom)
-                        throw CryptographicException.From($"{URANDOM} required and available, but failed", ex);
-                    Logging.WriteWarning($"Failed to use {URANDOM} as random byte source (disabling and fallback to RandomNumberGenerator)");
-                    UseDevUrandom = false;
+                    ErrorHandling.Handle(new($"Failed to use {RANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
+                    if (RequireDevRandom)
+                        throw CryptographicException.From($"{RANDOM} required and available, but failed", ex);
+                    Logging.WriteWarning($"Failed to use {RANDOM} as random byte source (disabling and fallback to RandomNumberGenerator)");
+                    UseDevRandom = false;
                 }
-            if (RequireDevUrandom) throw CryptographicException.From($"{URANDOM} required, but not available or disabled", new InvalidOperationException());
+            if (RequireDevRandom) throw CryptographicException.From($"{RANDOM} required, but not available or disabled", new InvalidOperationException());
             RandomNumberGenerator.Fill(buffer);
         }
 
         /// <summary>
-        /// Default RNG (uses <c>/dev/urandom</c>, if possible; falls back to <see cref="RandomNumberGenerator"/>)
+        /// Default RNG (uses <c>/dev/random</c>, if possible; falls back to <see cref="RandomNumberGenerator"/>)
         /// </summary>
         /// <param name="buffer">Buffer to fill with random material</param>
         public static async Task DefaultRngAsync(Memory<byte> buffer)
         {
-            if (UseDevUrandom && HasDevUrandom)
+            if (UseDevRandom && HasDevRandom)
                 try
                 {
-                    if (DevURandomPool is null)
+                    DateTime started = DateTime.Now;
+                    if (DevRandomPool is null)
                     {
-                        Stream urandom = GetDevUrandom();
-                        await using (urandom.DynamicContext())
-                            if (await urandom.ReadAsync(buffer).DynamicContext() != buffer.Length)
+                        Stream random = GetDevRandom();
+                        await using (random.DynamicContext())
+                            if (await random.ReadAsync(buffer).DynamicContext() != buffer.Length)
                                 throw new IOException("Failed to read random bytes");
                     }
                     else
                     {
-                        using RentedObject<Stream> urandom = new(DevURandomPool);
-                        if (await urandom.Object.ReadAsync(buffer).DynamicContext() != buffer.Length)
+                        using RentedObject<Stream> random = new(DevRandomPool);
+                        if (await random.Object.ReadAsync(buffer).DynamicContext() != buffer.Length)
                             throw new IOException("Failed to read random bytes");
                     }
+                    if (DateTime.Now - started > TimeSpan.FromSeconds(10))
+                        Logging.WriteWarning(
+                            $"{RANDOM} doesn't get enough entropy for returning {buffer.Length} byte random data within 10 seconds (took {DateTime.Now - started} instead)"
+                            );
                     return;
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.Handle(new($"Failed to use {URANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
-                    if (RequireDevUrandom)
-                        throw await CryptographicException.FromAsync($"{URANDOM} required and available, but failed", ex).DynamicContext();
-                    Logging.WriteWarning($"Failed to use {URANDOM} as random byte source (disabling and fallback to RandomNumberGenerator)");
-                    UseDevUrandom = false;
+                    ErrorHandling.Handle(new($"Failed to use {RANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
+                    if (RequireDevRandom)
+                        throw await CryptographicException.FromAsync($"{RANDOM} required and available, but failed", ex).DynamicContext();
+                    Logging.WriteWarning($"Failed to use {RANDOM} as random byte source (disabling and fallback to RandomNumberGenerator)");
+                    UseDevRandom = false;
                 }
-            if (RequireDevUrandom)
-                throw await CryptographicException.FromAsync($"{URANDOM} required, but not available or disabled", new InvalidOperationException()).DynamicContext();
+            if (RequireDevRandom)
+                throw await CryptographicException.FromAsync($"{RANDOM} required, but not available or disabled", new InvalidOperationException()).DynamicContext();
             RandomNumberGenerator.Fill(buffer.Span);
         }
 
         /// <summary>
-        /// Get a <c>/dev/urandom</c> stream
+        /// Get a <c>/dev/random</c> stream
         /// </summary>
-        /// <returns><c>/dev/urandom</c> stream</returns>
-        public static Stream GetDevUrandom() => new FileStream(URANDOM, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+        /// <returns><c>/dev/random</c> stream</returns>
+        public static Stream GetDevRandom() => new FileStream(RANDOM, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
         /// <summary>
         /// Generator RNG

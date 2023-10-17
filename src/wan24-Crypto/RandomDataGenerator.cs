@@ -6,7 +6,7 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Random data generator (uses <c>/dev/urandom</c>, if possible; defaults to <see cref="RandomNumberGenerator"/>)
+    /// Random data generator (uses <c>/dev/random</c>, if possible; defaults to <see cref="RandomNumberGenerator"/>)
     /// </summary>
     public class RandomDataGenerator : HostedServiceBase, ISeedableRng
     {
@@ -58,9 +58,9 @@ namespace wan24.Crypto
         public bool UseFallback { get; set; } = true;
 
         /// <summary>
-        /// Use <c>/dev/urandom</c>, if available?
+        /// Use <c>/dev/random</c>, if available?
         /// </summary>
-        public bool UseDevUrandom { get; set; } = RND.UseDevUrandom;
+        public bool UseDevRandom { get; set; } = RND.UseDevRandom;
 
         /// <inheritdoc/>
         public byte[] GetBytes(in int count)
@@ -137,7 +137,7 @@ namespace wan24.Crypto
         {
             if (RND.SeedConsumer is not null && RND.SeedConsumer != this) RND.SeedConsumer.AddSeed(seed);
             else if (RND.Generator is ISeedableRng seedableGenerator && seedableGenerator != this) seedableGenerator.AddSeed(seed);
-            else RND.AddURandomSeed(seed);
+            else RND.AddDevRandomSeed(seed);
         }
 
         /// <inheritdoc/>
@@ -145,7 +145,7 @@ namespace wan24.Crypto
         {
             if (RND.SeedConsumer is not null && RND.SeedConsumer != this) return RND.SeedConsumer.AddSeedAsync(seed, cancellationToken);
             if (RND.Generator is ISeedableRng seedableGenerator && seedableGenerator != this) return seedableGenerator.AddSeedAsync(seed, cancellationToken);
-            return RND.AddURandomSeedAsync(seed, cancellationToken);
+            return RND.AddDevRandomSeedAsync(seed, cancellationToken);
         }
 
         /// <summary>
@@ -182,35 +182,35 @@ namespace wan24.Crypto
                 await writeTask.AsTask().WaitAsync(CancelToken).DynamicContext();
                 return;
             }
-            else if(UseDevUrandom && RND.HasDevUrandom)
+            else if(UseDevRandom && RND.HasDevRandom)
             {
-                // Use /dev/urandom
+                // Use /dev/random
                 try
                 {
-                    if (RND.DevURandomPool is null)
+                    if (RND.DevRandomPool is null)
                     {
-                        Stream urandom = RND.GetDevUrandom();
-                        await using (urandom.DynamicContext()) await urandom.CopyToAsync(RandomData, CancelToken).DynamicContext();
+                        Stream random = RND.GetDevRandom();
+                        await using (random.DynamicContext()) await random.CopyToAsync(RandomData, CancelToken).DynamicContext();
                     }
                     else
                     {
-                        using RentedObject<Stream> urandom = new(RND.DevURandomPool);
-                        await urandom.Object.CopyToAsync(RandomData, CancelToken).DynamicContext();
+                        using RentedObject<Stream> random = new(RND.DevRandomPool);
+                        await random.Object.CopyToAsync(RandomData, CancelToken).DynamicContext();
                     }
                     return;
                 }
                 catch(Exception ex)
                 {
-                    ErrorHandling.Handle(new($"Failed to use {RND.URANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
-                    if (RND.RequireDevUrandom)
-                        throw await CryptographicException.FromAsync($"{RND.URANDOM} required and available, but failed", ex).DynamicContext();
-                    Logging.WriteWarning($"Failed to use {RND.URANDOM} as random byte source (disabling and fallback to RandomNumberGenerator)");
-                    UseDevUrandom = false;
+                    ErrorHandling.Handle(new($"Failed to use {RND.RANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
+                    if (RND.RequireDevRandom)
+                        throw await CryptographicException.FromAsync($"{RND.RANDOM} required and available, but failed", ex).DynamicContext();
+                    Logging.WriteWarning($"Failed to use {RND.RANDOM} as random byte source (disabling and fallback to {nameof(RandomNumberGenerator)})");
+                    UseDevRandom = false;
                 }
             }
             // Use the default .NET RandomNumberGenerator
-            if (RND.RequireDevUrandom)
-                throw await CryptographicException.FromAsync($"{RND.URANDOM} required, but not available or disabled", new InvalidOperationException()).DynamicContext();
+            if (RND.RequireDevRandom)
+                throw await CryptographicException.FromAsync($"{RND.RANDOM} required, but not available or disabled", new InvalidOperationException()).DynamicContext();
             await RandomStream.Instance.CopyToAsync(RandomData, CancelToken).DynamicContext();
         }
 
