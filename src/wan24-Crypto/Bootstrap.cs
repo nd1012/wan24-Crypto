@@ -3,6 +3,7 @@ using wan24.StreamSerializerExtensions;
 
 //TODO .NET 8: SHA3
 //TODO https://linux.die.net/man/8/haveged HavegeRng
+//TODO Set BytesExtensions.ClearHandler
 
 [assembly: Bootstrapper(typeof(wan24.Crypto.Bootstrap), nameof(wan24.Crypto.Bootstrap.Boot))]
 
