@@ -113,12 +113,12 @@ namespace wan24.Crypto
             /// <summary>
             /// Random data generator service
             /// </summary>
-            public RandomDataGenerator? RandomGenerator { get; set; } = CryptoEnvironment.RandomGenerator;
+            public IRng? RandomGenerator { get; set; } = CryptoEnvironment.RandomGenerator;
 
             /// <summary>
             /// RNG seed consumer
             /// </summary>
-            public ISeedableRng? SeedConsumer { get; set; }
+            public ISeedConsumer? SeedConsumer { get; set; }
 
             /// <summary>
             /// Use <c>/dev/random</c>, if available?
