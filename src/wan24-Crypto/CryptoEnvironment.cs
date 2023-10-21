@@ -33,9 +33,10 @@ namespace wan24.Crypto
             if (options.SkipPakeSignatureKeyValidation.HasValue) Pake.SkipSignatureKeyValidation = options.SkipPakeSignatureKeyValidation.Value;
             if (options.RandomGenerator is not null) RND.Generator = options.RandomGenerator;
             if (options.SeedConsumer is not null) RND.SeedConsumer = options.SeedConsumer;
-            if (options.UseDevUrandom.HasValue) RND.UseDevUrandom = options.UseDevUrandom.Value;
+            if (options.UseDevRandom.HasValue) RND.UseDevRandom = options.UseDevRandom.Value;
+            if (options.RequireDevRandom.HasValue) RND.RequireDevRandom = options.RequireDevRandom.Value;
+            if (options.DevRandomPool is not null) RND.DevRandomPool = options.DevRandomPool;
             if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
-            if (options.RequireDevUrandom.HasValue) RND.RequireDevUrandom = options.RequireDevUrandom.Value;
             if (options.FillRandomBytes is not null) RND.FillBytes = options.FillRandomBytes;
             if (options.FillRandomBytesAsync is not null) RND.FillBytesAsync = options.FillRandomBytesAsync;
             if (options.DefaultEncryptTimeout.HasValue) SecureValue.DefaultEncryptTimeout = options.DefaultEncryptTimeout.Value;

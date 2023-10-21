@@ -752,25 +752,25 @@ server multiple times.
 ## Random number generator
 
 You can use `RND` as a random data source. `RND` is customizable and falls 
-back to `RandomNumberGenerator` from .NET. It uses `/dev/urandom` as data 
+back to `RandomNumberGenerator` from .NET. It uses `/dev/random` as data 
 source, if available.
 
 ```cs
 byte[] randomData = RND.GetBytes(123);
 ```
 
-**NOTE**: `/dev/urandom` may be too slow for your requirements. If you don't 
+**NOTE**: `/dev/random` may be too slow for your requirements. If you don't 
 want to use `RandomDataGenerator` (which can speed up `RND` a lot), you can 
-disable `/dev/urandom`:
+disable `/dev/random`:
 
 ```cs
-RND.UseDevUrandom = false;
+RND.UseDevRandom = false;
 ```
 
-**NOTE**: In case you want to force using `/dev/urandom` _ONLY_:
+**NOTE**: In case you want to force using `/dev/random` _ONLY_:
 
 ```cs
-RND.RequireDevUrandom = true;// This will cause RND to throw on Windows!
+RND.RequireDevRandom = true;// This will cause RND to throw on Windows!
 ```
 
 The `RandomDataGenerator` is an `IHostedService` which can be customized, but 
@@ -795,7 +795,7 @@ recursion in your code: **DO NOT** call `RND.Get/FillBytes(Async)` from a
 customized `RandomDataGenerator`! **DO** call `RND.DefaultRng(Async)` instead.
 
 If you use the plain `RandomDataGenerator`, it uses the `RandomStream` as 
-random data source, if `/dev/urandom` isn't available or disabled. 
+random data source, if `/dev/random` isn't available or disabled. 
 (`RandomStream` uses `RandomNumberGenerator`, finally.)
 
 There's another `Rng` type, which is a `RandomNumberGenerator` implementation 
@@ -823,12 +823,12 @@ source.
 ### Seeding
 
 Use the `RND.AddSeed(Async)` methods for seeding your RNG. The 
-`AddURandomSeed(Async)` only seed `/dev/urandom`, while when calling 
+`AddDevRandomSeed(Async)` only seed `/dev/random`, while when calling 
 `AddSeed(Async)`, the method will try to seed
 
 1. the `RND.SeedConsumer`
 2. the `RND.Generator`
-3. `/dev/urandom`
+3. `/dev/random`
 
 and return after providing the seed to the first available target, or when 
 there's no target for consuming the seed.
@@ -1036,6 +1036,7 @@ are the official implementation IDs (not guaranteed to be complete):
 | FALCON | 4 | wan24-Crypto-BC |
 | SPHINCS+ | 5 | wan24-Crypto-BC |
 | FrodoKEM | 6 | wan24-Crypto-BC |
+| NTRUEncrypt | 7 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
 | AES-256-CBC | 0 | wan24-Crypto |
 | ChaCha20 | 1 | wan24-Crypto-BC |

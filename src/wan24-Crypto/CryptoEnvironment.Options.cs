@@ -113,22 +113,27 @@ namespace wan24.Crypto
             /// <summary>
             /// Random data generator service
             /// </summary>
-            public RandomDataGenerator? RandomGenerator { get; set; } = CryptoEnvironment.RandomGenerator;
+            public IRng? RandomGenerator { get; set; } = CryptoEnvironment.RandomGenerator;
 
             /// <summary>
             /// RNG seed consumer
             /// </summary>
-            public ISeedableRng? SeedConsumer { get; set; }
+            public ISeedConsumer? SeedConsumer { get; set; }
 
             /// <summary>
-            /// Use <c>/dev/urandom</c>, if available?
+            /// Use <c>/dev/random</c>, if available?
             /// </summary>
-            public bool? UseDevUrandom { get; set; }
+            public bool? UseDevRandom { get; set; }
 
             /// <summary>
-            /// Require <c>/dev/urandom</c> (will throw, if not available)?
+            /// Require <c>/dev/random</c> (will throw, if not available)?
             /// </summary>
-            public bool? RequireDevUrandom { get; set; }
+            public bool? RequireDevRandom { get; set; }
+
+            /// <summary>
+            /// <c>/dev/random</c> readable stream pool
+            /// </summary>
+            public DevRandomStreamPool? DevRandomPool { get; set; }
 
             /// <summary>
             /// Automatic RNG seeding flags

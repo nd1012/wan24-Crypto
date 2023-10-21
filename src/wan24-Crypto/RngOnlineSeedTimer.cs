@@ -73,6 +73,12 @@ namespace wan24.Crypto
         /// </summary>
         public bool XorRnd { get; set; } = true;
 
+        /// <summary>
+        /// Receive and process online seed
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public virtual Task SeedAsync(CancellationToken cancellationToken = default) => IfUndisposed(() => TimedWorkerAsync(cancellationToken));
+
         /// <inheritdoc/>
         protected sealed override Task TimedWorkerAsync() => TimedWorkerAsync(CancelToken);
 
@@ -83,6 +89,7 @@ namespace wan24.Crypto
         /// <returns>If seeded successfully</returns>
         protected virtual async Task<bool> TimedWorkerAsync(CancellationToken cancellationToken)
         {
+            using SemaphoreSyncContext ssc = await WorkerSync.SyncContextAsync(cancellationToken).DynamicContext();
             try
             {
                 int red = await RequestSeedAsync(cancellationToken).DynamicContext();
@@ -102,8 +109,8 @@ namespace wan24.Crypto
             }
             catch (Exception ex)
             {
-                if (ServiceTask is null) throw;
-                ErrorHandling.Handle(new($"Failed to get seed from \"{URI}\"", ex, Constants.CRYPTO_ERROR_SOURCE));
+                if (ServiceTask is null || cancellationToken != CancelToken) throw;
+                ErrorHandling.Handle(new($"{GetType()} failed to get and process seed from \"{URI}\"", ex, Constants.CRYPTO_ERROR_SOURCE));
                 return false;
             }
             finally
