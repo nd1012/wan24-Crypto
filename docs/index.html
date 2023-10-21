@@ -1095,17 +1095,17 @@ long term. But also temporary devices may benefit, if they'll connect to a
 server multiple times.</p>
 <h2 id="random-number-generator">Random number generator</h2>
 <p>You can use <code>RND</code> as a random data source. <code>RND</code> is customizable and falls
-back to <code>RandomNumberGenerator</code> from .NET. It uses <code>/dev/urandom</code> as data
+back to <code>RandomNumberGenerator</code> from .NET. It uses <code>/dev/random</code> as data
 source, if available.</p>
 <pre><code class="lang-cs">byte[] randomData = RND.GetBytes(123);
 </code></pre>
-<p><strong>NOTE</strong>: <code>/dev/urandom</code> may be too slow for your requirements. If you don't
+<p><strong>NOTE</strong>: <code>/dev/random</code> may be too slow for your requirements. If you don't
 want to use <code>RandomDataGenerator</code> (which can speed up <code>RND</code> a lot), you can
-disable <code>/dev/urandom</code>:</p>
-<pre><code class="lang-cs">RND.UseDevUrandom = false;
+disable <code>/dev/random</code>:</p>
+<pre><code class="lang-cs">RND.UseDevRandom = false;
 </code></pre>
-<p><strong>NOTE</strong>: In case you want to force using <code>/dev/urandom</code> <em>ONLY</em>:</p>
-<pre><code class="lang-cs">RND.RequireDevUrandom = true;// This will cause RND to throw on Windows!
+<p><strong>NOTE</strong>: In case you want to force using <code>/dev/random</code> <em>ONLY</em>:</p>
+<pre><code class="lang-cs">RND.RequireDevRandom = true;// This will cause RND to throw on Windows!
 </code></pre>
 <p>The <code>RandomDataGenerator</code> is an <code>IHostedService</code> which can be customized, but
 falls back to <code>RND</code> per default. The service uses a buffer to pre-buffer
@@ -1127,7 +1127,7 @@ fall back to <code>RandomNumberGenerator</code>. To simplify that and avoid an e
 recursion in your code: <strong>DO NOT</strong> call <code>RND.Get/FillBytes(Async)</code> from a
 customized <code>RandomDataGenerator</code>! <strong>DO</strong> call <code>RND.DefaultRng(Async)</code> instead.</p>
 <p>If you use the plain <code>RandomDataGenerator</code>, it uses the <code>RandomStream</code> as
-random data source, if <code>/dev/urandom</code> isn't available or disabled.
+random data source, if <code>/dev/random</code> isn't available or disabled.
 (<code>RandomStream</code> uses <code>RandomNumberGenerator</code>, finally.)</p>
 <p>There's another <code>Rng</code> type, which is a <code>RandomNumberGenerator</code> implementation
 that skips the OS random number generator implementation and uses <code>RND</code>
@@ -1149,12 +1149,12 @@ manipulated in some way to produce predictable random data, unless it's a QRNG
 source.</p>
 <h3 id="seeding">Seeding</h3>
 <p>Use the <code>RND.AddSeed(Async)</code> methods for seeding your RNG. The
-<code>AddURandomSeed(Async)</code> only seed <code>/dev/urandom</code>, while when calling
+<code>AddDevRandomSeed(Async)</code> only seed <code>/dev/random</code>, while when calling
 <code>AddSeed(Async)</code>, the method will try to seed</p>
 <ol>
 <li>the <code>RND.SeedConsumer</code></li>
 <li>the <code>RND.Generator</code></li>
-<li><code>/dev/urandom</code></li>
+<li><code>/dev/random</code></li>
 </ol>
 <p>and return after providing the seed to the first available target, or when
 there's no target for consuming the seed.</p>
@@ -1355,6 +1355,11 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <tr>
 <td>FrodoKEM</td>
 <td>6</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>NTRUEncrypt</td>
+<td>7</td>
 <td>wan24-Crypto-BC</td>
 </tr>
 <tr>

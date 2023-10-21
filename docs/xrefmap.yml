@@ -2361,6 +2361,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultSignatureAlgorithm
   nameWithType: CryptoEnvironment.Options.DefaultSignatureAlgorithm
+- uid: wan24.Crypto.CryptoEnvironment.Options.DevRandomPool
+  name: DevRandomPool
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DevRandomPool
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DevRandomPool
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DevRandomPool
+  nameWithType: CryptoEnvironment.Options.DevRandomPool
+- uid: wan24.Crypto.CryptoEnvironment.Options.DevRandomPool*
+  name: DevRandomPool
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DevRandomPool_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DevRandomPool
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DevRandomPool
+  nameWithType: CryptoEnvironment.Options.DevRandomPool
 - uid: wan24.Crypto.CryptoEnvironment.Options.FillRandomBytes
   name: FillRandomBytes
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_FillRandomBytes
@@ -2413,19 +2426,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.RandomGenerator
   nameWithType: CryptoEnvironment.Options.RandomGenerator
-- uid: wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom
-  name: RequireDevUrandom
-  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_RequireDevUrandom
-  commentId: P:wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom
-  fullName: wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom
-  nameWithType: CryptoEnvironment.Options.RequireDevUrandom
-- uid: wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom*
-  name: RequireDevUrandom
-  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_RequireDevUrandom_
-  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.RequireDevRandom
+  name: RequireDevRandom
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_RequireDevRandom
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.RequireDevRandom
+  fullName: wan24.Crypto.CryptoEnvironment.Options.RequireDevRandom
+  nameWithType: CryptoEnvironment.Options.RequireDevRandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.RequireDevRandom*
+  name: RequireDevRandom
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_RequireDevRandom_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.RequireDevRandom
   isSpec: "True"
-  fullName: wan24.Crypto.CryptoEnvironment.Options.RequireDevUrandom
-  nameWithType: CryptoEnvironment.Options.RequireDevUrandom
+  fullName: wan24.Crypto.CryptoEnvironment.Options.RequireDevRandom
+  nameWithType: CryptoEnvironment.Options.RequireDevRandom
 - uid: wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
   name: SeedConsumer
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SeedConsumer
@@ -2452,19 +2465,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.SkipPakeSignatureKeyValidation
   nameWithType: CryptoEnvironment.Options.SkipPakeSignatureKeyValidation
-- uid: wan24.Crypto.CryptoEnvironment.Options.UseDevUrandom
-  name: UseDevUrandom
-  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UseDevUrandom
-  commentId: P:wan24.Crypto.CryptoEnvironment.Options.UseDevUrandom
-  fullName: wan24.Crypto.CryptoEnvironment.Options.UseDevUrandom
-  nameWithType: CryptoEnvironment.Options.UseDevUrandom
-- uid: wan24.Crypto.CryptoEnvironment.Options.UseDevUrandom*
-  name: UseDevUrandom
-  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UseDevUrandom_
-  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.UseDevUrandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
+  name: UseDevRandom
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UseDevRandom
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
+  fullName: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
+  nameWithType: CryptoEnvironment.Options.UseDevRandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom*
+  name: UseDevRandom
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UseDevRandom_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
   isSpec: "True"
-  fullName: wan24.Crypto.CryptoEnvironment.Options.UseDevUrandom
-  nameWithType: CryptoEnvironment.Options.UseDevUrandom
+  fullName: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
+  nameWithType: CryptoEnvironment.Options.UseDevRandom
 - uid: wan24.Crypto.CryptoEnvironment.PakeAuthClient
   name: PakeAuthClient
   href: api/wan24.Crypto.CryptoEnvironment.html#wan24_Crypto_CryptoEnvironment_PakeAuthClient
@@ -3828,6 +3841,197 @@ references:
   fullName.vb: wan24.Crypto.DekAttribute.SetValue(Of T)(T, wan24.Core.PropertyInfoExt, System.Byte())
   nameWithType: DekAttribute.SetValue<T>(T, PropertyInfoExt, Byte[])
   nameWithType.vb: DekAttribute.SetValue(Of T)(T, PropertyInfoExt, Byte())
+- uid: wan24.Crypto.DevHwRng
+  name: DevHwRng
+  href: api/wan24.Crypto.DevHwRng.html
+  commentId: T:wan24.Crypto.DevHwRng
+  fullName: wan24.Crypto.DevHwRng
+  nameWithType: DevHwRng
+- uid: wan24.Crypto.DevHwRng.#ctor(System.Int32@)
+  name: DevHwRng(in Int32)
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng__ctor_System_Int32__
+  commentId: M:wan24.Crypto.DevHwRng.#ctor(System.Int32@)
+  name.vb: DevHwRng(ByRef Int32)
+  fullName: wan24.Crypto.DevHwRng.DevHwRng(in System.Int32)
+  fullName.vb: wan24.Crypto.DevHwRng.DevHwRng(ByRef System.Int32)
+  nameWithType: DevHwRng.DevHwRng(in Int32)
+  nameWithType.vb: DevHwRng.DevHwRng(ByRef Int32)
+- uid: wan24.Crypto.DevHwRng.#ctor*
+  name: DevHwRng
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng__ctor_
+  commentId: Overload:wan24.Crypto.DevHwRng.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DevHwRng.DevHwRng
+  nameWithType: DevHwRng.DevHwRng
+- uid: wan24.Crypto.DevHwRng.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.DevHwRng.Dispose(System.Boolean)
+  fullName: wan24.Crypto.DevHwRng.Dispose(System.Boolean)
+  nameWithType: DevHwRng.Dispose(Boolean)
+- uid: wan24.Crypto.DevHwRng.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_Dispose_
+  commentId: Overload:wan24.Crypto.DevHwRng.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.DevHwRng.Dispose
+  nameWithType: DevHwRng.Dispose
+- uid: wan24.Crypto.DevHwRng.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_DisposeCore
+  commentId: M:wan24.Crypto.DevHwRng.DisposeCore
+  fullName: wan24.Crypto.DevHwRng.DisposeCore()
+  nameWithType: DevHwRng.DisposeCore()
+- uid: wan24.Crypto.DevHwRng.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_DisposeCore_
+  commentId: Overload:wan24.Crypto.DevHwRng.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.DevHwRng.DisposeCore
+  nameWithType: DevHwRng.DisposeCore
+- uid: wan24.Crypto.DevHwRng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.DevHwRng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.DevHwRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.DevHwRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: DevHwRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: DevHwRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.DevHwRng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_FillBytes_
+  commentId: Overload:wan24.Crypto.DevHwRng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.DevHwRng.FillBytes
+  nameWithType: DevHwRng.FillBytes
+- uid: wan24.Crypto.DevHwRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.DevHwRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DevHwRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.DevHwRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: DevHwRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: DevHwRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DevHwRng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.DevHwRng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DevHwRng.FillBytesAsync
+  nameWithType: DevHwRng.FillBytesAsync
+- uid: wan24.Crypto.DevHwRng.HWRNG
+  name: HWRNG
+  href: api/wan24.Crypto.DevHwRng.html#wan24_Crypto_DevHwRng_HWRNG
+  commentId: F:wan24.Crypto.DevHwRng.HWRNG
+  fullName: wan24.Crypto.DevHwRng.HWRNG
+  nameWithType: DevHwRng.HWRNG
+- uid: wan24.Crypto.DevRandomRng
+  name: DevRandomRng
+  href: api/wan24.Crypto.DevRandomRng.html
+  commentId: T:wan24.Crypto.DevRandomRng
+  fullName: wan24.Crypto.DevRandomRng
+  nameWithType: DevRandomRng
+- uid: wan24.Crypto.DevRandomRng.#ctor
+  name: DevRandomRng()
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng__ctor
+  commentId: M:wan24.Crypto.DevRandomRng.#ctor
+  fullName: wan24.Crypto.DevRandomRng.DevRandomRng()
+  nameWithType: DevRandomRng.DevRandomRng()
+- uid: wan24.Crypto.DevRandomRng.#ctor*
+  name: DevRandomRng
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng__ctor_
+  commentId: Overload:wan24.Crypto.DevRandomRng.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DevRandomRng.DevRandomRng
+  nameWithType: DevRandomRng.DevRandomRng
+- uid: wan24.Crypto.DevRandomRng.AddSeed(ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.DevRandomRng.AddSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.DevRandomRng.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.DevRandomRng.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: DevRandomRng.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: DevRandomRng.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.DevRandomRng.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_AddSeed_
+  commentId: Overload:wan24.Crypto.DevRandomRng.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.DevRandomRng.AddSeed
+  nameWithType: DevRandomRng.AddSeed
+- uid: wan24.Crypto.DevRandomRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.DevRandomRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DevRandomRng.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.DevRandomRng.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: DevRandomRng.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: DevRandomRng.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DevRandomRng.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.DevRandomRng.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DevRandomRng.AddSeedAsync
+  nameWithType: DevRandomRng.AddSeedAsync
+- uid: wan24.Crypto.DevRandomRng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.DevRandomRng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.DevRandomRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.DevRandomRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: DevRandomRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: DevRandomRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.DevRandomRng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_FillBytes_
+  commentId: Overload:wan24.Crypto.DevRandomRng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.DevRandomRng.FillBytes
+  nameWithType: DevRandomRng.FillBytes
+- uid: wan24.Crypto.DevRandomRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.DevRandomRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DevRandomRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.DevRandomRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: DevRandomRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: DevRandomRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DevRandomRng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.DevRandomRng.html#wan24_Crypto_DevRandomRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.DevRandomRng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DevRandomRng.FillBytesAsync
+  nameWithType: DevRandomRng.FillBytesAsync
+- uid: wan24.Crypto.DevRandomStreamPool
+  name: DevRandomStreamPool
+  href: api/wan24.Crypto.DevRandomStreamPool.html
+  commentId: T:wan24.Crypto.DevRandomStreamPool
+  fullName: wan24.Crypto.DevRandomStreamPool
+  nameWithType: DevRandomStreamPool
+- uid: wan24.Crypto.DevRandomStreamPool.#ctor(System.Int32@)
+  name: DevRandomStreamPool(in Int32)
+  href: api/wan24.Crypto.DevRandomStreamPool.html#wan24_Crypto_DevRandomStreamPool__ctor_System_Int32__
+  commentId: M:wan24.Crypto.DevRandomStreamPool.#ctor(System.Int32@)
+  name.vb: DevRandomStreamPool(ByRef Int32)
+  fullName: wan24.Crypto.DevRandomStreamPool.DevRandomStreamPool(in System.Int32)
+  fullName.vb: wan24.Crypto.DevRandomStreamPool.DevRandomStreamPool(ByRef System.Int32)
+  nameWithType: DevRandomStreamPool.DevRandomStreamPool(in Int32)
+  nameWithType.vb: DevRandomStreamPool.DevRandomStreamPool(ByRef Int32)
+- uid: wan24.Crypto.DevRandomStreamPool.#ctor*
+  name: DevRandomStreamPool
+  href: api/wan24.Crypto.DevRandomStreamPool.html#wan24_Crypto_DevRandomStreamPool__ctor_
+  commentId: Overload:wan24.Crypto.DevRandomStreamPool.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.DevRandomStreamPool.DevRandomStreamPool
+  nameWithType: DevRandomStreamPool.DevRandomStreamPool
 - uid: wan24.Crypto.DisposableRngBase
   name: DisposableRngBase
   href: api/wan24.Crypto.DisposableRngBase.html
@@ -6109,6 +6313,92 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.HashHelper.SyncObject
   nameWithType: HashHelper.SyncObject
+- uid: wan24.Crypto.HavegeRng
+  name: HavegeRng
+  href: api/wan24.Crypto.HavegeRng.html
+  commentId: T:wan24.Crypto.HavegeRng
+  fullName: wan24.Crypto.HavegeRng
+  nameWithType: HavegeRng
+- uid: wan24.Crypto.HavegeRng.#ctor(System.Int32@)
+  name: HavegeRng(in Int32)
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng__ctor_System_Int32__
+  commentId: M:wan24.Crypto.HavegeRng.#ctor(System.Int32@)
+  name.vb: HavegeRng(ByRef Int32)
+  fullName: wan24.Crypto.HavegeRng.HavegeRng(in System.Int32)
+  fullName.vb: wan24.Crypto.HavegeRng.HavegeRng(ByRef System.Int32)
+  nameWithType: HavegeRng.HavegeRng(in Int32)
+  nameWithType.vb: HavegeRng.HavegeRng(ByRef Int32)
+- uid: wan24.Crypto.HavegeRng.#ctor*
+  name: HavegeRng
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng__ctor_
+  commentId: Overload:wan24.Crypto.HavegeRng.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.HavegeRng.HavegeRng
+  nameWithType: HavegeRng.HavegeRng
+- uid: wan24.Crypto.HavegeRng.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.HavegeRng.Dispose(System.Boolean)
+  fullName: wan24.Crypto.HavegeRng.Dispose(System.Boolean)
+  nameWithType: HavegeRng.Dispose(Boolean)
+- uid: wan24.Crypto.HavegeRng.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_Dispose_
+  commentId: Overload:wan24.Crypto.HavegeRng.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.HavegeRng.Dispose
+  nameWithType: HavegeRng.Dispose
+- uid: wan24.Crypto.HavegeRng.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_DisposeCore
+  commentId: M:wan24.Crypto.HavegeRng.DisposeCore
+  fullName: wan24.Crypto.HavegeRng.DisposeCore()
+  nameWithType: HavegeRng.DisposeCore()
+- uid: wan24.Crypto.HavegeRng.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_DisposeCore_
+  commentId: Overload:wan24.Crypto.HavegeRng.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.HavegeRng.DisposeCore
+  nameWithType: HavegeRng.DisposeCore
+- uid: wan24.Crypto.HavegeRng.FillBytes(Span{System.Byte}@)
+  name: FillBytes(in Span<Byte>)
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_FillBytes_Span_System_Byte___
+  commentId: M:wan24.Crypto.HavegeRng.FillBytes(Span{System.Byte}@)
+  name.vb: FillBytes(ByRef Span(Of Byte))
+  fullName: wan24.Crypto.HavegeRng.FillBytes(in Span<System.Byte>)
+  fullName.vb: wan24.Crypto.HavegeRng.FillBytes(ByRef Span(Of System.Byte))
+  nameWithType: HavegeRng.FillBytes(in Span<Byte>)
+  nameWithType.vb: HavegeRng.FillBytes(ByRef Span(Of Byte))
+- uid: wan24.Crypto.HavegeRng.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_FillBytes_
+  commentId: Overload:wan24.Crypto.HavegeRng.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.HavegeRng.FillBytes
+  nameWithType: HavegeRng.FillBytes
+- uid: wan24.Crypto.HavegeRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name: FillBytesAsync(Memory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_FillBytesAsync_Memory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.HavegeRng.FillBytesAsync(Memory{System.Byte},CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.HavegeRng.FillBytesAsync(Memory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.HavegeRng.FillBytesAsync(Memory(Of System.Byte), CancellationToken)
+  nameWithType: HavegeRng.FillBytesAsync(Memory<Byte>, CancellationToken)
+  nameWithType.vb: HavegeRng.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.HavegeRng.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.HavegeRng.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.HavegeRng.FillBytesAsync
+  nameWithType: HavegeRng.FillBytesAsync
+- uid: wan24.Crypto.HavegeRng.HAVEGE
+  name: HAVEGE
+  href: api/wan24.Crypto.HavegeRng.html#wan24_Crypto_HavegeRng_HAVEGE
+  commentId: F:wan24.Crypto.HavegeRng.HAVEGE
+  fullName: wan24.Crypto.HavegeRng.HAVEGE
+  nameWithType: HavegeRng.HAVEGE
 - uid: wan24.Crypto.HybridAlgorithmHelper
   name: HybridAlgorithmHelper
   href: api/wan24.Crypto.HybridAlgorithmHelper.html
@@ -7109,38 +7399,44 @@ references:
   commentId: T:wan24.Crypto.ISeedableRng
   fullName: wan24.Crypto.ISeedableRng
   nameWithType: ISeedableRng
-- uid: wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan{System.Byte})
+- uid: wan24.Crypto.ISeedConsumer
+  name: ISeedConsumer
+  href: api/wan24.Crypto.ISeedConsumer.html
+  commentId: T:wan24.Crypto.ISeedConsumer
+  fullName: wan24.Crypto.ISeedConsumer
+  nameWithType: ISeedConsumer
+- uid: wan24.Crypto.ISeedConsumer.AddSeed(ReadOnlySpan{System.Byte})
   name: AddSeed(ReadOnlySpan<Byte>)
-  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeed_ReadOnlySpan_System_Byte__
-  commentId: M:wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan{System.Byte})
+  href: api/wan24.Crypto.ISeedConsumer.html#wan24_Crypto_ISeedConsumer_AddSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.ISeedConsumer.AddSeed(ReadOnlySpan{System.Byte})
   name.vb: AddSeed(ReadOnlySpan(Of Byte))
-  fullName: wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan<System.Byte>)
-  fullName.vb: wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan(Of System.Byte))
-  nameWithType: ISeedableRng.AddSeed(ReadOnlySpan<Byte>)
-  nameWithType.vb: ISeedableRng.AddSeed(ReadOnlySpan(Of Byte))
-- uid: wan24.Crypto.ISeedableRng.AddSeed*
+  fullName: wan24.Crypto.ISeedConsumer.AddSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.ISeedConsumer.AddSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: ISeedConsumer.AddSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: ISeedConsumer.AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.ISeedConsumer.AddSeed*
   name: AddSeed
-  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeed_
-  commentId: Overload:wan24.Crypto.ISeedableRng.AddSeed
+  href: api/wan24.Crypto.ISeedConsumer.html#wan24_Crypto_ISeedConsumer_AddSeed_
+  commentId: Overload:wan24.Crypto.ISeedConsumer.AddSeed
   isSpec: "True"
-  fullName: wan24.Crypto.ISeedableRng.AddSeed
-  nameWithType: ISeedableRng.AddSeed
-- uid: wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  fullName: wan24.Crypto.ISeedConsumer.AddSeed
+  nameWithType: ISeedConsumer.AddSeed
+- uid: wan24.Crypto.ISeedConsumer.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
   name: AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
-  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
-  commentId: M:wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  href: api/wan24.Crypto.ISeedConsumer.html#wan24_Crypto_ISeedConsumer_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.ISeedConsumer.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
   name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
-  fullName: wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
-  fullName.vb: wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
-  nameWithType: ISeedableRng.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
-  nameWithType.vb: ISeedableRng.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
-- uid: wan24.Crypto.ISeedableRng.AddSeedAsync*
+  fullName: wan24.Crypto.ISeedConsumer.AddSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.ISeedConsumer.AddSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: ISeedConsumer.AddSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: ISeedConsumer.AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.ISeedConsumer.AddSeedAsync*
   name: AddSeedAsync
-  href: api/wan24.Crypto.ISeedableRng.html#wan24_Crypto_ISeedableRng_AddSeedAsync_
-  commentId: Overload:wan24.Crypto.ISeedableRng.AddSeedAsync
+  href: api/wan24.Crypto.ISeedConsumer.html#wan24_Crypto_ISeedConsumer_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.ISeedConsumer.AddSeedAsync
   isSpec: "True"
-  fullName: wan24.Crypto.ISeedableRng.AddSeedAsync
-  nameWithType: ISeedableRng.AddSeedAsync
+  fullName: wan24.Crypto.ISeedConsumer.AddSeedAsync
+  nameWithType: ISeedConsumer.AddSeedAsync
 - uid: wan24.Crypto.ISignaturePrivateKey
   name: ISignaturePrivateKey
   href: api/wan24.Crypto.ISignaturePrivateKey.html
@@ -9299,19 +9595,19 @@ references:
   commentId: F:wan24.Crypto.RandomDataGenerator.RngAsync
   fullName: wan24.Crypto.RandomDataGenerator.RngAsync
   nameWithType: RandomDataGenerator.RngAsync
-- uid: wan24.Crypto.RandomDataGenerator.UseDevUrandom
-  name: UseDevUrandom
-  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_UseDevUrandom
-  commentId: P:wan24.Crypto.RandomDataGenerator.UseDevUrandom
-  fullName: wan24.Crypto.RandomDataGenerator.UseDevUrandom
-  nameWithType: RandomDataGenerator.UseDevUrandom
-- uid: wan24.Crypto.RandomDataGenerator.UseDevUrandom*
-  name: UseDevUrandom
-  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_UseDevUrandom_
-  commentId: Overload:wan24.Crypto.RandomDataGenerator.UseDevUrandom
+- uid: wan24.Crypto.RandomDataGenerator.UseDevRandom
+  name: UseDevRandom
+  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_UseDevRandom
+  commentId: P:wan24.Crypto.RandomDataGenerator.UseDevRandom
+  fullName: wan24.Crypto.RandomDataGenerator.UseDevRandom
+  nameWithType: RandomDataGenerator.UseDevRandom
+- uid: wan24.Crypto.RandomDataGenerator.UseDevRandom*
+  name: UseDevRandom
+  href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_UseDevRandom_
+  commentId: Overload:wan24.Crypto.RandomDataGenerator.UseDevRandom
   isSpec: "True"
-  fullName: wan24.Crypto.RandomDataGenerator.UseDevUrandom
-  nameWithType: RandomDataGenerator.UseDevUrandom
+  fullName: wan24.Crypto.RandomDataGenerator.UseDevRandom
+  nameWithType: RandomDataGenerator.UseDevRandom
 - uid: wan24.Crypto.RandomDataGenerator.UseFallback
   name: UseFallback
   href: api/wan24.Crypto.RandomDataGenerator.html#wan24_Crypto_RandomDataGenerator_UseFallback
@@ -9350,6 +9646,38 @@ references:
   commentId: T:wan24.Crypto.RND
   fullName: wan24.Crypto.RND
   nameWithType: RND
+- uid: wan24.Crypto.RND.AddDevRandomSeed(ReadOnlySpan{System.Byte})
+  name: AddDevRandomSeed(ReadOnlySpan<Byte>)
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddDevRandomSeed_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.RND.AddDevRandomSeed(ReadOnlySpan{System.Byte})
+  name.vb: AddDevRandomSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.RND.AddDevRandomSeed(ReadOnlySpan<System.Byte>)
+  fullName.vb: wan24.Crypto.RND.AddDevRandomSeed(ReadOnlySpan(Of System.Byte))
+  nameWithType: RND.AddDevRandomSeed(ReadOnlySpan<Byte>)
+  nameWithType.vb: RND.AddDevRandomSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.RND.AddDevRandomSeed*
+  name: AddDevRandomSeed
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddDevRandomSeed_
+  commentId: Overload:wan24.Crypto.RND.AddDevRandomSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AddDevRandomSeed
+  nameWithType: RND.AddDevRandomSeed
+- uid: wan24.Crypto.RND.AddDevRandomSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name: AddDevRandomSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddDevRandomSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
+  commentId: M:wan24.Crypto.RND.AddDevRandomSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
+  name.vb: AddDevRandomSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.RND.AddDevRandomSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
+  fullName.vb: wan24.Crypto.RND.AddDevRandomSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
+  nameWithType: RND.AddDevRandomSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
+  nameWithType.vb: RND.AddDevRandomSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.RND.AddDevRandomSeedAsync*
+  name: AddDevRandomSeedAsync
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddDevRandomSeedAsync_
+  commentId: Overload:wan24.Crypto.RND.AddDevRandomSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.AddDevRandomSeedAsync
+  nameWithType: RND.AddDevRandomSeedAsync
 - uid: wan24.Crypto.RND.AddSeed(ReadOnlySpan{System.Byte})
   name: AddSeed(ReadOnlySpan<Byte>)
   href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddSeed_ReadOnlySpan_System_Byte__
@@ -9382,38 +9710,6 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.RND.AddSeedAsync
   nameWithType: RND.AddSeedAsync
-- uid: wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan{System.Byte})
-  name: AddURandomSeed(ReadOnlySpan<Byte>)
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeed_ReadOnlySpan_System_Byte__
-  commentId: M:wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan{System.Byte})
-  name.vb: AddURandomSeed(ReadOnlySpan(Of Byte))
-  fullName: wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan<System.Byte>)
-  fullName.vb: wan24.Crypto.RND.AddURandomSeed(ReadOnlySpan(Of System.Byte))
-  nameWithType: RND.AddURandomSeed(ReadOnlySpan<Byte>)
-  nameWithType.vb: RND.AddURandomSeed(ReadOnlySpan(Of Byte))
-- uid: wan24.Crypto.RND.AddURandomSeed*
-  name: AddURandomSeed
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeed_
-  commentId: Overload:wan24.Crypto.RND.AddURandomSeed
-  isSpec: "True"
-  fullName: wan24.Crypto.RND.AddURandomSeed
-  nameWithType: RND.AddURandomSeed
-- uid: wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
-  name: AddURandomSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_
-  commentId: M:wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)
-  name.vb: AddURandomSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
-  fullName: wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory<System.Byte>, CancellationToken)
-  fullName.vb: wan24.Crypto.RND.AddURandomSeedAsync(ReadOnlyMemory(Of System.Byte), CancellationToken)
-  nameWithType: RND.AddURandomSeedAsync(ReadOnlyMemory<Byte>, CancellationToken)
-  nameWithType.vb: RND.AddURandomSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
-- uid: wan24.Crypto.RND.AddURandomSeedAsync*
-  name: AddURandomSeedAsync
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AddURandomSeedAsync_
-  commentId: Overload:wan24.Crypto.RND.AddURandomSeedAsync
-  isSpec: "True"
-  fullName: wan24.Crypto.RND.AddURandomSeedAsync
-  nameWithType: RND.AddURandomSeedAsync
 - uid: wan24.Crypto.RND.AutoRngSeeding
   name: AutoRngSeeding
   href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_AutoRngSeeding
@@ -9459,6 +9755,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.RND.DefaultRngAsync
   nameWithType: RND.DefaultRngAsync
+- uid: wan24.Crypto.RND.DevRandomPool
+  name: DevRandomPool
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_DevRandomPool
+  commentId: P:wan24.Crypto.RND.DevRandomPool
+  fullName: wan24.Crypto.RND.DevRandomPool
+  nameWithType: RND.DevRandomPool
+- uid: wan24.Crypto.RND.DevRandomPool*
+  name: DevRandomPool
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_DevRandomPool_
+  commentId: Overload:wan24.Crypto.RND.DevRandomPool
+  isSpec: "True"
+  fullName: wan24.Crypto.RND.DevRandomPool
+  nameWithType: RND.DevRandomPool
 - uid: wan24.Crypto.RND.FillBytes
   name: FillBytes
   href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_FillBytes
@@ -9527,38 +9836,44 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.RND.GetBytesAsync
   nameWithType: RND.GetBytesAsync
-- uid: wan24.Crypto.RND.GetDevUrandom
-  name: GetDevUrandom()
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_GetDevUrandom
-  commentId: M:wan24.Crypto.RND.GetDevUrandom
-  fullName: wan24.Crypto.RND.GetDevUrandom()
-  nameWithType: RND.GetDevUrandom()
-- uid: wan24.Crypto.RND.GetDevUrandom*
-  name: GetDevUrandom
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_GetDevUrandom_
-  commentId: Overload:wan24.Crypto.RND.GetDevUrandom
+- uid: wan24.Crypto.RND.GetDevRandom
+  name: GetDevRandom()
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_GetDevRandom
+  commentId: M:wan24.Crypto.RND.GetDevRandom
+  fullName: wan24.Crypto.RND.GetDevRandom()
+  nameWithType: RND.GetDevRandom()
+- uid: wan24.Crypto.RND.GetDevRandom*
+  name: GetDevRandom
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_GetDevRandom_
+  commentId: Overload:wan24.Crypto.RND.GetDevRandom
   isSpec: "True"
-  fullName: wan24.Crypto.RND.GetDevUrandom
-  nameWithType: RND.GetDevUrandom
-- uid: wan24.Crypto.RND.HasDevUrandom
-  name: HasDevUrandom
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_HasDevUrandom
-  commentId: F:wan24.Crypto.RND.HasDevUrandom
-  fullName: wan24.Crypto.RND.HasDevUrandom
-  nameWithType: RND.HasDevUrandom
-- uid: wan24.Crypto.RND.RequireDevUrandom
-  name: RequireDevUrandom
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_RequireDevUrandom
-  commentId: P:wan24.Crypto.RND.RequireDevUrandom
-  fullName: wan24.Crypto.RND.RequireDevUrandom
-  nameWithType: RND.RequireDevUrandom
-- uid: wan24.Crypto.RND.RequireDevUrandom*
-  name: RequireDevUrandom
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_RequireDevUrandom_
-  commentId: Overload:wan24.Crypto.RND.RequireDevUrandom
+  fullName: wan24.Crypto.RND.GetDevRandom
+  nameWithType: RND.GetDevRandom
+- uid: wan24.Crypto.RND.HasDevRandom
+  name: HasDevRandom
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_HasDevRandom
+  commentId: F:wan24.Crypto.RND.HasDevRandom
+  fullName: wan24.Crypto.RND.HasDevRandom
+  nameWithType: RND.HasDevRandom
+- uid: wan24.Crypto.RND.RANDOM
+  name: RANDOM
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_RANDOM
+  commentId: F:wan24.Crypto.RND.RANDOM
+  fullName: wan24.Crypto.RND.RANDOM
+  nameWithType: RND.RANDOM
+- uid: wan24.Crypto.RND.RequireDevRandom
+  name: RequireDevRandom
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_RequireDevRandom
+  commentId: P:wan24.Crypto.RND.RequireDevRandom
+  fullName: wan24.Crypto.RND.RequireDevRandom
+  nameWithType: RND.RequireDevRandom
+- uid: wan24.Crypto.RND.RequireDevRandom*
+  name: RequireDevRandom
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_RequireDevRandom_
+  commentId: Overload:wan24.Crypto.RND.RequireDevRandom
   isSpec: "True"
-  fullName: wan24.Crypto.RND.RequireDevUrandom
-  nameWithType: RND.RequireDevUrandom
+  fullName: wan24.Crypto.RND.RequireDevRandom
+  nameWithType: RND.RequireDevRandom
 - uid: wan24.Crypto.RND.RNG_Delegate
   name: RND.RNG_Delegate
   href: api/wan24.Crypto.RND.RNG_Delegate.html
@@ -9584,19 +9899,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.RND.SeedConsumer
   nameWithType: RND.SeedConsumer
-- uid: wan24.Crypto.RND.UseDevUrandom
-  name: UseDevUrandom
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_UseDevUrandom
-  commentId: P:wan24.Crypto.RND.UseDevUrandom
-  fullName: wan24.Crypto.RND.UseDevUrandom
-  nameWithType: RND.UseDevUrandom
-- uid: wan24.Crypto.RND.UseDevUrandom*
-  name: UseDevUrandom
-  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_UseDevUrandom_
-  commentId: Overload:wan24.Crypto.RND.UseDevUrandom
+- uid: wan24.Crypto.RND.UseDevRandom
+  name: UseDevRandom
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_UseDevRandom
+  commentId: P:wan24.Crypto.RND.UseDevRandom
+  fullName: wan24.Crypto.RND.UseDevRandom
+  nameWithType: RND.UseDevRandom
+- uid: wan24.Crypto.RND.UseDevRandom*
+  name: UseDevRandom
+  href: api/wan24.Crypto.RND.html#wan24_Crypto_RND_UseDevRandom_
+  commentId: Overload:wan24.Crypto.RND.UseDevRandom
   isSpec: "True"
-  fullName: wan24.Crypto.RND.UseDevUrandom
-  nameWithType: RND.UseDevUrandom
+  fullName: wan24.Crypto.RND.UseDevRandom
+  nameWithType: RND.UseDevRandom
 - uid: wan24.Crypto.Rng
   name: Rng
   href: api/wan24.Crypto.Rng.html
@@ -10210,6 +10525,19 @@ references:
   commentId: F:wan24.Crypto.RngOnlineSeedTimer.Seed
   fullName: wan24.Crypto.RngOnlineSeedTimer.Seed
   nameWithType: RngOnlineSeedTimer.Seed
+- uid: wan24.Crypto.RngOnlineSeedTimer.SeedAsync(CancellationToken)
+  name: SeedAsync(CancellationToken)
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_SeedAsync_CancellationToken_
+  commentId: M:wan24.Crypto.RngOnlineSeedTimer.SeedAsync(CancellationToken)
+  fullName: wan24.Crypto.RngOnlineSeedTimer.SeedAsync(CancellationToken)
+  nameWithType: RngOnlineSeedTimer.SeedAsync(CancellationToken)
+- uid: wan24.Crypto.RngOnlineSeedTimer.SeedAsync*
+  name: SeedAsync
+  href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_SeedAsync_
+  commentId: Overload:wan24.Crypto.RngOnlineSeedTimer.SeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngOnlineSeedTimer.SeedAsync
+  nameWithType: RngOnlineSeedTimer.SeedAsync
 - uid: wan24.Crypto.RngOnlineSeedTimer.SeedLength
   name: SeedLength
   href: api/wan24.Crypto.RngOnlineSeedTimer.html#wan24_Crypto_RngOnlineSeedTimer_SeedLength

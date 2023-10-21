@@ -90,104 +90,19 @@
     <div>
       <a class="xref" href="wan24.Crypto.IRng.html#wan24_Crypto_IRng_FillBytesAsync_Memory_System_Byte__CancellationToken_">IRng.FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</a>
     </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.ISeedConsumer.html#wan24_Crypto_ISeedConsumer_AddSeed_ReadOnlySpan_System_Byte__">ISeedConsumer.AddSeed(ReadOnlySpan&lt;Byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.ISeedConsumer.html#wan24_Crypto_ISeedConsumer_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_">ISeedConsumer.AddSeedAsync(ReadOnlyMemory&lt;Byte&gt;, CancellationToken)</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_ISeedableRng_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISeedableRng : IRng</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ISeedableRng : IRng, ISeedConsumer</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ISeedableRng_AddSeed_ReadOnlySpan_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ISeedableRng.cs/#L12">View Source</a>
-  </span>
-  <a id="wan24_Crypto_ISeedableRng_AddSeed_" data-uid="wan24.Crypto.ISeedableRng.AddSeed*"></a>
-  <h4 id="wan24_Crypto_ISeedableRng_AddSeed_ReadOnlySpan_System_Byte__" data-uid="wan24.Crypto.ISeedableRng.AddSeed(ReadOnlySpan{System.Byte})">AddSeed(ReadOnlySpan&lt;Byte&gt;)</h4>
-  <div class="markdown level1 summary"><p>Add seed to the RNG</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddSeed(ReadOnlySpan&lt;byte&gt; seed)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">ReadOnlySpan</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
-        <td><span class="parametername">seed</span></td>
-        <td><p>Seed</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ISeedableRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory%7BSystem.Byte%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ISeedableRng.cs/#L18">View Source</a>
-  </span>
-  <a id="wan24_Crypto_ISeedableRng_AddSeedAsync_" data-uid="wan24.Crypto.ISeedableRng.AddSeedAsync*"></a>
-  <h4 id="wan24_Crypto_ISeedableRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_" data-uid="wan24.Crypto.ISeedableRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)">AddSeedAsync(ReadOnlyMemory&lt;Byte&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Add seed to the RNG</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task AddSeedAsync(ReadOnlyMemory&lt;byte&gt; seed, CancellationToken cancellationToken = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">ReadOnlyMemory</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
-        <td><span class="parametername">seed</span></td>
-        <td><p>Seed</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_System_Int32_">RngExtensions.GetInt32(IRng, Int32, Int32)</a>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SeedableRngBase
+    <title>Class DevRandomRng
    | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SeedableRngBase
+    <meta name="title" content="Class DevRandomRng
    | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,20 +68,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.SeedableRngBase">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.DevRandomRng">
   
   
-  <h1 id="wan24_Crypto_SeedableRngBase" data-uid="wan24.Crypto.SeedableRngBase" class="text-break">Class SeedableRngBase
+  <h1 id="wan24_Crypto_DevRandomRng" data-uid="wan24.Crypto.DevRandomRng" class="text-break">Class DevRandomRng
   </h1>
-  <div class="markdown level0 summary"><p>Base class for a seedable RNG</p>
+  <div class="markdown level0 summary"><p><code>/dev/random</code> RNG</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="wan24.Crypto.RngBase.html">RngBase</a></div>
-    <div class="level2"><span class="xref">SeedableRngBase</span></div>
-      <div class="level3"><a class="xref" href="wan24.Crypto.DevRandomRng.html">DevRandomRng</a></div>
+    <div class="level2"><a class="xref" href="wan24.Crypto.SeedableRngBase.html">SeedableRngBase</a></div>
+    <div class="level3"><span class="xref">DevRandomRng</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -91,12 +91,6 @@
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytes_Span_System_Byte___">RngBase.FillBytes(Span&lt;Byte&gt;)</a>
-    </div>
-    <div>
-      <a class="xref" href="wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytesAsync_Memory_System_Byte__CancellationToken_">RngBase.FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</a>
-    </div>
     <div>
       <a class="xref" href="wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_GetBytes_System_Int32__">RngBase.GetBytes(Int32)</a>
     </div>
@@ -127,45 +121,45 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
-  <h5 id="wan24_Crypto_SeedableRngBase_syntax">Syntax</h5>
+  <h5 id="wan24_Crypto_DevRandomRng_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class SeedableRngBase : RngBase, ISeedableRng, IRng, ISeedConsumer</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class DevRandomRng : SeedableRngBase, ISeedableRng, IRng, ISeedConsumer</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SeedableRngBase__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.SeedableRngBase.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DevRandomRng__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.DevRandomRng.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SeedableRngBase.cs/#L11">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DevRandomRng.cs/#L13">View Source</a>
   </span>
-  <a id="wan24_Crypto_SeedableRngBase__ctor_" data-uid="wan24.Crypto.SeedableRngBase.#ctor*"></a>
-  <h4 id="wan24_Crypto_SeedableRngBase__ctor" data-uid="wan24.Crypto.SeedableRngBase.#ctor">SeedableRngBase()</h4>
+  <a id="wan24_Crypto_DevRandomRng__ctor_" data-uid="wan24.Crypto.DevRandomRng.#ctor*"></a>
+  <h4 id="wan24_Crypto_DevRandomRng__ctor" data-uid="wan24.Crypto.DevRandomRng.#ctor">DevRandomRng()</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected SeedableRngBase()</code></pre>
+    <pre><code class="lang-csharp hljs">public DevRandomRng()</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SeedableRngBase_AddSeed_ReadOnlySpan_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.SeedableRngBase.AddSeed(ReadOnlySpan%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DevRandomRng_AddSeed_ReadOnlySpan_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.DevRandomRng.AddSeed(ReadOnlySpan%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SeedableRngBase.cs/#L14">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DevRandomRng.cs/#L16">View Source</a>
   </span>
-  <a id="wan24_Crypto_SeedableRngBase_AddSeed_" data-uid="wan24.Crypto.SeedableRngBase.AddSeed*"></a>
-  <h4 id="wan24_Crypto_SeedableRngBase_AddSeed_ReadOnlySpan_System_Byte__" data-uid="wan24.Crypto.SeedableRngBase.AddSeed(ReadOnlySpan{System.Byte})">AddSeed(ReadOnlySpan&lt;Byte&gt;)</h4>
+  <a id="wan24_Crypto_DevRandomRng_AddSeed_" data-uid="wan24.Crypto.DevRandomRng.AddSeed*"></a>
+  <h4 id="wan24_Crypto_DevRandomRng_AddSeed_ReadOnlySpan_System_Byte__" data-uid="wan24.Crypto.DevRandomRng.AddSeed(ReadOnlySpan{System.Byte})">AddSeed(ReadOnlySpan&lt;Byte&gt;)</h4>
   <div class="markdown level1 summary"><p>Add seed to the RNG</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void AddSeed(ReadOnlySpan&lt;byte&gt; seed)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void AddSeed(ReadOnlySpan&lt;byte&gt; seed)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,21 +179,23 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase_AddSeed_ReadOnlySpan_System_Byte__">SeedableRngBase.AddSeed(ReadOnlySpan&lt;Byte&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SeedableRngBase_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.SeedableRngBase.AddSeedAsync(ReadOnlyMemory%7BSystem.Byte%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DevRandomRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DevRandomRng.AddSeedAsync(ReadOnlyMemory%7BSystem.Byte%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SeedableRngBase.cs/#L17">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DevRandomRng.cs/#L19">View Source</a>
   </span>
-  <a id="wan24_Crypto_SeedableRngBase_AddSeedAsync_" data-uid="wan24.Crypto.SeedableRngBase.AddSeedAsync*"></a>
-  <h4 id="wan24_Crypto_SeedableRngBase_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_" data-uid="wan24.Crypto.SeedableRngBase.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)">AddSeedAsync(ReadOnlyMemory&lt;Byte&gt;, CancellationToken)</h4>
+  <a id="wan24_Crypto_DevRandomRng_AddSeedAsync_" data-uid="wan24.Crypto.DevRandomRng.AddSeedAsync*"></a>
+  <h4 id="wan24_Crypto_DevRandomRng_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_" data-uid="wan24.Crypto.DevRandomRng.AddSeedAsync(ReadOnlyMemory{System.Byte},CancellationToken)">AddSeedAsync(ReadOnlyMemory&lt;Byte&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Add seed to the RNG</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Task AddSeedAsync(ReadOnlyMemory&lt;byte&gt; seed, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public override Task AddSeedAsync(ReadOnlyMemory&lt;byte&gt; seed, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -240,6 +236,118 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.SeedableRngBase.html#wan24_Crypto_SeedableRngBase_AddSeedAsync_ReadOnlyMemory_System_Byte__CancellationToken_">SeedableRngBase.AddSeedAsync(ReadOnlyMemory&lt;Byte&gt;, CancellationToken)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DevRandomRng_FillBytes_Span_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.DevRandomRng.FillBytes(Span%7BSystem.Byte%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DevRandomRng.cs/#L22">View Source</a>
+  </span>
+  <a id="wan24_Crypto_DevRandomRng_FillBytes_" data-uid="wan24.Crypto.DevRandomRng.FillBytes*"></a>
+  <h4 id="wan24_Crypto_DevRandomRng_FillBytes_Span_System_Byte___" data-uid="wan24.Crypto.DevRandomRng.FillBytes(Span{System.Byte}@)">FillBytes(in Span&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"><p>Fill random bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Span&lt;byte&gt; FillBytes(in Span&lt;byte&gt; buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Span</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>Buffer</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Span</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><p>Random bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytes_Span_System_Byte___">RngBase.FillBytes(in Span&lt;Byte&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DevRandomRng_FillBytesAsync_Memory_System_Byte__CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DevRandomRng.FillBytesAsync(Memory%7BSystem.Byte%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DevRandomRng.cs/#L45">View Source</a>
+  </span>
+  <a id="wan24_Crypto_DevRandomRng_FillBytesAsync_" data-uid="wan24.Crypto.DevRandomRng.FillBytesAsync*"></a>
+  <h4 id="wan24_Crypto_DevRandomRng_FillBytesAsync_Memory_System_Byte__CancellationToken_" data-uid="wan24.Crypto.DevRandomRng.FillBytesAsync(Memory{System.Byte},CancellationToken)">FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Fill random bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;Memory&lt;byte&gt;&gt; FillBytesAsync(Memory&lt;byte&gt; buffer, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Memory</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>Buffer</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Memory</span>&lt;<span class="xref">System.Byte</span>&gt;&gt;</td>
+        <td><p>Random bytes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.RngBase.html#wan24_Crypto_RngBase_FillBytesAsync_Memory_System_Byte__CancellationToken_">RngBase.FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a>
@@ -277,10 +385,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SeedableRngBase.md&amp;value=---%0Auid%3A%20wan24.Crypto.SeedableRngBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DevRandomRng.md&amp;value=---%0Auid%3A%20wan24.Crypto.DevRandomRng%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SeedableRngBase.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DevRandomRng.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -131,6 +131,9 @@
       <span class="xref">wan24.Core.TimedHostedServiceBase.AfterStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.StoppingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.TimedHostedServiceBase.AfterStopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
@@ -144,6 +147,9 @@
     </div>
     <div>
       <span class="xref">wan24.Core.TimedHostedServiceBase.GUID</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.CanPause</span>
     </div>
     <div>
       <span class="xref">wan24.Core.TimedHostedServiceBase.wan24.Core.ITimer.Interval</span>
@@ -230,16 +236,25 @@
       <span class="xref">wan24.Core.HostedServiceBase.BeforeStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.StartingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforeStopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforePauseAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.PausingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterPauseAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforeResumeAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.HostedServiceBase.ResumingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterResumeAsync(System.Threading.CancellationToken)</span>
@@ -249,9 +264,6 @@
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.RaiseOnException()</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.HostedServiceBase.CanPause</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.IsRunning</span>
@@ -713,7 +725,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_BeforeStartAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L137">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L144">View Source</a>
   </span>
   <a id="wan24_Crypto_RngOnlineSeedTimer_BeforeStartAsync_" data-uid="wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync*"></a>
   <h4 id="wan24_Crypto_RngOnlineSeedTimer_BeforeStartAsync_CancellationToken_" data-uid="wan24.Crypto.RngOnlineSeedTimer.BeforeStartAsync(CancellationToken)">BeforeStartAsync(CancellationToken)</h4>
@@ -760,7 +772,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L145">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L152">View Source</a>
   </span>
   <a id="wan24_Crypto_RngOnlineSeedTimer_Dispose_" data-uid="wan24.Crypto.RngOnlineSeedTimer.Dispose*"></a>
   <h4 id="wan24_Crypto_RngOnlineSeedTimer_Dispose_System_Boolean_" data-uid="wan24.Crypto.RngOnlineSeedTimer.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -794,7 +806,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L152">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L159">View Source</a>
   </span>
   <a id="wan24_Crypto_RngOnlineSeedTimer_DisposeCore_" data-uid="wan24.Crypto.RngOnlineSeedTimer.DisposeCore*"></a>
   <h4 id="wan24_Crypto_RngOnlineSeedTimer_DisposeCore" data-uid="wan24.Crypto.RngOnlineSeedTimer.DisposeCore">DisposeCore()</h4>
@@ -826,7 +838,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_RequestSeedAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L120">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L127">View Source</a>
   </span>
   <a id="wan24_Crypto_RngOnlineSeedTimer_RequestSeedAsync_" data-uid="wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync*"></a>
   <h4 id="wan24_Crypto_RngOnlineSeedTimer_RequestSeedAsync_CancellationToken_" data-uid="wan24.Crypto.RngOnlineSeedTimer.RequestSeedAsync(CancellationToken)">RequestSeedAsync(CancellationToken)</h4>
@@ -873,10 +885,59 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_SeedAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.SeedAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L80">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngOnlineSeedTimer_SeedAsync_" data-uid="wan24.Crypto.RngOnlineSeedTimer.SeedAsync*"></a>
+  <h4 id="wan24_Crypto_RngOnlineSeedTimer_SeedAsync_CancellationToken_" data-uid="wan24.Crypto.RngOnlineSeedTimer.SeedAsync(CancellationToken)">SeedAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Receive and process online seed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task SeedAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L77">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L83">View Source</a>
   </span>
   <a id="wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync_" data-uid="wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync*"></a>
   <h4 id="wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync" data-uid="wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync">TimedWorkerAsync()</h4>
@@ -908,7 +969,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L84">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngOnlineSeedTimer.cs/#L90">View Source</a>
   </span>
   <a id="wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync_" data-uid="wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync*"></a>
   <h4 id="wan24_Crypto_RngOnlineSeedTimer_TimedWorkerAsync_CancellationToken_" data-uid="wan24.Crypto.RngOnlineSeedTimer.TimedWorkerAsync(CancellationToken)">TimedWorkerAsync(CancellationToken)</h4>

@@ -73,7 +73,7 @@
   
   <h1 id="wan24_Crypto_RandomDataGenerator" data-uid="wan24.Crypto.RandomDataGenerator" class="text-break">Class RandomDataGenerator
   </h1>
-  <div class="markdown level0 summary"><p>Random data generator (uses <code>/dev/urandom</code>, if possible; defaults to <span class="xref">System.Security.Cryptography.RandomNumberGenerator</span>)</p>
+  <div class="markdown level0 summary"><p>Random data generator (uses <code>/dev/random</code>, if possible; defaults to <span class="xref">System.Security.Cryptography.RandomNumberGenerator</span>)</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -92,6 +92,7 @@
     <div><span class="xref">System.IAsyncDisposable</span></div>
     <div><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></div>
     <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
+    <div><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -150,10 +151,16 @@
       <span class="xref">wan24.Core.HostedServiceBase.BeforeStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.StartingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforeStopAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.HostedServiceBase.StoppingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterStopAsync(System.Threading.CancellationToken)</span>
@@ -162,10 +169,16 @@
       <span class="xref">wan24.Core.HostedServiceBase.BeforePauseAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.PausingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterPauseAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforeResumeAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.HostedServiceBase.ResumingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterResumeAsync(System.Threading.CancellationToken)</span>
@@ -292,7 +305,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_RandomDataGenerator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RandomDataGenerator : HostedServiceBase, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, ISeedableRng, IRng</code></pre>
+    <pre><code class="lang-csharp hljs">public class RandomDataGenerator : HostedServiceBase, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, ISeedableRng, IRng, ISeedConsumer</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -542,19 +555,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_UseDevUrandom.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.UseDevUrandom%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_UseDevRandom.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.UseDevRandom%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L62">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L61">View Source</a>
   </span>
-  <a id="wan24_Crypto_RandomDataGenerator_UseDevUrandom_" data-uid="wan24.Crypto.RandomDataGenerator.UseDevUrandom*"></a>
-  <h4 id="wan24_Crypto_RandomDataGenerator_UseDevUrandom" data-uid="wan24.Crypto.RandomDataGenerator.UseDevUrandom">UseDevUrandom</h4>
-  <div class="markdown level1 summary"><p>Use <code>/dev/urandom</code>, if available?</p>
+  <a id="wan24_Crypto_RandomDataGenerator_UseDevRandom_" data-uid="wan24.Crypto.RandomDataGenerator.UseDevRandom*"></a>
+  <h4 id="wan24_Crypto_RandomDataGenerator_UseDevRandom" data-uid="wan24.Crypto.RandomDataGenerator.UseDevRandom">UseDevRandom</h4>
+  <div class="markdown level1 summary"><p>Use <code>/dev/random</code>, if available?</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool UseDevUrandom { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool UseDevRandom { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -576,7 +589,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_UseFallback.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.UseFallback%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L57">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L56">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_UseFallback_" data-uid="wan24.Crypto.RandomDataGenerator.UseFallback*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_UseFallback" data-uid="wan24.Crypto.RandomDataGenerator.UseFallback">UseFallback</h4>
@@ -609,7 +622,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_AddSeed_ReadOnlySpan_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.AddSeed(ReadOnlySpan%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L135">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L134">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_AddSeed_" data-uid="wan24.Crypto.RandomDataGenerator.AddSeed*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_AddSeed_ReadOnlySpan_System_Byte__" data-uid="wan24.Crypto.RandomDataGenerator.AddSeed(ReadOnlySpan{System.Byte})">AddSeed(ReadOnlySpan&lt;Byte&gt;)</h4>
@@ -698,7 +711,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L206">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L216">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_Dispose_" data-uid="wan24.Crypto.RandomDataGenerator.Dispose*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_Dispose_System_Boolean_" data-uid="wan24.Crypto.RandomDataGenerator.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -732,7 +745,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L213">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L223">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_DisposeCore_" data-uid="wan24.Crypto.RandomDataGenerator.DisposeCore*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_DisposeCore" data-uid="wan24.Crypto.RandomDataGenerator.DisposeCore">DisposeCore()</h4>
@@ -764,7 +777,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_Fill_Span_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.Fill(Span%7BSystem.Byte%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L151">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L153">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_Fill_" data-uid="wan24.Crypto.RandomDataGenerator.Fill*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_Fill_Span_System_Byte___" data-uid="wan24.Crypto.RandomDataGenerator.Fill(Span{System.Byte}@)">Fill(in Span&lt;Byte&gt;)</h4>
@@ -798,7 +811,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_FillAsync_Memory_System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.FillAsync(Memory%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L157">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L159">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_FillAsync_" data-uid="wan24.Crypto.RandomDataGenerator.FillAsync*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_FillAsync_Memory_System_Byte__" data-uid="wan24.Crypto.RandomDataGenerator.FillAsync(Memory{System.Byte})">FillAsync(Memory&lt;Byte&gt;)</h4>
@@ -847,7 +860,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_FillBytes_Span_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.FillBytes(Span%7BSystem.Byte%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L101">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L100">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_FillBytes_" data-uid="wan24.Crypto.RandomDataGenerator.FillBytes*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_FillBytes_Span_System_Byte___" data-uid="wan24.Crypto.RandomDataGenerator.FillBytes(Span{System.Byte}@)">FillBytes(in Span&lt;Byte&gt;)</h4>
@@ -897,7 +910,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_FillBytesAsync_Memory_System_Byte__CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.FillBytesAsync(Memory%7BSystem.Byte%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L118">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L117">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_FillBytesAsync_" data-uid="wan24.Crypto.RandomDataGenerator.FillBytesAsync*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_FillBytesAsync_Memory_System_Byte__CancellationToken_" data-uid="wan24.Crypto.RandomDataGenerator.FillBytesAsync(Memory{System.Byte},CancellationToken)">FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</h4>
@@ -953,7 +966,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_GetBytes_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.GetBytes(System.Int32%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L65">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L64">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_GetBytes_" data-uid="wan24.Crypto.RandomDataGenerator.GetBytes*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_GetBytes_System_Int32__" data-uid="wan24.Crypto.RandomDataGenerator.GetBytes(System.Int32@)">GetBytes(in Int32)</h4>
@@ -1003,7 +1016,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_GetBytesAsync_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.GetBytesAsync(System.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L83">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L82">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_GetBytesAsync_" data-uid="wan24.Crypto.RandomDataGenerator.GetBytesAsync*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_GetBytesAsync_System_Int32_CancellationToken_" data-uid="wan24.Crypto.RandomDataGenerator.GetBytesAsync(System.Int32,CancellationToken)">GetBytesAsync(Int32, CancellationToken)</h4>
@@ -1059,7 +1072,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RandomDataGenerator_WorkerAsync.md&amp;value=---%0Auid%3A%20wan24.Crypto.RandomDataGenerator.WorkerAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L160">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RandomDataGenerator.cs/#L162">View Source</a>
   </span>
   <a id="wan24_Crypto_RandomDataGenerator_WorkerAsync_" data-uid="wan24.Crypto.RandomDataGenerator.WorkerAsync*"></a>
   <h4 id="wan24_Crypto_RandomDataGenerator_WorkerAsync" data-uid="wan24.Crypto.RandomDataGenerator.WorkerAsync">WorkerAsync()</h4>
@@ -1107,6 +1120,9 @@
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.IRng.html">IRng</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>

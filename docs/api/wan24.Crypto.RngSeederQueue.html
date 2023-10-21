@@ -98,6 +98,7 @@
     <div><span class="xref">wan24.Core.IStatusProvider</span></div>
     <div><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></div>
     <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
+    <div><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -198,10 +199,16 @@
       <span class="xref">wan24.Core.HostedServiceBase.BeforeStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.StartingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforeStopAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.HostedServiceBase.StoppingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterStopAsync(System.Threading.CancellationToken)</span>
@@ -210,10 +217,16 @@
       <span class="xref">wan24.Core.HostedServiceBase.BeforePauseAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.PausingAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterPauseAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforeResumeAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.HostedServiceBase.ResumingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.AfterResumeAsync(System.Threading.CancellationToken)</span>
@@ -346,7 +359,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_RngSeederQueue_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RngSeederQueue : ItemQueueWorkerBase&lt;byte[]&gt;, IItemQueueWorker&lt;byte[]&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, ISeedableRng, IRng</code></pre>
+    <pre><code class="lang-csharp hljs">public class RngSeederQueue : ItemQueueWorkerBase&lt;byte[]&gt;, IItemQueueWorker&lt;byte[]&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, ISeedableRng, IRng, ISeedConsumer</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -813,6 +826,9 @@
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.IRng.html">IRng</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
