@@ -145,5 +145,10 @@ namespace wan24.Crypto.Authentication
         /// Session key KEK length in bytes (<see cref="SecureValue"/>)
         /// </summary>
         public int SessionKeyKekLength { get; set; } = 64;
+
+        /// <summary>
+        /// Allowed PAKE MAC algorithm names
+        /// </summary>
+        public string[] AllowedMacAlgorithms { get; set; } = Array.Empty<string>();
     }
 }

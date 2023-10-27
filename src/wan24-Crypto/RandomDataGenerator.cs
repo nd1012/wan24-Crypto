@@ -169,7 +169,7 @@ namespace wan24.Crypto
                 {
                     Clear = true
                 };
-                while (!CancelToken.IsCancellationRequested)
+                while (!CancelToken.IsCancellationRequested)//TODO After update use EnsureNotCanceled()
                 {
                     await FillAsync(buffer.Memory).DynamicContext();
                     if (!CancelToken.IsCancellationRequested)

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -172,5 +173,42 @@ namespace wan24.Crypto
         /// <returns>Algorithm</returns>
         public static HashAlgorithmBase GetAlgorithm(int value)
             => Algorithms.Values.FirstOrDefault(a => a.Value == value) ?? throw new ArgumentException("Invalid algorithm", nameof(value));
+
+        /// <summary>
+        /// Get the matching hash algorithm for a digest length
+        /// </summary>
+        /// <param name="len">Digest length in byte</param>
+        /// <param name="allowedAlgos">Allowed hash algorithm names</param>
+        /// <returns>Hash algorithm name</returns>
+        public static string GetAlgorithmName(int len, params string[] allowedAlgos)
+        {
+            if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
+            if (allowedAlgos.Length == 0) allowedAlgos = Algorithms.Keys.ToArray();
+            return (from algo in Algorithms.Values
+                    where algo.HashLength == len &&
+                        allowedAlgos.Contains(algo.Name)
+                    select algo.Name)
+                    .FirstOrDefault() ??
+                    throw CryptographicException.From($"Digest length {len} byte doesn't match any of the allowed MAC algorithms", new InvalidDataException());
+        }
+
+        /// <summary>
+        /// Get the matching hash algorithm for a digest length
+        /// </summary>
+        /// <param name="len">Digest length in byte</param>
+        /// <param name="algo">Hash algorithm name</param>
+        /// <param name="allowedAlgos">Allowed hash algorithm names</param>
+        /// <returns>If succeed</returns>
+        public static bool TryGetAlgorithmName(int len, [NotNullWhen(returnValue: true)] out string? algo, params string[] allowedAlgos)
+        {
+            if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
+            if (allowedAlgos.Length == 0) allowedAlgos = Algorithms.Keys.ToArray();
+            algo = (from a in Algorithms.Values
+                    where a.HashLength == len &&
+                        allowedAlgos.Contains(a.Name)
+                    select a.Name)
+                    .FirstOrDefault();
+            return algo is not null;
+        }
     }
 }

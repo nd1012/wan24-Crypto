@@ -50,11 +50,9 @@ namespace wan24.Crypto.Authentication
                 // Receive the authentication request
                 if (context.FastPakeAuthServer is null)
                 {
-                    context.ClientPayload = pake.HandleAuth(
-                        await decipher.CryptoStream.ReadSerializedAsync<PakeAuth>(cancellationToken: cancellationToken).DynamicContext(),
-                        Options.DecryptPayload,
-                        Options.SkipSignatureKeyValidation
-                        );
+                    using PakeAuth auth = await decipher.CryptoStream.ReadSerializedAsync<PakeAuth>(cancellationToken: cancellationToken).DynamicContext();
+                    SetMacAlgorithm(auth.Identifier.Length, pake.Options);
+                    context.ClientPayload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipSignatureKeyValidation);
                     sessionKey = pake.SessionKey.CloneArray();
                     pake.ClearSessionKey();
                 }

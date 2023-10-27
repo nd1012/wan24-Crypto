@@ -84,5 +84,10 @@
         /// Max. time difference to a peers time
         /// </summary>
         public TimeSpan MaxTimeDifference { get; set; } = TimeSpan.FromMinutes(5);
+
+        /// <summary>
+        /// Allowed MAC algorithm names
+        /// </summary>
+        public string[] AllowedMacAlgorithms { get; set; } = Array.Empty<string>();
     }
 }

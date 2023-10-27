@@ -1064,6 +1064,10 @@ are the official implementation IDs (not guaranteed to be complete):
 | HMAC-SHA3-256 | 4 | wan24-Crypto-BC |
 | HMAC-SHA3-384 | 5 | wan24-Crypto-BC |
 | HMAC-SHA3-512 | 6 | wan24-Crypto-BC |
+| TPMHMAC-SHA-1 | 7 | wan24-Crypto-TPM |
+| TPMHMAC-SHA-256 | 8 | wan24-Crypto-TPM |
+| TPMHMAC-SHA-384 | 9 | wan24-Crypto-TPM |
+| TPMHMAC-SHA-512 | 10 | wan24-Crypto-TPM |
 | **KDF** |  |  |
 | PBKDF#2 | 0 | wan24-Crypto |
 | Argon2id | 1 | wan24-Crypto-NaCl |

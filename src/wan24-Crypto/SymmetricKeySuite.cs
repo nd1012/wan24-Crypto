@@ -95,11 +95,11 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         [Range(HashMd5Algorithm.HASH_LENGTH, HashSha512Algorithm.HASH_LENGTH)]
-        public byte[]? Identifier { get; }
+        public byte[]? Identifier { get; protected set; }
 
         /// <inheritdoc/>
         [SensitiveData, NoValidation]
-        public SecureByteArray ExpandedKey { get; }
+        public SecureByteArray ExpandedKey { get; protected set; }
 
         /// <summary>
         /// Get a copy of this instance

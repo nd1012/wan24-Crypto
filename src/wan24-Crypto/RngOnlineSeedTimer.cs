@@ -49,7 +49,10 @@ namespace wan24.Crypto
             if (length < 1) throw new ArgumentOutOfRangeException(nameof(length));
             URI = new Uri(uri).ToString();
             Seed = new byte[length];
-            Http = http ?? new HttpClient();
+            Http = http ?? new HttpClient()
+            {
+                Timeout = TimeSpan.FromSeconds(3)
+            };
             RNG = rng;
         }
 
