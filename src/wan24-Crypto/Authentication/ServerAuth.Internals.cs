@@ -143,6 +143,17 @@ namespace wan24.Crypto.Authentication
                 : Options.PfsCounterKeyPool.GetKey());
 
         /// <summary>
+        /// Set the matching and allowed MAC algorithm name for a PAKE authentication
+        /// </summary>
+        /// <param name="len">Digest length in byte</param>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        private CryptoOptions SetPakeMacAlgorithm(int len, CryptoOptions options)
+            => options.MacAlgorithm is not null && MacHelper.GetAlgorithm(options.MacAlgorithm).MacLength == len
+                ? options
+                : options.WithMac(MacHelper.GetAlgorithmName(len, Options.AllowedMacAlgorithms), included: false);
+
+        /// <summary>
         /// Validate the protocol version
         /// </summary>
         /// <param name="stream">Stream</param>

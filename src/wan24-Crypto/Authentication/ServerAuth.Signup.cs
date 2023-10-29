@@ -32,7 +32,7 @@ namespace wan24.Crypto.Authentication
                     await hash.FinalizeHashAsync(transformFinal: true).DynamicContext();
                     context.Signup = signup;
                     await Options.IdentityFactory!(context, cancellationToken).DynamicContext();
-                    using (Pake pake = new(context.PakeOptions.GetCopy(), context.CryptoOptions.GetCopy()))
+                    using (Pake pake = new(SetPakeMacAlgorithm(signup.Identifier.Length, context.PakeOptions.GetCopy()), context.CryptoOptions.GetCopy()))
                     {
                         pake.OnSignup += (s, e) => OnPakeSignup?.Invoke(this, new(context, pake, e));
                         payload = pake.HandleSignup(signup);

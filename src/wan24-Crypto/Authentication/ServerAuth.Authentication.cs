@@ -36,7 +36,11 @@ namespace wan24.Crypto.Authentication
                         throw new UnauthorizedAccessException("Missing client public keys");
                     if (context.FastPakeAuth is null)
                     {
-                        using Pake pake = new(context.Identity, context.PakeOptions.GetCopy(), context.CryptoOptions.GetCopy());
+                        using Pake pake = new(
+                            context.Identity, 
+                            SetPakeMacAlgorithm(context.Identity.Identifier.Length, context.PakeOptions.GetCopy()), 
+                            context.CryptoOptions.GetCopy()
+                            );
                         pake.OnAuth += (s, e) => OnPakeAuth?.Invoke(this, new(context, pake, e));
                         pake.OnAuthError += (s, e) => OnPakeAuthError?.Invoke(this, new(context, pake, e));
                         payload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipPakeSignatureKeyValidation);
