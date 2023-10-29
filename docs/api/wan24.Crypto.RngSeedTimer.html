@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AsymmetricKeyPool&lt;T&gt;
+    <title>Class RngSeedTimer
    | wan24-Crypto </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AsymmetricKeyPool&lt;T&gt;
+    <meta name="title" content="Class RngSeedTimer
    | wan24-Crypto ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,12 +68,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricKeyPool`1">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.RngSeedTimer">
   
   
-  <h1 id="wan24_Crypto_AsymmetricKeyPool_1" data-uid="wan24.Crypto.AsymmetricKeyPool`1" class="text-break">Class AsymmetricKeyPool&lt;T&gt;
+  <h1 id="wan24_Crypto_RngSeedTimer" data-uid="wan24.Crypto.RngSeedTimer" class="text-break">Class RngSeedTimer
   </h1>
-  <div class="markdown level0 summary"><p>Asymmetric private key pool</p>
+  <div class="markdown level0 summary"><p>RNG seed timer seeds a seed consumer using random data from a given RNG</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -81,14 +81,12 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
     <div class="level2"><span class="xref">wan24.Core.HostedServiceBase</span></div>
-    <div class="level3"><span class="xref">wan24.Core.InstancePool</span>&lt;T&gt;</div>
-    <div class="level4"><span class="xref">AsymmetricKeyPool&lt;T&gt;</span></div>
+    <div class="level3"><span class="xref">wan24.Core.TimedHostedServiceBase</span></div>
+    <div class="level4"><span class="xref">RngSeedTimer</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">wan24.Core.IInstancePool</span>&lt;T&gt;</div>
-    <div><a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a></div>
-    <div><span class="xref">wan24.Core.IInstancePool</span></div>
+    <div><span class="xref">wan24.Core.ITimer</span></div>
     <div><span class="xref">wan24.Core.IServiceWorkerStatus</span></div>
     <div><span class="xref">wan24.Core.IServiceWorker</span></div>
     <div><span class="xref">Microsoft.Extensions.Hosting.IHostedService</span></div>
@@ -100,64 +98,100 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.SyncFactory</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.Timer</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.AsyncFactory</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.RunningEvent</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Instances</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.WorkerSync</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.BufferSync</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.SyncControl</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;._Created</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase._Interval</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;._CreatedOnDemand</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.SetTimerAsync(System.Double, System.Nullable&lt;wan24.Core.HostedServiceTimers&gt;, System.Nullable&lt;System.DateTime&gt;, System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetOne()</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.StartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetOneAsync(System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.StopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetMany(System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.StartTimerAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GetManyAsync(System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.StopTimerAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.BeforeStopAsync(System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.AfterStartAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.WorkerAsync()</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.StoppingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Dispose(System.Boolean)</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.AfterStopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.DisposeCore()</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.WorkerAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.GUID</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.EnableTimerAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Capacity</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.Dispose(System.Boolean)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Available</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.DisposeCore()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.Created</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.RaiseOnRan()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.CreatedOnDemand</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.GUID</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.InstancePool&lt;T&gt;.State</span>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.CanPause</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.wan24.Core.ITimer.Interval</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.wan24.Core.ITimer.LastElapsed</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.wan24.Core.ITimer.Sheduled</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.wan24.Core.ITimer.AutoReset</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.State</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.Interval</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.TimerType</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.LastRun</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.LastDuration</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.NextRun</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.RunOnce</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.TimedHostedServiceBase.OnRan</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.Sync</span>
@@ -179,12 +213,6 @@
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase._LastException</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.HostedServiceBase.StartAsync(System.Threading.CancellationToken)</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.HostedServiceBase.StopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.PauseAsync(System.Threading.CancellationToken)</span>
@@ -217,13 +245,7 @@
       <span class="xref">wan24.Core.HostedServiceBase.StartingAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.HostedServiceBase.AfterStartAsync(System.Threading.CancellationToken)</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.HostedServiceBase.StoppingAsync(System.Threading.CancellationToken)</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.HostedServiceBase.AfterStopAsync(System.Threading.CancellationToken)</span>
+      <span class="xref">wan24.Core.HostedServiceBase.BeforeStopAsync(System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.BeforePauseAsync(System.Threading.CancellationToken)</span>
@@ -251,9 +273,6 @@
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.RaiseOnException()</span>
-    </div>
-    <div>
-      <span class="xref">wan24.Core.HostedServiceBase.CanPause</span>
     </div>
     <div>
       <span class="xref">wan24.Core.HostedServiceBase.IsRunning</span>
@@ -366,43 +385,27 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
-  <h5 id="wan24_Crypto_AsymmetricKeyPool_1_syntax">Syntax</h5>
+  <h5 id="wan24_Crypto_RngSeedTimer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeyPool&lt;T&gt; : InstancePool&lt;T&gt;, IInstancePool&lt;T&gt;, IAsymmetricKeyPool, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider where T : class, IAsymmetricPrivateKey, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class RngSeedTimer : TimedHostedServiceBase, ITimer, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>Asymmetric private key type</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1__ctor_System_Int32__wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.%23ctor(System.Int32%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngSeedTimer__ctor_wan24_Crypto_IRng__System_Int32__System_Double__wan24_Crypto_ISeedConsumer__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngSeedTimer.%23ctor(wan24.Crypto.IRng%40%2CSystem.Int32%40%2CSystem.Double%40%2Cwan24.Crypto.ISeedConsumer%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L34">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngSeedTimer.cs/#L30">View Source</a>
   </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1__ctor_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.#ctor*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1__ctor_System_Int32__wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.AsymmetricKeyPool`1.#ctor(System.Int32@,wan24.Crypto.CryptoOptions@)">AsymmetricKeyPool(in Int32, in CryptoOptions)</h4>
+  <a id="wan24_Crypto_RngSeedTimer__ctor_" data-uid="wan24.Crypto.RngSeedTimer.#ctor*"></a>
+  <h4 id="wan24_Crypto_RngSeedTimer__ctor_wan24_Crypto_IRng__System_Int32__System_Double__wan24_Crypto_ISeedConsumer__" data-uid="wan24.Crypto.RngSeedTimer.#ctor(wan24.Crypto.IRng@,System.Int32@,System.Double@,wan24.Crypto.ISeedConsumer@)">RngSeedTimer(in IRng, in Int32, in Double, in ISeedConsumer)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AsymmetricKeyPool(in int capacity, in CryptoOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public RngSeedTimer(in IRng rng, in int seed, in double interval, in ISeedConsumer seedConsumer = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -415,36 +418,47 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">capacity</span></td>
-        <td><p>Capacity</p>
+        <td><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></td>
+        <td><span class="parametername">rng</span></td>
+        <td><p>RNG</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
-        <td><span class="parametername">options</span></td>
-        <td><p>Options</p>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">seed</span></td>
+        <td><p>Seed length in byte</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td><p>Interval in ms</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></td>
+        <td><span class="parametername">seedConsumer</span></td>
+        <td><p>Seed consumer</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h3 id="eii">Explicit Interface Implementations
+  <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Algorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23Algorithm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngSeedTimer_TimedWorkerAsync.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngSeedTimer.TimedWorkerAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L41">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngSeedTimer.cs/#L39">View Source</a>
   </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Algorithm_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Algorithm*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Algorithm" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Algorithm">IAsymmetricKeyPool.Algorithm</h4>
-  <div class="markdown level1 summary"><p>Algorithm</p>
-</div>
+  <a id="wan24_Crypto_RngSeedTimer_TimedWorkerAsync_" data-uid="wan24.Crypto.RngSeedTimer.TimedWorkerAsync*"></a>
+  <h4 id="wan24_Crypto_RngSeedTimer_TimedWorkerAsync" data-uid="wan24.Crypto.RngSeedTimer.TimedWorkerAsync">TimedWorkerAsync()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IAsymmetricAlgorithm IAsymmetricKeyPool.Algorithm { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected override async Task TimedWorkerAsync()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -456,133 +470,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></td>
+        <td><span class="xref">Task</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23GetKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L47">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKey_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKey*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKey" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKey">IAsymmetricKeyPool.GetKey()</h4>
-  <div class="markdown level1 summary"><p>Get a key</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IAsymmetricPrivateKey IAsymmetricKeyPool.GetKey()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
-        <td><p>Asymmetric private key</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKeyAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23GetKeyAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L50">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKeyAsync_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKeyAsync*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_GetKeyAsync_CancellationToken_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#GetKeyAsync(CancellationToken)">IAsymmetricKeyPool.GetKeyAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Get a key</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">async Task&lt;IAsymmetricPrivateKey&gt; IAsymmetricKeyPool.GetKeyAsync(CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a>&gt;</td>
-        <td><p>Asymmetric private key</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Options.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601.wan24%23Crypto%23IAsymmetricKeyPool%23Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L44">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Options_" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Options*"></a>
-  <h4 id="wan24_Crypto_AsymmetricKeyPool_1_wan24_Crypto_IAsymmetricKeyPool_Options" data-uid="wan24.Crypto.AsymmetricKeyPool`1.wan24#Crypto#IAsymmetricKeyPool#Options">IAsymmetricKeyPool.Options</h4>
-  <div class="markdown level1 summary"><p>Options (returns a clone of the used options)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">CryptoOptions IAsymmetricKeyPool.Options { get; }</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">wan24.Core.TimedHostedServiceBase.TimedWorkerAsync()</span></div>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">wan24.Core.IInstancePool&lt;T&gt;</span>
-  </div>
-  <div>
-      <a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a>
-  </div>
-  <div>
-      <span class="xref">wan24.Core.IInstancePool</span>
+      <span class="xref">wan24.Core.ITimer</span>
   </div>
   <div>
       <span class="xref">wan24.Core.IServiceWorkerStatus</span>
@@ -613,10 +510,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricKeyPool_1.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricKeyPool%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngSeedTimer.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngSeedTimer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricKeyPool.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngSeedTimer.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

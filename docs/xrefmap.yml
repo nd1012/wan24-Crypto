@@ -6218,6 +6218,22 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.HashHelper.GetAlgorithm
   nameWithType: HashHelper.GetAlgorithm
+- uid: wan24.Crypto.HashHelper.GetAlgorithmName(System.Int32,System.String[])
+  name: GetAlgorithmName(Int32, String[])
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_GetAlgorithmName_System_Int32_System_String___
+  commentId: M:wan24.Crypto.HashHelper.GetAlgorithmName(System.Int32,System.String[])
+  name.vb: GetAlgorithmName(Int32, String())
+  fullName: wan24.Crypto.HashHelper.GetAlgorithmName(System.Int32, System.String[])
+  fullName.vb: wan24.Crypto.HashHelper.GetAlgorithmName(System.Int32, System.String())
+  nameWithType: HashHelper.GetAlgorithmName(Int32, String[])
+  nameWithType.vb: HashHelper.GetAlgorithmName(Int32, String())
+- uid: wan24.Crypto.HashHelper.GetAlgorithmName*
+  name: GetAlgorithmName
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_GetAlgorithmName_
+  commentId: Overload:wan24.Crypto.HashHelper.GetAlgorithmName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashHelper.GetAlgorithmName
+  nameWithType: HashHelper.GetAlgorithmName
 - uid: wan24.Crypto.HashHelper.GetDefaultOptions(wan24.Crypto.CryptoOptions)
   name: GetDefaultOptions(CryptoOptions)
   href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_GetDefaultOptions_wan24_Crypto_CryptoOptions_
@@ -6313,6 +6329,22 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.HashHelper.SyncObject
   nameWithType: HashHelper.SyncObject
+- uid: wan24.Crypto.HashHelper.TryGetAlgorithmName(System.Int32,System.String@,System.String[])
+  name: TryGetAlgorithmName(Int32, out String, String[])
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_TryGetAlgorithmName_System_Int32_System_String__System_String___
+  commentId: M:wan24.Crypto.HashHelper.TryGetAlgorithmName(System.Int32,System.String@,System.String[])
+  name.vb: TryGetAlgorithmName(Int32, ByRef String, String())
+  fullName: wan24.Crypto.HashHelper.TryGetAlgorithmName(System.Int32, out System.String, System.String[])
+  fullName.vb: wan24.Crypto.HashHelper.TryGetAlgorithmName(System.Int32, ByRef System.String, System.String())
+  nameWithType: HashHelper.TryGetAlgorithmName(Int32, out String, String[])
+  nameWithType.vb: HashHelper.TryGetAlgorithmName(Int32, ByRef String, String())
+- uid: wan24.Crypto.HashHelper.TryGetAlgorithmName*
+  name: TryGetAlgorithmName
+  href: api/wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_TryGetAlgorithmName_
+  commentId: Overload:wan24.Crypto.HashHelper.TryGetAlgorithmName
+  isSpec: "True"
+  fullName: wan24.Crypto.HashHelper.TryGetAlgorithmName
+  nameWithType: HashHelper.TryGetAlgorithmName
 - uid: wan24.Crypto.HavegeRng
   name: HavegeRng
   href: api/wan24.Crypto.HavegeRng.html
@@ -7827,6 +7859,22 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.MacHelper.GetAlgorithm
   nameWithType: MacHelper.GetAlgorithm
+- uid: wan24.Crypto.MacHelper.GetAlgorithmName(System.Int32,System.String[])
+  name: GetAlgorithmName(Int32, String[])
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_GetAlgorithmName_System_Int32_System_String___
+  commentId: M:wan24.Crypto.MacHelper.GetAlgorithmName(System.Int32,System.String[])
+  name.vb: GetAlgorithmName(Int32, String())
+  fullName: wan24.Crypto.MacHelper.GetAlgorithmName(System.Int32, System.String[])
+  fullName.vb: wan24.Crypto.MacHelper.GetAlgorithmName(System.Int32, System.String())
+  nameWithType: MacHelper.GetAlgorithmName(Int32, String[])
+  nameWithType.vb: MacHelper.GetAlgorithmName(Int32, String())
+- uid: wan24.Crypto.MacHelper.GetAlgorithmName*
+  name: GetAlgorithmName
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_GetAlgorithmName_
+  commentId: Overload:wan24.Crypto.MacHelper.GetAlgorithmName
+  isSpec: "True"
+  fullName: wan24.Crypto.MacHelper.GetAlgorithmName
+  nameWithType: MacHelper.GetAlgorithmName
 - uid: wan24.Crypto.MacHelper.GetDefaultOptions(wan24.Crypto.CryptoOptions)
   name: GetDefaultOptions(CryptoOptions)
   href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_GetDefaultOptions_wan24_Crypto_CryptoOptions_
@@ -7928,6 +7976,22 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.MacHelper.SyncObject
   nameWithType: MacHelper.SyncObject
+- uid: wan24.Crypto.MacHelper.TryGetAlgorithmName(System.Int32,System.String@,System.String[])
+  name: TryGetAlgorithmName(Int32, out String, String[])
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_TryGetAlgorithmName_System_Int32_System_String__System_String___
+  commentId: M:wan24.Crypto.MacHelper.TryGetAlgorithmName(System.Int32,System.String@,System.String[])
+  name.vb: TryGetAlgorithmName(Int32, ByRef String, String())
+  fullName: wan24.Crypto.MacHelper.TryGetAlgorithmName(System.Int32, out System.String, System.String[])
+  fullName.vb: wan24.Crypto.MacHelper.TryGetAlgorithmName(System.Int32, ByRef System.String, System.String())
+  nameWithType: MacHelper.TryGetAlgorithmName(Int32, out String, String[])
+  nameWithType.vb: MacHelper.TryGetAlgorithmName(Int32, ByRef String, String())
+- uid: wan24.Crypto.MacHelper.TryGetAlgorithmName*
+  name: TryGetAlgorithmName
+  href: api/wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_TryGetAlgorithmName_
+  commentId: Overload:wan24.Crypto.MacHelper.TryGetAlgorithmName
+  isSpec: "True"
+  fullName: wan24.Crypto.MacHelper.TryGetAlgorithmName
+  nameWithType: MacHelper.TryGetAlgorithmName
 - uid: wan24.Crypto.NetKeyExtensions
   name: NetKeyExtensions
   href: api/wan24.Crypto.NetKeyExtensions.html
@@ -11024,6 +11088,41 @@ references:
   commentId: F:wan24.Crypto.RngSeedingTypes.Random
   fullName: wan24.Crypto.RngSeedingTypes.Random
   nameWithType: RngSeedingTypes.Random
+- uid: wan24.Crypto.RngSeedTimer
+  name: RngSeedTimer
+  href: api/wan24.Crypto.RngSeedTimer.html
+  commentId: T:wan24.Crypto.RngSeedTimer
+  fullName: wan24.Crypto.RngSeedTimer
+  nameWithType: RngSeedTimer
+- uid: wan24.Crypto.RngSeedTimer.#ctor(wan24.Crypto.IRng@,System.Int32@,System.Double@,wan24.Crypto.ISeedConsumer@)
+  name: RngSeedTimer(in IRng, in Int32, in Double, in ISeedConsumer)
+  href: api/wan24.Crypto.RngSeedTimer.html#wan24_Crypto_RngSeedTimer__ctor_wan24_Crypto_IRng__System_Int32__System_Double__wan24_Crypto_ISeedConsumer__
+  commentId: M:wan24.Crypto.RngSeedTimer.#ctor(wan24.Crypto.IRng@,System.Int32@,System.Double@,wan24.Crypto.ISeedConsumer@)
+  name.vb: RngSeedTimer(ByRef IRng, ByRef Int32, ByRef Double, ByRef ISeedConsumer)
+  fullName: wan24.Crypto.RngSeedTimer.RngSeedTimer(in wan24.Crypto.IRng, in System.Int32, in System.Double, in wan24.Crypto.ISeedConsumer)
+  fullName.vb: wan24.Crypto.RngSeedTimer.RngSeedTimer(ByRef wan24.Crypto.IRng, ByRef System.Int32, ByRef System.Double, ByRef wan24.Crypto.ISeedConsumer)
+  nameWithType: RngSeedTimer.RngSeedTimer(in IRng, in Int32, in Double, in ISeedConsumer)
+  nameWithType.vb: RngSeedTimer.RngSeedTimer(ByRef IRng, ByRef Int32, ByRef Double, ByRef ISeedConsumer)
+- uid: wan24.Crypto.RngSeedTimer.#ctor*
+  name: RngSeedTimer
+  href: api/wan24.Crypto.RngSeedTimer.html#wan24_Crypto_RngSeedTimer__ctor_
+  commentId: Overload:wan24.Crypto.RngSeedTimer.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedTimer.RngSeedTimer
+  nameWithType: RngSeedTimer.RngSeedTimer
+- uid: wan24.Crypto.RngSeedTimer.TimedWorkerAsync
+  name: TimedWorkerAsync()
+  href: api/wan24.Crypto.RngSeedTimer.html#wan24_Crypto_RngSeedTimer_TimedWorkerAsync
+  commentId: M:wan24.Crypto.RngSeedTimer.TimedWorkerAsync
+  fullName: wan24.Crypto.RngSeedTimer.TimedWorkerAsync()
+  nameWithType: RngSeedTimer.TimedWorkerAsync()
+- uid: wan24.Crypto.RngSeedTimer.TimedWorkerAsync*
+  name: TimedWorkerAsync
+  href: api/wan24.Crypto.RngSeedTimer.html#wan24_Crypto_RngSeedTimer_TimedWorkerAsync_
+  commentId: Overload:wan24.Crypto.RngSeedTimer.TimedWorkerAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.RngSeedTimer.TimedWorkerAsync
+  nameWithType: RngSeedTimer.TimedWorkerAsync
 - uid: wan24.Crypto.SecureValue
   name: SecureValue
   href: api/wan24.Crypto.SecureValue.html
