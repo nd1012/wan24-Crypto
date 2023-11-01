@@ -46,6 +46,9 @@ namespace wan24.Crypto
             if (options.DefaultPakeClientAuthOptions is not null) PakeClientAuthOptions.DefaultOptions = options.DefaultPakeClientAuthOptions;
             if (options.AsymmetricKeySigner is not null) AsymmetricKeySigner.Instance = options.AsymmetricKeySigner;
             if (options.AsymmetricKeySignerService is not null) AsymmetricKeySignerService.Instance = options.AsymmetricKeySignerService;
+            if (options.ProcessScopeKey is not null) ValueProtection.ProcessScopeKey = options.ProcessScopeKey;
+            if (options.UserScopeKey is not null) ValueProtection.UserScopeKey = options.UserScopeKey;
+            if (options.SystemScopeKey is not null) ValueProtection.SystemScopeKey = options.SystemScopeKey;
         }
 
         /// <summary>
