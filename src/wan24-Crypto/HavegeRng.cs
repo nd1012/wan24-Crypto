@@ -12,13 +12,21 @@ namespace wan24.Crypto
         /// </summary>
         public const string HAVEGE = "/usr/sbin/haveged";
 
+        /// <summary>
+        /// Havege CLI arguments
+        /// </summary>
+        private static readonly string[] HavegeArgs = new string[] { "-n", "0" };
+
+        /// <summary>
+        /// Havege stream pool
+        /// </summary>
         private readonly DisposableObjectPool<ProcessStream> Pool;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="capacity">Random data stream pool capacity</param>
-        public HavegeRng(in int capacity) : base() => Pool = new(capacity, () => ProcessStream.Create(HAVEGE, args: new string[] { "-n", "0" }));
+        public HavegeRng(in int capacity) : base() => Pool = new(capacity, () => ProcessStream.Create(HAVEGE, args: HavegeArgs));
 
         /// <inheritdoc/>
         public override Span<byte> FillBytes(in Span<byte> buffer)

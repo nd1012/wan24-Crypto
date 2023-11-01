@@ -9,7 +9,7 @@ namespace wan24.Crypto
     /// Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see 
     /// <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>)
     /// </summary>
-    public partial class SecureValue<T> : SecureValue where T : class, IStreamSerializer, new()
+    public class SecureValue<T> : SecureValue where T : class, IStreamSerializer, new()
     {
         /// <summary>
         /// Constructor
@@ -108,7 +108,7 @@ namespace wan24.Crypto
     /// Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see 
     /// <see href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf"/>)
     /// </summary>
-    public partial class SecureValue : DisposableBase, IStatusProvider
+    public partial class SecureValue : DisposableBase, ISecureValue, IStatusProvider
     {
         /// <summary>
         /// Constructor
@@ -201,9 +201,7 @@ namespace wan24.Crypto
             }
         }
 
-        /// <summary>
-        /// Value (should/will be cleared!)
-        /// </summary>
+        /// <inheritdoc/>
         [NoValidation, SensitiveData]
         public byte[] Value
         {

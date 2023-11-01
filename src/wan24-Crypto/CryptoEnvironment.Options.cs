@@ -189,6 +189,21 @@ namespace wan24.Crypto
             /// <see cref="AsymmetricPublicKeySigningRequest"/> signer service
             /// </summary>
             public AsymmetricKeySignerService? AsymmetricKeySignerService { get; set; }
+
+            /// <summary>
+            /// Process scope key for <see cref="ValueProtection"/>
+            /// </summary>
+            public ISecureValue? ProcessScopeKey { get; set; }
+
+            /// <summary>
+            /// User scope key for <see cref="ValueProtection"/>
+            /// </summary>
+            public ISecureValue? UserScopeKey { get; set; }
+
+            /// <summary>
+            /// System scope key for <see cref="ValueProtection"/>
+            /// </summary>
+            public ISecureValue? SystemScopeKey { get; set; }
         }
     }
 }

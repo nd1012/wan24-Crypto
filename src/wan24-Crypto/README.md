@@ -252,6 +252,36 @@ privateKey.PublicKey.ValidateSignature(signature, anyData);
 
 The default signature algorithm is DSA from a secp521r1 elliptic curve.
 
+### Value protection
+
+The `ValueProtection` contains some static methods for protecting a value in a 
+specified scope:
+
+```cs
+value = ValueProtection.Protect(value);
+value = ValueProtection.Unprotect(value);
+```
+
+There are 3 scopes, which may be given as parameter:
+
+- `System`: System (permanent system bound protection)
+- `User`: Current user (permanent user bound protection)
+- `Process`: Current process (default; for non-permanent protection only!)
+
+The scope keys will be set automatic, but may be replaced with your own logic. 
+Per default the keys are generated like this:
+
+- `System`: Hash of application location and machine name
+- `User`: Hash of user domain and name, application location and machine name
+- `Process`: Random data
+
+The `Protect` and `Unprotect` methods are delegate properties which can be 
+exchanged. For example for Windows and Linux OS you may want to use different 
+approaches.
+
+For protecting a value it'll be encrypted using the current default encryption 
+options.
+
 ## Too many options?
 
 The `CryptoOptions` contains a huge collection of properties, which follow a 
