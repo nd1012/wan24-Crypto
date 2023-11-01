@@ -86,6 +86,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="wan24.Crypto.ISecureValue.html">ISecureValue</a></div>
     <div><span class="xref">wan24.Core.IDisposableObject</span></div>
     <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">System.IAsyncDisposable</span></div>
@@ -245,7 +246,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_SecureValue_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SecureValue&lt;T&gt; : SecureValue, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider where T : class, IStreamSerializer, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public class SecureValue&lt;T&gt; : SecureValue, ISecureValue, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider where T : class, IStreamSerializer, new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -572,6 +573,9 @@
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.ISecureValue.html">ISecureValue</a>
+  </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>

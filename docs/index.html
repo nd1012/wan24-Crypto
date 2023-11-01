@@ -323,6 +323,30 @@ SignatureContainer signature = privateKey.SignData(anyData);
 privateKey.PublicKey.ValidateSignature(signature, anyData);
 </code></pre>
 <p>The default signature algorithm is DSA from a secp521r1 elliptic curve.</p>
+<h3 id="value-protection">Value protection</h3>
+<p>The <code>ValueProtection</code> contains some static methods for protecting a value in a
+specified scope:</p>
+<pre><code class="lang-cs">value = ValueProtection.Protect(value);
+value = ValueProtection.Unprotect(value);
+</code></pre>
+<p>There are 3 scopes, which may be given as parameter:</p>
+<ul>
+<li><code>System</code>: System (permanent system bound protection)</li>
+<li><code>User</code>: Current user (permanent user bound protection)</li>
+<li><code>Process</code>: Current process (default; for non-permanent protection only!)</li>
+</ul>
+<p>The scope keys will be set automatic, but may be replaced with your own logic.
+Per default the keys are generated like this:</p>
+<ul>
+<li><code>System</code>: Hash of application location and machine name</li>
+<li><code>User</code>: Hash of user domain and name, application location and machine name</li>
+<li><code>Process</code>: Random data</li>
+</ul>
+<p>The <code>Protect</code> and <code>Unprotect</code> methods are delegate properties which can be
+exchanged. For example for Windows and Linux OS you may want to use different
+approaches.</p>
+<p>For protecting a value it'll be encrypted using the current default encryption
+options.</p>
 <h2 id="too-many-options">Too many options?</h2>
 <p>The <code>CryptoOptions</code> contains a huge collection of properties, which follow a
 simple pattern in case of en-/decryption: Which information should be included

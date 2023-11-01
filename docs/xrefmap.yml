@@ -2413,6 +2413,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.PKI
   nameWithType: CryptoEnvironment.Options.PKI
+- uid: wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey
+  name: ProcessScopeKey
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_ProcessScopeKey
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey
+  fullName: wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey
+  nameWithType: CryptoEnvironment.Options.ProcessScopeKey
+- uid: wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey*
+  name: ProcessScopeKey
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_ProcessScopeKey_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey
+  nameWithType: CryptoEnvironment.Options.ProcessScopeKey
 - uid: wan24.Crypto.CryptoEnvironment.Options.RandomGenerator
   name: RandomGenerator
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_RandomGenerator
@@ -2465,6 +2478,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.SkipPakeSignatureKeyValidation
   nameWithType: CryptoEnvironment.Options.SkipPakeSignatureKeyValidation
+- uid: wan24.Crypto.CryptoEnvironment.Options.SystemScopeKey
+  name: SystemScopeKey
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SystemScopeKey
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.SystemScopeKey
+  fullName: wan24.Crypto.CryptoEnvironment.Options.SystemScopeKey
+  nameWithType: CryptoEnvironment.Options.SystemScopeKey
+- uid: wan24.Crypto.CryptoEnvironment.Options.SystemScopeKey*
+  name: SystemScopeKey
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SystemScopeKey_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.SystemScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.SystemScopeKey
+  nameWithType: CryptoEnvironment.Options.SystemScopeKey
 - uid: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
   name: UseDevRandom
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UseDevRandom
@@ -2478,6 +2504,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
   nameWithType: CryptoEnvironment.Options.UseDevRandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.UserScopeKey
+  name: UserScopeKey
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UserScopeKey
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.UserScopeKey
+  fullName: wan24.Crypto.CryptoEnvironment.Options.UserScopeKey
+  nameWithType: CryptoEnvironment.Options.UserScopeKey
+- uid: wan24.Crypto.CryptoEnvironment.Options.UserScopeKey*
+  name: UserScopeKey
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UserScopeKey_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.UserScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.UserScopeKey
+  nameWithType: CryptoEnvironment.Options.UserScopeKey
 - uid: wan24.Crypto.CryptoEnvironment.PakeAuthClient
   name: PakeAuthClient
   href: api/wan24.Crypto.CryptoEnvironment.html#wan24_Crypto_CryptoEnvironment_PakeAuthClient
@@ -7425,6 +7464,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IRng.GetBytesAsync
   nameWithType: IRng.GetBytesAsync
+- uid: wan24.Crypto.ISecureValue
+  name: ISecureValue
+  href: api/wan24.Crypto.ISecureValue.html
+  commentId: T:wan24.Crypto.ISecureValue
+  fullName: wan24.Crypto.ISecureValue
+  nameWithType: ISecureValue
+- uid: wan24.Crypto.ISecureValue.Value
+  name: Value
+  href: api/wan24.Crypto.ISecureValue.html#wan24_Crypto_ISecureValue_Value
+  commentId: P:wan24.Crypto.ISecureValue.Value
+  fullName: wan24.Crypto.ISecureValue.Value
+  nameWithType: ISecureValue.Value
+- uid: wan24.Crypto.ISecureValue.Value*
+  name: Value
+  href: api/wan24.Crypto.ISecureValue.html#wan24_Crypto_ISecureValue_Value_
+  commentId: Overload:wan24.Crypto.ISecureValue.Value
+  isSpec: "True"
+  fullName: wan24.Crypto.ISecureValue.Value
+  nameWithType: ISecureValue.Value
 - uid: wan24.Crypto.ISeedableRng
   name: ISeedableRng
   href: api/wan24.Crypto.ISeedableRng.html
@@ -11717,6 +11775,151 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.SeedableRngBase.AddSeedAsync
   nameWithType: SeedableRngBase.AddSeedAsync
+- uid: wan24.Crypto.SharedSecret
+  name: SharedSecret
+  href: api/wan24.Crypto.SharedSecret.html
+  commentId: T:wan24.Crypto.SharedSecret
+  fullName: wan24.Crypto.SharedSecret
+  nameWithType: SharedSecret
+- uid: wan24.Crypto.SharedSecret.#ctor(System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name: SharedSecret(in Byte[], in Byte[], in CryptoOptions)
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret__ctor_System_Byte____System_Byte____wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.SharedSecret.#ctor(System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)
+  name.vb: SharedSecret(ByRef Byte(), ByRef Byte(), ByRef CryptoOptions)
+  fullName: wan24.Crypto.SharedSecret.SharedSecret(in System.Byte[], in System.Byte[], in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.SharedSecret.SharedSecret(ByRef System.Byte(), ByRef System.Byte(), ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: SharedSecret.SharedSecret(in Byte[], in Byte[], in CryptoOptions)
+  nameWithType.vb: SharedSecret.SharedSecret(ByRef Byte(), ByRef Byte(), ByRef CryptoOptions)
+- uid: wan24.Crypto.SharedSecret.#ctor(wan24.Crypto.CryptoOptions@)
+  name: SharedSecret(in CryptoOptions)
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret__ctor_wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.SharedSecret.#ctor(wan24.Crypto.CryptoOptions@)
+  name.vb: SharedSecret(ByRef CryptoOptions)
+  fullName: wan24.Crypto.SharedSecret.SharedSecret(in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.SharedSecret.SharedSecret(ByRef wan24.Crypto.CryptoOptions)
+  nameWithType: SharedSecret.SharedSecret(in CryptoOptions)
+  nameWithType.vb: SharedSecret.SharedSecret(ByRef CryptoOptions)
+- uid: wan24.Crypto.SharedSecret.#ctor*
+  name: SharedSecret
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret__ctor_
+  commentId: Overload:wan24.Crypto.SharedSecret.#ctor
+  isSpec: "True"
+  fullName: wan24.Crypto.SharedSecret.SharedSecret
+  nameWithType: SharedSecret.SharedSecret
+- uid: wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose(System.Byte[]@)
+  name: DeriveFinalSecretAndDispose(in Byte[])
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_DeriveFinalSecretAndDispose_System_Byte____
+  commentId: M:wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose(System.Byte[]@)
+  name.vb: DeriveFinalSecretAndDispose(ByRef Byte())
+  fullName: wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose(in System.Byte[])
+  fullName.vb: wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose(ByRef System.Byte())
+  nameWithType: SharedSecret.DeriveFinalSecretAndDispose(in Byte[])
+  nameWithType.vb: SharedSecret.DeriveFinalSecretAndDispose(ByRef Byte())
+- uid: wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose*
+  name: DeriveFinalSecretAndDispose
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_DeriveFinalSecretAndDispose_
+  commentId: Overload:wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose
+  isSpec: "True"
+  fullName: wan24.Crypto.SharedSecret.DeriveFinalSecretAndDispose
+  nameWithType: SharedSecret.DeriveFinalSecretAndDispose
+- uid: wan24.Crypto.SharedSecret.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.SharedSecret.Dispose(System.Boolean)
+  fullName: wan24.Crypto.SharedSecret.Dispose(System.Boolean)
+  nameWithType: SharedSecret.Dispose(Boolean)
+- uid: wan24.Crypto.SharedSecret.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_Dispose_
+  commentId: Overload:wan24.Crypto.SharedSecret.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.SharedSecret.Dispose
+  nameWithType: SharedSecret.Dispose
+- uid: wan24.Crypto.SharedSecret.op_Addition(System.Byte[]@,wan24.Crypto.SharedSecret@)
+  name: Addition(in Byte[], in SharedSecret)
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_op_Addition_System_Byte____wan24_Crypto_SharedSecret__
+  commentId: M:wan24.Crypto.SharedSecret.op_Addition(System.Byte[]@,wan24.Crypto.SharedSecret@)
+  name.vb: Addition(ByRef Byte(), ByRef SharedSecret)
+  fullName: wan24.Crypto.SharedSecret.Addition(in System.Byte[], in wan24.Crypto.SharedSecret)
+  fullName.vb: wan24.Crypto.SharedSecret.Addition(ByRef System.Byte(), ByRef wan24.Crypto.SharedSecret)
+  nameWithType: SharedSecret.Addition(in Byte[], in SharedSecret)
+  nameWithType.vb: SharedSecret.Addition(ByRef Byte(), ByRef SharedSecret)
+- uid: wan24.Crypto.SharedSecret.op_Addition(wan24.Crypto.SharedSecret@,System.Byte[]@)
+  name: Addition(in SharedSecret, in Byte[])
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_op_Addition_wan24_Crypto_SharedSecret__System_Byte____
+  commentId: M:wan24.Crypto.SharedSecret.op_Addition(wan24.Crypto.SharedSecret@,System.Byte[]@)
+  name.vb: Addition(ByRef SharedSecret, ByRef Byte())
+  fullName: wan24.Crypto.SharedSecret.Addition(in wan24.Crypto.SharedSecret, in System.Byte[])
+  fullName.vb: wan24.Crypto.SharedSecret.Addition(ByRef wan24.Crypto.SharedSecret, ByRef System.Byte())
+  nameWithType: SharedSecret.Addition(in SharedSecret, in Byte[])
+  nameWithType.vb: SharedSecret.Addition(ByRef SharedSecret, ByRef Byte())
+- uid: wan24.Crypto.SharedSecret.op_Addition*
+  name: Addition
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_op_Addition_
+  commentId: Overload:wan24.Crypto.SharedSecret.op_Addition
+  isSpec: "True"
+  fullName: wan24.Crypto.SharedSecret.Addition
+  nameWithType: SharedSecret.Addition
+- uid: wan24.Crypto.SharedSecret.op_Implicit(wan24.Crypto.SharedSecret@)~System.Byte[]
+  name: Implicit(in SharedSecret to Byte[])
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_op_Implicit_wan24_Crypto_SharedSecret___System_Byte__
+  commentId: M:wan24.Crypto.SharedSecret.op_Implicit(wan24.Crypto.SharedSecret@)~System.Byte[]
+  name.vb: Widening(ByRef SharedSecret to Byte())
+  fullName: wan24.Crypto.SharedSecret.Implicit(in wan24.Crypto.SharedSecret to System.Byte[])
+  fullName.vb: wan24.Crypto.SharedSecret.Widening(ByRef wan24.Crypto.SharedSecret to System.Byte())
+  nameWithType: SharedSecret.Implicit(in SharedSecret to Byte[])
+  nameWithType.vb: SharedSecret.Widening(ByRef SharedSecret to Byte())
+- uid: wan24.Crypto.SharedSecret.op_Implicit*
+  name: Implicit
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_op_Implicit_
+  commentId: Overload:wan24.Crypto.SharedSecret.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: wan24.Crypto.SharedSecret.Implicit
+  fullName.vb: wan24.Crypto.SharedSecret.Widening
+  nameWithType: SharedSecret.Implicit
+  nameWithType.vb: SharedSecret.Widening
+- uid: wan24.Crypto.SharedSecret.Options
+  name: Options
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_Options
+  commentId: F:wan24.Crypto.SharedSecret.Options
+  fullName: wan24.Crypto.SharedSecret.Options
+  nameWithType: SharedSecret.Options
+- uid: wan24.Crypto.SharedSecret.ProtectRemoteSecret(System.Byte[]@)
+  name: ProtectRemoteSecret(in Byte[])
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_ProtectRemoteSecret_System_Byte____
+  commentId: M:wan24.Crypto.SharedSecret.ProtectRemoteSecret(System.Byte[]@)
+  name.vb: ProtectRemoteSecret(ByRef Byte())
+  fullName: wan24.Crypto.SharedSecret.ProtectRemoteSecret(in System.Byte[])
+  fullName.vb: wan24.Crypto.SharedSecret.ProtectRemoteSecret(ByRef System.Byte())
+  nameWithType: SharedSecret.ProtectRemoteSecret(in Byte[])
+  nameWithType.vb: SharedSecret.ProtectRemoteSecret(ByRef Byte())
+- uid: wan24.Crypto.SharedSecret.ProtectRemoteSecret*
+  name: ProtectRemoteSecret
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_ProtectRemoteSecret_
+  commentId: Overload:wan24.Crypto.SharedSecret.ProtectRemoteSecret
+  isSpec: "True"
+  fullName: wan24.Crypto.SharedSecret.ProtectRemoteSecret
+  nameWithType: SharedSecret.ProtectRemoteSecret
+- uid: wan24.Crypto.SharedSecret.Secret
+  name: Secret
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_Secret
+  commentId: P:wan24.Crypto.SharedSecret.Secret
+  fullName: wan24.Crypto.SharedSecret.Secret
+  nameWithType: SharedSecret.Secret
+- uid: wan24.Crypto.SharedSecret.Secret*
+  name: Secret
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_Secret_
+  commentId: Overload:wan24.Crypto.SharedSecret.Secret
+  isSpec: "True"
+  fullName: wan24.Crypto.SharedSecret.Secret
+  nameWithType: SharedSecret.Secret
+- uid: wan24.Crypto.SharedSecret.Token
+  name: Token
+  href: api/wan24.Crypto.SharedSecret.html#wan24_Crypto_SharedSecret_Token
+  commentId: F:wan24.Crypto.SharedSecret.Token
+  fullName: wan24.Crypto.SharedSecret.Token
+  nameWithType: SharedSecret.Token
 - uid: wan24.Crypto.SignedAttributes
   name: SignedAttributes
   href: api/wan24.Crypto.SignedAttributes.html
@@ -12363,6 +12566,158 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.SymmetricKeySuiteExtensions.DeriveSessionKey
   nameWithType: SymmetricKeySuiteExtensions.DeriveSessionKey
+- uid: wan24.Crypto.ValueProtection
+  name: ValueProtection
+  href: api/wan24.Crypto.ValueProtection.html
+  commentId: T:wan24.Crypto.ValueProtection
+  fullName: wan24.Crypto.ValueProtection
+  nameWithType: ValueProtection
+- uid: wan24.Crypto.ValueProtection.DefaultProtect(System.Byte[],wan24.Crypto.ValueProtection.Scope)
+  name: DefaultProtect(Byte[], ValueProtection.Scope)
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_DefaultProtect_System_Byte___wan24_Crypto_ValueProtection_Scope_
+  commentId: M:wan24.Crypto.ValueProtection.DefaultProtect(System.Byte[],wan24.Crypto.ValueProtection.Scope)
+  name.vb: DefaultProtect(Byte(), ValueProtection.Scope)
+  fullName: wan24.Crypto.ValueProtection.DefaultProtect(System.Byte[], wan24.Crypto.ValueProtection.Scope)
+  fullName.vb: wan24.Crypto.ValueProtection.DefaultProtect(System.Byte(), wan24.Crypto.ValueProtection.Scope)
+  nameWithType: ValueProtection.DefaultProtect(Byte[], ValueProtection.Scope)
+  nameWithType.vb: ValueProtection.DefaultProtect(Byte(), ValueProtection.Scope)
+- uid: wan24.Crypto.ValueProtection.DefaultProtect*
+  name: DefaultProtect
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_DefaultProtect_
+  commentId: Overload:wan24.Crypto.ValueProtection.DefaultProtect
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.DefaultProtect
+  nameWithType: ValueProtection.DefaultProtect
+- uid: wan24.Crypto.ValueProtection.DefaultUnprotect(System.Byte[],wan24.Crypto.ValueProtection.Scope)
+  name: DefaultUnprotect(Byte[], ValueProtection.Scope)
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_DefaultUnprotect_System_Byte___wan24_Crypto_ValueProtection_Scope_
+  commentId: M:wan24.Crypto.ValueProtection.DefaultUnprotect(System.Byte[],wan24.Crypto.ValueProtection.Scope)
+  name.vb: DefaultUnprotect(Byte(), ValueProtection.Scope)
+  fullName: wan24.Crypto.ValueProtection.DefaultUnprotect(System.Byte[], wan24.Crypto.ValueProtection.Scope)
+  fullName.vb: wan24.Crypto.ValueProtection.DefaultUnprotect(System.Byte(), wan24.Crypto.ValueProtection.Scope)
+  nameWithType: ValueProtection.DefaultUnprotect(Byte[], ValueProtection.Scope)
+  nameWithType.vb: ValueProtection.DefaultUnprotect(Byte(), ValueProtection.Scope)
+- uid: wan24.Crypto.ValueProtection.DefaultUnprotect*
+  name: DefaultUnprotect
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_DefaultUnprotect_
+  commentId: Overload:wan24.Crypto.ValueProtection.DefaultUnprotect
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.DefaultUnprotect
+  nameWithType: ValueProtection.DefaultUnprotect
+- uid: wan24.Crypto.ValueProtection.GetScopeKey(wan24.Crypto.ValueProtection.Scope)
+  name: GetScopeKey(ValueProtection.Scope)
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_GetScopeKey_wan24_Crypto_ValueProtection_Scope_
+  commentId: M:wan24.Crypto.ValueProtection.GetScopeKey(wan24.Crypto.ValueProtection.Scope)
+  fullName: wan24.Crypto.ValueProtection.GetScopeKey(wan24.Crypto.ValueProtection.Scope)
+  nameWithType: ValueProtection.GetScopeKey(ValueProtection.Scope)
+- uid: wan24.Crypto.ValueProtection.GetScopeKey*
+  name: GetScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_GetScopeKey_
+  commentId: Overload:wan24.Crypto.ValueProtection.GetScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.GetScopeKey
+  nameWithType: ValueProtection.GetScopeKey
+- uid: wan24.Crypto.ValueProtection.ProcessScopeKey
+  name: ProcessScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_ProcessScopeKey
+  commentId: P:wan24.Crypto.ValueProtection.ProcessScopeKey
+  fullName: wan24.Crypto.ValueProtection.ProcessScopeKey
+  nameWithType: ValueProtection.ProcessScopeKey
+- uid: wan24.Crypto.ValueProtection.ProcessScopeKey*
+  name: ProcessScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_ProcessScopeKey_
+  commentId: Overload:wan24.Crypto.ValueProtection.ProcessScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.ProcessScopeKey
+  nameWithType: ValueProtection.ProcessScopeKey
+- uid: wan24.Crypto.ValueProtection.Protect
+  name: Protect
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_Protect
+  commentId: P:wan24.Crypto.ValueProtection.Protect
+  fullName: wan24.Crypto.ValueProtection.Protect
+  nameWithType: ValueProtection.Protect
+- uid: wan24.Crypto.ValueProtection.Protect*
+  name: Protect
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_Protect_
+  commentId: Overload:wan24.Crypto.ValueProtection.Protect
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.Protect
+  nameWithType: ValueProtection.Protect
+- uid: wan24.Crypto.ValueProtection.ProtectValue_Delegate
+  name: ValueProtection.ProtectValue_Delegate
+  href: api/wan24.Crypto.ValueProtection.ProtectValue_Delegate.html
+  commentId: T:wan24.Crypto.ValueProtection.ProtectValue_Delegate
+  fullName: wan24.Crypto.ValueProtection.ProtectValue_Delegate
+  nameWithType: ValueProtection.ProtectValue_Delegate
+- uid: wan24.Crypto.ValueProtection.Scope
+  name: ValueProtection.Scope
+  href: api/wan24.Crypto.ValueProtection.Scope.html
+  commentId: T:wan24.Crypto.ValueProtection.Scope
+  fullName: wan24.Crypto.ValueProtection.Scope
+  nameWithType: ValueProtection.Scope
+- uid: wan24.Crypto.ValueProtection.Scope.Process
+  name: Process
+  href: api/wan24.Crypto.ValueProtection.Scope.html#wan24_Crypto_ValueProtection_Scope_Process
+  commentId: F:wan24.Crypto.ValueProtection.Scope.Process
+  fullName: wan24.Crypto.ValueProtection.Scope.Process
+  nameWithType: ValueProtection.Scope.Process
+- uid: wan24.Crypto.ValueProtection.Scope.System
+  name: System
+  href: api/wan24.Crypto.ValueProtection.Scope.html#wan24_Crypto_ValueProtection_Scope_System
+  commentId: F:wan24.Crypto.ValueProtection.Scope.System
+  fullName: wan24.Crypto.ValueProtection.Scope.System
+  nameWithType: ValueProtection.Scope.System
+- uid: wan24.Crypto.ValueProtection.Scope.User
+  name: User
+  href: api/wan24.Crypto.ValueProtection.Scope.html#wan24_Crypto_ValueProtection_Scope_User
+  commentId: F:wan24.Crypto.ValueProtection.Scope.User
+  fullName: wan24.Crypto.ValueProtection.Scope.User
+  nameWithType: ValueProtection.Scope.User
+- uid: wan24.Crypto.ValueProtection.SystemScopeKey
+  name: SystemScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_SystemScopeKey
+  commentId: P:wan24.Crypto.ValueProtection.SystemScopeKey
+  fullName: wan24.Crypto.ValueProtection.SystemScopeKey
+  nameWithType: ValueProtection.SystemScopeKey
+- uid: wan24.Crypto.ValueProtection.SystemScopeKey*
+  name: SystemScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_SystemScopeKey_
+  commentId: Overload:wan24.Crypto.ValueProtection.SystemScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.SystemScopeKey
+  nameWithType: ValueProtection.SystemScopeKey
+- uid: wan24.Crypto.ValueProtection.Unprotect
+  name: Unprotect
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_Unprotect
+  commentId: P:wan24.Crypto.ValueProtection.Unprotect
+  fullName: wan24.Crypto.ValueProtection.Unprotect
+  nameWithType: ValueProtection.Unprotect
+- uid: wan24.Crypto.ValueProtection.Unprotect*
+  name: Unprotect
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_Unprotect_
+  commentId: Overload:wan24.Crypto.ValueProtection.Unprotect
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.Unprotect
+  nameWithType: ValueProtection.Unprotect
+- uid: wan24.Crypto.ValueProtection.UnprotectValue_Delegate
+  name: ValueProtection.UnprotectValue_Delegate
+  href: api/wan24.Crypto.ValueProtection.UnprotectValue_Delegate.html
+  commentId: T:wan24.Crypto.ValueProtection.UnprotectValue_Delegate
+  fullName: wan24.Crypto.ValueProtection.UnprotectValue_Delegate
+  nameWithType: ValueProtection.UnprotectValue_Delegate
+- uid: wan24.Crypto.ValueProtection.UserScopeKey
+  name: UserScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_UserScopeKey
+  commentId: P:wan24.Crypto.ValueProtection.UserScopeKey
+  fullName: wan24.Crypto.ValueProtection.UserScopeKey
+  nameWithType: ValueProtection.UserScopeKey
+- uid: wan24.Crypto.ValueProtection.UserScopeKey*
+  name: UserScopeKey
+  href: api/wan24.Crypto.ValueProtection.html#wan24_Crypto_ValueProtection_UserScopeKey_
+  commentId: Overload:wan24.Crypto.ValueProtection.UserScopeKey
+  isSpec: "True"
+  fullName: wan24.Crypto.ValueProtection.UserScopeKey
+  nameWithType: ValueProtection.UserScopeKey
 - uid: wan24.Crypto.X509Extensions
   name: X509Extensions
   href: api/wan24.Crypto.X509Extensions.html
