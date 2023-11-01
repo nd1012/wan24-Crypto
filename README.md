@@ -76,10 +76,25 @@ This library is available as
 
 These extension NuGet packages are available:
 
-- [wan24-Crypto-BC (adopts post quantum algorithms from Bouncy Castle)](https://www.nuget.org/packages/wan24-Crypto-BC/)
+- [wan24-Crypto-BC (adopts some algorithms from Bouncy Castle)](https://www.nuget.org/packages/wan24-Crypto-BC/)
 - [wan24-Crypto-NaCl (adopts the Argon2id KDF algorithm from NSec)](https://www.nuget.org/packages/wan24-Crypto-NaCl/)
+- [wan24-Crypto-TPM (simplifies including TPM into your apps security)](https://www.nuget.org/packages/wan24-Crypto-TPM/)
 
 ## Usage
+
+In case you don't use the `wan24-Core` bootstrapper logic, you need to 
+initialize the library first:
+
+```cs
+wan24.Crypto.Bootstrap.Boot();
+```
+
+In case you work with dependency injection (DI), you may want to add some 
+services:
+
+```cs
+builder.Services.AddWan24Crypto();
+```
 
 ### Hashing
 
