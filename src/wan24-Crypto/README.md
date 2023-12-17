@@ -15,10 +15,16 @@ Per default these cryptographic algorithms are implemented:
 | | SHA-256 |
 | | SHA-384 |
 | | SHA-512 |
+| | SHA3-256 |
+| | SHA3-384 |
+| | SHA3-512 |
 | **MAC** | HMAC-SHA-1 |
 |  | HMAC-SHA-256 |
 |  | HMAC-SHA-384 |
 |  | HMAC-SHA-512 |
+|  | HMAC-SHA3-256 |
+|  | HMAC-SHA3-384 |
+|  | HMAC-SHA3-512 |
 | **Symmetric encryption** | AES-256-CBC (ISO10126 padding) |
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
@@ -102,7 +108,7 @@ builder.Services.AddWan24Crypto();
 byte[] hash = rawData.Hash();
 ```
 
-The default hash algorithm ist SHA512.
+The default hash algorithm ist SHA3-512.
 
 ### MAC
 
@@ -110,7 +116,7 @@ The default hash algorithm ist SHA512.
 byte[] mac = rawData.Mac(password);
 ```
 
-The default MAC algorithm is HMAC-SHA512.
+The default MAC algorithm is HMAC-SHA3-512.
 
 **NOTE**: The `CryptoOptions.MacPassword` won't be used here, since you have 
 to specify the MAC password in the method call already. The `MacPassword` is 
@@ -122,25 +128,17 @@ only used during encryption, if it is different from the encryption key.
 (byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 ```
 
-The default KDF algorithm is PBKDF#2, using 250,000 iterations.
-
-**NOTE**: The used `Rfc2898DeriveBytes` uses SHA-1 as default hash algorithm, 
-which isn't recommended anymore. Another hash algorithm can be chosen by 
-setting `KdfPbKdf2Options`, which use SHA-384 per default. SHA-1 is still 
-being used as fallback, if no options are given, to stay downward compatible. 
-This fallback will be removed in a newer version of this library.
+The default KDF algorithm is PBKDF#2, using 210,000 iterations, with a minimum 
+salt length of 16 byte, and SHA3-384 for hashing.
 
 Example options usage:
 
 ```cs
 (byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64, options: new KdfPbKdf2Options()
     {
-        HashAlgorithm = HashSha3_384Algorithm.ALGORITHM_NAME
+        HashAlgorithm = HashSha3_512Algorithm.ALGORITHM_NAME
     });// KdfPbKdf2Options cast implicit to CryptoOptions
 ```
-
-**NOTE**: In order to be able to use SHA3 hash algorithms, you'll need to 
-reference the `wan24-Crypto-BC` NuGet package!
 
 ### Encryption
 
@@ -156,7 +154,7 @@ The default algorithms used:
 | Usage | Algorithm |
 | --- | --- |
 | Symmetric encryption | AES-256-CBC (HMAC secured and Brotli compressed) |
-| HMAC | HMAC-SHA512 |
+| HMAC | HMAC-SHA3-512 |
 | KDF | PBKDF#2 |
 | Asymmetric key exchange and digital signature | Diffie Hellman secp521r1 |
 
@@ -316,7 +314,7 @@ sections, it's easy to overview:
 |  | `PrivateKeyRevisionIncluded` | Is the private key suite revision included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 |  | `RequirePrivateKeyRevision` | Is the private key suite revision required to be included in the header? | `true`, if a `DefaultPrivateKeysStore` was set |
 |  | `RngSeeding` | RNG seeding options (overrides `RND.AutoRngSeeding`) | `null` |
-| MAC | `MacAlgorithm` | MAC algorithm name | `null` (`HMAC-SHA512`) |
+| MAC | `MacAlgorithm` | MAC algorithm name | `null` (`HMAC-SHA3-512`) |
 |  | `MacIncluded` | Include a MAC in the header | `true` |
 |  | `RequireMac` | Is the MAC required in the header? | `true` |
 |  | `CounterMacAlgorithm` | Counter MAC algorithm name | `null` |
@@ -362,7 +360,7 @@ sections, it's easy to overview:
 | Compression | `Compressed` | Should the raw data be compressed before encryption? | `true` |
 |  | `Compression` | The `CompressionOptions` instance to use (will be set automatic, if not given) | `null` |
 |  | `MaxUncompressedDataLength` | Maximum uncompressed data length in bytes (when decrypting) | `-1` |
-| Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use | `null` (`SHA512`) |
+| Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use | `null` (`SHA3-512`) |
 | Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair | `1` |
 | Stream options | `LeaveOpen` | Leave the processing stream open after operation? | `false` |
 | Debug options | `Tracer` | Collects tracing information during en-/decryption | `null` |
@@ -1098,17 +1096,17 @@ are the official implementation IDs (not guaranteed to be complete):
 | SHA-256 | 2 | wan24-Crypto |
 | SHA-384 | 3 | wan24-Crypto |
 | SHA-512 | 4 | wan24-Crypto |
-| SHA3-256 | 5 | wan24-Crypto-BC |
-| SHA3-384 | 6 | wan24-Crypto-BC |
-| SHA3-512 | 7 | wan24-Crypto-BC |
+| SHA3-256 | 5 | wan24-Crypto |
+| SHA3-384 | 6 | wan24-Crypto |
+| SHA3-512 | 7 | wan24-Crypto |
 | **MAC** |  |  |
 | HMAC-SHA-1 | 0 | wan24-Crypto |
 | HMAC-SHA-256 | 1 | wan24-Crypto |
 | HMAC-SHA-384 | 2 | wan24-Crypto |
 | HMAC-SHA-512 | 3 | wan24-Crypto |
-| HMAC-SHA3-256 | 4 | wan24-Crypto-BC |
-| HMAC-SHA3-384 | 5 | wan24-Crypto-BC |
-| HMAC-SHA3-512 | 6 | wan24-Crypto-BC |
+| HMAC-SHA3-256 | 4 | wan24-Crypto |
+| HMAC-SHA3-384 | 5 | wan24-Crypto |
+| HMAC-SHA3-512 | 6 | wan24-Crypto |
 | TPMHMAC-SHA-1 | 7 | wan24-Crypto-TPM |
 | TPMHMAC-SHA-256 | 8 | wan24-Crypto-TPM |
 | TPMHMAC-SHA-384 | 9 | wan24-Crypto-TPM |
@@ -1161,8 +1159,8 @@ method will ensure that all used default algorithms are post quantum safe. In
 case it's not possible to use post quantum algorithms for all defaults, this 
 method will throw an exception.
 
-**NOTE**: AES-256 and SHA-384+ (and HMAC-SHA-384+) are considered to be post 
-quantum-safe algorithms, while currently no post quantum-safe asymmetric 
+**NOTE**: AES-256 and SHA(3)-384+ (and HMAC-SHA(3)-384+) are considered to be 
+post quantum-safe algorithms, while currently no post quantum-safe asymmetric 
 algorithms are implemented in this main library (`wan24-Crypto-BC` does 
 implement some), since .NET doesn't offer any API (this may change with 
 coming .NET releases).

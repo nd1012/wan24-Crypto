@@ -189,7 +189,8 @@ namespace wan24.Crypto
             using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
             _Timeout.GetBytes(buffer.Span);
             _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
-            return buffer.Span.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);
+            buffer.Span.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);
+            return outputBuffer;
         }
 
         /// <summary>

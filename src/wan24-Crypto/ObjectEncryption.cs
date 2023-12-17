@@ -22,7 +22,7 @@ namespace wan24.Crypto
             where T : notnull
         {
             ArgumentOutOfRangeException.ThrowIfLessThan(dekLength, 1);
-            SecureByteArrayRefStruct dek = default;
+            SecureByteArrayStructSimple dek = default;
             try
             {
                 if (dataEncryptionKey is null)
