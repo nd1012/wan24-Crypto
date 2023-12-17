@@ -22,7 +22,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Min. iterations
         /// </summary>
-        public const int MIN_ITERATIONS = 20_000;//TODO Use 210_000 in newer versin
+        public const int MIN_ITERATIONS = 210_000;
         /// <summary>
         /// Default salt bytes length
         /// </summary>
@@ -30,7 +30,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Min. salt bytes length
         /// </summary>
-        public const int MIN_SALT_LEN = 8;//TODO Use 16 in newer version
+        public const int MIN_SALT_LEN = 16;
         /// <summary>
         /// Display name
         /// </summary>
@@ -49,7 +49,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }//TODO Set default KDF options in a newer version
+        public KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) => _DefaultOptions.WithKdf(ALGORITHM_NAME, DEFAULT_ITERATIONS, new KdfPbKdf2Options());
 
         /// <summary>
         /// Instance
@@ -65,7 +65,7 @@ namespace wan24.Crypto
             get => _DefaultIterations;
             set
             {
-                if (value < MIN_ITERATIONS) throw new ArgumentOutOfRangeException(nameof(value));
+                ArgumentOutOfRangeException.ThrowIfLessThan(value, MIN_ITERATIONS);
                 _DefaultIterations = value;
             }
         }
@@ -87,15 +87,13 @@ namespace wan24.Crypto
         {
             try
             {
-                if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
+                ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
                 options = KdfHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 if (options.KdfIterations < MIN_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));
                 salt ??= RND.GetBytes(DEFAULT_SALT_LEN);
                 if (salt.Length < MIN_SALT_LEN) throw new ArgumentException("Invalid salt length", nameof(salt));
-                KdfPbKdf2Options kdfOptions = (options.KdfOptions ??= new KdfPbKdf2Options()
-                {
-                    HashAlgorithm = HashSha1Algorithm.ALGORITHM_NAME//TODO Use SHA-384 as default in newer version
-                })!;
+                options.KdfOptions ??= new KdfPbKdf2Options();
+                KdfPbKdf2Options kdfOptions = options.KdfOptions!;
                 using Rfc2898DeriveBytes kdf = new(pwd, salt, options.KdfIterations, kdfOptions.HashName);
                 return (kdf.GetBytes(len), salt);
             }

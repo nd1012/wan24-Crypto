@@ -30,9 +30,12 @@ namespace wan24.Crypto
                 new(HashSha1Algorithm.ALGORITHM_NAME, HashSha1Algorithm.Instance),
                 new(HashSha256Algorithm.ALGORITHM_NAME, HashSha256Algorithm.Instance),
                 new(HashSha384Algorithm.ALGORITHM_NAME, HashSha384Algorithm.Instance),
-                new(HashSha512Algorithm.ALGORITHM_NAME, HashSha512Algorithm.Instance)
+                new(HashSha512Algorithm.ALGORITHM_NAME, HashSha512Algorithm.Instance),
+                new(HashSha3_256Algorithm.ALGORITHM_NAME, HashSha3_256Algorithm.Instance),
+                new(HashSha3_384Algorithm.ALGORITHM_NAME, HashSha3_384Algorithm.Instance),
+                new(HashSha3_512Algorithm.ALGORITHM_NAME, HashSha3_512Algorithm.Instance)
             });
-            _DefaultAlgorithm = Algorithms[HashSha512Algorithm.ALGORITHM_NAME];
+            _DefaultAlgorithm = Algorithms[HashSha3_512Algorithm.ALGORITHM_NAME];
         }
 
         /// <summary>
@@ -182,8 +185,8 @@ namespace wan24.Crypto
         /// <returns>Hash algorithm name</returns>
         public static string GetAlgorithmName(int len, params string[] allowedAlgos)
         {
-            if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
-            if (allowedAlgos.Length == 0) allowedAlgos = Algorithms.Keys.ToArray();
+            ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
+            if (allowedAlgos.Length == 0) allowedAlgos = [.. Algorithms.Keys];
             return (from algo in Algorithms.Values
                     where algo.HashLength == len &&
                         allowedAlgos.Contains(algo.Name)
@@ -201,8 +204,8 @@ namespace wan24.Crypto
         /// <returns>If succeed</returns>
         public static bool TryGetAlgorithmName(int len, [NotNullWhen(returnValue: true)] out string? algo, params string[] allowedAlgos)
         {
-            if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
-            if (allowedAlgos.Length == 0) allowedAlgos = Algorithms.Keys.ToArray();
+            ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
+            if (allowedAlgos.Length == 0) allowedAlgos = [.. Algorithms.Keys];
             algo = (from a in Algorithms.Values
                     where a.HashLength == len &&
                         allowedAlgos.Contains(a.Name)

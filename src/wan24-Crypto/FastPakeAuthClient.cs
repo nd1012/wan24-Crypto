@@ -117,7 +117,7 @@ namespace wan24.Crypto
                 };
                 signatureKey = SignatureKey;
                 random = RND.GetBytes(pake.Key.ExpandedKey.Length);
-                (signature, sessionKey) = pake.SignAndCreateSessionKey2(signatureKey, authKey, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                (signature, sessionKey) = pake.SignAndCreateSessionKey2(signatureKey, authKey, random, payload ?? [], secret);// MAC
                 pake.ClearSessionKey();
                 signup = new PakeSignup(pake.Key.Identifier.CloneArray(), secret, authKey, signature, random, payload);
             }
@@ -210,7 +210,7 @@ namespace wan24.Crypto
             try
             {
                 Name = name;
-                Pake = new(new SymmetricKeySuite(cryptoOptions, record.Identifier.CloneArray(), Array.Empty<byte>()), options, cryptoOptions);
+                Pake = new(new SymmetricKeySuite(cryptoOptions, record.Identifier.CloneArray(), []), options, cryptoOptions);
                 Key = new(record.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
                 {
                     Name = $"Fast PAKE auth client {GUID} (\"{Name}\") key"
@@ -311,7 +311,7 @@ namespace wan24.Crypto
                 }
                 key = Key;
                 secret = Secret;
-                (signature, sessionKey) = Pake.SignAndCreateSessionKey2(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                (signature, sessionKey) = Pake.SignAndCreateSessionKey2(signatureKey, key, random, payload ?? [], secret);// MAC
                 return (new PakeAuth(Pake.Key.Identifier.CloneArray(), key.CloneArray().Xor(randomMac), signature, random, payload), sessionKey);
             }
             catch (Exception ex)
@@ -370,7 +370,7 @@ namespace wan24.Crypto
                 }
                 key = Key;
                 secret = Secret;
-                (signature, sessionKey) = Pake.SignAndCreateSessionKey2(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                (signature, sessionKey) = Pake.SignAndCreateSessionKey2(signatureKey, key, random, payload ?? [], secret);// MAC
                 return (new PakeAuth(Pake.Key.Identifier.CloneArray(), key.CloneArray().Xor(randomMac), signature, random, payload), sessionKey);
             }
             catch (Exception ex)

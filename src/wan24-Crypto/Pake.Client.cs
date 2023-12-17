@@ -42,7 +42,7 @@ namespace wan24.Crypto
                 key = CreateAuthKey();// MAC
                 secret = CreateSecret(key);// MAC
                 signatureKey = CreateSignatureKey(key, secret);// KDF
-                signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? [], secret);// MAC
                 return new PakeSignup(Key.Identifier.CloneArray(), secret, key, signature, random, payload);
             }
             catch(Exception ex)
@@ -95,7 +95,7 @@ namespace wan24.Crypto
                         temp.Clear();
                     }
                 }
-                signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? Array.Empty<byte>(), secret);// MAC
+                signature = SignAndCreateSessionKey(signatureKey, key, random, payload ?? [], secret);// MAC
                 return new PakeAuth(Key.Identifier.CloneArray(), key.Xor(randomMac), signature, random, payload);
             }
             catch(Exception ex)

@@ -117,7 +117,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return Activator.CreateInstance(typeof(tPublic), new object?[] { keyData }) as tPublic ?? throw new InvalidProgramException($"Failed to instance {typeof(tPublic)}");
+                return Activator.CreateInstance(typeof(tPublic), [keyData]) as tPublic ?? throw new InvalidProgramException($"Failed to instance {typeof(tPublic)}");
             }
             catch(Exception ex)
             {
@@ -130,7 +130,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return Activator.CreateInstance(typeof(tPrivate), new object?[] { keyData }) as tPrivate ?? throw new InvalidProgramException($"Failed to instance {typeof(tPrivate)}");
+                return Activator.CreateInstance(typeof(tPrivate), [keyData]) as tPrivate ?? throw new InvalidProgramException($"Failed to instance {typeof(tPrivate)}");
             }
             catch (Exception ex)
             {

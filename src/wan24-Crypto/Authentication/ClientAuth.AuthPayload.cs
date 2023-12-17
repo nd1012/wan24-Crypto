@@ -28,13 +28,13 @@ namespace wan24.Crypto.Authentication
             /// </summary>
             /// <param name="payload">Payload</param>
             /// <param name="publicKeyId">ID of the public key (<see langword="null"/> during authentication, only required for the signup)</param>
-            /// <param name="publickeys">Public keys (only during signup)</param>
+            /// <param name="publicKeys">Public keys (only during signup)</param>
             /// <param name="ksr">Key signing request (only during signup)</param>
-            public AuthPayload(in byte[]? payload, in byte[]? publicKeyId = null, in PublicKeySuite? publickeys = null, in AsymmetricPublicKeySigningRequest? ksr = null) : this()
+            public AuthPayload(in byte[]? payload, in byte[]? publicKeyId = null, in PublicKeySuite? publicKeys = null, in AsymmetricPublicKeySigningRequest? ksr = null) : this()
             {
                 Payload = payload;
                 PublicKeyId = publicKeyId;
-                PublicKeys = publickeys;
+                PublicKeys = publicKeys;
                 KeySigningRequest = ksr;
             }
 

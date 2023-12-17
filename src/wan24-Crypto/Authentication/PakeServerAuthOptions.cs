@@ -6,7 +6,7 @@
     public sealed record class PakeServerAuthOptions
     {
         /// <summary>
-        /// Cnstructor
+        /// Constructor
         /// </summary>
         public PakeServerAuthOptions() { }
 
@@ -88,6 +88,6 @@
         /// <summary>
         /// Allowed MAC algorithm names
         /// </summary>
-        public string[] AllowedMacAlgorithms { get; set; } = Array.Empty<string>();
+        public string[] AllowedMacAlgorithms { get; set; } = [];
     }
 }

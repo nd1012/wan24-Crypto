@@ -21,13 +21,13 @@ namespace wan24.Crypto
         public static T EncryptProperties<T>(in T obj, in byte[]? pwd = null, in int dekLength = 64, in byte[]? dataEncryptionKey = null, in CryptoOptions? options = null)
             where T : notnull
         {
-            if (dekLength < 1) throw new ArgumentOutOfRangeException(nameof(dekLength));
+            ArgumentOutOfRangeException.ThrowIfLessThan(dekLength, 1);
             SecureByteArrayRefStruct dek = default;
             try
             {
                 if (dataEncryptionKey is null)
                 {
-                    if (pwd is null) throw new ArgumentNullException(nameof(pwd));
+                    ArgumentNullException.ThrowIfNull(pwd);
                     PropertyInfoExt dekPi = obj.GetType().GetPropertiesCached(BindingFlags.Instance | BindingFlags.Public)
                         .FirstOrDefault(pi => pi.GetCustomAttributeCached<DekAttribute>() is not null) ??
                         throw new InvalidProgramException("DEK property not found");
@@ -84,7 +84,7 @@ namespace wan24.Crypto
             byte[] dek;
             if (dataEncryptionKey is null)
             {
-                if (pwd is null) throw new ArgumentNullException(nameof(pwd));
+                ArgumentNullException.ThrowIfNull(pwd);
                 PropertyInfoExt dekPi = obj.GetType().GetPropertiesCached(BindingFlags.Instance | BindingFlags.Public)
                     .FirstOrDefault(pi => pi.GetCustomAttributeCached<DekAttribute>() is not null) ??
                     throw new InvalidProgramException("DEK property not found");

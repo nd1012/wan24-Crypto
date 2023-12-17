@@ -47,7 +47,7 @@ namespace wan24.Crypto.Authentication
                     serverSignup.Key = serverIdentity.Key.CloneArray();
                     serverSignup.Secret = serverIdentity.RawSecret.CloneArray();
                     serverSignup.Random = await RND.GetBytesAsync(serverIdentity.Identifier.Length).DynamicContext();
-                    serverSignup.Payload = context.ServerPayload ?? Array.Empty<byte>();
+                    serverSignup.Payload = context.ServerPayload ?? [];
                     serverSignup.Signature = pake.SignAndCreateSessionKey(
                         serverIdentity.SignatureKey, 
                         serverSignup.Key, 

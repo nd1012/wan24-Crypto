@@ -46,7 +46,7 @@ namespace wan24.Crypto
             )
             : base(interval)
         {
-            if (length < 1) throw new ArgumentOutOfRangeException(nameof(length));
+            ArgumentOutOfRangeException.ThrowIfLessThan(length, 1);
             URI = new Uri(uri).ToString();
             Seed = new byte[length];
             Http = http ?? new HttpClient()

@@ -16,7 +16,7 @@ namespace wan24.Crypto
         /// </summary>
         protected byte[]? _SymmetricKey = null;
         /// <summary>
-        /// Aymmetric key
+        /// Asymmetric key
         /// </summary>
         protected IAsymmetricPrivateKey? _AsymmetricKey = null;
 

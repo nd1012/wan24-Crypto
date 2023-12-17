@@ -333,7 +333,7 @@ namespace wan24.Crypto
             => WithKeyExchangeAlgorithm(options, AsymmetricHelper.GetAlgorithm(algo).Name, keySize);
 
         /// <summary>
-        /// Set a signture algorithm
+        /// Set a signature algorithm
         /// </summary>
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm name</param>
@@ -351,7 +351,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Set a signture algorithm
+        /// Set a signature algorithm
         /// </summary>
         /// <param name="options">Options</param>
         /// <param name="algo">Algorithm value</param>
@@ -382,7 +382,7 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions WithCounterSignature(this CryptoOptions options, ISignaturePrivateKey key)
         {
-            if (options.PrivateKey is null) throw new InvalidOperationException("Sinature key needs to be set befre setting a counter signature key");
+            if (options.PrivateKey is null) throw new InvalidOperationException("Signature key needs to be set before setting a counter signature key");
             options.SetCounterKeys(key);
             return options;
         }
@@ -540,7 +540,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Exclude flagsfrom the header
+        /// Exclude flags from the header
         /// </summary>
         /// <param name="options">Options</param>
         /// <returns>Options</returns>

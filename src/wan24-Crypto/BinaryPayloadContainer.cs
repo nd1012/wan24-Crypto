@@ -44,8 +44,8 @@ namespace wan24.Crypto
         {
             if (hlVersion is not null && hlVersion < 1) throw new ArgumentOutOfRangeException(nameof(hlVersion));
             HlObjectVersion = hlVersion;
-            if (minLen < 0) throw new ArgumentOutOfRangeException(nameof(minLen));
-            if (maxLen < minLen) throw new ArgumentOutOfRangeException(nameof(maxLen));
+            ArgumentOutOfRangeException.ThrowIfNegative(minLen);
+            ArgumentOutOfRangeException.ThrowIfLessThan(maxLen, minLen);
             (MinPayloadLength, MaxPayloadLength) = (minLen, maxLen);
         }
 

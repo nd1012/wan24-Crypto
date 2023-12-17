@@ -29,9 +29,12 @@ namespace wan24.Crypto
                 new(MacHmacSha1Algorithm.ALGORITHM_NAME, MacHmacSha1Algorithm.Instance),
                 new(MacHmacSha256Algorithm.ALGORITHM_NAME, MacHmacSha256Algorithm.Instance),
                 new(MacHmacSha384Algorithm.ALGORITHM_NAME, MacHmacSha384Algorithm.Instance),
-                new(MacHmacSha512Algorithm.ALGORITHM_NAME, MacHmacSha512Algorithm.Instance)
+                new(MacHmacSha512Algorithm.ALGORITHM_NAME, MacHmacSha512Algorithm.Instance),
+                new(MacHmacSha3_256Algorithm.ALGORITHM_NAME, MacHmacSha3_256Algorithm.Instance),
+                new(MacHmacSha3_384Algorithm.ALGORITHM_NAME, MacHmacSha3_384Algorithm.Instance),
+                new(MacHmacSha3_512Algorithm.ALGORITHM_NAME, MacHmacSha3_512Algorithm.Instance)
             });
-            _DefaultAlgorithm = Algorithms[MacHmacSha512Algorithm.ALGORITHM_NAME];
+            _DefaultAlgorithm = Algorithms[MacHmacSha3_512Algorithm.ALGORITHM_NAME];
         }
 
         /// <summary>
@@ -187,8 +190,8 @@ namespace wan24.Crypto
         /// <returns>MAC algorithm name</returns>
         public static string GetAlgorithmName(int len, params string[] allowedAlgos)
         {
-            if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
-            if (allowedAlgos.Length == 0) allowedAlgos = Algorithms.Keys.ToArray();
+            ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
+            if (allowedAlgos.Length == 0) allowedAlgos = [.. Algorithms.Keys];
             return (from algo in Algorithms.Values
                     where algo.MacLength == len &&
                         allowedAlgos.Contains(algo.Name)
@@ -206,8 +209,8 @@ namespace wan24.Crypto
         /// <returns>If succeed</returns>
         public static bool TryGetAlgorithmName(int len, [NotNullWhen(returnValue: true)] out string? algo, params string[] allowedAlgos)
         {
-            if (len < 1) throw new ArgumentOutOfRangeException(nameof(len));
-            if (allowedAlgos.Length == 0) allowedAlgos = Algorithms.Keys.ToArray();
+            ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
+            if (allowedAlgos.Length == 0) allowedAlgos = [.. Algorithms.Keys];
             algo = (from a in Algorithms.Values
                     where a.MacLength == len &&
                         allowedAlgos.Contains(a.Name)

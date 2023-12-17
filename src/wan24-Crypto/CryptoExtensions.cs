@@ -19,7 +19,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
+                ArgumentOutOfRangeException.ThrowIfLessThan(blockSize, 1);
                 if (written is not null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
                 int len = blockSize - (int)((written ?? stream.Length) % blockSize);
                 if (len > Settings.StackAllocBorder)
@@ -61,7 +61,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (blockSize < 1) throw new ArgumentOutOfRangeException(nameof(blockSize));
+                ArgumentOutOfRangeException.ThrowIfLessThan(blockSize, 1);
                 if (written is not null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
                 int len = blockSize - (int)((written ?? stream.Length) % blockSize);
                 using RentedArrayStruct<byte> buffer = new(len, clean: false)

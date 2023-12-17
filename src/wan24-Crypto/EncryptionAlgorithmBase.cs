@@ -92,7 +92,7 @@ namespace wan24.Crypto
             try
             {
                 byte[] res = new byte[IvSize];
-                if (cipherData.Read(res) != IvSize) throw new IOException($"Failed to read {IvSize} IV bytes");
+                cipherData.ReadExactly(res);
                 if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
                     RND.AddSeed(res);
                 return res;
@@ -119,7 +119,7 @@ namespace wan24.Crypto
             try
             {
                 byte[] res = new byte[IvSize];
-                if (await cipherData.ReadAsync(res, cancellationToken).DynamicContext() != IvSize) throw new IOException($"Failed to read {IvSize} IV bytes");
+                await cipherData.ReadExactlyAsync(res, cancellationToken).DynamicContext();
                 if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
                     await RND.AddSeedAsync(res, cancellationToken).DynamicContext();
                 return res;

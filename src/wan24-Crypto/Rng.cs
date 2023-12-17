@@ -46,7 +46,7 @@ namespace wan24.Crypto
             RND.FillBytes(data);
             if (data.IndexOf((byte)0) == -1) return;
             int i;
-            List<int> zeroIndex = new(),
+            List<int> zeroIndex = [],
                 newZeroIndex = null!;
             unchecked
             {
@@ -64,7 +64,7 @@ namespace wan24.Crypto
                     for (i = 0; i != zeroIndex.Count; i++)
                         if (buffer.Span[i] == 0)
                         {
-                            newZeroIndex ??= new();
+                            newZeroIndex ??= [];
                             newZeroIndex.Add(zeroIndex[i]);
                         }
                         else
@@ -85,7 +85,7 @@ namespace wan24.Crypto
             await RND.FillBytesAsync(data).DynamicContext();
             if (data.IndexOf((byte)0) == -1) return;
             int i;
-            List<int> zeroIndex = new(),
+            List<int> zeroIndex = [],
                 newZeroIndex = null!;
             unchecked
             {
@@ -104,7 +104,7 @@ namespace wan24.Crypto
                     for (i = 0; i != zeroIndex.Count; i++)
                         if (buffer.Span[i] == 0)
                         {
-                            newZeroIndex ??= new();
+                            newZeroIndex ??= [];
                             newZeroIndex.Add(zeroIndex[i]);
                         }
                         else
@@ -120,7 +120,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public virtual byte[] GetBytes(in int count)
         {
-            if (count < 1) return Array.Empty<byte>();
+            if (count < 1) return [];
             byte[] res = new byte[count];
             GetBytes(res);
             return res;
@@ -159,7 +159,7 @@ namespace wan24.Crypto
              * NOTE: This piece of code is almost a 1:1 copy of the RandomNumberGenerator code, which is licensed under the MIT license by the .NET Foundation. See 
              * Rng.LICENSE.md for details.
              */
-            if (fromInclusive >= toExclusive) throw new ArgumentOutOfRangeException(nameof(toExclusive));
+            ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(fromInclusive, toExclusive);
             uint range = (uint)toExclusive - (uint)fromInclusive - 1;
             if (range == 0) return fromInclusive;
             uint mask = range;
@@ -201,7 +201,7 @@ namespace wan24.Crypto
              * NOTE: This piece of code is almost a 1:1 copy of the RandomNumberGenerator code, which is licensed under the MIT license by the .NET Foundation. See 
              * Rng.LICENSE.md for details.
              */
-            if (fromInclusive >= toExclusive) throw new ArgumentOutOfRangeException(nameof(toExclusive));
+            ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(fromInclusive, toExclusive);
             uint range = (uint)toExclusive - (uint)fromInclusive - 1;
             if (range == 0) return fromInclusive;
             uint mask = range;
@@ -234,8 +234,8 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         new public static byte[] GetBytes(int count)
         {
-            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
-            if (count == 0) return Array.Empty<byte>();
+            ArgumentOutOfRangeException.ThrowIfNegative(count);
+            if (count == 0) return [];
             byte[] res = new byte[count];
             RND.FillBytes(res);
             return res;

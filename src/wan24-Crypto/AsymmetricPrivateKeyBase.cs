@@ -38,7 +38,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return Activator.CreateInstance(typeof(tPrivate), new object?[] { KeyData.Array.CloneArray() }) as tPrivate ?? throw new InvalidProgramException($"Failed to copy {typeof(tPrivate)}");
+                return Activator.CreateInstance(typeof(tPrivate), [KeyData.Array.CloneArray()]) as tPrivate ?? throw new InvalidProgramException($"Failed to copy {typeof(tPrivate)}");
             }
             catch(Exception ex)
             {

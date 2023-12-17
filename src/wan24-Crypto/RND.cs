@@ -166,14 +166,12 @@ namespace wan24.Crypto
                     if (DevRandomPool is null)
                     {
                         using Stream random = GetDevRandom();
-                        if (random.Read(buffer) != buffer.Length)
-                            throw new IOException("Failed to read random bytes");
+                        random.ReadExactly(buffer);
                     }
                     else
                     {
                         using RentedObject<Stream> random = new(DevRandomPool);
-                        if (random.Object.Read(buffer) != buffer.Length)
-                            throw new IOException("Failed to read random bytes");
+                        random.Object.ReadExactly(buffer);
                     }
                     if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                         Logging.WriteWarning(
@@ -207,14 +205,12 @@ namespace wan24.Crypto
                     {
                         Stream random = GetDevRandom();
                         await using (random.DynamicContext())
-                            if (await random.ReadAsync(buffer).DynamicContext() != buffer.Length)
-                                throw new IOException("Failed to read random bytes");
+                            await random.ReadExactlyAsync(buffer).DynamicContext();
                     }
                     else
                     {
                         using RentedObject<Stream> random = new(DevRandomPool);
-                        if (await random.Object.ReadAsync(buffer).DynamicContext() != buffer.Length)
-                            throw new IOException("Failed to read random bytes");
+                        await random.Object.ReadExactlyAsync(buffer).DynamicContext();
                     }
                     if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                         Logging.WriteWarning(

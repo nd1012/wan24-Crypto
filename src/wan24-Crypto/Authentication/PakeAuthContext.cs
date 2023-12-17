@@ -73,7 +73,7 @@ namespace wan24.Crypto.Authentication
         public IPakeRecord? Identity { get; }
 
         /// <summary>
-        /// PAKE autthentication record (for signup only; will be cleared!)
+        /// PAKE authentication record (for signup only; will be cleared!)
         /// </summary>
         public IPakeAuthRecord? Record { get; }
 

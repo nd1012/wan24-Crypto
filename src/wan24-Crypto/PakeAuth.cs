@@ -29,7 +29,7 @@ namespace wan24.Crypto
             Key = key;
             Signature = signature;
             Random = random;
-            Payload = payload ?? Array.Empty<byte>();
+            Payload = payload ?? [];
         }
 
         /// <summary>
@@ -105,11 +105,11 @@ namespace wan24.Crypto
         {
             Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
             Key = new byte[Identifier.Length];
-            if (stream.Read(Key) != Key.Length) throw new IOException($"Failed to read {Identifier.Length} key bytes");
+            stream.ReadExactly(Key);
             Signature = new byte[Identifier.Length];
-            if (stream.Read(Signature) != Signature.Length) throw new IOException($"Failed to read {Identifier.Length} signature bytes");
+            stream.ReadExactly(Signature);
             Random = new byte[Identifier.Length];
-            if (stream.Read(Random) != Random.Length) throw new IOException($"Failed to read {Identifier.Length} random bytes");
+            stream.ReadExactly(Random);
             Payload = stream.ReadBytes(version, minLen: 0, maxLen: ushort.MaxValue).Value;
         }
 
@@ -118,11 +118,11 @@ namespace wan24.Crypto
         {
             Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
             Key = new byte[Identifier.Length];
-            if (await stream.ReadAsync(Key, cancellationToken).DynamicContext() != Key.Length) throw new IOException($"Failed to read {Identifier.Length} key bytes");
+            await stream.ReadExactlyAsync(Key, cancellationToken).DynamicContext();
             Signature = new byte[Identifier.Length];
-            if (await stream.ReadAsync(Signature, cancellationToken).DynamicContext() != Signature.Length) throw new IOException($"Failed to read {Identifier.Length} signature bytes");
+            await stream.ReadExactlyAsync(Signature, cancellationToken).DynamicContext();
             Random = new byte[Identifier.Length];
-            if (await stream.ReadAsync(Random, cancellationToken).DynamicContext() != Random.Length) throw new IOException($"Failed to read {Identifier.Length} random bytes");
+            await stream.ReadExactlyAsync(Random, cancellationToken).DynamicContext();
             Payload = (await stream.ReadBytesAsync(version, minLen: 0, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
         }
 
