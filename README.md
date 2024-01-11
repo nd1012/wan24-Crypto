@@ -18,6 +18,8 @@ Per default these cryptographic algorithms are implemented:
 | | SHA3-256 |
 | | SHA3-384 |
 | | SHA3-512 |
+| | SHAKE128 |
+| | SHAKE256 |
 | **MAC** | HMAC-SHA-1 |
 |  | HMAC-SHA-256 |
 |  | HMAC-SHA-384 |
@@ -109,6 +111,24 @@ byte[] hash = rawData.Hash();
 ```
 
 The default hash algorithm ist SHA3-512.
+
+#### Shake128/256 hash algorithms
+
+The Shake128 and Shake256 hash algorithms support a variable output (hash) 
+length. The default output length of the hash implementations of 
+`wan24-Crypto` is
+
+- 32 bytes for Shake128
+- 64 bytes for Shake256
+
+when using the `HashHelper`, the extension methods, or the 
+`HashShake128/256Algorithm` instances directly.
+
+Anyway, if you need other output lengths, you may use the 
+`NetShake128/256HashAlgorithmAdapter` classes, which allow to give the desired 
+output length in bytes (a multiple of 8) to the constructor, and can be used 
+as every other .NET `HashAlgorithm` implementation (also in a crypto 
+stream/transform, for example).
 
 ### MAC
 
@@ -1099,6 +1119,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | SHA3-256 | 5 | wan24-Crypto |
 | SHA3-384 | 6 | wan24-Crypto |
 | SHA3-512 | 7 | wan24-Crypto |
+| Shake128 | 8 | wan24-Crypto |
+| Shake256 | 9 | wan24-Crypto |
 | **MAC** |  |  |
 | HMAC-SHA-1 | 0 | wan24-Crypto |
 | HMAC-SHA-256 | 1 | wan24-Crypto |
@@ -1159,10 +1181,10 @@ method will ensure that all used default algorithms are post quantum safe. In
 case it's not possible to use post quantum algorithms for all defaults, this 
 method will throw an exception.
 
-**NOTE**: AES-256 and SHA(3)-384+ (and HMAC-SHA(3)-384+) are considered to be 
-post quantum-safe algorithms, while currently no post quantum-safe asymmetric 
-algorithms are implemented in this main library (`wan24-Crypto-BC` does 
-implement some), since .NET doesn't offer any API (this may change with 
+**NOTE**: AES-256, and SHA-384+ and SHA3 (and HMAC-SHA(3)-384+) are considered 
+to be post quantum-safe algorithms, while currently no post quantum-safe 
+asymmetric algorithms are implemented in this main library (`wan24-Crypto-BC` 
+does implement some), since .NET doesn't offer any API (this may change with 
 coming .NET releases).
 
 ## Disclaimer

@@ -3,18 +3,18 @@
 namespace wan24.Crypto
 {
     /// <summary>
-    /// SHA3-256 hash algorithm
+    /// SHAKE128 hash algorithm
     /// </summary>
-    public sealed record class HashSha3_256Algorithm : HashAlgorithmBase
+    public sealed record class HashShake128Algorithm : HashAlgorithmBase
     {
         /// <summary>
         /// Algorithm name
         /// </summary>
-        public const string ALGORITHM_NAME = "SHA3-256";
+        public const string ALGORITHM_NAME = "SHAKE128";
         /// <summary>
         /// Algorithm value
         /// </summary>
-        public const int ALGORITHM_VALUE = 5;
+        public const int ALGORITHM_VALUE = 8;
         /// <summary>
         /// Hash length in bytes
         /// </summary>
@@ -22,22 +22,22 @@ namespace wan24.Crypto
         /// <summary>
         /// Display name
         /// </summary>
-        public const string DISPLAY_NAME = ALGORITHM_NAME;
+        public const string DISPLAY_NAME = "Shake128";
 
         /// <summary>
         /// Static constructor
         /// </summary>
-        static HashSha3_256Algorithm() => Instance = new();
+        static HashShake128Algorithm() => Instance = new();
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public HashSha3_256Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        public HashShake128Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
 
         /// <summary>
         /// Instance
         /// </summary>
-        public static HashSha3_256Algorithm Instance { get; }
+        public static HashShake128Algorithm Instance { get; }
 
         /// <inheritdoc/>
         public override int HashLength => HASH_LENGTH;
@@ -49,6 +49,6 @@ namespace wan24.Crypto
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
-        protected override HashAlgorithm GetHashAlgorithmInt(CryptoOptions? options) => SHA3_256.Create();
+        protected override HashAlgorithm GetHashAlgorithmInt(CryptoOptions? options) => new NetShake128HashAlgorithmAdapter();
     }
 }

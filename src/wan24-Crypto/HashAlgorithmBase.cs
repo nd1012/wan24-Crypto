@@ -133,7 +133,7 @@ namespace wan24.Crypto
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 byte[] res = new byte[HashLength];
-                GetHashAlgorithm(options).TryComputeHash(data, res, out _);
+                if (!GetHashAlgorithm(options).TryComputeHash(data, res, out _)) throw new IOException($"Failed to compute the final hash");
                 return res;
             }
             catch (CryptographicException)
@@ -161,7 +161,7 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
-                GetHashAlgorithm(options).TryComputeHash(data, outputBuffer, out _);
+                if (!GetHashAlgorithm(options).TryComputeHash(data, outputBuffer, out _)) throw new IOException($"Failed to compute the final hash");
                 return outputBuffer;
             }
             catch (CryptographicException)
