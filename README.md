@@ -1181,11 +1181,11 @@ method will ensure that all used default algorithms are post quantum safe. In
 case it's not possible to use post quantum algorithms for all defaults, this 
 method will throw an exception.
 
-**NOTE**: AES-256, and SHA-384+, SHA3 and Shake128/256 (and HMAC-SHA(3)-384+) 
-are considered to be post quantum-safe algorithms, while currently no post 
-quantum-safe asymmetric algorithms are implemented in this main library 
-(`wan24-Crypto-BC` does implement some), since .NET doesn't offer any API 
-(this may change with coming .NET releases).
+**NOTE**: AES-256, and SHA-384+, SHA3 and Shake128/256 (and HMAC-SHA-384+ and 
+HMAC-SHA3-*) are considered to be post quantum-safe algorithms, while 
+currently no post quantum-safe asymmetric algorithms are implemented in this 
+main library (`wan24-Crypto-BC` does implement some), since .NET doesn't offer 
+any API (this may change with coming .NET releases).
 
 ## Disclaimer
 
