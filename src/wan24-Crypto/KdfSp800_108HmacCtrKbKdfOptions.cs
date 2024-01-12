@@ -6,14 +6,14 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     /// <summary>
-    /// PBKDF#2 KDF algorithm options
+    /// SP 800-108 HMAC CTR KBKDF algorithm options
     /// </summary>
-    public sealed record class KdfPbKdf2Options
+    public sealed record class KdfSp800_801HmacKbKdfOptions
     {
         /// <summary>
         /// Default hash algorithm name (SHA3-384)
         /// </summary>
-        public const string DEFAULT_HASH_ALGORITHM = HashSha384Algorithm.ALGORITHM_NAME;
+        public const string DEFAULT_HASH_ALGORITHM = HashSha3_384Algorithm.ALGORITHM_NAME;
 
         /// <summary>
         /// Hash algorithm name
@@ -23,16 +23,18 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public KdfPbKdf2Options() { }
+        public KdfSp800_801HmacKbKdfOptions() { }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="json">JSON string</param>
-        public KdfPbKdf2Options(string json)
+        public KdfSp800_801HmacKbKdfOptions(string json)
         {
-            KdfPbKdf2Options options = (json ?? throw new ArgumentException("Invalid JSON data", nameof(json)))!;
+            KdfSp800_801HmacKbKdfOptions options = (json ?? throw new ArgumentException("Invalid JSON data", nameof(json)))!;
             HashAlgorithm = options.HashAlgorithm;
+            Label = options.Label;
+            Context = options.Context;
         }
 
         /// <summary>
@@ -48,7 +50,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Hash name
         /// </summary>
-        [JsonIgnore, Required]
+        [JsonIgnore]
         public HashAlgorithmName HashName
         {
             get => new(_HashAlgorithm);
@@ -56,12 +58,26 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Label
+        /// </summary>
+        [MaxLength(byte.MaxValue)]
+        public string Label { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Context
+        /// </summary>
+        [MaxLength(byte.MaxValue)]
+        public string Context { get; set; } = string.Empty;
+
+        /// <summary>
         /// Get a copy of this instance
         /// </summary>
         /// <returns>Instance copy</returns>
-        public KdfPbKdf2Options GetCopy() => new()
+        public KdfSp800_801HmacKbKdfOptions GetCopy() => new()
         {
-            _HashAlgorithm = _HashAlgorithm
+            _HashAlgorithm = _HashAlgorithm,
+            Label = Label,
+            Context = Context
         };
 
         /// <inheritdoc/>
@@ -71,23 +87,23 @@ namespace wan24.Crypto
         /// Cast as JSON string
         /// </summary>
         /// <param name="options">Options</param>
-        public static implicit operator string(KdfPbKdf2Options options) => options.ToJson();
+        public static implicit operator string(KdfSp800_801HmacKbKdfOptions options) => options.ToJson();
 
         /// <summary>
         /// Cast as options
         /// </summary>
         /// <param name="json">JSON string</param>
-        public static implicit operator KdfPbKdf2Options?(string? json)
-            => json is null ? null : json.DecodeJson<KdfPbKdf2Options>() ?? throw new InvalidDataException("Invalid JSON data");
+        public static implicit operator KdfSp800_801HmacKbKdfOptions?(string? json)
+            => json is null ? null : json.DecodeJson<KdfSp800_801HmacKbKdfOptions>() ?? throw new InvalidDataException("Invalid JSON data");
 
         /// <summary>
         /// Cast as <see cref="CryptoOptions"/>
         /// </summary>
         /// <param name="options">Options</param>
-        public static implicit operator CryptoOptions(KdfPbKdf2Options options) => new()
+        public static implicit operator CryptoOptions(KdfSp800_801HmacKbKdfOptions options) => new()
         {
-            KdfAlgorithm = KdfPbKdf2Algorithm.ALGORITHM_NAME,
-            KdfIterations = KdfPbKdf2Algorithm.Instance.DefaultIterations,
+            KdfAlgorithm = KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME,
+            KdfIterations = KdfSp800_108HmacCtrKbKdfAlgorithm.Instance.DefaultIterations,
             KdfOptions = options
         };
     }
