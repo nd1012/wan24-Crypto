@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography;
 
 namespace wan24.Crypto
 {
@@ -35,7 +36,7 @@ namespace wan24.Crypto
         public override bool CanReuseTransform => false;
 
         /// <inheritdoc/>
-        public override void Initialize() => ObjectDisposedException.ThrowIf(Disposed, this);
+        public override void Initialize() { }
 
         /// <inheritdoc/>
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
@@ -62,12 +63,15 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        protected override bool TryHashFinal(Span<byte> destination, out int bytesWritten)
+        protected override bool TryHashFinal(Span<byte> destination, [NotNullWhen(returnValue: true)] out int bytesWritten)
         {
             try
             {
-                ObjectDisposedException.ThrowIf(Disposed, this);
-                ArgumentOutOfRangeException.ThrowIfLessThan(destination.Length, OutputLength, nameof(destination));
+                if (Disposed || destination.Length < OutputLength)
+                {
+                    bytesWritten = 0;
+                    return false;
+                }
                 Digest.GetCurrentHash(destination.Length == OutputLength ? destination : destination[..OutputLength]);
                 bytesWritten = OutputLength;
                 Dispose();
