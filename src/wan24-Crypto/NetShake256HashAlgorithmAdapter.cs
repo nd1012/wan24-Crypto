@@ -63,7 +63,6 @@ namespace wan24.Crypto
             FinalBlockFlushed = true;
             byte[] res = new byte[OutputLength];
             Digest.GetCurrentHash(res);
-            Dispose();
             return res;
         }
 
@@ -92,8 +91,8 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
-            if (Disposed) return;
             base.Dispose(disposing);
+            if (Disposed) return;
             Disposed = true;
             Digest.Dispose();
         }
