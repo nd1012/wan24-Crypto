@@ -20,6 +20,10 @@ namespace wan24.Crypto
         /// If disposed
         /// </summary>
         private bool Disposed = false;
+        /// <summary>
+        /// If the final block was flushed
+        /// </summary>
+        private bool FinalBlockFlushed = false;
 
         /// <summary>
         /// Constructor
@@ -42,6 +46,7 @@ namespace wan24.Crypto
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
             ObjectDisposedException.ThrowIf(Disposed, this);
+            if (FinalBlockFlushed) throw new InvalidOperationException();
             Digest.AppendData(array.AsSpan(ibStart, cbSize));
         }
 
@@ -49,6 +54,7 @@ namespace wan24.Crypto
         protected override void HashCore(ReadOnlySpan<byte> source)
         {
             ObjectDisposedException.ThrowIf(Disposed, this);
+            if (FinalBlockFlushed) throw new InvalidOperationException();
             Digest.AppendData(source);
         }
 
@@ -56,6 +62,8 @@ namespace wan24.Crypto
         protected override byte[] HashFinal()
         {
             ObjectDisposedException.ThrowIf(Disposed, this);
+            if (FinalBlockFlushed) throw new InvalidOperationException();
+            FinalBlockFlushed = true;
             byte[] res = new byte[OutputLength];
             Digest.GetCurrentHash(res);
             Dispose();
@@ -67,14 +75,14 @@ namespace wan24.Crypto
         {
             try
             {
-                if (Disposed || destination.Length < OutputLength)
+                if (FinalBlockFlushed || Disposed || destination.Length < OutputLength)
                 {
                     bytesWritten = 0;
                     return false;
                 }
+                FinalBlockFlushed = true;
                 Digest.GetCurrentHash(destination.Length == OutputLength ? destination : destination[..OutputLength]);
                 bytesWritten = OutputLength;
-                Dispose();
                 return true;
             }
             catch
