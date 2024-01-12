@@ -26,7 +26,7 @@ namespace wan24.Crypto
         /// <param name="outputLength">Output length in bytes (a multiple of 8)</param>
         public NetShake256HashAlgorithmAdapter(int outputLength = HashShake256Algorithm.HASH_LENGTH) : base()
         {
-            ArgumentOutOfRangeException.ThrowIfLessThan(8, outputLength, nameof(outputLength));
+            ArgumentOutOfRangeException.ThrowIfLessThan(outputLength, 8, nameof(outputLength));
             if ((outputLength & 7) != 0) throw new ArgumentException("Output length must be a multiple of 8", nameof(outputLength));
             OutputLength = outputLength;
         }
@@ -64,7 +64,7 @@ namespace wan24.Crypto
             try
             {
                 ObjectDisposedException.ThrowIf(Disposed, this);
-                ArgumentOutOfRangeException.ThrowIfLessThan(OutputLength, destination.Length, nameof(destination));
+                ArgumentOutOfRangeException.ThrowIfLessThan(destination.Length, OutputLength, nameof(destination));
                 Digest.GetCurrentHash(destination.Length == OutputLength ? destination : destination[..OutputLength]);
                 bytesWritten = OutputLength;
                 Dispose();
