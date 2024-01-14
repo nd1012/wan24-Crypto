@@ -34,7 +34,7 @@ namespace wan24.Crypto
                 new(MacHmacSha3_384Algorithm.ALGORITHM_NAME, MacHmacSha3_384Algorithm.Instance),
                 new(MacHmacSha3_512Algorithm.ALGORITHM_NAME, MacHmacSha3_512Algorithm.Instance)
             });
-            _DefaultAlgorithm = Algorithms[MacHmacSha3_512Algorithm.ALGORITHM_NAME];
+            _DefaultAlgorithm = MacHmacSha3_512Algorithm.Instance;
         }
 
         /// <summary>

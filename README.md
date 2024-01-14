@@ -105,6 +105,9 @@ services:
 builder.Services.AddWan24Crypto();
 ```
 
+**WARNING**: The factory default algorithms may not be available on every 
+platform!
+
 ### Hashing
 
 ```cs

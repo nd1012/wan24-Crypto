@@ -37,7 +37,7 @@ namespace wan24.Crypto
                 new(HashShake128Algorithm.ALGORITHM_NAME, HashShake128Algorithm.Instance),
                 new(HashShake256Algorithm.ALGORITHM_NAME, HashShake256Algorithm.Instance)
             });
-            _DefaultAlgorithm = Algorithms[HashSha3_512Algorithm.ALGORITHM_NAME];
+            _DefaultAlgorithm = HashSha3_512Algorithm.Instance;
         }
 
         /// <summary>
