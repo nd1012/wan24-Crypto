@@ -31,5 +31,8 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public virtual string DisplayName => Name;
+
+        /// <inheritdoc/>
+        public override string ToString() => $"Cryptographic algorithm \"{DisplayName}\" (\"{Name}\", {Value}) {GetType()}";
     }
 }

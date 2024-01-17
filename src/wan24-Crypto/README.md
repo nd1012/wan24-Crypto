@@ -18,6 +18,8 @@ Per default these cryptographic algorithms are implemented:
 | | SHA3-256 |
 | | SHA3-384 |
 | | SHA3-512 |
+| | Shake128 |
+| | Shake256 |
 | **MAC** | HMAC-SHA-1 |
 |  | HMAC-SHA-256 |
 |  | HMAC-SHA-384 |
@@ -29,6 +31,7 @@ Per default these cryptographic algorithms are implemented:
 | **Asymmetric keys** | Elliptic Curve Diffie Hellman |
 |  | Elliptic Curve DSA (RFC 3279 signatures) |
 | **KDF key stretching** | PBKDF#2 (250,000 iterations per default) |
+|  | SP 800-108 HMAC CTR KBKDF |
 
 These elliptic curves are supported at present:
 
@@ -102,6 +105,9 @@ services:
 builder.Services.AddWan24Crypto();
 ```
 
+**WARNING**: The factory default algorithms may not be available on every 
+platform!
+
 ### Hashing
 
 ```cs
@@ -109,6 +115,24 @@ byte[] hash = rawData.Hash();
 ```
 
 The default hash algorithm ist SHA3-512.
+
+#### Shake128/256 hash algorithms
+
+The Shake128 and Shake256 hash algorithms support a variable output (hash) 
+length. The default output length of the hash implementations of 
+`wan24-Crypto` is
+
+- 32 bytes for Shake128
+- 64 bytes for Shake256
+
+when using the `HashHelper`, the extension methods, or the 
+`HashShake128/256Algorithm` instances directly.
+
+Anyway, if you need other output lengths, you may use the 
+`NetShake128/256HashAlgorithmAdapter` classes, which allow to give the desired 
+output length in bytes (a multiple of 8) to the constructor, and can be used 
+as every other .NET `HashAlgorithm` implementation (also in a crypto 
+stream/transform, for example).
 
 ### MAC
 
@@ -128,8 +152,8 @@ only used during encryption, if it is different from the encryption key.
 (byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 ```
 
-The default KDF algorithm is PBKDF#2, using 210,000 iterations, with a minimum 
-salt length of 16 byte, and SHA3-384 for hashing.
+The default KDF algorithm is PBKDF#2, using 250,000 iterations, with a salt 
+length of 16 byte, and SHA3-384 for hashing.
 
 Example options usage:
 
@@ -139,6 +163,14 @@ Example options usage:
         HashAlgorithm = HashSha3_512Algorithm.ALGORITHM_NAME
     });// KdfPbKdf2Options cast implicit to CryptoOptions
 ```
+
+**TIP**: You may override the default hash algorithm which is being used in a 
+new options instance in the static `DefaultHashAlgorithm` property.
+
+**NOTE**: The SP 800-108 HMAC CTR KBKDF algorithm isn't available in a WASM 
+app, and there's currently no pure .NET replacement included in the 
+`wan24-Crypto-BC` library. It doesn't support iterations and salt (but a label 
+and context value instead). Not all hash algorithms may be supported.
 
 ### Encryption
 
@@ -263,7 +295,7 @@ SignatureContainer signature = privateKey.SignData(anyData);
 privateKey.PublicKey.ValidateSignature(signature, anyData);
 ```
 
-The default signature algorithm is DSA from a secp521r1 elliptic curve.
+The default signature algorithm is ECDSA from a secp521r1 elliptic curve.
 
 ### Value protection
 
@@ -1080,6 +1112,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | SPHINCS+ | 5 | wan24-Crypto-BC |
 | FrodoKEM | 6 | wan24-Crypto-BC |
 | NTRUEncrypt | 7 | wan24-Crypto-BC |
+| Ed25519 | 8 | wan24-Crypto-BC |
+| Ed448 | 9 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
 | AES-256-CBC | 0 | wan24-Crypto |
 | ChaCha20 | 1 | wan24-Crypto-BC |
@@ -1099,6 +1133,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | SHA3-256 | 5 | wan24-Crypto |
 | SHA3-384 | 6 | wan24-Crypto |
 | SHA3-512 | 7 | wan24-Crypto |
+| Shake128 | 8 | wan24-Crypto |
+| Shake256 | 9 | wan24-Crypto |
 | **MAC** |  |  |
 | HMAC-SHA-1 | 0 | wan24-Crypto |
 | HMAC-SHA-256 | 1 | wan24-Crypto |
@@ -1114,6 +1150,7 @@ are the official implementation IDs (not guaranteed to be complete):
 | **KDF** |  |  |
 | PBKDF#2 | 0 | wan24-Crypto |
 | Argon2id | 1 | wan24-Crypto-NaCl |
+| SP 800-108 HMAC CTR KBKDF | 2 |
 
 PAKE has no algorithm ID, because it doesn't match into any category (there is 
 no PAKE multi-algorithm support implemented).
@@ -1159,11 +1196,18 @@ method will ensure that all used default algorithms are post quantum safe. In
 case it's not possible to use post quantum algorithms for all defaults, this 
 method will throw an exception.
 
-**NOTE**: AES-256 and SHA(3)-384+ (and HMAC-SHA(3)-384+) are considered to be 
-post quantum-safe algorithms, while currently no post quantum-safe asymmetric 
-algorithms are implemented in this main library (`wan24-Crypto-BC` does 
-implement some), since .NET doesn't offer any API (this may change with 
-coming .NET releases).
+**NOTE**: AES-256, and SHA-384+, SHA3 and Shake128/256 (and HMAC-SHA-384+ and 
+HMAC-SHA3-*) are considered to be post quantum-safe algorithms, while 
+currently no post quantum-safe asymmetric algorithms are implemented in this 
+main library (`wan24-Crypto-BC` does implement some), since .NET doesn't offer 
+any API (this may change with coming .NET releases).
+
+**NOTE**: While SHA3 and Shake128/256 (KECCAK) was designed for post quantum 
+safety, AES-256 and SHA-384+ (SHA2) wasn't and is only considered to be post 
+quantum safe because of its key/output length (this also applies to the 
+HMACs). While the post quantum safety of SHA3 and Shake218/256 should stay 
+stable, key/output length based considerations may be reconsidered from time 
+to time, based on the recent quantum computing capabilities available.
 
 ## Disclaimer
 
@@ -1173,5 +1217,5 @@ warranty of any kind. Please read the license for the full disclaimer.
 This library uses the available .NET cryptographic algorithms and doesn't 
 implement any "selfmade" cryptographic algorithms. Extension libraries may add 
 other well known third party cryptographic algorithm libraries, like Bouncy 
-Castle. Also "selfmade" cryptographic algorithms may be implemented by 
+Castle. Also "selfmade" cryptographic algorithms may be implemented as 
 extensions.

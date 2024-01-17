@@ -50,6 +50,9 @@ namespace wan24.Crypto
             return ms.ToArray();
         }
 
+        /// <inheritdoc/>
+        public override string ToString() => $"Asymmetric key {GetType()} (algorithm \"{Algorithm.Name}\" with {Bits} bits key length)";
+
         /// <summary>
         /// Serialize
         /// </summary>

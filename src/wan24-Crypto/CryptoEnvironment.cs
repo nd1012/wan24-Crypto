@@ -49,6 +49,8 @@ namespace wan24.Crypto
             if (options.ProcessScopeKey is not null) ValueProtection.ProcessScopeKey = options.ProcessScopeKey;
             if (options.UserScopeKey is not null) ValueProtection.UserScopeKey = options.UserScopeKey;
             if (options.SystemScopeKey is not null) ValueProtection.SystemScopeKey = options.SystemScopeKey;
+            if (options.PbKdf2HashAlgorithm is not null) KdfPbKdf2Options.DefaultHashAlgorithm = options.PbKdf2HashAlgorithm;
+            if (options.Sp800_108HashAlgorithm is not null) KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm = options.Sp800_108HashAlgorithm;
         }
 
         /// <summary>

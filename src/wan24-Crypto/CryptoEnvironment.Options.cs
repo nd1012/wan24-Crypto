@@ -204,6 +204,16 @@ namespace wan24.Crypto
             /// System scope key for <see cref="ValueProtection"/>
             /// </summary>
             public ISecureValue? SystemScopeKey { get; set; }
+
+            /// <summary>
+            /// Default PBKDF#2 hash algorithm name for the KDF options
+            /// </summary>
+            public string? PbKdf2HashAlgorithm { get; set; }
+
+            /// <summary>
+            /// Default SP800-108 hash algorithm name for the KDF options
+            /// </summary>
+            public string? Sp800_108HashAlgorithm { get; set; }
         }
     }
 }

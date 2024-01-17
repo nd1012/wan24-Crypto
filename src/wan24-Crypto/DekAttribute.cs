@@ -11,7 +11,16 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public DekAttribute() : base() { }
+        public DekAttribute(int length = 64) : base()
+        {
+            ArgumentOutOfRangeException.ThrowIfLessThan(length, 1, nameof(length));
+            Length = length;
+        }
+
+        /// <summary>
+        /// Length of the data encryption key (DEK) in bytes
+        /// </summary>
+        public virtual int Length { get; }
 
         /// <summary>
         /// Get the DEK

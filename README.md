@@ -164,6 +164,9 @@ Example options usage:
     });// KdfPbKdf2Options cast implicit to CryptoOptions
 ```
 
+**TIP**: You may override the default hash algorithm which is being used in a 
+new options instance in the static `DefaultHashAlgorithm` property.
+
 **NOTE**: The SP 800-108 HMAC CTR KBKDF algorithm isn't available in a WASM 
 app, and there's currently no pure .NET replacement included in the 
 `wan24-Crypto-BC` library. It doesn't support iterations and salt (but a label 

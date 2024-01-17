@@ -18,7 +18,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Hash algorithm name
         /// </summary>
-        private string _HashAlgorithm = DEFAULT_HASH_ALGORITHM;
+        private string _HashAlgorithm = DefaultHashAlgorithm;
 
         /// <summary>
         /// Constructor
@@ -38,6 +38,11 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Default hash algorithm name
+        /// </summary>
+        public static string DefaultHashAlgorithm { get; set; } = DEFAULT_HASH_ALGORITHM;
+
+        /// <summary>
         /// Hash algorithm name
         /// </summary>
         [Required, MinLength(1), MaxLength(byte.MaxValue)]
@@ -54,7 +59,7 @@ namespace wan24.Crypto
         public HashAlgorithmName HashName
         {
             get => new(_HashAlgorithm);
-            set => _HashAlgorithm = value.Name ?? DEFAULT_HASH_ALGORITHM;
+            set => _HashAlgorithm = value.Name ?? DefaultHashAlgorithm;
         }
 
         /// <summary>
@@ -103,7 +108,7 @@ namespace wan24.Crypto
         public static implicit operator CryptoOptions(KdfSp800_801HmacKbKdfOptions options) => new()
         {
             KdfAlgorithm = KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME,
-            KdfIterations = KdfSp800_108HmacCtrKbKdfAlgorithm.Instance.DefaultIterations,
+            KdfIterations = 0,
             KdfOptions = options
         };
     }
