@@ -115,10 +115,162 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_DecryptObject__1___0_System_Byte____System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.DecryptObject%60%601(%60%600%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_AutoDecryptObject__1___0_wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.AutoDecryptObject%60%601(%60%600%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L177">View Source</a>
+  </span>
+  <a id="wan24_Crypto_ObjectEncryption_AutoDecryptObject_" data-uid="wan24.Crypto.ObjectEncryption.AutoDecryptObject*"></a>
+  <h4 id="wan24_Crypto_ObjectEncryption_AutoDecryptObject__1___0_wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.AutoDecryptObject``1(``0,wan24.Crypto.CryptoOptions@)">AutoDecryptObject&lt;T&gt;(T, in CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Decrypt raw property values (<a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a>) using the data encryption key (DEK; <a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a>) property value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T AutoDecryptObject&lt;T&gt;(this T obj, in CryptoOptions options = null)
+    where T : IEncryptPropertiesKek</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Object</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Object type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_AutoEncryptObject__1___0_System_Int32__wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.AutoEncryptObject%60%601(%60%600%2CSystem.Int32%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L144">View Source</a>
+  </span>
+  <a id="wan24_Crypto_ObjectEncryption_AutoEncryptObject_" data-uid="wan24.Crypto.ObjectEncryption.AutoEncryptObject*"></a>
+  <h4 id="wan24_Crypto_ObjectEncryption_AutoEncryptObject__1___0_System_Int32__wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.AutoEncryptObject``1(``0,System.Int32@,wan24.Crypto.CryptoOptions@)">AutoEncryptObject&lt;T&gt;(T, in Int32, in CryptoOptions)</h4>
+  <div class="markdown level1 summary"><p>Encrypt raw property values (<a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a>) and the data encryption key (DEK; <a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a>) property value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T AutoEncryptObject&lt;T&gt;(this T obj, in int dekLength = 0, in CryptoOptions options = null)
+    where T : IEncryptPropertiesKek</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Object</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">dekLength</span></td>
+        <td><p>Generated DEK length in bytes (or <code>0</code> to use the <a class="xref" href="wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_Length">Length</a> value)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">wan24.Crypto.CryptoOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Object type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_DecryptObject__1___0_System_Byte____System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.DecryptObject%60%601(%60%600%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L160">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_DecryptObject_" data-uid="wan24.Crypto.ObjectEncryption.DecryptObject*"></a>
   <h4 id="wan24_Crypto_ObjectEncryption_DecryptObject__1___0_System_Byte____System_Byte____wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.DecryptObject``1(``0,System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)">DecryptObject&lt;T&gt;(T, in Byte[], in Byte[], in CryptoOptions)</h4>
@@ -203,7 +355,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_DecryptProperties__1___0__System_Byte____System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.DecryptProperties%60%601(%60%600%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L82">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L83">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_DecryptProperties_" data-uid="wan24.Crypto.ObjectEncryption.DecryptProperties*"></a>
   <h4 id="wan24_Crypto_ObjectEncryption_DecryptProperties__1___0__System_Byte____System_Byte____wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.DecryptProperties``1(``0@,System.Byte[]@,System.Byte[]@,wan24.Crypto.CryptoOptions@)">DecryptProperties&lt;T&gt;(in T, in Byte[], in Byte[], in CryptoOptions)</h4>
@@ -287,7 +439,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_EncryptObject__1___0_System_Byte____System_Int32__System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.EncryptObject%60%601(%60%600%2CSystem.Byte%5B%5D%40%2CSystem.Int32%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L125">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L126">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_EncryptObject_" data-uid="wan24.Crypto.ObjectEncryption.EncryptObject*"></a>
   <h4 id="wan24_Crypto_ObjectEncryption_EncryptObject__1___0_System_Byte____System_Int32__System_Byte____wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.EncryptObject``1(``0,System.Byte[]@,System.Int32@,System.Byte[]@,wan24.Crypto.CryptoOptions@)">EncryptObject&lt;T&gt;(T, in Byte[], in Int32, in Byte[], in CryptoOptions)</h4>
@@ -296,7 +448,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T EncryptObject&lt;T&gt;(this T obj, in byte[] pwd = null, in int dekLength = 64, in byte[] dataEncryptionKey = null, in CryptoOptions options = null)
+    <pre><code class="lang-csharp hljs">public static T EncryptObject&lt;T&gt;(this T obj, in byte[] pwd = null, in int dekLength = 0, in byte[] dataEncryptionKey = null, in CryptoOptions options = null)
     where T : IEncryptProperties</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -324,7 +476,7 @@
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">dekLength</span></td>
-        <td><p>Generated DEK length in bytes</p>
+        <td><p>Generated DEK length in bytes (or <code>0</code> to use the <a class="xref" href="wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_Length">Length</a> value)</p>
 </td>
       </tr>
       <tr>
@@ -375,19 +527,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_EncryptProperties__1___0__System_Byte____System_Int32__System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.EncryptProperties%60%601(%60%600%40%2CSystem.Byte%5B%5D%40%2CSystem.Int32%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_EncryptProperties__1___0__System_Byte____System_Int32_System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.EncryptProperties%60%601(%60%600%40%2CSystem.Byte%5B%5D%40%2CSystem.Int32%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L21">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_EncryptProperties_" data-uid="wan24.Crypto.ObjectEncryption.EncryptProperties*"></a>
-  <h4 id="wan24_Crypto_ObjectEncryption_EncryptProperties__1___0__System_Byte____System_Int32__System_Byte____wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.EncryptProperties``1(``0@,System.Byte[]@,System.Int32@,System.Byte[]@,wan24.Crypto.CryptoOptions@)">EncryptProperties&lt;T&gt;(in T, in Byte[], in Int32, in Byte[], in CryptoOptions)</h4>
+  <h4 id="wan24_Crypto_ObjectEncryption_EncryptProperties__1___0__System_Byte____System_Int32_System_Byte____wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.EncryptProperties``1(``0@,System.Byte[]@,System.Int32,System.Byte[]@,wan24.Crypto.CryptoOptions@)">EncryptProperties&lt;T&gt;(in T, in Byte[], Int32, in Byte[], in CryptoOptions)</h4>
   <div class="markdown level1 summary"><p>Encrypt raw property values (<a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a>) and optional the data encryption key (DEK; <a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a>) property value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T EncryptProperties&lt;T&gt;(in T obj, in byte[] pwd = null, in int dekLength = 64, in byte[] dataEncryptionKey = null, in CryptoOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T EncryptProperties&lt;T&gt;(in T obj, in byte[] pwd = null, int dekLength = 0, in byte[] dataEncryptionKey = null, in CryptoOptions options = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -414,7 +566,7 @@
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">dekLength</span></td>
-        <td><p>Generated DEK length in bytes</p>
+        <td><p>Generated DEK length in bytes (or <code>0</code> to use the <a class="xref" href="wan24.Crypto.DekAttribute.html#wan24_Crypto_DekAttribute_Length">Length</a> value)</p>
 </td>
       </tr>
       <tr>
@@ -468,7 +620,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_GetDek__1___0_.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.GetDek%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L160">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L190">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_GetDek_" data-uid="wan24.Crypto.ObjectEncryption.GetDek*"></a>
   <h4 id="wan24_Crypto_ObjectEncryption_GetDek__1___0_" data-uid="wan24.Crypto.ObjectEncryption.GetDek``1(``0)">GetDek&lt;T&gt;(T)</h4>
@@ -535,7 +687,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_GetDek__1___0_System_Byte____wan24_Crypto_CryptoOptions__.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.GetDek%60%601(%60%600%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.CryptoOptions%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L177">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L207">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_GetDek_" data-uid="wan24.Crypto.ObjectEncryption.GetDek*"></a>
   <h4 id="wan24_Crypto_ObjectEncryption_GetDek__1___0_System_Byte____wan24_Crypto_CryptoOptions__" data-uid="wan24.Crypto.ObjectEncryption.GetDek``1(``0,System.Byte[]@,wan24.Crypto.CryptoOptions@)">GetDek&lt;T&gt;(T, in Byte[], in CryptoOptions)</h4>
@@ -614,7 +766,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_ObjectEncryption_HasDek__1___0_.md&amp;value=---%0Auid%3A%20wan24.Crypto.ObjectEncryption.HasDek%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L185">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/ObjectEncryption.cs/#L215">View Source</a>
   </span>
   <a id="wan24_Crypto_ObjectEncryption_HasDek_" data-uid="wan24.Crypto.ObjectEncryption.HasDek*"></a>
   <h4 id="wan24_Crypto_ObjectEncryption_HasDek__1___0_" data-uid="wan24.Crypto.ObjectEncryption.HasDek``1(``0)">HasDek&lt;T&gt;(T)</h4>

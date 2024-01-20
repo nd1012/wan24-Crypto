@@ -85,6 +85,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IWillDispose</span></div>
     <div><span class="xref">wan24.Core.IDisposableObject</span></div>
     <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">System.IAsyncDisposable</span></div>
@@ -140,7 +141,13 @@
       <span class="xref">wan24.Core.DisposableBase.AllowFinalizer</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeObjects</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.DisposableBase.StackInfo</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.RegisterForDispose&lt;T&gt;(T)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
@@ -213,7 +220,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_EncryptedJsonValue_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EncryptedJsonValue&lt;T&gt; : EncryptedValue, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class EncryptedJsonValue&lt;T&gt; : EncryptedValue, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -430,6 +437,9 @@
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>

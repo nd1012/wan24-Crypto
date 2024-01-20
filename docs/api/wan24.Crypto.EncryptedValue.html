@@ -86,6 +86,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IWillDispose</span></div>
     <div><span class="xref">wan24.Core.IDisposableObject</span></div>
     <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">System.IAsyncDisposable</span></div>
@@ -102,7 +103,13 @@
       <span class="xref">wan24.Core.DisposableBase.AllowFinalizer</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeObjects</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.DisposableBase.StackInfo</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.RegisterForDispose&lt;T&gt;(T)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
@@ -175,7 +182,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_EncryptedValue_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EncryptedValue : DisposableBase, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class EncryptedValue : DisposableBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -205,7 +212,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptedValue.cs/#L21">View Source</a>
   </span>
   <h4 id="wan24_Crypto_EncryptedValue__AsymmetricKey" data-uid="wan24.Crypto.EncryptedValue._AsymmetricKey">_AsymmetricKey</h4>
-  <div class="markdown level1 summary"><p>Aymmetric key</p>
+  <div class="markdown level1 summary"><p>Asymmetric key</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -739,6 +746,9 @@ public virtual byte[] SymmetricKey { get; set; }</code></pre>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>

@@ -86,6 +86,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IWillDispose</span></div>
     <div><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecordPool.html">IPakeAuthRecordPool</a></div>
     <div><span class="xref">wan24.Core.IInstancePool</span>&lt;<span class="xref">wan24.Crypto.Authentication.PakeAuthRecord</span>&gt;</div>
     <div><span class="xref">wan24.Core.IInstancePool</span></div>
@@ -128,6 +129,18 @@
     </div>
     <div>
       <span class="xref">wan24.Core.InstancePool&lt;wan24.Crypto.Authentication.PakeAuthRecord&gt;.GetManyAsync(System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.InstancePool&lt;wan24.Crypto.Authentication.PakeAuthRecord&gt;.wan24.Core.IInstancePool.GetOneObject()</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.InstancePool&lt;wan24.Crypto.Authentication.PakeAuthRecord&gt;.wan24.Core.IInstancePool.GetOneObjectAsync(System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.InstancePool&lt;wan24.Crypto.Authentication.PakeAuthRecord&gt;.wan24.Core.IInstancePool.GetManyObjects(System.Int32, System.Threading.CancellationToken)</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.InstancePool&lt;wan24.Crypto.Authentication.PakeAuthRecord&gt;.wan24.Core.IInstancePool.GetManyObjectsAsync(System.Int32, System.Threading.CancellationToken)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.InstancePool&lt;wan24.Crypto.Authentication.PakeAuthRecord&gt;.BeforeStopAsync(System.Threading.CancellationToken)</span>
@@ -250,6 +263,9 @@
       <span class="xref">wan24.Core.HostedServiceBase.EnsureNotCanceled(System.Boolean)</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.HostedServiceBase.EnsureRunning(System.Boolean)</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.HostedServiceBase.RaiseOnException()</span>
     </div>
     <div>
@@ -301,7 +317,13 @@
       <span class="xref">wan24.Core.DisposableBase.AllowFinalizer</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeObjects</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.DisposableBase.StackInfo</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.RegisterForDispose&lt;T&gt;(T)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
@@ -368,7 +390,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_Authentication_PakeAuthRecordPool_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PakeAuthRecordPool : InstancePool&lt;PakeAuthRecord&gt;, IPakeAuthRecordPool, IInstancePool&lt;PakeAuthRecord&gt;, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PakeAuthRecordPool : InstancePool&lt;PakeAuthRecord&gt;, IWillDispose, IPakeAuthRecordPool, IInstancePool&lt;PakeAuthRecord&gt;, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -530,6 +552,9 @@
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
   <div>
       <a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecordPool.html">IPakeAuthRecordPool</a>
   </div>

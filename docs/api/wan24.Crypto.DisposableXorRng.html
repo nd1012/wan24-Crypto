@@ -85,6 +85,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">wan24.Core.IWillDispose</span></div>
     <div><span class="xref">wan24.Core.IDisposableObject</span></div>
     <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">System.IAsyncDisposable</span></div>
@@ -108,7 +109,13 @@
       <span class="xref">wan24.Core.DisposableBase.AllowFinalizer</span>
     </div>
     <div>
+      <span class="xref">wan24.Core.DisposableBase.DisposeObjects</span>
+    </div>
+    <div>
       <span class="xref">wan24.Core.DisposableBase.StackInfo</span>
+    </div>
+    <div>
+      <span class="xref">wan24.Core.DisposableBase.RegisterForDispose&lt;T&gt;(T)</span>
     </div>
     <div>
       <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
@@ -178,7 +185,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_DisposableXorRng_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class DisposableXorRng : DisposableRngBase, IDisposableObject, IDisposable, IAsyncDisposable, IRng</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class DisposableXorRng : DisposableRngBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IRng</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -428,6 +435,9 @@
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="wan24.Crypto.DisposableRngBase.html#wan24_Crypto_DisposableRngBase_FillBytesAsync_Memory_System_Byte__CancellationToken_">DisposableRngBase.FillBytesAsync(Memory&lt;Byte&gt;, CancellationToken)</a></div>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
