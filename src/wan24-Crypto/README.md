@@ -1,5 +1,9 @@
 # wan24-Crypto
 
+**NOTE**: .NET 8 support is pending, 'cause current Windows 11 updates didn't 
+include support for SHA3 yet. As soon as SHA3 is being supported, there'll be 
+a release update to 2.0.0.
+
 This library exports a generic high level crypto API, which allows to use an 
 implemented cryptographic algorithm to be applied using a simple interface. It 
 also implements abstract and configurable RNG handling, which uses a local 
