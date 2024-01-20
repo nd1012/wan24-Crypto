@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
+using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -34,7 +35,7 @@ namespace wan24.Crypto
             try
             {
                 _PrivateKey = key;
-                KeyData = new(key.ExportECPrivateKey());
+                KeyData = new(key.ExportPkcs8PrivateKey());
             }
             catch (Exception ex)
             {
@@ -64,7 +65,7 @@ namespace wan24.Crypto
                     int red;
                     try
                     {
-                        _PrivateKey.ImportECPrivateKey(KeyData.Span, out red);
+                        _PrivateKey.ImportPkcs8PrivateKey(KeyData.Span, out red);
                     }
                     catch
                     {

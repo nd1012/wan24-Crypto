@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Default hash algorithm name (SHA3-384)
         /// </summary>
-        public const string DEFAULT_HASH_ALGORITHM = HashSha384Algorithm.ALGORITHM_NAME;
+        public const string DEFAULT_HASH_ALGORITHM = HashSha3_384Algorithm.ALGORITHM_NAME;
 
         /// <summary>
         /// Hash algorithm name

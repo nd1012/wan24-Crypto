@@ -39,8 +39,8 @@ namespace wan24.Crypto
         public override async Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             EnsureUndisposed();
-            using RentedObject<ProcessStream> havege = new(Pool);
-            await havege.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
+            RentedObject<ProcessStream> havege = new(Pool);
+            await using(havege.DynamicContext()) await havege.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             return buffer;
         }
 

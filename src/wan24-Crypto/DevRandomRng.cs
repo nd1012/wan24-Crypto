@@ -51,8 +51,8 @@ namespace wan24.Crypto
             }
             else
             {
-                using RentedObject<Stream> random = new(RND.DevRandomPool);
-                await random.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
+                RentedObject<Stream> random = new(RND.DevRandomPool);
+                await using(random.DynamicContext()) await random.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             }
             if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                 Logging.WriteWarning(

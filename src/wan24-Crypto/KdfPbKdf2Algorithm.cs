@@ -53,7 +53,6 @@ namespace wan24.Crypto
         {
             _DefaultOptions.KdfAlgorithm = ALGORITHM_NAME;
             _DefaultOptions.KdfIterations = DEFAULT_ITERATIONS;
-            _DefaultOptions.KdfOptions = new KdfPbKdf2Options();
             _DefaultOptions.KdfAlgorithmIncluded = true;
         }
 
@@ -61,6 +60,17 @@ namespace wan24.Crypto
         /// Instance
         /// </summary>
         public static KdfPbKdf2Algorithm Instance { get; }
+
+        /// <inheritdoc/>
+        public override CryptoOptions DefaultOptions
+        {
+            get
+            {
+                CryptoOptions res = base.DefaultOptions;
+                res.HashAlgorithm = KdfPbKdf2Options.DefaultHashAlgorithm;
+                return res;
+            }
+        }
 
         /// <inheritdoc/>
         public override int MinIterations => MIN_ITERATIONS;

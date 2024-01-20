@@ -39,6 +39,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         public byte[] Export()
         {
+            // Export full key information
             using MemoryPoolStream ms = new()
             {
                 CleanReturned = true
@@ -59,6 +60,7 @@ namespace wan24.Crypto
         /// <param name="stream">Stream</param>
         protected override void Serialize(Stream stream)
         {
+            // Export minimal key information (which ensures correct serialized data when deserializing)
             stream.WriteNumber(Algorithm.Value)
                 .WriteBytes(KeyData.Array);
         }
@@ -70,6 +72,7 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
+            // Export minimal key information (which ensures correct serialized data when deserializing)
             await stream.WriteNumberAsync(Algorithm.Value, cancellationToken).DynamicContext();
             await stream.WriteBytesAsync(KeyData.Array, cancellationToken).DynamicContext();
         }
@@ -118,6 +121,7 @@ namespace wan24.Crypto
         /// <returns>Key instance (don't forget to dispose)</returns>
         public static T Import<T>(byte[] keyData) where T : IAsymmetricKey
         {
+            // Import full key information
             using MemoryStream ms = new(keyData);
             int ssv = ms.ReadSerializerVersion();
             string typeName = ms.ReadString(ssv, minLen: 1, maxLen: byte.MaxValue);

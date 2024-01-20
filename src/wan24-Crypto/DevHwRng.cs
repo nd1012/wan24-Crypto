@@ -38,8 +38,8 @@ namespace wan24.Crypto
         public override async Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             DateTime started = DateTime.Now;
-            using RentedObject<Stream> random = new(HwRngPool);
-            await random.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
+            RentedObject<Stream> random = new(HwRngPool);
+            await using(random.DynamicContext()) await random.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                 Logging.WriteWarning(
                     $"{HWRNG} doesn't get enough entropy for returning {buffer.Length} byte random data within 10 seconds (took {DateTime.Now - started} instead)"

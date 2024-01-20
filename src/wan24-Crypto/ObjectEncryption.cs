@@ -119,11 +119,11 @@ namespace wan24.Crypto
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="obj">Object</param>
         /// <param name="pwd">Key encryption key (KEK; required when there's a DEK property)</param>
-        /// <param name="dekLength">Generated DEK length in bytes</param>
+        /// <param name="dekLength">Generated DEK length in bytes (or <c>0</c> to use the <see cref="DekAttribute.Length"/> value)</param>
         /// <param name="dataEncryptionKey">DEK to use (no DEK property required)</param>
         /// <param name="options">Options</param>
         /// <returns>Object</returns>
-        public static T EncryptObject<T>(this T obj, in byte[]? pwd = null, in int dekLength = 64, in byte[]? dataEncryptionKey = null, in CryptoOptions? options = null)
+        public static T EncryptObject<T>(this T obj, in byte[]? pwd = null, in int dekLength = 0, in byte[]? dataEncryptionKey = null, in CryptoOptions? options = null)
             where T : IEncryptProperties
         {
             IEncryptPropertiesExt? ext = obj as IEncryptPropertiesExt;
@@ -131,6 +131,21 @@ namespace wan24.Crypto
             EncryptProperties(obj, pwd, dekLength, dataEncryptionKey, options);
             ext?.AfterEncrypt(pwd, dekLength, dataEncryptionKey, options);
             return obj;
+        }
+
+        /// <summary>
+        /// Encrypt raw property values (<see cref="EncryptAttribute"/>) and the data encryption key (DEK; <see cref="DekAttribute"/>) property value
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="obj">Object</param>
+        /// <param name="dekLength">Generated DEK length in bytes (or <c>0</c> to use the <see cref="DekAttribute.Length"/> value)</param>
+        /// <param name="options">Options</param>
+        /// <returns>Object</returns>
+        public static T AutoEncryptObject<T>(this T obj, in int dekLength = 0, in CryptoOptions? options = null)
+            where T : IEncryptPropertiesKek
+        {
+            using SecureByteArray kek = obj.GetKeyEncryptionKey();
+            return EncryptObject(obj, kek.Array, dekLength, options: options);
         }
 
         /// <summary>
@@ -150,6 +165,20 @@ namespace wan24.Crypto
             DecryptProperties(obj, pwd, dataEncryptionKey, options);
             ext?.AfterDecrypt(pwd, dataEncryptionKey, options);
             return obj;
+        }
+
+        /// <summary>
+        /// Decrypt raw property values (<see cref="EncryptAttribute"/>) using the data encryption key (DEK; <see cref="DekAttribute"/>) property value
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="obj">Object</param>
+        /// <param name="options">Options</param>
+        /// <returns>Object</returns>
+        public static T AutoDecryptObject<T>(this T obj, in CryptoOptions? options = null)
+            where T : IEncryptPropertiesKek
+        {
+            using SecureByteArray kek = obj.GetKeyEncryptionKey();
+            return DecryptObject(obj, kek.Array, options: options);
         }
 
         /// <summary>

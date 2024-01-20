@@ -12,13 +12,13 @@ namespace wan24.Crypto
         /// </summary>
         private static ISecureValue _ProcessScopeKey;
         /// <summary>
-        /// User scope key
-        /// </summary>
-        private static ISecureValue _UserScopeKey;
-        /// <summary>
         /// System scope key
         /// </summary>
         private static ISecureValue _SystemScopeKey;
+        /// <summary>
+        /// User scope key
+        /// </summary>
+        private static ISecureValue _UserScopeKey;
 
         /// <summary>
         /// Constructor
@@ -27,8 +27,8 @@ namespace wan24.Crypto
         {
             _ProcessScopeKey = new SecureValue(RND.GetBytes(64));
             string system = $"{Environment.MachineName}[{typeof(ValueProtection).Assembly.Location}]";
-            _UserScopeKey = new SecureValue(HashSha512Algorithm.Instance.Hash($"{Environment.UserDomainName}\\{Environment.UserName}@{system}".GetBytes()));
-            _SystemScopeKey = new SecureValue(HashSha512Algorithm.Instance.Hash(system.GetBytes()));
+            _UserScopeKey = new SecureValue(HashHelper.DefaultAlgorithm.Hash($"{Environment.UserDomainName}\\{Environment.UserName}@{system}".GetBytes()));
+            _SystemScopeKey = new SecureValue(HashHelper.DefaultAlgorithm.Hash(system.GetBytes()));
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace wan24.Crypto
             get => _ProcessScopeKey;
             set
             {
-                _ProcessScopeKey.Dispose();
+                using ISecureValue existing = _ProcessScopeKey;
                 _ProcessScopeKey = value;
             }
         }
@@ -52,7 +52,7 @@ namespace wan24.Crypto
             get => _UserScopeKey;
             set
             {
-                _UserScopeKey.Dispose();
+                using ISecureValue existing = _UserScopeKey;
                 _UserScopeKey = value;
             }
         }
@@ -65,7 +65,7 @@ namespace wan24.Crypto
             get => _SystemScopeKey;
             set
             {
-                _SystemScopeKey.Dispose();
+                using ISecureValue existing = _SystemScopeKey;
                 _SystemScopeKey = value;
             }
         }
@@ -96,7 +96,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Protect a value (default protect handler)
         /// </summary>
-        /// <param name="value">Value to protect</param>
+        /// <param name="value">Value to protect (won't be cleared)</param>
         /// <param name="scope">Scope</param>
         /// <returns>Protected value</returns>
         public static byte[] DefaultProtect(byte[] value, Scope scope = Scope.Process)
@@ -108,7 +108,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Unprotect a value (default unprotect handler)
         /// </summary>
-        /// <param name="protectedValue">Protected value</param>
+        /// <param name="protectedValue">Protected value (won't be cleared)</param>
         /// <param name="scope">Scope</param>
         /// <returns>Unprotected value</returns>
         public static byte[] DefaultUnprotect(byte[] protectedValue, Scope scope = Scope.Process)
@@ -120,14 +120,14 @@ namespace wan24.Crypto
         /// <summary>
         /// Delegate for a value protection handler
         /// </summary>
-        /// <param name="value">Value to protect</param>
+        /// <param name="value">Value to protect (won't be cleared)</param>
         /// <param name="scope">Scope</param>
         /// <returns>Protected value</returns>
         public delegate byte[] ProtectValue_Delegate(byte[] value, Scope scope = Scope.Process);
         /// <summary>
         /// Delegate for a value unprotection handler
         /// </summary>
-        /// <param name="protectedValue">Protected value</param>
+        /// <param name="protectedValue">Protected value (won't be cleared)</param>
         /// <param name="scope">Scope</param>
         /// <returns>Unprotected value</returns>
         public delegate byte[] UnprotectValue_Delegate(byte[] protectedValue, Scope scope = Scope.Process);
@@ -140,14 +140,17 @@ namespace wan24.Crypto
             /// <summary>
             /// Current process
             /// </summary>
+            [DisplayText("Current process context")]
             Process,
             /// <summary>
             /// Current user
             /// </summary>
+            [DisplayText("Current user context")]
             User,
             /// <summary>
             /// System
             /// </summary>
+            [DisplayText("Local system context")]
             System
         }
     }

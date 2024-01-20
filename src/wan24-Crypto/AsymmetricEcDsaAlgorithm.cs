@@ -95,5 +95,22 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo) => typeof(ECDsa).IsAssignableFrom(algo.GetType());
+
+        /// <inheritdoc/>
+        public override AsymmetricEcDsaPrivateKey DeserializePrivateKeyV1(byte[] keyData)
+        {
+            ECDsa dsa = ECDsa.Create();
+            try
+            {
+                dsa.ImportECPrivateKey(keyData, out int red);
+                if (red != keyData.Length) throw new InvalidDataException("The key data wasn't fully used");
+                return new(dsa);
+            }
+            catch (Exception ex)
+            {
+                dsa.Dispose();
+                throw CryptographicException.From(ex);
+            }
+        }
     }
 }

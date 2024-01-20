@@ -16,7 +16,14 @@ namespace wan24.Crypto
             if (options.DefaultKeyExchangeAlgorithm is not null) AsymmetricHelper.DefaultKeyExchangeAlgorithm = AsymmetricHelper.GetAlgorithm(options.DefaultKeyExchangeAlgorithm);
             if (options.DefaultSignatureAlgorithm is not null) AsymmetricHelper.DefaultSignatureAlgorithm = AsymmetricHelper.GetAlgorithm(options.DefaultSignatureAlgorithm);
             options.PKI?.EnableLocalPki();
-            if (options.CryptoExceptionDelay.HasValue) CryptographicException.Delay = options.CryptoExceptionDelay;
+            if (options.UseCryptoExceptionDelay)
+            {
+                if (options.CryptoExceptionDelay.HasValue) CryptographicException.Delay = options.CryptoExceptionDelay;
+            }
+            else
+            {
+                CryptographicException.Delay = null;
+            }
             if (options.DefaultMaximumAge.HasValue) CryptoOptions.DefaultMaximumAge = options.DefaultMaximumAge;
             if (options.DefaultMaximumTimeOffset.HasValue) CryptoOptions.DefaultMaximumTimeOffset = options.DefaultMaximumTimeOffset;
             if (options.DefaultPrivateKeysStore is not null) CryptoOptions.DefaultPrivateKeysStore = options.DefaultPrivateKeysStore;
@@ -51,6 +58,10 @@ namespace wan24.Crypto
             if (options.SystemScopeKey is not null) ValueProtection.SystemScopeKey = options.SystemScopeKey;
             if (options.PbKdf2HashAlgorithm is not null) KdfPbKdf2Options.DefaultHashAlgorithm = options.PbKdf2HashAlgorithm;
             if (options.Sp800_108HashAlgorithm is not null) KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm = options.Sp800_108HashAlgorithm;
+            if (options.ValueProtectionTpmMacAlgorithm is not null) ValueProtectionKeys.TpmMacAlgorithmName = options.ValueProtectionTpmMacAlgorithm;
+            if (options.ValueProtectionMacAlgorithm is not null) ValueProtectionKeys.MacAlgorithmName = options.ValueProtectionMacAlgorithm;
+            if (options.StrictPostQuantum.HasValue) CryptoHelper.ForcePostQuantumSafety(options.StrictPostQuantum.Value);
+            if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);
         }
 
         /// <summary>

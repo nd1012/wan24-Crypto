@@ -34,7 +34,7 @@ namespace wan24.Crypto
             try
             {
                 _PrivateKey = key;
-                KeyData = new(key.ExportECPrivateKey());
+                KeyData = new(key.ExportPkcs8PrivateKey());
             }
             catch(Exception ex)
             {
@@ -78,8 +78,23 @@ namespace wan24.Crypto
                     EnsureUndisposed();
                     if (_PrivateKey is not null) return _PrivateKey;
                     _PrivateKey = ECDsa.Create();
-                    _PrivateKey.ImportECPrivateKey(KeyData.Span, out int red);
-                    if (red != KeyData.Length) throw new InvalidDataException("The key data wasn't fully used");
+                    int red;
+                    try
+                    {
+                        _PrivateKey.ImportPkcs8PrivateKey(KeyData.Span, out red);
+                    }
+                    catch
+                    {
+                        _PrivateKey.Dispose();
+                        _PrivateKey = null;
+                        throw;
+                    }
+                    if (red != KeyData.Length)
+                    {
+                        _PrivateKey.Dispose();
+                        _PrivateKey = null;
+                        throw new InvalidDataException("The key data wasn't fully used");
+                    }
                     return _PrivateKey;
                 }
                 catch (Exception ex)

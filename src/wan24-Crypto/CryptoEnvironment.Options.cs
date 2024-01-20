@@ -36,6 +36,11 @@ namespace wan24.Crypto
             public TimeSpan? CryptoExceptionDelay { get; set; }
 
             /// <summary>
+            /// Use a timespan for a random <see cref="CryptographicException"/> delay?
+            /// </summary>
+            public bool UseCryptoExceptionDelay { get; set; } = true;
+
+            /// <summary>
             /// Default maximum cipher data age for decryption
             /// </summary>
             public TimeSpan? DefaultMaximumAge { get; set; }
@@ -206,14 +211,39 @@ namespace wan24.Crypto
             public ISecureValue? SystemScopeKey { get; set; }
 
             /// <summary>
-            /// Default PBKDF#2 hash algorithm name for the KDF options
+            /// Default PBKDF#2 hash algorithm name for the <see cref="KdfPbKdf2Options"/>
             /// </summary>
             public string? PbKdf2HashAlgorithm { get; set; }
 
             /// <summary>
-            /// Default SP800-108 hash algorithm name for the KDF options
+            /// Default SP800-108 hash algorithm name for the <see cref="KdfSp800_801HmacKbKdfOptions"/>
             /// </summary>
             public string? Sp800_108HashAlgorithm { get; set; }
+
+            /// <summary>
+            /// Force strict post quantum safety? (<see cref="CryptoEnvironment.Configure(Options)"/> will call <see cref="CryptoHelper.ForcePostQuantumSafety(bool)"/>, if set)
+            /// </summary>
+            public bool? StrictPostQuantum { get; set; }
+
+            /// <summary>
+            /// TPM MAC algorithm name for <see cref="ValueProtectionKeys"/>
+            /// </summary>
+            public string? ValueProtectionTpmMacAlgorithm { get; set; }
+
+            /// <summary>
+            /// MAC algorithm name for <see cref="ValueProtectionKeys"/>
+            /// </summary>
+            public string? ValueProtectionMacAlgorithm { get; set; }
+
+            /// <summary>
+            /// Remove unsupported algorithms?
+            /// </summary>
+            public bool RemoveUnsupportedAlgorithms { get; set; }
+
+            /// <summary>
+            /// Update default options after unsupported algorithms have been removed?
+            /// </summary>
+            public bool UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms { get; set; }
         }
     }
 }

@@ -320,12 +320,69 @@ Per default the keys are generated like this:
 - `User`: Hash of user domain and name, application location and machine name
 - `Process`: Random data
 
+**WARNING**: Setting new keys isn't thread-safe!
+
 The `Protect` and `Unprotect` methods are delegate properties which can be 
 exchanged. For example for Windows and Linux OS you may want to use different 
 approaches.
 
 For protecting a value it'll be encrypted using the current default encryption 
 options.
+
+Using the `ValueProtectionLevels` you can manage keys for a specific security 
+requirement by defining keys using the `ValueProtectionKeys.Set` method, and 
+getting them later using the `ValueProtectionKeys.Get` method. The protection 
+levels include variations for the system (mashine) and user level, with or 
+without TPM (for TPM usage the `wan24-Crypto-TPM` module is required) and 
+optional with an online key storage and/or a manual entered user password 
+(the online key storage and user password input needs to be implemented by 
+yourself):
+
+```cs
+// userPassword should be entered manually whenever it's required to (un)protect a value
+
+byte[] protectedValue = ValueProtectionLevels.UserTpmPassword.Protect(value, userPassword);
+// protectedValue is ready to be stored for the current user scope
+
+byte[] unprotectedValue = ValueProtectionLevels.UserTpmPassword.Unprotect(protectedValue, userPassword);
+```
+
+The `ValueProtectionKeys` is used to (re)store a protection key for each level 
+using the `Set(2)` and `(Try)Get` methods. It uses a `ISecureValue` for 
+serious key protection:
+
+```cs
+ValueProtectionKeys.Set(ValueProtectionLevels.UserTpmPassword, protectionKey, userPassword);
+```
+
+**NOTE**: While the `Set` method requires a `ISecureValue`, the `Set2` method 
+creates a `SecureValue` from the `protectionKey` byte array parameter. The 
+`(Try)Get` methods will return the final key to use (after HMAC, if 
+applicable). Stored keys will be protected for the according scope using 
+`ValueProtection`.
+
+You may use the extension method `ValueProtectionLevels.*.Protect/Unprotect` 
+for protecting/unprotecting a value, or the raw protection key which is being 
+returned from the `ValueProtectionKeys.(Try)Get` methods for applying 
+en-/decryption of values by yourself.
+
+To determine the capabilities of a protection level, you can use these 
+extension methods:
+
+- `RequiresPasswordInput`: If a manual entered user password is required
+- `RequiresTpm`: If a TPM is required
+- `RequiresNetwork`: If an online key storage is required
+- `GetScope`: Determines the according `ValueProtection.Scope` enumeration 
+value
+
+**NOTE**: In order to be able to use the TPM protection levels, 
+`wan24-Crypto-TPM` and a TPM must be available. The protection levels 
+including online communication require implementing an online key storage 
+service. `ValueProtectionKeys` does support a single user context only (it's 
+designed for an app which runs in a specific user context).
+
+**WARNING**: For each value protection level that you want to use you'll need 
+to set a key using `ValueProtectionKeys.Set(2)`, which is not thread-safe.
 
 ## Too many options?
 
@@ -1047,6 +1104,13 @@ DEK (which will be (re-)generated for each encryption)
 2. If you don't have a `Dek` property, you'll need to specify the DEK in the 
 method parameters (and of course no KEK parameter value is required)
 
+### Automatic key ecryption key providing
+
+Implement the `IEncryptPropertiesKek` interface for automatic key encryption 
+key (KEK) providing. The object needs to implement a data encryption key (DEK) 
+property with a `DekAttribute`. Then you can use the `AutoEn/DecryptObject` 
+extension methods.
+
 ## Notes
 
 Sometimes you'll read something like "will be disposed" or "will be cleared" 
@@ -1114,6 +1178,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | NTRUEncrypt | 7 | wan24-Crypto-BC |
 | Ed25519 | 8 | wan24-Crypto-BC |
 | Ed448 | 9 | wan24-Crypto-BC |
+| X25519 | 10 | wan24-Crypto-BC |
+| X448 | 11 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
 | AES-256-CBC | 0 | wan24-Crypto |
 | ChaCha20 | 1 | wan24-Crypto-BC |
@@ -1150,10 +1216,11 @@ are the official implementation IDs (not guaranteed to be complete):
 | **KDF** |  |  |
 | PBKDF#2 | 0 | wan24-Crypto |
 | Argon2id | 1 | wan24-Crypto-NaCl |
-| SP 800-108 HMAC CTR KBKDF | 2 |
+| SP 800-108 HMAC CTR KBKDF | 2 | wan24-Crypto |
 
 PAKE has no algorithm ID, because it doesn't match into any category (there is 
-no PAKE multi-algorithm support implemented).
+no PAKE multi-algorithm support implemented), and it's a key exchange 
+protocol - but not a cryptographic algorithm.
 
 ## Counter algorithms
 

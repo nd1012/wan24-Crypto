@@ -70,7 +70,7 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        protected override bool TryHashFinal(Span<byte> destination, [NotNullWhen(returnValue: true)] out int bytesWritten)
+        protected override bool TryHashFinal(Span<byte> destination, out int bytesWritten)
         {
             try
             {

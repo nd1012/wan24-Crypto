@@ -27,7 +27,7 @@ namespace wan24_Crypto_Tests
             };
             ValidateObject.Logger("wan24-Crypto Tests initialized");
             // Disable algorithms which are not supported in this platform
-            if (!SHA3_512.IsSupported)
+            if (!Shake128.IsSupported)
             {
                 // SHA3 hash
                 HashHelper.DefaultAlgorithm = HashSha512Algorithm.Instance;
@@ -43,7 +43,8 @@ namespace wan24_Crypto_Tests
                 MacHelper.Algorithms.TryRemove(MacHmacSha3_512Algorithm.ALGORITHM_NAME, out _);
                 // Pake default options
                 Pake.DefaultOptions = Pake.DefaultOptions
-                    .WithHashAlgorithm(HashSha512Algorithm.ALGORITHM_NAME)
+                    .WithMac(MacHmacSha512Algorithm.ALGORITHM_NAME, included: false);
+                Pake.DefaultCryptoOptions = Pake.DefaultCryptoOptions
                     .WithMac(MacHmacSha512Algorithm.ALGORITHM_NAME, included: false);
                 // KDF (don't use SHA3 and remove SP800-108)
                 KdfHelper.Algorithms.TryRemove(KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME, out _);
