@@ -21,5 +21,9 @@
         /// Display name
         /// </summary>
         string DisplayName { get; }
+        /// <summary>
+        /// Uses a TPM?
+        /// </summary>
+        bool UsesTpm { get; }
     }
 }

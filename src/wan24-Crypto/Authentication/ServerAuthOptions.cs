@@ -12,11 +12,11 @@ namespace wan24.Crypto.Authentication
         /// Constructor
         /// </summary>
         /// <param name="privateKeys">Private keys (will be disposed!)</param>
-        /// <param name="identityfactory">Identity factory (required for signup/authentication)</param>
-        public ServerAuthOptions(in PrivateKeySuite privateKeys, in ServerAuth.Identity_Delegate? identityfactory = null)
+        /// <param name="identityFactory">Identity factory (required for signup/authentication)</param>
+        public ServerAuthOptions(in PrivateKeySuite privateKeys, in ServerAuth.Identity_Delegate? identityFactory = null)
         {
             PrivateKeys = privateKeys;
-            IdentityFactory = identityfactory;
+            IdentityFactory = identityFactory;
         }
 
         /// <summary>
@@ -149,6 +149,6 @@ namespace wan24.Crypto.Authentication
         /// <summary>
         /// Allowed PAKE MAC algorithm names
         /// </summary>
-        public string[] AllowedMacAlgorithms { get; set; } = Array.Empty<string>();
+        public string[] AllowedMacAlgorithms { get; set; } = [];
     }
 }

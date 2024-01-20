@@ -5,16 +5,14 @@ namespace wan24.Crypto
     /// <summary>
     /// Parallel <see cref="AsymmetricPublicKeySigningRequest"/> signer service
     /// </summary>
-    public sealed class AsymmetricKeySignerService : ParallelItemQueueWorkerBase<Action>
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="capacity">Key signing request queue capacity</param>
+    /// <param name="threads">Number of threads to use for parallel processing</param>
+    /// <param name="signer">Signer to use</param>
+    public sealed class AsymmetricKeySignerService(in int capacity, in int threads, in AsymmetricKeySigner? signer = null) : ParallelItemQueueWorkerBase<Action>(capacity, threads)
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="capacity">Key signing request queue capacity</param>
-        /// <param name="threads">Number of threads to use for parallel processing</param>
-        /// <param name="signer">Signer to use</param>
-        public AsymmetricKeySignerService(in int capacity, in int threads, in AsymmetricKeySigner? signer = null) : base(capacity, threads)
-            => Signer = signer ?? AsymmetricKeySigner.Instance ?? throw new InvalidOperationException("No key signer created/given");
 
         /// <summary>
         /// Singleton instance
@@ -24,7 +22,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Used signer
         /// </summary>
-        public AsymmetricKeySigner Signer { get; }
+        public AsymmetricKeySigner Signer { get; } = signer ?? AsymmetricKeySigner.Instance ?? throw new InvalidOperationException("No key signer created/given");
 
         /// <summary>
         /// Sign a key signing request

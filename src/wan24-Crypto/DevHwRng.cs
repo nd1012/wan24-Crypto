@@ -5,7 +5,11 @@ namespace wan24.Crypto
     /// <summary>
     /// <c>/dev/hwrng</c> RNG
     /// </summary>
-    public sealed class DevHwRng : DisposableRngBase
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="streamPoolCapacity"><c>/dev/hwrng</c> stream pool capacity</param>
+    public sealed class DevHwRng(in int streamPoolCapacity) : DisposableRngBase()
     {
         /// <summary>
         /// <c>/dev/hwrng</c> filename
@@ -15,22 +19,14 @@ namespace wan24.Crypto
         /// <summary>
         /// <c>/dev/hwrng</c> stream pool
         /// </summary>
-        private readonly DisposableObjectPool<Stream> HwRngPool;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="streamPoolCapacity"><c>/dev/hwrng</c> stream pool capacity</param>
-        public DevHwRng(in int streamPoolCapacity) : base()
-            => HwRngPool = new(streamPoolCapacity, () => new FileStream(HWRNG, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
+        private readonly DisposableObjectPool<Stream> HwRngPool = new(streamPoolCapacity, () => new FileStream(HWRNG, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
 
         /// <inheritdoc/>
         public override Span<byte> FillBytes(in Span<byte> buffer)
         {
             DateTime started = DateTime.Now;
             using RentedObject<Stream> random = new(HwRngPool);
-            if (random.Object.Read(buffer) != buffer.Length)
-                throw new IOException($"Failed to read {buffer.Length} byte from {HWRNG}");
+            random.Object.ReadExactly(buffer);
             if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                 Logging.WriteWarning(
                     $"{HWRNG} doesn't get enough entropy for returning {buffer.Length} byte random data within 10 seconds (took {DateTime.Now - started} instead)"
@@ -42,9 +38,8 @@ namespace wan24.Crypto
         public override async Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             DateTime started = DateTime.Now;
-            using RentedObject<Stream> random = new(HwRngPool);
-            if (await random.Object.ReadAsync(buffer, cancellationToken).DynamicContext() != buffer.Length)
-                throw new IOException($"Failed to read {buffer.Length} byte from {HWRNG}");
+            RentedObject<Stream> random = new(HwRngPool);
+            await using(random.DynamicContext()) await random.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                 Logging.WriteWarning(
                     $"{HWRNG} doesn't get enough entropy for returning {buffer.Length} byte random data within 10 seconds (took {DateTime.Now - started} instead)"

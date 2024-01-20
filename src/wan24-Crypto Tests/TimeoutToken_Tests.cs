@@ -15,7 +15,7 @@ namespace wan24_Crypto_Tests
             byte[] pwd = RandomNumberGenerator.GetBytes(20);
             TimeoutToken tt = new(DateTime.UtcNow, timeout, payload, pwd);
             Assert.IsFalse(tt.IsTimeout);
-            Assert.IsTrue(tt.Timeleft > TimeSpan.Zero);
+            Assert.IsTrue(tt.TimeLeft > TimeSpan.Zero);
             Assert.AreEqual(TimeoutToken.STRUCT_LENGTH, Marshal.SizeOf(tt));
             Assert.AreEqual(payload, tt.Payload);
             Assert.IsTrue(tt.ValidateToken(pwd, throwOnError: false));
@@ -25,7 +25,7 @@ namespace wan24_Crypto_Tests
             Thread.Sleep(100);
             tt = (TimeoutToken)serialized;
             Assert.IsTrue(tt.IsTimeout);
-            Assert.AreEqual(TimeSpan.Zero, tt.Timeleft);
+            Assert.AreEqual(TimeSpan.Zero, tt.TimeLeft);
             Assert.AreEqual(ticks, tt.Timeout.Ticks);
             Assert.AreEqual(payload, tt.Payload);
             Assert.IsTrue(tt.ValidateToken(pwd, throwOnError: false));
@@ -45,7 +45,7 @@ namespace wan24_Crypto_Tests
                 Marshal.StructureToPtr(tt, ptr, fDeleteOld: false);
                 tt = Marshal.PtrToStructure<TimeoutToken>(ptr);
                 Assert.IsFalse(tt.IsTimeout);
-                Assert.IsTrue(tt.Timeleft > TimeSpan.Zero);
+                Assert.IsTrue(tt.TimeLeft > TimeSpan.Zero);
                 Assert.AreEqual(TimeoutToken.STRUCT_LENGTH, Marshal.SizeOf(tt));
                 Assert.AreEqual(payload, tt.Payload);
                 Assert.IsTrue(tt.ValidateToken(pwd, throwOnError: false));

@@ -377,7 +377,7 @@ namespace wan24.Crypto
                     using (RentedArrayRefStruct<byte> buffer = new(len: 3))
                     {
                         options.Tracer?.WriteTrace("Reading crypto flags");
-                        if (cipherData.Read(buffer.Span) != buffer.Length) throw new IOException("Failed to read the crypto flags");
+                        cipherData.ReadExactly(buffer.Span);
                         options.Flags = DecodeFlags(buffer.Span);
                         options.Tracer?.WriteTrace($"Using crypto flags {options.Flags}");
                     }
@@ -417,8 +417,7 @@ namespace wan24.Crypto
                         : mac.MacLength;
                     options.Mac = new byte[len];
                     options.Tracer?.WriteTrace($"Reading MAC with {len} byte");
-                    int red = cipherData.Read(options.Mac);
-                    if (red != len) throw new IOException($"Failed to read the MAC (got only {red}/{len} byte)");
+                    cipherData.ReadExactly(options.Mac);
                 }
                 // Read authenticated options
                 if (options.PrivateKeyRevisionIncluded)
@@ -567,7 +566,7 @@ namespace wan24.Crypto
                     using (RentedArrayStructSimple<byte> buffer = new(len: 3))
                     {
                         options.Tracer?.WriteTrace("Reading crypto flags");
-                        if (await cipherData.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != buffer.Length) throw new IOException("Failed to read the crypto flags");
+                        await cipherData.ReadExactlyAsync(buffer.Memory, cancellationToken).DynamicContext();
                         options.Flags = DecodeFlags(buffer.Span);
                         options.Tracer?.WriteTrace($"Using crypto flags {options.Flags}");
                     }
@@ -609,8 +608,7 @@ namespace wan24.Crypto
                         : mac.MacLength;
                     options.Tracer?.WriteTrace($"Reading MAC with {len} byte");
                     options.Mac = new byte[len];
-                    int red = await cipherData.ReadAsync(options.Mac, cancellationToken).DynamicContext();
-                    if (red != len) throw new IOException($"Failed to read the MAC (got only {red}/{len} byte)");
+                    await cipherData.ReadExactlyAsync(options.Mac, cancellationToken).DynamicContext();
                 }
                 // Read authenticated options
                 if (options.PrivateKeyRevisionIncluded)

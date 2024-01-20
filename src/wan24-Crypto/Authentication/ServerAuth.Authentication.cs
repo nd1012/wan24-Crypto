@@ -66,7 +66,7 @@ namespace wan24.Crypto.Authentication
                     if (!context.Payload.Created.IsInRange(Options.MaxTimeDifference, DateTime.UtcNow))
                         throw new InvalidDataException("Max. peer time difference exceeded");
                     hash.Stream.Dispose();
-                    hash.Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+                    hash.Transform.TransformFinalBlock([], 0, 0);
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await Encryption!.GetDecryptionStreamAsync(stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                     // Validate the authentication sequence signature

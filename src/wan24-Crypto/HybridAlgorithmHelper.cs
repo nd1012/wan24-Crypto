@@ -194,8 +194,7 @@ namespace wan24.Crypto
         /// <returns>Key exchange data</returns>
         public static void GetKeyExchangeData(KeyExchangeDataContainer keyExchangeData, CryptoOptions options)
         {
-            byte[]? pwd = null,
-                newPwd = null;
+            byte[]? pwd = null;
             CryptoOptions? kedOptions = null;
             try
             {
@@ -207,22 +206,17 @@ namespace wan24.Crypto
                     PublicKey = options.CounterPublicKey
                 };
                 (pwd, keyExchangeData.CounterKeyExchangeData) = key.GetKeyExchangeData(options: kedOptions);
-                newPwd = new byte[options.Password.Length + pwd.Length];//TODO In v2 use ExtendKey
-                options.Password.AsSpan().CopyTo(newPwd);
-                pwd.AsSpan().CopyTo(newPwd.AsSpan(options.Password.Length, newPwd.Length - options.Password.Length));
-                options.Password.Clear();
-                options.Password = newPwd;
+                options.Password = options.Password.ExtendKey(pwd);
+                pwd = null;
             }
             catch (CryptographicException)
             {
                 pwd?.Clear();
-                newPwd?.Clear();
                 throw;
             }
             catch (Exception ex)
             {
                 pwd?.Clear();
-                newPwd?.Clear();
                 throw CryptographicException.From(ex);
             }
             finally
@@ -243,27 +237,20 @@ namespace wan24.Crypto
                 if (keyExchangeData.CounterKeyExchangeData is null) throw new ArgumentException("Missing counter key exchange data", nameof(keyExchangeData));
                 if (options.PrivateKey is not IKeyExchangePrivateKey key) throw new ArgumentException("Missing valid private key", nameof(options));
                 if (options.CounterPrivateKey is not IKeyExchangePrivateKey counterKey) throw new ArgumentException("Missing valid counter private key", nameof(options));
-                byte[]? key1 = null,//TODO In v2 use ExtendKey
-                    key2 = null,
-                    res = null;
+                byte[]? key1 = null,
+                    key2 = null;
                 try
                 {
                     key1 = key.DeriveKey(keyExchangeData.KeyExchangeData);
                     key2 = counterKey.DeriveKey(keyExchangeData.CounterKeyExchangeData);
-                    res = new byte[key1.Length + key2.Length];
-                    key1.AsSpan().CopyTo(res.AsSpan());
-                    key2.AsSpan().CopyTo(res.AsSpan(key1.Length, res.Length - key1.Length));
-                    options.Password = res;
+                    options.Password?.Clear();
+                    options.Password = key1.ExtendKey(key2);
                 }
                 catch
                 {
-                    res?.Clear();
-                    throw;
-                }
-                finally
-                {
                     key1?.Clear();
                     key2?.Clear();
+                    throw;
                 }
             }
             catch (CryptographicException)

@@ -29,7 +29,7 @@ namespace wan24.Crypto
         /// <param name="seedConsumer">Seed consumer</param>
         public RngSeedTimer(in IRng rng, in int seed, in double interval, in ISeedConsumer? seedConsumer = null) : base(interval)
         {
-            if (seed < 1) throw new ArgumentOutOfRangeException(nameof(seed));
+            ArgumentOutOfRangeException.ThrowIfLessThan(seed, 1);
             RNG = rng;
             SeedConsumer = seedConsumer;
             Seed = new byte[seed];

@@ -119,7 +119,7 @@ namespace wan24.Crypto
         /// </summary>
         private static void DoDelay()
         {
-            if (Delay is null) return;
+            if (!Delay.HasValue) return;
             Thread.Sleep(RandomNumberGenerator.GetInt32((int)Delay.Value.TotalMilliseconds));
         }
     }

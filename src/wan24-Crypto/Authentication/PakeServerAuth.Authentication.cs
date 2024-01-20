@@ -31,15 +31,13 @@ namespace wan24.Crypto.Authentication
                 })
                 {
                     // Load client authentication information
-                    if (await stream.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != ValueLength)
-                        throw new IOException("Failed to read the identifier");
+                    await stream.ReadExactlyAsync(buffer.Memory, cancellationToken).DynamicContext();
                     await Options.ClientAuthFactory(context, buffer.Memory, cancellationToken).DynamicContext();
                     if (context.ClientIdentity is null) throw new InvalidDataException("No client identity");
                     if (context.ServerIdentity is null) throw new InvalidDataException("No server identity");
                     pake.Identity = new PakeRecord(context.ClientIdentity);
                     // Create the session key and start decryption
-                    if (await stream.ReadAsync(buffer.Memory, cancellationToken).DynamicContext() != ValueLength)
-                        throw new IOException("Failed to read the random data");
+                    await stream.ReadExactlyAsync(buffer.Memory, cancellationToken).DynamicContext();
                     cryptoOptions = Options.CryptoOptions!.GetCopy();
                     cryptoOptions.Password = pake.CreateSessionKey(context.ServerIdentity.SignatureKey, context.ServerIdentity.Secret, buffer.Span);
                     decipher = await Encryption.GetDecryptionStreamAsync(stream, Stream.Null, cryptoOptions, cancellationToken).DynamicContext();

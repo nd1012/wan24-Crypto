@@ -14,7 +14,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Object version
         /// </summary>
-        public const int VERSION = 2;
+        public const int VERSION = 3;
         /// <summary>
         /// Header version
         /// </summary>
@@ -98,6 +98,12 @@ namespace wan24.Crypto
         public string? Algorithm { get; set; }
 
         /// <summary>
+        /// Encryption options
+        /// </summary>
+        [StringLength(byte.MaxValue)]
+        public string? EncryptionOptions { get; set; }
+
+        /// <summary>
         /// MAC algorithm name
         /// </summary>
         [StringLength(byte.MaxValue)]
@@ -106,6 +112,7 @@ namespace wan24.Crypto
         /// <summary>
         /// MAC password
         /// </summary>
+        [SensitiveData, CountLimit(short.MaxValue)]
         public byte[]? MacPassword { get; set; }
 
         /// <summary>
@@ -139,6 +146,12 @@ namespace wan24.Crypto
         public int AsymmetricKeyBits { get; set; } = 1;// Dummy value to satisfy the object validation
 
         /// <summary>
+        /// Asymmetric algorithm options
+        /// </summary>
+        [StringLength(byte.MaxValue)]
+        public string? AsymmetricAlgorithmOptions { get; set; }
+
+        /// <summary>
         /// Private keys store (won't be serialized!)
         /// </summary>
         public PrivateKeySuiteStore? PrivateKeysStore { get; set; } = DefaultPrivateKeysStore;
@@ -146,6 +159,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Private key revision
         /// </summary>
+        [Range(0, int.MaxValue)]
         public int PrivateKeyRevision { get; set; }
 
         /// <summary>
@@ -410,6 +424,7 @@ namespace wan24.Crypto
             Compression = Compression?.GetCopy(),
             MaxUncompressedDataLength = MaxUncompressedDataLength,
             Algorithm = Algorithm,
+            EncryptionOptions = EncryptionOptions,
             MacAlgorithm = MacAlgorithm,
             MacPassword = MacPassword?.CloneArray(),
             KdfAlgorithm = KdfAlgorithm,
@@ -418,6 +433,7 @@ namespace wan24.Crypto
             PrivateKeysStore = PrivateKeysStore,
             PrivateKeyRevision = PrivateKeyRevision,
             AsymmetricAlgorithm = AsymmetricAlgorithm,
+            AsymmetricAlgorithmOptions = AsymmetricAlgorithmOptions,
             KeyExchangeData = KeyExchangeData?.GetCopy(),
             CounterMacAlgorithm = CounterMacAlgorithm,
             CounterKdfAlgorithm = CounterKdfAlgorithm,

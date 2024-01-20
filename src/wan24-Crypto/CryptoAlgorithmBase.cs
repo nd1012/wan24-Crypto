@@ -5,7 +5,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for a cryptographic algorithm
     /// </summary>
-    public abstract record class CryptoAlgorithmBase
+    public abstract record class CryptoAlgorithmBase : ICryptoAlgorithm
     {
         /// <summary>
         /// Constructor
@@ -30,6 +30,12 @@ namespace wan24.Crypto
         public abstract bool IsPostQuantum { get; }
 
         /// <inheritdoc/>
+        public virtual bool UsesTpm { get; }
+
+        /// <inheritdoc/>
         public virtual string DisplayName => Name;
+
+        /// <inheritdoc/>
+        public override string ToString() => $"Cryptographic algorithm \"{DisplayName}\" (\"{Name}\", {Value}) {GetType()}";
     }
 }

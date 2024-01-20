@@ -7,7 +7,7 @@ wrapped by a PFS protocol. All used/produced/communicated data IS sensitive!
 In the following pseudo codes there are some common functions being used:
 
 - `MAC`: Any MAC algorithm - first parameter is the data, second parameter the 
-key (use HMAC-SHA-512 for example)
+key (use HMAC-SHA3-512 for example)
 - `KDF`: Any KDF algorithm - first parameter is the key, second parameter the 
 salt, third parameter is the return value length (use PBKDF#2 for example)
 - `RND`: A cryptographic random byte generator - first parameter is the return 
@@ -28,7 +28,7 @@ required.
 the length of the used symmetric algorithms output is important: The longer 
 the output, the more secure is the whole PAKE process. Because symmetric 
 algorithms which produce 512 bit (64 byte) output are still quiet fast, you 
-shouldn't have to think about reducing the lenght by using other (faster) 
+shouldn't have to think about reducing the length by using other (faster) 
 algorithms for saving bandwidth, computing resources or memory.
 
 ## Client
@@ -312,11 +312,11 @@ algorithms
 - CRYSTALS-Dilithium (or SPHINX+, or FALCON) for pre-shared signature keys and 
 wrapping non-PQ algorithms
 - ECDSA (or DSA; pre-shared) for wrapped non-PQ signing
-- SHA-384 (or SHA-512, depending on the purpose)
-- HMAC-SHA-512
+- SHA3-384 (or SHA3-512, depending on the purpose)
+- HMAC-SHA3-512
 - PBKDF#2 or Argon2id
 - PAKE (as I implemented it :)
-- AES-256-GCM (with 128 bit MAC, or CBC with HMAC-SHA-512)
+- AES-256-GCM (with 128 bit MAC, or CBC with HMAC-SHA3-512)
 
 Having PQ in mind, PQ algorithms should always wrap non-PQ algorithms, while 
 I'd consider existing common symmetric algorithms to be PQ-safe today and in 

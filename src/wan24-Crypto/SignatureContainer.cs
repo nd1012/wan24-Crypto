@@ -228,7 +228,7 @@ namespace wan24.Crypto
             {
                 Nonce ??= RND.GetBytes(NONCE_LENGTH);
                 if (Signature is null) Signed = DateTime.UtcNow;
-                if (!forCounterSignature) Signature = Array.Empty<byte>();
+                if (!forCounterSignature) Signature = [];
                 CounterSignature = null;
                 CreateSignedData(forCounterSignature);
                 return (forCounterSignature ? CounterSignedData : SignedData)!.Hash(new()

@@ -51,7 +51,7 @@ namespace wan24.Crypto
         [CountLimit(byte.MaxValue)]
         [ItemStringLength(byte.MaxValue, ItemValidationTargets.Key)]
         [ItemStringLength(byte.MaxValue)]
-        public Dictionary<string, string> Attributes { get; private set; } = new();
+        public Dictionary<string, string> Attributes { get; private set; } = [];
 
         /// <summary>
         /// Signature

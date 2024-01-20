@@ -13,6 +13,10 @@ namespace wan24.Crypto
         /// </summary>
         CryptoOptions DefaultOptions { get; }
         /// <summary>
+        /// Default algorithm options
+        /// </summary>
+        string? DefaultAlgorithmOptions { get; }
+        /// <summary>
         /// Key usages
         /// </summary>
         AsymmetricAlgorithmUsages Usages { get; }

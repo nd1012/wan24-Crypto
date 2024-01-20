@@ -31,7 +31,8 @@ namespace wan24.Crypto
             => _DefaultOptions = new()
             {
                 AsymmetricAlgorithm = name,
-                AsymmetricKeyBits = DefaultKeySize
+                AsymmetricKeyBits = DefaultKeySize,
+                AsymmetricAlgorithmOptions = DefaultAlgorithmOptions
             };
 
         /// <summary>
@@ -55,6 +56,9 @@ namespace wan24.Crypto
                 return res;
             }
         }
+
+        /// <inheritdoc/>
+        public virtual string? DefaultAlgorithmOptions { get; }
 
         /// <inheritdoc/>
         public abstract AsymmetricAlgorithmUsages Usages { get; }
@@ -117,7 +121,7 @@ namespace wan24.Crypto
         {
             try
             {
-                return Activator.CreateInstance(typeof(tPublic), new object?[] { keyData }) as tPublic ?? throw new InvalidProgramException($"Failed to instance {typeof(tPublic)}");
+                return Activator.CreateInstance(typeof(tPublic), [keyData]) as tPublic ?? throw new InvalidProgramException($"Failed to instance {typeof(tPublic)}");
             }
             catch(Exception ex)
             {
@@ -130,13 +134,20 @@ namespace wan24.Crypto
         {
             try
             {
-                return Activator.CreateInstance(typeof(tPrivate), new object?[] { keyData }) as tPrivate ?? throw new InvalidProgramException($"Failed to instance {typeof(tPrivate)}");
+                return Activator.CreateInstance(typeof(tPrivate), [keyData]) as tPrivate ?? throw new InvalidProgramException($"Failed to instance {typeof(tPrivate)}");
             }
             catch (Exception ex)
             {
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <summary>
+        /// Deserialize library v1 private key data (will be removed in v3)
+        /// </summary>
+        /// <param name="keyData">Key data</param>
+        /// <returns>Private key</returns>
+        public abstract tPrivate DeserializePrivateKeyV1(byte[] keyData);//TODO Remove in v3
 
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData, CryptoOptions? options = null)

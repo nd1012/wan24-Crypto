@@ -6,12 +6,16 @@ namespace wan24.Crypto
     /// <summary>
     /// Random data generator (uses <c>/dev/random</c>, if possible; defaults to <see cref="RandomNumberGenerator"/>)
     /// </summary>
-    public class RandomDataGenerator : HostedServiceBase, ISeedableRng
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="capacity">Capacity in bytes</param>
+    public class RandomDataGenerator(in int capacity) : HostedServiceBase(), ISeedableRng
     {
         /// <summary>
         /// Random data
         /// </summary>
-        protected readonly BlockingBufferStream RandomData;
+        protected readonly BlockingBufferStream RandomData = new(capacity, clear: true);
         /// <summary>
         /// Use the RNG delegates?
         /// </summary>
@@ -24,12 +28,6 @@ namespace wan24.Crypto
         /// RNG
         /// </summary>
         protected readonly RND.RNGAsync_Delegate RngAsync = RND._FillBytesAsync;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="capacity">Capacity in bytes</param>
-        public RandomDataGenerator(in int capacity) : base() => RandomData = new(capacity, clear: true);
 
         /// <summary>
         /// Constructor
@@ -71,9 +69,9 @@ namespace wan24.Crypto
                 int red = RandomData.TryRead(res);
                 if (red != count) Rng(res.AsSpan(red));
             }
-            else if (RandomData.Read(res) != count)
+            else
             {
-                throw new IOException("Failed to read random bytes");
+                RandomData.ReadExactly(res);
             }
             return res;
         }
@@ -89,9 +87,9 @@ namespace wan24.Crypto
                 int red = RandomData.TryRead(res);
                 if (red != count) await RngAsync(res.AsMemory(red)).DynamicContext();
             }
-            else if(await RandomData.ReadAsync(res, cancellationToken).DynamicContext() != count)
+            else
             {
-                throw new IOException("Failed to read random bytes");
+                await RandomData.ReadExactlyAsync(res, cancellationToken).DynamicContext();
             }
             return res;
         }
@@ -106,9 +104,9 @@ namespace wan24.Crypto
                 int red = RandomData.TryRead(buffer);
                 if (red != buffer.Length) Rng(buffer[red..]);
             }
-            else if (RandomData.Read(buffer) != buffer.Length)
+            else
             {
-                throw new IOException("Failed to read random bytes");
+                RandomData.ReadExactly(buffer);
             }
             return buffer;
         }
@@ -123,9 +121,9 @@ namespace wan24.Crypto
                 int red = RandomData.TryRead(buffer.Span);
                 if (red != buffer.Length) await RngAsync(buffer[red..]).DynamicContext();
             }
-            else if (await RandomData.ReadAsync(buffer, cancellationToken).DynamicContext() != buffer.Length)
+            else
             {
-                throw new IOException("Failed to read random bytes");
+                await RandomData.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             }
             return buffer;
         }

@@ -95,5 +95,22 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo) => typeof(ECDiffieHellman).IsAssignableFrom(algo.GetType());
+
+        /// <inheritdoc/>
+        public override AsymmetricEcDiffieHellmanPrivateKey DeserializePrivateKeyV1(byte[] keyData)
+        {
+            ECDiffieHellman ecdh = ECDiffieHellman.Create();
+            try
+            {
+                ecdh.ImportECPrivateKey(keyData, out int red);
+                if (red != keyData.Length) throw new InvalidDataException("The key data wasn't fully used");
+                return new(ecdh);
+            }
+            catch (Exception ex)
+            {
+                ecdh.Dispose();
+                throw CryptographicException.From(ex);
+            }
+        }
     }
 }

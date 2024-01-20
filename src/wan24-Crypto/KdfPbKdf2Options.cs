@@ -11,14 +11,14 @@ namespace wan24.Crypto
     public sealed record class KdfPbKdf2Options
     {
         /// <summary>
-        /// Default hash algorithm name (SHA-384)
+        /// Default hash algorithm name (SHA3-384)
         /// </summary>
-        public const string DEFAULT_HASH_ALGORITHM = HashSha384Algorithm.ALGORITHM_NAME;
+        public const string DEFAULT_HASH_ALGORITHM = HashSha3_384Algorithm.ALGORITHM_NAME;
 
         /// <summary>
         /// Hash algorithm name
         /// </summary>
-        private string _HashAlgorithm = DEFAULT_HASH_ALGORITHM;
+        private string _HashAlgorithm = DefaultHashAlgorithm;
 
         /// <summary>
         /// Constructor
@@ -34,6 +34,11 @@ namespace wan24.Crypto
             KdfPbKdf2Options options = (json ?? throw new ArgumentException("Invalid JSON data", nameof(json)))!;
             HashAlgorithm = options.HashAlgorithm;
         }
+
+        /// <summary>
+        /// Default hash algorithm name
+        /// </summary>
+        public static string DefaultHashAlgorithm { get; set; } = DEFAULT_HASH_ALGORITHM;
 
         /// <summary>
         /// Hash algorithm name
@@ -52,7 +57,7 @@ namespace wan24.Crypto
         public HashAlgorithmName HashName
         {
             get => new(_HashAlgorithm);
-            set => _HashAlgorithm = value.Name ?? DEFAULT_HASH_ALGORITHM;
+            set => _HashAlgorithm = value.Name ?? DefaultHashAlgorithm;
         }
 
         /// <summary>

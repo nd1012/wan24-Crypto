@@ -6,18 +6,17 @@ namespace wan24.Crypto
     /// <summary>
     /// <see cref="IRng"/> to <see cref="RandomNumberGenerator"/> adapter
     /// </summary>
-    public sealed class RngAdapter : Rng
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="rng">Random number generator</param>
+    public sealed class RngAdapter(IRng rng) : Rng()
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="rng">Random number generator</param>
-        public RngAdapter(IRng rng) : base() => RNG = rng;
 
         /// <summary>
         /// Random number generator
         /// </summary>
-        public IRng RNG { get; }
+        public IRng RNG { get; } = rng;
 
         /// <inheritdoc/>
         public override void GetBytes(byte[] data) => RNG.FillBytes(data);
@@ -37,7 +36,7 @@ namespace wan24.Crypto
             RNG.FillBytes(data);
             if (data.IndexOf((byte)0) == -1) return;
             int i;
-            List<int> zeroIndex = new(),
+            List<int> zeroIndex = [],
                 newZeroIndex = null!;
             unchecked
             {
@@ -55,7 +54,7 @@ namespace wan24.Crypto
                     for (i = 0; i != zeroIndex.Count; i++)
                         if (buffer.Span[i] == 0)
                         {
-                            newZeroIndex ??= new();
+                            newZeroIndex ??= [];
                             newZeroIndex.Add(zeroIndex[i]);
                         }
                         else
@@ -73,7 +72,7 @@ namespace wan24.Crypto
             await RNG.FillBytesAsync(data).DynamicContext();
             if (data.IndexOf((byte)0) == -1) return;
             int i;
-            List<int> zeroIndex = new(),
+            List<int> zeroIndex = [],
                 newZeroIndex = null!;
             unchecked
             {
@@ -92,7 +91,7 @@ namespace wan24.Crypto
                     for (i = 0; i != zeroIndex.Count; i++)
                         if (buffer.Span[i] == 0)
                         {
-                            newZeroIndex ??= new();
+                            newZeroIndex ??= [];
                             newZeroIndex.Add(zeroIndex[i]);
                         }
                         else

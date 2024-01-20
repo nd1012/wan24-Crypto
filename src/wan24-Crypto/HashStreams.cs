@@ -42,7 +42,7 @@ namespace wan24.Crypto
         {
             Stream.Dispose();
             //FIXME Shouldn't be required, since the CryptoStream should transform the final block when disposed - but it doesn't work always :(
-            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            if (transformFinal) Transform.TransformFinalBlock([], 0, 0);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace wan24.Crypto
         {
             await Stream.DisposeAsync().DynamicContext();
             //FIXME Shouldn't be required, since the CryptoStream should transform the final block when disposed - but it doesn't work always :(
-            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            if (transformFinal) Transform.TransformFinalBlock([], 0, 0);
         }
 
         /// <inheritdoc/>

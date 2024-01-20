@@ -42,7 +42,7 @@ namespace wan24.Crypto
         {
             Stream.Dispose();
             //FIXME No problems with MAC as with hash yet - just in case
-            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            if (transformFinal) Transform.TransformFinalBlock([], 0, 0);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace wan24.Crypto
         {
             await Stream.DisposeAsync().DynamicContext();
             //FIXME No problems with MAC as with hash yet - just in case
-            if (transformFinal) Transform.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+            if (transformFinal) Transform.TransformFinalBlock([], 0, 0);
         }
 
         /// <inheritdoc/>

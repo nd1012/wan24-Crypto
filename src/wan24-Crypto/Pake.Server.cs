@@ -219,35 +219,29 @@ namespace wan24.Crypto
         /// <summary>
         /// PAKE server event arguments
         /// </summary>
-        public sealed class PakeServerEventArgs : EventArgs
+        /// <remarks>
+        /// Constructor
+        /// </remarks>
+        /// <param name="request">Request</param>
+        /// <param name="payload">Decrypted payload, if any</param>
+        /// <param name="ex">Exception</param>
+        public sealed class PakeServerEventArgs(in IPakeRequest request, in byte[]? payload = null, in Exception? ex = null) : EventArgs()
         {
-            /// <summary>
-            /// Constructor
-            /// </summary>
-            /// <param name="request">Request</param>
-            /// <param name="payload">Decrypted payload, if any</param>
-            /// <param name="ex">Exception</param>
-            public PakeServerEventArgs(in IPakeRequest request, in byte[]? payload = null, in Exception? ex = null) : base()
-            {
-                Request = request;
-                Payload = payload;
-                Exception = ex;
-            }
 
             /// <summary>
             /// Request
             /// </summary>
-            public IPakeRequest Request { get; }
+            public IPakeRequest Request { get; } = request;
 
             /// <summary>
             /// Decrypted payload, if any
             /// </summary>
-            public byte[]? Payload { get; }
+            public byte[]? Payload { get; } = payload;
 
             /// <summary>
             /// Exception
             /// </summary>
-            public Exception? Exception { get; }
+            public Exception? Exception { get; } = ex;
 
             /// <summary>
             /// New PAKE identity record to use for the current process (being ignored in case this instance is used as arguments for the <see cref="OnAuthError"/> event!)

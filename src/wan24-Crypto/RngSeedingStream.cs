@@ -5,35 +5,32 @@ namespace wan24.Crypto
     /// <summary>
     /// Seeds an RNG with streamed cipher data
     /// </summary>
-    public class RngSeedingStream : RngSeedingStream<Stream>
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="cipherStream">Cipher data stream</param>
+    /// <param name="rng">RNG to seed (if not given, <see cref="RND"/> will be seeded)</param>
+    /// <param name="leaveOpen">Leave the cipher stream open when disposing?</param>
+    public class RngSeedingStream(in Stream cipherStream, in ISeedableRng? rng = null, in bool leaveOpen = false) : RngSeedingStream<Stream>(cipherStream, rng, leaveOpen)
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="cipherStream">Cipher data stream</param>
-        /// <param name="rng">RNG to seed (if not given, <see cref="RND"/> will be seeded)</param>
-        /// <param name="leaveOpen">Leave the cipher stream open when disposing?</param>
-        public RngSeedingStream(in Stream cipherStream, in ISeedableRng? rng = null, in bool leaveOpen = false) : base(cipherStream, rng, leaveOpen) { }
     }
 
     /// <summary>
     /// Seeds an RNG with streamed cipher data
     /// </summary>
     /// <typeparam name="T">Base stream type</typeparam>
-    public class RngSeedingStream<T> : WrapperStream<T> where T : Stream
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="cipherStream">Cipher data stream</param>
+    /// <param name="rng">RNG to seed (if not given, <see cref="RND"/> will be seeded)</param>
+    /// <param name="leaveOpen">Leave the cipher stream open when disposing?</param>
+    public class RngSeedingStream<T>(in T cipherStream, in ISeedableRng? rng = null, in bool leaveOpen = false) : WrapperStream<T>(cipherStream, leaveOpen) where T : Stream
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="cipherStream">Cipher data stream</param>
-        /// <param name="rng">RNG to seed (if not given, <see cref="RND"/> will be seeded)</param>
-        /// <param name="leaveOpen">Leave the cipher stream open when disposing?</param>
-        public RngSeedingStream(in T cipherStream, in ISeedableRng? rng = null, in bool leaveOpen = false) : base(cipherStream, leaveOpen) => RNG = rng;
-
         /// <summary>
         /// RNG to seed (if <see langword="null"/>, <see cref="RND"/> will be seeded)
         /// </summary>
-        public ISeedableRng? RNG { get; }
+        public ISeedableRng? RNG { get; } = rng;
 
         /// <inheritdoc/>
         public override int Read(byte[] buffer, int offset, int count)

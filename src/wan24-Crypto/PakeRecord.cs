@@ -96,9 +96,9 @@ namespace wan24.Crypto
         {
             Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
             Secret = new byte[Identifier.Length];
-            if (stream.Read(Secret) != Secret.Length) throw new IOException("Failed to read the secret");
+            stream.ReadExactly(Secret);
             SignatureKey = new byte[Identifier.Length];
-            if (stream.Read(SignatureKey) != SignatureKey.Length) throw new IOException("Failed to read the signature key");
+            stream.ReadExactly(SignatureKey);
         }
 
         /// <inheritdoc/>
@@ -106,9 +106,9 @@ namespace wan24.Crypto
         {
             Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
             Secret = new byte[Identifier.Length];
-            if (await stream.ReadAsync(Secret, cancellationToken).DynamicContext() != Secret.Length) throw new IOException("Failed to read the secret");
+            await stream.ReadExactlyAsync(Secret, cancellationToken).DynamicContext();
             SignatureKey = new byte[Identifier.Length];
-            if (await stream.ReadAsync(SignatureKey, cancellationToken).DynamicContext() != SignatureKey.Length) throw new IOException("Failed to read the signature key");
+            await stream.ReadExactlyAsync(SignatureKey, cancellationToken).DynamicContext();
         }
 
         /// <summary>

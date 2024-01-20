@@ -24,7 +24,10 @@ namespace wan24.Crypto.Tests
             Stopwatch sw = Stopwatch.StartNew();
             HashAlgorithmBase algo = HashHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
-            byte[] streamHash = algo.Hash(ms),
+            byte[] streamHash = algo.Hash(ms, new()
+                {
+                    HashAlgorithm = name
+                }),
                 memoryHash = TestData.Data.Hash(new()
                 {
                     HashAlgorithm = name
@@ -93,7 +96,10 @@ namespace wan24.Crypto.Tests
             Stopwatch sw = Stopwatch.StartNew();
             HashAlgorithmBase algo = HashHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
-            byte[] streamHash = await algo.HashAsync(ms);
+            byte[] streamHash = await algo.HashAsync(ms, new()
+            {
+                HashAlgorithm = name
+            });
             Assert.AreEqual(algo.HashLength, streamHash.Length);
             Assert.IsTrue(streamHash.SequenceEqual(TestData.Data.Hash(new()
             {

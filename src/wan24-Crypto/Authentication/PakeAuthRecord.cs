@@ -127,11 +127,11 @@ namespace wan24.Crypto.Authentication
         {
             Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
             RawSecret = new byte[Identifier.Length];
-            if (stream.Read(RawSecret) != RawSecret.Length) throw new IOException("Failed to read the raw secret");
+            stream.ReadExactly(RawSecret);
             Key = new byte[Identifier.Length];
-            if (stream.Read(Key) != Key.Length) throw new IOException("Failed to read the authentication key");
+            stream.ReadExactly(Key);
             SignatureKey = new byte[Identifier.Length];
-            if (stream.Read(SignatureKey) != SignatureKey.Length) throw new IOException("Failed to read the signature key");
+            stream.ReadExactly(SignatureKey);
         }
 
         /// <inheritdoc/>
@@ -139,11 +139,11 @@ namespace wan24.Crypto.Authentication
         {
             Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
             RawSecret = new byte[Identifier.Length];
-            if (await stream.ReadAsync(RawSecret, cancellationToken).DynamicContext() != RawSecret.Length) throw new IOException("Failed to read the raw secret");
+            await stream.ReadExactlyAsync(RawSecret, cancellationToken).DynamicContext();
             Key = new byte[Identifier.Length];
-            if (await stream.ReadAsync(Key, cancellationToken).DynamicContext() != Key.Length) throw new IOException("Failed to read the authentication key");
+            await stream.ReadExactlyAsync(Key, cancellationToken).DynamicContext();
             SignatureKey = new byte[Identifier.Length];
-            if (await stream.ReadAsync(SignatureKey, cancellationToken).DynamicContext() != SignatureKey.Length) throw new IOException("Failed to read the signature key");
+            await stream.ReadExactlyAsync(SignatureKey, cancellationToken).DynamicContext();
         }
 
         /// <summary>

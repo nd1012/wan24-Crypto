@@ -54,8 +54,7 @@ namespace wan24.Crypto
         public static TimeoutToken ReadTimeoutToken(this Stream stream, ArrayPool<byte>? pool = null)
         {
             using RentedArrayRefStruct<byte> buffer = new(TimeoutToken.STRUCT_LENGTH, pool, clean: false);
-            int red = stream.Read(buffer.Span);
-            if (red != TimeoutToken.STRUCT_LENGTH) throw new IOException($"Failed to read timeout token bytes (expected {TimeoutToken.STRUCT_LENGTH} bytes, but only {red} bytes red)");
+            stream.ReadExactly(buffer.Span);
             return (TimeoutToken)buffer.Span!;
         }
 
@@ -70,8 +69,7 @@ namespace wan24.Crypto
         public static async Task<TimeoutToken> ReadTimeoutTokenAsync(this Stream stream, ArrayPool<byte>? pool = null, CancellationToken cancellationToken = default)
         {
             using RentedArrayStruct<byte> buffer = new(TimeoutToken.STRUCT_LENGTH, pool, clean: false);
-            int red = await stream.ReadAsync(buffer.Memory, cancellationToken).DynamicContext();
-            if (red != TimeoutToken.STRUCT_LENGTH) throw new IOException($"Failed to read timeout token bytes (expected {TimeoutToken.STRUCT_LENGTH} bytes, but only {red} bytes red)");
+            await stream.ReadExactlyAsync(buffer.Memory, cancellationToken).DynamicContext();
             return (TimeoutToken)buffer.Span;
         }
     }

@@ -87,7 +87,7 @@
         {
             if (kdfOptions is not null)
             {
-                if (throwOnError) throw new CryptographicException($"KDF options for {Name} aren't upported and should be NULL");
+                if (throwOnError) throw new CryptographicException($"KDF options for {Name} aren't supported and should be NULL");
                 return false;
             }
             return true;

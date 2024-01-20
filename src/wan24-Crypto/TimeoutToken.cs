@@ -87,8 +87,7 @@ namespace wan24.Crypto
             _Timeout = stream.ReadLong();
             _Payload = stream.ReadULong();
             _MAC = new byte[MacHmacSha384Algorithm.MAC_LENGTH];
-            int red = stream.Read(_MAC);
-            if (red != _MAC.Length) throw new IOException($"Failed to read the MAC bytes (expected {STRUCT_LENGTH} bytes, red only {red} bytes)");
+            stream.ReadExactly(_MAC);
         }
 
         /// <summary>
@@ -141,7 +140,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Time left until timeout
         /// </summary>
-        public TimeSpan Timeleft
+        public TimeSpan TimeLeft
         {
             get
             {
@@ -190,7 +189,8 @@ namespace wan24.Crypto
             using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
             _Timeout.GetBytes(buffer.Span);
             _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
-            return buffer.Span.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);
+            buffer.Span.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);
+            return outputBuffer;
         }
 
         /// <summary>
@@ -269,7 +269,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Cast as serialized data
         /// </summary>
-        /// <param name="tt">Timeout tokenn</param>
+        /// <param name="tt">Timeout token</param>
         public static implicit operator byte[](in TimeoutToken tt) => tt.Serialize();
 
         /// <summary>

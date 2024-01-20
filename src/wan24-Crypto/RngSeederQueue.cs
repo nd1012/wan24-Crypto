@@ -5,19 +5,18 @@ namespace wan24.Crypto
     /// <summary>
     /// RNG seeder (added seeds will be copied)
     /// </summary>
-    public class RngSeederQueue : ItemQueueWorkerBase<byte[]>, ISeedableRng
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="capacity">Queue capacity</param>
+    /// <param name="rng">Target RNG to seed</param>
+    public class RngSeederQueue(in int capacity, in ISeedableRng rng) : ItemQueueWorkerBase<byte[]>(capacity), ISeedableRng
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="capacity">Queue capacity</param>
-        /// <param name="rng">Target RNG to seed</param>
-        public RngSeederQueue(in int capacity, in ISeedableRng rng) : base(capacity) => RNG = rng;
 
         /// <summary>
         /// Seeded target RNG
         /// </summary>
-        public ISeedableRng RNG { get; }
+        public ISeedableRng RNG { get; } = rng;
 
         /// <inheritdoc/>
         public virtual void AddSeed(ReadOnlySpan<byte> seed)

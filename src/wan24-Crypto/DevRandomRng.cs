@@ -25,14 +25,12 @@ namespace wan24.Crypto
             if (RND.DevRandomPool is null)
             {
                 using Stream random = RND.GetDevRandom();
-                if (random.Read(buffer) != buffer.Length)
-                    throw new IOException($"Failed to read {buffer.Length} byte from {RND.RANDOM}");
+                random.ReadExactly(buffer);
             }
             else
             {
                 using RentedObject<Stream> random = new(RND.DevRandomPool);
-                if (random.Object.Read(buffer) != buffer.Length)
-                    throw new IOException($"Failed to read {buffer.Length} byte from {RND.RANDOM}");
+                random.Object.ReadExactly(buffer);
             }
             if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                 Logging.WriteWarning(
@@ -49,14 +47,12 @@ namespace wan24.Crypto
             {
                 Stream random = RND.GetDevRandom();
                 await using (random.DynamicContext())
-                    if (await random.ReadAsync(buffer, cancellationToken).DynamicContext() != buffer.Length)
-                        throw new IOException($"Failed to read {buffer.Length} byte from {RND.RANDOM}");
+                    await random.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             }
             else
             {
-                using RentedObject<Stream> random = new(RND.DevRandomPool);
-                if (await random.Object.ReadAsync(buffer, cancellationToken).DynamicContext() != buffer.Length)
-                    throw new IOException($"Failed to read {buffer.Length} byte from {RND.RANDOM}");
+                RentedObject<Stream> random = new(RND.DevRandomPool);
+                await using(random.DynamicContext()) await random.Object.ReadExactlyAsync(buffer, cancellationToken).DynamicContext();
             }
             if (DateTime.Now - started > TimeSpan.FromSeconds(10))
                 Logging.WriteWarning(

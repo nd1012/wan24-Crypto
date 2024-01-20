@@ -35,7 +35,7 @@ namespace wan24.Crypto
             {
                 new(EncryptionAes256CbcAlgorithm.ALGORITHM_NAME, EncryptionAes256CbcAlgorithm.Instance)
             });
-            _DefaultAlgorithm = Algorithms[EncryptionAes256CbcAlgorithm.ALGORITHM_NAME];
+            _DefaultAlgorithm = EncryptionAes256CbcAlgorithm.Instance;
         }
 
         /// <summary>
