@@ -183,6 +183,7 @@ namespace wan24.Crypto
                     {
                         options.AsymmetricAlgorithm = DefaultKeyExchangeAlgorithm.Name;
                         options.AsymmetricKeyBits = DefaultKeyExchangeAlgorithm.DefaultKeySize;
+                        options.AsymmetricAlgorithmOptions = DefaultKeyExchangeAlgorithm.DefaultAlgorithmOptions;
                     }
                 }
                 if (UseHybridKeyExchangeOptions) options = HybridAlgorithmHelper.GetKeyExchangeOptions(options);
@@ -217,6 +218,7 @@ namespace wan24.Crypto
                     {
                         options.AsymmetricAlgorithm = DefaultSignatureAlgorithm.Name;
                         options.AsymmetricKeyBits = DefaultSignatureAlgorithm.DefaultKeySize;
+                        options.AsymmetricAlgorithmOptions = DefaultSignatureAlgorithm.DefaultAlgorithmOptions;
                     }
                 }
                 if (options.HashAlgorithm is null) HashHelper.GetDefaultOptions(options);

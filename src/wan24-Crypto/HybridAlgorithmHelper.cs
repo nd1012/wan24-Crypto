@@ -145,7 +145,7 @@ namespace wan24.Crypto
             {
                 IAsymmetricAlgorithm? keyExchangeAlgorithm;
                 lock (SyncObject) keyExchangeAlgorithm = _KeyExchangeAlgorithm;
-                options ??= AsymmetricHelper.GetDefaultKeyExchangeOptions(options);
+                options ??= AsymmetricHelper.GetDefaultKeyExchangeOptions();
                 // Key exchange algorithm
                 if (keyExchangeAlgorithm is not null && options.AsymmetricCounterAlgorithm is null) options.AsymmetricCounterAlgorithm = keyExchangeAlgorithm.Name;
                 return options;
@@ -171,7 +171,7 @@ namespace wan24.Crypto
             {
                 IAsymmetricAlgorithm? signatureAlgorithm;
                 lock (SyncObject) signatureAlgorithm = _SignatureAlgorithm;
-                options ??= AsymmetricHelper.GetDefaultSignatureOptions(options);
+                options ??= AsymmetricHelper.GetDefaultSignatureOptions();
                 // Signature algorithm
                 if (signatureAlgorithm is not null && options.AsymmetricCounterAlgorithm is null) options.AsymmetricCounterAlgorithm = signatureAlgorithm.Name;
                 return options;
