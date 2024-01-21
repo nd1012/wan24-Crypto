@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
+using wan24.Core;
 
 namespace wan24.Crypto.Tests
 {
@@ -56,7 +57,7 @@ namespace wan24.Crypto.Tests
                 Assert.IsNotNull(keyExchangeData.CounterKeyExchangeData);
                 byte[] keyExchangeDataBytes = (byte[])keyExchangeData;
                 keyExchangeData = (KeyExchangeDataContainer)keyExchangeDataBytes;
-                byte[] key1 = options.Password;
+                byte[] key1 = options.Password.CloneArray();
                 HybridAlgorithmHelper.DeriveKey(keyExchangeData, options);
                 Assert.IsTrue(key1.SequenceEqual(options.Password));
             }
