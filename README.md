@@ -282,6 +282,36 @@ Assert.IsTrue(keyA.SequenceEquals(keyB));
 
 The default key exchange algorithm is ECDH from a secp521r1 elliptic curve.
 
+##### `IKeyExchange` interface
+
+All asymmetric private keys which can be used for a key exchange implement the 
+`IKeyExchange` interface. This interface is also used for PAKE, for example. 
+By working with this interface, it's possible to implement more abstract key 
+exchange routines:
+
+```cs
+// Initiator side
+(byte[] keyA, byte[] keyExchangeData) = initiatorKeyExchangeProcessor.GetKeyExchangeData();
+
+// Transfer keyExchangeData to the peer using a secure communication channel
+
+// Peer side
+byte[] keyB = peerKeyExchangeProcessor.DeriveKey(keyExchangeData);
+
+Assert.IsTrue(keyA.SequenceEquals(keyB));
+```
+
+`initiatorKeyExchangeProcessor` and `peerKeyExchangeProcessor` are 
+`IKeyExchange` instances and may be an asymmetric private key, or a PAKE 
+instance, for example.
+
+Both peers need to agree to the same key exchange method, first. And both 
+peers need to use a key exchange processor which can produce/take the key 
+exchange data of the initiator.
+
+**NOTE**: The `PrivateKeySuite` implements `IKeyExchange` using the managed 
+`KeyExchangeKey`, if any.
+
 #### Digital signature
 
 ```cs
@@ -1180,6 +1210,8 @@ are the official implementation IDs (not guaranteed to be complete):
 | Ed448 | 9 | wan24-Crypto-BC |
 | X25519 | 10 | wan24-Crypto-BC |
 | X448 | 11 | wan24-Crypto-BC |
+| XEd25519 | 12 | wan24-Crypto-BC |
+| XEd448 | 13 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
 | AES-256-CBC | 0 | wan24-Crypto |
 | ChaCha20 | 1 | wan24-Crypto-BC |

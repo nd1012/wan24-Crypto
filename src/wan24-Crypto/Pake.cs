@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 using wan24.Core;
 
 // https://www.rfc-editor.org/rfc/rfc8125.html -> Requirements for Password-Authenticated Key Agreement (PAKE) Schemes
@@ -10,7 +9,7 @@ namespace wan24.Crypto
     /// <summary>
     /// PAKE
     /// </summary>
-    public sealed partial class Pake : DisposableBase
+    public sealed partial class Pake : DisposableBase, IKeyExchange
     {
         /// <summary>
         /// Constructor

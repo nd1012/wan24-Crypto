@@ -129,8 +129,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Cast as serialized data
         /// </summary>
-        /// <param name="signup"><see cref="PakeAuth"/></param>
-        public static implicit operator byte[](in PakeAuth signup) => signup.ToBytes();
+        /// <param name="auth"><see cref="PakeAuth"/></param>
+        public static implicit operator byte[](in PakeAuth auth) => auth.ToBytes();
 
         /// <summary>
         /// Cast from serialized data

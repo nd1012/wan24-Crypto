@@ -29,7 +29,7 @@ namespace wan24.Crypto
         /// Constructor
         /// </summary>
         /// <param name="json">JSON string</param>
-        public KdfSp800_801HmacKbKdfOptions(string json)
+        public KdfSp800_801HmacKbKdfOptions(in string json)
         {
             KdfSp800_801HmacKbKdfOptions options = (json ?? throw new ArgumentException("Invalid JSON data", nameof(json)))!;
             HashAlgorithm = options.HashAlgorithm;
@@ -92,20 +92,20 @@ namespace wan24.Crypto
         /// Cast as JSON string
         /// </summary>
         /// <param name="options">Options</param>
-        public static implicit operator string(KdfSp800_801HmacKbKdfOptions options) => options.ToJson();
+        public static implicit operator string(in KdfSp800_801HmacKbKdfOptions options) => options.ToJson();
 
         /// <summary>
         /// Cast as options
         /// </summary>
         /// <param name="json">JSON string</param>
-        public static implicit operator KdfSp800_801HmacKbKdfOptions?(string? json)
+        public static implicit operator KdfSp800_801HmacKbKdfOptions?(in string? json)
             => json is null ? null : json.DecodeJson<KdfSp800_801HmacKbKdfOptions>() ?? throw new InvalidDataException("Invalid JSON data");
 
         /// <summary>
         /// Cast as <see cref="CryptoOptions"/>
         /// </summary>
         /// <param name="options">Options</param>
-        public static implicit operator CryptoOptions(KdfSp800_801HmacKbKdfOptions options) => new()
+        public static implicit operator CryptoOptions(in KdfSp800_801HmacKbKdfOptions options) => new()
         {
             KdfAlgorithm = KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME,
             KdfIterations = 0,
