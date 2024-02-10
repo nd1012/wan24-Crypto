@@ -8,13 +8,6 @@
     <Configurations>Debug;Release;Trunk</Configurations>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="docfx.console" Version="2.59.4">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
     <Exec Command="copy /Y &quot;$(ProjectDir)..\..\README.md&quot; &quot;$(ProjectDir)index.md&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)..\..\wiki\*.md&quot; &quot;$(ProjectDir)articles&quot;&#xD;&#xA;del /F /Q &quot;$(ProjectDir)articles\intro.md&quot;&#xD;&#xA;rename &quot;$(ProjectDir)articles\index.md&quot; intro.md&#xD;&#xA;" />
   </Target>

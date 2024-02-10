@@ -19,6 +19,10 @@ namespace wan24.Crypto
         /// Signed data
         /// </summary>
         private byte[]? SignedData = null;
+        /// <summary>
+        /// Key type
+        /// </summary>
+        private AsymmetricSignedPublicKeyTypes? _Type = null;
 
         /// <summary>
         /// Constructor
@@ -30,7 +34,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="publicKey">Public key (will be copied)</param>
         /// <param name="attributes">Attributes</param>
-        public AsymmetricSignedPublicKey(IAsymmetricPublicKey publicKey, Dictionary<string, string>? attributes = null) : this()
+        public AsymmetricSignedPublicKey(in IAsymmetricPublicKey publicKey, in Dictionary<string, string>? attributes = null) : this()
         {
             PublicKey = publicKey.GetCopy();
             if (attributes is not null) Attributes.AddRange(attributes);
@@ -110,6 +114,30 @@ namespace wan24.Crypto
         public AsymmetricSignedPublicKey? CounterSigner { get; set; }
 
         /// <summary>
+        /// Key type
+        /// </summary>
+        public AsymmetricSignedPublicKeyTypes Type
+        {
+            get
+            {
+                EnsureUndisposed();
+                if (_Type.HasValue) return _Type.Value;
+                if (
+                    (PublicKey.Algorithm.CanSign || Attributes.ContainsKey(SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER)) &&
+                    (!Attributes.TryGetValue(SignedAttributes.PKI_SIGNATURE, out string? pkiSig) || (bool.TryParse(pkiSig, out bool pkiSigFlag) && pkiSigFlag))
+                    )
+                {
+                    _Type = Signer is null ? AsymmetricSignedPublicKeyTypes.Root : AsymmetricSignedPublicKeyTypes.Intermediate;
+                }
+                else
+                {
+                    _Type = AsymmetricSignedPublicKeyTypes.End;
+                }
+                return _Type.Value;
+            }
+        }
+
+        /// <summary>
         /// Sign the key
         /// </summary>
         /// <param name="privateKey">Private key</param>
@@ -119,11 +147,11 @@ namespace wan24.Crypto
         /// <param name="purpose">Purpose</param>
         /// <param name="options">Options</param>
         public void Sign(
-            ISignaturePrivateKey privateKey, 
-            AsymmetricSignedPublicKey? publicKey = null, 
-            ISignaturePrivateKey? counterPrivateKey = null,
-            AsymmetricSignedPublicKey? counterPublicKey = null,
-            string? purpose = null,
+            in ISignaturePrivateKey privateKey,
+            in AsymmetricSignedPublicKey? publicKey = null,
+            in ISignaturePrivateKey? counterPrivateKey = null,
+            in AsymmetricSignedPublicKey? counterPublicKey = null,
+            in string? purpose = null,
             CryptoOptions? options = null
             )
         {
@@ -133,6 +161,10 @@ namespace wan24.Crypto
                 if (publicKey is not null && !publicKey.PublicKey.ID.SequenceEqual(privateKey.ID)) throw new ArgumentException("Public key ID mismatch", nameof(publicKey));
                 if (counterPrivateKey is not null && counterPublicKey is not null && !counterPublicKey.PublicKey.ID.SequenceEqual(counterPrivateKey.ID))
                     throw new ArgumentException("Public key ID mismatch", nameof(counterPublicKey));
+                if ((publicKey?.Attributes.TryGetValue(SignedAttributes.PKI_SIGNATURE, out string? pkiSig) ?? false) && (!bool.TryParse(pkiSig, out bool pkiSigFlag) || !pkiSigFlag))
+                    throw new UnauthorizedAccessException("Key isn't permitted to sign a PKI sub-key");
+                if ((counterPublicKey?.Attributes.TryGetValue(SignedAttributes.PKI_SIGNATURE, out string? pkiSigC) ?? false) && (!bool.TryParse(pkiSigC, out bool pkiSigCFlag) || !pkiSigCFlag))
+                    throw new UnauthorizedAccessException("Counter key isn't permitted to sign a PKI sub-key");
                 if (!privateKey.ID.SequenceEqual(PublicKey.ID) && (counterPrivateKey is null || !counterPrivateKey.ID.SequenceEqual(PublicKey.ID)))
                 {
                     Signer = publicKey;
@@ -158,8 +190,16 @@ namespace wan24.Crypto
         /// <param name="deep">Deep validation until the self signed root</param>
         /// <param name="ignoreTime">Ignore the time?</param>
         /// <param name="throwOnError">Throw an exception on error?</param>
+        /// <param name="options">Attribute validation options</param>
+        /// <param name="requirePkiSignaturePermission">Require PKI signature permission attribute? (<see langword="null"/> for automatic)</param>
         /// <returns>If the signature is valid</returns>
-        public bool Validate(bool deep = true, bool ignoreTime = false, bool throwOnError = true)
+        public bool Validate(
+            in bool deep = true, 
+            in bool ignoreTime = false, 
+            in bool throwOnError = true, 
+            SignedAttributes.ValidationOptions? options = null,
+            in bool? requirePkiSignaturePermission = null
+            )
         {
             try
             {
@@ -197,6 +237,10 @@ namespace wan24.Crypto
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
                     return false;
                 }
+                // Validate the attributes
+                options ??= new();
+                SignedAttributes.Validate(PublicKey.ID, Attributes, throwOnError, options);
+                options.RequirePkiSignaturePermission = requirePkiSignaturePermission ?? false;
                 // Validate the signer
                 if (Signer is not null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
                 {
@@ -242,14 +286,14 @@ namespace wan24.Crypto
                     if (
                         signer is not null &&
                         !signer.PublicKey.ID.SequenceEqual(PublicKey.ID) &&
-                        !signer.Validate(ignoreTime: ignoreTime, throwOnError: throwOnError)
+                        !signer.Validate(deep: true, ignoreTime, throwOnError, options)
                         )
                         return false;
                     // Validate the counter signer
                     if (
                         Signature.CounterSigner is not null &&
                         CounterSigner is not null &&
-                        !CounterSigner.Validate(ignoreTime: ignoreTime, throwOnError: throwOnError)
+                        !CounterSigner.Validate(deep: true, ignoreTime, throwOnError, options)
                         )
                         return false;
                 }
@@ -272,9 +316,22 @@ namespace wan24.Crypto
         /// <param name="deep">Deep validation until the self signed root</param>
         /// <param name="ignoreTime">Ignore the time?</param>
         /// <param name="throwOnError">Throw an exception on error?</param>
+        /// <param name="options">Attribute validation options</param>
+        /// <param name="requirePkiSignaturePermission">Require PKI signature permission attribute? (<see langword="null"/> for automatic)</param>
+        /// <param name="services">Service provider to use, if <c>httpClient</c> wasn't given for online key validation</param>
+        /// <param name="httpClient">http client to use for online key validation (won't be disposed)</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>If the signature is valid</returns>
-        public async Task<bool> ValidateAsync(bool deep = true, bool ignoreTime = false, bool throwOnError = true, CancellationToken cancellationToken = default)
+        public async Task<bool> ValidateAsync(
+            bool deep = true, 
+            bool ignoreTime = false, 
+            bool throwOnError = true,
+            SignedAttributes.ValidationOptions? options = null,
+            bool? requirePkiSignaturePermission = null,
+            IServiceProvider? services = null,
+            HttpClient? httpClient = null,
+            CancellationToken cancellationToken = default
+            )
         {
             await Task.Yield();
             try
@@ -313,6 +370,20 @@ namespace wan24.Crypto
                     if (throwOnError) throw new InvalidDataException("Counter signature validation failed");
                     return false;
                 }
+                // Validate the attributes
+                options ??= new();
+                await SignedAttributes.ValidateAsync(
+                    PublicKey.ID, 
+                    Attributes, 
+                    throwOnError, 
+                    options, 
+                    keyStore: null, 
+                    ignoreTime ? null : DateTime.UtcNow, 
+                    services, 
+                    httpClient, 
+                    cancellationToken
+                    ).DynamicContext();
+                options.RequirePkiSignaturePermission = requirePkiSignaturePermission ?? false;
                 // Validate the signer
                 if (Signer is not null && !Signer.PublicKey.ID.SequenceEqual(Signature.Signer))
                 {
@@ -358,14 +429,14 @@ namespace wan24.Crypto
                     if (
                         signer is not null &&
                         !signer.PublicKey.ID.SequenceEqual(PublicKey.ID) &&
-                        !await signer.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext()
+                        !await signer.ValidateAsync(deep: true, ignoreTime, throwOnError, options, cancellationToken: cancellationToken).DynamicContext()
                         )
                         return false;
                     // Validate the counter signer
                     if (
                         Signature.CounterSigner is not null &&
                         CounterSigner is not null &&
-                        !await CounterSigner.ValidateAsync(ignoreTime: ignoreTime, throwOnError: throwOnError, cancellationToken: cancellationToken).DynamicContext()
+                        !await CounterSigner.ValidateAsync(deep: true, ignoreTime, throwOnError, options, cancellationToken: cancellationToken).DynamicContext()
                         )
                         return false;
                 }
@@ -544,12 +615,12 @@ namespace wan24.Crypto
         /// Cast as serialized data
         /// </summary>
         /// <param name="key">Key</param>
-        public static implicit operator byte[](AsymmetricSignedPublicKey key) => key.ToBytes();
+        public static implicit operator byte[](in AsymmetricSignedPublicKey key) => key.ToBytes();
 
         /// <summary>
         /// Cast from serialized data
         /// </summary>
         /// <param name="data">Data</param>
-        public static explicit operator AsymmetricSignedPublicKey(byte[] data) => data.ToObject<AsymmetricSignedPublicKey>();
+        public static explicit operator AsymmetricSignedPublicKey(in byte[] data) => data.ToObject<AsymmetricSignedPublicKey>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using wan24.Crypto.Authentication;
+﻿using System.Collections.ObjectModel;
+using wan24.Crypto.Authentication;
 
 namespace wan24.Crypto
 {
@@ -244,6 +245,81 @@ namespace wan24.Crypto
             /// Update default options after unsupported algorithms have been removed?
             /// </summary>
             public bool UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms { get; set; }
+
+            /// <summary>
+            /// Default encryption password pre-processor
+            /// </summary>
+            public CryptoOptions.EncryptionPasswordPreProcessor_Delegate? DefaultEncryptionPasswordPreProcessor { get; set; }
+
+            /// <summary>
+            /// Default encryption password pre-processor
+            /// </summary>
+            public CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate? DefaultEncryptionPasswordAsyncPreProcessor { get; set; }
+
+            /// <summary>
+            /// Default allowed validation domains (signed attribute validation)
+            /// </summary>
+            public ReadOnlyCollection<string>? DefaultAllowedValidationDomains { get; set; }
+
+            /// <summary>
+            /// Default denied validation domains (signed attribute validation)
+            /// </summary>
+            public ReadOnlyCollection<string>? DefaultDeniedValidationDomains { get; set; }
+
+            /// <summary>
+            /// Default allowed key validation API URIs (signed attribute validation)
+            /// </summary>
+            public ReadOnlyCollection<string>? DefaultAllowedKeyValidationApiUris { get; set; }
+
+            /// <summary>
+            /// Default denied key validation API URIs (signed attribute validation)
+            /// </summary>
+            public ReadOnlyCollection<string>? DefaultDeniedKeyValidationApiUris { get; set; }
+
+            /// <summary>
+            /// Default allowed key usages (signed attribute validation)
+            /// </summary>
+            public AsymmetricAlgorithmUsages? DefaultAllowedUsages { get; set; }
+
+            /// <summary>
+            /// Default denied key usages (signed attribute validation)
+            /// </summary>
+            public AsymmetricAlgorithmUsages? DefaultDeniedUsages { get; set; }
+
+            /// <summary>
+            /// Default required key usages (signed attribute validation)
+            /// </summary>
+            public AsymmetricAlgorithmUsages? DefaultRequiredUsages { get; set; }
+
+            /// <summary>
+            /// Default require a key exchange counter key? (signed attribute validation)
+            /// </summary>
+            public bool? DefaultRequireKeyExchangeCounterKey { get; set; }
+
+            /// <summary>
+            /// Default require a signature counter key? (signed attribute validation)
+            /// </summary>
+            public bool? DefaultRequireSignatureCounterKey { get; set; }
+
+            /// <summary>
+            /// Default require a cipher suite (<see cref="CryptoOptions"/>)? (signed attribute validation)
+            /// </summary>
+            public bool? DefaultRequireCipherSuite { get; set; }
+
+            /// <summary>
+            /// Default require a public key revision serial number? (signed attribute validation)
+            /// </summary>
+            public bool? DefaultRequireSerial { get; set; }
+
+            /// <summary>
+            /// Additional attribute validator
+            /// </summary>
+            public SignedAttributes.Validate_Delegate? AdditionalValidation { get; set; }
+
+            /// <summary>
+            /// Additional attribute validator
+            /// </summary>
+            public SignedAttributes.ValidateAsync_Delegate? AdditionalValidationAsync { get; set; }
         }
     }
 }

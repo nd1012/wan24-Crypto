@@ -39,7 +39,7 @@ namespace wan24.Crypto.Authentication
                     // Create the session key and start decryption
                     await stream.ReadExactlyAsync(buffer.Memory, cancellationToken).DynamicContext();
                     cryptoOptions = Options.CryptoOptions!.GetCopy();
-                    cryptoOptions.Password = pake.CreateSessionKey(context.ServerIdentity.SignatureKey, context.ServerIdentity.Secret, buffer.Span);
+                    cryptoOptions.SetNewPassword(pake.CreateSessionKey(context.ServerIdentity.SignatureKey, context.ServerIdentity.Secret, buffer.Span));
                     decipher = await Encryption.GetDecryptionStreamAsync(stream, Stream.Null, cryptoOptions, cancellationToken).DynamicContext();
                     // Apply RNG seeding
                     if (((pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)

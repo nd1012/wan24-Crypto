@@ -63,19 +63,23 @@ namespace wan24.Crypto
                 if (options.KdfAlgorithmIncluded)
                 {
                     options.Tracer?.WriteTrace($"Applying KDF {options.KdfAlgorithm}");
-                    using (SecureByteArrayRefStruct oldPwd = new(options.Password))
-                        (options.Password, options.KdfSalt) = options.Password.Stretch(KeySize, options: options);
+                    (byte[] stretchedPwd, options.KdfSalt) = options.Password.Stretch(KeySize, options: options);
+                    options.SetNewPassword(stretchedPwd);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace($"Applying counter KDF {options.CounterKdfAlgorithm}");
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
                 }
+                if (options.EncryptionPasswordPreProcessor is not null)
+                {
+                    options.Tracer?.WriteTrace($"Applying encryption password pre-processor");
+                    options.EncryptionPasswordPreProcessor(this, options);
+                }
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    using SecureByteArrayRefStruct oldPwd = new(options.Password);
-                    options.Password = EnsureValidKeyLength(options.Password);
+                    options.SetNewPassword(EnsureValidKeyLength(options.Password));
                 }
                 // Switch to a MAC stream
                 MacStreams? macStream = null;
@@ -230,19 +234,28 @@ namespace wan24.Crypto
                 if (options.KdfAlgorithmIncluded)
                 {
                     options.Tracer?.WriteTrace($"Applying KDF {options.KdfAlgorithm}");
-                    using (SecureByteArrayStructSimple oldPwd = new(options.Password))
-                        (options.Password, options.KdfSalt) = options.Password.Stretch(KeySize, options: options);
+                    (byte[] stretchedPwd, options.KdfSalt) = options.Password.Stretch(KeySize, options: options);
+                    options.SetNewPassword(stretchedPwd);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace($"Applying counter KDF {options.CounterKdfAlgorithm}");
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
                 }
+                if (options.EncryptionPasswordAsyncPreProcessor is not null)
+                {
+                    options.Tracer?.WriteTrace($"Applying encryption password pre-processor");
+                    await options.EncryptionPasswordAsyncPreProcessor(this, options, cancellationToken).DynamicContext();
+                }
+                else if (options.EncryptionPasswordPreProcessor is not null)
+                {
+                    options.Tracer?.WriteTrace($"Applying encryption password pre-processor");
+                    options.EncryptionPasswordPreProcessor(this, options);
+                }
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    using SecureByteArrayStructSimple oldPwd = new(options.Password);
-                    options.Password = EnsureValidKeyLength(options.Password);
+                    options.SetNewPassword(EnsureValidKeyLength(options.Password));
                 }
                 // Switch to a MAC stream
                 if (options.MacIncluded)
@@ -363,8 +376,7 @@ namespace wan24.Crypto
                 if (pwd is not null)
                 {
                     options.Tracer?.WriteTrace("Using given password");
-                    options.Password?.Clear();
-                    options.Password = pwd.CloneArray();
+                    options.SetNewPassword(pwd.CloneArray());
                 }
                 else
                 {
@@ -433,7 +445,7 @@ namespace wan24.Crypto
                     options.Tracer?.WriteTrace("Reading key exchange data");
                     options.KeyExchangeData = cipherData.ReadSerialized<KeyExchangeDataContainer>(serializerVersion);
                     options.Tracer?.WriteTrace("Deriving new key bytes");
-                    options.Password = options.DeriveExchangedKey();
+                    options.DeriveExchangedKey();
                 }
                 if (options.Password is null) throw new ArgumentException("Password required", nameof(pwd));
                 if (options.KdfAlgorithmIncluded)
@@ -445,8 +457,8 @@ namespace wan24.Crypto
                     options.KdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                     options.Tracer?.WriteTrace($"Using KDF algorithm {options.KdfAlgorithm} with {options.KdfIterations} iterations and {options.KdfSalt.Length} byte salt");
                     if (options.KdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.KdfOptions}");
-                    using (SecureByteArrayRefStruct oldPwd = new(options.Password))
-                        (options.Password, _) = options.Password.Stretch(KeySize, options.KdfSalt, options);
+                    (byte[] stretchedPwd, _) = options.Password.Stretch(KeySize, options.KdfSalt, options);
+                    options.SetNewPassword(stretchedPwd);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace("Reading counter KDF algorithm");
@@ -456,15 +468,18 @@ namespace wan24.Crypto
                         options.CounterKdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                         options.Tracer?.WriteTrace($"Using KDF algorithm {options.CounterKdfAlgorithm} with {options.CounterKdfIterations} iterations and {options.CounterKdfSalt.Length} byte salt");
                         if (options.CounterKdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.CounterKdfOptions}");
-                        using SecureByteArrayRefStruct oldPwd = new(options.Password);
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
+                }
+                if (options.EncryptionPasswordPreProcessor is not null)
+                {
+                    options.Tracer?.WriteTrace($"Applying encryption password pre-processor");
+                    options.EncryptionPasswordPreProcessor(this, options);
                 }
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    using SecureByteArrayRefStruct oldPwd = new(options.Password);
-                    options.Password = EnsureValidKeyLength(options.Password);
+                    options.SetNewPassword(EnsureValidKeyLength(options.Password));
                 }
                 if (options.PayloadIncluded)
                 {
@@ -552,8 +567,7 @@ namespace wan24.Crypto
                 if (pwd is not null)
                 {
                     options.Tracer?.WriteTrace("Using given password");
-                    options.Password?.Clear();
-                    options.Password = pwd.CloneArray();
+                    options.SetNewPassword(pwd.CloneArray());
                 }
                 else
                 {
@@ -624,7 +638,7 @@ namespace wan24.Crypto
                     options.Tracer?.WriteTrace("Reading key exchange data");
                     options.KeyExchangeData = await cipherData.ReadSerializedAsync<KeyExchangeDataContainer>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
                     options.Tracer?.WriteTrace("Deriving new key bytes");
-                    options.Password = options.DeriveExchangedKey();
+                    options.DeriveExchangedKey();
                 }
                 if (options.Password is null) throw new ArgumentException("Password required", nameof(pwd));
                 if (options.KdfAlgorithmIncluded)
@@ -636,8 +650,8 @@ namespace wan24.Crypto
                     options.KdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     options.Tracer?.WriteTrace($"Using KDF algorithm {options.KdfAlgorithm} with {options.KdfIterations} iterations and {options.KdfSalt.Length} byte salt");
                     if (options.KdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.KdfOptions}");
-                    using (SecureByteArrayStructSimple oldPwd = new(options.Password))
-                        (options.Password, _) = options.Password.Stretch(KeySize, options.KdfSalt, options);
+                    (byte[] stretchedPwd, _) = options.Password.Stretch(KeySize, options.KdfSalt, options);
+                    options.SetNewPassword(stretchedPwd);
                     if (options.UsingCounterKdf)
                     {
                         options.Tracer?.WriteTrace("Reading counter KDF algorithm");
@@ -655,11 +669,20 @@ namespace wan24.Crypto
                         HybridAlgorithmHelper.StretchPassword(options);
                     }
                 }
+                if (options.EncryptionPasswordAsyncPreProcessor is not null)
+                {
+                    options.Tracer?.WriteTrace($"Applying encryption password pre-processor");
+                    await options.EncryptionPasswordAsyncPreProcessor(this, options, cancellationToken).DynamicContext();
+                }
+                else if (options.EncryptionPasswordPreProcessor is not null)
+                {
+                    options.Tracer?.WriteTrace($"Applying encryption password pre-processor");
+                    options.EncryptionPasswordPreProcessor(this, options);
+                }
                 if (!IsKeyLengthValid(options.Password.Length))
                 {
                     options.Tracer?.WriteTrace("Deriving required key byte length");
-                    using SecureByteArrayStructSimple oldPwd = new(options.Password);
-                    options.Password = EnsureValidKeyLength(options.Password);
+                    options.SetNewPassword(EnsureValidKeyLength(options.Password));
                 }
                 if (options.PayloadIncluded)
                 {

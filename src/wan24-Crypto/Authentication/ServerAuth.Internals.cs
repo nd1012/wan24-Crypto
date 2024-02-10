@@ -32,7 +32,7 @@ namespace wan24.Crypto.Authentication
                 key = (IAsymmetricPublicKey)Options.PrivateKeys!.KeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
                 await key.DeserializeAsync(hash.Stream, StreamSerializer.Version, cancellationToken).DynamicContext();
                 clientPfsKeys.KeyExchangeKey = key;
-                context.CryptoOptions.Password = Options.PrivateKeys.KeyExchangeKey.DeriveKey(key);
+                context.CryptoOptions.SetNewPassword(Options.PrivateKeys.KeyExchangeKey.DeriveKey(key));
                 decipher = await Encryption!.GetDecryptionStreamAsync(hash.Stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                 if(Options.PrivateKeys.CounterKeyExchangeKey is not null)
                 {

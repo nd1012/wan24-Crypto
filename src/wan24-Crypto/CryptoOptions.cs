@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using wan24.Compression;
 using wan24.Core;
 using wan24.ObjectValidation;
@@ -69,6 +70,16 @@ namespace wan24.Crypto
         public static bool DefaultFlagsIncluded { get; set; } = true;
 
         /// <summary>
+        /// Default encryption password pre-processor
+        /// </summary>
+        public static EncryptionPasswordPreProcessor_Delegate? DefaultEncryptionPasswordPreProcessor { get; set; }
+
+        /// <summary>
+        /// Default encryption password pre-processor (only applied during asynchronous operation)
+        /// </summary>
+        public static AsyncEncryptionPasswordPreProcessor_Delegate? DefaultEncryptionPasswordAsyncPreProcessor { get; set; }
+
+        /// <summary>
         /// Crypto header data structure version
         /// </summary>
         [Range(1, HEADER_VERSION)]
@@ -102,6 +113,16 @@ namespace wan24.Crypto
         /// </summary>
         [StringLength(byte.MaxValue)]
         public string? EncryptionOptions { get; set; }
+
+        /// <summary>
+        /// Encryption password pre-processor
+        /// </summary>
+        public EncryptionPasswordPreProcessor_Delegate? EncryptionPasswordPreProcessor { get; set; } = DefaultEncryptionPasswordPreProcessor;
+
+        /// <summary>
+        /// Encryption password pre-processor (only applied during asynchronous operation)
+        /// </summary>
+        public AsyncEncryptionPasswordPreProcessor_Delegate? EncryptionPasswordAsyncPreProcessor { get; set; } = DefaultEncryptionPasswordAsyncPreProcessor;
 
         /// <summary>
         /// MAC algorithm name
@@ -215,6 +236,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <typeparam name="T">Payload type</typeparam>
         /// <param name="payload">Payload</param>
+        [MemberNotNull(nameof(PayloadData))]
         public void SetPayload<T>(T payload) where T : notnull
         {
             try
@@ -279,10 +301,33 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Set a new encryption password (will clear the old value, if any)
+        /// </summary>
+        /// <param name="pwd">New password (won't be cloned!)</param>
+        [MemberNotNull(nameof(Password))]
+        public void SetNewPassword(in byte[] pwd)
+        {
+            Password?.Clear();
+            Password = pwd;
+        }
+
+        /// <summary>
+        /// Set a new MAC password (will clear the old value, if any)
+        /// </summary>
+        /// <param name="pwd">New password (won't be cloned!)</param>
+        [MemberNotNull(nameof(MacPassword))]
+        public void SetNewMacPassword(in byte[] pwd)
+        {
+            MacPassword?.Clear();
+            MacPassword = pwd;
+        }
+
+        /// <summary>
         /// Set the keys (used for en-/decryption and signature only)
         /// </summary>
         /// <param name="privateKey">Private key</param>
         /// <param name="publicKey">Public key (required for encryption, if not using a PFS key)</param>
+        [MemberNotNull(nameof(PrivateKey), nameof(AsymmetricAlgorithm))]
         public void SetKeys(IAsymmetricPrivateKey privateKey, IAsymmetricPublicKey? publicKey = null)
         {
             try
@@ -308,15 +353,15 @@ namespace wan24.Crypto
         /// Set the key exchange data
         /// </summary>
         /// <returns>Key</returns>
+        [MemberNotNull(nameof(KeyExchangeData), nameof(AsymmetricAlgorithm))]
         public byte[] SetKeyExchangeData()
         {
             try
             {
                 if (PrivateKey is not IKeyExchangePrivateKey key) throw new InvalidOperationException("Missing valid private key exchange key");
                 AsymmetricAlgorithm = PrivateKey.Algorithm.Name;
-                AsymmetricAlgorithm = key.Algorithm.Name;
-                Password?.Clear();
-                (Password, byte[] kex) = key.GetKeyExchangeData(PublicKey, options: this);
+                (byte[] newPwd, byte[] kex) = key.GetKeyExchangeData(PublicKey, options: this);
+                SetNewPassword(newPwd);
                 KeyExchangeData = new()
                 {
                     KeyExchangeData = kex
@@ -351,8 +396,7 @@ namespace wan24.Crypto
                 }
                 else
                 {
-                    Password?.Clear();
-                    Password = key.DeriveKey(KeyExchangeData.KeyExchangeData);
+                    SetNewPassword(key.DeriveKey(KeyExchangeData.KeyExchangeData));
                 }
                 return Password!;
             }
@@ -425,6 +469,8 @@ namespace wan24.Crypto
             MaxUncompressedDataLength = MaxUncompressedDataLength,
             Algorithm = Algorithm,
             EncryptionOptions = EncryptionOptions,
+            EncryptionPasswordPreProcessor = EncryptionPasswordPreProcessor,
+            EncryptionPasswordAsyncPreProcessor = EncryptionPasswordAsyncPreProcessor,
             MacAlgorithm = MacAlgorithm,
             MacPassword = MacPassword?.CloneArray(),
             KdfAlgorithm = KdfAlgorithm,
@@ -470,5 +516,20 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         object ICloneable.Clone() => GetCopy();
+
+        /// <summary>
+        /// Delegate for an encryption password pre-processor
+        /// </summary>
+        /// <param name="algo">Encryption algorithm</param>
+        /// <param name="options">Options</param>
+        public delegate void EncryptionPasswordPreProcessor_Delegate(EncryptionAlgorithmBase algo, CryptoOptions options);
+
+        /// <summary>
+        /// Delegate for an encryption password pre-processor
+        /// </summary>
+        /// <param name="algo">Encryption algorithm</param>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public delegate Task AsyncEncryptionPasswordPreProcessor_Delegate(EncryptionAlgorithmBase algo, CryptoOptions options, CancellationToken cancellationToken);
     }
 }

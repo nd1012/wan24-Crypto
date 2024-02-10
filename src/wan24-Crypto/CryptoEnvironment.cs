@@ -29,6 +29,8 @@ namespace wan24.Crypto
             if (options.DefaultPrivateKeysStore is not null) CryptoOptions.DefaultPrivateKeysStore = options.DefaultPrivateKeysStore;
             if (options.DefaultFlags.HasValue) CryptoOptions.DefaultFlags = options.DefaultFlags.Value;
             if (options.DefaultFlagsIncluded.HasValue) CryptoOptions.DefaultFlagsIncluded = options.DefaultFlagsIncluded.Value;
+            if (options.DefaultEncryptionPasswordPreProcessor is not null) CryptoOptions.DefaultEncryptionPasswordPreProcessor = options.DefaultEncryptionPasswordPreProcessor;
+            if (options.DefaultEncryptionPasswordAsyncPreProcessor is not null) CryptoOptions.DefaultEncryptionPasswordAsyncPreProcessor = options.DefaultEncryptionPasswordAsyncPreProcessor;
             if (options.DefaultEncryptionAlgorithm is not null) EncryptionHelper.DefaultAlgorithm = EncryptionHelper.GetAlgorithm(options.DefaultEncryptionAlgorithm);
             if (options.DefaultHashAlgorithm is not null) HashHelper.DefaultAlgorithm = HashHelper.GetAlgorithm(options.DefaultHashAlgorithm);
             if (options.CounterKeyExchangeAlgorithm is not null) HybridAlgorithmHelper.KeyExchangeAlgorithm = AsymmetricHelper.GetAlgorithm(options.CounterKeyExchangeAlgorithm);
@@ -62,6 +64,19 @@ namespace wan24.Crypto
             if (options.ValueProtectionMacAlgorithm is not null) ValueProtectionKeys.MacAlgorithmName = options.ValueProtectionMacAlgorithm;
             if (options.StrictPostQuantum.HasValue) CryptoHelper.ForcePostQuantumSafety(options.StrictPostQuantum.Value);
             if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);
+            if (options.DefaultAllowedValidationDomains is not null) SignedAttributes.ValidationOptions.DefaultAllowedValidationDomains = options.DefaultAllowedValidationDomains;
+            if (options.DefaultDeniedValidationDomains is not null) SignedAttributes.ValidationOptions.DefaultDeniedValidationDomains = options.DefaultDeniedValidationDomains;
+            if (options.DefaultAllowedKeyValidationApiUris is not null) SignedAttributes.ValidationOptions.DefaultAllowedKeyValidationApiUris = options.DefaultAllowedKeyValidationApiUris;
+            if (options.DefaultDeniedKeyValidationApiUris is not null) SignedAttributes.ValidationOptions.DefaultDeniedKeyValidationApiUris = options.DefaultDeniedKeyValidationApiUris;
+            if (options.DefaultAllowedUsages is not null) SignedAttributes.ValidationOptions.DefaultAllowedUsages = options.DefaultAllowedUsages;
+            if (options.DefaultDeniedUsages is not null) SignedAttributes.ValidationOptions.DefaultDeniedUsages = options.DefaultDeniedUsages;
+            if (options.DefaultRequiredUsages is not null) SignedAttributes.ValidationOptions.DefaultRequiredUsages = options.DefaultRequiredUsages;
+            if (options.DefaultRequireKeyExchangeCounterKey.HasValue) SignedAttributes.ValidationOptions.DefaultRequireKeyExchangeCounterKey = options.DefaultRequireKeyExchangeCounterKey.Value;
+            if (options.DefaultRequireSignatureCounterKey.HasValue) SignedAttributes.ValidationOptions.DefaultRequireSignatureCounterKey = options.DefaultRequireSignatureCounterKey.Value;
+            if (options.DefaultRequireCipherSuite.HasValue) SignedAttributes.ValidationOptions.DefaultRequireCipherSuite = options.DefaultRequireCipherSuite.Value;
+            if (options.DefaultRequireSerial.HasValue) SignedAttributes.ValidationOptions.DefaultRequireSerial = options.DefaultRequireSerial.Value;
+            if (options.AdditionalValidation is not null) SignedAttributes.AdditionalValidation = options.AdditionalValidation;
+            if (options.AdditionalValidationAsync is not null) SignedAttributes.AdditionalValidationAsync = options.AdditionalValidationAsync;
         }
 
         /// <summary>

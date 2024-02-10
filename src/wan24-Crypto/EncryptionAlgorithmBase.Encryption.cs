@@ -19,8 +19,7 @@ namespace wan24.Crypto
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
-                options.Password?.Clear();
-                options.Password = pwd.CloneArray();
+                options.SetNewPassword(pwd.CloneArray());
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
@@ -170,8 +169,7 @@ namespace wan24.Crypto
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
-                options.Password?.Clear();
-                options.Password = pwd.CloneArray();
+                options.SetNewPassword(pwd.CloneArray());
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
