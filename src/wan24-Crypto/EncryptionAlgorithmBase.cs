@@ -29,7 +29,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Default options
         /// </summary>
-        public CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.GetCopy());
+        public virtual CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.GetCopy());
 
         /// <summary>
         /// Ensure that the given options include the default options for this algorithm
@@ -40,6 +40,7 @@ namespace wan24.Crypto
         {
             if (options is null) return DefaultOptions;
             options.Algorithm = _DefaultOptions.Algorithm;
+            if (_DefaultOptions.EncryptionOptions is not null && options.EncryptionOptions is null) options.EncryptionOptions = _DefaultOptions.EncryptionOptions;
             if (RequireMacAuthentication && options.MacAlgorithm is null) MacHelper.GetDefaultOptions(options);
             return options;
         }

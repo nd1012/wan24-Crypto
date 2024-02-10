@@ -23,5 +23,8 @@
 
         /// <inheritdoc/>
         public override int Bits => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        (byte[] Key, byte[] KeyExchangeData) IKeyExchange.GetKeyExchangeData() => throw new NotSupportedException();
     }
 }

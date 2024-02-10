@@ -1,9 +1,9 @@
 ﻿namespace wan24.Crypto
 {
     /// <summary>
-    /// Signed attribute name examples/suggestions for an <see cref="AsymmetricSignedPublicKey"/> / <see cref="AsymmetricPublicKeySigningRequest"/>
+    /// Signed attribute name examples/suggestions for an <see cref="AsymmetricSignedPublicKey"/> / <see cref="AsymmetricPublicKeySigningRequest"/> and validation helper
     /// </summary>
-    public static class SignedAttributes
+    public static partial class SignedAttributes
     {
         /// <summary>
         /// Should contain the domain name of the PKI (yourcompany.com, for example)
@@ -14,8 +14,8 @@
         /// </summary>
         public const string OWNER_IDENTIFIER = "OwnerId";
         /// <summary>
-        /// Should contain a https URI which targets a RESTful API for key validation (should receive the (possibly base64 encoded) key ID as path component and answer, if 
-        /// the key was revoked)
+        /// Should contain a public https URI which targets a RESTful API for key validation (should receive the (possibly base64 encoded) key ID as path component and answer, if 
+        /// the key was revoked by returning the revokation timestamp (UTC <see cref="DateTime"/> ticks) or zero, if it wasn't revoked)
         /// </summary>
         public const string ONLINE_KEY_VALIDATION_API_URI = "KeyValidationUri";
         /// <summary>
@@ -47,5 +47,61 @@
         /// Should contain the numeric key revision of the owner (not an overall PKI key counter)
         /// </summary>
         public const string SERIAL = "Serial";
+        /// <summary>
+        /// Permitted to sign sub-keys?
+        /// </summary>
+        public const string PKI_SIGNATURE = "PkiSig";
+
+        /// <summary>
+        /// Additional attribute validation
+        /// </summary>
+        public static Validate_Delegate? AdditionalValidation { get; set; }
+
+        /// <summary>
+        /// Additional attribute validation
+        /// </summary>
+        public static ValidateAsync_Delegate? AdditionalValidationAsync { get; set; }
+
+        /// <summary>
+        /// Delegate for an additional attribute validator
+        /// </summary>
+        /// <param name="id">Key ID</param>
+        /// <param name="attributes">Attributes</param>
+        /// <param name="throwOnError">Throw an exception on error?</param>
+        /// <param name="options">Options</param>
+        /// <param name="keyStore">Key owner public key store</param>
+        /// <returns>If the attributes are valid</returns>
+        public delegate bool Validate_Delegate(
+            byte[] id,
+            IReadOnlyDictionary<string, string> attributes,
+            bool throwOnError,
+            ValidationOptions? options,
+            PublicKeySuiteStore? keyStore
+            );
+
+        /// <summary>
+        /// Delegate for an additional attribute validator
+        /// </summary>
+        /// <param name="id">Key ID</param>
+        /// <param name="attributes">Attributes</param>
+        /// <param name="throwOnError">Throw an exception on error?</param>
+        /// <param name="options">Options</param>
+        /// <param name="keyStore">Key owner public key store</param>
+        /// <param name="usage">Key usage time</param>
+        /// <param name="services">Service provider to use, if <c>httpClient</c> wasn't given for online key validation</param>
+        /// <param name="httpClient">http client to use for online key validation (won't be disposed)</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>If the attributes are valid</returns>
+        public delegate Task<bool> ValidateAsync_Delegate(
+            byte[] id,
+            IReadOnlyDictionary<string, string> attributes,
+            bool throwOnError,
+            ValidationOptions? options,
+            PublicKeySuiteStore? keyStore,
+            DateTime? usage,
+            IServiceProvider? services,
+            HttpClient? httpClient,
+            CancellationToken cancellationToken
+            );
     }
 }

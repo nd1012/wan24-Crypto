@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -67,6 +68,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="privateKey">Private key</param>
         /// <param name="publicKey">Public key (required for encryption, if not using a PFS key)</param>
+        [MemberNotNull(nameof(CounterPrivateKey), nameof(AsymmetricCounterAlgorithm))]
         public void SetCounterKeys(IAsymmetricPrivateKey privateKey, IAsymmetricPublicKey? publicKey = null)
         {
             try
@@ -74,7 +76,7 @@ namespace wan24.Crypto
                 if (publicKey is not null && publicKey.Algorithm != privateKey.Algorithm) throw new ArgumentException("Algorithm mismatch", nameof(publicKey));
                 CounterPrivateKey = privateKey;
                 CounterPublicKey = publicKey;
-                AsymmetricAlgorithm = privateKey.Algorithm.Name;
+                AsymmetricCounterAlgorithm = privateKey.Algorithm.Name;
                 KeyExchangeDataIncluded = true;
                 RequireKeyExchangeData = true;
             }

@@ -64,7 +64,7 @@ namespace wan24.Crypto.Authentication
                         AsymmetricKeyBits = options.PublicServerKeys.CounterKeyExchangeKey.Bits
                     });
                 await stream.WriteSerializedAsync(pfsKeys.KeyExchangeKey.PublicKey, cancellationToken).DynamicContext();
-                cryptoOptions.Password = pfsKeys.KeyExchangeKey.DeriveKey(options.PublicServerKeys.KeyExchangeKey);
+                cryptoOptions.SetNewPassword(pfsKeys.KeyExchangeKey.DeriveKey(options.PublicServerKeys.KeyExchangeKey));
                 cipher = await encryption.GetEncryptionStreamAsync(Stream.Null, stream, macStream: null, cryptoOptions, cancellationToken).DynamicContext();
                 if (options.PublicServerKeys.CounterKeyExchangeKey is not null)
                 {

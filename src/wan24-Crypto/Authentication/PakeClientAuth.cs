@@ -20,7 +20,9 @@ namespace wan24.Crypto.Authentication
         {
             await Task.Yield();
             options ??= PakeClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
+#pragma warning disable CA1859 // Avoid interface
             ISymmetricKeySuite? symmetricKey = null;
+#pragma warning restore CA1859 // Avoid interface
             PakeSignup? signup = null;
             PakeRecord? identity = null;
             byte[]? sessionKey = null,
@@ -91,7 +93,9 @@ namespace wan24.Crypto.Authentication
             await Task.Yield();
             options ??= PakeClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
             EncryptionStreams? cipher = null;
+#pragma warning disable CA1859 // Avoid interface
             ISymmetricKeySuite? symmetricKey = null;
+#pragma warning restore CA1859 // Avoid interface
             PakeAuth? auth = null;
             byte[]? serverRandom = null,
                 sessionKey = null;
@@ -110,7 +114,7 @@ namespace wan24.Crypto.Authentication
                 await stream.WriteAsync(options.PeerIdentity.Identifier, cancellationToken).DynamicContext();
                 await stream.WriteAsync(serverRandom, cancellationToken).DynamicContext();
                 cryptoOptions.Password?.Clear();
-                cryptoOptions.Password = serverRandom.Mac(options.PeerIdentity.SignatureKey.Mac(options.PeerIdentity.Secret, options.PakeOptions), options.PakeOptions);
+                cryptoOptions.SetNewPassword(serverRandom.Mac(options.PeerIdentity.SignatureKey.Mac(options.PeerIdentity.Secret, options.PakeOptions), options.PakeOptions));
                 cryptoOptions.LeaveOpen = true;
                 encryption = EncryptionHelper.GetAlgorithm(cryptoOptions.Algorithm!);
                 if (encryption.RequireMacAuthentication)

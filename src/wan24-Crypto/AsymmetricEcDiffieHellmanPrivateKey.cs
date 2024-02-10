@@ -1,7 +1,6 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
-using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
 {
@@ -108,6 +107,9 @@ namespace wan24.Crypto
                 throw CryptographicException.From(ex);
             }
         }
+
+        /// <inheritdoc/>
+        (byte[] Key, byte[] KeyExchangeData) IKeyExchange.GetKeyExchangeData() => GetKeyExchangeData();
 
         /// <inheritdoc/>
         public override byte[] DeriveKey(byte[] keyExchangeData)

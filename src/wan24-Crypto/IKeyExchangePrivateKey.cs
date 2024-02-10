@@ -3,7 +3,7 @@
     /// <summary>
     /// Key exchange private key
     /// </summary>
-    public interface IKeyExchangePrivateKey : IAsymmetricPrivateKey
+    public interface IKeyExchangePrivateKey : IAsymmetricPrivateKey, IKeyExchange
     {
         /// <summary>
         /// Get key exchange data
@@ -12,12 +12,6 @@
         /// <param name="options">Options</param>
         /// <returns>Derived key and key exchange data</returns>
         (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null);
-        /// <summary>
-        /// Get the derived key from received key exchange data
-        /// </summary>
-        /// <param name="keyExchangeData">Key exchange data</param>
-        /// <returns>Derived key</returns>
-        byte[] DeriveKey(byte[] keyExchangeData);
         /// <summary>
         /// Get the derived key from a public key
         /// </summary>

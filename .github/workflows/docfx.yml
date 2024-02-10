@@ -1,0 +1,24 @@
+name: docfx
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Setup docfx
+      run: dotnet tool update -g docfx
+    - name: Build docs
+      run: docfx "./src/wan24-Crypto Docs/docfx.json"
+    - name: Commit
+      uses: stefanzweifel/git-auto-commit-action@v5

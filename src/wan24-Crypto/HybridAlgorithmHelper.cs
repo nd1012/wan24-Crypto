@@ -243,8 +243,7 @@ namespace wan24.Crypto
                 {
                     key1 = key.DeriveKey(keyExchangeData.KeyExchangeData);
                     key2 = counterKey.DeriveKey(keyExchangeData.CounterKeyExchangeData);
-                    options.Password?.Clear();
-                    options.Password = key1.ExtendKey(key2);
+                    options.SetNewPassword(key1.ExtendKey(key2));
                 }
                 catch
                 {
@@ -276,8 +275,8 @@ namespace wan24.Crypto
                 CryptoOptions hybridOptions = algo.DefaultOptions;
                 hybridOptions.KdfIterations = options.CounterKdfIterations;
                 hybridOptions.KdfOptions = options.CounterKdfOptions;
-                using SecureByteArrayRefStruct oldPwd = new(options.Password);
-                (options.Password, options.CounterKdfSalt) = algo.Stretch(options.Password, options.Password.Length, options.CounterKdfSalt, hybridOptions);
+                (byte[] stretchedPwd, options.CounterKdfSalt) = algo.Stretch(options.Password, options.Password.Length, options.CounterKdfSalt, hybridOptions);
+                options.SetNewPassword(stretchedPwd);
             }
             catch (CryptographicException)
             {

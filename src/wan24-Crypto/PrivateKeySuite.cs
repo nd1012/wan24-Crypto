@@ -7,7 +7,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Private key suite (for storing long term keys)
     /// </summary>
-    public sealed record class PrivateKeySuite : DisposableStreamSerializerRecordBase, ICloneable
+    public sealed record class PrivateKeySuite : DisposableStreamSerializerRecordBase, ICloneable, IKeyExchange
     {
         /// <summary>
         /// Object version
@@ -95,6 +95,20 @@ namespace wan24.Crypto
             CryptoOptions res = new();
             res.ApplyPrivateKeySuite(this);
             return res;
+        }
+
+        /// <inheritdoc/>
+        public (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData()
+        {
+            EnsureUndisposed();
+            return KeyExchangeKey?.GetKeyExchangeData() ?? throw new InvalidOperationException();
+        }
+
+        /// <inheritdoc/>
+        public byte[] DeriveKey(byte[] keyExchangeData)
+        {
+            EnsureUndisposed();
+            return KeyExchangeKey?.DeriveKey(keyExchangeData) ?? throw new InvalidOperationException();
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
@@ -225,6 +226,40 @@ namespace wan24.Crypto
         public virtual Task<AsymmetricSignedPublicKey?> GetKeyAsync(byte[] id, CancellationToken cancellationToken = default) => Task.FromResult(GetKey(id));
 
         /// <summary>
+        /// Get keys which have been signed by a key (won't return revoked keys)
+        /// </summary>
+        /// <param name="id">Signer ID</param>
+        /// <returns>Signed keys (do not dispose!)</returns>
+        public virtual IEnumerable<AsymmetricSignedPublicKey> GetSignedKeys(byte[] id)
+        {
+            EnsureUndisposed();
+            foreach (KeyValuePair<EquatableArray<byte>, AsymmetricSignedPublicKey> kvp in _RootKeys)
+                if (kvp.Key == id)
+                    yield return kvp.Value;
+            foreach (KeyValuePair<EquatableArray<byte>, AsymmetricSignedPublicKey> kvp in _GrantedKeys)
+                if (kvp.Key == id)
+                    yield return kvp.Value;
+        }
+
+        /// <summary>
+        /// Get keys which have been signed by a key (won't return revoked keys)
+        /// </summary>
+        /// <param name="id">Signer ID</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Signed keys (do not dispose!)</returns>
+        public virtual async IAsyncEnumerable<AsymmetricSignedPublicKey> GetSignedKeysAsync(byte[] id, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+        {
+            EnsureUndisposed();
+            await Task.Yield();
+            foreach (KeyValuePair<EquatableArray<byte>, AsymmetricSignedPublicKey> kvp in _RootKeys)
+                if (kvp.Key == id)
+                    yield return kvp.Value;
+            foreach (KeyValuePair<EquatableArray<byte>, AsymmetricSignedPublicKey> kvp in _GrantedKeys)
+                if (kvp.Key == id)
+                    yield return kvp.Value;
+        }
+
+        /// <summary>
         /// Determine if a key ID is related to a revoked key
         /// </summary>
         /// <param name="id">ID</param>
@@ -266,8 +301,9 @@ namespace wan24.Crypto
         /// Revoke a key
         /// </summary>
         /// <param name="id">ID</param>
+        /// <param name="recursive">Remove signed keys also?</param>
         /// <returns>If revoked</returns>
-        public virtual bool Revoke(byte[] id)
+        public virtual bool Revoke(byte[] id, bool recursive = true)
         {
             if (GetKey(id) is not AsymmetricSignedPublicKey key) return false;
             key = key.GetCopy();
@@ -282,6 +318,9 @@ namespace wan24.Crypto
                 {
                     key.Dispose();
                 }
+                if (recursive)
+                    foreach (AsymmetricSignedPublicKey signedKey in GetSignedKeys(id))
+                        Revoke(signedKey.PublicKey.ID);
             }
             catch
             {
@@ -295,9 +334,10 @@ namespace wan24.Crypto
         /// Revoke a key
         /// </summary>
         /// <param name="id">ID</param>
+        /// <param name="recursive">Remove signed keys also?</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>If revoked</returns>
-        public virtual Task<bool> RevokeAsync(byte[] id, CancellationToken cancellationToken = default) => Task.FromResult(Revoke(id));
+        public virtual Task<bool> RevokeAsync(byte[] id, bool recursive = true, CancellationToken cancellationToken = default) => Task.FromResult(Revoke(id, recursive));
 
         /// <summary>
         /// Remove (and dispose) a revoked key
@@ -314,6 +354,49 @@ namespace wan24.Crypto
                 return key;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Get the type of a key within this PKI
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns>Key type</returns>
+        public virtual AsymmetricSignedPublicKeyTypes GetKeyType(byte[] id)
+        {
+            EnsureUndisposed();
+            AsymmetricSignedPublicKey? key = GetKey(id);
+            if (key is null)
+            {
+                key = GetRevokedKey(id);
+                if (key is null) return AsymmetricSignedPublicKeyTypes.Unknown;
+                if (key.Type < AsymmetricSignedPublicKeyTypes.End)
+                    return (key.Signer is null ? AsymmetricSignedPublicKeyTypes.Root : AsymmetricSignedPublicKeyTypes.Intermediate) | AsymmetricSignedPublicKeyTypes.Revoked;
+                return AsymmetricSignedPublicKeyTypes.End | AsymmetricSignedPublicKeyTypes.Revoked;
+            }
+            if (key.Type < AsymmetricSignedPublicKeyTypes.End) return IsTrustedRoot(id) ? AsymmetricSignedPublicKeyTypes.Root : AsymmetricSignedPublicKeyTypes.Intermediate;
+            return AsymmetricSignedPublicKeyTypes.End;
+        }
+
+        /// <summary>
+        /// Get the type of a key within this PKI
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Key type</returns>
+        public virtual async Task<AsymmetricSignedPublicKeyTypes> GetKeyTypeAsync(byte[] id, CancellationToken cancellationToken = default)
+        {
+            EnsureUndisposed();
+            AsymmetricSignedPublicKey? key = await GetKeyAsync(id, cancellationToken).DynamicContext();
+            if (key is null)
+            {
+                key = await GetRevokedKeyAsync(id, cancellationToken).DynamicContext();
+                if (key is null) return AsymmetricSignedPublicKeyTypes.Unknown;
+                if (key.Type < AsymmetricSignedPublicKeyTypes.End)
+                    return (key.Signer is null ? AsymmetricSignedPublicKeyTypes.Root : AsymmetricSignedPublicKeyTypes.Intermediate) | AsymmetricSignedPublicKeyTypes.Revoked;
+                return AsymmetricSignedPublicKeyTypes.End | AsymmetricSignedPublicKeyTypes.Revoked;
+            }
+            if (key.Type < AsymmetricSignedPublicKeyTypes.End) return IsTrustedRoot(id) ? AsymmetricSignedPublicKeyTypes.Root : AsymmetricSignedPublicKeyTypes.Intermediate;
+            return AsymmetricSignedPublicKeyTypes.End;
         }
 
         /// <inheritdoc/>

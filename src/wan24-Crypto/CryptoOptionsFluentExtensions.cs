@@ -423,8 +423,7 @@ namespace wan24.Crypto
         public static CryptoOptions WithPassword(this CryptoOptions options, byte[]? pwd = null)
         {
             options.WithoutAsymmetricAlgorithm()
-                .WithoutPassword();
-            options.Password = pwd ?? RND.GetBytes(64);
+                .SetNewPassword(pwd ?? RND.GetBytes(64));
             return options;
         }
 
@@ -435,7 +434,11 @@ namespace wan24.Crypto
         /// <returns>Options</returns>
         public static CryptoOptions WithoutPassword(this CryptoOptions options)
         {
-            options.Password?.Clear();
+            if(options.Password is not null)
+            {
+                options.Password.Clear();
+                options.Password = null;
+            }
             return options;
         }
 

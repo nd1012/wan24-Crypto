@@ -145,6 +145,7 @@ namespace wan24.Crypto
         public virtual (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null)
             => throw new NotSupportedException();
 
+
         /// <inheritdoc/>
         public virtual byte[] DeriveKey(byte[] keyExchangeData) => throw new NotSupportedException();
 
