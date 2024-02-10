@@ -1,23 +1,21 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class HashStreams
-   | wan24-Crypto </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class HashStreams
-   | wan24-Crypto ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class HashStreams | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class HashStreams | wan24-Crypto ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta name="description" content="Hash streams">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     <meta property="docfx:newtab" content="true">
@@ -25,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +57,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -69,105 +67,90 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="wan24.Crypto.HashStreams">
-  
-  
-  <h1 id="wan24_Crypto_HashStreams" data-uid="wan24.Crypto.HashStreams" class="text-break">Class HashStreams
-  </h1>
+
+
+
+  <h1 id="wan24_Crypto_HashStreams" data-uid="wan24.Crypto.HashStreams" class="text-break">Class HashStreams</h1>
   <div class="markdown level0 summary"><p>Hash streams</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">DisposableRecordBase</span></div>
     <div class="level2"><span class="xref">HashStreams</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.IAsyncDisposable</span></div>
+    <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IDisposableObject</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">DisposableRecordBase</span>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.HashStreams.html">HashStreams</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+      <span class="xref">DisposableRecordBase.RegisterForDispose&lt;T&gt;(in T)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.AsyncDisposing</span>
+      <span class="xref">DisposableRecordBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+      <span class="xref">DisposableRecordBase.DisposeAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+      <span class="xref">DisposableRecordBase.ToString()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+      <span class="xref">DisposableRecordBase.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">DisposableRecordBase.Equals(object)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+      <span class="xref">DisposableRecordBase.Equals(DisposableRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+      <span class="xref">DisposableRecordBase.&lt;Clone&gt;$()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+      <span class="xref">DisposableRecordBase.CreateStackInfo</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+      <span class="xref">DisposableRecordBase.IsDisposing</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+      <span class="xref">DisposableRecordBase.IsDisposed</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+      <span class="xref">DisposableRecordBase.OnDisposing</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+      <span class="xref">DisposableRecordBase.OnDisposed</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.html">wan24</a>.<a class="xref" href="wan24.Crypto.html">Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_HashStreams_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class HashStreams : DisposableBase, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record HashStreams : DisposableRecordBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IEquatable&lt;DisposableRecordBase&gt;, IEquatable&lt;HashStreams&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams__ctor_System_Security_Cryptography_CryptoStream__System_Security_Cryptography_HashAlgorithm__.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.%23ctor(System.Security.Cryptography.CryptoStream%40%2CSystem.Security.Cryptography.HashAlgorithm%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams__ctor_System_Security_Cryptography_CryptoStream__System_Security_Cryptography_HashAlgorithm__.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.%23ctor(System.Security.Cryptography.CryptoStream%40%2CSystem.Security.Cryptography.HashAlgorithm%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L16">View Source</a>
@@ -177,12 +160,12 @@
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public HashStreams(in CryptoStream stream, in HashAlgorithm transform)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -192,13 +175,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Security.Cryptography.CryptoStream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.cryptostream">CryptoStream</a></td>
         <td><span class="parametername">stream</span></td>
         <td><p>Stream</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Security.Cryptography.HashAlgorithm</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm">HashAlgorithm</a></td>
         <td><span class="parametername">transform</span></td>
         <td><p>Transform</p>
 </td>
@@ -206,10 +189,10 @@
     </tbody>
   </table>
   <h3 id="properties">Properties
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Hash.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Hash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Hash.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Hash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L35">View Source</a>
@@ -219,12 +202,12 @@
   <div class="markdown level1 summary"><p>Hash</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] Hash { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -233,14 +216,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Stream.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Stream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Stream.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Stream%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L25">View Source</a>
@@ -250,12 +233,12 @@
   <div class="markdown level1 summary"><p>Stream</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public CryptoStream Stream { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -264,14 +247,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Security.Cryptography.CryptoStream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.cryptostream">CryptoStream</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Transform.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Transform%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Transform.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Transform%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L30">View Source</a>
@@ -281,12 +264,12 @@
   <div class="markdown level1 summary"><p>Transform</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public HashAlgorithm Transform { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -295,30 +278,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Security.Cryptography.HashAlgorithm</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm">HashAlgorithm</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.Dispose(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L60">View Source</a>
   </span>
   <a id="wan24_Crypto_HashStreams_Dispose_" data-uid="wan24.Crypto.HashStreams.Dispose*"></a>
-  <h4 id="wan24_Crypto_HashStreams_Dispose_System_Boolean_" data-uid="wan24.Crypto.HashStreams.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_HashStreams_Dispose_System_Boolean_" data-uid="wan24.Crypto.HashStreams.Dispose(System.Boolean)">Dispose(bool)</h4>
+  <div class="markdown level1 summary"><p>Dispose</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -328,31 +312,33 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
-        <td></td>
+        <td><p>Disposing? (may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, if called from the destructor)</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">DisposableRecordBase.Dispose(bool)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.DisposeCore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L67">View Source</a>
   </span>
   <a id="wan24_Crypto_HashStreams_DisposeCore_" data-uid="wan24.Crypto.HashStreams.DisposeCore*"></a>
   <h4 id="wan24_Crypto_HashStreams_DisposeCore" data-uid="wan24.Crypto.HashStreams.DisposeCore">DisposeCore()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Dispose</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task DisposeCore()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task DisposeCore()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -361,31 +347,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">wan24.Core.DisposableBase.DisposeCore()</span></div>
+  <div><span class="xref">wan24.Core.DisposableRecordBase.DisposeCore()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_FinalizeHash_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.FinalizeHash(System.Boolean%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_FinalizeHash_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.FinalizeHash(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L41">View Source</a>
   </span>
   <a id="wan24_Crypto_HashStreams_FinalizeHash_" data-uid="wan24.Crypto.HashStreams.FinalizeHash*"></a>
-  <h4 id="wan24_Crypto_HashStreams_FinalizeHash_System_Boolean__" data-uid="wan24.Crypto.HashStreams.FinalizeHash(System.Boolean@)">FinalizeHash(in Boolean)</h4>
+  <h4 id="wan24_Crypto_HashStreams_FinalizeHash_System_Boolean__" data-uid="wan24.Crypto.HashStreams.FinalizeHash(System.Boolean@)">FinalizeHash(in bool)</h4>
   <div class="markdown level1 summary"><p>Finalize the hash</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void FinalizeHash(in bool transformFinal = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -395,7 +381,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">transformFinal</span></td>
         <td><p>Transform the final block?</p>
 </td>
@@ -404,22 +390,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_FinalizeHashAsync_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.FinalizeHashAsync(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams_FinalizeHashAsync_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams.FinalizeHashAsync(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L52">View Source</a>
   </span>
   <a id="wan24_Crypto_HashStreams_FinalizeHashAsync_" data-uid="wan24.Crypto.HashStreams.FinalizeHashAsync*"></a>
-  <h4 id="wan24_Crypto_HashStreams_FinalizeHashAsync_System_Boolean_" data-uid="wan24.Crypto.HashStreams.FinalizeHashAsync(System.Boolean)">FinalizeHashAsync(Boolean)</h4>
+  <h4 id="wan24_Crypto_HashStreams_FinalizeHashAsync_System_Boolean_" data-uid="wan24.Crypto.HashStreams.FinalizeHashAsync(System.Boolean)">FinalizeHashAsync(bool)</h4>
   <div class="markdown level1 summary"><p>Finalize the hash</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task FinalizeHashAsync(bool transformFinal = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task FinalizeHashAsync(bool transformFinal = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -429,7 +415,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">transformFinal</span></td>
         <td><p>Transform the final block?</p>
 </td>
@@ -437,7 +423,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -446,30 +432,40 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
   <div>
-      <span class="xref">System.IAsyncDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a>
   </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashStreams.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashStreams%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
                     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashStreams.cs/#L9" class="contribution-link">View Source</a>
@@ -477,14 +473,14 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -492,14 +488,14 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            (c) 2023 Andreas Zimmermann, wan24.de
-            
+      (c) 2023 Andreas Zimmermann, wan24.de
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

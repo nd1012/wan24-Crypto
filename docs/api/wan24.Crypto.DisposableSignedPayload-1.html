@@ -1,23 +1,21 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DisposableSignedPayload&lt;T&gt;
-   | wan24-Crypto </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DisposableSignedPayload&lt;T&gt;
-   | wan24-Crypto ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class DisposableSignedPayload&lt;T&gt; | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class DisposableSignedPayload&lt;T&gt; | wan24-Crypto ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta name="description" content="Signed payload">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     <meta property="docfx:newtab" content="true">
@@ -25,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +57,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -69,152 +67,150 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="wan24.Crypto.DisposableSignedPayload`1">
-  
-  
-  <h1 id="wan24_Crypto_DisposableSignedPayload_1" data-uid="wan24.Crypto.DisposableSignedPayload`1" class="text-break">Class DisposableSignedPayload&lt;T&gt;
-  </h1>
+
+
+
+  <h1 id="wan24_Crypto_DisposableSignedPayload_1" data-uid="wan24.Crypto.DisposableSignedPayload`1" class="text-break">Class DisposableSignedPayload&lt;T&gt;</h1>
   <div class="markdown level0 summary"><p>Signed payload</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
-    <div class="level2"><span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">DisposableRecordBase</span></div>
+    <div class="level2"><span class="xref">DisposableStreamSerializerRecordBase</span></div>
     <div class="level3"><span class="xref">DisposableSignedPayload&lt;T&gt;</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.IAsyncDisposable</span></div>
-    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
-    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
-    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
-    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+    <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IDisposableObject</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">DisposableRecordBase</span>&gt;</div>
+    <div><span class="xref">IStreamSerializerVersion</span></div>
+    <div><span class="xref">IStreamSerializer</span></div>
+    <div><span class="xref">IObjectValidatable</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject">IValidatableObject</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">DisposableStreamSerializerRecordBase</span>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.DisposableSignedPayload-1.html">DisposableSignedPayload</a>&lt;T&gt;&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.BASE_VERSION</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.BASE_VERSION</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Serialize(System.IO.Stream)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.ToString()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">DisposableStreamSerializerRecordBase.PrintMembers(StringBuilder)</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Deserialize(System.IO.Stream, System.Int32)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">DisposableStreamSerializerRecordBase.Equals(object)</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.Equals(DisposableRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.Equals(DisposableStreamSerializerRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.&lt;Clone&gt;$()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.EqualityContract</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.SerializedObjectVersion</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializedObjectVersion</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.SerializerVersion</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializerVersion</span>
+      <span class="xref">DisposableRecordBase.DisposeSyncObject</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
+      <span class="xref">DisposableRecordBase.AsyncDisposing</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+      <span class="xref">DisposableRecordBase.AllowFinalizer</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializerVersion</span>
+      <span class="xref">DisposableRecordBase.DisposeObjects</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+      <span class="xref">DisposableRecordBase.StackInfo</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.AsyncDisposing</span>
+      <span class="xref">DisposableRecordBase.RegisterForDispose&lt;T&gt;(in T)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">DisposableRecordBase.EnsureUndisposed(in bool, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">DisposableRecordBase.IfUndisposed&lt;T&gt;(in T, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">DisposableRecordBase.IfUndisposed(in Action, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">DisposableRecordBase.IfUndisposed&lt;T&gt;(in Func&lt;T&gt;, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">DisposableRecordBase.IfUndisposedNullable&lt;T&gt;(in Func&lt;T&gt;, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+      <span class="xref">DisposableRecordBase.DisposeAttributes()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+      <span class="xref">DisposableRecordBase.DisposeAttributesAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+      <span class="xref">DisposableRecordBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+      <span class="xref">DisposableRecordBase.DisposeAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+      <span class="xref">DisposableRecordBase.CreateStackInfo</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+      <span class="xref">DisposableRecordBase.IsDisposing</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+      <span class="xref">DisposableRecordBase.IsDisposed</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+      <span class="xref">DisposableRecordBase.OnDisposing</span>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
+      <span class="xref">DisposableRecordBase.OnDisposed</span>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetHashCode()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetType()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.html">wan24</a>.<a class="xref" href="wan24.Crypto.html">Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_DisposableSignedPayload_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DisposableSignedPayload&lt;T&gt; : DisposableStreamSerializerBase, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject where T : class, IStreamSerializer, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public record DisposableSignedPayload&lt;T&gt; : DisposableStreamSerializerRecordBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IEquatable&lt;DisposableRecordBase&gt;, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject, IEquatable&lt;DisposableStreamSerializerRecordBase&gt;, IEquatable&lt;DisposableSignedPayload&lt;T&gt;&gt; where T : class, IStreamSerializer, IDisposable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -230,10 +226,10 @@
     </tbody>
   </table>
   <h3 id="constructors">Constructors
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L29">View Source</a>
@@ -243,28 +239,28 @@
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DisposableSignedPayload()</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.%23ctor(%600%2Cwan24.Crypto.ISignaturePrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.%23ctor(%600%2Cwan24.Crypto.ISignaturePrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L37">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1__ctor_" data-uid="wan24.Crypto.DisposableSignedPayload`1.#ctor*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.DisposableSignedPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)">DisposableSignedPayload(T, ISignaturePrivateKey, CryptoOptions)</h4>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1__ctor__0_wan24_Crypto_ISignaturePrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.DisposableSignedPayload`1.#ctor(`0,wan24.Crypto.ISignaturePrivateKey,wan24.Crypto.CryptoOptions)">DisposableSignedPayload(T, ISignaturePrivateKey, CryptoOptions?)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DisposableSignedPayload(T payload, ISignaturePrivateKey privateKey, CryptoOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public DisposableSignedPayload(T payload, ISignaturePrivateKey privateKey, CryptoOptions? options = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -294,10 +290,10 @@
     </tbody>
   </table>
   <h3 id="fields">Fields
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_SignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.SignedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_SignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.SignedData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L20">View Source</a>
@@ -306,12 +302,12 @@
   <div class="markdown level1 summary"><p>Signed data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected byte[] SignedData</code></pre>
+    <pre><code class="lang-csharp hljs">protected byte[]? SignedData</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -320,14 +316,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_SignedDataMaxLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.SignedDataMaxLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_SignedDataMaxLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.SignedDataMaxLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L24">View Source</a>
@@ -336,12 +332,12 @@
   <div class="markdown level1 summary"><p>Maximum length of the signed data in bytes</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected int SignedDataMaxLength</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -350,14 +346,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.VERSION%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.VERSION%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L15">View Source</a>
@@ -366,12 +362,12 @@
   <div class="markdown level1 summary"><p>Object version</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -380,16 +376,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Payload.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Payload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Payload.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Payload%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L46">View Source</a>
@@ -399,12 +395,12 @@
   <div class="markdown level1 summary"><p>Payload</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public T Payload { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -420,7 +416,7 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Signature.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Signature%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Signature.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Signature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L51">View Source</a>
@@ -430,12 +426,12 @@
   <div class="markdown level1 summary"><p>Signature</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SignatureContainer Signature { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -450,10 +446,10 @@
     </tbody>
   </table>
   <h3 id="methods">Methods
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_CreateSignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.CreateSignedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_CreateSignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.CreateSignedData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L82">View Source</a>
@@ -463,12 +459,12 @@
   <div class="markdown level1 summary"><p>Create signed data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] CreateSignedData()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -477,7 +473,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><p>Signed data</p>
 </td>
       </tr>
@@ -485,22 +481,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.CreateSignedDataInt(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_System_IO_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.CreateSignedDataInt(System.IO.Stream)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L113">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_" data-uid="wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_Stream_" data-uid="wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt(Stream)">CreateSignedDataInt(Stream)</h4>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_CreateSignedDataInt_System_IO_Stream_" data-uid="wan24.Crypto.DisposableSignedPayload`1.CreateSignedDataInt(System.IO.Stream)">CreateSignedDataInt(Stream)</h4>
   <div class="markdown level1 summary"><p>Create signed data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void CreateSignedDataInt(Stream stream)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -510,7 +506,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
         <td><p>Stream</p>
 </td>
@@ -519,21 +515,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Deserialize_System_IO_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Deserialize(System.IO.Stream%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L139">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_Deserialize_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Deserialize*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Deserialize_System_IO_Stream_System_Int32_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Deserialize(System.IO.Stream,System.Int32)">Deserialize(Stream, int)</h4>
+  <div class="markdown level1 summary"><p>Deserialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Deserialize(Stream stream, int version)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -543,34 +540,39 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">version</span></td>
-        <td></td>
+        <td><p>Serializer version</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">DisposableStreamSerializerRecordBase.Deserialize(Stream, int)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DeserializeAsync(System.IO.Stream%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L147">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DeserializeAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)">DeserializeAsync(Stream, int, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deserialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -580,24 +582,27 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">version</span></td>
-        <td></td>
+        <td><p>Serializer version</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Cancellation token</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -606,14 +611,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">DisposableStreamSerializerRecordBase.DeserializeAsync(Stream, int, CancellationToken)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DeserializeSignedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedData.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DeserializeSignedData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L98">View Source</a>
@@ -623,28 +630,28 @@
   <div class="markdown level1 summary"><p>Deserialize signed data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void DeserializeSignedData()</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DeserializeSignedDataInt(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_System_IO_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DeserializeSignedDataInt(System.IO.Stream%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L120">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_Stream_System_Int32_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt(Stream,System.Int32)">DeserializeSignedDataInt(Stream, Int32)</h4>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_DeserializeSignedDataInt_System_IO_Stream_System_Int32_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DeserializeSignedDataInt(System.IO.Stream,System.Int32)">DeserializeSignedDataInt(Stream, int)</h4>
   <div class="markdown level1 summary"><p>Deserialize signed data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DeserializeSignedDataInt(Stream stream, int version)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -654,13 +661,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
         <td><p>Stream</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">version</span></td>
         <td><p>Serializer version</p>
 </td>
@@ -669,21 +676,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Dispose(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L155">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_Dispose_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Dispose*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Dispose_System_Boolean_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Dispose_System_Boolean_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Dispose(System.Boolean)">Dispose(bool)</h4>
+  <div class="markdown level1 summary"><p>Dispose</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -693,31 +701,33 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
-        <td></td>
+        <td><p>Disposing? (may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, if called from the destructor)</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">wan24.Core.DisposableBase.Dispose(System.Boolean)</span></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">DisposableRecordBase.Dispose(bool)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DisposeCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.DisposeCore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L158">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_DisposeCore_" data-uid="wan24.Crypto.DisposableSignedPayload`1.DisposeCore*"></a>
   <h4 id="wan24_Crypto_DisposableSignedPayload_1_DisposeCore" data-uid="wan24.Crypto.DisposableSignedPayload`1.DisposeCore">DisposeCore()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Dispose</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task DisposeCore()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task DisposeCore()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -726,30 +736,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">wan24.Core.DisposableBase.DisposeCore()</span></div>
+  <div><span class="xref">wan24.Core.DisposableRecordBase.DisposeCore()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Serialize_System_IO_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Serialize(System.IO.Stream)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L123">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_Serialize_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Serialize*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Serialize_Stream_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Serialize(Stream)">Serialize(Stream)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Serialize_System_IO_Stream_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Serialize(System.IO.Stream)">Serialize(Stream)</h4>
+  <div class="markdown level1 summary"><p>Serialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Serialize(Stream stream)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -759,29 +770,33 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">DisposableStreamSerializerRecordBase.Serialize(Stream)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.SerializeAsync(System.IO.Stream%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L131">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_" data-uid="wan24.Crypto.DisposableSignedPayload`1.SerializeAsync*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.DisposableSignedPayload`1.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_" data-uid="wan24.Crypto.DisposableSignedPayload`1.SerializeAsync(System.IO.Stream,System.Threading.CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Serialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -791,19 +806,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Cancellation token</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -812,29 +829,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">DisposableStreamSerializerRecordBase.SerializeAsync(Stream, CancellationToken)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Sign_wan24_Crypto_ISignaturePrivateKey_System_String_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Sign(wan24.Crypto.ISignaturePrivateKey%2CSystem.String%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Sign_wan24_Crypto_ISignaturePrivateKey_System_String_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Sign(wan24.Crypto.ISignaturePrivateKey%2CSystem.String%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L59">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_Sign_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Sign*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Sign_wan24_Crypto_ISignaturePrivateKey_System_String_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Sign(wan24.Crypto.ISignaturePrivateKey,System.String,wan24.Crypto.CryptoOptions)">Sign(ISignaturePrivateKey, String, CryptoOptions)</h4>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Sign_wan24_Crypto_ISignaturePrivateKey_System_String_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Sign(wan24.Crypto.ISignaturePrivateKey,System.String,wan24.Crypto.CryptoOptions)">Sign(ISignaturePrivateKey, string?, CryptoOptions?)</h4>
   <div class="markdown level1 summary"><p>Create the signature</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Sign(ISignaturePrivateKey privateKey, string purpose = null, CryptoOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Sign(ISignaturePrivateKey privateKey, string? purpose = null, CryptoOptions? options = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -850,7 +869,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">purpose</span></td>
         <td><p>Purpose</p>
 </td>
@@ -865,22 +884,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Validate_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Validate(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_Validate_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.Validate(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L70">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_Validate_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Validate*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Validate_System_Boolean_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Validate(System.Boolean)">Validate(Boolean)</h4>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_Validate_System_Boolean_" data-uid="wan24.Crypto.DisposableSignedPayload`1.Validate(System.Boolean)">Validate(bool)</h4>
   <div class="markdown level1 summary"><p>Validate the signature</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Validate(bool throwOnError = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -890,7 +909,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">throwOnError</span></td>
         <td><p>Throw an exception on error?</p>
 </td>
@@ -898,7 +917,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -907,32 +926,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><p>If the signature is valid</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="operators">Operators
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0____0.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.op_Implicit(wan24.Crypto.DisposableSignedPayload%7B%600%7D)~%600%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.op_Implicit(wan24.Crypto.DisposableSignedPayload%7B%600%7D)~System.Byte%5B%5D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L180">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L174">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0____0" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~`0">Implicit(DisposableSignedPayload&lt;T&gt; to T)</h4>
-  <div class="markdown level1 summary"><p>Cast as payload</p>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___System_Byte__" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~System.Byte[]">implicit operator byte[](DisposableSignedPayload&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Cast as serialized data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator T(DisposableSignedPayload&lt;T&gt; signedPayload)</code></pre>
+    <pre><code class="lang-csharp hljs">public static implicit operator byte[](DisposableSignedPayload&lt;T&gt; signedPayload)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -950,7 +969,56 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0____0.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.op_Implicit(wan24.Crypto.DisposableSignedPayload%7B%600%7D)~%600%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L180">View Source</a>
+  </span>
+  <a id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit*"></a>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0____0" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~`0">implicit operator T(DisposableSignedPayload&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Cast as payload</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator T(DisposableSignedPayload&lt;T&gt; signedPayload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.DisposableSignedPayload-1.html">DisposableSignedPayload</a>&lt;T&gt;</td>
+        <td><span class="parametername">signedPayload</span></td>
+        <td><p>Signed payload</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -966,71 +1034,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.op_Implicit(wan24.Crypto.DisposableSignedPayload%7B%600%7D)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L174">View Source</a>
-  </span>
-  <a id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___System_Byte__" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~System.Byte[]">Implicit(DisposableSignedPayload&lt;T&gt; to Byte[])</h4>
-  <div class="markdown level1 summary"><p>Cast as serialized data</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator byte[](DisposableSignedPayload&lt;T&gt; signedPayload)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="wan24.Crypto.DisposableSignedPayload-1.html">DisposableSignedPayload</a>&lt;T&gt;</td>
-        <td><span class="parametername">signedPayload</span></td>
-        <td><p>Signed payload</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___wan24_Crypto_SignatureContainer.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.op_Implicit(wan24.Crypto.DisposableSignedPayload%7B%600%7D)~wan24.Crypto.SignatureContainer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___wan24_Crypto_SignatureContainer.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601.op_Implicit(wan24.Crypto.DisposableSignedPayload%7B%600%7D)~wan24.Crypto.SignatureContainer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L186">View Source</a>
   </span>
   <a id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit*"></a>
-  <h4 id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___wan24_Crypto_SignatureContainer" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~wan24.Crypto.SignatureContainer">Implicit(DisposableSignedPayload&lt;T&gt; to SignatureContainer)</h4>
+  <h4 id="wan24_Crypto_DisposableSignedPayload_1_op_Implicit_wan24_Crypto_DisposableSignedPayload__0___wan24_Crypto_SignatureContainer" data-uid="wan24.Crypto.DisposableSignedPayload`1.op_Implicit(wan24.Crypto.DisposableSignedPayload{`0})~wan24.Crypto.SignatureContainer">implicit operator SignatureContainer(DisposableSignedPayload&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Cast as signature</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static implicit operator SignatureContainer(DisposableSignedPayload&lt;T&gt; signedPayload)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1048,7 +1067,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1064,13 +1083,19 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
   <div>
-      <span class="xref">System.IAsyncDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
@@ -1082,17 +1107,24 @@
       <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
   </div>
   <div>
-      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject">IValidatableObject</a>
   </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_DisposableSignedPayload_1.md&amp;value=---%0Auid%3A%20wan24.Crypto.DisposableSignedPayload%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
                     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/DisposableSignedPayload.cs/#L10" class="contribution-link">View Source</a>
@@ -1100,14 +1132,14 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -1115,14 +1147,14 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            (c) 2023 Andreas Zimmermann, wan24.de
-            
+      (c) 2023 Andreas Zimmermann, wan24.de
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

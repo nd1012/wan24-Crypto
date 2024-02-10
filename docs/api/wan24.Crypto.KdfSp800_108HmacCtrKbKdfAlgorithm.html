@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class KdfSp800_108HmacCtrKbKdfAlgorithm | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class KdfSp800_108HmacCtrKbKdfAlgorithm | wan24-Crypto ">
+    
+    <meta name="description" content="SP 800-108 HMAC CTR KBKDF algorithm">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm">
+
+
+
+  <h1 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm" class="text-break">Class KdfSp800_108HmacCtrKbKdfAlgorithm</h1>
+  <div class="markdown level0 summary"><p>SP 800-108 HMAC CTR KBKDF algorithm</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a></div>
+    <div class="level2"><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html">KdfAlgorithmBase</a></div>
+    <div class="level3"><span class="xref">KdfSp800_108HmacCtrKbKdfAlgorithm</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html">KdfAlgorithmBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.html">KdfSp800_108HmacCtrKbKdfAlgorithm</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_DefaultOptions">KdfAlgorithmBase.DefaultOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_DefaultKdfOptions">KdfAlgorithmBase.DefaultKdfOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_">KdfAlgorithmBase.EnsureDefaultOptions(CryptoOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_ValidateOptions_System_String_System_Boolean_">KdfAlgorithmBase.ValidateOptions(string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_Name">CryptoAlgorithmBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_Value">CryptoAlgorithmBase.Value</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_UsesTpm">CryptoAlgorithmBase.UsesTpm</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_ToString">CryptoAlgorithmBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.html">wan24</a>.<a class="xref" href="wan24.Crypto.html">Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record KdfSp800_108HmacCtrKbKdfAlgorithm : KdfAlgorithmBase, ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;KdfAlgorithmBase&gt;, IEquatable&lt;KdfSp800_108HmacCtrKbKdfAlgorithm&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L31">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm__ctor_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.#ctor*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm__ctor" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.#ctor">KdfSp800_108HmacCtrKbKdfAlgorithm()</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KdfSp800_108HmacCtrKbKdfAlgorithm()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_ALGORITHM_NAME.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L13">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_ALGORITHM_NAME" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME">ALGORITHM_NAME</h4>
+  <div class="markdown level1 summary"><p>Algorithm name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ALGORITHM_NAME = &quot;SP800_108HMACCTRKBKDF&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_ALGORITHM_VALUE.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_VALUE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L17">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_ALGORITHM_VALUE" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_VALUE">ALGORITHM_VALUE</h4>
+  <div class="markdown level1 summary"><p>Algorithm value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ALGORITHM_VALUE = 2</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DISPLAY_NAME.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DISPLAY_NAME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L21">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DISPLAY_NAME" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DISPLAY_NAME">DISPLAY_NAME</h4>
+  <div class="markdown level1 summary"><p>Display name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DISPLAY_NAME = &quot;SP 800-108 HMAC CTR KBKDF&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DefaultIterations.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DefaultIterations%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L48">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DefaultIterations_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DefaultIterations*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DefaultIterations" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DefaultIterations">DefaultIterations</h4>
+  <div class="markdown level1 summary"><p>Default number of iterations</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int DefaultIterations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_DefaultIterations">KdfAlgorithmBase.DefaultIterations</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DisplayName.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DisplayName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L64">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DisplayName_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DisplayName*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_DisplayName" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.DisplayName">DisplayName</h4>
+  <div class="markdown level1 summary"><p>Display name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string DisplayName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName">CryptoAlgorithmBase.DisplayName</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_Instance.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.Instance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L42">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_Instance_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.Instance*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_Instance" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.Instance">Instance</h4>
+  <div class="markdown level1 summary"><p>Instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static KdfSp800_108HmacCtrKbKdfAlgorithm Instance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.html">KdfSp800_108HmacCtrKbKdfAlgorithm</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_IsPostQuantum.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.IsPostQuantum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L61">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_IsPostQuantum_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.IsPostQuantum*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_IsPostQuantum" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.IsPostQuantum">IsPostQuantum</h4>
+  <div class="markdown level1 summary"><p>Is a post quantum algorithm (&quot;post quantum-safe&quot;)?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsPostQuantum { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum">CryptoAlgorithmBase.IsPostQuantum</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_MinIterations.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.MinIterations%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L45">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_MinIterations_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.MinIterations*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_MinIterations" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.MinIterations">MinIterations</h4>
+  <div class="markdown level1 summary"><p>Minimum number of iterations</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int MinIterations { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_MinIterations">KdfAlgorithmBase.MinIterations</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_MinSaltLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.MinSaltLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L55">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_MinSaltLength_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.MinSaltLength*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_MinSaltLength" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.MinSaltLength">MinSaltLength</h4>
+  <div class="markdown level1 summary"><p>Minimum salt length in bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int MinSaltLength { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_MinSaltLength">KdfAlgorithmBase.MinSaltLength</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_SaltLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.SaltLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L58">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_SaltLength_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.SaltLength*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_SaltLength" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.SaltLength">SaltLength</h4>
+  <div class="markdown level1 summary"><p>Salt length in bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int SaltLength { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_SaltLength">KdfAlgorithmBase.SaltLength</a></div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_Stretch_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.Stretch(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L67">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_Stretch_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.Stretch*"></a>
+  <h4 id="wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm_Stretch_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.Stretch(System.Byte[],System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)">Stretch(byte[], int, byte[]?, CryptoOptions?)</h4>
+  <div class="markdown level1 summary"><p>Stretch a password</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override (byte[] Stretched, byte[] Salt) Stretch(byte[] pwd, int len, byte[]? salt = null, CryptoOptions? options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td><span class="parametername">pwd</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">len</span></td>
+        <td><p>Required password length</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td><span class="parametername">salt</span></td>
+        <td><p>Salt</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.byte[]-.key">Key</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.byte[]-.keyexchangedata">KeyExchangeData</a>)</td>
+        <td><p>Stretched password and the used salt</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html#wan24_Crypto_KdfAlgorithmBase_Stretch_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_">KdfAlgorithmBase.Stretch(byte[], int, byte[]?, CryptoOptions?)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfSp800_108HmacCtrKbKdfAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfSp800_108HmacCtrKbKdfAlgorithm.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      (c) 2023 Andreas Zimmermann, wan24.de
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

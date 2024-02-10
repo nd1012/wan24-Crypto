@@ -1,23 +1,21 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AsymmetricPublicKeyBase
-   | wan24-Crypto </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AsymmetricPublicKeyBase
-   | wan24-Crypto ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AsymmetricPublicKeyBase | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AsymmetricPublicKeyBase | wan24-Crypto ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta name="description" content="Base class for an asymmetric public key">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     <meta property="docfx:newtab" content="true">
@@ -25,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +57,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -69,35 +67,40 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricPublicKeyBase">
-  
-  
-  <h1 id="wan24_Crypto_AsymmetricPublicKeyBase" data-uid="wan24.Crypto.AsymmetricPublicKeyBase" class="text-break">Class AsymmetricPublicKeyBase
-  </h1>
+
+
+
+  <h1 id="wan24_Crypto_AsymmetricPublicKeyBase" data-uid="wan24.Crypto.AsymmetricPublicKeyBase" class="text-break">Class AsymmetricPublicKeyBase</h1>
   <div class="markdown level0 summary"><p>Base class for an asymmetric public key</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">wan24.Core.DisposableBase</span></div>
-    <div class="level2"><span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">DisposableRecordBase</span></div>
+    <div class="level2"><span class="xref">DisposableStreamSerializerRecordBase</span></div>
     <div class="level3"><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html">AsymmetricKeyBase</a></div>
     <div class="level4"><span class="xref">AsymmetricPublicKeyBase</span></div>
       <div class="level5"><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html">AsymmetricEcDiffieHellmanPublicKey</a></div>
       <div class="level5"><a class="xref" href="wan24.Crypto.AsymmetricEcDsaPublicKey.html">AsymmetricEcDsaPublicKey</a></div>
+      <div class="level5"><a class="xref" href="wan24.Crypto.AsymmetricVoidPublicKey.html">AsymmetricVoidPublicKey</a></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
-    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+    <div><span class="xref">IWillDispose</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">DisposableRecordBase</span>&gt;</div>
+    <div><span class="xref">IObjectValidatable</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject">IValidatableObject</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">DisposableStreamSerializerRecordBase</span>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html">AsymmetricKeyBase</a>&gt;</div>
     <div><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></div>
     <div><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></div>
-    <div><span class="xref">wan24.Core.IDisposableObject</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
-    <div><span class="xref">System.IAsyncDisposable</span></div>
-    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
-    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
-    <div><span class="xref">ICloneable</span></div>
+    <div><span class="xref">IDisposableObject</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    <div><span class="xref">IStreamSerializerVersion</span></div>
+    <div><span class="xref">IStreamSerializer</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricPublicKeyBase.html">AsymmetricPublicKeyBase</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -117,167 +120,161 @@
       <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Export">AsymmetricKeyBase.Export()</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Serialize_Stream_">AsymmetricKeyBase.Serialize(Stream)</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_ToString">AsymmetricKeyBase.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_SerializeAsync_Stream_CancellationToken_">AsymmetricKeyBase.SerializeAsync(Stream, CancellationToken)</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Serialize_System_IO_Stream_">AsymmetricKeyBase.Serialize(Stream)</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Deserialize_Stream_System_Int32_">AsymmetricKeyBase.Deserialize(Stream, Int32)</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_">AsymmetricKeyBase.SerializeAsync(Stream, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_Stream_System_Int32_CancellationToken_">AsymmetricKeyBase.DeserializeAsync(Stream, Int32, CancellationToken)</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Deserialize_System_IO_Stream_System_Int32_">AsymmetricKeyBase.Deserialize(Stream, int)</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Dispose_System_Boolean_">AsymmetricKeyBase.Dispose(Boolean)</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_">AsymmetricKeyBase.DeserializeAsync(Stream, int, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import__1_System_Byte___">AsymmetricKeyBase.Import&lt;T&gt;(Byte[])</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Dispose_System_Boolean_">AsymmetricKeyBase.Dispose(bool)</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import_System_Byte___">AsymmetricKeyBase.Import(Byte[])</a>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_DisposeCore">AsymmetricKeyBase.DisposeCore()</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.BASE_VERSION</span>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import__1_System_Byte___">AsymmetricKeyBase.Import&lt;T&gt;(byte[])</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Serialize(System.IO.Stream)</span>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Import_System_Byte___">AsymmetricKeyBase.Import(byte[])</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.BASE_VERSION</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.Deserialize(System.IO.Stream, System.Int32)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">DisposableStreamSerializerRecordBase.PrintMembers(StringBuilder)</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">DisposableStreamSerializerRecordBase.Equals(object)</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.Equals(DisposableRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.Equals(DisposableStreamSerializerRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.&lt;Clone&gt;$()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.EqualityContract</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializedObjectVersion</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.SerializedObjectVersion</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.SerializerVersion</span>
+      <span class="xref">DisposableStreamSerializerRecordBase.SerializerVersion</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
+      <span class="xref">DisposableRecordBase.DisposeSyncObject</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
+      <span class="xref">DisposableRecordBase.AsyncDisposing</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.DisposableStreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializerVersion</span>
+      <span class="xref">DisposableRecordBase.AllowFinalizer</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeSyncObject</span>
+      <span class="xref">DisposableRecordBase.DisposeObjects</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.AsyncDisposing</span>
+      <span class="xref">DisposableRecordBase.StackInfo</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.EnsureUndisposed(System.Boolean, System.Boolean)</span>
+      <span class="xref">DisposableRecordBase.RegisterForDispose&lt;T&gt;(in T)</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(T, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">DisposableRecordBase.EnsureUndisposed(in bool, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed(System.Action, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">DisposableRecordBase.IfUndisposed&lt;T&gt;(in T, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposed&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">DisposableRecordBase.IfUndisposed(in Action, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IfUndisposedNullable&lt;T&gt;(System.Func&lt;T&gt;, System.Boolean)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">DisposableRecordBase.IfUndisposed&lt;T&gt;(in Func&lt;T&gt;, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeCore()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">DisposableRecordBase.IfUndisposedNullable&lt;T&gt;(in Func&lt;T&gt;, in bool)</a>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAttributes()</span>
+      <span class="xref">DisposableRecordBase.DisposeAttributes()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAttributesAsync()</span>
+      <span class="xref">DisposableRecordBase.DisposeAttributesAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.Dispose()</span>
+      <span class="xref">DisposableRecordBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.DisposeAsync()</span>
+      <span class="xref">DisposableRecordBase.DisposeAsync()</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IsDisposing</span>
+      <span class="xref">DisposableRecordBase.CreateStackInfo</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.IsDisposed</span>
+      <span class="xref">DisposableRecordBase.IsDisposing</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.OnDisposing</span>
+      <span class="xref">DisposableRecordBase.IsDisposed</span>
     </div>
     <div>
-      <span class="xref">wan24.Core.DisposableBase.OnDisposed</span>
+      <span class="xref">DisposableRecordBase.OnDisposing</span>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
+      <span class="xref">DisposableRecordBase.OnDisposed</span>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetHashCode()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetType()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.html">wan24.Crypto</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.html">wan24</a>.<a class="xref" href="wan24.Crypto.html">Crypto</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricPublicKeyBase_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class AsymmetricPublicKeyBase : AsymmetricKeyBase, IObjectValidatable, IValidatableObject, IAsymmetricPublicKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record AsymmetricPublicKeyBase : AsymmetricKeyBase, IWillDispose, IEquatable&lt;DisposableRecordBase&gt;, IObjectValidatable, IValidatableObject, IEquatable&lt;DisposableStreamSerializerRecordBase&gt;, IEquatable&lt;AsymmetricKeyBase&gt;, IAsymmetricPublicKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IEquatable&lt;AsymmetricPublicKeyBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase__ctor_System_String_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase__ctor_System_String_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.%23ctor(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L19">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeyBase__ctor_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.#ctor*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase__ctor_System_String_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.#ctor(System.String)">AsymmetricPublicKeyBase(String)</h4>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase__ctor_System_String_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.#ctor(System.String)">AsymmetricPublicKeyBase(string)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected AsymmetricPublicKeyBase(string algorithm)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -287,7 +284,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">algorithm</span></td>
         <td><p>Algorithm name</p>
 </td>
@@ -295,10 +292,10 @@
     </tbody>
   </table>
   <h3 id="fields">Fields
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase__ID.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase._ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase__ID.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase._ID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L13">View Source</a>
@@ -307,12 +304,12 @@
   <div class="markdown level1 summary"><p>Key ID</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected byte[] _ID</code></pre>
+    <pre><code class="lang-csharp hljs">protected byte[]? _ID</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -321,16 +318,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ID.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ID.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L22">View Source</a>
@@ -340,12 +337,12 @@
   <div class="markdown level1 summary"><p>Key ID</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override byte[] ID { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -354,7 +351,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -362,42 +359,10 @@
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_ID">AsymmetricKeyBase.ID</a></div>
   <h3 id="methods">Methods
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_Clone.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L28">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricPublicKeyBase_Clone_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.Clone*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_Clone" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.Clone">Clone()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed override object Clone()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Clone">AsymmetricKeyBase.Clone()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_GetCopy.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.GetCopy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_GetCopy.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.GetCopy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L25">View Source</a>
@@ -407,12 +372,12 @@
   <div class="markdown level1 summary"><p>Get a copy</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IAsymmetricPublicKey GetCopy()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -429,21 +394,78 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_Stream_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer%2CStream%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer%2CSystem.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L51">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L28">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_Stream_System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer,Stream,System.Boolean)">ValidateSignature(SignatureContainer, Stream, Boolean)</h4>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_System_Byte___System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer,System.Byte[],System.Boolean)">ValidateSignature(SignatureContainer, byte[]?, bool)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool ValidateSignature(SignatureContainer signature, byte[]? data = null, bool throwOnError = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></td>
+        <td><span class="parametername">signature</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwOnError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_System_IO_Stream_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer%2CSystem.IO.Stream%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L48">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature*"></a>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_System_IO_Stream_System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer,System.IO.Stream,System.Boolean)">ValidateSignature(SignatureContainer, Stream, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool ValidateSignature(SignatureContainer signature, Stream data, bool throwOnError = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -458,19 +480,19 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">data</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">throwOnError</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -479,85 +501,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer%2CSystem.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureAsync_wan24_Crypto_SignatureContainer_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureAsync(wan24.Crypto.SignatureContainer%2CSystem.IO.Stream%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L31">View Source</a>
-  </span>
-  <a id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignature_wan24_Crypto_SignatureContainer_System_Byte___System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignature(wan24.Crypto.SignatureContainer,System.Byte[],System.Boolean)">ValidateSignature(SignatureContainer, Byte[], Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool ValidateSignature(SignatureContainer signature, byte[] data = null, bool throwOnError = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></td>
-        <td><span class="parametername">signature</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">data</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">throwOnError</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureAsync_wan24_Crypto_SignatureContainer_Stream_System_Boolean_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureAsync(wan24.Crypto.SignatureContainer%2CStream%2CSystem.Boolean%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L71">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L68">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureAsync_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureAsync*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureAsync_wan24_Crypto_SignatureContainer_Stream_System_Boolean_CancellationToken_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureAsync(wan24.Crypto.SignatureContainer,Stream,System.Boolean,CancellationToken)">ValidateSignatureAsync(SignatureContainer, Stream, Boolean, CancellationToken)</h4>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureAsync_wan24_Crypto_SignatureContainer_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureAsync(wan24.Crypto.SignatureContainer,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)">ValidateSignatureAsync(SignatureContainer, Stream, bool, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual async Task&lt;bool&gt; ValidateSignatureAsync(SignatureContainer signature, Stream data, bool throwOnError = true, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;bool&gt; ValidateSignatureAsync(SignatureContainer signature, Stream data, bool throwOnError = true, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -572,24 +537,24 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">data</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">throwOnError</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -598,29 +563,29 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureInt_wan24_Crypto_SignatureContainer_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureInt(wan24.Crypto.SignatureContainer%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureInt_wan24_Crypto_SignatureContainer_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureInt(wan24.Crypto.SignatureContainer%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L99">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L96">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureInt_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureInt*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureInt_wan24_Crypto_SignatureContainer_System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureInt(wan24.Crypto.SignatureContainer,System.Boolean)">ValidateSignatureInt(SignatureContainer, Boolean)</h4>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureInt_wan24_Crypto_SignatureContainer_System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureInt(wan24.Crypto.SignatureContainer,System.Boolean)">ValidateSignatureInt(SignatureContainer, bool)</h4>
   <div class="markdown level1 summary"><p>Validate a signature which was created using the private key</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool ValidateSignatureInt(SignatureContainer signature, bool throwOnError = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -636,7 +601,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">throwOnError</span></td>
         <td><p>Throw an exception on validation error?</p>
 </td>
@@ -644,7 +609,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -653,7 +618,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><p>If the signature is valid</p>
 </td>
       </tr>
@@ -661,21 +626,21 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureRaw_System_Byte___System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureRaw(System.Byte%5B%5D%2CSystem.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureRaw_System_Byte___System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureRaw(System.Byte%5B%5D%2CSystem.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L91">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L88">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureRaw_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureRaw*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureRaw_System_Byte___System_Byte___System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureRaw(System.Byte[],System.Byte[],System.Boolean)">ValidateSignatureRaw(Byte[], Byte[], Boolean)</h4>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_ValidateSignatureRaw_System_Byte___System_Byte___System_Boolean_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.ValidateSignatureRaw(System.Byte[],System.Byte[],System.Boolean)">ValidateSignatureRaw(byte[], byte[], bool)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool ValidateSignatureRaw(byte[] signature, byte[] signedHash, bool throwOnError = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -685,24 +650,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">signature</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">signedHash</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">throwOnError</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -711,31 +676,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="operators">Operators
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_wan24_Crypto_AsymmetricPublicKeyBase__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit(wan24.Crypto.AsymmetricPublicKeyBase)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_wan24_Crypto_AsymmetricPublicKeyBase__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit(wan24.Crypto.AsymmetricPublicKeyBase)~System.Byte%5B%5D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L105">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L102">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit*"></a>
-  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_wan24_Crypto_AsymmetricPublicKeyBase__System_Byte__" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit(wan24.Crypto.AsymmetricPublicKeyBase)~System.Byte[]">Implicit(AsymmetricPublicKeyBase to Byte[])</h4>
+  <h4 id="wan24_Crypto_AsymmetricPublicKeyBase_op_Implicit_wan24_Crypto_AsymmetricPublicKeyBase__System_Byte__" data-uid="wan24.Crypto.AsymmetricPublicKeyBase.op_Implicit(wan24.Crypto.AsymmetricPublicKeyBase)~System.Byte[]">implicit operator byte[](AsymmetricPublicKeyBase)</h4>
   <div class="markdown level1 summary"><p>Cast as serialized data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static implicit operator byte[](AsymmetricPublicKeyBase publicKey)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -753,7 +718,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -762,17 +727,29 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
       <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
   </div>
   <div>
-      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject">IValidatableObject</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a>
@@ -784,10 +761,10 @@
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
   <div>
-      <span class="xref">System.IAsyncDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a>
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
@@ -796,17 +773,18 @@
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
   </div>
   <div>
-      <span class="xref">ICloneable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
   </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricPublicKeyBase.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricPublicKeyBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
                     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricPublicKeyBase.cs/#L8" class="contribution-link">View Source</a>
@@ -814,14 +792,14 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -829,14 +807,14 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            (c) 2023 Andreas Zimmermann, wan24.de
-            
+      (c) 2023 Andreas Zimmermann, wan24.de
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

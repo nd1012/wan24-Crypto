@@ -1,23 +1,21 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PakeAuthRecord
-   | wan24-Crypto </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PakeAuthRecord
-   | wan24-Crypto ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class PakeAuthRecord | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class PakeAuthRecord | wan24-Crypto ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta name="description" content="PAKE authentication record (keep the contents secret!)">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     <meta property="docfx:newtab" content="true">
@@ -25,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +57,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -69,115 +67,79 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="wan24.Crypto.Authentication.PakeAuthRecord">
-  
-  
-  <h1 id="wan24_Crypto_Authentication_PakeAuthRecord" data-uid="wan24.Crypto.Authentication.PakeAuthRecord" class="text-break">Class PakeAuthRecord
-  </h1>
+
+
+
+  <h1 id="wan24_Crypto_Authentication_PakeAuthRecord" data-uid="wan24.Crypto.Authentication.PakeAuthRecord" class="text-break">Class PakeAuthRecord</h1>
   <div class="markdown level0 summary"><p>PAKE authentication record (keep the contents secret!)</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">wan24.ObjectValidation.ValidatableObjectBase</span></div>
-    <div class="level2"><span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">ValidatableRecordBase</span></div>
+    <div class="level2"><span class="xref">StreamSerializerRecordBase</span></div>
     <div class="level3"><span class="xref">PakeAuthRecord</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">wan24.ObjectValidation.IObjectValidatable</span></div>
-    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
-    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span></div>
-    <div><span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span></div>
+    <div><span class="xref">IObjectValidatable</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject">IValidatableObject</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">ValidatableRecordBase</span>&gt;</div>
+    <div><span class="xref">IStreamSerializerVersion</span></div>
+    <div><span class="xref">IStreamSerializer</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">StreamSerializerRecordBase</span>&gt;</div>
     <div><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a></div>
     <div><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecord.html">PakeAuthRecord</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.BASE_VERSION</span>
+      <span class="xref">StreamSerializerRecordBase.BASE_VERSION</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.Serialize(System.IO.Stream)</span>
+      <span class="xref">StreamSerializerRecordBase.ToString()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+      <span class="xref">StreamSerializerRecordBase.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.Deserialize(System.IO.Stream, System.Int32)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">StreamSerializerRecordBase.Equals(object)</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+      <span class="xref">StreamSerializerRecordBase.Equals(ValidatableRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Serialize(System.IO.Stream)</span>
+      <span class="xref">StreamSerializerRecordBase.Equals(StreamSerializerRecordBase)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)</span>
+      <span class="xref">StreamSerializerRecordBase.&lt;Clone&gt;$()</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.Deserialize(System.IO.Stream, System.Int32)</span>
+      <span class="xref">ValidatableRecordBase.ObjectValidatable(IObjectValidatable)</span>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializer.DeserializeAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializedObjectVersion</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.SerializerVersion</span>
-    </div>
-    <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.ObjectVersion</span>
-    </div>
-    <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializedObjectVersion</span>
-    </div>
-    <div>
-      <span class="xref">wan24.StreamSerializerExtensions.StreamSerializerBase.wan24.StreamSerializerExtensions.IStreamSerializerVersion.SerializerVersion</span>
-    </div>
-    <div>
-      <span class="xref">wan24.ObjectValidation.ValidatableObjectBase.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
-    </div>
-    <div>
-      <span class="xref">wan24.ObjectValidation.ValidatableObjectBase.System.ComponentModel.DataAnnotations.IValidatableObject.Validate(System.ComponentModel.DataAnnotations.ValidationContext)</span>
-    </div>
-    <div>
-      <span class="xref">wan24.ObjectValidation.ValidatableObjectBase.ObjectValidatable(wan24.ObjectValidation.IObjectValidatable)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.Crypto.Authentication.html">wan24.Crypto.Authentication</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.html">wan24</a>.<a class="xref" href="wan24.Crypto.html">Crypto</a>.<a class="xref" href="wan24.Crypto.Authentication.html">Authentication</a></h6>
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_Authentication_PakeAuthRecord_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PakeAuthRecord : StreamSerializerBase, IObjectValidatable, IValidatableObject, IStreamSerializerVersion, IStreamSerializer, IPakeAuthRecord, IPakeRecord</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record PakeAuthRecord : StreamSerializerRecordBase, IObjectValidatable, IValidatableObject, IEquatable&lt;ValidatableRecordBase&gt;, IStreamSerializerVersion, IStreamSerializer, IEquatable&lt;StreamSerializerRecordBase&gt;, IPakeAuthRecord, IPakeRecord, IEquatable&lt;PakeAuthRecord&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L64">View Source</a>
@@ -187,28 +149,28 @@
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PakeAuthRecord()</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor_System_Byte____System_Byte____System_Byte____System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor(System.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor_System_Byte____System_Byte____System_Byte____System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor(System.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L28">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord__ctor_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.#ctor*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord__ctor_System_Byte____System_Byte____System_Byte____System_Byte____" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.#ctor(System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">PakeAuthRecord(in Byte[], in Byte[], in Byte[], in Byte[])</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord__ctor_System_Byte____System_Byte____System_Byte____System_Byte____" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.#ctor(System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">PakeAuthRecord(in byte[], in byte[], in byte[], in byte[]?)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PakeAuthRecord(in byte[] identifier, in byte[] rawSecret, in byte[] key, in byte[] signatureKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public PakeAuthRecord(in byte[] identifier, in byte[] rawSecret, in byte[] key, in byte[]? signatureKey = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -218,25 +180,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">identifier</span></td>
         <td><p>Identifier (will be cleared!)</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">rawSecret</span></td>
         <td><p>Raw secret (will be cleared!)</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">key</span></td>
         <td><p>Key (will be cleared!)</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">signatureKey</span></td>
         <td><p>Signature key (will be cleared!)</p>
 </td>
@@ -245,7 +207,7 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor_wan24_Crypto_Authentication_IPakeAuthRecord__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor(wan24.Crypto.Authentication.IPakeAuthRecord%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor_wan24_Crypto_Authentication_IPakeAuthRecord__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor(wan24.Crypto.Authentication.IPakeAuthRecord%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L53">View Source</a>
@@ -255,12 +217,12 @@
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PakeAuthRecord(in IPakeAuthRecord existing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -279,22 +241,22 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor_wan24_Crypto_PakeSignup__System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor(wan24.Crypto.PakeSignup%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord__ctor_wan24_Crypto_PakeSignup__System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.%23ctor(wan24.Crypto.PakeSignup%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L41">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord__ctor_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.#ctor*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord__ctor_wan24_Crypto_PakeSignup__System_Byte____" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.#ctor(wan24.Crypto.PakeSignup@,System.Byte[]@)">PakeAuthRecord(in PakeSignup, in Byte[])</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord__ctor_wan24_Crypto_PakeSignup__System_Byte____" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.#ctor(wan24.Crypto.PakeSignup@,System.Byte[]@)">PakeAuthRecord(in PakeSignup, in byte[])</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PakeAuthRecord(in PakeSignup signup, in byte[] signatureKey)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -310,7 +272,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">signatureKey</span></td>
         <td><p>Signature key (will be cleared!)</p>
 </td>
@@ -318,10 +280,10 @@
     </tbody>
   </table>
   <h3 id="fields">Fields
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.VERSION%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.VERSION%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L14">View Source</a>
@@ -330,12 +292,12 @@
   <div class="markdown level1 summary"><p>Object version</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const int VERSION = 1</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -344,16 +306,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Identifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Identifier.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Identifier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L67">View Source</a>
@@ -363,12 +325,12 @@
   <div class="markdown level1 summary"><p>Identifier (will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] Identifier { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -377,14 +339,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Key.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Key%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Key.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Key%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L70">View Source</a>
@@ -394,13 +356,13 @@
   <div class="markdown level1 summary"><p>Authentication key (this is sensitive data and should be stored encrypted; will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[SensitiveData]
 public byte[] Key { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -409,14 +371,14 @@ public byte[] Key { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_RawSecret.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.RawSecret%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_RawSecret.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.RawSecret%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L74">View Source</a>
@@ -426,13 +388,13 @@ public byte[] Key { get; }</code></pre>
   <div class="markdown level1 summary"><p>Raw secret (unprotected; this is sensitive data and should be stored encrypted; will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[SensitiveData]
 public byte[] RawSecret { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -441,14 +403,14 @@ public byte[] RawSecret { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Secret.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Secret%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Secret.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Secret%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L78">View Source</a>
@@ -458,13 +420,13 @@ public byte[] RawSecret { get; }</code></pre>
   <div class="markdown level1 summary"><p>Secret (protected with the authentication key; this is sensitive data and should be stored encrypted; will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[SensitiveData]
 public byte[] Secret { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -473,14 +435,14 @@ public byte[] Secret { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.SignatureKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.SignatureKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L82">View Source</a>
@@ -490,13 +452,13 @@ public byte[] Secret { get; }</code></pre>
   <div class="markdown level1 summary"><p>Signature key (this is sensitive data and should be stored encrypted; will be cleared!)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[SensitiveData]
 public byte[] SignatureKey { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -505,16 +467,16 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Clear.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Clear.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Clear%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L98">View Source</a>
@@ -524,28 +486,28 @@ public byte[] SignatureKey { get; }</code></pre>
   <div class="markdown level1 summary"><p>Clear the contents</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_CreateRandom_wan24_Crypto_Pake__wan24_Crypto_CryptoOptions__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.CreateRandom(wan24.Crypto.Pake%40%2Cwan24.Crypto.CryptoOptions%40%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_CreateRandom_wan24_Crypto_Pake__wan24_Crypto_CryptoOptions__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.CreateRandom(wan24.Crypto.Pake%40%2Cwan24.Crypto.CryptoOptions%40%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L168">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_CreateRandom_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.CreateRandom*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_CreateRandom_wan24_Crypto_Pake__wan24_Crypto_CryptoOptions__System_Nullable_System_Int32__" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.CreateRandom(wan24.Crypto.Pake@,wan24.Crypto.CryptoOptions@,System.Nullable{System.Int32})">CreateRandom(in Pake, in CryptoOptions, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_CreateRandom_wan24_Crypto_Pake__wan24_Crypto_CryptoOptions__System_Nullable_System_Int32__" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.CreateRandom(wan24.Crypto.Pake@,wan24.Crypto.CryptoOptions@,System.Nullable{System.Int32})">CreateRandom(in Pake?, in CryptoOptions?, int?)</h4>
   <div class="markdown level1 summary"><p>Create a random PAKE authentication record</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static PakeAuthRecord CreateRandom(in Pake pake = null, in CryptoOptions options = null, int? valueLength = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static PakeAuthRecord CreateRandom(in Pake? pake = null, in CryptoOptions? options = null, int? valueLength = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -567,7 +529,7 @@ public byte[] SignatureKey { get; }</code></pre>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
         <td><span class="parametername">valueLength</span></td>
         <td><p>PAKE values length in bytes</p>
 </td>
@@ -575,7 +537,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -592,22 +554,22 @@ public byte[] SignatureKey { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_CreateRandomAsync_wan24_Crypto_Pake_wan24_Crypto_CryptoOptions_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.CreateRandomAsync(wan24.Crypto.Pake%2Cwan24.Crypto.CryptoOptions%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_CreateRandomAsync_wan24_Crypto_Pake_wan24_Crypto_CryptoOptions_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.CreateRandomAsync(wan24.Crypto.Pake%2Cwan24.Crypto.CryptoOptions%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L204">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_CreateRandomAsync_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.CreateRandomAsync*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_CreateRandomAsync_wan24_Crypto_Pake_wan24_Crypto_CryptoOptions_System_Nullable_System_Int32__" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.CreateRandomAsync(wan24.Crypto.Pake,wan24.Crypto.CryptoOptions,System.Nullable{System.Int32})">CreateRandomAsync(Pake, CryptoOptions, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_CreateRandomAsync_wan24_Crypto_Pake_wan24_Crypto_CryptoOptions_System_Nullable_System_Int32__" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.CreateRandomAsync(wan24.Crypto.Pake,wan24.Crypto.CryptoOptions,System.Nullable{System.Int32})">CreateRandomAsync(Pake?, CryptoOptions?, int?)</h4>
   <div class="markdown level1 summary"><p>Create a random PAKE authentication record</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static async Task&lt;PakeAuthRecord&gt; CreateRandomAsync(Pake pake = null, CryptoOptions options = null, int? valueLength = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;PakeAuthRecord&gt; CreateRandomAsync(Pake? pake = null, CryptoOptions? options = null, int? valueLength = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -629,7 +591,7 @@ public byte[] SignatureKey { get; }</code></pre>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
         <td><span class="parametername">valueLength</span></td>
         <td><p>PAKE values length in bytes</p>
 </td>
@@ -637,7 +599,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -646,7 +608,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecord.html">PakeAuthRecord</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecord.html">PakeAuthRecord</a>&gt;</td>
         <td><p>Record</p>
 </td>
       </tr>
@@ -654,21 +616,22 @@ public byte[] SignatureKey { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Deserialize_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Deserialize(Stream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Deserialize_System_IO_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Deserialize(System.IO.Stream%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L126">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_Deserialize_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.Deserialize*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_Deserialize_Stream_System_Int32_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.Deserialize(Stream,System.Int32)">Deserialize(Stream, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_Deserialize_System_IO_Stream_System_Int32_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.Deserialize(System.IO.Stream,System.Int32)">Deserialize(Stream, int)</h4>
+  <div class="markdown level1 summary"><p>Deserialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Deserialize(Stream stream, int version)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -678,34 +641,39 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">version</span></td>
-        <td></td>
+        <td><p>Serializer version</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">StreamSerializerRecordBase.Deserialize(Stream, int)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_DeserializeAsync_Stream_System_Int32_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.DeserializeAsync(Stream%2CSystem.Int32%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.DeserializeAsync(System.IO.Stream%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L138">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_DeserializeAsync_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.DeserializeAsync*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_DeserializeAsync_Stream_System_Int32_CancellationToken_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.DeserializeAsync(Stream,System.Int32,CancellationToken)">DeserializeAsync(Stream, Int32, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.DeserializeAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)">DeserializeAsync(Stream, int, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deserialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -715,24 +683,27 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">version</span></td>
-        <td></td>
+        <td><p>Serializer version</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Cancellation token</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -741,28 +712,31 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">StreamSerializerRecordBase.DeserializeAsync(Stream, int, CancellationToken)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Serialize_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Serialize(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_Serialize_System_IO_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.Serialize(System.IO.Stream)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L108">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_Serialize_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.Serialize*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_Serialize_Stream_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.Serialize(Stream)">Serialize(Stream)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_Serialize_System_IO_Stream_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.Serialize(System.IO.Stream)">Serialize(Stream)</h4>
+  <div class="markdown level1 summary"><p>Serialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Serialize(Stream stream)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -772,29 +746,33 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">StreamSerializerRecordBase.Serialize(Stream)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_SerializeAsync_Stream_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.SerializeAsync(Stream%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.SerializeAsync(System.IO.Stream%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L117">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_SerializeAsync_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.SerializeAsync*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_SerializeAsync_Stream_CancellationToken_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.SerializeAsync(Stream,CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.SerializeAsync(System.IO.Stream,System.Threading.CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Serialize</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task SerializeAsync(Stream stream, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -804,19 +782,21 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Stream</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>Stream</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Cancellation token</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -825,29 +805,31 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">StreamSerializerRecordBase.SerializeAsync(Stream, CancellationToken)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_SetSignatureKey_System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.SetSignatureKey(System.Byte%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_SetSignatureKey_System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.SetSignatureKey(System.Byte%5B%5D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L89">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_SetSignatureKey_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.SetSignatureKey*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_SetSignatureKey_System_Byte____" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.SetSignatureKey(System.Byte[]@)">SetSignatureKey(in Byte[])</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_SetSignatureKey_System_Byte____" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.SetSignatureKey(System.Byte[]@)">SetSignatureKey(in byte[])</h4>
   <div class="markdown level1 summary"><p>Set the signature key, if not set yet</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetSignatureKey(in byte[] signatureKey)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -857,7 +839,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">signatureKey</span></td>
         <td><p>Signature key (will be cleared!)</p>
 </td>
@@ -865,25 +847,25 @@ public byte[] SignatureKey { get; }</code></pre>
     </tbody>
   </table>
   <h3 id="operators">Operators
-  </h3>
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_op_Explicit_System_Byte_____wan24_Crypto_Authentication_PakeAuthRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.op_Explicit(System.Byte%5B%5D%40)~wan24.Crypto.Authentication.PakeAuthRecord%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_op_Explicit_System_Byte_____wan24_Crypto_Authentication_PakeAuthRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.op_Explicit(System.Byte%5B%5D%40)~wan24.Crypto.Authentication.PakeAuthRecord%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L159">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_op_Explicit_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.op_Explicit*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_op_Explicit_System_Byte_____wan24_Crypto_Authentication_PakeAuthRecord" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.op_Explicit(System.Byte[]@)~wan24.Crypto.Authentication.PakeAuthRecord">Explicit(in Byte[] to PakeAuthRecord)</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_op_Explicit_System_Byte_____wan24_Crypto_Authentication_PakeAuthRecord" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.op_Explicit(System.Byte[]@)~wan24.Crypto.Authentication.PakeAuthRecord">explicit operator PakeAuthRecord(in byte[])</h4>
   <div class="markdown level1 summary"><p>Cast from serialized data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static explicit operator PakeAuthRecord(in byte[] data)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -893,7 +875,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">data</span></td>
         <td><p>Serialized data</p>
 </td>
@@ -901,7 +883,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -917,22 +899,22 @@ public byte[] SignatureKey { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_op_Implicit_wan24_Crypto_Authentication_PakeAuthRecord___System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.op_Implicit(wan24.Crypto.Authentication.PakeAuthRecord%40)~System.Byte%5B%5D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord_op_Implicit_wan24_Crypto_Authentication_PakeAuthRecord___System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord.op_Implicit(wan24.Crypto.Authentication.PakeAuthRecord%40)~System.Byte%5B%5D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L153">View Source</a>
   </span>
   <a id="wan24_Crypto_Authentication_PakeAuthRecord_op_Implicit_" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.op_Implicit*"></a>
-  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_op_Implicit_wan24_Crypto_Authentication_PakeAuthRecord___System_Byte__" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.op_Implicit(wan24.Crypto.Authentication.PakeAuthRecord@)~System.Byte[]">Implicit(in PakeAuthRecord to Byte[])</h4>
+  <h4 id="wan24_Crypto_Authentication_PakeAuthRecord_op_Implicit_wan24_Crypto_Authentication_PakeAuthRecord___System_Byte__" data-uid="wan24.Crypto.Authentication.PakeAuthRecord.op_Implicit(wan24.Crypto.Authentication.PakeAuthRecord@)~System.Byte[]">implicit operator byte[](in PakeAuthRecord)</h4>
   <div class="markdown level1 summary"><p>Cast as serialized data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static implicit operator byte[](in PakeAuthRecord signup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -950,7 +932,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -959,7 +941,7 @@ public byte[] SignatureKey { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -969,7 +951,10 @@ public byte[] SignatureKey { get; }</code></pre>
       <span class="xref">wan24.ObjectValidation.IObjectValidatable</span>
   </div>
   <div>
-      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject">IValidatableObject</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializerVersion</span>
@@ -978,23 +963,20 @@ public byte[] SignatureKey { get; }</code></pre>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
   </div>
   <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
       <a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecord.html">IPakeAuthRecord</a>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a>
   </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_DeriveSessionKey_wan24_Crypto_IPakeRecord_wan24_Crypto_PakeAuth__System_Nullable_Action_wan24_Crypto_Pake____wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_Boolean__">PakeRecordExtensions.DeriveSessionKey(IPakeRecord, in PakeAuth, in Nullable&lt;Action&lt;Pake&gt;&gt;, in CryptoOptions, in CryptoOptions, in Boolean)</a>
-  </div>
-  <div>
-      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_Dispose_wan24_Crypto_IPakeRecord_">PakeRecordExtensions.Dispose(IPakeRecord)</a>
-  </div>
-  <div>
-      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_DisposeAsync_wan24_Crypto_IPakeRecord_">PakeRecordExtensions.DisposeAsync(IPakeRecord)</a>
-  </div>
-  <div>
-      <a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecordExtensions.html#wan24_Crypto_Authentication_PakeAuthRecordExtensions_DeriveSessionKey_wan24_Crypto_Authentication_IPakeAuthRecord_wan24_Crypto_PakeAuth__System_Nullable_Action_wan24_Crypto_Pake____wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_Boolean__">PakeAuthRecordExtensions.DeriveSessionKey(IPakeAuthRecord, in PakeAuth, in Nullable&lt;Action&lt;Pake&gt;&gt;, in CryptoOptions, in CryptoOptions, in Boolean)</a>
+      <a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecordExtensions.html#wan24_Crypto_Authentication_PakeAuthRecordExtensions_DeriveSessionKey_wan24_Crypto_Authentication_IPakeAuthRecord_wan24_Crypto_PakeAuth__System_Action_wan24_Crypto_Pake___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_Boolean__">PakeAuthRecordExtensions.DeriveSessionKey(IPakeAuthRecord, in PakeAuth, in Action&lt;Pake&gt;?, in CryptoOptions?, in CryptoOptions?, in bool)</a>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecordExtensions.html#wan24_Crypto_Authentication_PakeAuthRecordExtensions_Dispose_wan24_Crypto_Authentication_IPakeAuthRecord_">PakeAuthRecordExtensions.Dispose(IPakeAuthRecord)</a>
@@ -1002,15 +984,25 @@ public byte[] SignatureKey { get; }</code></pre>
   <div>
       <a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecordExtensions.html#wan24_Crypto_Authentication_PakeAuthRecordExtensions_DisposeAsync_wan24_Crypto_Authentication_IPakeAuthRecord_">PakeAuthRecordExtensions.DisposeAsync(IPakeAuthRecord)</a>
   </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_DeriveSessionKey_wan24_Crypto_IPakeRecord_wan24_Crypto_PakeAuth__System_Action_wan24_Crypto_Pake___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_Boolean__">PakeRecordExtensions.DeriveSessionKey(IPakeRecord, in PakeAuth, in Action&lt;Pake&gt;?, in CryptoOptions?, in CryptoOptions?, in bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_Dispose_wan24_Crypto_IPakeRecord_">PakeRecordExtensions.Dispose(IPakeRecord)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.PakeRecordExtensions.html#wan24_Crypto_PakeRecordExtensions_DisposeAsync_wan24_Crypto_IPakeRecord_">PakeRecordExtensions.DisposeAsync(IPakeRecord)</a>
+  </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_Authentication_PakeAuthRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.Authentication.PakeAuthRecord%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
                     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/Authentication/PakeAuthRecord.cs/#L9" class="contribution-link">View Source</a>
@@ -1018,14 +1010,14 @@ public byte[] SignatureKey { get; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -1033,14 +1025,14 @@ public byte[] SignatureKey { get; }</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            (c) 2023 Andreas Zimmermann, wan24.de
-            
+      (c) 2023 Andreas Zimmermann, wan24.de
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
