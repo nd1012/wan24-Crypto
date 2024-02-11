@@ -126,7 +126,8 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 byte[] res = new byte[MacLength];
-                if (!GetMacAlgorithm(pwd, options).TryComputeHash(data, res, out _)) throw new IOException($"Failed to compute the final MAC");
+                using KeyedHashAlgorithm mac = GetMacAlgorithm(pwd, options);
+                if (!mac.TryComputeHash(data, res, out _)) throw new IOException($"Failed to compute the final MAC");
                 return res;
             }
             catch (CryptographicException)
@@ -154,7 +155,8 @@ namespace wan24.Crypto
                 if (outputBuffer.Length < MacLength) throw new ArgumentOutOfRangeException(nameof(outputBuffer));
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
-                if (!GetMacAlgorithm(pwd, options).TryComputeHash(data, outputBuffer, out _)) throw new IOException($"Failed to compute the final MAC");
+                using KeyedHashAlgorithm mac = GetMacAlgorithm(pwd, options);
+                if (!mac.TryComputeHash(data, outputBuffer, out _)) throw new IOException($"Failed to compute the final MAC");
                 return outputBuffer;
             }
             catch (CryptographicException)
