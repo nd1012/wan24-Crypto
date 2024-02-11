@@ -24,6 +24,7 @@ namespace wan24.Crypto.Tests
             Stopwatch sw = Stopwatch.StartNew();
             MacAlgorithmBase algo = MacHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
+            Console.WriteLine("\tStream and memory test");
             byte[] streamMac = algo.Mac(ms, TestData.Key),
                 memoryMac = TestData.Data.Mac(TestData.Key, new()
                 {
@@ -33,6 +34,7 @@ namespace wan24.Crypto.Tests
             Assert.AreEqual(algo.MacLength, memoryMac.Length);
             Assert.IsTrue(streamMac.SequenceEqual(memoryMac));
             using MemoryStream temp = new();
+            Console.WriteLine("\tMAC streams test (leave open)");
             MacStreams macStreams = algo.GetMacStream(TestData.Key, temp, options: new()
             {
                 LeaveOpen = true
@@ -57,6 +59,7 @@ namespace wan24.Crypto.Tests
                 macStreams.Dispose();
             }
             temp.SetLength(0);
+            Console.WriteLine("\tMAC streams test");
             macStreams = algo.GetMacStream(TestData.Key, temp, options: new()
             {
                 LeaveOpen = false

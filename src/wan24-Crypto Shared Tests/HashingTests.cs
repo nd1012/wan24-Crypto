@@ -24,6 +24,7 @@ namespace wan24.Crypto.Tests
             Stopwatch sw = Stopwatch.StartNew();
             HashAlgorithmBase algo = HashHelper.GetAlgorithm(name);
             using MemoryStream ms = new(TestData.Data);
+            Console.WriteLine("\tStream and memory test");
             byte[] streamHash = algo.Hash(ms, new()
                 {
                     HashAlgorithm = name
@@ -36,6 +37,7 @@ namespace wan24.Crypto.Tests
             Assert.AreEqual(algo.HashLength, memoryHash.Length);
             Assert.IsTrue(streamHash.SequenceEqual(memoryHash));
             using MemoryStream temp = new();
+            Console.WriteLine("\tHash streams test (leave open)");
             HashStreams hashStreams = algo.GetHashStream(temp, options: new()
             {
                 LeaveOpen = true
@@ -60,6 +62,7 @@ namespace wan24.Crypto.Tests
                 hashStreams.Dispose();
             }
             temp.SetLength(0);
+            Console.WriteLine("\tHash streams test");
             hashStreams = algo.GetHashStream(temp, options: new()
             {
                 LeaveOpen = false
