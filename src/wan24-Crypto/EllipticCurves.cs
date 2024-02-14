@@ -41,15 +41,15 @@ namespace wan24.Crypto
         public const int DEFAULT_KEY_SIZE = 521;
 
         /// <summary>
-        /// secp256r1 curve (NIST P-256)
+        /// secp256r1 curve (NIST P-256, 128 bit security)
         /// </summary>
         public static readonly ECCurve SECP256R1_CURVE = ECCurve.NamedCurves.nistP256;
         /// <summary>
-        /// secp384r1 curve (NIST P-384)
+        /// secp384r1 curve (NIST P-384, 192 bit security)
         /// </summary>
         public static readonly ECCurve SECP384R1_CURVE = ECCurve.NamedCurves.nistP384;
         /// <summary>
-        /// secp521r1 curve (NIST P-521)
+        /// secp521r1 curve (NIST P-521, 260 bit security)
         /// </summary>
         public static readonly ECCurve SECP521R1_CURVE = ECCurve.NamedCurves.nistP521;
 

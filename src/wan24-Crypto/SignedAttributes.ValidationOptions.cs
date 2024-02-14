@@ -8,7 +8,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Validation options
         /// </summary>
-        public sealed record class ValidationOptions : ICloneable
+        public record class ValidationOptions : ICloneable
         {
             /// <summary>
             /// Constructor
@@ -144,7 +144,7 @@ namespace wan24.Crypto
             /// Get a copy of this instance
             /// </summary>
             /// <returns>Instance copy</returns>
-            public ValidationOptions GetCopy() => new()
+            public virtual ValidationOptions GetCopy() => new()
             {
                 AllowedValidationDomains = AllowedValidationDomains,
                 DeniedValidationDomains = DeniedValidationDomains,

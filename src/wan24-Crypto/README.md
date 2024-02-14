@@ -106,7 +106,9 @@ builder.Services.AddWan24Crypto();
 ```
 
 **WARNING**: The factory default algorithms may not be available on every 
-platform!
+platform! The `wan24-Crypto-BC` extension library contains pure .NET 
+implementations of most algorithms from `wan24-Crypto`, which can be used 
+instead.
 
 ### Hashing
 
@@ -153,7 +155,7 @@ only used during encryption, if it is different from the encryption key.
 ```
 
 The default KDF algorithm is PBKDF#2, using 250,000 iterations, with a salt 
-length of 16 byte, and SHA3-384 for hashing.
+length of 16 byte and SHA3-384 for hashing.
 
 **TIP**: You may override the default hash algorithm which is being used in a 
 new options instance in the static `KdfPbKdf2Options.DefaultHashAlgorithm` 
@@ -171,7 +173,8 @@ Example options usage:
 **NOTE**: The SP 800-108 HMAC CTR KBKDF algorithm isn't available in a WASM 
 app, and there's currently no pure .NET replacement included in the 
 `wan24-Crypto-BC` library. It doesn't support iterations and salt (but a label 
-and context value instead). Not all hash algorithms may be supported.
+and context value instead). Not all hash algorithms may be supported (you'll 
+need to register custom hash algorithms to the .NET `CryptoConfig`).
 
 ### Encryption
 
@@ -283,7 +286,7 @@ PFS example:
 ```cs
 // A: Create a key pair
 using IKeyExchangePrivateKey privateKeyA = AsymmetricHelper.CreateKeyExchangeKeyPair();
-byte[] publicKeyData = (byte[])privateKeyA.PublicKey;// Needs to be available at B
+byte[] publicKeyData = (byte[])privateKeyA.PublicKey.Export();// publicKeyData needs to be available at B
 
 // B: Create a key pair, key exchange data and derive the shared key
 using IAsymmetricPublicKey publicKeyA = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(publicKeyData);// Deserialize the peers public key of any format
@@ -292,7 +295,7 @@ using IKeyExchangePrivateKey privateKeyB = AsymmetricHelper.CreateKeyExchangeKey
     AsymmetricAlgorithm = publicKeyA.Algorithm.Name,
     AsymmetricKeyBits = publicKeyA.Bits
 });
-(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKey);// Needs to be available at A
+(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKeyA);// keyExchangeData needs to be available at A
 
 // A: Derive the exchanged key
 byte[] keyA = privateKeyA.DeriveKey(keyExchangeData);
@@ -407,7 +410,7 @@ ValueProtectionKeys.Set(ValueProtectionLevels.UserTpmPassword, protectionKey, us
 
 **NOTE**: While the `Set` method requires a `ISecureValue`, the `Set2` method 
 creates a `SecureValue` from the `protectionKey` byte array parameter. The 
-`(Try)Get` methods will return the final key to use (after HMAC, if 
+`(Try)Get` methods will return the final key to use (after MAC, if 
 applicable). Stored keys will be protected for the according scope using 
 `ValueProtection`.
 
@@ -417,7 +420,7 @@ returned from the `ValueProtectionKeys.(Try)Get` methods for applying
 en-/decryption of values by yourself.
 
 To determine the capabilities of a protection level, you can use these 
-extension methods:
+`ValueProtectionLevels` extension methods:
 
 - `RequiresPasswordInput`: If a manual entered user password is required
 - `RequiresTpm`: If a TPM is required
@@ -684,9 +687,9 @@ Some key meta data like the creation and expiration time, or a nonce, is
 included in a lower level in the `AsymmetricSignedPublicKey` already, and 
 don't need to appear in the signed attribute list again.
 
-A key signing request may algo contain more attributes than the final signed 
-key, if you want to give signing instructions to the PKI, for example. The PKI 
-may remove/replace those instructions, for example.
+A key signing request may also contain more attributes than the final signed 
+key, if you want to give signing instructions to the PKI. The PKI may 
+remove/replace/extend those instructions for signing.
 
 As said before, the list above doesn't need to be implemented fully, and it 
 may be extended with any attribute that your PKI requires in addition. There 
@@ -1248,6 +1251,10 @@ are the official implementation IDs (not guaranteed to be complete):
 | X448 | 11 | wan24-Crypto-BC |
 | XEd25519 | 12 | wan24-Crypto-BC |
 | XEd448 | 13 | wan24-Crypto-BC |
+| Streamlined NTRU Prime | 14 | wan24-Crypto-BC |
+| BIKE | 15 | wan24-Crypto-BC |
+| HQC | 16 | wan24-Crypto-BC |
+| Picnic | 17 | wan24-Crypto-BC |
 | **Symmetric cryptography** |  |  |
 | AES-256-CBC | 0 | wan24-Crypto |
 | ChaCha20 | 1 | wan24-Crypto-BC |

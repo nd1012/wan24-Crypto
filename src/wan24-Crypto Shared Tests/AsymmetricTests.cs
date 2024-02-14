@@ -46,22 +46,29 @@ namespace wan24.Crypto.Tests
                 byte[] serialized = privateKey.Export();
                 using IAsymmetricKey imported = AsymmetricKeyBase.Import(serialized);
                 IAsymmetricPrivateKey? importedPrivateKey = imported as IAsymmetricPrivateKey;
-                Assert.IsTrue(importedPrivateKey is not null);
-                Assert.AreEqual(privateKey.GetType(), imported.GetType());
-                Assert.IsTrue(privateKey.ID.SequenceEqual(imported.ID));
-                Assert.AreEqual(privateKey.Bits, imported.Bits);
-                IAsymmetricPublicKey? importedPublicKey = importedPrivateKey.PublicKey;
-                serialized = importedPublicKey.Export();
-                importedPublicKey = AsymmetricKeyBase.Import(serialized) as IAsymmetricPublicKey;
                 try
                 {
-                    Assert.IsTrue(importedPublicKey is not null);
-                    Assert.IsTrue(privateKey.PublicKey.ID.SequenceEqual(importedPublicKey.ID));
-                    Assert.IsTrue(privateKey.ID.SequenceEqual(importedPublicKey.ID));
+                    Assert.IsTrue(importedPrivateKey is not null);
+                    Assert.AreEqual(privateKey.GetType(), imported.GetType());
+                    Assert.IsTrue(privateKey.ID.SequenceEqual(imported.ID));
+                    Assert.AreEqual(privateKey.Bits, imported.Bits);
+                    IAsymmetricPublicKey? importedPublicKey = importedPrivateKey.PublicKey;
+                    try
+                    {
+                        serialized = importedPublicKey.Export();
+                        importedPublicKey = AsymmetricKeyBase.Import(serialized) as IAsymmetricPublicKey;
+                        Assert.IsTrue(importedPublicKey is not null);
+                        Assert.IsTrue(privateKey.PublicKey.ID.SequenceEqual(importedPublicKey.ID));
+                        Assert.IsTrue(privateKey.ID.SequenceEqual(importedPublicKey.ID));
+                    }
+                    finally
+                    {
+                        importedPublicKey?.Dispose();
+                    }
                 }
                 finally
                 {
-                    importedPublicKey?.Dispose();
+                    importedPrivateKey?.Dispose();
                 }
             }
             if (algo.CanExchangeKey)

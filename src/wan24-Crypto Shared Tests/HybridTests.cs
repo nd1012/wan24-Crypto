@@ -169,8 +169,9 @@ namespace wan24.Crypto.Tests
                     foreach (string counterMacName in MacHelper.Algorithms.Keys)
                     {
                         if (MacHelper.Algorithms.Count != 1 && macName == counterMacName) continue;
-                        if (macSeen.Contains($"{macName} {counterMacName}") || macSeen.Contains($"{counterMacName} {macName}")) continue;
-                        macSeen.Add($"{macName} {counterMacName}");
+                        if (macSeen.Contains(macName) || macSeen.Contains(counterMacName)) continue;
+                        macSeen.Add(macName);
+                        macSeen.Add(counterMacName);
                         asymmetricSeen.Clear();
                         foreach (string asymmetricName in AsymmetricHelper.Algorithms.Keys)
                         {
@@ -181,9 +182,9 @@ namespace wan24.Crypto.Tests
                                 counterAlgo = AsymmetricHelper.GetAlgorithm(counterAsymmetricName);
                                 if (!counterAlgo.CanExchangeKey) continue;
                                 if (AsymmetricHelper.Algorithms.Count != 1 && asymmetricName == counterAsymmetricName) continue;
-                                if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
-                                    continue;
-                                asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
+                                if (asymmetricSeen.Contains(asymmetricName) || asymmetricSeen.Contains(counterAsymmetricName)) continue;
+                                asymmetricSeen.Add(asymmetricName);
+                                asymmetricSeen.Add(counterAsymmetricName);
                                 SyncEncryptionTests(new()
                                 {
                                     Algorithm = name,
@@ -217,8 +218,9 @@ namespace wan24.Crypto.Tests
                     foreach (string counterMacName in MacHelper.Algorithms.Keys)
                     {
                         if (MacHelper.Algorithms.Count != 1 && macName == counterMacName) continue;
-                        if (macSeen.Contains($"{macName} {counterMacName}") || macSeen.Contains($"{counterMacName} {macName}")) continue;
-                        macSeen.Add($"{macName} {counterMacName}");
+                        if (macSeen.Contains(macName) || macSeen.Contains(counterMacName)) continue;
+                        macSeen.Add(macName);
+                        macSeen.Add(counterMacName);
                         asymmetricSeen.Clear();
                         foreach (string asymmetricName in AsymmetricHelper.Algorithms.Keys)
                         {
@@ -229,9 +231,9 @@ namespace wan24.Crypto.Tests
                                 counterAlgo = AsymmetricHelper.GetAlgorithm(counterAsymmetricName);
                                 if (!counterAlgo.CanExchangeKey) continue;
                                 if (AsymmetricHelper.Algorithms.Count != 1 && asymmetricName == counterAsymmetricName) continue;
-                                if (asymmetricSeen.Contains($"{asymmetricName} {counterAsymmetricName}") || asymmetricSeen.Contains($"{counterAsymmetricName} {asymmetricName}"))
-                                    continue;
-                                asymmetricSeen.Add($"{asymmetricName} {counterAsymmetricName}");
+                                if (asymmetricSeen.Contains(asymmetricName) || asymmetricSeen.Contains(counterAsymmetricName)) continue;
+                                asymmetricSeen.Add(asymmetricName);
+                                asymmetricSeen.Add(counterAsymmetricName);
                                 await AsyncEncryptionTests(new()
                                 {
                                     Algorithm = name,

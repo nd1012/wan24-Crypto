@@ -39,7 +39,8 @@ namespace wan24.Crypto.Authentication
                 if (CryptoEnvironment.PKI.GetKey(context.Payload.KeySigningRequest.PublicKey.ID) is not null) throw new InvalidDataException("Existing public key");
                 // Validate the key signing request signature
                 if (context.Payload.KeySigningRequest.Signature is null) throw new InvalidDataException("Signed key signing request required");
-                if (!context.Payload.KeySigningRequest.PublicKey.KeyData.Array.SlowCompare(context.Payload.KeySigningRequest.Signature.SignerPublicKeyData))
+                using ISignaturePublicKey signerPublicKey = context.Payload.KeySigningRequest.Signature.SignerPublicKey;
+                if (!context.Payload.KeySigningRequest.PublicKey.ID.SlowCompare(signerPublicKey.ID))
                     throw new InvalidDataException("Key request signer mismatch");
                 using MemoryPoolStream ms = new(context.Payload.KeySigningRequest.CreateSignedData());
                 await context.Payload.KeySigningRequest.Signature.ValidateSignedDataAsync(ms, cancellationToken: cancellationToken).DynamicContext();
@@ -83,8 +84,8 @@ namespace wan24.Crypto.Authentication
             if (!context.PublicClientKeys.SignedPublicKey.CreateSignedData().SlowCompare(knownKey.CreateSignedData())) throw new InvalidDataException("Invalid signed public key");
             // Validate the key suite signature
             if (context.PublicClientKeys.Signature is null) return;
-            if (!context.PublicClientKeys.Signature.SignerPublicKeyData.SlowCompare(context.PublicClientKeys.SignedPublicKey.PublicKey.KeyData.Array))
-                throw new InvalidDataException("Public key suite signer mismatch");
+            using ISignaturePublicKey signerPublicKey = context.PublicClientKeys.Signature.SignerPublicKey;
+            if (!signerPublicKey.ID.SlowCompare(context.PublicClientKeys.SignedPublicKey.PublicKey.ID)) throw new InvalidDataException("Public key suite signer mismatch");
             using MemoryPoolStream ms = new(context.PublicClientKeys.CreateSignedData());
             await context.PublicClientKeys.Signature.ValidateSignedDataAsync(ms, cancellationToken: cancellationToken).DynamicContext();
         }
