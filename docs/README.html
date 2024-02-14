@@ -1,0 +1,1918 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>wan24-Crypto | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="wan24-Crypto | wan24-Crypto ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="wan24-crypto">wan24-Crypto</h1>
+
+<p>This library exports a generic high level crypto API, which allows to use an
+implemented cryptographic algorithm to be applied using a simple interface. It
+also implements abstract and configurable RNG handling, which uses a local
+(CS)RNG entropy source, if not overridden and extended with a customized RNG
+algorithm, which may use a physical entropy source, too.</p>
+<p>Per default these cryptographic algorithms are implemented:</p>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hashing</strong></td>
+<td>MD5</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-1</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-256</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-384</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA-512</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA3-256</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA3-384</td>
+</tr>
+<tr>
+<td></td>
+<td>SHA3-512</td>
+</tr>
+<tr>
+<td></td>
+<td>Shake128</td>
+</tr>
+<tr>
+<td></td>
+<td>Shake256</td>
+</tr>
+<tr>
+<td><strong>MAC</strong></td>
+<td>HMAC-SHA-1</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA-256</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA-384</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA-512</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA3-256</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA3-384</td>
+</tr>
+<tr>
+<td></td>
+<td>HMAC-SHA3-512</td>
+</tr>
+<tr>
+<td><strong>Symmetric encryption</strong></td>
+<td>AES-256-CBC (ISO10126 padding)</td>
+</tr>
+<tr>
+<td><strong>Asymmetric keys</strong></td>
+<td>Elliptic Curve Diffie Hellman</td>
+</tr>
+<tr>
+<td></td>
+<td>Elliptic Curve DSA (RFC 3279 signatures)</td>
+</tr>
+<tr>
+<td><strong>KDF key stretching</strong></td>
+<td>PBKDF#2 (250,000 iterations per default)</td>
+</tr>
+<tr>
+<td></td>
+<td>SP 800-108 HMAC CTR KBKDF</td>
+</tr>
+</tbody>
+</table>
+<p>These elliptic curves are supported at present:</p>
+<ul>
+<li>secp256r1</li>
+<li>secp384r1</li>
+<li>secp521r1</li>
+</ul>
+<p>The number of algorithms can be extended easy, a bunch of additional libraries
+implementing more algorithms (and probably more elliptic curves) will follow
+soon.</p>
+<p>The goals of this library are:</p>
+<ul>
+<li>Make a choice being a less torture</li>
+<li>Make a complex thing as easy as possible</li>
+</ul>
+<p>Implementing (new) cryptographic algorithms into (existing) code can be
+challenging. <code>wan24-Crypto</code> tries to make it as easy as possible, while the
+API is still complex due to the huge number of options it offers. Please see
+the <a href="https://github.com/nd1012/wan24-Crypto/wiki">Wiki</a> for examples of the
+most common use cases, which cover:</p>
+<ul>
+<li>Simple encryption using a password</li>
+<li>Advanced encryption using a private PFS key</li>
+<li>Advanced encryption using a private PFS key and hybrid key exchange</li>
+<li>Advanced encryption using a peers public key</li>
+<li>Advanced encryption using a peers public key and hybrid key exchange</li>
+</ul>
+<p>For more examples please open an
+<a href="https://github.com/nd1012/wan24-Crypto/issues/new">issue</a> - I'd be glad to
+help! If you've found a security issue, please report it private.</p>
+<p><strong>NOTE</strong>: The cipher output of this library may include a header, which can't
+(yet) be interpreted by any third party vendor code (which is true especially
+if the raw data was compressed before encryption, which is the default). That
+means, a cipher output of this library can't be decrypted with a third party
+crypto library, even this library implements standard cryptographic algorithms.</p>
+<p>Using this library for a cipher which has to be exchanged with a third party
+application, which relies on working with standard crypto algorithm output, is
+not recommended - it may not work!</p>
+<p>Anyway, this library should be a good choice for isolated use within your
+application(s), if want to avoid a hussle with implementing newer crypto
+algorithms.</p>
+<h2 id="how-to-get-it">How to get it</h2>
+<p>This library is available as
+<a href="https://www.nuget.org/packages/wan24-Crypto/">NuGet package</a>.</p>
+<p>These extension NuGet packages are available:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/wan24-Crypto-BC/">wan24-Crypto-BC (adopts some algorithms from Bouncy Castle)</a></li>
+<li><a href="https://www.nuget.org/packages/wan24-Crypto-NaCl/">wan24-Crypto-NaCl (adopts the Argon2id KDF algorithm from NSec)</a></li>
+<li><a href="https://www.nuget.org/packages/wan24-Crypto-TPM/">wan24-Crypto-TPM (simplifies including TPM into your apps security)</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>In case you don't use the <code>wan24-Core</code> bootstrapper logic, you need to
+initialize the library first:</p>
+<pre><code class="lang-cs">wan24.Crypto.Bootstrap.Boot();
+</code></pre>
+<p>In case you work with dependency injection (DI), you may want to add some
+services:</p>
+<pre><code class="lang-cs">builder.Services.AddWan24Crypto();
+</code></pre>
+<p><strong>WARNING</strong>: The factory default algorithms may not be available on every
+platform! The <code>wan24-Crypto-BC</code> extension library contains pure .NET
+implementations of most algorithms from <code>wan24-Crypto</code>, which can be used
+instead.</p>
+<h3 id="hashing">Hashing</h3>
+<pre><code class="lang-cs">byte[] hash = rawData.Hash();
+</code></pre>
+<p>The default hash algorithm ist SHA3-512.</p>
+<h4 id="shake128256-hash-algorithms">Shake128/256 hash algorithms</h4>
+<p>The Shake128 and Shake256 hash algorithms support a variable output (hash)
+length. The default output length of the hash implementations of
+<code>wan24-Crypto</code> is</p>
+<ul>
+<li>32 bytes for Shake128</li>
+<li>64 bytes for Shake256</li>
+</ul>
+<p>when using the <code>HashHelper</code>, the extension methods, or the
+<code>HashShake128/256Algorithm</code> instances directly.</p>
+<p>Anyway, if you need other output lengths, you may use the
+<code>NetShake128/256HashAlgorithmAdapter</code> classes, which allow to give the desired
+output length in bytes (a multiple of 8) to the constructor, and can be used
+as every other .NET <code>HashAlgorithm</code> implementation (also in a crypto
+stream/transform, for example).</p>
+<h3 id="mac">MAC</h3>
+<pre><code class="lang-cs">byte[] mac = rawData.Mac(password);
+</code></pre>
+<p>The default MAC algorithm is HMAC-SHA3-512.</p>
+<p><strong>NOTE</strong>: The <code>CryptoOptions.MacPassword</code> won't be used here, since you have
+to specify the MAC password in the method call already. The <code>MacPassword</code> is
+only used during encryption, if it is different from the encryption key.</p>
+<h3 id="kdf-key-stretching">KDF (key stretching)</h3>
+<pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
+</code></pre>
+<p>The default KDF algorithm is PBKDF#2, using 250,000 iterations, with a salt
+length of 16 byte and SHA3-384 for hashing.</p>
+<p><strong>TIP</strong>: You may override the default hash algorithm which is being used in a
+new options instance in the static <code>KdfPbKdf2Options.DefaultHashAlgorithm</code>
+property.</p>
+<p>Example options usage:</p>
+<pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64, options: new KdfPbKdf2Options()
+    {
+        HashAlgorithm = HashSha3_512Algorithm.ALGORITHM_NAME
+    });// KdfPbKdf2Options cast implicit to CryptoOptions
+</code></pre>
+<p><strong>NOTE</strong>: The SP 800-108 HMAC CTR KBKDF algorithm isn't available in a WASM
+app, and there's currently no pure .NET replacement included in the
+<code>wan24-Crypto-BC</code> library. It doesn't support iterations and salt (but a label
+and context value instead). Not all hash algorithms may be supported (you'll
+need to register custom hash algorithms to the .NET <code>CryptoConfig</code>).</p>
+<h3 id="encryption">Encryption</h3>
+<pre><code class="lang-cs">byte[] cipher = raw.Encrypt(password);
+byte[] decrypted = cipher.Decrypt(password);
+</code></pre>
+<p>There are extension methods for memory and streams.</p>
+<p>The default algorithms used:</p>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Symmetric encryption</td>
+<td>AES-256-CBC</td>
+</tr>
+<tr>
+<td>MAC</td>
+<td>HMAC-SHA3-512</td>
+</tr>
+<tr>
+<td>KDF</td>
+<td>PBKDF#2</td>
+</tr>
+<tr>
+<td>Asymmetric key exchange</td>
+<td>EC Diffie Hellman</td>
+</tr>
+<tr>
+<td>Asymmetric digital signature</td>
+<td>EC DSA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE</strong>: The <code>CryptoOptions.MacPassword</code> will optionally be used, if an
+additional MAC is being computed, but it doesn't affect the AEAD included MAC,
+which is going to be calculated separately. If no <code>MacPassword</code> was set, the
+final encryption password is going to be used instead.</p>
+<h4 id="using-asymmetric-keys-for-encryption">Using asymmetric keys for encryption</h4>
+<p>This way you encrypt using a stored private key (which will be required for
+decryption later):</p>
+<pre><code class="lang-cs">using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] cipher = raw.Encrypt(privateKey);
+byte[] decrypted = cipher.Decrypt(privateKey);
+</code></pre>
+<p>In case you want to encrypt for a peer using the peers asymmetric public key
+for performing a PFS key exchange:</p>
+<pre><code class="lang-cs">// Peer creates a key pair (PFS or stored) and sends peerPublicKeyData to the provider
+using IAsymmetricPrivateKey peerPrivateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] peerPublicKeyData = (byte[])peerPrivateKey.PublicKey;// Needs to be available at the provider
+
+// Encryption at the provider (pfsKey shouldn't be stored and can be a new key for every cipher message)
+using IAsymmetricPublicKey peerPublicKey = AsymmetricKeyBase.Import&lt;IAsymmetricPublicKey&gt;(peerPublicKeyData);// Deserialize the peers public key of any format
+CryptoOptions options = EncryptionHelper.GetDefaultOptions();// Add the asymmetric key information for key pair creation
+options.AsymmetricAlgorithm = peerPublicKey.Algorithm.Name;
+options.AsymmetricKeyBits = peerPublicKey.Bits;
+options.PublicKey = peerPublicKey;// Required for encrypting especially for the one specific peer
+byte[] cipher;
+using(IKeyExchangePrivateKey pfsKey = AsymmetricHelper.CreateKeyExchangeKeyPair(options))
+    cipher = raw.Encrypt(pfsKey, options);// Only the peer can decrypt the cipher after pfsKey was disposed
+
+// Decryption at the peer
+byte[] decrypted = cipher.Decrypt(peerPrivateKey, options);
+</code></pre>
+<h4 id="time-critical-decryption">Time critical decryption</h4>
+<p>It's possible to define a maximum age for cipher data, which can't be
+decrypted after expired:</p>
+<pre><code class="lang-cs">// Encryption
+CryptoOptions options = new()
+{
+    TimeIncluded = true
+};
+byte[] cipher = raw.Encrypt(password, options);
+
+// Decryption (required to be decrypted within 10 seconds, or the decryption will fail)
+options = new()
+{
+    RequireTime = true,
+    MaximumAge = TimeSpan.FromSeconds(10)
+}
+byte[] decrypted = cipher.Decrypt(password, options);
+</code></pre>
+<p>By defining <code>CryptoOptions.MaximumTimeOffset</code> you may define a time tolerance
+which is being used to be tolerant with peers having a slightly different
+system time.</p>
+<h4 id="password-pre-processing">Password pre-processing</h4>
+<p>The <code>CryptoOptions.EncryptionPassword(Async)PreProcessor</code> delegates may pre-
+process an encryption password from <code>CryptoOptions.Password</code> before the key
+bytes are being finalized for use with the desired crypto engine. Key
+derivation from asymmetric keys and KDF are being applied before.</p>
+<p>The asynchronous delegate will only be used during asynchronous operations,
+while the synchronous delegate is a fallback during asynchronous operations,
+if no asynchronous delegate was set.</p>
+<p>The delegate itself need to set the final key to use to
+<code>CryptoOptions.Password</code> and should clear the current value.</p>
+<p><strong>TIP</strong>: For setting a new password to <code>CryptoOptions.Password</code> use the
+<code>CryptoOptions.SetNewPassword</code> method. This method will clear the previous
+value, if any.</p>
+<h3 id="asymmetric-keys">Asymmetric keys</h3>
+<h4 id="key-exchange">Key exchange</h4>
+<p>PFS example:</p>
+<pre><code class="lang-cs">// A: Create a key pair
+using IKeyExchangePrivateKey privateKeyA = AsymmetricHelper.CreateKeyExchangeKeyPair();
+byte[] publicKeyData = (byte[])privateKeyA.PublicKey.Export();// publicKeyData needs to be available at B
+
+// B: Create a key pair, key exchange data and derive the shared key
+using IAsymmetricPublicKey publicKeyA = AsymmetricKeyBase.Import&lt;IAsymmetricPublicKey&gt;(publicKeyData);// Deserialize the peers public key of any format
+using IKeyExchangePrivateKey privateKeyB = AsymmetricHelper.CreateKeyExchangeKeyPair(new()
+{
+    AsymmetricAlgorithm = publicKeyA.Algorithm.Name,
+    AsymmetricKeyBits = publicKeyA.Bits
+});
+(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKeyA);// keyExchangeData needs to be available at A
+
+// A: Derive the exchanged key
+byte[] keyA = privateKeyA.DeriveKey(keyExchangeData);
+
+Assert.IsTrue(keyA.SequenceEquals(keyB));
+</code></pre>
+<p>The default key exchange algorithm is ECDH from a secp521r1 elliptic curve.</p>
+<h5 id="ikeyexchange-interface"><code>IKeyExchange</code> interface</h5>
+<p>All asymmetric private keys which can be used for a key exchange implement the
+<code>IKeyExchange</code> interface. This interface is also used for PAKE, for example.
+By working with this interface, it's possible to implement more abstract key
+exchange routines:</p>
+<pre><code class="lang-cs">// Initiator side
+(byte[] keyA, byte[] keyExchangeData) = initiatorKeyExchangeProcessor.GetKeyExchangeData();
+
+// Transfer keyExchangeData to the peer using a secure communication channel
+
+// Peer side
+byte[] keyB = peerKeyExchangeProcessor.DeriveKey(keyExchangeData);
+
+Assert.IsTrue(keyA.SequenceEquals(keyB));
+</code></pre>
+<p><code>initiatorKeyExchangeProcessor</code> and <code>peerKeyExchangeProcessor</code> are
+<code>IKeyExchange</code> instances and may be an asymmetric private key, or a PAKE
+instance, for example.</p>
+<p>Both peers need to agree to the same key exchange method, first. And both
+peers need to use a key exchange processor which can produce/take the key
+exchange data of the initiator.</p>
+<p><strong>NOTE</strong>: The <code>PrivateKeySuite</code> implements <code>IKeyExchange</code> using the managed
+<code>KeyExchangeKey</code>, if any.</p>
+<h4 id="digital-signature">Digital signature</h4>
+<pre><code class="lang-cs">// Create a key pair for signature
+using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+
+// Sign data
+SignatureContainer signature = privateKey.SignData(anyData);
+
+// Validate a signature
+privateKey.PublicKey.ValidateSignature(signature, anyData);
+</code></pre>
+<p>The default signature algorithm is ECDSA from a secp521r1 elliptic curve.</p>
+<h3 id="value-protection">Value protection</h3>
+<p>The <code>ValueProtection</code> contains some static methods for protecting a value in a
+specified scope:</p>
+<pre><code class="lang-cs">value = ValueProtection.Protect(value);
+value = ValueProtection.Unprotect(value);
+</code></pre>
+<p>There are 3 scopes, which may be given as parameter:</p>
+<ul>
+<li><code>System</code>: System (permanent system bound protection)</li>
+<li><code>User</code>: Current user (permanent user bound protection)</li>
+<li><code>Process</code>: Current process (default; for non-permanent protection only!)</li>
+</ul>
+<p>The scope keys will be set automatic, but may be replaced with your own logic.
+Per default the keys are generated like this:</p>
+<ul>
+<li><code>System</code>: Hash of application location and machine name</li>
+<li><code>User</code>: Hash of user domain and name, application location and machine name</li>
+<li><code>Process</code>: Random data</li>
+</ul>
+<p><strong>WARNING</strong>: Setting new keys isn't thread-safe!</p>
+<p>The <code>Protect</code> and <code>Unprotect</code> methods are delegate properties which can be
+exchanged. For example for Windows and Linux OS you may want to use different
+approaches.</p>
+<p>For protecting a value it'll be encrypted using the current default encryption
+options.</p>
+<p>Using the <code>ValueProtectionLevels</code> you can manage keys for a specific security
+requirement by defining keys using the <code>ValueProtectionKeys.Set</code> method, and
+getting them later using the <code>ValueProtectionKeys.Get</code> method. The protection
+levels include variations for the system (mashine) and user level, with or
+without TPM (for TPM usage the <code>wan24-Crypto-TPM</code> module is required) and
+optional with an online key storage and/or a manual entered user password
+(the online key storage and user password input needs to be implemented by
+yourself):</p>
+<pre><code class="lang-cs">// userPassword should be entered manually whenever it's required to (un)protect a value
+
+byte[] protectedValue = ValueProtectionLevels.UserTpmPassword.Protect(value, userPassword);
+// protectedValue is ready to be stored for the current user scope
+
+byte[] unprotectedValue = ValueProtectionLevels.UserTpmPassword.Unprotect(protectedValue, userPassword);
+</code></pre>
+<p>The <code>ValueProtectionKeys</code> is used to (re)store a protection key for each level
+using the <code>Set(2)</code> and <code>(Try)Get</code> methods. It uses a <code>ISecureValue</code> for
+serious key protection:</p>
+<pre><code class="lang-cs">ValueProtectionKeys.Set(ValueProtectionLevels.UserTpmPassword, protectionKey, userPassword);
+</code></pre>
+<p><strong>NOTE</strong>: While the <code>Set</code> method requires a <code>ISecureValue</code>, the <code>Set2</code> method
+creates a <code>SecureValue</code> from the <code>protectionKey</code> byte array parameter. The
+<code>(Try)Get</code> methods will return the final key to use (after MAC, if
+applicable). Stored keys will be protected for the according scope using
+<code>ValueProtection</code>.</p>
+<p>You may use the extension method <code>ValueProtectionLevels.*.Protect/Unprotect</code>
+for protecting/unprotecting a value, or the raw protection key which is being
+returned from the <code>ValueProtectionKeys.(Try)Get</code> methods for applying
+en-/decryption of values by yourself.</p>
+<p>To determine the capabilities of a protection level, you can use these
+<code>ValueProtectionLevels</code> extension methods:</p>
+<ul>
+<li><code>RequiresPasswordInput</code>: If a manual entered user password is required</li>
+<li><code>RequiresTpm</code>: If a TPM is required</li>
+<li><code>RequiresNetwork</code>: If an online key storage is required</li>
+<li><code>GetScope</code>: Determines the according <code>ValueProtection.Scope</code> enumeration
+value</li>
+</ul>
+<p><strong>NOTE</strong>: In order to be able to use the TPM protection levels,
+<code>wan24-Crypto-TPM</code> and a TPM must be available. The protection levels
+including online communication require implementing an online key storage
+service. <code>ValueProtectionKeys</code> does support a single user context only (it's
+designed for an app which runs in a specific user context).</p>
+<p><strong>WARNING</strong>: For each value protection level that you want to use you'll need
+to set a key using <code>ValueProtectionKeys.Set(2)</code>, which is not thread-safe.</p>
+<h2 id="too-many-options">Too many options?</h2>
+<p>The <code>CryptoOptions</code> contains a huge collection of properties, which follow a
+simple pattern in case of en-/decryption: Which information should be included
+in the cipher header, and is an information in the header required? Because
+the options include information for all sections, there are single values
+which belongs to the specific section only. If you separate the options into
+sections, it's easy to overview:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Property</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encryption</td>
+<td><code>Algorithm</code></td>
+<td>Encryption algorithm name</td>
+<td><code>null</code> (<code>AES256CBC</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>EncryptionOptions</code></td>
+<td>String serialized encryption options</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>EncryptionPasswordPreProcessor</code></td>
+<td>Delegate for pre-processing an encryption password (the default can be set to <code>DefaultEncryptionPasswordPreProcessor</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>EncryptionPasswordAsyncPreProcessor</code></td>
+<td>Delegate for pre-processing an encryption password (only applied during asynchronous operation; the default can be set to <code>DefaultEncryptionPasswordAsyncPreProcessor</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>FlagsIncluded</code></td>
+<td>Are the flags included in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireFlags</code></td>
+<td>Are the flags required to be included in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKeysStore</code></td>
+<td>Private keys store to use for decryption, using automatic key suite revision selection (the default can be set to <code>DefaultPrivateKeysStore</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKeyRevision</code></td>
+<td>Revision of the used private key suite (may be set automatic)</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKeyRevisionIncluded</code></td>
+<td>Is the private key suite revision included in the header?</td>
+<td><code>true</code>, if a <code>DefaultPrivateKeysStore</code> was set</td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequirePrivateKeyRevision</code></td>
+<td>Is the private key suite revision required to be included in the header?</td>
+<td><code>true</code>, if a <code>DefaultPrivateKeysStore</code> was set</td>
+</tr>
+<tr>
+<td></td>
+<td><code>RngSeeding</code></td>
+<td>RNG seeding options (overrides <code>RND.AutoRngSeeding</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>MAC</td>
+<td><code>MacAlgorithm</code></td>
+<td>MAC algorithm name</td>
+<td><code>null</code> (<code>HMAC-SHA3-512</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>MacIncluded</code></td>
+<td>Include a MAC in the header</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireMac</code></td>
+<td>Is the MAC required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterMacAlgorithm</code></td>
+<td>Counter MAC algorithm name</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterMacIncluded</code></td>
+<td>Include a counter MAC in the header</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireCounterMac</code></td>
+<td>Is the counter MAC required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>ForceMacCoverWhole</code></td>
+<td>Force the MAC to cover all data</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireMacCoverWhole</code></td>
+<td>Is the MAC required to cover all data?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>MacPassword</code></td>
+<td>Password to use for a MAC</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Encryption / Key creation / Signature</td>
+<td><code>AsymmetricAlgorithm</code></td>
+<td>Asymmetric algorithm name</td>
+<td><code>null</code> (<code>ECDH</code> for encryption, <code>ECDSA</code> for signature)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>AsymmetricAlgorithmOptions</code></td>
+<td>String serialized algorithm options</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>AsymmetricCounterAlgorithm</code></td>
+<td>Asymmetric counter algorithm name</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KeyExchangeData</code></td>
+<td>Key exchange data (includes counter key exchange data; generated automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireKeyExchangeData</code></td>
+<td>Is the key exchange data required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrivateKey</code></td>
+<td>Private key for key exchange</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterPrivateKey</code></td>
+<td>Private key for counter key exchange (required when using a counter asymmetric algorithm)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PublicKey</code></td>
+<td>Public key for key exchange (if not using a PFS key)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterPublicKey</code></td>
+<td>Public key for counter key exchange (required when using a counter asymmetric algorithm and not using a PFS key)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>KDF</td>
+<td><code>KdfAlgorithm</code></td>
+<td>KDF algorithm name</td>
+<td><code>null</code> (<code>PBKDF2</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfIterations</code></td>
+<td>KDF iteration count</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfOptions</code></td>
+<td>String serialized KDF algorithm options</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfSalt</code></td>
+<td>KDF salt (generated automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>KdfAlgorithmIncluded</code></td>
+<td>Include the KDF information in the header</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireKdfAlgorithm</code></td>
+<td>Is the KDF information required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfAlgorithm</code></td>
+<td>Counter KDF algorithm name</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfIterations</code></td>
+<td>Counter KDF iteration count</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfOptions</code></td>
+<td>String serialized KDF algorithm options</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfSalt</code></td>
+<td>Counter KDF salt (generated automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CounterKdfAlgorithmIncluded</code></td>
+<td>Include the counter KDF information in the header</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireCounterKdfAlgorithm</code></td>
+<td>Is the counter KDF information required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><code>PayloadData</code></td>
+<td>Plain payload</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PayloadIncluded</code></td>
+<td>Is the payload object data included in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequirePayload</code></td>
+<td>Is payload object data required in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Serializer version</td>
+<td><code>CustomSerializerVersion</code></td>
+<td>Serializer version number (set automatic)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>SerializerVersionIncluded</code></td>
+<td>Include the serializer version number in the header</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireSerializerVersion</code></td>
+<td>Is the serializer version number required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Header version</td>
+<td><code>HeaderVersion</code></td>
+<td>Header version number (set automatic)</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>HeaderVersionIncluded</code></td>
+<td>Is the header version included in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireHeaderVersion</code></td>
+<td>Is the header version required in the header?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Encryption time</td>
+<td><code>Time</code></td>
+<td>Encryption timestamp (UTC)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>TimeIncluded</code></td>
+<td>Is the encryption time included in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>RequireTime</code></td>
+<td>Is the encryption time required to be included in the header?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>MaximumAge</code></td>
+<td>Maximum age of cipher data (the default can be set to <code>DefaultMaximumAge</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>MaximumTimeOffset</code></td>
+<td>Maximum time offset for a peer with a different system time (the default can be set to <code>DefaultMaximumTimeOffset</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Compression</td>
+<td><code>Compressed</code></td>
+<td>Should the raw data be compressed before encryption?</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Compression</code></td>
+<td>The <code>CompressionOptions</code> instance to use (will be set automatic, if not given)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>MaxUncompressedDataLength</code></td>
+<td>Maximum uncompressed data length in bytes (when decrypting)</td>
+<td><code>-1</code></td>
+</tr>
+<tr>
+<td>Hashing / Signature</td>
+<td><code>HashAlgorithm</code></td>
+<td>The name of the hash algorithm to use</td>
+<td><code>null</code> (<code>SHA3-512</code>)</td>
+</tr>
+<tr>
+<td>Key creation</td>
+<td><code>AsymmetricKeyBits</code></td>
+<td>Key size in bits to use for creating a new asymmetric key pair</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Stream options</td>
+<td><code>LeaveOpen</code></td>
+<td>Leave the processing stream open after operation?</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Debug options</td>
+<td><code>Tracer</code></td>
+<td>Collects tracing information during en-/decryption</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<p>Other options, which are not listed here, are used internal only.</p>
+<p>If you use a new instance of <code>CryptoOptions</code>, all defaults will be applied.
+You can override these defaults in the static <code>*Helper.Default*</code> properties,
+or by setting other values in the <code>CryptoOptions</code> instance, which you use when
+calling any method.</p>
+<p>For encryption these sections matter:</p>
+<ul>
+<li>Encryption</li>
+<li>MAC</li>
+<li>PFS</li>
+<li>KDF</li>
+<li>Payload</li>
+<li>Serializer version</li>
+<li>Header version</li>
+<li>Encryption time</li>
+<li>Compression</li>
+<li>Stream options</li>
+</ul>
+<p>In case you want to use the <code>*Counter*</code> options, you'll need to set the
+<code>CounterPrivateKey</code> value.</p>
+<p>For MAC these sections matter:</p>
+<ul>
+<li>MAC</li>
+<li>Stream options</li>
+</ul>
+<p>For hashing these sections matter:</p>
+<ul>
+<li>Hashing</li>
+<li>Stream options</li>
+</ul>
+<p>For asymmetric key creation the &quot;Key creation&quot; section matters.</p>
+<p>For signature these sections matter:</p>
+<ul>
+<li>Signature</li>
+<li>Hashing</li>
+<li>Stream options</li>
+</ul>
+<p>The <code>CryptoEnvironment</code> helps configuring the whole <code>wan24-Crypto</code> environment
+at once by providing an options class which contains all the options that one
+might miss, when not knowing where to look at:</p>
+<pre><code class="lang-cs">CryptoEnvironment.Configure(new()
+{
+    ...
+});
+</code></pre>
+<p><strong>NOTE</strong>: See the developer reference for details of the
+<code>CryptoEnvironment.Options</code> class. Options will only be applied, if they have
+a non-null value.</p>
+<p>The <code>CryptoEnvironment</code> has also some static properties for storing some
+singleton instances (which are used as default for the configurable options).</p>
+<h2 id="crypto-suite">Crypto suite</h2>
+<p>You can use a <code>CryptoOptions</code> instance as crypto suite. The type can be binary
+serialized (using the <code>Stream-Serializer-Extensions</code>) for storing/restoring
+to/from anywhere.</p>
+<p><strong>NOTE</strong>: Only crypto suite relevant information will be serialized! This
+excludes:</p>
+<ul>
+<li><code>SerializerVersion</code></li>
+<li><code>HeaderVersion</code></li>
+<li><code>PrivateKeystore</code> (needs to be stored in another place; a default can be set
+in <code>DefaultPrivateKeysStore</code>)</li>
+<li><code>PrivateKeyRevision</code> (will be managed automatic)</li>
+<li><code>PrivateKey</code> (needs to be stored in another place)</li>
+<li><code>CounterPrivateKey</code> (needs to be stored in another place)</li>
+<li><code>PublicKey</code></li>
+<li><code>CounterPublicKey</code></li>
+<li><code>KeyExchangeData</code></li>
+<li><code>PayloadData</code></li>
+<li><code>Time</code></li>
+<li><code>LeaveOpen</code></li>
+<li><code>MacPosition</code></li>
+<li><code>Mac</code></li>
+<li><code>HeaderProcessed</code></li>
+<li><code>Password</code></li>
+<li><code>MacPassword</code></li>
+<li><code>Tracer</code></li>
+</ul>
+<h2 id="pki">PKI</h2>
+<p>Using the <code>AsymmetricSignedPublicKey</code> type, you can implement a simple PKI,
+which allows to</p>
+<ul>
+<li>define trusted root keys</li>
+<li>define a key revocation list</li>
+<li>sign public keys</li>
+<li>validate signed public keys until the root signer key</li>
+</ul>
+<pre><code class="lang-cs">// Create the root key pair
+using ISignaturePrivateKey privateRootKey = AsymmetricHelper.CreateSignatureKeyPair();
+
+// Self-sign the public root key
+using AsymmetricSignedPublicKey signedPublicRootKey = new(privateRootKey.PublicKey);
+signedPublicRootKey.Sign(privateRootKey);
+
+// Create a key pair, which will be signed, and a signing request
+using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
+using AsymmetricPublicKeySigningRequest signingRequest = new(privateKey.PublicKey);
+
+// Sign the public key
+using AsymmetricSignedPublicKey signedPublicKey = signingRequest.GetAsUnsignedKey();
+signedPublicKey.Sign(privateRootKey);
+
+// Setup the PKI (minimal setup for signed public key validation)
+AsymmetricSignedPublicKey.RootTrust = 
+    // Normally you would have a DBMS which stores the trusted public key IDs
+    (id) =&gt; id.SequenceEqual(privateRootKey.ID);
+AsymmetricSignedPublicKey.SignedPublicKeyStore = (id) =&gt; 
+{
+    // Normally you would have a DBMS which stores the known keys
+    if(id.SequenceEqual(privateRootKey.ID)) return signedPublicRootKey;
+    if(id.SequenceEqual(privateKey.ID)) return signedPublicKey;
+    return null;
+};
+// Normally you would have a DBMS which stores a revocation list for AsymmetricSignedPublicKey.SignedPublicKeyRevocation
+
+// Validate the signed public key
+signedPublicKey.Validate();
+</code></pre>
+<p>As you can see, it's a really simple PKI implementation. It's good for
+internal use, and if there won't be too many keys to manage. For managing a
+larger amount of keys, you can use the <code>SignedPkiStore</code>:</p>
+<pre><code class="lang-cs">using SignedPkiStore pki = new();
+pki.AddTrustedRoot(signedPublicRootKey);
+pki.AddGrantedKey(signedPublicKey);
+pki.EnableLocalPki();
+</code></pre>
+<p>By calling <code>EnableLocalPki</code> all PKI callbacks in <code>AsymmetricSignedPublicKey</code>
+will be set with methods from the <code>SignedPkiStore</code> instance. This allows
+signed key and signature validations using your PKI.</p>
+<p>The <code>GetKey</code> methods will find the hosted key with the given ID of the public
+key. The PKI may also host revoked keys. By revoking a key, it'll be removed
+from the trusted root/granted key tables, and <code>GetKey</code> will throw on key
+request.</p>
+<h3 id="signed-attributes-and-other-pki-extensions">Signed attributes and other PKI extensions</h3>
+<p>The signed attributes are fully customizable and not pre-defined at all,
+you're the designer of your own PKI implementation. In order you want some
+inspiration and ideas, you may have a look at the <code>SignedAttributes</code> class,
+wich contains some examples/suggestions for signed attributes and their names.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domain</td>
+<td>PKI domain name to identify/validate the keys PKI</td>
+</tr>
+<tr>
+<td>OwnerId</td>
+<td>Foreign owner ID for loading meta data from a store (should be encrypted by the PKI host)</td>
+</tr>
+<tr>
+<td>KeyValidationUri</td>
+<td>URI that should point to a RESTful API for online key revokation validation</td>
+</tr>
+<tr>
+<td>GrantedKeyUsages</td>
+<td>Allowed usages for the signed key</td>
+</tr>
+<tr>
+<td>PkiSig</td>
+<td>Permitted to sign sub-keys</td>
+</tr>
+<tr>
+<td>KePublicKey</td>
+<td>Identifier of the public key for the key exchange with the owner</td>
+</tr>
+<tr>
+<td>KePublicCounterKey</td>
+<td>Identifier of the public counter key for the key exchange with the owner</td>
+</tr>
+<tr>
+<td>SigPublicKey</td>
+<td>Identifier of the public signature key of the owner</td>
+</tr>
+<tr>
+<td>SigPublicCounterKey</td>
+<td>Identifier of the public signature counter key of the owner</td>
+</tr>
+<tr>
+<td>CipherSuite</td>
+<td>Serialized <code>CryptoOptions</code> to use with the signed key owner</td>
+</tr>
+<tr>
+<td>Serial</td>
+<td>Serial number (the key revision of the owner context)</td>
+</tr>
+</tbody>
+</table>
+<p>Some key meta data like the creation and expiration time, or a nonce, is
+included in a lower level in the <code>AsymmetricSignedPublicKey</code> already, and
+don't need to appear in the signed attribute list again.</p>
+<p>A key signing request may also contain more attributes than the final signed
+key, if you want to give signing instructions to the PKI. The PKI may
+remove/replace/extend those instructions for signing.</p>
+<p>As said before, the list above doesn't need to be implemented fully, and it
+may be extended with any attribute that your PKI requires in addition. There
+are only suggestions for value formats - but how you implement it finally, is
+your business only. If you implement the suggested attributes and value
+formats, you'll have a fully usable PKI. In addition a key revokation list
+would be a nice feature (as a part of a RESTful PKI API). For a trusted root
+key list you could use the <code>PublicKeySuiteStore</code>, for example. A key
+revokation list may only contain the IDs of revoked keys, which are not yet
+expired.</p>
+<p>You can use the <code>AsymmetricKeySigner</code> as template for a key signing request
+handler, which supports the attributes from above. You should implement
+algorithm validation etc. for a key signing request by yourself, since such
+requirements are not really good to match with a basic API.</p>
+<p>For validating the signed attributes of a signing request or a signed key, you
+can use the <code>SignedAttributes.Validate(Async)</code> methods. Using the
+<code>SignedAttributes.ValidationOptions</code> you can specify common restrictions for
+the above listed default attributes. The validation will be executed also, if
+<code>AsymmetricSignedPublicKey.Validate(Async)</code> was called. For additional
+attribute validations you can set
+<code>SignedAttributes.AdditionalValidation(Async)</code> handlers. If no public key
+suite store was given, key exchange/signature keys will be looked up in the
+PKI, which was given in the options (<code>CryptoEnvironment.PKI</code> is being used per
+default).</p>
+<h2 id="pake">PAKE</h2>
+<p><code>Pake</code> (see tests) can be used for implementing a password authenticated key
+exchange, which should be wrapped with a PFS protocol in addition. PAKE uses
+symmetric cryptographic algorithms only and uses random bytes for session key
+generation. After signup, it can be seen as a symmetric PFS protocol, if the
+random bytes are random for each session and never stored as communicated
+between the peers.</p>
+<p><strong>CAUTION</strong>: PAKE doesn't support counter algorithms! For working with PQ
+counter algorithms, you'll have to combine two PAKE with different options by
+yourself.</p>
+<p><strong>NOTE</strong>: For PAKE both peers need to use the same KDF and MAC options. If the
+algorithm is going to be changed, a new signup has to be performed. In case a
+peer changes its authentication (identifier or key), a new signup operation
+has to be performed, too. A signup should always be performed using an
+additional factor, which was communicated using another transport. An
+authentication may use a second factor, while it's recommended to use at last
+two factors for each operation.</p>
+<p>PAKE allows single directional authenticated messages and should be performed
+bi-directional for a bi-directional communication, if possible.</p>
+<p>While a MAC can be computed fast, KDF needs time. During a PAKE handshake both
+algorithms are used on both peers. But the server will perform KDF only after
+a MAC was validated, which closes a door for DoS attacks by an anonymous
+attacker.</p>
+<p><strong>NOTE</strong>: Default options for PAKE can be overridden by setting a custom value
+to <code>Pake.DefaultOptions</code>.</p>
+<p><code>FastPakeClient/Server</code> allow fast followup authentications after the first
+authentication of an already known peer (after a signup was performed).
+They're designed to be alive for a longer time, if the server expects a client
+to perform multiple authentications. They're good for a single-directional UDP
+protocol, for example, where each message is PAKE authenticated, and each
+followup message is encrypted using the session key of the first
+authentication message.</p>
+<p><strong>NOTE</strong>: This PAKE implementation is patent free!</p>
+<h2 id="clientserver-authentication-protocol">Client/server authentication protocol</h2>
+<h3 id="asymmetric-keys--pake">Asymmetric keys + PAKE</h3>
+<p><code>wan24-Crypto</code> implements a client/server authentication protocol for stream
+connections (like a TCP <code>NetworkStream</code>). This protocol allows</p>
+<ul>
+<li>server public key request</li>
+<li>signup</li>
+<li>authentication</li>
+</ul>
+<p>while all features are optional. It implements Zero Knowledge Password Proof
+(ZKPP) and Perfect Forward Secrecy (PFS).</p>
+<p>During a signup an asymmetric public key of the client can be signed by the
+server for long term use.</p>
+<p>The authentication is encrypted using</p>
+<ul>
+<li>(hopefully pre-shared) server public keys and PFS keys</li>
+<li>PAKE</li>
+</ul>
+<p>If the public servers keys are not pre-shared, a PKI should be used to ensure
+working with valid keys.</p>
+<p>See the tests (<code>Auth_Tests.cs</code>) for an example of a simple but working client/
+server implementation.</p>
+<p>On signup, the server needs to store the PAKE identity and the clients public
+keys, which then need to be provided for a later authentication process. The
+<code>ClientAuthContext</code> has all the information required to handle a signup or an
+authentication, and it contains the exchanged PFS session key for encrypted
+communication, too.</p>
+<p>For optimal security (in 2023), you should use an asymmetric PQC algorithm for
+the key exchange and signature key, and a common non-PQC algorithm as counter
+key exchange and signature key. You can find asymmetric PQC algorithms in the
+<code>wan24-Crypto-BC</code> library, for example.</p>
+<p><strong>NOTE</strong>: Login username and password won't be communicated to the server. If
+any authentication related information changes, a follow-up signup needs to be
+performed.</p>
+<p>The signup process (as seen from the client; is bi-directional always):</p>
+<ul>
+<li>Send the clients public PFS key</li>
+<li>Start encryption using the servers public key and a private PFS key of the
+client</li>
+<li>Send the clients public counter PFS key</li>
+<li>Extend the encryption using the servers public counter key and a private PFS
+key of the client</li>
+<li>Send the PAKE signup request and extend the encryption using the PAKE
+session key (the request contains the public key suite and a key signing
+request, if this is the signup of a new user, or the public key suite changed)</li>
+<li>Sign the authentication sequence using the private client key</li>
+<li>Validate the server signature of the authentication sequence</li>
+<li>Receive the servers public PFS key</li>
+<li>Extend the encryption using the private key and the servers public PFS key</li>
+<li>Receive the servers public counter PFS key</li>
+<li>Extend the encryption with the PFS key computed using the private PFS keys
+and the servers public PFS keys</li>
+<li>Get the signed public client key</li>
+<li>Sign the public key suite including the signed public key and store the
+private and public key suites</li>
+</ul>
+<p><strong>NOTE</strong>: The PAKE authentication allows to attach any payload, which enables
+the app to extend the process with additional meta data as required.</p>
+<p>A later authentication process (as seen from the client; may be uni-
+directional):</p>
+<ul>
+<li>Send the clients public PFS key</li>
+<li>Start encryption using the servers public key and a private PFS key of the
+client</li>
+<li>Send the clients public counter PFS key</li>
+<li>Extend the encryption using the servers public counter key and a private PFS
+key of the client</li>
+<li>Send the PAKE authentication request and extend the encryption using the
+PAKE session key</li>
+<li>Sign the authentication sequence using the private client key</li>
+</ul>
+<p>For a bi-directional communication channel in addition:</p>
+<ul>
+<li>Validate the server signature of the authentication sequence</li>
+<li>Receive the servers public PFS key</li>
+<li>Extend the encryption using the private key and the servers public PFS key</li>
+<li>Receive the servers public counter PFS key</li>
+<li>Extend the encryption using the PFS key computed using the private PFS keys
+and the servers public PFS keys</li>
+</ul>
+<p><strong>WARNING</strong>: An uni-directional connection does use a PFS key, but this key is
+being applied on a pre-shared long term key only.</p>
+<p><strong>NOTE</strong>: Since a temporary client like a browser may not be able to store the
+private client keys, such a client may only use the signup and not send a key
+signing request. Then the server is required to identify the authenticating
+client using the PAKE identifier (not the public key ID).</p>
+<p>In total at last three session keys are being exchanged during a request (six
+session keys for bi-directional communication). The first two keys are pseudo-
+PFS keys, while the third key is the PAKE session key. Each part of the
+authentication sequence will be encrypted using the latest exchanged session
+key (encryption does change each time a new session key can be derived at the
+server).</p>
+<p><strong>NOTE</strong>: The encryption key will always be <em>extended</em> by the next derived
+key, but <em>not replaced</em>.</p>
+<p>To avoid replay-attacks, the server should implement methods to deny re-using
+PFS keys or random byte sequences. A timestamp validation is implemented
+already (which defaults to a maximum time offset of 5 minutes to the clients
+system time). So the server should ensure, that a (pseudo-)PFS key or random
+byte sequence can't be re-used within five minutes after it was received from
+a client.</p>
+<p><strong>NOTE</strong>: The long term client key exchange keys can be used for encrypting an
+off-session peer-to-peer message. They're not used for signup/authentication.</p>
+<p>Things that must be known in advance are the used algorithms, while the PFS
+keys use the public server keys algorithms and key sizes. But these algorithms
+must be pre-defined in both (client and server) apps anyway:</p>
+<ul>
+<li>Hash algorithm</li>
+<li>MAC algorithm</li>
+<li>KDF algorithm</li>
+<li>Encryption algorithm (and other <code>CryptoOptions</code> settings for encryption)</li>
+</ul>
+<p><strong>CAUTION</strong>: The chosen encryption algorithm must not require MAC
+authentication (while built-in MAC authentication like with AEAD is ok). You
+can find a stream cipher in the <code>wan24-Crypto-BC</code> library, for example. The
+encryption settings shouldn't use KDF to avoid too much overhead (KDF will be
+used for PAKE already).</p>
+<h3 id="pake-authentication-only">PAKE authentication only</h3>
+<p>Quiet different from the &quot;Asymmetric keys + PAKE&quot; authentication protocol,
+there is another implementation, which uses PAKE only. See the tests
+(<code>PakeAuth_Tests.cs</code>) for an example of a simple but working client/server
+implementation.</p>
+<p>This protocol allows</p>
+<ul>
+<li>signup</li>
+<li>authentication</li>
+</ul>
+<p>while all features are optional. It implements Zero Knowledge Password Proof
+(ZKPP) and Perfect Forward Secrecy (PFS).</p>
+<p><strong>CAUTION</strong>: At last the signup communication is required to be wrapped with
+a PFS protocol! Use a TLS socket, for example. A later authentication <em>may</em> be
+performed using a raw socket.</p>
+<p>During the signup the server will respond a random signup to the client. The
+produces PAKE values need to be stored on both peers for later authentication.</p>
+<p><strong>WARNING</strong>: This authentication protocol doesn't support the use of a pre-
+shared key for the signup. This clearly opens doors for a MiM attack during
+the signup: If the signup communication was compromised, the attacker will be
+able to authenticate successful later! It's absolutely required to use a
+wrapping PFS protocol which ensures the server identity, before sending any
+signup information.</p>
+<p>For authentication, the client sends the identifier of the servers PAKE
+values, which have been pre-shared during the signup. Using random bytes a
+temporary session key will be calculated and used to send the PAKE
+authentication request. The temporary session key will then be extended using
+the now fully exchanged PAKE session key.</p>
+<p><strong>NOTE</strong>: The authentication <em>may</em> use a raw socket, while a wrapping PFS
+protocol is of course never a mistake. However, if using raw sockets, a MiM is
+able to know who is authenticating, because the servers random PAKE identifier
+needs to be sent plain (and this value won't change, if not forced).</p>
+<p>Things that must be known in advance are the used algorithms, which must be
+pre-defined in both (client and server) apps:</p>
+<ul>
+<li>MAC algorithm</li>
+<li>KDF algorithm</li>
+<li>Encryption algorithm (and other <code>CryptoOptions</code> settings for encryption)</li>
+</ul>
+<p><strong>CAUTION</strong>: The chosen encryption algorithm must not require MAC
+authentication (while built-in MAC authentication like with AEAD is ok). You
+can find a stream cipher in the <code>wan24-Crypto-BC</code> library, for example. The
+encryption settings shouldn't use KDF to avoid too much overhead (KDF will be
+used for PAKE already).</p>
+<p>In total this authentication may be a good choice for use with fixed client
+devices, which are able to store the servers PAKE values in a safe way for the
+long term. But also temporary devices may benefit, if they'll connect to a
+server multiple times.</p>
+<h2 id="random-number-generator">Random number generator</h2>
+<p>You can use <code>RND</code> as a random data source. <code>RND</code> is customizable and falls
+back to <code>RandomNumberGenerator</code> from .NET. It uses <code>/dev/random</code> as data
+source, if available.</p>
+<pre><code class="lang-cs">byte[] randomData = RND.GetBytes(123);
+</code></pre>
+<p><strong>NOTE</strong>: <code>/dev/random</code> may be too slow for your requirements. If you don't
+want to use <code>RandomDataGenerator</code> (which can speed up <code>RND</code> a lot), you can
+disable <code>/dev/random</code>:</p>
+<pre><code class="lang-cs">RND.UseDevRandom = false;
+</code></pre>
+<p><strong>NOTE</strong>: In case you want to force using <code>/dev/random</code> <em>ONLY</em>:</p>
+<pre><code class="lang-cs">RND.RequireDevRandom = true;// This will cause RND to throw on Windows!
+</code></pre>
+<p>The <code>RandomDataGenerator</code> is an <code>IHostedService</code> which can be customized, but
+falls back to <code>RND</code> per default. The service uses a buffer to pre-buffer
+random data, in case your RNG is slow. It's possible to define custom
+fallbacks which are being used in case the buffer doesn't have enough data to
+satisfy a request. If you use a <code>RandomDataGenerator</code>, you can set the
+instance to <code>RND.Generator</code> to use it per default.</p>
+<p>The full generator process is:</p>
+<ol>
+<li>Try reading pre-buffered random data</li>
+<li>If not satisfied, call the defined fallback RNG delegates (<code>RND</code> methods
+are preset)</li>
+<li>Default <code>RND</code> methods use <code>RandomNumberGenerator</code>, finally</li>
+</ol>
+<p>Each step in this process can be customized in <code>RND</code> AND
+<code>RandomDataGenerator</code>, while the defaults of <code>RandomDataGenerator</code> fall back
+to <code>RandomStream</code> and <code>RND</code>, and the methods of <code>RND</code> use <code>RND.Generator</code> or
+fall back to <code>RandomNumberGenerator</code>. To simplify that and avoid an endless
+recursion in your code: <strong>DO NOT</strong> call <code>RND.Get/FillBytes(Async)</code> from a
+customized <code>RandomDataGenerator</code>! <strong>DO</strong> call <code>RND.DefaultRng(Async)</code> instead.</p>
+<p>If you use the plain <code>RandomDataGenerator</code>, it uses the <code>RandomStream</code> as
+random data source, if <code>/dev/random</code> isn't available or disabled.
+(<code>RandomStream</code> uses <code>RandomNumberGenerator</code>, finally.)</p>
+<p>There's another <code>Rng</code> type, which is a <code>RandomNumberGenerator</code> implementation
+that skips the OS random number generator implementation and uses <code>RND</code>
+instead (also the static methods of <code>RandomNumberGenerator</code> are overridden).
+The <code>RngHelper</code> extends any <code>RandomNumberGenerator</code> instance with a <code>GetInt32</code>
+method (which applies to customized <code>Rng</code> instances, too, since they extend
+<code>RandomNumberGenerator</code>).</p>
+<p><strong>NOTE</strong>: <code>Rng</code> implements non-zero random number generation. However, any non-
+zero random byte sequence isn't as random as it could be anymore - keep that
+in mind.</p>
+<p>To sum it up: Use <code>RND</code> for (optional customized) getting cyptographic random
+bytes. You can use <code>SecureRandomStream.Instance</code>, too (it uses <code>RND</code> on
+request). Use <code>Rng</code> as (also asynchronous) random integer generator, or where
+a <code>RandomNumberGenerator</code> instance is required.</p>
+<p><strong>CAUTION</strong>: True randomness is the most important source of security for any
+crypto application. PRNG and CSRNG random sources, and even physical phenomen
+based hardware random sources won't produce <em>true</em> random, and/or can be
+manipulated in some way to produce predictable random data, unless it's a QRNG
+source.</p>
+<h3 id="seeding">Seeding</h3>
+<p>Use the <code>RND.AddSeed(Async)</code> methods for seeding your RNG. The
+<code>AddDevRandomSeed(Async)</code> only seed <code>/dev/random</code>, while when calling
+<code>AddSeed(Async)</code>, the method will try to seed</p>
+<ol>
+<li>the <code>RND.SeedConsumer</code></li>
+<li>the <code>RND.Generator</code></li>
+<li><code>/dev/random</code></li>
+</ol>
+<p>and return after providing the seed to the first available target, or when
+there's no target for consuming the seed.</p>
+<p><strong>CAUTION</strong>: Be aware of the patent US10402172B1!</p>
+<h3 id="seeding-automatic">Seeding automatic</h3>
+<p>A seedable RNG (<code>ISeedableRng</code>) can be seeded automatic using</p>
+<ul>
+<li>received IV bytes</li>
+<li>received cipher data</li>
+<li>received random bytes</li>
+</ul>
+<p><strong>CAUTION</strong>: Even if it's extremely unlikely, an untrusted seed source <em>may</em>
+be able to cause a RNG to produce predictable random data, unless it combines
+QRNG entropy.</p>
+<p>To enable automatic seeding, set the seed source flags to <code>RND.AutoRngSeeding</code>.</p>
+<p>Per default the <code>RND.Generator</code> will be seeded, unless you specify another
+seed target in <code>RND.SeedConsumer</code>. A seed consumer needs to implement the
+<code>ISeedableRng</code> interface, which <code>RandomDataGenerator</code> does, for example.</p>
+<p>Seeding during encryption can be overridden using <code>CryptoOptions.RngSeeding</code>.</p>
+<p>Seeding during PAKE authentication can be overridden using the given options
+for encryption.</p>
+<p>When deserializing the <code>SignatureContainer</code> embedded signed data, the nonce
+will be seeded, if <code>RND.AutoRngSeeding</code> has the <code>Random</code> flag.</p>
+<p>Because seeding may be synchronized, there's a <code>RngSeederQueue</code> queue worker,
+which is a simple hosted service that seeds the given target <code>ISeedableRng</code> in
+background, using a copy of the given seeds. The <code>RngSeederQueue</code> may be
+customized easily by extending the type (pregnant methods are virtual).</p>
+<p><strong>CAUTION</strong>: Be aware of the patent US10402172B1!</p>
+<h3 id="some-words-on-secure-seeding">Some words on secure seeding</h3>
+<p>A PRNG isn't enough, and even a CSRNG isn't enough, if the RNG's seed is not
+good. Modern OS CSRNG implementations use hardware and software environment
+information like</p>
+<ul>
+<li>system clock</li>
+<li>IP stack I/O timings</li>
+<li>temperature sensors values</li>
+<li>environment sounds</li>
+<li>harddisc values</li>
+<li>user information digest</li>
+<li>process ID</li>
+<li>thread ID</li>
+<li>...and so on.</li>
+</ul>
+<p>But this still isn't really good, because all sources can be manipulated
+and/or predicted. The only really good seed source is a quantum device which
+is used by a QRNG. But not everyone has access to a QRNG, and the hardware is
+expensive, too.</p>
+<p>A company may decide to buy a QRNG hardware, which is a good investment in
+2023, since quantum computing resources are becoming available to anyone now,
+and the development speed is really amazing (and will speed up more with the
+also fast growing AI possibilities!).</p>
+<p>But a private person might run into problems, unless there's a free QRNG seed
+source available online, hopefully for free. It'll take some time until
+enduser systems will contain a chip which can produce QRNG sequences on the
+local mashine, and isn't too expensive, so everyone can afford to own one.</p>
+<p>Anyway, when using a CSRNG, finally, it should be re-seeded as often as
+possible, because if a CSRNG output is being collected over a time, and the
+underlaying algorithm is known, the future output becomes predictable - and
+this is something you'd like to avoid as good as possible. There are several
+steps that you should implement fully, if possible in any way:</p>
+<ol>
+<li>Use a PRNG and seed it with CSRNG data from the operating system</li>
+<li>Wrap the PRNG with a CSRNG which uses an underlaying stream cipher to
+encrypt the PRNG's random data stream</li>
+<li>Re-seed the PRNG as often as possible using at last CSRNG data from the
+operating system, and if possible in combination with entropy from a QRNG</li>
+</ol>
+<p>Of course the best solution would be to use a QRNG instead of a PRNG in step
+1, because then you wouldn't need to re-seed usually. But step 2 is important
+in all cases, please don't miss it! A good practice is to combine multiple
+entropy sources, at last for seeding, but also for the RNG's output, which
+you're going to use for symmetric keys (DEK), for example.</p>
+<p>If you carefully red and understood this information, you should get quiet
+good results with a CSRNG already, even you don't have access to a quantum
+entropy source. The <code>wan24-Crypto</code> and <code>wan24-Crypto-BC</code> libraries should
+offer everything a C# developer needs for a better random number source.</p>
+<p><strong>NOTE</strong>: Even the best PQC algorithm will <em>fail</em> when not using a good RNG!</p>
+<h2 id="object-encryption">Object encryption</h2>
+<p>By using the <code>DekAttribute</code> and <code>EncryptAttribute</code> (and optional the
+<code>IEncryptProperties</code> interface) you can en-/decrypt objects with the
+<code>ObjectEncryption</code> helper methods/extensions:</p>
+<pre><code class="lang-cs">public class YourType : IEncryptProperties
+{
+    [Dek]
+    public byte[] Dek { get; set; } = null!;
+
+    [Encrypt]
+    public byte[] Raw { get; set; } = null!;
+}
+</code></pre>
+<p><strong>NOTE</strong>: <code>null</code> values won't be en-/decrypted! Using the
+<code>IEncryptPropertiesExt</code> interface your object can define en-/decryption
+handler methods.</p>
+<p>The <code>Dek</code> will hold a random data encryption key, while all properties having
+the <code>Encrypt</code> attribute will be encrypted using that DEK:</p>
+<pre><code class="lang-cs">YourType obj = new()
+{
+    Raw = ...
+};
+obj.EncryptObject(kek);
+</code></pre>
+<p><strong>NOTE</strong>: The real object type will be used for finding properties to process,
+not the generic method argument of <code>EncryptObject</code> and <code>DecryptObject</code>.</p>
+<p>The <code>kek</code> holds the key, which is used for the DEK encryption. Use
+<code>DecryptObject</code> for decryption.</p>
+<p>The <code>DekAttribute</code> and <code>EncryptAttribute</code> can be extended to override the
+methods that are used to get/set values.</p>
+<p>The rules for the used keys are simple:</p>
+<ol>
+<li>If you have a <code>Dek</code> property, it'll be used to store a KEK encrypted random
+DEK (which will be (re-)generated for each encryption)</li>
+<li>If you don't have a <code>Dek</code> property, you'll need to specify the DEK in the
+method parameters (and of course no KEK parameter value is required)</li>
+</ol>
+<h3 id="automatic-key-ecryption-key-providing">Automatic key ecryption key providing</h3>
+<p>Implement the <code>IEncryptPropertiesKek</code> interface for automatic key encryption
+key (KEK) providing. The object needs to implement a data encryption key (DEK)
+property with a <code>DekAttribute</code>. Then you can use the <code>AutoEn/DecryptObject</code>
+extension methods.</p>
+<h2 id="notes">Notes</h2>
+<p>Sometimes you'll read something like &quot;will be disposed&quot; or &quot;will be cleared&quot;
+in the documentation. These are important diclaimers, which should be
+respected in order to work safe with sensitive data.</p>
+<p><strong>WARNING</strong>: The disclaimer may be missing in some places!</p>
+<h3 id="will-be-disposed">Will be disposed</h3>
+<p>When noted to a given value, it'll be disposed after the desired operation, or
+when the hosting object is being disposed.</p>
+<p>When noted to a returned value, and you don't want to use the value only for a
+short term (during the hosted value wasn't disposed for sure), you should
+consider to create a copy. The hosting object will dispose the value, when
+it's being disposed.</p>
+<h3 id="should-be-disposed">Should be disposed</h3>
+<p>This is a disclaimer that reminds you to dispose a returned value after use.</p>
+<h3 id="will-be-cleared">Will be cleared</h3>
+<p>When noted to a given value, it'll be cleared after the desired operation, or
+when the hosting object is being disposed/cleared.</p>
+<p>When noted to a returned value, and you don't want to use the value only for a
+short term (during the hosted value wasn't disposed/cleared for sure), you
+should consider to create a copy. The hosting object will clear the value,
+when it's being disposed/cleared.</p>
+<h3 id="should-be-cleared">Should be cleared</h3>
+<p>This is a disclaimer that reminds you to clear a returned value after use. For
+this usually you can use the <code>Clear</code> or <code>Clean</code> (extension?) method of the
+value. (In case of <code>Memory&lt;T&gt;</code> or <code>Span&lt;T&gt;</code> it's <code>Clean</code>, because <code>Clear</code> is
+used to zero out the value already, while <code>Clean</code> will fill it with random
+bytes before.)</p>
+<h2 id="algorithm-ids">Algorithm IDs</h2>
+<p>Internal each algorithm has an unique ID within a category:</p>
+<ul>
+<li>Asymmetric cryptography</li>
+<li>Symmetric cryptography</li>
+<li>Hashing</li>
+<li>MAC</li>
+<li>KDF</li>
+</ul>
+<p>If you'd like to implement inofficial algorithms on your own, please use the
+ID bits 24-32 only to avoid possible collisions with official libraries! These
+are the official implementation IDs (not guaranteed to be complete):</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>ID</th>
+<th>Library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Asymmetric cryptography</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ECDH</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>ECDSA</td>
+<td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>CRYSTALS-Kyber</td>
+<td>2</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>CRYSTALS-Dilithium</td>
+<td>3</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>FALCON</td>
+<td>4</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>SPHINCS+</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>FrodoKEM</td>
+<td>6</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>NTRUEncrypt</td>
+<td>7</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Ed25519</td>
+<td>8</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Ed448</td>
+<td>9</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>X25519</td>
+<td>10</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>X448</td>
+<td>11</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XEd25519</td>
+<td>12</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XEd448</td>
+<td>13</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Streamlined NTRU Prime</td>
+<td>14</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>BIKE</td>
+<td>15</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>HQC</td>
+<td>16</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Picnic</td>
+<td>17</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td><strong>Symmetric cryptography</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AES-256-CBC</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>ChaCha20</td>
+<td>1</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XSalsa20</td>
+<td>2</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>AES-256-GCM</td>
+<td>3</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XCrypt</td>
+<td>4</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td>Serpent 256 CBC</td>
+<td>5</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Serpent 256 GCM</td>
+<td>6</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Twofish 256 CBC</td>
+<td>7</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Twofish 256 GCM</td>
+<td>8</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td><strong>Hashing</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA-1</td>
+<td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>2</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA-384</td>
+<td>3</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA-512</td>
+<td>4</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA3-256</td>
+<td>5</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA3-384</td>
+<td>6</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>SHA3-512</td>
+<td>7</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>Shake128</td>
+<td>8</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>Shake256</td>
+<td>9</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td><strong>MAC</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMAC-SHA-1</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA-256</td>
+<td>1</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA-384</td>
+<td>2</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA-512</td>
+<td>3</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA3-256</td>
+<td>4</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA3-384</td>
+<td>5</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>HMAC-SHA3-512</td>
+<td>6</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>TPMHMAC-SHA-1</td>
+<td>7</td>
+<td>wan24-Crypto-TPM</td>
+</tr>
+<tr>
+<td>TPMHMAC-SHA-256</td>
+<td>8</td>
+<td>wan24-Crypto-TPM</td>
+</tr>
+<tr>
+<td>TPMHMAC-SHA-384</td>
+<td>9</td>
+<td>wan24-Crypto-TPM</td>
+</tr>
+<tr>
+<td>TPMHMAC-SHA-512</td>
+<td>10</td>
+<td>wan24-Crypto-TPM</td>
+</tr>
+<tr>
+<td><strong>KDF</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PBKDF#2</td>
+<td>0</td>
+<td>wan24-Crypto</td>
+</tr>
+<tr>
+<td>Argon2id</td>
+<td>1</td>
+<td>wan24-Crypto-NaCl</td>
+</tr>
+<tr>
+<td>SP 800-108 HMAC CTR KBKDF</td>
+<td>2</td>
+<td>wan24-Crypto</td>
+</tr>
+</tbody>
+</table>
+<p>PAKE has no algorithm ID, because it doesn't match into any category (there is
+no PAKE multi-algorithm support implemented), and it's a key exchange
+protocol - but not a cryptographic algorithm.</p>
+<h2 id="counter-algorithms">Counter algorithms</h2>
+<p>A counter algorithm is being applied after the main algorithm. So the main
+algorithm result is secured by the counter algorithm result. You can use this
+in case you want to double security, for example when using post quantum
+algorithms, which may not be trustable at present.</p>
+<p>The <code>HybridAlgorithmHelper</code> allows to set default hybrid algorithms for</p>
+<ul>
+<li>key exchange in <code>KeyExchangeAlgorithm</code></li>
+<li>signature in <code>SignatureAlgorithm</code></li>
+<li>KDF in <code>KdfAlgorithm</code></li>
+<li>MAC in <code>MacAlgorithm</code></li>
+</ul>
+<p>and exports some helper methods, which are being used internal during
+encryption (you don't need to use them unless you have to). If you want the
+additional hybrid algorithms to be used every time, you can set the</p>
+<ul>
+<li><code>EncryptionHelper.UseHybridOptions</code></li>
+<li><code>AsymmetricHelper.UseHybridKeyExchangeOptions</code></li>
+<li><code>AsymmetricHelper.UseHybridSignatureOptions</code></li>
+</ul>
+<p>to <code>true</code> to extend used <code>CryptoOptions</code> instances by the algorithms defined
+in the <code>HybridAlgorithmHelper</code> properties.</p>
+<p><strong>WARNING</strong>: The <code>HybridAlgorithmHelper</code> counter MAC implementation isn't
+really good - it's only a trade-off to gain compatibility and performance. You
+should consinder to create a counter MAC from the whole raw data manually, if
+possible, instead.</p>
+<h3 id="post-quantum-safety">Post quantum safety</h3>
+<p>Some of the used cryptographic algorithms are quantum safe already, but
+especially the asymmetric algorithms are not post quantum safe at all. If you
+use an extension library which offers asymmetric post quantum safe algorithms
+for key exchange and signature, you can enforce post quantum safety for all
+used default algorithms by calling <code>CryptoHelper.ForcePostQuantumSafety</code>. This
+method will ensure that all used default algorithms are post quantum safe. In
+case it's not possible to use post quantum algorithms for all defaults, this
+method will throw an exception.</p>
+<p><strong>NOTE</strong>: AES-256, and SHA-384+, SHA3 and Shake128/256 (and HMAC-SHA-384+ and
+HMAC-SHA3-*) are considered to be post quantum-safe algorithms, while
+currently no post quantum-safe asymmetric algorithms are implemented in this
+main library (<code>wan24-Crypto-BC</code> does implement some), since .NET doesn't offer
+any API (this may change with coming .NET releases).</p>
+<p><strong>NOTE</strong>: While SHA3 and Shake128/256 (KECCAK) was designed for post quantum
+safety, AES-256 and SHA-384+ (SHA2) wasn't and is only considered to be post
+quantum safe because of its key/output length (this also applies to the
+HMACs). While the post quantum safety of SHA3 and Shake218/256 should stay
+stable, key/output length based considerations may be reconsidered from time
+to time, based on the recent quantum computing capabilities available.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p><code>wan24-Crypto</code> and provided sub-libraries are provided &quot;as is&quot;, without any
+warranty of any kind. Please read the license for the full disclaimer.</p>
+<p>This library uses the available .NET cryptographic algorithms and doesn't
+implement any &quot;selfmade&quot; cryptographic algorithms. Extension libraries may add
+other well known third party cryptographic algorithm libraries, like Bouncy
+Castle. Also &quot;selfmade&quot; cryptographic algorithms may be implemented as
+extensions.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto Docs/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      (c) 2023 Andreas Zimmermann, wan24.de
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

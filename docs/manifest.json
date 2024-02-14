@@ -4,6 +4,16 @@
   "files": [
     {
       "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
