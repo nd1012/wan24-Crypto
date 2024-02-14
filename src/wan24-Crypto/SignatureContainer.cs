@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Object version
         /// </summary>
-        public const int VERSION = 1;
+        public const int VERSION = 2;
         /// <summary>
         /// Nonce length in bytes
         /// </summary>
@@ -54,9 +54,9 @@ namespace wan24.Crypto
             AsymmetricCounterAlgorithm = counterSigner?.Algorithm.Name;
             SignedDataHash = signedDataHash;
             Signer = signer.ID;
-            SignerPublicKeyData = signer.PublicKey.KeyData.Array.CloneArray();
+            SignerPublicKeyData = signer.PublicKey.Export();
             CounterSigner = counterSigner?.ID;
-            CounterSignerPublicKeyData = counterSigner?.PublicKey.KeyData.Array.CloneArray();
+            CounterSignerPublicKeyData = counterSigner?.PublicKey.Export();
             Purpose = purpose;
         }
 
@@ -141,7 +141,19 @@ namespace wan24.Crypto
             {
                 try
                 {
-                    IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey(SignerPublicKeyData.CloneArray());
+                    IAsymmetricPublicKey res;
+                    if (SerializedObjectVersion.HasValue)
+                    {
+                        res = SerializedObjectVersion.Value switch// Object version switch
+                        {
+                            1 => AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey(SignerPublicKeyData),
+                            _ => AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data"),
+                        };
+                    }
+                    else
+                    {
+                        res = AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data");
+                    }
                     try
                     {
                         return (ISignaturePublicKey)res;
@@ -174,9 +186,21 @@ namespace wan24.Crypto
                 if (AsymmetricCounterAlgorithm is null) return null;
                 try
                 {
-                    IAsymmetricPublicKey res = AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(
-                        CounterSignerPublicKeyData?.CloneArray() ?? throw new InvalidDataException("No counter signer public key data")
-                        );
+                    IAsymmetricPublicKey res;
+                    if (SerializedObjectVersion.HasValue)
+                    {
+                        res = SerializedObjectVersion.Value switch// Object version switch
+                        {
+                            1 => AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(CounterSignerPublicKeyData
+                                                                ?? throw new InvalidDataException("No counter signer public key data")),
+                            _ => AsymmetricKeyBase.Import(CounterSignerPublicKeyData ?? throw new InvalidDataException("No counter signer public key data")) as IAsymmetricPublicKey
+                                                                ?? throw new InvalidDataException("Failed to import counter signer public key data"),
+                        };
+                    }
+                    else
+                    {
+                        res = AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data");
+                    }
                     try
                     {
                         return (ISignaturePublicKey)res;

@@ -566,7 +566,7 @@ namespace wan24.Crypto
         }
 
         /// <summary>
-        /// Get the default options used by the hash helper
+        /// Get the default options used by the encryption helper
         /// </summary>
         /// <param name="options">Options</param>
         /// <returns>Options</returns>
