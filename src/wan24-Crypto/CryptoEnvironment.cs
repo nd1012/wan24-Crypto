@@ -77,6 +77,8 @@ namespace wan24.Crypto
             if (options.DefaultRequireSerial.HasValue) SignedAttributes.ValidationOptions.DefaultRequireSerial = options.DefaultRequireSerial.Value;
             if (options.AdditionalValidation is not null) SignedAttributes.AdditionalValidation = options.AdditionalValidation;
             if (options.AdditionalValidationAsync is not null) SignedAttributes.AdditionalValidationAsync = options.AdditionalValidationAsync;
+            if (options.SignatureContainerMaxArrayLength.HasValue) SignatureContainer.MaxArrayLength = options.SignatureContainerMaxArrayLength.Value;
+            if (options.AsymmetricKeyMaxArrayLength.HasValue) AsymmetricKeyBase.MaxArrayLength = options.AsymmetricKeyMaxArrayLength.Value;
         }
 
         /// <summary>

@@ -21,6 +21,11 @@ namespace wan24.Crypto
         /// <param name="algorithm">Algorithm name</param>
         protected AsymmetricKeyBase(string algorithm) : base(VERSION) => Algorithm = AsymmetricHelper.GetAlgorithm(algorithm);
 
+        /// <summary>
+        /// Max. array length in serialized data in bytes
+        /// </summary>
+        public static int MaxArrayLength { get; set; } = ushort.MaxValue << 2;
+
         /// <inheritdoc/>
         [CountLimit(HashSha512Algorithm.HASH_LENGTH)]
         public abstract byte[] ID { get; }
@@ -86,7 +91,7 @@ namespace wan24.Crypto
         {
             if (stream.ReadNumber<int>() != Algorithm.Value) throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
-            KeyData = new(stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value);
+            KeyData = new(stream.ReadBytes(version, minLen: 1, maxLen: MaxArrayLength).Value);
         }
 
         /// <summary>
@@ -100,7 +105,7 @@ namespace wan24.Crypto
             if (await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext() != Algorithm.Value)
                 throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
-            KeyData = new((await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value);
+            KeyData = new((await stream.ReadBytesAsync(version, minLen: 1, maxLen: MaxArrayLength, cancellationToken: cancellationToken).DynamicContext()).Value);
         }
 
         /// <inheritdoc/>
@@ -132,7 +137,7 @@ namespace wan24.Crypto
                 : TypeHelper.Instance.GetType(typeName) ?? throw new InvalidDataException($"Failed to get serialized asymmetric key type \"{typeName}\"");// For downward compatibility
             if (!typeof(T).IsAssignableFrom(type) || type.IsAbstract || type.IsInterface)
                 throw new InvalidDataException($"Type {type} isn't a valid asymmetric key type (expected {typeof(T)})");
-            keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: ushort.MaxValue).Value;
+            keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: MaxArrayLength).Value;
             if (ms.Position != ms.Length) throw new InvalidDataException("Didn't use all available key data for deserializing asymmetric key");
             byte[] data = keyData.CloneArray();
             try
