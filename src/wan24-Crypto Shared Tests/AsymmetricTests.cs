@@ -53,10 +53,10 @@ namespace wan24.Crypto.Tests
                     Assert.IsTrue(privateKey.ID.SequenceEqual(imported.ID));
                     Assert.AreEqual(privateKey.Bits, imported.Bits);
                     IAsymmetricPublicKey? importedPublicKey = importedPrivateKey.PublicKey;
+                    serialized = importedPublicKey.Export();
+                    importedPublicKey = AsymmetricKeyBase.Import(serialized) as IAsymmetricPublicKey;
                     try
                     {
-                        serialized = importedPublicKey.Export();
-                        importedPublicKey = AsymmetricKeyBase.Import(serialized) as IAsymmetricPublicKey;
                         Assert.IsTrue(importedPublicKey is not null);
                         Assert.IsTrue(privateKey.PublicKey.ID.SequenceEqual(importedPublicKey.ID));
                         Assert.IsTrue(privateKey.ID.SequenceEqual(importedPublicKey.ID));

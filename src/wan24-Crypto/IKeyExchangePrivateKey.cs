@@ -8,14 +8,14 @@
         /// <summary>
         /// Get key exchange data
         /// </summary>
-        /// <param name="publicKey">Peer public key</param>
+        /// <param name="publicKey">Peer public key (won't be disposed)</param>
         /// <param name="options">Options</param>
         /// <returns>Derived key and key exchange data</returns>
         (byte[] Key, byte[] KeyExchangeData) GetKeyExchangeData(IAsymmetricPublicKey? publicKey = null, CryptoOptions? options = null);
         /// <summary>
         /// Get the derived key from a public key
         /// </summary>
-        /// <param name="publicKey">Public key</param>
+        /// <param name="publicKey">Public key (won't be disposed)</param>
         /// <returns>Derived key</returns>
         byte[] DeriveKey(IAsymmetricPublicKey publicKey);
     }

@@ -13,7 +13,7 @@
         /// <summary>
         /// Derive a key from key exchange data
         /// </summary>
-        /// <param name="keyExchangeData">Key exchange data</param>
+        /// <param name="keyExchangeData">Key exchange data (will be cleared!)</param>
         /// <returns>Derived key</returns>
         public byte[] DeriveKey(byte[] keyExchangeData);
     }

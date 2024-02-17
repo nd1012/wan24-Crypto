@@ -1,5 +1,4 @@
 ﻿using wan24.Core;
-using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
 namespace wan24.Crypto
@@ -20,15 +19,20 @@ namespace wan24.Crypto
         public KeyExchangeDataContainer() : base(VERSION) { }
 
         /// <summary>
+        /// Max. key exchange data length in bytes
+        /// </summary>
+        public static int MaxKeyExchangeDataLength { get; set; } = ushort.MaxValue;
+
+        /// <summary>
         /// Key exchange data
         /// </summary>
-        [CountLimit(1, ushort.MaxValue)]
+        [RuntimeCountLimit("wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength", min: 1)]
         public byte[] KeyExchangeData { get; set; } = null!;
 
         /// <summary>
         /// Counter key exchange data
         /// </summary>
-        [CountLimit(1, ushort.MaxValue)]
+        [RuntimeCountLimit("wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength", min: 1)]
         public byte[]? CounterKeyExchangeData { get; set; }
 
         /// <summary>
