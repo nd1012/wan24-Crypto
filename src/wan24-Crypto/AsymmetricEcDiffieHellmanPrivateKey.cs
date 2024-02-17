@@ -96,8 +96,7 @@ namespace wan24.Crypto
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
-                byte[] publicKeyData = PublicKey.KeyData.Array.CloneArray();
-                return (DeriveKey(publicKeyData), publicKeyData);
+                return (DeriveKey(PublicKey.KeyData.Array.CloneArray()), PublicKey.KeyData.Array.CloneArray());
             }
             catch (CryptographicException)
             {
