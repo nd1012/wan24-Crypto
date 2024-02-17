@@ -1746,6 +1746,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricKeyBase.KeyData
   nameWithType: AsymmetricKeyBase.KeyData
+- uid: wan24.Crypto.AsymmetricKeyBase.MaxArrayLength
+  name: MaxArrayLength
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_MaxArrayLength
+  commentId: P:wan24.Crypto.AsymmetricKeyBase.MaxArrayLength
+  fullName: wan24.Crypto.AsymmetricKeyBase.MaxArrayLength
+  nameWithType: AsymmetricKeyBase.MaxArrayLength
+- uid: wan24.Crypto.AsymmetricKeyBase.MaxArrayLength*
+  name: MaxArrayLength
+  href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_MaxArrayLength_
+  commentId: Overload:wan24.Crypto.AsymmetricKeyBase.MaxArrayLength
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricKeyBase.MaxArrayLength
+  nameWithType: AsymmetricKeyBase.MaxArrayLength
 - uid: wan24.Crypto.AsymmetricKeyBase.Serialize(System.IO.Stream)
   name: Serialize(Stream)
   href: api/wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Serialize_System_IO_Stream_
@@ -7458,6 +7471,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.AdditionalValidationAsync
   nameWithType: CryptoEnvironment.Options.AdditionalValidationAsync
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+  name: AsymmetricKeyMaxArrayLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeyMaxArrayLength
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength*
+  name: AsymmetricKeyMaxArrayLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeyMaxArrayLength_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
 - uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
   name: AsymmetricKeySigner
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeySigner
@@ -8095,6 +8121,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.SeedConsumer
   nameWithType: CryptoEnvironment.Options.SeedConsumer
+- uid: wan24.Crypto.CryptoEnvironment.Options.SignatureContainerMaxArrayLength
+  name: SignatureContainerMaxArrayLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SignatureContainerMaxArrayLength
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.SignatureContainerMaxArrayLength
+  fullName: wan24.Crypto.CryptoEnvironment.Options.SignatureContainerMaxArrayLength
+  nameWithType: CryptoEnvironment.Options.SignatureContainerMaxArrayLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.SignatureContainerMaxArrayLength*
+  name: SignatureContainerMaxArrayLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SignatureContainerMaxArrayLength_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.SignatureContainerMaxArrayLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.SignatureContainerMaxArrayLength
+  nameWithType: CryptoEnvironment.Options.SignatureContainerMaxArrayLength
 - uid: wan24.Crypto.CryptoEnvironment.Options.SkipPakeSignatureKeyValidation
   name: SkipPakeSignatureKeyValidation
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_SkipPakeSignatureKeyValidation
@@ -26968,6 +27007,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.SignatureContainer.HashAlgorithm
   nameWithType: SignatureContainer.HashAlgorithm
+- uid: wan24.Crypto.SignatureContainer.MaxArrayLength
+  name: MaxArrayLength
+  href: api/wan24.Crypto.SignatureContainer.html#wan24_Crypto_SignatureContainer_MaxArrayLength
+  commentId: P:wan24.Crypto.SignatureContainer.MaxArrayLength
+  fullName: wan24.Crypto.SignatureContainer.MaxArrayLength
+  nameWithType: SignatureContainer.MaxArrayLength
+- uid: wan24.Crypto.SignatureContainer.MaxArrayLength*
+  name: MaxArrayLength
+  href: api/wan24.Crypto.SignatureContainer.html#wan24_Crypto_SignatureContainer_MaxArrayLength_
+  commentId: Overload:wan24.Crypto.SignatureContainer.MaxArrayLength
+  isSpec: "True"
+  fullName: wan24.Crypto.SignatureContainer.MaxArrayLength
+  nameWithType: SignatureContainer.MaxArrayLength
 - uid: wan24.Crypto.SignatureContainer.NONCE_LENGTH
   name: NONCE_LENGTH
   href: api/wan24.Crypto.SignatureContainer.html#wan24_Crypto_SignatureContainer_NONCE_LENGTH

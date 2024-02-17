@@ -62,9 +62,6 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="wan24-crypto">wan24-Crypto</h1>
 
-<p><strong>NOTE</strong>: .NET 8 support is pending, 'cause current Windows 11 updates didn't
-include support for SHA3 yet. As soon as SHA3 is being supported, there'll be
-a release update to 2.0.0.</p>
 <p>This library exports a generic high level crypto API, which allows to use an
 implemented cryptographic algorithm to be applied using a simple interface. It
 also implements abstract and configurable RNG handling, which uses a local
@@ -228,7 +225,9 @@ services:</p>
 <pre><code class="lang-cs">builder.Services.AddWan24Crypto();
 </code></pre>
 <p><strong>WARNING</strong>: The factory default algorithms may not be available on every
-platform!</p>
+platform! The <code>wan24-Crypto-BC</code> extension library contains pure .NET
+implementations of most algorithms from <code>wan24-Crypto</code>, which can be used
+instead.</p>
 <h3 id="hashing">Hashing</h3>
 <pre><code class="lang-cs">byte[] hash = rawData.Hash();
 </code></pre>
@@ -259,22 +258,24 @@ only used during encryption, if it is different from the encryption key.</p>
 <pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64);
 </code></pre>
 <p>The default KDF algorithm is PBKDF#2, using 250,000 iterations, with a salt
-length of 16 byte, and SHA3-384 for hashing.</p>
+length of 16 byte and SHA3-384 for hashing.</p>
+<p><strong>TIP</strong>: You may override the default hash algorithm which is being used in a
+new options instance in the static <code>KdfPbKdf2Options.DefaultHashAlgorithm</code>
+property.</p>
 <p>Example options usage:</p>
 <pre><code class="lang-cs">(byte[] stretchedPassword, byte[] salt) = password.Stretch(len: 64, options: new KdfPbKdf2Options()
     {
         HashAlgorithm = HashSha3_512Algorithm.ALGORITHM_NAME
     });// KdfPbKdf2Options cast implicit to CryptoOptions
 </code></pre>
-<p><strong>TIP</strong>: You may override the default hash algorithm which is being used in a
-new options instance in the static <code>DefaultHashAlgorithm</code> property.</p>
 <p><strong>NOTE</strong>: The SP 800-108 HMAC CTR KBKDF algorithm isn't available in a WASM
 app, and there's currently no pure .NET replacement included in the
 <code>wan24-Crypto-BC</code> library. It doesn't support iterations and salt (but a label
-and context value instead). Not all hash algorithms may be supported.</p>
+and context value instead). Not all hash algorithms may be supported (you'll
+need to register custom hash algorithms to the .NET <code>CryptoConfig</code>).</p>
 <h3 id="encryption">Encryption</h3>
 <pre><code class="lang-cs">byte[] cipher = raw.Encrypt(password);
-byte[] raw = cipher.Decrypt(password);
+byte[] decrypted = cipher.Decrypt(password);
 </code></pre>
 <p>There are extension methods for memory and streams.</p>
 <p>The default algorithms used:</p>
@@ -288,10 +289,10 @@ byte[] raw = cipher.Decrypt(password);
 <tbody>
 <tr>
 <td>Symmetric encryption</td>
-<td>AES-256-CBC (HMAC secured and Brotli compressed)</td>
+<td>AES-256-CBC</td>
 </tr>
 <tr>
-<td>HMAC</td>
+<td>MAC</td>
 <td>HMAC-SHA3-512</td>
 </tr>
 <tr>
@@ -299,8 +300,12 @@ byte[] raw = cipher.Decrypt(password);
 <td>PBKDF#2</td>
 </tr>
 <tr>
-<td>Asymmetric key exchange and digital signature</td>
-<td>Diffie Hellman secp521r1</td>
+<td>Asymmetric key exchange</td>
+<td>EC Diffie Hellman</td>
+</tr>
+<tr>
+<td>Asymmetric digital signature</td>
+<td>EC DSA</td>
 </tr>
 </tbody>
 </table>
@@ -313,7 +318,7 @@ final encryption password is going to be used instead.</p>
 decryption later):</p>
 <pre><code class="lang-cs">using IAsymmetricPrivateKey privateKey = AsymmetricHelper.CreateKeyExchangeKeyPair();
 byte[] cipher = raw.Encrypt(privateKey);
-byte[] raw = cipher.Decrypt(privateKey);
+byte[] decrypted = cipher.Decrypt(privateKey);
 </code></pre>
 <p>In case you want to encrypt for a peer using the peers asymmetric public key
 for performing a PFS key exchange:</p>
@@ -332,7 +337,7 @@ using(IKeyExchangePrivateKey pfsKey = AsymmetricHelper.CreateKeyExchangeKeyPair(
     cipher = raw.Encrypt(pfsKey, options);// Only the peer can decrypt the cipher after pfsKey was disposed
 
 // Decryption at the peer
-byte[] raw = cipher.Decrypt(peerPrivateKey, options);
+byte[] decrypted = cipher.Decrypt(peerPrivateKey, options);
 </code></pre>
 <h4 id="time-critical-decryption">Time critical decryption</h4>
 <p>It's possible to define a maximum age for cipher data, which can't be
@@ -350,17 +355,30 @@ options = new()
     RequireTime = true,
     MaximumAge = TimeSpan.FromSeconds(10)
 }
-byte[] raw = cipher.Decrypt(password, options);
+byte[] decrypted = cipher.Decrypt(password, options);
 </code></pre>
 <p>By defining <code>CryptoOptions.MaximumTimeOffset</code> you may define a time tolerance
 which is being used to be tolerant with peers having a slightly different
 system time.</p>
+<h4 id="password-pre-processing">Password pre-processing</h4>
+<p>The <code>CryptoOptions.EncryptionPassword(Async)PreProcessor</code> delegates may pre-
+process an encryption password from <code>CryptoOptions.Password</code> before the key
+bytes are being finalized for use with the desired crypto engine. Key
+derivation from asymmetric keys and KDF are being applied before.</p>
+<p>The asynchronous delegate will only be used during asynchronous operations,
+while the synchronous delegate is a fallback during asynchronous operations,
+if no asynchronous delegate was set.</p>
+<p>The delegate itself need to set the final key to use to
+<code>CryptoOptions.Password</code> and should clear the current value.</p>
+<p><strong>TIP</strong>: For setting a new password to <code>CryptoOptions.Password</code> use the
+<code>CryptoOptions.SetNewPassword</code> method. This method will clear the previous
+value, if any.</p>
 <h3 id="asymmetric-keys">Asymmetric keys</h3>
 <h4 id="key-exchange">Key exchange</h4>
 <p>PFS example:</p>
 <pre><code class="lang-cs">// A: Create a key pair
 using IKeyExchangePrivateKey privateKeyA = AsymmetricHelper.CreateKeyExchangeKeyPair();
-byte[] publicKeyData = (byte[])privateKeyA.PublicKey;// Needs to be available at B
+byte[] publicKeyData = (byte[])privateKeyA.PublicKey.Export();// publicKeyData needs to be available at B
 
 // B: Create a key pair, key exchange data and derive the shared key
 using IAsymmetricPublicKey publicKeyA = AsymmetricKeyBase.Import&lt;IAsymmetricPublicKey&gt;(publicKeyData);// Deserialize the peers public key of any format
@@ -369,7 +387,7 @@ using IKeyExchangePrivateKey privateKeyB = AsymmetricHelper.CreateKeyExchangeKey
     AsymmetricAlgorithm = publicKeyA.Algorithm.Name,
     AsymmetricKeyBits = publicKeyA.Bits
 });
-(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKey);// Needs to be available at A
+(byte[] keyB, byte[] keyExchangeData) = privateKeyB.GetKeyExchangeData(publicKeyA);// keyExchangeData needs to be available at A
 
 // A: Derive the exchanged key
 byte[] keyA = privateKeyA.DeriveKey(keyExchangeData);
@@ -377,6 +395,29 @@ byte[] keyA = privateKeyA.DeriveKey(keyExchangeData);
 Assert.IsTrue(keyA.SequenceEquals(keyB));
 </code></pre>
 <p>The default key exchange algorithm is ECDH from a secp521r1 elliptic curve.</p>
+<h5 id="ikeyexchange-interface"><code>IKeyExchange</code> interface</h5>
+<p>All asymmetric private keys which can be used for a key exchange implement the
+<code>IKeyExchange</code> interface. This interface is also used for PAKE, for example.
+By working with this interface, it's possible to implement more abstract key
+exchange routines:</p>
+<pre><code class="lang-cs">// Initiator side
+(byte[] keyA, byte[] keyExchangeData) = initiatorKeyExchangeProcessor.GetKeyExchangeData();
+
+// Transfer keyExchangeData to the peer using a secure communication channel
+
+// Peer side
+byte[] keyB = peerKeyExchangeProcessor.DeriveKey(keyExchangeData);
+
+Assert.IsTrue(keyA.SequenceEquals(keyB));
+</code></pre>
+<p><code>initiatorKeyExchangeProcessor</code> and <code>peerKeyExchangeProcessor</code> are
+<code>IKeyExchange</code> instances and may be an asymmetric private key, or a PAKE
+instance, for example.</p>
+<p>Both peers need to agree to the same key exchange method, first. And both
+peers need to use a key exchange processor which can produce/take the key
+exchange data of the initiator.</p>
+<p><strong>NOTE</strong>: The <code>PrivateKeySuite</code> implements <code>IKeyExchange</code> using the managed
+<code>KeyExchangeKey</code>, if any.</p>
 <h4 id="digital-signature">Digital signature</h4>
 <pre><code class="lang-cs">// Create a key pair for signature
 using ISignaturePrivateKey privateKey = AsymmetricHelper.CreateSignatureKeyPair();
@@ -435,7 +476,7 @@ serious key protection:</p>
 </code></pre>
 <p><strong>NOTE</strong>: While the <code>Set</code> method requires a <code>ISecureValue</code>, the <code>Set2</code> method
 creates a <code>SecureValue</code> from the <code>protectionKey</code> byte array parameter. The
-<code>(Try)Get</code> methods will return the final key to use (after HMAC, if
+<code>(Try)Get</code> methods will return the final key to use (after MAC, if
 applicable). Stored keys will be protected for the according scope using
 <code>ValueProtection</code>.</p>
 <p>You may use the extension method <code>ValueProtectionLevels.*.Protect/Unprotect</code>
@@ -443,7 +484,7 @@ for protecting/unprotecting a value, or the raw protection key which is being
 returned from the <code>ValueProtectionKeys.(Try)Get</code> methods for applying
 en-/decryption of values by yourself.</p>
 <p>To determine the capabilities of a protection level, you can use these
-extension methods:</p>
+<code>ValueProtectionLevels</code> extension methods:</p>
 <ul>
 <li><code>RequiresPasswordInput</code>: If a manual entered user password is required</li>
 <li><code>RequiresTpm</code>: If a TPM is required</li>
@@ -480,6 +521,24 @@ sections, it's easy to overview:</p>
 <td><code>Algorithm</code></td>
 <td>Encryption algorithm name</td>
 <td><code>null</code> (<code>AES256CBC</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>EncryptionOptions</code></td>
+<td>String serialized encryption options</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>EncryptionPasswordPreProcessor</code></td>
+<td>Delegate for pre-processing an encryption password (the default can be set to <code>DefaultEncryptionPasswordPreProcessor</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>EncryptionPasswordAsyncPreProcessor</code></td>
+<td>Delegate for pre-processing an encryption password (only applied during asynchronous operation; the default can be set to <code>DefaultEncryptionPasswordAsyncPreProcessor</code>)</td>
+<td><code>null</code></td>
 </tr>
 <tr>
 <td></td>
@@ -582,6 +641,12 @@ sections, it's easy to overview:</p>
 <td><code>AsymmetricAlgorithm</code></td>
 <td>Asymmetric algorithm name</td>
 <td><code>null</code> (<code>ECDH</code> for encryption, <code>ECDSA</code> for signature)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>AsymmetricAlgorithmOptions</code></td>
+<td>String serialized algorithm options</td>
+<td><code>null</code></td>
 </tr>
 <tr>
 <td></td>
@@ -987,6 +1052,10 @@ wich contains some examples/suggestions for signed attributes and their names.</
 <td>Allowed usages for the signed key</td>
 </tr>
 <tr>
+<td>PkiSig</td>
+<td>Permitted to sign sub-keys</td>
+</tr>
+<tr>
 <td>KePublicKey</td>
 <td>Identifier of the public key for the key exchange with the owner</td>
 </tr>
@@ -1015,9 +1084,9 @@ wich contains some examples/suggestions for signed attributes and their names.</
 <p>Some key meta data like the creation and expiration time, or a nonce, is
 included in a lower level in the <code>AsymmetricSignedPublicKey</code> already, and
 don't need to appear in the signed attribute list again.</p>
-<p>A key signing request may algo contain more attributes than the final signed
-key, if you want to give signing instructions to the PKI, for example. The PKI
-may remove/replace those instructions, for example.</p>
+<p>A key signing request may also contain more attributes than the final signed
+key, if you want to give signing instructions to the PKI. The PKI may
+remove/replace/extend those instructions for signing.</p>
 <p>As said before, the list above doesn't need to be implemented fully, and it
 may be extended with any attribute that your PKI requires in addition. There
 are only suggestions for value formats - but how you implement it finally, is
@@ -1031,6 +1100,16 @@ expired.</p>
 handler, which supports the attributes from above. You should implement
 algorithm validation etc. for a key signing request by yourself, since such
 requirements are not really good to match with a basic API.</p>
+<p>For validating the signed attributes of a signing request or a signed key, you
+can use the <code>SignedAttributes.Validate(Async)</code> methods. Using the
+<code>SignedAttributes.ValidationOptions</code> you can specify common restrictions for
+the above listed default attributes. The validation will be executed also, if
+<code>AsymmetricSignedPublicKey.Validate(Async)</code> was called. For additional
+attribute validations you can set
+<code>SignedAttributes.AdditionalValidation(Async)</code> handlers. If no public key
+suite store was given, key exchange/signature keys will be looked up in the
+PKI, which was given in the options (<code>CryptoEnvironment.PKI</code> is being used per
+default).</p>
 <h2 id="pake">PAKE</h2>
 <p><code>Pake</code> (see tests) can be used for implementing a password authenticated key
 exchange, which should be wrapped with a PFS protocol in addition. PAKE uses
@@ -1520,6 +1599,36 @@ are the official implementation IDs (not guaranteed to be complete):</p>
 <tr>
 <td>X448</td>
 <td>11</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XEd25519</td>
+<td>12</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>XEd448</td>
+<td>13</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Streamlined NTRU Prime</td>
+<td>14</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>BIKE</td>
+<td>15</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>HQC</td>
+<td>16</td>
+<td>wan24-Crypto-BC</td>
+</tr>
+<tr>
+<td>Picnic</td>
+<td>17</td>
 <td>wan24-Crypto-BC</td>
 </tr>
 <tr>
