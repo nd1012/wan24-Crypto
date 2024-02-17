@@ -146,22 +146,14 @@ namespace wan24.Crypto
             {
                 try
                 {
-                    IAsymmetricPublicKey res;
-                    if (SerializedObjectVersion.HasValue)
+                    IAsymmetricPublicKey res = (SerializedObjectVersion ?? VERSION) switch// Object version switch
                     {
-                        res = SerializedObjectVersion.Value switch// Object version switch
-                        {
-                            1 => AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey(SignerPublicKeyData),
-                            _ => AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data"),
-                        };
-                    }
-                    else
-                    {
-                        res = AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data");
-                    }
+                        1 => AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm).DeserializePublicKey(SignerPublicKeyData),
+                        _ => AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data"),
+                    };
                     try
                     {
-                        return (ISignaturePublicKey)res;
+                        return res as ISignaturePublicKey ?? throw new InvalidDataException("Signer public key isn't a signature key");
                     }
                     catch
                     {
@@ -191,24 +183,14 @@ namespace wan24.Crypto
                 if (AsymmetricCounterAlgorithm is null) return null;
                 try
                 {
-                    IAsymmetricPublicKey res;
-                    if (SerializedObjectVersion.HasValue)
+                    IAsymmetricPublicKey res = (SerializedObjectVersion ?? VERSION) switch// Object version switch
                     {
-                        res = SerializedObjectVersion.Value switch// Object version switch
-                        {
-                            1 => AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(CounterSignerPublicKeyData
-                                                                ?? throw new InvalidDataException("No counter signer public key data")),
-                            _ => AsymmetricKeyBase.Import(CounterSignerPublicKeyData ?? throw new InvalidDataException("No counter signer public key data")) as IAsymmetricPublicKey
-                                                                ?? throw new InvalidDataException("Failed to import counter signer public key data"),
-                        };
-                    }
-                    else
-                    {
-                        res = AsymmetricKeyBase.Import(SignerPublicKeyData) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import signer public key data");
-                    }
+                        1 => AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm).DeserializePublicKey(CounterSignerPublicKeyData!),
+                        _ => AsymmetricKeyBase.Import(CounterSignerPublicKeyData!) as IAsymmetricPublicKey ?? throw new InvalidDataException("Failed to import counter signer public key data"),
+                    };
                     try
                     {
-                        return (ISignaturePublicKey)res;
+                        return res as ISignaturePublicKey ?? throw new InvalidDataException("Counter signer public key isn't a signature key");
                     }
                     catch
                     {
@@ -435,7 +417,7 @@ namespace wan24.Crypto
         /// <param name="forCounterSignature">For counter signature?</param>
         private void CreateSignedData(bool forCounterSignature)
         {
-            using MemoryStream ms = new();
+            using MemoryPoolStream ms = new();
             ms.WriteSerializerVersion()
                 .WriteNumber(VERSION)
                 .WriteBytes(Nonce)
@@ -476,9 +458,9 @@ namespace wan24.Crypto
             AsymmetricCounterAlgorithm = ms.ReadStringNullable(ssv, minLen: 1, maxLen: byte.MaxValue);
             SignedDataHash = ms.ReadBytes(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
             Signature = ms.ReadBytes(ssv, minLen: 0, maxLen: MaxArrayLength).Value;
-            Signer = ms.ReadBytes(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
+            Signer = ms.ReadBytes(ssv, minLen: HashSha512Algorithm.HASH_LENGTH, maxLen: HashSha512Algorithm.HASH_LENGTH).Value;
             SignerPublicKeyData = ms.ReadBytes(ssv, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength).Value;
-            CounterSigner = ms.ReadBytesNullable(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue)?.Value;
+            CounterSigner = ms.ReadBytesNullable(ssv, minLen: HashSha512Algorithm.HASH_LENGTH, maxLen: HashSha512Algorithm.HASH_LENGTH)?.Value;
             CounterSignerPublicKeyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength)?.Value;
             Purpose = ms.ReadStringNullable(ssv, minLen: 1, maxLen: ushort.MaxValue);
             // Apply RNG seeding
