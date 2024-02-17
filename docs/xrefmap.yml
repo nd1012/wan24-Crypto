@@ -8030,6 +8030,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.FillRandomBytesAsync
   nameWithType: CryptoEnvironment.Options.FillRandomBytesAsync
+- uid: wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
+  name: MaxKeyExchangeDataLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MaxKeyExchangeDataLength
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
+  nameWithType: CryptoEnvironment.Options.MaxKeyExchangeDataLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength*
+  name: MaxKeyExchangeDataLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MaxKeyExchangeDataLength_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
+  nameWithType: CryptoEnvironment.Options.MaxKeyExchangeDataLength
 - uid: wan24.Crypto.CryptoEnvironment.Options.PKI
   name: PKI
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_PKI
@@ -19647,6 +19660,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.KeyExchangeDataContainer.KeyExchangeData
   nameWithType: KeyExchangeDataContainer.KeyExchangeData
+- uid: wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength
+  name: MaxKeyExchangeDataLength
+  href: api/wan24.Crypto.KeyExchangeDataContainer.html#wan24_Crypto_KeyExchangeDataContainer_MaxKeyExchangeDataLength
+  commentId: P:wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength
+  fullName: wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength
+  nameWithType: KeyExchangeDataContainer.MaxKeyExchangeDataLength
+- uid: wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength*
+  name: MaxKeyExchangeDataLength
+  href: api/wan24.Crypto.KeyExchangeDataContainer.html#wan24_Crypto_KeyExchangeDataContainer_MaxKeyExchangeDataLength_
+  commentId: Overload:wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyExchangeDataContainer.MaxKeyExchangeDataLength
+  nameWithType: KeyExchangeDataContainer.MaxKeyExchangeDataLength
 - uid: wan24.Crypto.KeyExchangeDataContainer.Serialize(System.IO.Stream)
   name: Serialize(Stream)
   href: api/wan24.Crypto.KeyExchangeDataContainer.html#wan24_Crypto_KeyExchangeDataContainer_Serialize_System_IO_Stream_
