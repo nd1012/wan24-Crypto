@@ -519,7 +519,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
+            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: SignatureContainer.MaxArrayLength << 1).Value;
             DeserializeSignedData();
             Signature = stream.ReadSerialized<SignatureContainer>(version);
         }
@@ -527,7 +527,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
+            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: SignatureContainer.MaxArrayLength << 1, cancellationToken: cancellationToken).DynamicContext()).Value;
             DeserializeSignedData();
             Signature = await stream.ReadSerializedAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
         }
@@ -547,7 +547,7 @@ namespace wan24.Crypto
                 ov = ms.ReadNumber<int>(ssv);
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
             IAsymmetricPublicKey? key = null;
-            byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: short.MaxValue).Value;
+            byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength).Value;
             try
             {
                 key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);

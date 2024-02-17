@@ -61,6 +61,11 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Max. array length in serialized signature container data in bytes
+        /// </summary>
+        public static int MaxArrayLength { get; set; } = ushort.MaxValue << 2;
+
+        /// <summary>
         /// Signed time (UTC)
         /// </summary>
         public DateTime Signed { get; private set; }
@@ -98,37 +103,37 @@ namespace wan24.Crypto
         /// <summary>
         /// Signature (signs all data except the counter signature)
         /// </summary>
-        [CountLimit(1, ushort.MaxValue)]
+        [RuntimeCountLimit("wan24.Crypto.SignatureContainer.MaxArrayLength", min: 1)]
         public byte[] Signature { get; set; } = null!;
 
         /// <summary>
         /// Counter signature (signs all data including the signature)
         /// </summary>
-        [CountLimit(1, ushort.MaxValue), RequiredIf(nameof(AsymmetricCounterAlgorithm))]
+        [RuntimeCountLimit("wan24.Crypto.SignatureContainer.MaxArrayLength", min: 1), RequiredIf(nameof(CounterSigner))]
         public byte[]? CounterSignature { get; set; }
 
         /// <summary>
         /// Signer
         /// </summary>
-        [CountLimit(HashMd5Algorithm.HASH_LENGTH, byte.MaxValue)]
+        [CountLimit(HashSha512Algorithm.HASH_LENGTH, byte.MaxValue)]
         public byte[] Signer { get; private set; } = null!;
 
         /// <summary>
         /// Counter signer
         /// </summary>
-        [CountLimit(HashMd5Algorithm.HASH_LENGTH, byte.MaxValue), RequiredIf(nameof(CounterSignature))]
+        [CountLimit(HashSha512Algorithm.HASH_LENGTH, byte.MaxValue), RequiredIf(nameof(CounterSignature))]
         public byte[]? CounterSigner { get; private set; }
 
         /// <summary>
         /// Signer public key data
         /// </summary>
-        [CountLimit(1, ushort.MaxValue)]
+        [RuntimeCountLimit("wan24.Crypto.AsymmetricKeyBase.MaxArrayLength", min: 1)]
         public byte[] SignerPublicKeyData { get; private set; } = null!;
 
         /// <summary>
         /// Counter signer public key data
         /// </summary>
-        [CountLimit(1, ushort.MaxValue), RequiredIf(nameof(CounterSigner))]
+        [RuntimeCountLimit("wan24.Crypto.AsymmetricKeyBase.MaxArrayLength", min: 1), RequiredIf(nameof(CounterSigner))]
         public byte[]? CounterSignerPublicKeyData { get; private set; }
 
         /// <summary>
@@ -407,21 +412,21 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 262140).Value;
-            CounterSignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: 262140)?.Value;
+            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: MaxArrayLength << 1).Value;
+            CounterSignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: MaxArrayLength << 1)?.Value;
             DeserializeSignedData();
-            Signature = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
-            CounterSignature = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+            Signature = stream.ReadBytes(version, minLen: 1, maxLen: MaxArrayLength).Value;
+            CounterSignature = stream.ReadBytesNullable(version, minLen: 1, maxLen: MaxArrayLength)?.Value;
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 262140, cancellationToken: cancellationToken).DynamicContext()).Value;
-            CounterSignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: 262140, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: MaxArrayLength << 1, cancellationToken: cancellationToken).DynamicContext()).Value;
+            CounterSignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: MaxArrayLength << 1, cancellationToken: cancellationToken).DynamicContext())?.Value;
             DeserializeSignedData();
-            Signature = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            CounterSignature = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            Signature = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: MaxArrayLength, cancellationToken: cancellationToken).DynamicContext()).Value;
+            CounterSignature = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: MaxArrayLength, cancellationToken: cancellationToken).DynamicContext())?.Value;
         }
 
         /// <summary>
@@ -470,11 +475,11 @@ namespace wan24.Crypto
             AsymmetricAlgorithm = ms.ReadString(ssv, minLen: 1, maxLen: byte.MaxValue);
             AsymmetricCounterAlgorithm = ms.ReadStringNullable(ssv, minLen: 1, maxLen: byte.MaxValue);
             SignedDataHash = ms.ReadBytes(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
-            Signature = ms.ReadBytes(ssv, minLen: 0, maxLen: ushort.MaxValue).Value;
+            Signature = ms.ReadBytes(ssv, minLen: 0, maxLen: MaxArrayLength).Value;
             Signer = ms.ReadBytes(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue).Value;
-            SignerPublicKeyData = ms.ReadBytes(ssv, minLen: 1, maxLen: ushort.MaxValue).Value;
+            SignerPublicKeyData = ms.ReadBytes(ssv, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength).Value;
             CounterSigner = ms.ReadBytesNullable(ssv, minLen: HashMd5Algorithm.HASH_LENGTH, maxLen: byte.MaxValue)?.Value;
-            CounterSignerPublicKeyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+            CounterSignerPublicKeyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength)?.Value;
             Purpose = ms.ReadStringNullable(ssv, minLen: 1, maxLen: ushort.MaxValue);
             // Apply RNG seeding
             if ((RND.AutoRngSeeding & RngSeedingTypes.Random) == RngSeedingTypes.Random)

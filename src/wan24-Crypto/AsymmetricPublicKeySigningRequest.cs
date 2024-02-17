@@ -163,7 +163,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            SignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+            SignedData = stream.ReadBytesNullable(version, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength)?.Value;
             if (SignedData is null)
             {
                 PublicKey = stream.ReadAny(version) as IAsymmetricPublicKey ?? throw new SerializerException("Failed to deserialize the public key");
@@ -179,7 +179,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            SignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            SignedData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength, cancellationToken: cancellationToken).DynamicContext())?.Value;
             if (SignedData is null)
             {
                 PublicKey = await stream.ReadAnyAsync(version, cancellationToken: cancellationToken).DynamicContext() as IAsymmetricPublicKey ?? 
@@ -205,7 +205,7 @@ namespace wan24.Crypto
                 ov = ms.ReadNumber<int>();
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
             IAsymmetricPublicKey? key = null;
-            byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: short.MaxValue).Value;
+            byte[] keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: AsymmetricKeyBase.MaxArrayLength).Value;
             try
             {
                 key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);

@@ -320,6 +320,16 @@ namespace wan24.Crypto
             /// Additional attribute validator
             /// </summary>
             public SignedAttributes.ValidateAsync_Delegate? AdditionalValidationAsync { get; set; }
+
+            /// <summary>
+            /// Max. array length in serialized data in bytes
+            /// </summary>
+            public int? SignatureContainerMaxArrayLength { get; set; }
+
+            /// <summary>
+            /// Max. array length in serialized data in bytes
+            /// </summary>
+            public int? AsymmetricKeyMaxArrayLength { get; set; }
         }
     }
 }
