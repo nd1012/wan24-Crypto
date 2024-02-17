@@ -103,13 +103,13 @@ namespace wan24.Crypto
         /// <summary>
         /// Signature (signs all data except the counter signature)
         /// </summary>
-        [CountLimit(1, ushort.MaxValue << 2)]//TODO Use RuntimeCountLimit
+        [RuntimeCountLimit("wan24.Crypto.SignatureContainer.MaxArrayLength", min: 1)]
         public byte[] Signature { get; set; } = null!;
 
         /// <summary>
         /// Counter signature (signs all data including the signature)
         /// </summary>
-        [CountLimit(1, ushort.MaxValue << 2), RequiredIf(nameof(AsymmetricCounterAlgorithm))]//TODO Use RuntimeCountLimit
+        [RuntimeCountLimit("wan24.Crypto.SignatureContainer.MaxArrayLength", min: 1), RequiredIf(nameof(CounterSigner))]
         public byte[]? CounterSignature { get; set; }
 
         /// <summary>
@@ -127,13 +127,13 @@ namespace wan24.Crypto
         /// <summary>
         /// Signer public key data
         /// </summary>
-        [CountLimit(1, ushort.MaxValue << 2)]//TODO Use RuntimeCountLimit
+        [RuntimeCountLimit("wan24.Crypto.AsymmetricKeyBase.MaxArrayLength", min: 1)]
         public byte[] SignerPublicKeyData { get; private set; } = null!;
 
         /// <summary>
         /// Counter signer public key data
         /// </summary>
-        [CountLimit(1, ushort.MaxValue << 2), RequiredIf(nameof(CounterSigner))]//TODO Use RuntimeCountLimit
+        [RuntimeCountLimit("wan24.Crypto.AsymmetricKeyBase.MaxArrayLength", min: 1), RequiredIf(nameof(CounterSigner))]
         public byte[]? CounterSignerPublicKeyData { get; private set; }
 
         /// <summary>
