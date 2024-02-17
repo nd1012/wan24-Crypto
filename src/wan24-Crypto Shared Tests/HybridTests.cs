@@ -73,7 +73,6 @@ namespace wan24.Crypto.Tests
                 options.AsymmetricAlgorithm = privateKey.Algorithm.Name;
                 options.CounterPrivateKey = privateKey2;
                 SignatureContainer signature = privateKey.SignData(TestData.Data, "Test", options);
-                HybridAlgorithmHelper.Sign(signature, options);
                 byte[] signatureBytes = (byte[])signature;
                 signature = (SignatureContainer)signatureBytes;
                 Assert.AreEqual("Test", signature.Purpose);

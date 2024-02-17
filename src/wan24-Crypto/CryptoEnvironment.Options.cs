@@ -330,6 +330,11 @@ namespace wan24.Crypto
             /// Max. array length in serialized data in bytes
             /// </summary>
             public int? AsymmetricKeyMaxArrayLength { get; set; }
+
+            /// <summary>
+            /// Max. key exchange data length in bytes
+            /// </summary>
+            public int? MaxKeyExchangeDataLength { get; set; }
         }
     }
 }
