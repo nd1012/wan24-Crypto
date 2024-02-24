@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Frozen;
+using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using wan24.Core;
 
@@ -33,7 +34,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Allowed key sizes in bits
         /// </summary>
-        private static readonly ReadOnlyCollection<int> _AllowedKeySizes;
+        private static readonly FrozenSet<int> _AllowedKeySizes;
 
         /// <summary>
         /// Static constructor
@@ -45,14 +46,14 @@ namespace wan24.Crypto
                 256,
                 384,
                 521
-            }.AsReadOnly();
+            }.ToFrozenSet();
             Instance = new();
         }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public AsymmetricEcDsaAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) => _DefaultOptions.AsymmetricKeyBits = DefaultKeySize = DEFAULT_KEY_SIZE;
+        private AsymmetricEcDsaAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) => _DefaultOptions.AsymmetricKeyBits = DefaultKeySize = DEFAULT_KEY_SIZE;
 
         /// <summary>
         /// Instance
@@ -66,7 +67,7 @@ namespace wan24.Crypto
         public override bool IsEllipticCurveAlgorithm => true;
 
         /// <inheritdoc/>
-        public override ReadOnlyCollection<int> AllowedKeySizes => _AllowedKeySizes;
+        public override FrozenSet<int> AllowedKeySizes => _AllowedKeySizes;
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => false;

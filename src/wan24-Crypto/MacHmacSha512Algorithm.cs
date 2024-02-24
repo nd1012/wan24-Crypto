@@ -32,7 +32,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public MacHmacSha512Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        private MacHmacSha512Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
 
         /// <summary>
         /// Instance

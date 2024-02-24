@@ -10,7 +10,6 @@
     /// <param name="strict">Strict post quantum-safety?</param>
     public sealed class ForcePostQuantumEventArgs(bool firstCall, bool strict) : EventArgs()
     {
-
         /// <summary>
         /// Is the first call?
         /// </summary>

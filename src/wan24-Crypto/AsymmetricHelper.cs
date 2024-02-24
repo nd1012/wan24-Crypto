@@ -34,11 +34,11 @@ namespace wan24.Crypto
         /// </summary>
         static AsymmetricHelper()
         {
-            Algorithms = new(new KeyValuePair<string, IAsymmetricAlgorithm>[]
-            {
+            Algorithms = new(
+            [
                 new(AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME, AsymmetricEcDiffieHellmanAlgorithm.Instance),
                 new(AsymmetricEcDsaAlgorithm.ALGORITHM_NAME, AsymmetricEcDsaAlgorithm.Instance)
-            });
+            ]);
             _DefaultKeyExchangeAlgorithm = Algorithms[AsymmetricEcDiffieHellmanAlgorithm.ALGORITHM_NAME];
             _DefaultSignatureAlgorithm = Algorithms[AsymmetricEcDsaAlgorithm.ALGORITHM_NAME];
         }

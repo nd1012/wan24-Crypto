@@ -19,7 +19,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public EncryptionVoidAlgorithm():base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        private EncryptionVoidAlgorithm():base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
 
         /// <summary>
         /// Instance

@@ -49,7 +49,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE)
+        private KdfPbKdf2Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE)
         {
             _DefaultOptions.KdfAlgorithm = ALGORITHM_NAME;
             _DefaultOptions.KdfIterations = DEFAULT_ITERATIONS;

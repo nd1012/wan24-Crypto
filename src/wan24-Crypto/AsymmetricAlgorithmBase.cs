@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Frozen;
+using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using wan24.Core;
 
@@ -73,7 +74,7 @@ namespace wan24.Crypto
         public abstract bool IsEllipticCurveAlgorithm { get; }
 
         /// <inheritdoc/>
-        public abstract ReadOnlyCollection<int> AllowedKeySizes { get; }
+        public abstract FrozenSet<int> AllowedKeySizes { get; }
 
         /// <inheritdoc/>
         Type IAsymmetricAlgorithm.PrivateKeyType => PrivateKeyType;

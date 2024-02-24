@@ -3,6 +3,8 @@ using wan24.Core;
 using wan24.Crypto.Authentication;
 using wan24.StreamSerializerExtensions;
 
+//TODO Implement ChangeToken on stores
+
 [assembly: Bootstrapper(typeof(wan24.Crypto.Bootstrap), nameof(wan24.Crypto.Bootstrap.Boot))]
 
 namespace wan24.Crypto

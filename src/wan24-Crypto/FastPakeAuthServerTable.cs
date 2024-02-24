@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -10,6 +10,6 @@ namespace wan24.Crypto
         /// <summary>
         /// Servers (key is the GUID)
         /// </summary>
-        public static readonly ConcurrentDictionary<string, FastPakeAuthServer> Servers = new();
+        public static readonly ConcurrentChangeTokenDictionary<string, FastPakeAuthServer> Servers = [];
     }
 }

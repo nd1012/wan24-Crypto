@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -10,6 +10,6 @@ namespace wan24.Crypto
         /// <summary>
         /// Values (key is the GUID)
         /// </summary>
-        public static readonly ConcurrentDictionary<string, SecureValue> Values = new();
+        public static readonly ConcurrentChangeTokenDictionary<string, SecureValue> Values = [];
     }
 }

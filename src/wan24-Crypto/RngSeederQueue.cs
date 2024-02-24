@@ -12,7 +12,6 @@ namespace wan24.Crypto
     /// <param name="rng">Target RNG to seed</param>
     public class RngSeederQueue(in int capacity, in ISeedableRng rng) : ItemQueueWorkerBase<byte[]>(capacity), ISeedableRng
     {
-
         /// <summary>
         /// Seeded target RNG
         /// </summary>

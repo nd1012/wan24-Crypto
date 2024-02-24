@@ -14,7 +14,6 @@
         /// <param name="pakeServerEventArgs">Pake server event arguments of the original event</param>
         public sealed class PakeEventArgs(PakeServerAuthContext context, Pake pake, Pake.PakeServerEventArgs pakeServerEventArgs) : EventArgs()
         {
-
             /// <summary>
             /// Context
             /// </summary>

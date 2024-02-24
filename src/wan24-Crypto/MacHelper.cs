@@ -24,8 +24,8 @@ namespace wan24.Crypto
         /// </summary>
         static MacHelper()
         {
-            Algorithms = new(new KeyValuePair<string, MacAlgorithmBase>[]
-            {
+            Algorithms = new(
+            [
                 new(MacHmacSha1Algorithm.ALGORITHM_NAME, MacHmacSha1Algorithm.Instance),
                 new(MacHmacSha256Algorithm.ALGORITHM_NAME, MacHmacSha256Algorithm.Instance),
                 new(MacHmacSha384Algorithm.ALGORITHM_NAME, MacHmacSha384Algorithm.Instance),
@@ -33,7 +33,7 @@ namespace wan24.Crypto
                 new(MacHmacSha3_256Algorithm.ALGORITHM_NAME, MacHmacSha3_256Algorithm.Instance),
                 new(MacHmacSha3_384Algorithm.ALGORITHM_NAME, MacHmacSha3_384Algorithm.Instance),
                 new(MacHmacSha3_512Algorithm.ALGORITHM_NAME, MacHmacSha3_512Algorithm.Instance)
-            });
+            ]);
             _DefaultAlgorithm = MacHmacSha3_512Algorithm.Instance;
         }
 

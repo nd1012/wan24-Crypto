@@ -22,11 +22,11 @@ namespace wan24.Crypto
         /// </summary>
         static KdfHelper()
         {
-            Algorithms = new(new KeyValuePair<string, KdfAlgorithmBase>[]
-            {
+            Algorithms = new(
+            [
                 new(KdfPbKdf2Algorithm.ALGORITHM_NAME, KdfPbKdf2Algorithm.Instance),
                 new(KdfSp800_108HmacCtrKbKdfAlgorithm.ALGORITHM_NAME, KdfSp800_108HmacCtrKbKdfAlgorithm.Instance)
-            });
+            ]);
             _DefaultAlgorithm = KdfPbKdf2Algorithm.Instance;
         }
 
