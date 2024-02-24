@@ -32,7 +32,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public HashSha3_512Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        private HashSha3_512Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
 
         /// <summary>
         /// Instance

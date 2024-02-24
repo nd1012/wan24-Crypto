@@ -9,7 +9,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>wan24-Crypto</PackageId>
     <Title>wan24-Crypto</Title>
-    <Version>2.4.0</Version>
+    <Version>2.5.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
     <Product>wan24-Crypto</Product>
@@ -28,10 +28,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ObjectValidation" Version="2.1.0" />
-    <PackageReference Include="Stream-Serializer-Extensions" Version="3.2.0" Condition="'$(Configuration)' != 'Trunk'" />
-    <PackageReference Include="wan24-Compression" Version="2.2.0" Condition="'$(Configuration)' != 'Trunk'" />
-    <PackageReference Include="wan24-Core" Version="2.3.2" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="ObjectValidation" Version="2.3.0" />
+    <PackageReference Include="Stream-Serializer-Extensions" Version="3.3.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Compression" Version="2.3.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Core" Version="2.6.0" Condition="'$(Configuration)' != 'Trunk'" />
 	<ProjectReference Include="..\..\..\wan24-Core\src\Wan24-Core\Wan24-Core.csproj" Condition="'$(Configuration)' == 'Trunk'" />
 	<ProjectReference Include="..\..\..\wan24-Compression\src\wan24-Compression\wan24-Compression.csproj" Condition="'$(Configuration)' == 'Trunk'" />
     <ProjectReference Include="..\..\..\Stream-Serializer-Extensions\src\Stream-Serializer-Extensions\Stream-Serializer-Extensions.csproj" Condition="'$(Configuration)' == 'Trunk'" />

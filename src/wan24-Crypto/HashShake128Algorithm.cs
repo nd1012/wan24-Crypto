@@ -32,7 +32,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public HashShake128Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        private HashShake128Algorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
 
         /// <summary>
         /// Instance

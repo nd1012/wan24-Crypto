@@ -12,7 +12,6 @@ namespace wan24.Crypto
     /// <param name="rng">Random number generator</param>
     public sealed class RngAdapter(IRng rng) : Rng()
     {
-
         /// <summary>
         /// Random number generator
         /// </summary>

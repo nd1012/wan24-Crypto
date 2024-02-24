@@ -45,7 +45,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public EncryptionAes256CbcAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
+        private EncryptionAes256CbcAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE) { }
 
         /// <summary>
         /// Instance

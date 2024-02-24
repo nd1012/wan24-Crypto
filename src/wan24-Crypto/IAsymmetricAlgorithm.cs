@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Frozen;
 using System.Security.Cryptography;
 
 namespace wan24.Crypto
@@ -35,7 +35,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Allowed key sizes in bits
         /// </summary>
-        ReadOnlyCollection<int> AllowedKeySizes { get; }
+        FrozenSet<int> AllowedKeySizes { get; }
         /// <summary>
         /// Default key size in bits
         /// </summary>

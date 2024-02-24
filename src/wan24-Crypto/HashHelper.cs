@@ -24,8 +24,8 @@ namespace wan24.Crypto
         /// </summary>
         static HashHelper()
         {
-            Algorithms = new(new KeyValuePair<string, HashAlgorithmBase>[]
-            {
+            Algorithms = new(
+            [
                 new(HashMd5Algorithm.ALGORITHM_NAME, HashMd5Algorithm.Instance),
                 new(HashSha1Algorithm.ALGORITHM_NAME, HashSha1Algorithm.Instance),
                 new(HashSha256Algorithm.ALGORITHM_NAME, HashSha256Algorithm.Instance),
@@ -36,7 +36,7 @@ namespace wan24.Crypto
                 new(HashSha3_512Algorithm.ALGORITHM_NAME, HashSha3_512Algorithm.Instance),
                 new(HashShake128Algorithm.ALGORITHM_NAME, HashShake128Algorithm.Instance),
                 new(HashShake256Algorithm.ALGORITHM_NAME, HashShake256Algorithm.Instance)
-            });
+            ]);
             _DefaultAlgorithm = HashSha3_512Algorithm.Instance;
         }
 

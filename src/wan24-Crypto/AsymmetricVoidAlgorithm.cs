@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Frozen;
 
 namespace wan24.Crypto
 {
@@ -23,7 +23,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Allowed key sizes in bits
         /// </summary>
-        private static readonly ReadOnlyCollection<int> _AllowedKeySizes = Array.Empty<int>().AsReadOnly();
+        private static readonly FrozenSet<int> _AllowedKeySizes = Array.Empty<int>().ToFrozenSet();
 
         /// <summary>
         /// Constructor
@@ -42,7 +42,7 @@ namespace wan24.Crypto
         public override bool IsEllipticCurveAlgorithm => false;
 
         /// <inheritdoc/>
-        public override ReadOnlyCollection<int> AllowedKeySizes => _AllowedKeySizes;
+        public override FrozenSet<int> AllowedKeySizes => _AllowedKeySizes;
 
         /// <inheritdoc/>
         public override bool IsPostQuantum => false;

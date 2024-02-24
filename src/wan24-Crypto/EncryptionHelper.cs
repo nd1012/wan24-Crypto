@@ -31,10 +31,10 @@ namespace wan24.Crypto
         /// </summary>
         static EncryptionHelper()
         {
-            Algorithms = new(new KeyValuePair<string, EncryptionAlgorithmBase>[]
-            {
+            Algorithms = new(
+            [
                 new(EncryptionAes256CbcAlgorithm.ALGORITHM_NAME, EncryptionAes256CbcAlgorithm.Instance)
-            });
+            ]);
             _DefaultAlgorithm = EncryptionAes256CbcAlgorithm.Instance;
         }
 

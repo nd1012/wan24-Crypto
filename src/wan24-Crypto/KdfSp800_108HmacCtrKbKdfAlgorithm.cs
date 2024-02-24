@@ -28,7 +28,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        public KdfSp800_108HmacCtrKbKdfAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE)
+        private KdfSp800_108HmacCtrKbKdfAlgorithm() : base(ALGORITHM_NAME, ALGORITHM_VALUE)
         {
             _DefaultOptions.KdfAlgorithm = ALGORITHM_NAME;
             _DefaultOptions.KdfIterations = 0;

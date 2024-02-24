@@ -15,8 +15,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Constructor
         /// </summary>
-        static CryptoProfiles() => Registered = new(new KeyValuePair<string, CryptoOptions>[]
-        {
+        static CryptoProfiles() => Registered = new(
+        [
             new(
                 EncryptionAes256CbcAlgorithm.PROFILE_AES256CBC_RAW,
                 new CryptoOptions()
@@ -26,7 +26,7 @@ namespace wan24.Crypto
                     .WithoutKdf()
                     .WithoutCompression()
                 )
-        });
+        ]);
 
         /// <summary>
         /// Get a profile

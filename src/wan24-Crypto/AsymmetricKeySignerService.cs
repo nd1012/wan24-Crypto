@@ -13,7 +13,6 @@ namespace wan24.Crypto
     /// <param name="signer">Signer to use</param>
     public sealed class AsymmetricKeySignerService(in int capacity, in int threads, in AsymmetricKeySigner? signer = null) : ParallelItemQueueWorkerBase<Action>(capacity, threads)
     {
-
         /// <summary>
         /// Singleton instance
         /// </summary>
