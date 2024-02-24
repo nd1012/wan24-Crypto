@@ -116,7 +116,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_CIPHER_SUITE.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.CIPHER_SUITE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L45">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L56">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_CIPHER_SUITE" data-uid="wan24.Crypto.SignedAttributes.CIPHER_SUITE">CIPHER_SUITE</h4>
   <div class="markdown level1 summary"><p>Should contain the (base64 encoded?) granted/confirmed cipher suite (<a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a>) of this signed key owner</p>
@@ -124,7 +124,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string CIPHER_SUITE = &quot;CipherSuite&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;CipherSuite - Should contain the (base64 encoded?) granted/confirmed cipher suite (CryptoOptions) of this signed key owner&quot;)]
+public const string CIPHER_SUITE = &quot;CipherSuite&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -146,7 +147,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_GRANTED_KEY_USAGES.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.GRANTED_KEY_USAGES%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L25">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L31">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_GRANTED_KEY_USAGES" data-uid="wan24.Crypto.SignedAttributes.GRANTED_KEY_USAGES">GRANTED_KEY_USAGES</h4>
   <div class="markdown level1 summary"><p>Should contain the numeric value of the granted <a class="xref" href="wan24.Crypto.AsymmetricAlgorithmUsages.html">AsymmetricAlgorithmUsages</a> flags for the signed key (an asymmetric algorithm may be able to exchange
@@ -155,7 +156,8 @@ a key AND sign)</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string GRANTED_KEY_USAGES = &quot;GrantedKeyUsages&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;GrantedKeyUsages - Should contain the numeric value of the granted AsymmetricAlgorithmUsages flags for the signed key (an asymmetric algorithm may be able to exchange a key AND sign)&quot;)]
+public const string GRANTED_KEY_USAGES = &quot;GrantedKeyUsages&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -177,7 +179,7 @@ a key AND sign)</p>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L41">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER" data-uid="wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER">KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER</h4>
   <div class="markdown level1 summary"><p>Should contain the (base64 encoded?) public counter key identifier of the key which is granted for key exchange with this signed key owner</p>
@@ -185,7 +187,8 @@ a key AND sign)</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER = &quot;KePublicCounterKey&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;KePublicCounterKey - Should contain the (base64 encoded?) public counter key identifier of the key which is granted for key exchange with this signed key owner&quot;)]
+public const string KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER = &quot;KePublicCounterKey&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -207,7 +210,7 @@ a key AND sign)</p>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L29">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L36">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER" data-uid="wan24.Crypto.SignedAttributes.KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER">KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER</h4>
   <div class="markdown level1 summary"><p>Should contain the (base64 encoded?) public key identifier of the key which is granted for key exchange with this signed key owner</p>
@@ -215,7 +218,8 @@ a key AND sign)</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER = &quot;KePublicKey&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;KePublicKey - Should contain the (base64 encoded?) public key identifier of the key which is granted for key exchange with this signed key owner&quot;)]
+public const string KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER = &quot;KePublicKey&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -237,7 +241,7 @@ a key AND sign)</p>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_ONLINE_KEY_VALIDATION_API_URI.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.ONLINE_KEY_VALIDATION_API_URI%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L20">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L25">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_ONLINE_KEY_VALIDATION_API_URI" data-uid="wan24.Crypto.SignedAttributes.ONLINE_KEY_VALIDATION_API_URI">ONLINE_KEY_VALIDATION_API_URI</h4>
   <div class="markdown level1 summary"><p>Should contain a public https URI which targets a RESTful API for key validation (should receive the (possibly base64 encoded) key ID as path component and answer, if
@@ -246,7 +250,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string ONLINE_KEY_VALIDATION_API_URI = &quot;KeyValidationUri&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;KeyValidationUri - Should contain a public https URI which targets a RESTful API for key validation (should receive the (possibly base64 encoded) key ID as path component and answer, if the key was revoked by returning the revokation timestamp (UTC DateTime ticks) or zero, if it wasn&#39;t revoked)&quot;)]
+public const string ONLINE_KEY_VALIDATION_API_URI = &quot;KeyValidationUri&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -268,7 +273,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_OWNER_IDENTIFIER.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.OWNER_IDENTIFIER%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L15">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L19">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_OWNER_IDENTIFIER" data-uid="wan24.Crypto.SignedAttributes.OWNER_IDENTIFIER">OWNER_IDENTIFIER</h4>
   <div class="markdown level1 summary"><p>Should contain an owner identifier, which can be used to query owner meta data from a store (binary values may be base64 encoded and encrypted, for example)</p>
@@ -276,7 +281,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string OWNER_IDENTIFIER = &quot;OwnerId&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;OwnerId - Should contain an owner identifier, which can be used to query owner meta data from a store (binary values may be base64 encoded and encrypted, for example)&quot;)]
+public const string OWNER_IDENTIFIER = &quot;OwnerId&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -298,7 +304,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_PKI_DOMAIN.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.PKI_DOMAIN%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L11">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L14">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_PKI_DOMAIN" data-uid="wan24.Crypto.SignedAttributes.PKI_DOMAIN">PKI_DOMAIN</h4>
   <div class="markdown level1 summary"><p>Should contain the domain name of the PKI (yourcompany.com, for example)</p>
@@ -306,7 +312,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string PKI_DOMAIN = &quot;Domain&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;Domain - Should contain the domain name of the PKI (yourcompany.com, for example)&quot;)]
+public const string PKI_DOMAIN = &quot;Domain&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -328,7 +335,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_PKI_SIGNATURE.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.PKI_SIGNATURE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L53">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L66">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_PKI_SIGNATURE" data-uid="wan24.Crypto.SignedAttributes.PKI_SIGNATURE">PKI_SIGNATURE</h4>
   <div class="markdown level1 summary"><p>Permitted to sign sub-keys?</p>
@@ -336,7 +343,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string PKI_SIGNATURE = &quot;PkiSig&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;PkiSig - Permitted to sign sub-keys?&quot;)]
+public const string PKI_SIGNATURE = &quot;PkiSig&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -358,7 +366,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_SERIAL.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.SERIAL%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L49">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L61">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_SERIAL" data-uid="wan24.Crypto.SignedAttributes.SERIAL">SERIAL</h4>
   <div class="markdown level1 summary"><p>Should contain the numeric key revision of the owner (not an overall PKI key counter)</p>
@@ -366,7 +374,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string SERIAL = &quot;Serial&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;Serial - Should contain the numeric key revision of the owner (not an overall PKI key counter)&quot;)]
+public const string SERIAL = &quot;Serial&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -388,7 +397,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L41">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L51">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER" data-uid="wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER">SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER</h4>
   <div class="markdown level1 summary"><p>Should contain the (base64 encoded?) public counter key identifier of the key which is granted for signatures from this signed key owner</p>
@@ -396,7 +405,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER = &quot;SigPublicCounterKey&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;SigPublicCounterKey - Should contain the (base64 encoded?) public counter key identifier of the key which is granted for signatures from this signed key owner&quot;)]
+public const string SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER = &quot;SigPublicCounterKey&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -418,7 +428,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_SIGNATURE_PUBLIC_KEY_IDENTIFIER.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L37">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L46">View Source</a>
   </span>
   <h4 id="wan24_Crypto_SignedAttributes_SIGNATURE_PUBLIC_KEY_IDENTIFIER" data-uid="wan24.Crypto.SignedAttributes.SIGNATURE_PUBLIC_KEY_IDENTIFIER">SIGNATURE_PUBLIC_KEY_IDENTIFIER</h4>
   <div class="markdown level1 summary"><p>Should contain the (base64 encoded?) public key identifier of the key which is granted for signatures from this signed key owner</p>
@@ -426,7 +436,8 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string SIGNATURE_PUBLIC_KEY_IDENTIFIER = &quot;SigPublicKey&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[DisplayText(&quot;SigPublicKey - Should contain the (base64 encoded?) public key identifier of the key which is granted for signatures from this signed key owner&quot;)]
+public const string SIGNATURE_PUBLIC_KEY_IDENTIFIER = &quot;SigPublicKey&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -450,7 +461,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_AdditionalValidation.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.AdditionalValidation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L58">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L71">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedAttributes_AdditionalValidation_" data-uid="wan24.Crypto.SignedAttributes.AdditionalValidation*"></a>
   <h4 id="wan24_Crypto_SignedAttributes_AdditionalValidation" data-uid="wan24.Crypto.SignedAttributes.AdditionalValidation">AdditionalValidation</h4>
@@ -481,7 +492,7 @@ the key was revoked by returning the revokation timestamp (UTC <a class="xref" h
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_SignedAttributes_AdditionalValidationAsync.md&amp;value=---%0Auid%3A%20wan24.Crypto.SignedAttributes.AdditionalValidationAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L63">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/SignedAttributes.cs/#L76">View Source</a>
   </span>
   <a id="wan24_Crypto_SignedAttributes_AdditionalValidationAsync_" data-uid="wan24.Crypto.SignedAttributes.AdditionalValidationAsync*"></a>
   <h4 id="wan24_Crypto_SignedAttributes_AdditionalValidationAsync" data-uid="wan24.Crypto.SignedAttributes.AdditionalValidationAsync">AdditionalValidationAsync</h4>
