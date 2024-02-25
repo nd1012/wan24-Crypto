@@ -1,6 +1,8 @@
 ﻿using wan24.Compression;
 using wan24.Core;
 
+//TODO Use MemberNotNull
+
 namespace wan24.Crypto
 {
     /// <summary>

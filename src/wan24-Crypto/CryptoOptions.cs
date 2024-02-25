@@ -5,6 +5,8 @@ using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
+//TODO Use MemberNotNull
+
 namespace wan24.Crypto
 {
     /// <summary>
