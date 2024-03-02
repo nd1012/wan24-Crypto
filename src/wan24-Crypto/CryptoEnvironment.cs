@@ -11,19 +11,23 @@ namespace wan24.Crypto
         /// Apply a configuration
         /// </summary>
         /// <param name="options"><see cref="Options"/></param>
-        public static void Configure(Options options)
+        public static void Configure(in Options options)
         {
+            // Default algorithms
             if (options.DefaultKeyExchangeAlgorithm is not null) AsymmetricHelper.DefaultKeyExchangeAlgorithm = AsymmetricHelper.GetAlgorithm(options.DefaultKeyExchangeAlgorithm);
             if (options.DefaultSignatureAlgorithm is not null) AsymmetricHelper.DefaultSignatureAlgorithm = AsymmetricHelper.GetAlgorithm(options.DefaultSignatureAlgorithm);
-            options.PKI?.EnableLocalPki();
-            if (options.UseCryptoExceptionDelay)
-            {
-                if (options.CryptoExceptionDelay.HasValue) CryptographicException.Delay = options.CryptoExceptionDelay;
-            }
-            else
-            {
-                CryptographicException.Delay = null;
-            }
+            if (options.DefaultEncryptionAlgorithm is not null) EncryptionHelper.DefaultAlgorithm = EncryptionHelper.GetAlgorithm(options.DefaultEncryptionAlgorithm);
+            if (options.DefaultHashAlgorithm is not null) HashHelper.DefaultAlgorithm = HashHelper.GetAlgorithm(options.DefaultHashAlgorithm);
+            if (options.PbKdf2HashAlgorithm is not null) KdfPbKdf2Options.DefaultHashAlgorithm = options.PbKdf2HashAlgorithm;
+            if (options.Sp800_108HashAlgorithm is not null) KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm = options.Sp800_108HashAlgorithm;
+            if (options.ValueProtectionTpmMacAlgorithm is not null) ValueProtectionKeys.TpmMacAlgorithmName = options.ValueProtectionTpmMacAlgorithm;
+            if (options.ValueProtectionMacAlgorithm is not null) ValueProtectionKeys.MacAlgorithmName = options.ValueProtectionMacAlgorithm;
+            // Hybrid default algorithms
+            if (options.CounterKeyExchangeAlgorithm is not null) HybridAlgorithmHelper.KeyExchangeAlgorithm = AsymmetricHelper.GetAlgorithm(options.CounterKeyExchangeAlgorithm);
+            if (options.CounterSignatureAlgorithm is not null) HybridAlgorithmHelper.SignatureAlgorithm = AsymmetricHelper.GetAlgorithm(options.CounterSignatureAlgorithm);
+            if (options.CounterKdfAlgorithm is not null) HybridAlgorithmHelper.KdfAlgorithm = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm);
+            if (options.CounterMacAlgorithm is not null) HybridAlgorithmHelper.MacAlgorithm = MacHelper.GetAlgorithm(options.CounterMacAlgorithm);
+            // Crypto options
             if (options.DefaultMaximumAge.HasValue) CryptoOptions.DefaultMaximumAge = options.DefaultMaximumAge;
             if (options.DefaultMaximumTimeOffset.HasValue) CryptoOptions.DefaultMaximumTimeOffset = options.DefaultMaximumTimeOffset;
             if (options.DefaultPrivateKeysStore is not null) CryptoOptions.DefaultPrivateKeysStore = options.DefaultPrivateKeysStore;
@@ -31,15 +35,11 @@ namespace wan24.Crypto
             if (options.DefaultFlagsIncluded.HasValue) CryptoOptions.DefaultFlagsIncluded = options.DefaultFlagsIncluded.Value;
             if (options.DefaultEncryptionPasswordPreProcessor is not null) CryptoOptions.DefaultEncryptionPasswordPreProcessor = options.DefaultEncryptionPasswordPreProcessor;
             if (options.DefaultEncryptionPasswordAsyncPreProcessor is not null) CryptoOptions.DefaultEncryptionPasswordAsyncPreProcessor = options.DefaultEncryptionPasswordAsyncPreProcessor;
-            if (options.DefaultEncryptionAlgorithm is not null) EncryptionHelper.DefaultAlgorithm = EncryptionHelper.GetAlgorithm(options.DefaultEncryptionAlgorithm);
-            if (options.DefaultHashAlgorithm is not null) HashHelper.DefaultAlgorithm = HashHelper.GetAlgorithm(options.DefaultHashAlgorithm);
-            if (options.CounterKeyExchangeAlgorithm is not null) HybridAlgorithmHelper.KeyExchangeAlgorithm = AsymmetricHelper.GetAlgorithm(options.CounterKeyExchangeAlgorithm);
-            if (options.CounterSignatureAlgorithm is not null) HybridAlgorithmHelper.SignatureAlgorithm = AsymmetricHelper.GetAlgorithm(options.CounterSignatureAlgorithm);
-            if (options.CounterKdfAlgorithm is not null) HybridAlgorithmHelper.KdfAlgorithm = KdfHelper.GetAlgorithm(options.CounterKdfAlgorithm);
-            if (options.CounterMacAlgorithm is not null) HybridAlgorithmHelper.MacAlgorithm = MacHelper.GetAlgorithm(options.CounterMacAlgorithm);
+            // PAKE
             if (options.DefaultPakeOptions is not null) Pake.DefaultOptions = options.DefaultPakeOptions;
             if (options.DefaultPakeCryptoOptions is not null) Pake.DefaultCryptoOptions = options.DefaultPakeCryptoOptions;
             if (options.SkipPakeSignatureKeyValidation.HasValue) Pake.SkipSignatureKeyValidation = options.SkipPakeSignatureKeyValidation.Value;
+            // RNG
             if (options.RandomGenerator is not null) RND.Generator = options.RandomGenerator;
             if (options.SeedConsumer is not null) RND.SeedConsumer = options.SeedConsumer;
             if (options.UseDevRandom.HasValue) RND.UseDevRandom = options.UseDevRandom.Value;
@@ -48,22 +48,21 @@ namespace wan24.Crypto
             if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
             if (options.FillRandomBytes is not null) RND.FillBytes = options.FillRandomBytes;
             if (options.FillRandomBytesAsync is not null) RND.FillBytesAsync = options.FillRandomBytesAsync;
+            // Secure value
             if (options.DefaultEncryptTimeout.HasValue) SecureValue.DefaultEncryptTimeout = options.DefaultEncryptTimeout.Value;
             if (options.DefaultRecryptTimeout.HasValue) SecureValue.DefaultRecryptTimeout = options.DefaultRecryptTimeout.Value;
+            // Authentication
             if (options.DefaultServerPublicKeyValidator is not null) ClientAuth.DefaultServerPublicKeyValidator = options.DefaultServerPublicKeyValidator;
             if (options.DefaultClientAuthOptions is not null) ClientAuthOptions.DefaultOptions = options.DefaultClientAuthOptions;
             if (options.DefaultPakeClientAuthOptions is not null) PakeClientAuthOptions.DefaultOptions = options.DefaultPakeClientAuthOptions;
+            // Signature
             if (options.AsymmetricKeySigner is not null) AsymmetricKeySigner.Instance = options.AsymmetricKeySigner;
             if (options.AsymmetricKeySignerService is not null) AsymmetricKeySignerService.Instance = options.AsymmetricKeySignerService;
+            // Value protection keys
             if (options.ProcessScopeKey is not null) ValueProtection.ProcessScopeKey = options.ProcessScopeKey;
             if (options.UserScopeKey is not null) ValueProtection.UserScopeKey = options.UserScopeKey;
             if (options.SystemScopeKey is not null) ValueProtection.SystemScopeKey = options.SystemScopeKey;
-            if (options.PbKdf2HashAlgorithm is not null) KdfPbKdf2Options.DefaultHashAlgorithm = options.PbKdf2HashAlgorithm;
-            if (options.Sp800_108HashAlgorithm is not null) KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm = options.Sp800_108HashAlgorithm;
-            if (options.ValueProtectionTpmMacAlgorithm is not null) ValueProtectionKeys.TpmMacAlgorithmName = options.ValueProtectionTpmMacAlgorithm;
-            if (options.ValueProtectionMacAlgorithm is not null) ValueProtectionKeys.MacAlgorithmName = options.ValueProtectionMacAlgorithm;
-            if (options.StrictPostQuantum.HasValue) CryptoHelper.ForcePostQuantumSafety(options.StrictPostQuantum.Value);
-            if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);
+            // Signed attributes
             if (options.DefaultAllowedValidationDomains is not null) SignedAttributes.ValidationOptions.DefaultAllowedValidationDomains = options.DefaultAllowedValidationDomains;
             if (options.DefaultDeniedValidationDomains is not null) SignedAttributes.ValidationOptions.DefaultDeniedValidationDomains = options.DefaultDeniedValidationDomains;
             if (options.DefaultAllowedKeyValidationApiUris is not null) SignedAttributes.ValidationOptions.DefaultAllowedKeyValidationApiUris = options.DefaultAllowedKeyValidationApiUris;
@@ -77,9 +76,25 @@ namespace wan24.Crypto
             if (options.DefaultRequireSerial.HasValue) SignedAttributes.ValidationOptions.DefaultRequireSerial = options.DefaultRequireSerial.Value;
             if (options.AdditionalValidation is not null) SignedAttributes.AdditionalValidation = options.AdditionalValidation;
             if (options.AdditionalValidationAsync is not null) SignedAttributes.AdditionalValidationAsync = options.AdditionalValidationAsync;
+            // Max. array lengths
             if (options.SignatureContainerMaxArrayLength.HasValue) SignatureContainer.MaxArrayLength = options.SignatureContainerMaxArrayLength.Value;
             if (options.AsymmetricKeyMaxArrayLength.HasValue) AsymmetricKeyBase.MaxArrayLength = options.AsymmetricKeyMaxArrayLength.Value;
             if (options.MaxKeyExchangeDataLength.HasValue) KeyExchangeDataContainer.MaxKeyExchangeDataLength = options.MaxKeyExchangeDataLength.Value;
+            // Other
+            if (options.UseCryptoExceptionDelay)
+            {
+                if (options.CryptoExceptionDelay.HasValue) CryptographicException.Delay = options.CryptoExceptionDelay;
+            }
+            else
+            {
+                CryptographicException.Delay = null;
+            }
+            if (options.DefaultPasswordPostProcessor is not null) PasswordPostProcessor.Instance = options.DefaultPasswordPostProcessor;
+            if (options.DefaultRngStream is not null) RngStream.Instance = options.DefaultRngStream;
+            // Final initialization
+            options.PKI?.EnableLocalPki();
+            if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);
+            if (options.StrictPostQuantum.HasValue) CryptoHelper.ForcePostQuantumSafety(options.StrictPostQuantum.Value);
         }
 
         /// <summary>

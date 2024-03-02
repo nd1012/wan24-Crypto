@@ -55,6 +55,30 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// TPM algorithms
+        /// </summary>
+        public static IEnumerable<MacAlgorithmBase> TpmAlgorithms
+            => from algo in Algorithms.Values
+               where algo.UsesTpm
+               select algo;
+
+        /// <summary>
+        /// Pre-quantum algorithms
+        /// </summary>
+        public static IEnumerable<MacAlgorithmBase> PreQuantum
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Post-quantum algorithms
+        /// </summary>
+        public static IEnumerable<MacAlgorithmBase> PostQuantum
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
         /// Get a MAC stream
         /// </summary>
         /// <param name="pwd">Password</param>

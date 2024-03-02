@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using Microsoft.Extensions.Primitives;
+using System.Collections.Concurrent;
+using System.ComponentModel;
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
@@ -7,13 +9,17 @@ namespace wan24.Crypto
     /// <summary>
     /// Private key suite store
     /// </summary>
-    public class PrivateKeySuiteStore : DisposableStreamSerializerBase
+    public class PrivateKeySuiteStore : DisposableStreamSerializerBase, IChangeToken, INotifyPropertyChanged
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
+        /// <summary>
+        /// Change token
+        /// </summary>
+        protected readonly DisposableChangeToken ChangeToken = new();
         /// <summary>
         /// Private key suites (key is the suite revision)
         /// </summary>
@@ -52,6 +58,12 @@ namespace wan24.Crypto
         public PrivateKeySuite LatestSuite
             => IfUndisposed(() => _Suites.Cast<KeyValuePair<int, PrivateKeySuite>?>().OrderByDescending(kvp => kvp?.Key).Select(kvp => kvp?.Value).FirstOrDefault() ?? throw new InvalidOperationException("No suites"));
 
+        /// <inheritdoc/>
+        public bool HasChanged => ChangeToken.HasChanged;
+
+        /// <inheritdoc/>
+        public bool ActiveChangeCallbacks => ChangeToken.ActiveChangeCallbacks;
+
         /// <summary>
         /// Add a private key suite
         /// </summary>
@@ -63,7 +75,11 @@ namespace wan24.Crypto
             for (; ; )
             {
                 RemoveSuite(revision);
-                if (_Suites.TryAdd(revision, suite)) return;
+                if (_Suites.TryAdd(revision, suite))
+                {
+                    SetChanged(nameof(SuiteCount));
+                    return;
+                }
             }
         }
 
@@ -93,7 +109,10 @@ namespace wan24.Crypto
         {
             EnsureUndisposed();
             if (_Suites.TryRemove(revision, out PrivateKeySuite? suite))
+            {
                 suite.Dispose();
+                SetChanged(nameof(SuiteCount));
+            }
         }
 
         /// <summary>
@@ -107,7 +126,23 @@ namespace wan24.Crypto
                 _Suites.FirstOrDefault(kvp => kvp.Value.SignedPublicKey?.PublicKey.ID.SequenceEqual(id) ?? false) is KeyValuePair<int, PrivateKeySuite> kvp &&
                 _Suites.TryRemove(kvp.Key, out PrivateKeySuite? suite)
                 )
+            {
                 suite.Dispose();
+                SetChanged(nameof(SuiteCount));
+            }
+        }
+
+        /// <inheritdoc/>
+        public IDisposable RegisterChangeCallback(Action<object?> callback, object? state) => ChangeToken.RegisterChangeCallback(callback, state);
+
+        /// <summary>
+        /// Set changed
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void SetChanged(in string propertyName)
+        {
+            ChangeToken.InvokeCallbacks();
+            ChangeToken.RaisePropertyChanged(propertyName);
         }
 
         /// <inheritdoc/>
@@ -144,6 +179,13 @@ namespace wan24.Crypto
             _Suites.Values.DisposeAll();
             _Suites.Clear();
             return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler? PropertyChanged
+        {
+            add => ChangeToken.PropertyChanged += value;
+            remove => ChangeToken.PropertyChanged -= value;
         }
     }
 }

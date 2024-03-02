@@ -74,6 +74,9 @@ namespace wan24.Crypto
         public abstract bool IsEllipticCurveAlgorithm { get; }
 
         /// <inheritdoc/>
+        public abstract bool IsPublicKeyStandardFormat { get; }
+
+        /// <inheritdoc/>
         public abstract FrozenSet<int> AllowedKeySizes { get; }
 
         /// <inheritdoc/>

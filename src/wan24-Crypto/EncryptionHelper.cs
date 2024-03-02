@@ -80,6 +80,38 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Stream cipher algorithms
+        /// </summary>
+        public static IEnumerable<EncryptionAlgorithmBase> StreamCipher
+            => from algo in Algorithms.Values
+               where algo.BlockSize == 1
+               select algo;
+
+        /// <summary>
+        /// Block cipher algorithms
+        /// </summary>
+        public static IEnumerable<EncryptionAlgorithmBase> BlockCipher
+            => from algo in Algorithms.Values
+               where algo.BlockSize > 1
+               select algo;
+
+        /// <summary>
+        /// Pre-quantum algorithms
+        /// </summary>
+        public static IEnumerable<EncryptionAlgorithmBase> PreQuantum
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Post-quantum algorithms
+        /// </summary>
+        public static IEnumerable<EncryptionAlgorithmBase> PostQuantum
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
         /// Get an encryption stream
         /// </summary>
         /// <param name="rawData">Raw data</param>

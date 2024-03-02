@@ -48,6 +48,22 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Pre-quantum algorithms
+        /// </summary>
+        public static IEnumerable<KdfAlgorithmBase> PreQuantum
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Post-quantum algorithms
+        /// </summary>
+        public static IEnumerable<KdfAlgorithmBase> PostQuantum
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
         /// Stretch a password
         /// </summary>
         /// <param name="pwd">Password</param>

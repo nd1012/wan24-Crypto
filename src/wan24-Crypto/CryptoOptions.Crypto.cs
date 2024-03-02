@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using System.Diagnostics.CodeAnalysis;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -113,6 +114,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="data">Data</param>
         /// <returns>This</returns>
+        [MemberNotNull(nameof(Password), nameof(Mac))]
         public CryptoOptions CreateMac(ReadOnlySpan<byte> data)
         {
             Password ??= RND.GetBytes(64);
@@ -126,6 +128,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="data">Data</param>
         /// <returns>This</returns>
+        [MemberNotNull(nameof(Password), nameof(Mac))]
         public CryptoOptions CreateMac(Span<byte> data) => CreateMac((ReadOnlySpan<byte>)data);
 
         /// <summary>
@@ -133,6 +136,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="data">Data</param>
         /// <returns>This</returns>
+        [MemberNotNull(nameof(Password), nameof(Mac))]
         public CryptoOptions CreateMac(Stream data)
         {
             Password ??= RND.GetBytes(64);
@@ -159,6 +163,7 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="len">Stretched password length in bytes</param>
         /// <returns>This</returns>
+        [MemberNotNull(nameof(Password), nameof(KdfSalt))]
         public CryptoOptions StretchKey(int len)
         {
             Password ??= RND.GetBytes(64);

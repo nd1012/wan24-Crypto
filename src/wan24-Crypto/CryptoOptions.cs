@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using wan24.Compression;
 using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
-
-//TODO Use MemberNotNull
 
 namespace wan24.Crypto
 {
@@ -80,6 +79,11 @@ namespace wan24.Crypto
         /// Default encryption password pre-processor (only applied during asynchronous operation)
         /// </summary>
         public static AsyncEncryptionPasswordPreProcessor_Delegate? DefaultEncryptionPasswordAsyncPreProcessor { get; set; }
+
+        /// <summary>
+        /// Any tagged object (will be cloned, if it implements <see cref="ICloneable"/>, and <see cref="GetCopy"/> has been called)
+        /// </summary>
+        public object? Tag { get; set; }
 
         /// <summary>
         /// Crypto header data structure version
@@ -386,6 +390,7 @@ namespace wan24.Crypto
         /// Derive the exchanged key
         /// </summary>
         /// <returns>Key</returns>
+        [MemberNotNull(nameof(Password))]
         public byte[] DeriveExchangedKey()
         {
             try
@@ -395,12 +400,13 @@ namespace wan24.Crypto
                 if (UsingAsymmetricCounterAlgorithm)
                 {
                     HybridAlgorithmHelper.DeriveKey(KeyExchangeData, this);
+                    Contract.Assume(Password is not null);
                 }
                 else
                 {
                     SetNewPassword(key.DeriveKey(KeyExchangeData.KeyExchangeData));
                 }
-                return Password!;
+                return Password;
             }
             catch (CryptographicException)
             {
@@ -466,6 +472,7 @@ namespace wan24.Crypto
         public CryptoOptions GetCopy() => new(raiseEvent: false)
         {
             // Algorithms and data
+            Tag = Tag is null ? null : (Tag as ICloneable)?.Clone() ?? Tag,
             CustomSerializerVersion = CustomSerializerVersion,
             Compression = Compression?.GetCopy(),
             MaxUncompressedDataLength = MaxUncompressedDataLength,

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -97,6 +98,74 @@ namespace wan24.Crypto
                 lock (SyncObject) _UseHybridSignatureOptions = value;
             }
         }
+
+        /// <summary>
+        /// Key exchange algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> KeyExchangeAlgorithms
+            => from algo in Algorithms.Values
+               where algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.KeyExchange)
+               select algo;
+
+        /// <summary>
+        /// Signature algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> SignatureAlgorithms
+            => from algo in Algorithms.Values
+               where algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.Signature)
+               select algo;
+
+        /// <summary>
+        /// Pre-quantum algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> PreQuantum
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Pre-quantum key exchange algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> PreQuantumKeyExchange
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum &&
+                algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.KeyExchange)
+               select algo;
+
+        /// <summary>
+        /// Pre-quantum signature algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> PreQuantumSignature
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum &&
+                algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.Signature)
+               select algo;
+
+        /// <summary>
+        /// Post-quantum algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> PostQuantum
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Post-quantum key exchange algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> PostQuantumKeyExchange
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum &&
+                algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.KeyExchange)
+               select algo;
+
+        /// <summary>
+        /// Post-quantum signature algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> PostQuantumSignature
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum &&
+                algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.Signature)
+               select algo;
 
         /// <summary>
         /// Create a new key pair

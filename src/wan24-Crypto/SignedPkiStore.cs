@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using Microsoft.Extensions.Primitives;
+using System.Collections.Concurrent;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
@@ -8,13 +10,17 @@ namespace wan24.Crypto
     /// <summary>
     /// Signed PKI store
     /// </summary>
-    public class SignedPkiStore : DisposableStreamSerializerBase
+    public class SignedPkiStore : DisposableStreamSerializerBase, IChangeToken, INotifyPropertyChanged
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
+        /// <summary>
+        /// Change token
+        /// </summary>
+        protected readonly DisposableChangeToken ChangeToken = new();
         /// <summary>
         /// Trusted root keys (key is the keys ID)
         /// </summary>
@@ -63,6 +69,12 @@ namespace wan24.Crypto
         /// </summary>
         public virtual int RevokedKeyCount => IfUndisposed(_RevokedKeys.Count);
 
+        /// <inheritdoc/>
+        public bool HasChanged => ChangeToken.HasChanged;
+
+        /// <inheritdoc/>
+        public bool ActiveChangeCallbacks => ChangeToken.ActiveChangeCallbacks;
+
         /// <summary>
         /// Enable this as local PKI
         /// </summary>
@@ -92,7 +104,11 @@ namespace wan24.Crypto
                 for(; ; )
                 {
                     if (IsTrustedRoot(id)) RemoveTrustedRoot(id);
-                    if (_RootKeys.TryAdd(id, key)) break;
+                    if (_RootKeys.TryAdd(id, key))
+                    {
+                        SetChanged(nameof(RootKeyCount));
+                        break;
+                    }
                 }
             }
             catch
@@ -125,6 +141,7 @@ namespace wan24.Crypto
             if (_RootKeys.TryRemove(id, out AsymmetricSignedPublicKey? key))
             {
                 if (dispose) key.Dispose();
+                SetChanged(nameof(RootKeyCount));
                 return key;
             }
             return null;
@@ -145,7 +162,11 @@ namespace wan24.Crypto
                 for (; ; )
                 {
                     RemoveGrantedKey(id);
-                    if (_GrantedKeys.TryAdd(id, key)) break;
+                    if (_GrantedKeys.TryAdd(id, key))
+                    {
+                        SetChanged(nameof(GrantedKeyCount));
+                        break;
+                    }
                 }
             }
             catch
@@ -178,6 +199,7 @@ namespace wan24.Crypto
             if (_GrantedKeys.TryRemove(id, out AsymmetricSignedPublicKey? key))
             {
                 if (dispose) key.Dispose();
+                SetChanged(nameof(GrantedKeyCount));
                 return key;
             }
             return null;
@@ -313,6 +335,7 @@ namespace wan24.Crypto
                 {
                     RemoveTrustedRoot(id);
                     RemoveGrantedKey(id);
+                    SetChanged(nameof(RevokedKeyCount));
                 }
                 else
                 {
@@ -351,6 +374,7 @@ namespace wan24.Crypto
             if (_RevokedKeys.TryRemove(id, out AsymmetricSignedPublicKey? key))
             {
                 if (dispose) key.Dispose();
+                SetChanged(nameof(RevokedKeyCount));
                 return key;
             }
             return null;
@@ -400,6 +424,19 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
+        public IDisposable RegisterChangeCallback(Action<object?> callback, object? state) => ChangeToken.RegisterChangeCallback(callback, state);
+
+        /// <summary>
+        /// Set changed
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void SetChanged(in string propertyName)
+        {
+            ChangeToken.InvokeCallbacks();
+            ChangeToken.RaisePropertyChanged(propertyName);
+        }
+
+        /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
             stream.WriteArray(_RootKeys.Values.ToArray());
@@ -446,6 +483,7 @@ namespace wan24.Crypto
             _RootKeys.Clear();
             _GrantedKeys.Clear();
             _RevokedKeys.Clear();
+            ChangeToken.Dispose();
         }
 
         /// <inheritdoc/>
@@ -457,7 +495,15 @@ namespace wan24.Crypto
             _RootKeys.Clear();
             _GrantedKeys.Clear();
             _RevokedKeys.Clear();
+            ChangeToken.Dispose();
             return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler? PropertyChanged
+        {
+            add => ChangeToken.PropertyChanged += value;
+            remove => ChangeToken.PropertyChanged -= value;
         }
     }
 }

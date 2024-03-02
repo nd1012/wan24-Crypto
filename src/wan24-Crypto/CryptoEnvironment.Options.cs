@@ -222,7 +222,7 @@ namespace wan24.Crypto
             public string? Sp800_108HashAlgorithm { get; set; }
 
             /// <summary>
-            /// Force strict post quantum safety? (<see cref="CryptoEnvironment.Configure(Options)"/> will call <see cref="CryptoHelper.ForcePostQuantumSafety(bool)"/>, if set)
+            /// Force strict post quantum safety?
             /// </summary>
             public bool? StrictPostQuantum { get; set; }
 
@@ -335,6 +335,16 @@ namespace wan24.Crypto
             /// Max. key exchange data length in bytes
             /// </summary>
             public int? MaxKeyExchangeDataLength { get; set; }
+
+            /// <summary>
+            /// Default password post-processor to use in <see cref="PasswordPostProcessor.Instance"/>
+            /// </summary>
+            public PasswordPostProcessor? DefaultPasswordPostProcessor { get; set; }
+
+            /// <summary>
+            /// Default <see cref="RngStream"/> to set to <see cref="RngStream.Instance"/>
+            /// </summary>
+            public RngStream? DefaultRngStream { get; set; }
         }
     }
 }

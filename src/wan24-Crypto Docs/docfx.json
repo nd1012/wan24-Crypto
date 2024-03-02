@@ -55,13 +55,19 @@
     "globalMetadata": {
       "_appTitle": "wan24-Crypto",
       "_appFooter": "(c) 2023 Andreas Zimmermann, wan24.de",
+      "_copyrightFooter": "(c) 2023 Andreas Zimmermann, wan24.de",
       //"_appLogoPath": "custom/logo.png",
       //"_appFaviconPath": "custom/favicon.ico",
-      "_enableNewTab": true
+      "_enableSearch": true,
+      "_disableSideFilter": false,
+      "_enableNewTab": true,
+      "_disableContribution": false,
+      "_disableBreadcrumb": false,
     },
     "fileMetadataFiles": [],
     "template": [
-      "default"
+	  "default",
+      "templates/singulinkfx"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
