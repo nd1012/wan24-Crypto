@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using Microsoft.Extensions.Primitives;
+using System.Collections.Concurrent;
+using System.ComponentModel;
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
@@ -7,13 +9,17 @@ namespace wan24.Crypto
     /// <summary>
     /// Public key suite store
     /// </summary>
-    public class PublicKeySuiteStore : DisposableStreamSerializerBase
+    public class PublicKeySuiteStore : DisposableStreamSerializerBase, IChangeToken, INotifyPropertyChanged
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
+        /// <summary>
+        /// Change token
+        /// </summary>
+        protected readonly DisposableChangeToken ChangeToken = new();
         /// <summary>
         /// Public key suites (key is the signed public key ID)
         /// </summary>
@@ -34,6 +40,12 @@ namespace wan24.Crypto
         /// </summary>
         public virtual int SuiteCount => IfUndisposed(_Suites.Count);
 
+        /// <inheritdoc/>
+        public bool HasChanged => ChangeToken.HasChanged;
+
+        /// <inheritdoc/>
+        public bool ActiveChangeCallbacks => ChangeToken.ActiveChangeCallbacks;
+
         /// <summary>
         /// Add a public key suite
         /// </summary>
@@ -46,7 +58,11 @@ namespace wan24.Crypto
             for (; ; )
             {
                 RemoveSuite(suiteId);
-                if (_Suites.TryAdd(suiteId, suite)) return;
+                if (_Suites.TryAdd(suiteId, suite))
+                {
+                    SetChanged(nameof(SuiteCount));
+                    return;
+                }
             }
         }
 
@@ -92,7 +108,24 @@ namespace wan24.Crypto
         public virtual void RemoveSuite(byte[] id)
         {
             EnsureUndisposed();
-            if (_Suites.TryRemove(id, out PublicKeySuite? suite)) suite.Dispose();
+            if (_Suites.TryRemove(id, out PublicKeySuite? suite))
+            {
+                suite.Dispose();
+                SetChanged(nameof(SuiteCount));
+            }
+        }
+
+        /// <inheritdoc/>
+        public IDisposable RegisterChangeCallback(Action<object?> callback, object? state) => ChangeToken.RegisterChangeCallback(callback, state);
+
+        /// <summary>
+        /// Set changed
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void SetChanged(in string propertyName)
+        {
+            ChangeToken.InvokeCallbacks();
+            ChangeToken.RaisePropertyChanged(propertyName);
         }
 
         /// <inheritdoc/>
@@ -121,6 +154,7 @@ namespace wan24.Crypto
         {
             _Suites.Values.DisposeAll();
             _Suites.Clear();
+            ChangeToken.Dispose();
         }
 
         /// <inheritdoc/>
@@ -128,7 +162,15 @@ namespace wan24.Crypto
         {
             _Suites.Values.DisposeAll();
             _Suites.Clear();
+            ChangeToken.Dispose();
             return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler? PropertyChanged
+        {
+            add => ChangeToken.PropertyChanged += value;
+            remove => ChangeToken.PropertyChanged -= value;
         }
     }
 }

@@ -58,6 +58,22 @@ namespace wan24.Crypto
         }
 
         /// <summary>
+        /// Pre-quantum algorithms
+        /// </summary>
+        public static IEnumerable<HashAlgorithmBase> PreQuantum
+            => from algo in Algorithms.Values
+               where !algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Post-quantum algorithms
+        /// </summary>
+        public static IEnumerable<HashAlgorithmBase> PostQuantum
+            => from algo in Algorithms.Values
+               where algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
         /// Get a hash stream
         /// </summary>
         /// <param name="target">Target stream</param>

@@ -66,6 +66,9 @@ namespace wan24.Crypto
         public override bool IsEllipticCurveAlgorithm => true;
 
         /// <inheritdoc/>
+        public override bool IsPublicKeyStandardFormat => true;
+
+        /// <inheritdoc/>
         public override FrozenSet<int> AllowedKeySizes => _AllowedKeySizes;
 
         /// <inheritdoc/>

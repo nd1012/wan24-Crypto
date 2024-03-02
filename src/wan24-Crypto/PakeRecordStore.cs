@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using Microsoft.Extensions.Primitives;
+using System.Collections.Concurrent;
+using System.ComponentModel;
 using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
@@ -18,13 +20,17 @@ namespace wan24.Crypto
     /// <summary>
     /// PAKE record store
     /// </summary>
-    public class PakeRecordStore<T> : DisposableStreamSerializerBase where T : notnull, IPakeRecord
+    public class PakeRecordStore<T> : DisposableStreamSerializerBase, IChangeToken, INotifyPropertyChanged where T : notnull, IPakeRecord
     {
         /// <summary>
         /// Object version
         /// </summary>
         public const int VERSION = 1;
 
+        /// <summary>
+        /// Change token
+        /// </summary>
+        protected readonly DisposableChangeToken ChangeToken = new();
         /// <summary>
         /// PAKE records (key is the identifier)
         /// </summary>
@@ -45,6 +51,12 @@ namespace wan24.Crypto
         /// </summary>
         public virtual int RecordsCount => IfUndisposed(_Records.Count);
 
+        /// <inheritdoc/>
+        public bool HasChanged => ChangeToken.HasChanged;
+
+        /// <inheritdoc/>
+        public bool ActiveChangeCallbacks => ChangeToken.ActiveChangeCallbacks;
+
         /// <summary>
         /// Add a PAKE record
         /// </summary>
@@ -56,7 +68,11 @@ namespace wan24.Crypto
             for (; ; )
             {
                 RemoveRecord(identifier);
-                if (_Records.TryAdd(identifier, record)) return;
+                if (_Records.TryAdd(identifier, record))
+                {
+                    SetChanged(nameof(RecordsCount));
+                    return;
+                }
             }
         }
 
@@ -71,7 +87,11 @@ namespace wan24.Crypto
             for (; ; )
             {
                 await RemoveRecordAsync(identifier).DynamicContext();
-                if (_Records.TryAdd(identifier, record)) return;
+                if (_Records.TryAdd(identifier, record))
+                {
+                    SetChanged(nameof(RecordsCount));
+                    return;
+                }
             }
         }
 
@@ -93,7 +113,11 @@ namespace wan24.Crypto
         public void RemoveRecord(byte[] identifier)
         {
             EnsureUndisposed();
-            if (_Records.TryRemove(identifier, out T? record)) record.Dispose();
+            if (_Records.TryRemove(identifier, out T? record))
+            {
+                record.Dispose();
+                SetChanged(nameof(RecordsCount));
+            }
         }
 
         /// <summary>
@@ -103,7 +127,24 @@ namespace wan24.Crypto
         public async Task RemoveRecordAsync(byte[] identifier)
         {
             EnsureUndisposed();
-            if (_Records.TryRemove(identifier, out T? record)) await record.DisposeAsync().DynamicContext();
+            if (_Records.TryRemove(identifier, out T? record))
+            {
+                await record.DisposeAsync().DynamicContext();
+                SetChanged(nameof(RecordsCount));
+            }
+        }
+
+        /// <inheritdoc/>
+        public IDisposable RegisterChangeCallback(Action<object?> callback, object? state) => ChangeToken.RegisterChangeCallback(callback, state);
+
+        /// <summary>
+        /// Set changed
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void SetChanged(in string propertyName)
+        {
+            ChangeToken.InvokeCallbacks();
+            ChangeToken.RaisePropertyChanged(propertyName);
         }
 
         /// <inheritdoc/>
@@ -132,6 +173,7 @@ namespace wan24.Crypto
         {
             foreach (T record in _Records.Values) record.Dispose();
             _Records.Clear();
+            ChangeToken.Dispose();
         }
 
         /// <inheritdoc/>
@@ -139,6 +181,14 @@ namespace wan24.Crypto
         {
             foreach (T record in _Records.Values) await record.DisposeAsync().DynamicContext();
             _Records.Clear();
+            ChangeToken.Dispose();
+        }
+
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler? PropertyChanged
+        {
+            add => ChangeToken.PropertyChanged += value;
+            remove => ChangeToken.PropertyChanged -= value;
         }
     }
 }

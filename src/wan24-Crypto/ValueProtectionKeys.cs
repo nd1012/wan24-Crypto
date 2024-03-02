@@ -24,7 +24,19 @@ namespace wan24.Crypto
         /// <summary>
         /// TPM MAC algorithm name
         /// </summary>
-        private static string _TpmMacAlgorithm = DEFAULT_TPM_MAC_ALGORITHM;
+        private static string _TpmMacAlgorithm;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static ValueProtectionKeys()
+        {
+            _TpmMacAlgorithm = (from algo in MacHelper.Algorithms.Values
+                                where algo.UsesTpm
+                                orderby algo.MacLength descending
+                                select algo.Name)
+                                .FirstOrDefault() ?? DEFAULT_TPM_MAC_ALGORITHM;
+        }
 
         /// <summary>
         /// TPM MAC algorithm name (will throw when setting to a non-registered (or non-TPM) algorithm; see <c>wan24-Crypto-TPM</c>)

@@ -705,5 +705,49 @@ namespace wan24.Crypto
             options.RequirePrivateKeyRevision = false;
             return options;
         }
+
+        /// <summary>
+        /// Add encryption password pre-processing
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="postProcessor">Post-processor</param>
+        /// <returns>Options</returns>
+        public static CryptoOptions WithEncryptionPasswordPreProcessing(this CryptoOptions options, PasswordPostProcessor? postProcessor = null)
+        {
+            postProcessor ??= PasswordPostProcessor.Instance;
+            options.EncryptionPasswordPreProcessor = postProcessor.PreProcessEncryptionPassword;
+            options.EncryptionPasswordAsyncPreProcessor = postProcessor.PreProcessAsyncEncryptionPassword;
+            return options;
+        }
+
+        /// <summary>
+        /// Add encryption password pre-processing
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <param name="preProcessor">Pre-processor</param>
+        /// <param name="asyncPreProcessor">Asynchronous pre-processor</param>
+        /// <returns>v</returns>
+        public static CryptoOptions WithEncryptionPasswordPreProcessing(
+            this CryptoOptions options, 
+            CryptoOptions.EncryptionPasswordPreProcessor_Delegate? preProcessor,
+            CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate? asyncPreProcessor = null
+            )
+        {
+            options.EncryptionPasswordPreProcessor = preProcessor;
+            options.EncryptionPasswordAsyncPreProcessor = asyncPreProcessor;
+            return options;
+        }
+
+        /// <summary>
+        /// Remove encryption password pre-processors
+        /// </summary>
+        /// <param name="options">Options</param>
+        /// <returns>Options</returns>
+        public static CryptoOptions WithoutEncryptionPasswordPreProcessing(this CryptoOptions options)
+        {
+            options.EncryptionPasswordPreProcessor = null;
+            options.EncryptionPasswordAsyncPreProcessor = null;
+            return options;
+        }
     }
 }

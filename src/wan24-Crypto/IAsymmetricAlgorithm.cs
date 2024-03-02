@@ -33,6 +33,10 @@ namespace wan24.Crypto
         /// </summary>
         bool IsEllipticCurveAlgorithm { get; }
         /// <summary>
+        /// Is the public key exported in a standard format?
+        /// </summary>
+        bool IsPublicKeyStandardFormat { get; }
+        /// <summary>
         /// Allowed key sizes in bits
         /// </summary>
         FrozenSet<int> AllowedKeySizes { get; }

@@ -510,6 +510,7 @@ sections, it's easy to overview:
 | Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair | `1` |
 | Stream options | `LeaveOpen` | Leave the processing stream open after operation? | `false` |
 | Debug options | `Tracer` | Collects tracing information during en-/decryption | `null` |
+| Tag | `Tag` | Can store any tagged object which will be cloned on `GetCopy`, if `IClonable` is implemented | `null` |
 
 Other options, which are not listed here, are used internal only.
 
@@ -570,6 +571,43 @@ a non-null value.
 The `CryptoEnvironment` has also some static properties for storing some 
 singleton instances (which are used as default for the configurable options).
 
+You could implement a JSON configuration file using the `AppConfig` logic from 
+`wan24-Core`, and the `CryptoAppConfig`. In this configuration it's possible 
+to define many options from the `CryptoEnvironment.Options`, which can be 
+written as a JSON value. There it's also possible to define disabled 
+algorithms, which makes it possible to react to a broken algorithm very fast 
+and without having to update your app, for example.
+If you use an `AppConfig`, it could look like this:
+
+```cs
+public class YourAppConfig : AppConfig
+{
+    public YourAppConfig() : base() { }
+
+    [AppConfig(AfterBootstrap = true)]
+    public CryptoAppConfig? Crypto { get; set; }
+}
+
+await AppConfig.LoadAsync<YourAppConfig>();
+```
+
+**NOTE**: If you use the `CompressionAppConfig` also, it should be applied 
+before the `CryptoAppConfig` by defining a `Priority` in the 
+`AppConfigAttribute`.
+
+In the `config.json` in your app root folder:
+
+```json
+{
+    "Crypto":{
+        ...
+    }
+}
+```
+
+Anyway, you could also place and load a `CryptoAppConfig` in any configuration 
+which supports using that custom type.
+
 ## Crypto suite
 
 You can use a `CryptoOptions` instance as crypto suite. The type can be binary 
@@ -598,6 +636,9 @@ in `DefaultPrivateKeysStore`)
 - `Password`
 - `MacPassword`
 - `Tracer`
+- `Tag`
+
+Also delegates won't be serialized.
 
 ## PKI
 
@@ -1124,6 +1165,29 @@ entropy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should
 offer everything a C# developer needs for a better random number source.
 
 **NOTE**: Even the best PQC algorithm will _fail_ when not using a good RNG!
+
+## Password post-processing
+
+An entered user password may be easy to break using brute force. For this 
+reason it's recommended to apply at last KDF on the raw password. The 
+`PasswordPostProcessor` base type allows to create a reuseable post-processor, 
+which can also be used for pre-processing an encryption password.
+
+The `PasswordPostProcessor.Instance` is a ready-to-use post-processor, which 
+does these steps for processing a password:
+
+1. apply KDF
+2. apply a counter KDF, if configured
+3. compute a MAC, if configured
+
+For a fully customized processing you can use the static 
+`DefaultPasswordPostProcessor.ProcessPwd` method, which allows giving the 
+processing options to use as an argument.
+
+You're free to set your own default processor to 
+`PasswordPostProcessor.Instance` (which will be used when calling 
+`WithEncryptionPasswordPreProcessing` on `CryptoOptions` without any argument 
+values).
 
 ## Object encryption
 
