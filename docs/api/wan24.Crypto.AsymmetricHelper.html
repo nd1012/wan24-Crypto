@@ -2,71 +2,101 @@
 <!--[if IE]><![endif]-->
 <html>
 
-  <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class AsymmetricHelper | wan24-Crypto </title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AsymmetricHelper | wan24-Crypto ">
-    
-    <meta name="description" content="Asymmetric helper">
+      <meta name="generator" content="docfx ">
+  
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
       <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    <meta property="docfx:newtab" content="true">
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+            <a class="brand" href="../index.html">
+              <img src="../logo.svg" alt="" class="logomark">
+              <span class="brand-title"></span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../logo.svg" alt="" class="logomark">
+                          <span class="brand-title"></span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </nav>
+                <div class="footer">
+  (c) 2023 Andreas Zimmermann, wan24.de
+  
+                </div>            </nav>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+            <main class="main-panel">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricHelper">
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricHelper">
 
 
 
@@ -116,7 +146,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_Algorithms.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.Algorithms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L31">View Source</a>
   </span>
   <h4 id="wan24_Crypto_AsymmetricHelper_Algorithms" data-uid="wan24.Crypto.AsymmetricHelper.Algorithms">Algorithms</h4>
   <div class="markdown level1 summary"><p>Registered algorithms</p>
@@ -148,7 +178,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_DefaultKeyExchangeAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.DefaultKeyExchangeAlgorithm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L54">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L55">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_DefaultKeyExchangeAlgorithm_" data-uid="wan24.Crypto.AsymmetricHelper.DefaultKeyExchangeAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_DefaultKeyExchangeAlgorithm" data-uid="wan24.Crypto.AsymmetricHelper.DefaultKeyExchangeAlgorithm">DefaultKeyExchangeAlgorithm</h4>
@@ -179,7 +209,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_DefaultSignatureAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.DefaultSignatureAlgorithm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L67">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L68">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_DefaultSignatureAlgorithm_" data-uid="wan24.Crypto.AsymmetricHelper.DefaultSignatureAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_DefaultSignatureAlgorithm" data-uid="wan24.Crypto.AsymmetricHelper.DefaultSignatureAlgorithm">DefaultSignatureAlgorithm</h4>
@@ -207,10 +237,258 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_KeyExchangeAlgorithms.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.KeyExchangeAlgorithms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L105">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_KeyExchangeAlgorithms_" data-uid="wan24.Crypto.AsymmetricHelper.KeyExchangeAlgorithms*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_KeyExchangeAlgorithms" data-uid="wan24.Crypto.AsymmetricHelper.KeyExchangeAlgorithms">KeyExchangeAlgorithms</h4>
+  <div class="markdown level1 summary"><p>Key exchange algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; KeyExchangeAlgorithms { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_PostQuantum.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.PostQuantum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L147">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_PostQuantum_" data-uid="wan24.Crypto.AsymmetricHelper.PostQuantum*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_PostQuantum" data-uid="wan24.Crypto.AsymmetricHelper.PostQuantum">PostQuantum</h4>
+  <div class="markdown level1 summary"><p>Post-quantum algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; PostQuantum { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_PostQuantumKeyExchange.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.PostQuantumKeyExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L155">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_PostQuantumKeyExchange_" data-uid="wan24.Crypto.AsymmetricHelper.PostQuantumKeyExchange*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_PostQuantumKeyExchange" data-uid="wan24.Crypto.AsymmetricHelper.PostQuantumKeyExchange">PostQuantumKeyExchange</h4>
+  <div class="markdown level1 summary"><p>Post-quantum key exchange algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; PostQuantumKeyExchange { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_PostQuantumSignature.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.PostQuantumSignature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L164">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_PostQuantumSignature_" data-uid="wan24.Crypto.AsymmetricHelper.PostQuantumSignature*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_PostQuantumSignature" data-uid="wan24.Crypto.AsymmetricHelper.PostQuantumSignature">PostQuantumSignature</h4>
+  <div class="markdown level1 summary"><p>Post-quantum signature algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; PostQuantumSignature { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_PreQuantum.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.PreQuantum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L121">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_PreQuantum_" data-uid="wan24.Crypto.AsymmetricHelper.PreQuantum*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_PreQuantum" data-uid="wan24.Crypto.AsymmetricHelper.PreQuantum">PreQuantum</h4>
+  <div class="markdown level1 summary"><p>Pre-quantum algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; PreQuantum { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_PreQuantumKeyExchange.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.PreQuantumKeyExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L129">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_PreQuantumKeyExchange_" data-uid="wan24.Crypto.AsymmetricHelper.PreQuantumKeyExchange*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_PreQuantumKeyExchange" data-uid="wan24.Crypto.AsymmetricHelper.PreQuantumKeyExchange">PreQuantumKeyExchange</h4>
+  <div class="markdown level1 summary"><p>Pre-quantum key exchange algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; PreQuantumKeyExchange { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_PreQuantumSignature.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.PreQuantumSignature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L138">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_PreQuantumSignature_" data-uid="wan24.Crypto.AsymmetricHelper.PreQuantumSignature*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_PreQuantumSignature" data-uid="wan24.Crypto.AsymmetricHelper.PreQuantumSignature">PreQuantumSignature</h4>
+  <div class="markdown level1 summary"><p>Pre-quantum signature algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; PreQuantumSignature { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_SignatureAlgorithms.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.SignatureAlgorithms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L113">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricHelper_SignatureAlgorithms_" data-uid="wan24.Crypto.AsymmetricHelper.SignatureAlgorithms*"></a>
+  <h4 id="wan24_Crypto_AsymmetricHelper_SignatureAlgorithms" data-uid="wan24.Crypto.AsymmetricHelper.SignatureAlgorithms">SignatureAlgorithms</h4>
+  <div class="markdown level1 summary"><p>Signature algorithms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IAsymmetricAlgorithm&gt; SignatureAlgorithms { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_SyncObject.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.SyncObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L49">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L50">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_SyncObject_" data-uid="wan24.Crypto.AsymmetricHelper.SyncObject*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_SyncObject" data-uid="wan24.Crypto.AsymmetricHelper.SyncObject">SyncObject</h4>
@@ -241,7 +519,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_UseHybridKeyExchangeOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.UseHybridKeyExchangeOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L80">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L81">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_UseHybridKeyExchangeOptions_" data-uid="wan24.Crypto.AsymmetricHelper.UseHybridKeyExchangeOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_UseHybridKeyExchangeOptions" data-uid="wan24.Crypto.AsymmetricHelper.UseHybridKeyExchangeOptions">UseHybridKeyExchangeOptions</h4>
@@ -272,7 +550,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_UseHybridSignatureOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.UseHybridSignatureOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L92">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L93">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_UseHybridSignatureOptions_" data-uid="wan24.Crypto.AsymmetricHelper.UseHybridSignatureOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_UseHybridSignatureOptions" data-uid="wan24.Crypto.AsymmetricHelper.UseHybridSignatureOptions">UseHybridSignatureOptions</h4>
@@ -305,7 +583,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_CreateKeyExchangeKeyPair_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.CreateKeyExchangeKeyPair(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L128">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L197">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_CreateKeyExchangeKeyPair_" data-uid="wan24.Crypto.AsymmetricHelper.CreateKeyExchangeKeyPair*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_CreateKeyExchangeKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricHelper.CreateKeyExchangeKeyPair(wan24.Crypto.CryptoOptions)">CreateKeyExchangeKeyPair(CryptoOptions?)</h4>
@@ -355,7 +633,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_CreateKeyPair_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.CreateKeyPair(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L106">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L175">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_CreateKeyPair_" data-uid="wan24.Crypto.AsymmetricHelper.CreateKeyPair*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_CreateKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricHelper.CreateKeyPair(wan24.Crypto.CryptoOptions)">CreateKeyPair(CryptoOptions)</h4>
@@ -405,7 +683,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_CreateSignatureKeyPair_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.CreateSignatureKeyPair(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L150">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L219">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_CreateSignatureKeyPair_" data-uid="wan24.Crypto.AsymmetricHelper.CreateSignatureKeyPair*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_CreateSignatureKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricHelper.CreateSignatureKeyPair(wan24.Crypto.CryptoOptions)">CreateSignatureKeyPair(CryptoOptions?)</h4>
@@ -455,7 +733,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_GetAlgorithm_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.GetAlgorithm(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L253">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L322">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_GetAlgorithm_" data-uid="wan24.Crypto.AsymmetricHelper.GetAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_GetAlgorithm_System_Int32_" data-uid="wan24.Crypto.AsymmetricHelper.GetAlgorithm(System.Int32)">GetAlgorithm(int)</h4>
@@ -505,7 +783,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_GetAlgorithm_System_String_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.GetAlgorithm(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L243">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L312">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_GetAlgorithm_" data-uid="wan24.Crypto.AsymmetricHelper.GetAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_GetAlgorithm_System_String_" data-uid="wan24.Crypto.AsymmetricHelper.GetAlgorithm(System.String)">GetAlgorithm(string)</h4>
@@ -555,7 +833,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_GetDefaultKeyExchangeOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.GetDefaultKeyExchangeOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L172">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L241">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_GetDefaultKeyExchangeOptions_" data-uid="wan24.Crypto.AsymmetricHelper.GetDefaultKeyExchangeOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_GetDefaultKeyExchangeOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricHelper.GetDefaultKeyExchangeOptions(wan24.Crypto.CryptoOptions)">GetDefaultKeyExchangeOptions(CryptoOptions?)</h4>
@@ -605,7 +883,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper_GetDefaultSignatureOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper.GetDefaultSignatureOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L207">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L276">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricHelper_GetDefaultSignatureOptions_" data-uid="wan24.Crypto.AsymmetricHelper.GetDefaultSignatureOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricHelper_GetDefaultSignatureOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricHelper.GetDefaultSignatureOptions(wan24.Crypto.CryptoOptions)">GetDefaultSignatureOptions(CryptoOptions?)</h4>
@@ -652,45 +930,24 @@
   </table>
 
 </article>
-          </div>
+                </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricHelper.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricHelper.cs/#L8" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+                <div class="copyright-footer">
+                    <span>(c) 2023 Andreas Zimmermann, wan24.de</span>
+                </div>
+            </main>
         </div>
-      </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      (c) 2023 Andreas Zimmermann, wan24.de
-      
-          </div>
-        </div>
-      </footer>
-    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
 </html>

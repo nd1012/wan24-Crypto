@@ -1,0 +1,547 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class RngStream | wan24-Crypto </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class RngStream | wan24-Crypto ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="../index.html">
+              <img src="../logo.svg" alt="" class="logomark">
+              <span class="brand-title"></span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../logo.svg" alt="" class="logomark">
+                          <span class="brand-title"></span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+                </div>
+                <div class="footer">
+  (c) 2023 Andreas Zimmermann, wan24.de
+  
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngStream.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngStream%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="wan24.Crypto.RngStream">
+
+
+
+  <h1 id="wan24_Crypto_RngStream" data-uid="wan24.Crypto.RngStream" class="text-break">Class RngStream</h1>
+  <div class="markdown level0 summary"><p>RNG stream</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></div>
+    <div class="level3"><span class="xref">StreamBase</span></div>
+    <div class="level4"><a class="xref" href="wan24.Crypto.RngStream-1.html">RngStream</a>&lt;<a class="xref" href="wan24.Crypto.IRng.html">IRng</a>&gt;</div>
+    <div class="level5"><span class="xref">RngStream</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IStream</span></div>
+    <div><span class="xref">IDisposableObject</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_RNG">RngStream&lt;IRng&gt;.RNG</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_DisposeRng">RngStream&lt;IRng&gt;.DisposeRng</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_CanRead">RngStream&lt;IRng&gt;.CanRead</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_CanSeek">RngStream&lt;IRng&gt;.CanSeek</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_CanWrite">RngStream&lt;IRng&gt;.CanWrite</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Length">RngStream&lt;IRng&gt;.Length</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Position">RngStream&lt;IRng&gt;.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_CanTimeout">RngStream&lt;IRng&gt;.CanTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_ReadTimeout">RngStream&lt;IRng&gt;.ReadTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_WriteTimeout">RngStream&lt;IRng&gt;.WriteTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Seek_System_Int64_System_IO_SeekOrigin_">RngStream&lt;IRng&gt;.Seek(long, SeekOrigin)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_SetLength_System_Int64_">RngStream&lt;IRng&gt;.SetLength(long)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Flush">RngStream&lt;IRng&gt;.Flush()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_FlushAsync_System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.FlushAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_BeginRead_System_Byte___System_Int32_System_Int32_System_AsyncCallback_System_Object_">RngStream&lt;IRng&gt;.BeginRead(byte[], int, int, AsyncCallback, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_BeginWrite_System_Byte___System_Int32_System_Int32_System_AsyncCallback_System_Object_">RngStream&lt;IRng&gt;.BeginWrite(byte[], int, int, AsyncCallback, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_EndRead_System_IAsyncResult_">RngStream&lt;IRng&gt;.EndRead(IAsyncResult)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_EndWrite_System_IAsyncResult_">RngStream&lt;IRng&gt;.EndWrite(IAsyncResult)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_ReadByte">RngStream&lt;IRng&gt;.ReadByte()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Read_System_Byte___System_Int32_System_Int32_">RngStream&lt;IRng&gt;.Read(byte[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Read_System_Span_System_Byte__">RngStream&lt;IRng&gt;.Read(Span&lt;byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_ReadAsync_System_Byte___System_Int32_System_Int32_System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.ReadAsync(byte[], int, int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_ReadAsync_System_Memory_System_Byte__System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.ReadAsync(Memory&lt;byte&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_WriteByte_System_Byte_">RngStream&lt;IRng&gt;.WriteByte(byte)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Write_System_Byte___System_Int32_System_Int32_">RngStream&lt;IRng&gt;.Write(byte[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Write_System_ReadOnlySpan_System_Byte__">RngStream&lt;IRng&gt;.Write(ReadOnlySpan&lt;byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_WriteAsync_System_Byte___System_Int32_System_Int32_System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.WriteAsync(byte[], int, int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_WriteAsync_System_ReadOnlyMemory_System_Byte__System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.WriteAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Close">RngStream&lt;IRng&gt;.Close()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_CopyTo_System_IO_Stream_System_Int32_">RngStream&lt;IRng&gt;.CopyTo(Stream, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_CopyToAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.CopyToAsync(Stream, int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_Equals_System_Object_">RngStream&lt;IRng&gt;.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_GetHashCode">RngStream&lt;IRng&gt;.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_InitializeLifetimeService">RngStream&lt;IRng&gt;.InitializeLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_GetBytes_System_Int32__">RngStream&lt;IRng&gt;.GetBytes(in int)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_GetBytesAsync_System_Int32_System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.GetBytesAsync(int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_FillBytes_System_Span_System_Byte___">RngStream&lt;IRng&gt;.FillBytes(in Span&lt;byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_FillBytesAsync_System_Memory_System_Byte__System_Threading_CancellationToken_">RngStream&lt;IRng&gt;.FillBytesAsync(Memory&lt;byte&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">StreamBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.Name</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.IsClosed</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.OnDisposing</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.OnDisposed</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.null">Stream.Null</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.copyto#system-io-stream-copyto(system-io-stream)">Stream.CopyTo(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.copytoasync#system-io-stream-copytoasync(system-io-stream)">Stream.CopyToAsync(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.copytoasync#system-io-stream-copytoasync(system-io-stream-system-int32)">Stream.CopyToAsync(Stream, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.copytoasync#system-io-stream-copytoasync(system-io-stream-system-threading-cancellationtoken)">Stream.CopyToAsync(Stream, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.dispose#system-io-stream-dispose">Stream.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.flushasync#system-io-stream-flushasync">Stream.FlushAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readasync#system-io-stream-readasync(system-byte()-system-int32-system-int32)">Stream.ReadAsync(byte[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readatleast">Stream.ReadAtLeast(Span&lt;byte&gt;, int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readatleastasync">Stream.ReadAtLeastAsync(Memory&lt;byte&gt;, int, bool, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readexactly#system-io-stream-readexactly(system-byte()-system-int32-system-int32)">Stream.ReadExactly(byte[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readexactly#system-io-stream-readexactly(system-span((system-byte)))">Stream.ReadExactly(Span&lt;byte&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readexactlyasync#system-io-stream-readexactlyasync(system-byte()-system-int32-system-int32-system-threading-cancellationtoken)">Stream.ReadExactlyAsync(byte[], int, int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.readexactlyasync#system-io-stream-readexactlyasync(system-memory((system-byte))-system-threading-cancellationtoken)">Stream.ReadExactlyAsync(Memory&lt;byte&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.synchronized">Stream.Synchronized(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream.writeasync#system-io-stream-writeasync(system-byte()-system-int32-system-int32)">Stream.WriteAsync(byte[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.getlifetimeservice">MarshalByRefObject.GetLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="wan24.html">wan24</a>.<a class="xref" href="wan24.Crypto.html">Crypto</a></h6>
+  <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
+  <h5 id="wan24_Crypto_RngStream_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RngStream : RngStream&lt;IRng&gt;, IStream, IDisposableObject, IDisposable, IAsyncDisposable, IRng</code></pre>
+  </div>
+  <h5 id="wan24_Crypto_RngStream_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Constructor</p>
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngStream__ctor_wan24_Crypto_IRng__.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngStream.%23ctor(wan24.Crypto.IRng%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngStream.cs/#L12">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngStream__ctor_" data-uid="wan24.Crypto.RngStream.#ctor*"></a>
+  <h4 id="wan24_Crypto_RngStream__ctor_wan24_Crypto_IRng__" data-uid="wan24.Crypto.RngStream.#ctor(wan24.Crypto.IRng@)">RngStream(in IRng?)</h4>
+  <div class="markdown level1 summary"><p>RNG stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RngStream(in IRng? rng = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></td>
+        <td><span class="parametername">rng</span></td>
+        <td><p>RNG (if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, <a class="xref" href="wan24.Crypto.RND.html">RND</a> will be used; will be disposed, if <a class="xref" href="wan24.Crypto.RngStream-1.html#wan24_Crypto_RngStream_1_DisposeRng">DisposeRng</a> wasn't set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="wan24_Crypto_RngStream__ctor_wan24_Crypto_IRng___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Constructor</p>
+</div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_RngStream_Instance.md&amp;value=---%0Auid%3A%20wan24.Crypto.RngStream.Instance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/RngStream.cs/#L17">View Source</a>
+  </span>
+  <a id="wan24_Crypto_RngStream_Instance_" data-uid="wan24.Crypto.RngStream.Instance*"></a>
+  <h4 id="wan24_Crypto_RngStream_Instance" data-uid="wan24.Crypto.RngStream.Instance">Instance</h4>
+  <div class="markdown level1 summary"><p>Singleton instance (which uses <a class="xref" href="wan24.Crypto.RND.html">RND</a> per default)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RngStream Instance { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.RngStream.html">RngStream</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">wan24.Core.IStream</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.IRng.html">IRng</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.Authentication.ClientAuth.html#wan24_Crypto_Authentication_ClientAuth_AuthenticateAsync_System_IO_Stream_wan24_Crypto_Authentication_ClientAuthOptions_System_Threading_CancellationToken_">ClientAuth.AuthenticateAsync(Stream, ClientAuthOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.Authentication.ClientAuth.html#wan24_Crypto_Authentication_ClientAuth_SignupAsync_System_IO_Stream_wan24_Crypto_Authentication_ClientAuthOptions_System_Threading_CancellationToken_">ClientAuth.SignupAsync(Stream, ClientAuthOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.Authentication.PakeClientAuth.html#wan24_Crypto_Authentication_PakeClientAuth_AuthenticateAsync_System_IO_Stream_wan24_Crypto_Authentication_PakeClientAuthOptions_System_Threading_CancellationToken_">PakeClientAuth.AuthenticateAsync(Stream, PakeClientAuthOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.Authentication.PakeClientAuth.html#wan24_Crypto_Authentication_PakeClientAuth_SignupAsync_System_IO_Stream_wan24_Crypto_Authentication_PakeClientAuthOptions_System_Threading_CancellationToken_">PakeClientAuth.SignupAsync(Stream, PakeClientAuthOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMac_System_IO_Stream_System_Byte___System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_">CryptoExtensions.ValidateMac(Stream, byte[], byte[], bool, CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMacAsync_System_IO_Stream_System_Byte___System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">CryptoExtensions.ValidateMacAsync(Stream, byte[], byte[], bool, CryptoOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_Decrypt_System_IO_Stream_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_">EncryptionHelper.Decrypt(Stream, Stream, byte[], CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_Decrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_">EncryptionHelper.Decrypt(Stream, Stream, CryptoOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_Decrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_">EncryptionHelper.Decrypt(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_DecryptAsync_System_IO_Stream_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">EncryptionHelper.DecryptAsync(Stream, Stream, byte[], CryptoOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_DecryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">EncryptionHelper.DecryptAsync(Stream, Stream, CryptoOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_DecryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">EncryptionHelper.DecryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_Encrypt_System_IO_Stream_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_">EncryptionHelper.Encrypt(Stream, Stream, byte[], CryptoOptions?, MacStreams?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_Encrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_">EncryptionHelper.Encrypt(Stream, Stream, CryptoOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_Encrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_">EncryptionHelper.Encrypt(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_EncryptAsync_System_IO_Stream_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_System_Threading_CancellationToken_">EncryptionHelper.EncryptAsync(Stream, Stream, byte[], CryptoOptions?, MacStreams?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_EncryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">EncryptionHelper.EncryptAsync(Stream, Stream, CryptoOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.EncryptionHelper.html#wan24_Crypto_EncryptionHelper_EncryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">EncryptionHelper.EncryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_Hash_System_IO_Stream_wan24_Crypto_CryptoOptions_">HashHelper.Hash(Stream, CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.HashHelper.html#wan24_Crypto_HashHelper_HashAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">HashHelper.HashAsync(Stream, CryptoOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_Mac_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_">MacHelper.Mac(Stream, byte[], CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_MacAsync_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">MacHelper.MacAsync(Stream, byte[], CryptoOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutToken_System_IO_Stream_System_Buffers_ArrayPool_System_Byte__">StreamSerializerExtensions.ReadTimeoutToken(Stream, ArrayPool&lt;byte&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutTokenAsync_System_IO_Stream_System_Buffers_ArrayPool_System_Byte__System_Threading_CancellationToken_">StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, ArrayPool&lt;byte&gt;?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_">RngExtensions.GetInt32(IRng, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32_wan24_Crypto_IRng_System_Int32_System_Int32_">RngExtensions.GetInt32(IRng, int, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_wan24_Crypto_IRng_System_Int32_System_Int32_System_Threading_CancellationToken_">RngExtensions.GetInt32Async(IRng, int, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetInt32Async_wan24_Crypto_IRng_System_Int32_System_Threading_CancellationToken_">RngExtensions.GetInt32Async(IRng, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytes_wan24_Crypto_IRng_System_Span_System_Byte__">RngExtensions.GetNonZeroBytes(IRng, Span&lt;byte&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.RngExtensions.html#wan24_Crypto_RngExtensions_GetNonZeroBytesAsync_wan24_Crypto_IRng_System_Memory_System_Byte__System_Threading_CancellationToken_">RngExtensions.GetNonZeroBytesAsync(IRng, Memory&lt;byte&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_AddPaddingAsync__1___0_System_Int32_System_Nullable_System_Int64__System_Threading_CancellationToken_">CryptoExtensions.AddPaddingAsync&lt;T&gt;(T, int, long?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_AddPadding__1___0_System_Int32_System_Nullable_System_Int64__">CryptoExtensions.AddPadding&lt;T&gt;(T, int, long?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_WriteAsync__1___0_wan24_Crypto_TimeoutToken_System_Byte___System_Buffers_ArrayPool_System_Byte__System_Threading_CancellationToken_">StreamSerializerExtensions.WriteAsync&lt;T&gt;(T, TimeoutToken, byte[]?, ArrayPool&lt;byte&gt;?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_Write__1___0_wan24_Crypto_TimeoutToken__System_Byte___System_Buffers_ArrayPool_System_Byte__">StreamSerializerExtensions.Write&lt;T&gt;(T, in TimeoutToken, byte[]?, ArrayPool&lt;byte&gt;?)</a>
+  </div>
+
+</article>
+                </div>
+
+                <div class="copyright-footer">
+                    <span>(c) 2023 Andreas Zimmermann, wan24.de</span>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
+</html>

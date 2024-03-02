@@ -2,71 +2,101 @@
 <!--[if IE]><![endif]-->
 <html>
 
-  <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class FastPakeAuthServer | wan24-Crypto </title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class FastPakeAuthServer | wan24-Crypto ">
-    
-    <meta name="description" content="Fast PAKE authentication server (will skip KDF after initialization)">
+      <meta name="generator" content="docfx ">
+  
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
       <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    <meta property="docfx:newtab" content="true">
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+            <a class="brand" href="../index.html">
+              <img src="../logo.svg" alt="" class="logomark">
+              <span class="brand-title"></span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../logo.svg" alt="" class="logomark">
+                          <span class="brand-title"></span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </nav>
+                <div class="footer">
+  (c) 2023 Andreas Zimmermann, wan24.de
+  
+                </div>            </nav>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+            <main class="main-panel">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.FastPakeAuthServer">
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="wan24.Crypto.FastPakeAuthServer">
 
 
 
@@ -87,6 +117,8 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><span class="xref">IStatusProvider</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.primitives.ichangetoken">IChangeToken</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -137,7 +169,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_FastPakeAuthServer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class FastPakeAuthServer : DisposableBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class FastPakeAuthServer : DisposableBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, IChangeToken, INotifyPropertyChanged</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -146,7 +178,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_IPakeRecord__System_Byte____System_Byte____System_Byte____System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.%23ctor(wan24.Crypto.IPakeRecord%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Nullable%7BSystem.TimeSpan%7D%40%2CSystem.Nullable%7BSystem.TimeSpan%7D%40%2Cwan24.Crypto.CryptoOptions%40%2Cwan24.Crypto.CryptoOptions%40%2CSystem.String%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L260">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Construction.cs/#L248">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer__ctor_" data-uid="wan24.Crypto.FastPakeAuthServer.#ctor*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_IPakeRecord__System_Byte____System_Byte____System_Byte____System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__System_String__" data-uid="wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.IPakeRecord@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions@,System.String@)">FastPakeAuthServer(in IPakeRecord, in byte[], in byte[], in byte[], in TimeSpan?, in TimeSpan?, in CryptoOptions?, in CryptoOptions?, in string?)</h4>
@@ -228,7 +260,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeAuth__System_Byte____System_Byte____System_Boolean__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.%23ctor(wan24.Crypto.Pake%40%2Cwan24.Crypto.PakeAuth%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2CSystem.Boolean%40%2CSystem.Nullable%7BSystem.TimeSpan%7D%40%2CSystem.Nullable%7BSystem.TimeSpan%7D%40%2CSystem.String%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L31">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Construction.cs/#L19">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer__ctor_" data-uid="wan24.Crypto.FastPakeAuthServer.#ctor*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeAuth__System_Byte____System_Byte____System_Boolean__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__" data-uid="wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeAuth@,System.Byte[]@,System.Byte[]@,System.Boolean@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)">FastPakeAuthServer(in Pake, in PakeAuth, out byte[], out byte[], in bool, in TimeSpan?, in TimeSpan?, in string?)</h4>
@@ -304,7 +336,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_PakeSignup__wan24_Crypto_PakeRecord__System_Byte____System_Byte____wan24_Crypto_Pake__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.%23ctor(wan24.Crypto.PakeSignup%40%2Cwan24.Crypto.PakeRecord%40%2CSystem.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40%2Cwan24.Crypto.Pake%40%2CSystem.Nullable%7BSystem.TimeSpan%7D%40%2CSystem.Nullable%7BSystem.TimeSpan%7D%40%2CSystem.String%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L156">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Construction.cs/#L144">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer__ctor_" data-uid="wan24.Crypto.FastPakeAuthServer.#ctor*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_PakeSignup__wan24_Crypto_PakeRecord__System_Byte____System_Byte____wan24_Crypto_Pake__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__" data-uid="wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.PakeSignup@,wan24.Crypto.PakeRecord@,System.Byte[]@,System.Byte[]@,wan24.Crypto.Pake@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)">FastPakeAuthServer(in PakeSignup, out PakeRecord, out byte[], out byte[], in Pake?, in TimeSpan?, in TimeSpan?, in string?)</h4>
@@ -379,10 +411,42 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_ActiveChangeCallbacks.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.ActiveChangeCallbacks%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.ChangeToken.cs/#L13">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthServer_ActiveChangeCallbacks_" data-uid="wan24.Crypto.FastPakeAuthServer.ActiveChangeCallbacks*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthServer_ActiveChangeCallbacks" data-uid="wan24.Crypto.FastPakeAuthServer.ActiveChangeCallbacks">ActiveChangeCallbacks</h4>
+  <div class="markdown level1 summary"><p>Indicates if this token will pro-actively raise callbacks. If <code>false</code>, the token consumer must
+poll <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged">HasChanged</a> to detect changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ActiveChangeCallbacks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_AuthCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.AuthCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L341">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L51">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_AuthCount_" data-uid="wan24.Crypto.FastPakeAuthServer.AuthCount*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_AuthCount" data-uid="wan24.Crypto.FastPakeAuthServer.AuthCount">AuthCount</h4>
@@ -413,7 +477,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_AuthErrorCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.AuthErrorCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L346">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L56">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_AuthErrorCount_" data-uid="wan24.Crypto.FastPakeAuthServer.AuthErrorCount*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_AuthErrorCount" data-uid="wan24.Crypto.FastPakeAuthServer.AuthErrorCount">AuthErrorCount</h4>
@@ -444,7 +508,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_GUID.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.GUID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L311">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L21">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_GUID_" data-uid="wan24.Crypto.FastPakeAuthServer.GUID*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_GUID" data-uid="wan24.Crypto.FastPakeAuthServer.GUID">GUID</h4>
@@ -472,10 +536,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_HasChanged.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.HasChanged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.ChangeToken.cs/#L10">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthServer_HasChanged_" data-uid="wan24.Crypto.FastPakeAuthServer.HasChanged*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthServer_HasChanged" data-uid="wan24.Crypto.FastPakeAuthServer.HasChanged">HasChanged</h4>
+  <div class="markdown level1 summary"><p>Gets a value that indicates if a change has occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasChanged { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_Key.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.Key%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L326">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L36">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_Key_" data-uid="wan24.Crypto.FastPakeAuthServer.Key*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_Key" data-uid="wan24.Crypto.FastPakeAuthServer.Key">Key</h4>
@@ -506,7 +601,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_Name.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.Name%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L316">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L26">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_Name_" data-uid="wan24.Crypto.FastPakeAuthServer.Name*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_Name" data-uid="wan24.Crypto.FastPakeAuthServer.Name">Name</h4>
@@ -537,7 +632,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_Pake.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.Pake%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L321">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L31">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_Pake_" data-uid="wan24.Crypto.FastPakeAuthServer.Pake*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_Pake" data-uid="wan24.Crypto.FastPakeAuthServer.Pake">Pake</h4>
@@ -568,7 +663,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_Secret.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.Secret%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L331">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L41">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_Secret_" data-uid="wan24.Crypto.FastPakeAuthServer.Secret*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_Secret" data-uid="wan24.Crypto.FastPakeAuthServer.Secret">Secret</h4>
@@ -599,7 +694,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.SignatureKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L336">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L46">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_SignatureKey_" data-uid="wan24.Crypto.FastPakeAuthServer.SignatureKey*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_SignatureKey" data-uid="wan24.Crypto.FastPakeAuthServer.SignatureKey">SignatureKey</h4>
@@ -630,7 +725,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L349">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L59">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_State_" data-uid="wan24.Crypto.FastPakeAuthServer.State*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_State" data-uid="wan24.Crypto.FastPakeAuthServer.State">State</h4>
@@ -661,7 +756,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_Sync.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.Sync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L301">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L11">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_Sync_" data-uid="wan24.Crypto.FastPakeAuthServer.Sync*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_Sync" data-uid="wan24.Crypto.FastPakeAuthServer.Sync">Sync</h4>
@@ -692,7 +787,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_UseSync.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.UseSync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L306">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Properties.cs/#L16">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_UseSync_" data-uid="wan24.Crypto.FastPakeAuthServer.UseSync*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_UseSync" data-uid="wan24.Crypto.FastPakeAuthServer.UseSync">UseSync</h4>
@@ -725,7 +820,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_CreateAuthRecord.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.CreateAuthRecord%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L548">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L204">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_CreateAuthRecord_" data-uid="wan24.Crypto.FastPakeAuthServer.CreateAuthRecord*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_CreateAuthRecord" data-uid="wan24.Crypto.FastPakeAuthServer.CreateAuthRecord">CreateAuthRecord()</h4>
@@ -757,7 +852,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.Dispose(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L555">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Internals.cs/#L32">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_Dispose_" data-uid="wan24.Crypto.FastPakeAuthServer.Dispose*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_Dispose_System_Boolean_" data-uid="wan24.Crypto.FastPakeAuthServer.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -793,7 +888,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.DisposeCore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L566">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.Internals.cs/#L44">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_DisposeCore_" data-uid="wan24.Crypto.FastPakeAuthServer.DisposeCore*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_DisposeCore" data-uid="wan24.Crypto.FastPakeAuthServer.DisposeCore">DisposeCore()</h4>
@@ -826,7 +921,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_HandleAuth_wan24_Crypto_IPakeRequest__System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest%40%2CSystem.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L368">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L20">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_HandleAuth_" data-uid="wan24.Crypto.FastPakeAuthServer.HandleAuth*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_HandleAuth_wan24_Crypto_IPakeRequest__System_Boolean__" data-uid="wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@)">HandleAuth(in IPakeRequest, in bool)</h4>
@@ -898,7 +993,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_HandleAuthAsync_wan24_Crypto_IPakeRequest_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L459">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L113">View Source</a>
   </span>
   <a id="wan24_Crypto_FastPakeAuthServer_HandleAuthAsync_" data-uid="wan24.Crypto.FastPakeAuthServer.HandleAuthAsync*"></a>
   <h4 id="wan24_Crypto_FastPakeAuthServer_HandleAuthAsync_wan24_Crypto_IPakeRequest_System_Boolean_System_Threading_CancellationToken_" data-uid="wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest,System.Boolean,System.Threading.CancellationToken)">HandleAuthAsync(IPakeRequest, bool, CancellationToken)</h4>
@@ -971,6 +1066,95 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_RegisterChangeCallback_System_Action_System_Object__System_Object_.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.RegisterChangeCallback(System.Action%7BSystem.Object%7D%2CSystem.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.ChangeToken.cs/#L16">View Source</a>
+  </span>
+  <a id="wan24_Crypto_FastPakeAuthServer_RegisterChangeCallback_" data-uid="wan24.Crypto.FastPakeAuthServer.RegisterChangeCallback*"></a>
+  <h4 id="wan24_Crypto_FastPakeAuthServer_RegisterChangeCallback_System_Action_System_Object__System_Object_" data-uid="wan24.Crypto.FastPakeAuthServer.RegisterChangeCallback(System.Action{System.Object},System.Object)">RegisterChangeCallback(Action&lt;object?&gt;, object?)</h4>
+  <div class="markdown level1 summary"><p>Registers for a callback that will be invoked when the entry has changed.
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged">HasChanged</a> MUST be set before the callback is invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable RegisterChangeCallback(Action&lt;object?&gt; callback, object? state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action&lt;T&gt;</a> to invoke.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State to be passed into the callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></td>
+        <td><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a> that is used to unregister the callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer_PropertyChanged.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer.PropertyChanged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.ChangeToken.cs/#L19">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_FastPakeAuthServer_PropertyChanged" data-uid="wan24.Crypto.FastPakeAuthServer.PropertyChanged">PropertyChanged</h4>
+  <div class="markdown level1 summary"><p>Occurs when a property value changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event PropertyChangedEventHandler? PropertyChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler">PropertyChangedEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
@@ -987,47 +1171,32 @@
   <div>
       <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.primitives.ichangetoken">IChangeToken</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
+  </div>
 
 </article>
-          </div>
+                </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_FastPakeAuthServer.md&amp;value=---%0Auid%3A%20wan24.Crypto.FastPakeAuthServer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/FastPakeAuthServer.cs/#L9" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+                <div class="copyright-footer">
+                    <span>(c) 2023 Andreas Zimmermann, wan24.de</span>
+                </div>
+            </main>
         </div>
-      </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      (c) 2023 Andreas Zimmermann, wan24.de
-      
-          </div>
-        </div>
-      </footer>
-    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
 </html>

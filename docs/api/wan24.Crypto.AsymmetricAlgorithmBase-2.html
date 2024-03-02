@@ -2,71 +2,101 @@
 <!--[if IE]><![endif]-->
 <html>
 
-  <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt; | wan24-Crypto </title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt; | wan24-Crypto ">
-    
-    <meta name="description" content="Base class for an asymmetric algorithm">
+      <meta name="generator" content="docfx ">
+  
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
       <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    <meta property="docfx:newtab" content="true">
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+            <a class="brand" href="../index.html">
+              <img src="../logo.svg" alt="" class="logomark">
+              <span class="brand-title"></span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../logo.svg" alt="" class="logomark">
+                          <span class="brand-title"></span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </nav>
+                <div class="footer">
+  (c) 2023 Andreas Zimmermann, wan24.de
+  
+                </div>            </nav>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+            <main class="main-panel">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2">
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2">
 
 
 
@@ -267,7 +297,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.AllowedKeySizes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L77">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L80">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.AllowedKeySizes*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.AllowedKeySizes">AllowedKeySizes</h4>
@@ -391,7 +421,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DefaultKeySize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L86">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L89">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultKeySize*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultKeySize">DefaultKeySize</h4>
@@ -463,6 +493,37 @@
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool IsEllipticCurveAlgorithm { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_IsPublicKeyStandardFormat.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.IsPublicKeyStandardFormat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L77">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsPublicKeyStandardFormat_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsPublicKeyStandardFormat*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsPublicKeyStandardFormat" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsPublicKeyStandardFormat">IsPublicKeyStandardFormat</h4>
+  <div class="markdown level1 summary"><p>Is the public key exported in a standard format?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsPublicKeyStandardFormat { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -579,7 +640,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CanHandleNetAlgorithm_System_Security_Cryptography_AsymmetricAlgorithm_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CanHandleNetAlgorithm(System.Security.Cryptography.AsymmetricAlgorithm)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L174">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L177">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanHandleNetAlgorithm_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanHandleNetAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanHandleNetAlgorithm_System_Security_Cryptography_AsymmetricAlgorithm_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanHandleNetAlgorithm(System.Security.Cryptography.AsymmetricAlgorithm)">CanHandleNetAlgorithm(AsymmetricAlgorithm)</h4>
@@ -629,7 +690,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CreateKeyPair(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L114">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L117">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPair*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPair(wan24.Crypto.CryptoOptions)">CreateKeyPair(CryptoOptions?)</h4>
@@ -676,7 +737,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPairAsync_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CreateKeyPairAsync(wan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L117">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L120">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPairAsync_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPairAsync*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPairAsync_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPairAsync(wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">CreateKeyPairAsync(CryptoOptions?, CancellationToken)</h4>
@@ -728,7 +789,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeriveKey(System.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L154">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L157">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeriveKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeriveKey(System.Byte[],wan24.Crypto.CryptoOptions)">DeriveKey(byte[], CryptoOptions?)</h4>
@@ -784,7 +845,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeserializePrivateKey(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L134">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L137">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKey(System.Byte[])">DeserializePrivateKey(byte[])</h4>
@@ -831,7 +892,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKeyV1_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeserializePrivateKeyV1(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L151">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L154">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKeyV1_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKeyV1*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKeyV1_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKeyV1(System.Byte[])">DeserializePrivateKeyV1(byte[])</h4>
@@ -881,7 +942,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeserializePublicKey(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L121">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L124">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePublicKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePublicKey(System.Byte[])">DeserializePublicKey(byte[])</h4>
@@ -928,7 +989,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L104">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L107">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureDefaultOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureDefaultOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)">EnsureDefaultOptions(CryptoOptions?)</h4>
@@ -988,45 +1049,24 @@
   </div>
 
 </article>
-          </div>
+                </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L13" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+                <div class="copyright-footer">
+                    <span>(c) 2023 Andreas Zimmermann, wan24.de</span>
+                </div>
+            </main>
         </div>
-      </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      (c) 2023 Andreas Zimmermann, wan24.de
-      
-          </div>
-        </div>
-      </footer>
-    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
 </html>

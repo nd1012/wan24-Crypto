@@ -3,6 +3,14 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
@@ -727,6 +735,76 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.CryptoOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.CryptoOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.DefaultAlgorithms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.DefaultAlgorithms.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.Limitations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.Limitations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.RngOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.RngOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.SecureValueOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.SecureValueOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.SignedAttributesOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.SignedAttributesOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.CryptoEnvironment.Options.yml",
       "output": {
         ".html": {
@@ -871,6 +949,16 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.DecryptionStreams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.DefaultPasswordPostProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.DefaultPasswordPostProcessor.html"
         }
       },
       "version": ""
@@ -1827,6 +1915,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PasswordPostProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PasswordPostProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.PrivateKeySuite.yml",
       "output": {
         ".html": {
@@ -2011,6 +2109,26 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.RngSeedingTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.RngStream-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.RngStream-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.RngStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.RngStream.html"
         }
       },
       "version": ""

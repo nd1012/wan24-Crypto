@@ -2,64 +2,97 @@
 <!--[if IE]><![endif]-->
 <html>
 
-  <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>wan24-Crypto | wan24-Crypto </title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="wan24-Crypto | wan24-Crypto ">
-    
-    
+      <meta name="generator" content="docfx ">
+  
       <link rel="shortcut icon" href="favicon.ico">
-      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="styles/docfx.css">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/config.css">
+      <link rel="stylesheet" href="styles/singulink.css">
       <link rel="stylesheet" href="styles/main.css">
       <meta property="docfx:navrel" content="toc.html">
       <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    <meta property="docfx:newtab" content="true">
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  
+  <meta property="docfx:rel" content="">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" class="svg" src="logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+            <a class="brand" href="index.html">
+              <img src="logo.svg" alt="" class="logomark">
+              <span class="brand-title"></span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="index.html">
+                          <img src="logo.svg" alt="" class="logomark">
+                          <span class="brand-title"></span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </nav>
+                <div class="footer">
+  (c) 2023 Andreas Zimmermann, wan24.de
+  
+                </div>            </nav>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto Docs/index.md/#L1" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="">
 <h1 id="wan24-crypto">wan24-Crypto</h1>
 
 <p>This library exports a generic high level crypto API, which allows to use an
@@ -888,6 +921,12 @@ sections, it's easy to overview:</p>
 <td>Collects tracing information during en-/decryption</td>
 <td><code>null</code></td>
 </tr>
+<tr>
+<td>Tag</td>
+<td><code>Tag</code></td>
+<td>Can store any tagged object which will be cloned on <code>GetCopy</code>, if <code>IClonable</code> is implemented</td>
+<td><code>null</code></td>
+</tr>
 </tbody>
 </table>
 <p>Other options, which are not listed here, are used internal only.</p>
@@ -940,6 +979,35 @@ might miss, when not knowing where to look at:</p>
 a non-null value.</p>
 <p>The <code>CryptoEnvironment</code> has also some static properties for storing some
 singleton instances (which are used as default for the configurable options).</p>
+<p>You could implement a JSON configuration file using the <code>AppConfig</code> logic from
+<code>wan24-Core</code>, and the <code>CryptoAppConfig</code>. In this configuration it's possible
+to define many options from the <code>CryptoEnvironment.Options</code>, which can be
+written as a JSON value. There it's also possible to define disabled
+algorithms, which makes it possible to react to a broken algorithm very fast
+and without having to update your app, for example.
+If you use an <code>AppConfig</code>, it could look like this:</p>
+<pre><code class="lang-cs">public class YourAppConfig : AppConfig
+{
+    public YourAppConfig() : base() { }
+
+    [AppConfig(AfterBootstrap = true)]
+    public CryptoAppConfig? Crypto { get; set; }
+}
+
+await AppConfig.LoadAsync&lt;YourAppConfig&gt;();
+</code></pre>
+<p><strong>NOTE</strong>: If you use the <code>CompressionAppConfig</code> also, it should be applied
+before the <code>CryptoAppConfig</code> by defining a <code>Priority</code> in the
+<code>AppConfigAttribute</code>.</p>
+<p>In the <code>config.json</code> in your app root folder:</p>
+<pre><code class="lang-json">{
+    &quot;Crypto&quot;:{
+        ...
+    }
+}
+</code></pre>
+<p>Anyway, you could also place and load a <code>CryptoAppConfig</code> in any configuration
+which supports using that custom type.</p>
 <h2 id="crypto-suite">Crypto suite</h2>
 <p>You can use a <code>CryptoOptions</code> instance as crypto suite. The type can be binary
 serialized (using the <code>Stream-Serializer-Extensions</code>) for storing/restoring
@@ -966,7 +1034,9 @@ in <code>DefaultPrivateKeysStore</code>)</li>
 <li><code>Password</code></li>
 <li><code>MacPassword</code></li>
 <li><code>Tracer</code></li>
+<li><code>Tag</code></li>
 </ul>
+<p>Also delegates won't be serialized.</p>
 <h2 id="pki">PKI</h2>
 <p>Using the <code>AsymmetricSignedPublicKey</code> type, you can implement a simple PKI,
 which allows to</p>
@@ -1446,6 +1516,25 @@ good results with a CSRNG already, even you don't have access to a quantum
 entropy source. The <code>wan24-Crypto</code> and <code>wan24-Crypto-BC</code> libraries should
 offer everything a C# developer needs for a better random number source.</p>
 <p><strong>NOTE</strong>: Even the best PQC algorithm will <em>fail</em> when not using a good RNG!</p>
+<h2 id="password-post-processing">Password post-processing</h2>
+<p>An entered user password may be easy to break using brute force. For this
+reason it's recommended to apply at last KDF on the raw password. The
+<code>PasswordPostProcessor</code> base type allows to create a reuseable post-processor,
+which can also be used for pre-processing an encryption password.</p>
+<p>The <code>PasswordPostProcessor.Instance</code> is a ready-to-use post-processor, which
+does these steps for processing a password:</p>
+<ol>
+<li>apply KDF</li>
+<li>apply a counter KDF, if configured</li>
+<li>compute a MAC, if configured</li>
+</ol>
+<p>For a fully customized processing you can use the static
+<code>DefaultPasswordPostProcessor.ProcessPwd</code> method, which allows giving the
+processing options to use as an argument.</p>
+<p>You're free to set your own default processor to
+<code>PasswordPostProcessor.Instance</code> (which will be used when calling
+<code>WithEncryptionPasswordPreProcessing</code> on <code>CryptoOptions</code> without any argument
+values).</p>
 <h2 id="object-encryption">Object encryption</h2>
 <p>By using the <code>DekAttribute</code> and <code>EncryptAttribute</code> (and optional the
 <code>IEncryptProperties</code> interface) you can en-/decrypt objects with the
@@ -1877,42 +1966,24 @@ Castle. Also &quot;selfmade&quot; cryptographic algorithms may be implemented as
 extensions.</p>
 
 </article>
-          </div>
+                </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto Docs/index.md/#L1" class="contribution-link">Edit this page</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+                <div class="copyright-footer">
+                    <span>(c) 2023 Andreas Zimmermann, wan24.de</span>
+                </div>
+            </main>
         </div>
-      </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      (c) 2023 Andreas Zimmermann, wan24.de
-      
-          </div>
-        </div>
-      </footer>
-    </div>
 
-    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="styles/docfx.js"></script>
-    <script type="text/javascript" src="styles/main.js"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="styles/docfx.js"></script>
+        <script type="text/javascript" src="styles/main.js"></script>
+        <script type="text/javascript" src="styles/singulink.js"></script>    </body>
 </html>

@@ -2,71 +2,100 @@
 <!--[if IE]><![endif]-->
 <html>
 
-  <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Namespace wan24.Crypto | wan24-Crypto </title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Namespace wan24.Crypto | wan24-Crypto ">
-    
-    
+      <meta name="generator" content="docfx ">
+  
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
       <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    <meta property="docfx:newtab" content="true">
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+            <a class="brand" href="../index.html">
+              <img src="../logo.svg" alt="" class="logomark">
+              <span class="brand-title"></span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../logo.svg" alt="" class="logomark">
+                          <span class="brand-title"></span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </nav>
+                <div class="footer">
+  (c) 2023 Andreas Zimmermann, wan24.de
+  
+                </div>            </nav>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+            <main class="main-panel">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="wan24.Crypto">
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="wan24.Crypto">
 
   <h1 id="wan24_Crypto" data-uid="wan24.Crypto" class="text-break">Namespace wan24.Crypto</h1>
   <div class="markdown level0 summary"></div>
@@ -75,624 +104,644 @@
     <h3 id="classes">
 Classes
 </h3>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html">AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html">AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;</a></h5>
       <section><p>Base class for an asymmetric algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html">AsymmetricEcDiffieHellmanAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html">AsymmetricEcDiffieHellmanAlgorithm</a></h5>
       <section><p>EC Diffie Hellman asymmetric algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.html">AsymmetricEcDiffieHellmanPrivateKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPrivateKey.html">AsymmetricEcDiffieHellmanPrivateKey</a></h5>
       <section><p>Elliptic Curve Diffie Hellman asymmetric private key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html">AsymmetricEcDiffieHellmanPublicKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricEcDiffieHellmanPublicKey.html">AsymmetricEcDiffieHellmanPublicKey</a></h5>
       <section><p>Elliptic Curve Diffie Hellman asymmetric public key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricEcDsaAlgorithm.html">AsymmetricEcDsaAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricEcDsaAlgorithm.html">AsymmetricEcDsaAlgorithm</a></h5>
       <section><p>EC DSA asymmetric algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricEcDsaPrivateKey.html">AsymmetricEcDsaPrivateKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricEcDsaPrivateKey.html">AsymmetricEcDsaPrivateKey</a></h5>
       <section><p>Elliptic Curve DSA asymmetric private key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricEcDsaPublicKey.html">AsymmetricEcDsaPublicKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricEcDsaPublicKey.html">AsymmetricEcDsaPublicKey</a></h5>
       <section><p>Elliptic Curve DSA asymmetric public key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricHelper.html">AsymmetricHelper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricHelper.html">AsymmetricHelper</a></h5>
       <section><p>Asymmetric helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html">AsymmetricKeyBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html">AsymmetricKeyBase</a></h5>
       <section><p>Base class for an asymmetric key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeyPool-1.html">AsymmetricKeyPool&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricKeyPool-1.html">AsymmetricKeyPool&lt;T&gt;</a></h5>
       <section><p>Asymmetric private key pool</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeySigner.html">AsymmetricKeySigner</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricKeySigner.html">AsymmetricKeySigner</a></h5>
       <section><p>Asymmetric key signer</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricKeySignerService.html">AsymmetricKeySignerService</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricKeySignerService.html">AsymmetricKeySignerService</a></h5>
       <section><p>Parallel <a class="xref" href="wan24.Crypto.AsymmetricPublicKeySigningRequest.html">AsymmetricPublicKeySigningRequest</a> signer service</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html">AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html">AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;</a></h5>
       <section><p>Base class for an asymmetric private key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricPublicKeyBase.html">AsymmetricPublicKeyBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricPublicKeyBase.html">AsymmetricPublicKeyBase</a></h5>
       <section><p>Base class for an asymmetric public key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricPublicKeySigningRequest.html">AsymmetricPublicKeySigningRequest</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricPublicKeySigningRequest.html">AsymmetricPublicKeySigningRequest</a></h5>
       <section><p>Asymmetric public key signing request</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a></h5>
       <section><p>Signed asymmetric public key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKeyTypesExtensions.html">AsymmetricSignedPublicKeyTypesExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKeyTypesExtensions.html">AsymmetricSignedPublicKeyTypesExtensions</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKeyTypes.html">AsymmetricSignedPublicKeyTypes</a> extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricVoidAlgorithm.html">AsymmetricVoidAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricVoidAlgorithm.html">AsymmetricVoidAlgorithm</a></h5>
       <section><p>Asymmetric void algorithm (used in case there's no asymmetric algorithm available)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricVoidPrivateKey.html">AsymmetricVoidPrivateKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricVoidPrivateKey.html">AsymmetricVoidPrivateKey</a></h5>
       <section><p>Private asymmetric void key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricVoidPublicKey.html">AsymmetricVoidPublicKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricVoidPublicKey.html">AsymmetricVoidPublicKey</a></h5>
       <section><p>Public asymmetric void key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html">BinaryPayloadContainer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html">BinaryPayloadContainer</a></h5>
       <section><p>Binary payload container (you should extend this type and define the min./max. payload length in bytes in the <a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MinPayloadLength">MinPayloadLength</a> and <a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MaxPayloadLength">MaxPayloadLength</a>
 properties (can be done by calling the protected constructors); default max. length is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16.maxvalue">MaxValue</a>, while the default min. length is <code>1</code> byte)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.Bootstrap.html">Bootstrap</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.Bootstrap.html">Bootstrap</a></h5>
       <section><p>Bootstrapper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.Constants.html">Constants</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.Constants.html">Constants</a></h5>
       <section><p>Constants</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a></h5>
       <section><p>Base class for a cryptographic algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoEnvironment.html">CryptoEnvironment</a></h4>
-      <section><p>Crypto environment configuration</p>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.html">CryptoAppConfig</a></h5>
+      <section><p>Crypto app configuration (<span class="xref">wan24.Core.AppConfig</span>; should be applied AFTER bootstrapping (<span class="xref">wan24.Core.AppConfigAttribute.AfterBootstrap</span>); another <a class="xref" href="wan24.Crypto.CryptoEnvironment.Options.html">CryptoEnvironment.Options</a>
+may be applied in addition)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoEnvironment.Options.html">CryptoEnvironment.Options</a></h4>
-      <section><p>Options</p>
-</section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoExtensions.html">CryptoExtensions</a></h4>
-      <section><p>Crypto extensions</p>
-</section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoHelper.html">CryptoHelper</a></h4>
-      <section><p>Crypto helper</p>
-</section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.CryptoOptions.html">CryptoAppConfig.CryptoOptions</a></h5>
       <section><p>Crypto options</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoOptionsFluentExtensions.html">CryptoOptionsFluentExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.DefaultAlgorithms.html">CryptoAppConfig.DefaultAlgorithms</a></h5>
+      <section><p>Default algorithms</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.Limitations.html">CryptoAppConfig.Limitations</a></h5>
+      <section><p>Limitations</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.RngOptions.html">CryptoAppConfig.RngOptions</a></h5>
+      <section><p>RnG options</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.SecureValueOptions.html">CryptoAppConfig.SecureValueOptions</a></h5>
+      <section><p>Secure value options</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.SignedAttributesOptions.html">CryptoAppConfig.SignedAttributesOptions</a></h5>
+      <section><p>Signed attributes options</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoEnvironment.html">CryptoEnvironment</a></h5>
+      <section><p>Crypto environment configuration</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoEnvironment.Options.html">CryptoEnvironment.Options</a></h5>
+      <section><p>Options</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoExtensions.html">CryptoExtensions</a></h5>
+      <section><p>Crypto extensions</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoHelper.html">CryptoHelper</a></h5>
+      <section><p>Crypto helper</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a></h5>
+      <section><p>Crypto options</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoOptionsFluentExtensions.html">CryptoOptionsFluentExtensions</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a> fluent extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoProfiles.html">CryptoProfiles</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoProfiles.html">CryptoProfiles</a></h5>
       <section><p>Crypto profiles</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoRandomStream.html">CryptoRandomStream</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoRandomStream.html">CryptoRandomStream</a></h5>
       <section><p>Crypto random stream (uses <a class="xref" href="wan24.Crypto.RND.html">RND</a> for reading cryptographic random bytes into the given buffers)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></h5>
       <section><p>Thrown on any cryptographic problem</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DecryptionStreams.html">DecryptionStreams</a></h5>
       <section><p>Decryption streams</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DefaultPasswordPostProcessor.html">DefaultPasswordPostProcessor</a></h5>
+      <section><p>Default password post-processor (performs KDF, can perform counter KDF and MAC (if a counter MAC algorthm was set); resulting password will be 64 bytes, or the length of the counter MAC
+algorithm)</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a></h5>
       <section><p>Attribute for a data encryption key (DEK) of an object</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DevHwRng.html">DevHwRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DevHwRng.html">DevHwRng</a></h5>
       <section><p><code>/dev/hwrng</code> RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DevRandomRng.html">DevRandomRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DevRandomRng.html">DevRandomRng</a></h5>
       <section><p><code>/dev/random</code> RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DevRandomStreamPool.html">DevRandomStreamPool</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DevRandomStreamPool.html">DevRandomStreamPool</a></h5>
       <section><p><code>/dev/random</code> readable stream pool</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DisposableCryptoOptions.html">DisposableCryptoOptions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DisposableCryptoOptions.html">DisposableCryptoOptions</a></h5>
       <section><p>Disposable <a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a> (will clear the hosted options when disposing)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DisposableRngBase.html">DisposableRngBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DisposableRngBase.html">DisposableRngBase</a></h5>
       <section><p>Base class for a disposable RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DisposableSeedableRngBase.html">DisposableSeedableRngBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DisposableSeedableRngBase.html">DisposableSeedableRngBase</a></h5>
       <section><p>Base class for a disposable seedable RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DisposableSignedPayload-1.html">DisposableSignedPayload&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DisposableSignedPayload-1.html">DisposableSignedPayload&lt;T&gt;</a></h5>
       <section><p>Signed payload</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.DisposableXorRng.html">DisposableXorRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.DisposableXorRng.html">DisposableXorRng</a></h5>
       <section><p>RNG which combines two or more RNGs with XOR</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EllipticCurves.html">EllipticCurves</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EllipticCurves.html">EllipticCurves</a></h5>
       <section><p>Elliptic curves</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a></h5>
       <section><p>Attribute for a property which can be encrypted/decrypted</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptedJsonValue-1.html">EncryptedJsonValue&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptedJsonValue-1.html">EncryptedJsonValue&lt;T&gt;</a></h5>
       <section><p>Encrypted JSON value</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptedSerializableValue-1.html">EncryptedSerializableValue&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptedSerializableValue-1.html">EncryptedSerializableValue&lt;T&gt;</a></h5>
       <section><p>Encrypted serializable value</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptedValue.html">EncryptedValue</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptedValue.html">EncryptedValue</a></h5>
       <section><p>Encrypted value</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptionAes256CbcAlgorithm.html">EncryptionAes256CbcAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptionAes256CbcAlgorithm.html">EncryptionAes256CbcAlgorithm</a></h5>
       <section><p>AES-256-CBC symmetric encryption algorithm (using ISO10126 padding)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a></h5>
       <section><p>Base class for a symmetric encryption algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptionExtensions.html">EncryptionExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptionExtensions.html">EncryptionExtensions</a></h5>
       <section><p>Encryption extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptionHelper.html">EncryptionHelper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptionHelper.html">EncryptionHelper</a></h5>
       <section><p>Encryption helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptionStreams.html">EncryptionStreams</a></h5>
       <section><p>Encryption streams</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.EncryptionVoidAlgorithm.html">EncryptionVoidAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.EncryptionVoidAlgorithm.html">EncryptionVoidAlgorithm</a></h5>
       <section><p>Symmetric void encryption algorithm (used when there's no algorithm available)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></h5>
       <section><p>Fast PAKE authentication client (will skip KDF after initialization)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.FastPakeAuthServer.html">FastPakeAuthServer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.FastPakeAuthServer.html">FastPakeAuthServer</a></h5>
       <section><p>Fast PAKE authentication server (will skip KDF after initialization)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.FastPakeAuthServerTable.html">FastPakeAuthServerTable</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.FastPakeAuthServerTable.html">FastPakeAuthServerTable</a></h5>
       <section><p>Fast PAKE server table</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ForcePostQuantumEventArgs.html">ForcePostQuantumEventArgs</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ForcePostQuantumEventArgs.html">ForcePostQuantumEventArgs</a></h5>
       <section><p>Event arguments for the <a class="xref" href="wan24.Crypto.CryptoHelper.html#wan24_Crypto_CryptoHelper_OnForcePostQuantum">OnForcePostQuantum</a> event</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashAlgorithmBase.html">HashAlgorithmBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashAlgorithmBase.html">HashAlgorithmBase</a></h5>
       <section><p>Base class for a hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashExtensions.html">HashExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashExtensions.html">HashExtensions</a></h5>
       <section><p>Hash extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashHelper.html">HashHelper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashHelper.html">HashHelper</a></h5>
       <section><p>Hash helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashMd5Algorithm.html">HashMd5Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashMd5Algorithm.html">HashMd5Algorithm</a></h5>
       <section><p>MD5 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha1Algorithm.html">HashSha1Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha1Algorithm.html">HashSha1Algorithm</a></h5>
       <section><p>SHA1 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha256Algorithm.html">HashSha256Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha256Algorithm.html">HashSha256Algorithm</a></h5>
       <section><p>SHA256 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha384Algorithm.html">HashSha384Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha384Algorithm.html">HashSha384Algorithm</a></h5>
       <section><p>SHA384 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha3_256Algorithm.html">HashSha3_256Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha3_256Algorithm.html">HashSha3_256Algorithm</a></h5>
       <section><p>SHA3-256 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha3_384Algorithm.html">HashSha3_384Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha3_384Algorithm.html">HashSha3_384Algorithm</a></h5>
       <section><p>SHA3-384 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha3_512Algorithm.html">HashSha3_512Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha3_512Algorithm.html">HashSha3_512Algorithm</a></h5>
       <section><p>SHA3-512 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashSha512Algorithm.html">HashSha512Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashSha512Algorithm.html">HashSha512Algorithm</a></h5>
       <section><p>SHA512 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashShake128Algorithm.html">HashShake128Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashShake128Algorithm.html">HashShake128Algorithm</a></h5>
       <section><p>SHAKE128 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashShake256Algorithm.html">HashShake256Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashShake256Algorithm.html">HashShake256Algorithm</a></h5>
       <section><p>SHAKE256 hash algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HashStreams.html">HashStreams</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HashStreams.html">HashStreams</a></h5>
       <section><p>Hash streams</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HavegeRng.html">HavegeRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HavegeRng.html">HavegeRng</a></h5>
       <section><p>Havege RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.HybridAlgorithmHelper.html">HybridAlgorithmHelper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.HybridAlgorithmHelper.html">HybridAlgorithmHelper</a></h5>
       <section><p>Hybrid algorithm helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.JsonObjectWrapper.html">JsonObjectWrapper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.JsonObjectWrapper.html">JsonObjectWrapper</a></h5>
       <section><p>JSON object wrapper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html">KdfAlgorithmBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html">KdfAlgorithmBase</a></h5>
       <section><p>Base class for a KDF algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfExtensions.html">KdfExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfExtensions.html">KdfExtensions</a></h5>
       <section><p>KDF extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfHelper.html">KdfHelper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfHelper.html">KdfHelper</a></h5>
       <section><p>KDF helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfPbKdf2Algorithm.html">KdfPbKdf2Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfPbKdf2Algorithm.html">KdfPbKdf2Algorithm</a></h5>
       <section><p>PBKDF#2 KDF algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfPbKdf2Options.html">KdfPbKdf2Options</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfPbKdf2Options.html">KdfPbKdf2Options</a></h5>
       <section><p>PBKDF#2 KDF algorithm options</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.html">KdfSp800_108HmacCtrKbKdfAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfSp800_108HmacCtrKbKdfAlgorithm.html">KdfSp800_108HmacCtrKbKdfAlgorithm</a></h5>
       <section><p>SP 800-108 HMAC CTR KBKDF algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KdfSp800_801HmacKbKdfOptions.html">KdfSp800_801HmacKbKdfOptions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KdfSp800_801HmacKbKdfOptions.html">KdfSp800_801HmacKbKdfOptions</a></h5>
       <section><p>SP 800-108 HMAC CTR KBKDF algorithm options</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.KeyExchangeDataContainer.html">KeyExchangeDataContainer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.KeyExchangeDataContainer.html">KeyExchangeDataContainer</a></h5>
       <section><p>Key exchange data container</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacAlgorithmBase.html">MacAlgorithmBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacAlgorithmBase.html">MacAlgorithmBase</a></h5>
       <section><p>Base class for an MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacExtensions.html">MacExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacExtensions.html">MacExtensions</a></h5>
       <section><p>MAC extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHelper.html">MacHelper</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHelper.html">MacHelper</a></h5>
       <section><p>MAC helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha1Algorithm.html">MacHmacSha1Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha1Algorithm.html">MacHmacSha1Algorithm</a></h5>
       <section><p>HMAC-SHA1 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha256Algorithm.html">MacHmacSha256Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha256Algorithm.html">MacHmacSha256Algorithm</a></h5>
       <section><p>HMAC-SHA256 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha384Algorithm.html">MacHmacSha384Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha384Algorithm.html">MacHmacSha384Algorithm</a></h5>
       <section><p>HMAC-SHA384 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha3_256Algorithm.html">MacHmacSha3_256Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha3_256Algorithm.html">MacHmacSha3_256Algorithm</a></h5>
       <section><p>HMAC-SHA3-256 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha3_384Algorithm.html">MacHmacSha3_384Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha3_384Algorithm.html">MacHmacSha3_384Algorithm</a></h5>
       <section><p>HMAC-SHA3-384 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha3_512Algorithm.html">MacHmacSha3_512Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha3_512Algorithm.html">MacHmacSha3_512Algorithm</a></h5>
       <section><p>HMAC-SHA3-512 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacHmacSha512Algorithm.html">MacHmacSha512Algorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacHmacSha512Algorithm.html">MacHmacSha512Algorithm</a></h5>
       <section><p>HMAC-SHA512 MAC algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacSignature.html">MacSignature</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacSignature.html">MacSignature</a></h5>
       <section><p>MAC signature helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.MacStreams.html">MacStreams</a></h5>
       <section><p>MAC streams</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.NetKeyExtensions.html">NetKeyExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.NetKeyExtensions.html">NetKeyExtensions</a></h5>
       <section><p>.NET asymmetric keys extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.NetShake128HashAlgorithmAdapter.html">NetShake128HashAlgorithmAdapter</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.NetShake128HashAlgorithmAdapter.html">NetShake128HashAlgorithmAdapter</a></h5>
       <section><p>.NET <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm">HashAlgorithm</a> adapter for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.shake128">Shake128</a></p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.NetShake256HashAlgorithmAdapter.html">NetShake256HashAlgorithmAdapter</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.NetShake256HashAlgorithmAdapter.html">NetShake256HashAlgorithmAdapter</a></h5>
       <section><p>.NET <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm">HashAlgorithm</a> adapter for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.shake256">Shake256</a></p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ObjectEncryption.html">ObjectEncryption</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ObjectEncryption.html">ObjectEncryption</a></h5>
       <section><p>Object encryption helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></h5>
       <section><p>PAKE</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.Pake.PakeServerEventArgs.html">Pake.PakeServerEventArgs</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.Pake.PakeServerEventArgs.html">Pake.PakeServerEventArgs</a></h5>
       <section><p>PAKE server event arguments</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PakeAuth.html">PakeAuth</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PakeAuth.html">PakeAuth</a></h5>
       <section><p>PAKE authentication information (needs to be sent to the server, wrapped using a PFS protocol!)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PakeRecord.html">PakeRecord</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PakeRecord.html">PakeRecord</a></h5>
       <section><p>PAKE record (keep the contents secret!)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PakeRecordExtensions.html">PakeRecordExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PakeRecordExtensions.html">PakeRecordExtensions</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a> extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PakeRecordStore.html">PakeRecordStore</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PakeRecordStore.html">PakeRecordStore</a></h5>
       <section><p>PAKE record store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PakeRecordStore-1.html">PakeRecordStore&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PakeRecordStore-1.html">PakeRecordStore&lt;T&gt;</a></h5>
       <section><p>PAKE record store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PakeSignup.html">PakeSignup</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PakeSignup.html">PakeSignup</a></h5>
       <section><p>PAKE signup information (needs to be sent to the server, wrapped using a PFS protocol!)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PrivateKeySuite.html">PrivateKeySuite</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PasswordPostProcessor.html">PasswordPostProcessor</a></h5>
+      <section><p>Base class for a password post-processor</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.PrivateKeySuite.html">PrivateKeySuite</a></h5>
       <section><p>Private key suite (for storing long term keys)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PrivateKeySuiteExtensions.html">PrivateKeySuiteExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PrivateKeySuiteExtensions.html">PrivateKeySuiteExtensions</a></h5>
       <section><p>Private key suite extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PrivateKeySuiteStore.html">PrivateKeySuiteStore</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PrivateKeySuiteStore.html">PrivateKeySuiteStore</a></h5>
       <section><p>Private key suite store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PublicKeySuite.html">PublicKeySuite</a></h5>
       <section><p>Public key suite</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.PublicKeySuiteStore.html">PublicKeySuiteStore</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.PublicKeySuiteStore.html">PublicKeySuiteStore</a></h5>
       <section><p>Public key suite store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RND.html">RND</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RND.html">RND</a></h5>
       <section><p>Random generators</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RandomDataGenerator.html">RandomDataGenerator</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RandomDataGenerator.html">RandomDataGenerator</a></h5>
       <section><p>Random data generator (uses <code>/dev/random</code>, if possible; defaults to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.randomnumbergenerator">RandomNumberGenerator</a>)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.Rng.html">Rng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.Rng.html">Rng</a></h5>
       <section><p>Random number generator</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngAdapter.html">RngAdapter</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngAdapter.html">RngAdapter</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.IRng.html">IRng</a> to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.randomnumbergenerator">RandomNumberGenerator</a> adapter</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngBase.html">RngBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngBase.html">RngBase</a></h5>
       <section><p>Base class for a RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngExtensions.html">RngExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngExtensions.html">RngExtensions</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.Rng.html">Rng</a> extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngOnlineSeedTimer.html">RngOnlineSeedTimer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngOnlineSeedTimer.html">RngOnlineSeedTimer</a></h5>
       <section><p>The online seed timer applies https received seeds in an interval (requests the first seed during startup)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngSeedTimer.html">RngSeedTimer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngSeedTimer.html">RngSeedTimer</a></h5>
       <section><p>RNG seed timer seeds a seed consumer using random data from a given RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngSeederQueue.html">RngSeederQueue</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngSeederQueue.html">RngSeederQueue</a></h5>
       <section><p>RNG seeder (added seeds will be copied)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngSeedingStream.html">RngSeedingStream</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngSeedingStream.html">RngSeedingStream</a></h5>
       <section><p>Seeds an RNG with streamed cipher data</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngSeedingStream-1.html">RngSeedingStream&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngSeedingStream-1.html">RngSeedingStream&lt;T&gt;</a></h5>
       <section><p>Seeds an RNG with streamed cipher data</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngStream.html">RngStream</a></h5>
+      <section><p>RNG stream</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.RngStream-1.html">RngStream&lt;T&gt;</a></h5>
+      <section><p>RNG stream</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.SecureValue.html">SecureValue</a></h5>
       <section><p>Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see
 <a href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf">https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf</a>)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SecureValueTable.html">SecureValueTable</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SecureValueTable.html">SecureValueTable</a></h5>
       <section><p>Secure value table</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SecureValue-1.html">SecureValue&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SecureValue-1.html">SecureValue&lt;T&gt;</a></h5>
       <section><p>Secure value (keeps a value encrypted after a timeout without any access, re-crypts from time to time; see
 <a href="https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf">https://static.usenix.org/events/sec01/full_papers/gutmann/gutmann.pdf</a>)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SeedableRngBase.html">SeedableRngBase</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SeedableRngBase.html">SeedableRngBase</a></h5>
       <section><p>Base class for a seedable RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SharedSecret.html">SharedSecret</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SharedSecret.html">SharedSecret</a></h5>
       <section><p>Shared secret (should be used as an only short living helper)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignatureContainer.html">SignatureContainer</a></h5>
       <section><p>Signature container</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedAttributes.html">SignedAttributes</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedAttributes.html">SignedAttributes</a></h5>
       <section><p>Signed attribute name examples/suggestions for an <a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a> / <a class="xref" href="wan24.Crypto.AsymmetricPublicKeySigningRequest.html">AsymmetricPublicKeySigningRequest</a> and validation helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedAttributes.ValidationOptions.html">SignedAttributes.ValidationOptions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedAttributes.ValidationOptions.html">SignedAttributes.ValidationOptions</a></h5>
       <section><p>Validation options</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedBinaryPayload.html">SignedBinaryPayload</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedBinaryPayload.html">SignedBinaryPayload</a></h5>
       <section><p>Signed binary payload</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedBinaryPayload-1.html">SignedBinaryPayload&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedBinaryPayload-1.html">SignedBinaryPayload&lt;T&gt;</a></h5>
       <section><p>Signed binary payload</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedPayload-1.html">SignedPayload&lt;T&gt;</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedPayload-1.html">SignedPayload&lt;T&gt;</a></h5>
       <section><p>Signed payload</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedPkiStore.html">SignedPkiStore</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedPkiStore.html">SignedPkiStore</a></h5>
       <section><p>Signed PKI store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html">StreamSerializerExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html">StreamSerializerExtensions</a></h5>
       <section><p>Stream serializer extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SymmetricKeySuite.html">SymmetricKeySuite</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SymmetricKeySuite.html">SymmetricKeySuite</a></h5>
       <section><p>Symmetric key suite (used for PAKE)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SymmetricKeySuiteExtensions.html">SymmetricKeySuiteExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SymmetricKeySuiteExtensions.html">SymmetricKeySuiteExtensions</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a> extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtection.html">ValueProtection</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtection.html">ValueProtection</a></h5>
       <section><p>Value protection helper</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtectionKeys.html">ValueProtectionKeys</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtectionKeys.html">ValueProtectionKeys</a></h5>
       <section><p>Value protection keys</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtectionLevelsExtensions.html">ValueProtectionLevelsExtensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtectionLevelsExtensions.html">ValueProtectionLevelsExtensions</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.ValueProtectionLevels.html">ValueProtectionLevels</a> extension methods</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.X509Extensions.html">X509Extensions</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.X509Extensions.html">X509Extensions</a></h5>
       <section><p>X509 extensions</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.XorRng.html">XorRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.XorRng.html">XorRng</a></h5>
       <section><p>RNG which combines two or more RNGs with XOR</p>
 </section>
     <h3 id="structs">
 Structs
 </h3>
-      <h4><a class="xref" href="wan24.Crypto.TimeoutToken.html">TimeoutToken</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.TimeoutToken.html">TimeoutToken</a></h5>
       <section><p>Timeout token</p>
 </section>
     <h3 id="interfaces">
 Interfaces
 </h3>
-      <h4><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></h5>
       <section><p>Interface for an asymmetric algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IAsymmetricKey.html">IAsymmetricKey</a></h5>
       <section><p>Interface for an asymmetric key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a></h5>
       <section><p>Interface for an asymmetric private key pool</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></h5>
       <section><p>Interface for an asymmetric private key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IAsymmetricPublicKey.html">IAsymmetricPublicKey</a></h5>
       <section><p>Interface for an asymmetric public key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IBinaryPayloadContainer.html">IBinaryPayloadContainer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IBinaryPayloadContainer.html">IBinaryPayloadContainer</a></h5>
       <section><p>Interface for a binary payload container</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></h5>
       <section><p>Interface for a cryptographic algorithm</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IEncryptProperties.html">IEncryptProperties</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IEncryptProperties.html">IEncryptProperties</a></h5>
       <section><p>Interface for an object which has encrypted properties (<a class="xref" href="wan24.Crypto.DekAttribute.html">DekAttribute</a> and <a class="xref" href="wan24.Crypto.EncryptAttribute.html">EncryptAttribute</a>)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IEncryptPropertiesExt.html">IEncryptPropertiesExt</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IEncryptPropertiesExt.html">IEncryptPropertiesExt</a></h5>
       <section><p>Interface for an object which contains methods for extended en-/decryption</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IEncryptPropertiesKek.html">IEncryptPropertiesKek</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IEncryptPropertiesKek.html">IEncryptPropertiesKek</a></h5>
       <section><p>Interface for an encryptable object which provides the key encryption key (KEK) which is going to be used to en-/decrypt the data encryption key (DEK)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IKeyExchange.html">IKeyExchange</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IKeyExchange.html">IKeyExchange</a></h5>
       <section><p>Interface for an object which can be used to perform a key exchange</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IKeyExchangePrivateKey.html">IKeyExchangePrivateKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IKeyExchangePrivateKey.html">IKeyExchangePrivateKey</a></h5>
       <section><p>Key exchange private key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IPakeRecord.html">IPakeRecord</a></h5>
       <section><p>Interface for a PAKE record</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IPakeRequest.html">IPakeRequest</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IPakeRequest.html">IPakeRequest</a></h5>
       <section><p>Interface for a PAKE request (all values will be cleared!)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></h5>
       <section><p>Interface for an RNG</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ISecureValue.html">ISecureValue</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ISecureValue.html">ISecureValue</a></h5>
       <section><p>Interface for a secure value</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></h5>
       <section><p>Interface for a seed consumer (usually a RNG)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></h5>
       <section><p>Interface for a seedable <a class="xref" href="wan24.Crypto.IRng.html">IRng</a></p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></h5>
       <section><p>Signature private key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ISignaturePublicKey.html">ISignaturePublicKey</a></h5>
       <section><p>Signature public key</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ISymmetricKeySuite.html">ISymmetricKeySuite</a></h5>
       <section><p>Interface for a symmetric key suite</p>
 </section>
     <h3 id="enums">
 Enums
 </h3>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricAlgorithmUsages.html">AsymmetricAlgorithmUsages</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricAlgorithmUsages.html">AsymmetricAlgorithmUsages</a></h5>
       <section><p>Asymmetric algorithm usages</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKeyTypes.html">AsymmetricSignedPublicKeyTypes</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKeyTypes.html">AsymmetricSignedPublicKeyTypes</a></h5>
       <section><p><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.html">AsymmetricSignedPublicKey</a> types enumeration</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoFlags.html">CryptoFlags</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoFlags.html">CryptoFlags</a></h5>
       <section><p>Crypto flags</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RngSeedingTypes.html">RngSeedingTypes</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RngSeedingTypes.html">RngSeedingTypes</a></h5>
       <section><p>RNG seeding types (CAUTION: be aware of patent US10402172B1!)</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtection.Scope.html">ValueProtection.Scope</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtection.Scope.html">ValueProtection.Scope</a></h5>
       <section><p>Scope</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtectionLevels.html">ValueProtectionLevels</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtectionLevels.html">ValueProtectionLevels</a></h5>
       <section><p>Value protection level enumeration</p>
 </section>
     <h3 id="delegates">
 Delegates
 </h3>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync_Delegate.html">AsymmetricSignedPublicKey.RootTrustAsync_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.RootTrustAsync_Delegate.html">AsymmetricSignedPublicKey.RootTrustAsync_Delegate</a></h5>
       <section><p>Delegate for root key trust validation</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.RootTrust_Delegate.html">AsymmetricSignedPublicKey.RootTrust_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.RootTrust_Delegate.html">AsymmetricSignedPublicKey.RootTrust_Delegate</a></h5>
       <section><p>Delegate for root key trust validation</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyRevocationAsync_Delegate</a></h5>
       <section><p>Delegate for signed public key revocation validation</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyRevocation_Delegate</a></h5>
       <section><p>Delegate for signed public key revocation validation</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyStoreAsync_Delegate</a></h5>
       <section><p>Delegate for a public key store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate</a></h5>
       <section><p>Delegate for a public key store</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoHelper.ForcePostQuantum_Delegate.html">CryptoHelper.ForcePostQuantum_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoHelper.ForcePostQuantum_Delegate.html">CryptoHelper.ForcePostQuantum_Delegate</a></h5>
       <section><p>Delegate for a force post quantum handler</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate.html">CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate.html">CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate</a></h5>
       <section><p>Delegate for an encryption password pre-processor</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoOptions.EncryptionPasswordPreProcessor_Delegate.html">CryptoOptions.EncryptionPasswordPreProcessor_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoOptions.EncryptionPasswordPreProcessor_Delegate.html">CryptoOptions.EncryptionPasswordPreProcessor_Delegate</a></h5>
       <section><p>Delegate for an encryption password pre-processor</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.CryptoOptions.Instanced_Delegate.html">CryptoOptions.Instanced_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.CryptoOptions.Instanced_Delegate.html">CryptoOptions.Instanced_Delegate</a></h5>
       <section><p>Delegate for a <a class="xref" href="wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_OnInstanced">OnInstanced</a> event handler</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.Pake.PakeServer_Delegate.html">Pake.PakeServer_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.Pake.PakeServer_Delegate.html">Pake.PakeServer_Delegate</a></h5>
       <section><p>Delegate for a PAKE server event handler delegate</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RND.RNGAsync_Delegate.html">RND.RNGAsync_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RND.RNGAsync_Delegate.html">RND.RNGAsync_Delegate</a></h5>
       <section><p>Delegate for a random generator</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.RND.RNG_Delegate.html">RND.RNG_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.RND.RNG_Delegate.html">RND.RNG_Delegate</a></h5>
       <section><p>Delegate for a random generator</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SecureValue.Access_Delegate.html">SecureValue.Access_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SecureValue.Access_Delegate.html">SecureValue.Access_Delegate</a></h5>
       <section><p>Delegate for an <a class="xref" href="wan24.Crypto.SecureValue.html#wan24_Crypto_SecureValue_OnAccess">OnAccess</a> event handler</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedAttributes.ValidateAsync_Delegate.html">SignedAttributes.ValidateAsync_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedAttributes.ValidateAsync_Delegate.html">SignedAttributes.ValidateAsync_Delegate</a></h5>
       <section><p>Delegate for an additional attribute validator</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.SignedAttributes.Validate_Delegate.html">SignedAttributes.Validate_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.SignedAttributes.Validate_Delegate.html">SignedAttributes.Validate_Delegate</a></h5>
       <section><p>Delegate for an additional attribute validator</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtection.ProtectValue_Delegate.html">ValueProtection.ProtectValue_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtection.ProtectValue_Delegate.html">ValueProtection.ProtectValue_Delegate</a></h5>
       <section><p>Delegate for a value protection handler</p>
 </section>
-      <h4><a class="xref" href="wan24.Crypto.ValueProtection.UnprotectValue_Delegate.html">ValueProtection.UnprotectValue_Delegate</a></h4>
+      <h5><a class="xref" href="wan24.Crypto.ValueProtection.UnprotectValue_Delegate.html">ValueProtection.UnprotectValue_Delegate</a></h5>
       <section><p>Delegate for a value unprotection handler</p>
 </section>
 
 
 </article>
-          </div>
+                </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+                <div class="copyright-footer">
+                    <span>(c) 2023 Andreas Zimmermann, wan24.de</span>
+                </div>
+            </main>
         </div>
-      </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      (c) 2023 Andreas Zimmermann, wan24.de
-      
-          </div>
-        </div>
-      </footer>
-    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
 </html>
