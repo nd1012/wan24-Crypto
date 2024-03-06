@@ -91,53 +91,6 @@ namespace wan24.Crypto
                     EncryptionHelper.DefaultAlgorithm.GetType() == typeof(EncryptionAes256CbcAlgorithm)
                     )
                     EncryptionHelper.DefaultAlgorithm = EncryptionVoidAlgorithm.Instance;
-                if (updateDefaultOptions)
-                {
-                    CryptoOptions options = Pake.DefaultOptions;
-                    if (res.Any(a => a.Name == options.KdfAlgorithm && KdfHelper.Algorithms.TryGetValue(a.Name, out KdfAlgorithmBase? kdf) && a.GetType() == kdf.GetType()))
-                        Pake.DefaultOptions = options.WithKdf(
-                            KdfHelper.DefaultAlgorithm.Name,
-                            KdfHelper.DefaultAlgorithm.DefaultIterations,
-                            KdfHelper.DefaultAlgorithm.DefaultKdfOptions
-                            );
-                    options = Pake.DefaultCryptoOptions;
-                    if (
-                        options.AsymmetricAlgorithm is not null &&
-                        res.Any(a => a.Name == options.AsymmetricAlgorithm && AsymmetricHelper.Algorithms.TryGetValue(a.Name, out IAsymmetricAlgorithm? aa) && a.GetType() == aa.GetType())
-                        )
-                        Pake.DefaultCryptoOptions = options.WithKeyExchangeAlgorithm(
-                            AsymmetricHelper.DefaultKeyExchangeAlgorithm.Name, 
-                            AsymmetricHelper.DefaultKeyExchangeAlgorithm.DefaultKeySize
-                            );
-                    if (
-                        options.AsymmetricCounterAlgorithm is not null &&
-                        res.Any(a => a.Name == options.AsymmetricCounterAlgorithm && AsymmetricHelper.Algorithms.TryGetValue(a.Name, out IAsymmetricAlgorithm? aa) && a.GetType() == aa.GetType())
-                        )
-                    {
-                        options.AsymmetricCounterAlgorithm = AsymmetricHelper.DefaultKeyExchangeAlgorithm.Name;
-                        Pake.DefaultCryptoOptions = options;
-                    }
-                    if (res.Any(a => a.Name == options.Algorithm && EncryptionHelper.Algorithms.TryGetValue(a.Name, out EncryptionAlgorithmBase? enc) && a.GetType() == enc.GetType()))
-                        Pake.DefaultCryptoOptions = options.WithEncryptionAlgorithm(EncryptionVoidAlgorithm.ALGORITHM_NAME);
-                    if (
-                        options.KdfAlgorithm is not null &&
-                        res.Any(a => a.Name == options.KdfAlgorithm && KdfHelper.Algorithms.TryGetValue(a.Name, out KdfAlgorithmBase? kdf) && a.GetType() == kdf.GetType())
-                        )
-                        Pake.DefaultCryptoOptions = options.WithKdf(
-                            KdfHelper.DefaultAlgorithm.Name, 
-                            KdfHelper.DefaultAlgorithm.DefaultIterations, 
-                            KdfHelper.DefaultAlgorithm.DefaultKdfOptions
-                            );
-                    if (
-                        options.CounterKdfAlgorithm is not null &&
-                        res.Any(a => a.Name == options.CounterKdfAlgorithm && KdfHelper.Algorithms.TryGetValue(a.Name, out KdfAlgorithmBase? kdf) && a.GetType() == kdf.GetType())
-                        )
-                        Pake.DefaultCryptoOptions = options.WithCounterKdf(
-                            KdfHelper.DefaultAlgorithm.Name, 
-                            KdfHelper.DefaultAlgorithm.DefaultIterations, 
-                            KdfHelper.DefaultAlgorithm.DefaultKdfOptions
-                            );
-                }
             }
             if (!Shake128.IsSupported)
             {
@@ -182,20 +135,75 @@ namespace wan24.Crypto
                     MacHelper.DefaultAlgorithm.GetType() == typeof(MacHmacSha3_512Algorithm)
                     )
                     MacHelper.DefaultAlgorithm = MacHmacSha512Algorithm.Instance;
-                if (updateDefaultOptions)
+            }
+            res.AddRange(AsymmetricHelper.Algorithms.Values.Where(a => !a.IsSupported));
+            res.AddRange(EncryptionHelper.Algorithms.Values.Where(a => !a.IsSupported));
+            res.AddRange(HashHelper.Algorithms.Values.Where(a => !a.IsSupported));
+            res.AddRange(MacHelper.Algorithms.Values.Where(a => !a.IsSupported));
+            res.AddRange(KdfHelper.Algorithms.Values.Where(a => !a.IsSupported));
+            if (updateDefaultOptions)
+            {
+                // PAKE options
+                CryptoOptions options = Pake.DefaultOptions;
+                if (res.Any(a => a.Name == options.KdfAlgorithm && KdfHelper.Algorithms.TryGetValue(a.Name, out KdfAlgorithmBase? kdf) && a.GetType() == kdf.GetType()))
+                    Pake.DefaultOptions = options.WithKdf(
+                        KdfHelper.DefaultAlgorithm.Name,
+                        KdfHelper.DefaultAlgorithm.DefaultIterations,
+                        KdfHelper.DefaultAlgorithm.DefaultKdfOptions
+                        );
+                options = Pake.DefaultOptions;
+                if (res.Any(a => a.Name == options.MacAlgorithm && MacHelper.Algorithms.TryGetValue(a.Name, out MacAlgorithmBase? mac) && a.GetType() == mac.GetType()))
+                    Pake.DefaultOptions = options.WithMac(MacHmacSha512Algorithm.ALGORITHM_NAME);
+                // PAKE crypto options
+                options = Pake.DefaultCryptoOptions;
+                if (
+                    options.AsymmetricAlgorithm is not null &&
+                    res.Any(a => a.Name == options.AsymmetricAlgorithm && AsymmetricHelper.Algorithms.TryGetValue(a.Name, out IAsymmetricAlgorithm? aa) && a.GetType() == aa.GetType())
+                    )
+                    Pake.DefaultCryptoOptions = options.WithKeyExchangeAlgorithm(
+                        AsymmetricHelper.DefaultKeyExchangeAlgorithm.Name,
+                        AsymmetricHelper.DefaultKeyExchangeAlgorithm.DefaultKeySize
+                        );
+                options = Pake.DefaultCryptoOptions;
+                if (
+                    options.MacAlgorithm is not null &&
+                    res.Any(a => a.Name == options.MacAlgorithm && MacHelper.Algorithms.TryGetValue(a.Name, out MacAlgorithmBase? mac) && a.GetType() == mac.GetType())
+                    )
+                    Pake.DefaultCryptoOptions = options.WithMac(MacHmacSha512Algorithm.ALGORITHM_NAME);
+                // KDF
+                if (res.Any(a => a.Name == KdfPbKdf2Options.DefaultHashAlgorithm && HashHelper.Algorithms.TryGetValue(a.Name, out HashAlgorithmBase? hash) && a.GetType() == hash.GetType()))
+                    KdfPbKdf2Options.DefaultHashAlgorithm = HashSha384Algorithm.ALGORITHM_NAME;
+                if (res.Any(a => a.Name == KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm && HashHelper.Algorithms.TryGetValue(a.Name, out HashAlgorithmBase? hash) && a.GetType() == hash.GetType()))
+                    KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm = HashSha384Algorithm.ALGORITHM_NAME;
+                // PAKE algorithms
+                if (res.Any(a => a.Name == options.Algorithm && EncryptionHelper.Algorithms.TryGetValue(a.Name, out EncryptionAlgorithmBase? enc) && a.GetType() == enc.GetType()))
+                    Pake.DefaultCryptoOptions = options.WithEncryptionAlgorithm(EncryptionVoidAlgorithm.ALGORITHM_NAME);
+                if (
+                    options.AsymmetricCounterAlgorithm is not null &&
+                    res.Any(a => a.Name == options.AsymmetricCounterAlgorithm && AsymmetricHelper.Algorithms.TryGetValue(a.Name, out IAsymmetricAlgorithm? aa) && a.GetType() == aa.GetType())
+                    )
                 {
-                    CryptoOptions options = Pake.DefaultOptions;
-                    if (res.Any(a => a.Name == options.MacAlgorithm && MacHelper.Algorithms.TryGetValue(a.Name, out MacAlgorithmBase? mac) && a.GetType() == mac.GetType()))
-                        Pake.DefaultOptions = options.WithMac(MacHmacSha512Algorithm.ALGORITHM_NAME);
-                    options = Pake.DefaultCryptoOptions;
-                    if (
-                        options.MacAlgorithm is not null &&
-                        res.Any(a => a.Name == options.MacAlgorithm && MacHelper.Algorithms.TryGetValue(a.Name, out MacAlgorithmBase? mac) && a.GetType() == mac.GetType())
-                        )
-                        Pake.DefaultCryptoOptions = options.WithMac(MacHmacSha512Algorithm.ALGORITHM_NAME);
-                    if (res.Any(a => a.Name == KdfPbKdf2Options.DefaultHashAlgorithm && HashHelper.Algorithms.TryGetValue(a.Name, out HashAlgorithmBase? hash) && a.GetType() == hash.GetType()))
-                        KdfPbKdf2Options.DefaultHashAlgorithm = HashSha384Algorithm.ALGORITHM_NAME;
+                    options.AsymmetricCounterAlgorithm = AsymmetricHelper.DefaultKeyExchangeAlgorithm.Name;
+                    Pake.DefaultCryptoOptions = options;
                 }
+                if (
+                    options.KdfAlgorithm is not null &&
+                    res.Any(a => a.Name == options.KdfAlgorithm && KdfHelper.Algorithms.TryGetValue(a.Name, out KdfAlgorithmBase? kdf) && a.GetType() == kdf.GetType())
+                    )
+                    Pake.DefaultCryptoOptions = options.WithKdf(
+                        KdfHelper.DefaultAlgorithm.Name,
+                        KdfHelper.DefaultAlgorithm.DefaultIterations,
+                        KdfHelper.DefaultAlgorithm.DefaultKdfOptions
+                        );
+                if (
+                    options.CounterKdfAlgorithm is not null &&
+                    res.Any(a => a.Name == options.CounterKdfAlgorithm && KdfHelper.Algorithms.TryGetValue(a.Name, out KdfAlgorithmBase? kdf) && a.GetType() == kdf.GetType())
+                    )
+                    Pake.DefaultCryptoOptions = options.WithCounterKdf(
+                        KdfHelper.DefaultAlgorithm.Name,
+                        KdfHelper.DefaultAlgorithm.DefaultIterations,
+                        KdfHelper.DefaultAlgorithm.DefaultKdfOptions
+                        );
             }
             return res.Count == 0 ? [] : [.. res];
         }

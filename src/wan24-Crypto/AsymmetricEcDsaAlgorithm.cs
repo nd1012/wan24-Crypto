@@ -1,5 +1,6 @@
 ﻿using System.Collections.Frozen;
 using System.Collections.ObjectModel;
+using System.Security;
 using System.Security.Cryptography;
 using wan24.Core;
 
@@ -76,6 +77,9 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
+        public override bool IsSupported => !ENV.IsBrowserApp;
+
+        /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
@@ -83,6 +87,9 @@ namespace wan24.Crypto
         {
             try
             {
+                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Value))
+                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {DisplayName} was denied"));
                 options ??= DefaultOptions;
                 if (!options.AsymmetricKeyBits.In(AllowedKeySizes)) throw new ArgumentException("Invalid key size", nameof(options));
                 return new(ECDsa.Create(EllipticCurves.GetCurve(options.AsymmetricKeyBits)));

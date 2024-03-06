@@ -89,7 +89,14 @@ namespace wan24.Crypto
         /// <param name="headers">Request http headers</param>
         /// <param name="pakeResponse">Awaiting PAKE response?</param>
         /// <returns>PAKE request (don't forget to dispose!)</returns>
-        public virtual PakeRequest CreateRequest(in Uri uri, in HttpMethod method, in string path, in Stream? body = null, in Dictionary<string, string[]>? headers = null, in bool pakeResponse = true)
+        public virtual PakeRequest CreateRequest(
+            in Uri uri, 
+            in HttpMethod method, 
+            in string path, 
+            in Stream? body = null, 
+            in Dictionary<string, string[]>? headers = null, 
+            in bool pakeResponse = true
+            )
         {
             EnsureUndisposed();
             PooledTempStream bodyStream = null!;
@@ -120,14 +127,11 @@ namespace wan24.Crypto
             }
             catch
             {
+                auth.Dispose();
                 key.Clear();
                 bodyStream?.Dispose();
                 request?.Dispose();
                 throw;
-            }
-            finally
-            {
-                auth.Dispose();
             }
         }
 
@@ -181,14 +185,11 @@ namespace wan24.Crypto
             }
             catch
             {
+                auth.Dispose();
                 key.Clear();
                 if (bodyStream is not null) await bodyStream.DisposeAsync().DynamicContext();
                 request?.Dispose();
                 throw;
-            }
-            finally
-            {
-                auth.Dispose();
             }
         }
 

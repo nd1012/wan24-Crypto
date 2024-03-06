@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Security;
+using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
 
@@ -111,6 +112,8 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
+                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
                 return PrivateKey.SignHash(hash, DSASignatureFormat.Rfc3279DerSequence);
             }
             catch(CryptographicException)

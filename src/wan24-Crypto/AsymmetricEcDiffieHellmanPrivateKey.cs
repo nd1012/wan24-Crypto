@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Security;
+using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
 
@@ -94,6 +95,8 @@ namespace wan24.Crypto
             {
                 EnsureUndisposed();
                 if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
+                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
                 return (DeriveKey(publicKey.KeyData.Array.CloneArray()), PublicKey.KeyData.Array.CloneArray());

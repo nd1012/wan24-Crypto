@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Security;
+using System.Security.Cryptography;
 using wan24.Core;
 
 namespace wan24.Crypto
@@ -68,6 +69,9 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => true;
 
         /// <inheritdoc/>
+        public override bool IsSupported => !ENV.IsBrowserApp;
+
+        /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
@@ -126,6 +130,8 @@ namespace wan24.Crypto
         {
             try
             {
+                if (DeniedAlgorithms.IsEncryptionAlgorithmDenied(Value))
+                    throw CryptographicException.From(new SecurityException($"Encryption algorithm {DisplayName} was denied"));
                 using Aes aes = CreateAes(options);
                 aes.IV = CreateIvBytes();
                 cipherData.Write(aes.IV);
@@ -146,6 +152,8 @@ namespace wan24.Crypto
         {
             try
             {
+                if (DeniedAlgorithms.IsEncryptionAlgorithmDenied(Value))
+                    throw CryptographicException.From(new SecurityException($"Encryption algorithm {DisplayName} was denied"));
                 using Aes aes = CreateAes(options);
                 aes.IV = CreateIvBytes();
                 await cipherData.WriteAsync(aes.IV, cancellationToken).DynamicContext();

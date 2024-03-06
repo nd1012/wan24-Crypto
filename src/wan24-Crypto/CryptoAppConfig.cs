@@ -360,6 +360,16 @@ namespace wan24.Crypto
             public string[]? DisabledKdf { get; set; }
 
             /// <summary>
+            /// Denied asymmetric algorithms (key is the algorithm value, value the algorithm name)
+            /// </summary>
+            public Dictionary<int, string>? DeniedAsymmetric { get; set; }
+
+            /// <summary>
+            /// Denied encryption algorithms (key is the algorithm value, value the algorithm name)
+            /// </summary>
+            public Dictionary<int, string>? DeniedEncryption { get; set; }
+
+            /// <summary>
             /// Apply
             /// </summary>
             /// <param name="options">Options</param>
@@ -377,6 +387,8 @@ namespace wan24.Crypto
                 options.CounterSignatureAlgorithm = CounterSignatureAlgorithm;
                 options.PbKdf2HashAlgorithm = PbKdf2HashAlgorithm;
                 options.Sp800_108HashAlgorithm = Sp800_108HashAlgorithm;
+                options.DeniedAsymmetric = DeniedAsymmetric;
+                options.DeniedEncryption = DeniedEncryption;
             }
 
             /// <summary>
@@ -398,6 +410,8 @@ namespace wan24.Crypto
                 options.CounterSignatureAlgorithm = CounterSignatureAlgorithm;
                 options.PbKdf2HashAlgorithm = PbKdf2HashAlgorithm;
                 options.Sp800_108HashAlgorithm = Sp800_108HashAlgorithm;
+                options.DeniedAsymmetric = DeniedAsymmetric;
+                options.DeniedEncryption = DeniedEncryption;
                 return Task.CompletedTask;
             }
         }

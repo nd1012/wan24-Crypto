@@ -30,7 +30,10 @@ namespace wan24.Crypto
         public abstract bool IsPostQuantum { get; }
 
         /// <inheritdoc/>
-        public virtual bool UsesTpm { get; }
+        public virtual bool UsesTpm => false;
+
+        /// <inheritdoc/>
+        public virtual bool IsSupported => true;
 
         /// <inheritdoc/>
         public virtual string DisplayName => Name;

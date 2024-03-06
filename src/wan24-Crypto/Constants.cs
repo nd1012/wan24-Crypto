@@ -12,10 +12,10 @@
         /// <summary>
         /// PAKE request MIME type
         /// </summary>
-        public const string PAKE_REQUEST_MIME_TYPE = "x-pake/request";
+        public const string PAKE_REQUEST_MIME_TYPE = "application/x.wan24.pake.request";
         /// <summary>
         /// PAKE response MIME type
         /// </summary>
-        public const string PAKE_RESPONSE_MIME_TYPE = "x-pake/response";
+        public const string PAKE_RESPONSE_MIME_TYPE = "application/x.wan24.pake.response";
     }
 }

@@ -141,6 +141,15 @@ namespace wan24.Crypto
             [ItemStringLength(short.MaxValue, ArrayLevel = 1)]
             public Dictionary<string, string[]>? Headers { get; set; }
 
+            /// <summary>
+            /// Ensure a success status code
+            /// </summary>
+            /// <exception cref="HttpRequestException">Error status code</exception>
+            public void EnsureSuccessStatusCode()
+            {
+                if ((int)Status > 399) throw new HttpRequestException("PAKE http request failed", inner: null, Status);
+            }
+
             /// <inheritdoc/>
             protected override void Serialize(Stream stream)
             {

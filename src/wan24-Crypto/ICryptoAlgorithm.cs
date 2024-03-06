@@ -25,5 +25,9 @@
         /// Uses a TPM?
         /// </summary>
         bool UsesTpm { get; }
+        /// <summary>
+        /// Is supported?
+        /// </summary>
+        bool IsSupported { get; }
     }
 }

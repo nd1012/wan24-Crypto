@@ -1,4 +1,5 @@
-﻿using wan24.Crypto.Authentication;
+﻿using wan24.Core;
+using wan24.Crypto.Authentication;
 
 namespace wan24.Crypto
 {
@@ -91,6 +92,8 @@ namespace wan24.Crypto
             }
             if (options.DefaultPasswordPostProcessor is not null) PasswordPostProcessor.Instance = options.DefaultPasswordPostProcessor;
             if (options.DefaultRngStream is not null) RngStream.Instance = options.DefaultRngStream;
+            if (options.DeniedAsymmetric is not null) DeniedAlgorithms.AsymmetricAlgorithms.AddRange(options.DeniedAsymmetric);
+            if (options.DeniedEncryption is not null) DeniedAlgorithms.EncryptionAlgorithms.AddRange(options.DeniedEncryption);
             // Final initialization
             options.PKI?.EnableLocalPki();
             if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);

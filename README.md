@@ -832,10 +832,11 @@ using PakeRequest request = await factory.CreateRequestAsync(
 // request.Request contains the http request message
 using PakeResponse response = await httpResponseMessage.GetPakeResponseAsync(request.Key);
 // response.Response contains the decoded PAKE response, response.Body.CryptoStream the response stream
+response.Response.EnsureSuccessStatusCode();
 ```
 
 The server needs to process messages, too, of course. This part isn't included 
-within this library and will vary depending on the webserver.
+within this library and does vary depending on the webserver.
 
 ## Client/server authentication protocol
 

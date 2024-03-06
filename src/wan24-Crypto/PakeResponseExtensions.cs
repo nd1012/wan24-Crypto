@@ -10,8 +10,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Get the PAKE response
         /// </summary>
-        /// <param name="response">Response</param>
-        /// <param name="key">Key</param>
+        /// <param name="response">Response (won't be disposed)</param>
+        /// <param name="key">PAKE session key that was used for the request (won't be cleared)</param>
         /// <param name="options">Crypto options</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>PAKE response (don't forget to dispose!)</returns>
@@ -27,8 +27,8 @@ namespace wan24.Crypto
         /// Get the PAKE response
         /// </summary>
         /// <typeparam name="T">PAKE response DTO type</typeparam>
-        /// <param name="response">Response</param>
-        /// <param name="key">Key</param>
+        /// <param name="response">Response (won't be disposed)</param>
+        /// <param name="key">PAKE session key that was used for the request (won't be cleared)</param>
         /// <param name="options">Crypto options</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>PAKE response (don't forget to dispose!)</returns>
@@ -41,11 +41,8 @@ namespace wan24.Crypto
             where T : PakeResponse.PakeResponseDto
         {
             response.EnsureSuccessStatusCode();
-            if (
-                response.Content.Headers.ContentType?.MediaType is null ||
-                !response.Content.Headers.ContentType.MediaType.Equals(Constants.PAKE_RESPONSE_MIME_TYPE, StringComparison.OrdinalIgnoreCase)
-                )
-                throw new InvalidDataException("Invalid content type");
+            if (!(response.Content.Headers.ContentType?.MediaType?.Equals(Constants.PAKE_RESPONSE_MIME_TYPE, StringComparison.OrdinalIgnoreCase) ?? false))
+                throw new InvalidDataException("Invalid content type (PAKE response expected)");
             Stream body = await response.Content.ReadAsStreamAsync(cancellationToken).DynamicContext();
             await using(body.DynamicContext())
                 return await PakeResponse.CreateAsync<T>(body, key, options, cancellationToken).DynamicContext();

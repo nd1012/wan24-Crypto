@@ -35,17 +35,17 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
+            Key.Clear();
             Request.Dispose();
             Body.Dispose();
-            Key.Clear();
         }
 
         /// <inheritdoc/>
         protected override async Task DisposeCore()
         {
+            Key.Clear();
             Request.Dispose();
             await Body.DisposeAsync().DynamicContext();
-            Key.Clear();
         }
 
         /// <summary>
