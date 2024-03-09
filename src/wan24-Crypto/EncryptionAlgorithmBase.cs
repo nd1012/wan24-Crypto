@@ -1,5 +1,7 @@
-﻿using wan24.Core;
+﻿using System.Security;
+using wan24.Core;
 using wan24.StreamSerializerExtensions;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -32,6 +34,21 @@ namespace wan24.Crypto
         public virtual CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.GetCopy());
 
         /// <summary>
+        /// Was this allogithm denied (still usable for decryption, but not for encryption)?
+        /// </summary>
+        public bool IsDenied => DeniedAlgorithms.IsEncryptionAlgorithmDenied(Value);
+
+        /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("Denied"), IsDenied, __("If the algorithm was denied"));
+            }
+        }
+
+        /// <summary>
         /// Ensure that the given options include the default options for this algorithm
         /// </summary>
         /// <param name="options">Options</param>
@@ -43,6 +60,18 @@ namespace wan24.Crypto
             if (_DefaultOptions.EncryptionOptions is not null && options.EncryptionOptions is null) options.EncryptionOptions = _DefaultOptions.EncryptionOptions;
             if (RequireMacAuthentication && options.MacAlgorithm is null) MacHelper.GetDefaultOptions(options);
             return options;
+        }
+
+        /// <inheritdoc/>
+        public override bool EnsureAllowed(in bool throwIfDenied = true)
+        {
+            if (!base.EnsureAllowed(throwIfDenied)) return false;
+            if (DeniedAlgorithms.IsEncryptionAlgorithmDenied(Value))
+            {
+                if (!throwIfDenied) return false;
+                throw CryptographicException.From(new SecurityException($"Encryption algorithm {DisplayName} was denied"));
+            }
+            return true;
         }
 
         /// <summary>

@@ -33,26 +33,50 @@ namespace wan24.Crypto
         {
             try
             {
-                if (Algorithm is not null) EncryptionHelper.GetAlgorithm(Algorithm);
-                if (MacAlgorithm is not null) MacHelper.GetAlgorithm(MacAlgorithm);
+                if (Algorithm is not null)
+                {
+                    EncryptionAlgorithmBase algo = EncryptionHelper.GetAlgorithm(Algorithm);
+                    if (!algo.IsSupported) throw new InvalidDataException("Encryption algorithm isn't supported");
+                }
+                if (MacAlgorithm is not null)
+                {
+                    MacAlgorithmBase algo = MacHelper.GetAlgorithm(MacAlgorithm);
+                    if (!algo.IsSupported) throw new InvalidDataException("MAC algorithm isn't supported");
+                }
                 if (KdfAlgorithm is not null)
                 {
                     KdfAlgorithmBase kdfAlgo = KdfHelper.GetAlgorithm(KdfAlgorithm);
                     if (kdfAlgo.DefaultIterations > KdfIterations) throw new InvalidDataException("Invalid KDF iteration count");
+                    if (!kdfAlgo.IsSupported) throw new InvalidDataException("KDF algorithm isn't supported");
                 }
                 if (AsymmetricAlgorithm is not null)
                 {
                     IAsymmetricAlgorithm asymmetricAlgo = AsymmetricHelper.GetAlgorithm(AsymmetricAlgorithm);
-                    if (!asymmetricAlgo.AllowedKeySizes.Contains(AsymmetricKeyBits)) throw new InvalidDataException("Invalid asymmetric key size");
+                    if (AsymmetricKeyBits != 1 && !asymmetricAlgo.AllowedKeySizes.Contains(AsymmetricKeyBits)) throw new InvalidDataException("Invalid asymmetric key size");
+                    if (!asymmetricAlgo.IsSupported) throw new InvalidDataException("Asymmetric algorithm isn't supported");
+                    if (asymmetricAlgo.IsEllipticCurveAlgorithm && !EllipticCurves.IsCurveAllowed(AsymmetricKeyBits)) throw new InvalidDataException("Elliptic curve isn't allowed");
                 }
-                if (CounterMacAlgorithm is not null) MacHelper.GetAlgorithm(CounterMacAlgorithm);
+                if (CounterMacAlgorithm is not null)
+                {
+                    MacAlgorithmBase algo = MacHelper.GetAlgorithm(CounterMacAlgorithm);
+                    if (!algo.IsSupported) throw new InvalidDataException("Counter MAC algorithm isn't supported");
+                }
                 if (CounterKdfAlgorithm is not null)
                 {
                     KdfAlgorithmBase kdfAlgo = KdfHelper.GetAlgorithm(CounterKdfAlgorithm);
                     if (kdfAlgo.DefaultIterations > KdfIterations) throw new InvalidDataException("Invalid counter KDF iteration count");
+                    if (!kdfAlgo.IsSupported) throw new InvalidDataException("Counter KDF algorithm isn't supported");
                 }
-                if (AsymmetricCounterAlgorithm is not null) AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm);
-                if (HashAlgorithm is not null) HashHelper.GetAlgorithm(HashAlgorithm);
+                if (AsymmetricCounterAlgorithm is not null)
+                {
+                    IAsymmetricAlgorithm asymmetricAlgo = AsymmetricHelper.GetAlgorithm(AsymmetricCounterAlgorithm);
+                    if (!asymmetricAlgo.IsSupported) throw new InvalidDataException("Asymmetric counter algorithm isn't supported");
+                }
+                if (HashAlgorithm is not null)
+                {
+                    HashAlgorithmBase algo = HashHelper.GetAlgorithm(HashAlgorithm);
+                    if (!algo.IsSupported) throw new InvalidDataException("Hash algorithm isn't supported");
+                }
                 if (Compression?.Algorithm is not null) CompressionHelper.GetAlgorithm(Compression.Algorithm);
             }
             catch (CryptographicException)

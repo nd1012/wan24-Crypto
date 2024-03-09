@@ -16,11 +16,11 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public virtual Stream Encrypt(Stream rawData, Stream cipherData, byte[] pwd, CryptoOptions? options = null, MacStreams? macStream = null)
         {
+            EnsureAllowed();
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
                 options.SetNewPassword(pwd.CloneArray());
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
                 if (!options.HeaderProcessed)
@@ -70,10 +70,10 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public Stream Encrypt(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null)
         {
+            EnsureAllowed();
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 EncryptionHelper.GetDefaultOptions(options);
                 options.SetKeys(key);
@@ -110,10 +110,10 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public Stream Encrypt(Stream rawData, Stream cipherData, CryptoOptions options)
         {
+            EnsureAllowed();
             options = options.GetCopy();
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 EncryptionHelper.GetDefaultOptions(options);
                 if(options.Password is null && options.PrivateKey is null)
@@ -166,11 +166,11 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
+            EnsureAllowed();
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
                 options.SetNewPassword(pwd.CloneArray());
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
                 if (!options.HeaderProcessed)
@@ -223,10 +223,10 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public async Task EncryptAsync(Stream rawData, Stream cipherData, IAsymmetricPrivateKey key, CryptoOptions? options = null, CancellationToken cancellationToken = default)
         {
+            EnsureAllowed();
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 EncryptionHelper.GetDefaultOptions(options);
                 options.SetKeys(key);
@@ -264,10 +264,10 @@ namespace wan24.Crypto
         /// <returns>Cipher data</returns>
         public async Task EncryptAsync(Stream rawData, Stream cipherData, CryptoOptions options, CancellationToken cancellationToken = default)
         {
+            EnsureAllowed();
             options = options.GetCopy();
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 EncryptionHelper.GetDefaultOptions(options);
                 if (options.Password is null && options.PrivateKey is null)

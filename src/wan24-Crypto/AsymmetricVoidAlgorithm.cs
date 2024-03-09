@@ -1,4 +1,5 @@
 ﻿using System.Collections.Frozen;
+using System.Security;
 
 namespace wan24.Crypto
 {
@@ -51,9 +52,19 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
+        public override bool IsSupported => false;
+
+        /// <inheritdoc/>
         public override AsymmetricVoidPrivateKey CreateKeyPair(CryptoOptions? options = null) => throw new NotSupportedException();
 
         /// <inheritdoc/>
         public override AsymmetricVoidPrivateKey DeserializePrivateKeyV1(byte[] keyData) => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        public override bool EnsureAllowed(in bool throwIfDenied = true)
+        {
+            if (!throwIfDenied) return false;
+            throw CryptographicException.From(new SecurityException("The VIOD algorithm can't be used"));
+        }
     }
 }

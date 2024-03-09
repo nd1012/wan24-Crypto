@@ -1,5 +1,7 @@
-﻿using wan24.Core;
+﻿using System.Security.Cryptography;
+using wan24.Core;
 using wan24.Crypto.Authentication;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -8,6 +10,82 @@ namespace wan24.Crypto
     /// </summary>
     public static partial class CryptoEnvironment
     {
+        /// <summary>
+        /// All enabled algorithms
+        /// </summary>
+        public static IEnumerable<ICryptoAlgorithm> AllAlgorithms
+        {
+            get
+            {
+                foreach (ICryptoAlgorithm algo in AsymmetricHelper.Algorithms.Values)
+                    yield return algo;
+                foreach (ICryptoAlgorithm algo in EncryptionHelper.Algorithms.Values)
+                    yield return algo;
+                foreach (ICryptoAlgorithm algo in HashHelper.Algorithms.Values)
+                    yield return algo;
+                foreach (ICryptoAlgorithm algo in MacHelper.Algorithms.Values)
+                    yield return algo;
+                foreach (ICryptoAlgorithm algo in KdfHelper.Algorithms.Values)
+                    yield return algo;
+            }
+        }
+
+        /// <summary>
+        /// Overall state of the crypto environment
+        /// </summary>
+        public static IEnumerable<Status> State
+        {
+            get
+            {
+                // RNG
+                yield return new(__("/dev/random"), RND.HasDevRandom, __("If /dev/random is available"), "RNG");
+                yield return new(__("Use /dev/random"), RND.UseDevRandom, __("If /dev/random is being used"), "RNG");
+                yield return new(__("Require /dev/random"), RND.RequireDevRandom, __("If /dev/random is required"), "RNG");
+                yield return new(__("/dev/random pool"), RND.DevRandomPool is not null, __("If a /dev/random pool is available"), "RNG");
+                yield return new(__("Seed consumer"), RND.SeedConsumer?.GetType().ToString() ?? __("none"), __("The CLR type of the seed consumer"), "RNG");
+                yield return new(__("Auto seeding"), RND.AutoRngSeeding, __("Automatic RNG seeding type"), "RNG");
+                yield return new(__("RNG"), RND.Generator?.GetType().ToString() ?? (RND.UseDevRandom ? __("/dev/random") : typeof(RandomNumberGenerator).ToString()), __("The CLR type of the RNG"), "RNG");
+                // Environment
+                yield return new(__("PKI"), PKI?.GetType().ToString() ?? __("none"), __("The CLR type of the PKI"), __("Environment"));
+                yield return new(__("Private key store"), PrivateKeysStore?.GetType().ToString() ?? __("none"), __("The CLR type of the private key store"), __("Environment"));
+                yield return new(__("PAKE client"), PakeAuthClient?.GetType().ToString() ?? __("none"), __("The CLR type of the PAKE authentication client"), __("Environment"));
+                yield return new(__("PAKE server"), PakeAuthServer?.GetType().ToString() ?? __("none"), __("The CLR type of the PAKE authentication server"), __("Environment"));
+                yield return new(__("Key pool"), AsymmetricKeyPool?.GetType().ToString() ?? __("none"), __("The CLR type of the general asymmetric key pool"), __("Environment"));
+                yield return new(__("PAKE record pool"), PakeAuthRecordPool?.GetType().ToString() ?? __("none"), __("The CLR type of the PAKE authentication record pool"), __("Environment"));
+                yield return new(__("Enabled algorithms"), AllAlgorithms.Count(), __("Number of enabled crypto algorithms"), __("Environment"));
+                // Asymmetric algorithms
+                foreach (IAsymmetricAlgorithm algo in AsymmetricHelper.Algorithms.Values)
+                    foreach (Status status in algo.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("Asymmetric")}\\{algo.DisplayName.Replace('\\', '/')}");
+                // Encryption algorithms
+                foreach (EncryptionAlgorithmBase algo in EncryptionHelper.Algorithms.Values)
+                    foreach (Status status in algo.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("Encryption")}\\{algo.DisplayName.Replace('\\', '/')}");
+                // MAC algorithms
+                foreach (MacAlgorithmBase algo in MacHelper.Algorithms.Values)
+                    foreach (Status status in algo.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("MAC")}\\{algo.DisplayName.Replace('\\', '/')}");
+                // Hash algorithms
+                foreach (HashAlgorithmBase algo in HashHelper.Algorithms.Values)
+                    foreach (Status status in algo.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("Hash")}\\{algo.DisplayName.Replace('\\', '/')}");
+                // KDF algorithms
+                foreach (KdfAlgorithmBase algo in KdfHelper.Algorithms.Values)
+                    foreach (Status status in algo.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("KDF")}\\{algo.DisplayName.Replace('\\', '/')}");
+                // PAKE servers
+                yield return new(__("PAKE servers"), FastPakeAuthServerTable.Servers.Count, __("Number of fast PAKE authentication servers"), __("PAKE servers"));
+                foreach (FastPakeAuthServer server in FastPakeAuthServerTable.Servers.Values)
+                    foreach (Status status in server.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("PAKE servers")}\\{(server.Name ?? server.GUID).Replace('\\', '/')}");
+                // Secure values
+                yield return new(__("Secure values"), SecureValueTable.Values.Count, __("Number of secure values"), __("Secure values"));
+                foreach (SecureValue value in SecureValueTable.Values.Values)
+                    foreach (Status status in value.State)
+                        yield return new(status.Name, status.State, status.Description, $"{__("Secure values")}\\{(value.Name ?? value.GUID).Replace('\\', '/')}");
+            }
+        }
+
         /// <summary>
         /// Apply a configuration
         /// </summary>
@@ -92,12 +170,22 @@ namespace wan24.Crypto
             }
             if (options.DefaultPasswordPostProcessor is not null) PasswordPostProcessor.Instance = options.DefaultPasswordPostProcessor;
             if (options.DefaultRngStream is not null) RngStream.Instance = options.DefaultRngStream;
-            if (options.DeniedAsymmetric is not null) DeniedAlgorithms.AsymmetricAlgorithms.AddRange(options.DeniedAsymmetric);
-            if (options.DeniedEncryption is not null) DeniedAlgorithms.EncryptionAlgorithms.AddRange(options.DeniedEncryption);
             // Final initialization
+            if (options.DeniedAsymmetric is not null)
+                foreach (KeyValuePair<int, string> kvp in options.DeniedAsymmetric)
+                    DeniedAlgorithms.AddAsymmetricAlgorithm(kvp.Key, kvp.Value);
+            if (options.DeniedEncryption is not null)
+                foreach (KeyValuePair<int, string> kvp in options.DeniedEncryption)
+                    DeniedAlgorithms.AddEncryptionAlgorithm(kvp.Key, kvp.Value);
+            if (options.DeniedEllipticCurveNames is not null)
+                foreach (string name in options.DeniedEllipticCurveNames)
+                    EllipticCurves.DenyCurve(name);
             options.PKI?.EnableLocalPki();
             if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);
             if (options.StrictPostQuantum.HasValue) CryptoHelper.ForcePostQuantumSafety(options.StrictPostQuantum.Value);
+            if (options.AsymmericKeyPoolsCapacity.HasValue)
+                foreach (IAsymmetricAlgorithm algo in AsymmetricHelper.Algorithms.Values.Where(a => a.EnsureAllowed(throwIfDenied: false)))
+                    algo.CreateKeyPools(options.AsymmericKeyPoolsCapacity.Value);
         }
 
         /// <summary>

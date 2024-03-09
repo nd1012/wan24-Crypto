@@ -34,7 +34,7 @@ namespace wan24.Crypto
                 new(MacHmacSha3_384Algorithm.ALGORITHM_NAME, MacHmacSha3_384Algorithm.Instance),
                 new(MacHmacSha3_512Algorithm.ALGORITHM_NAME, MacHmacSha3_512Algorithm.Instance)
             ]);
-            _DefaultAlgorithm = MacHmacSha3_512Algorithm.Instance;
+            _DefaultAlgorithm = MacHmacSha3_512Algorithm.Instance.IsSupported ? MacHmacSha3_512Algorithm.Instance : MacHmacSha512Algorithm.Instance;
         }
 
         /// <summary>
@@ -50,6 +50,8 @@ namespace wan24.Crypto
             get => _DefaultAlgorithm;
             set
             {
+                value.EnsureAllowed();
+                if (!value.IsSupported) throw new InvalidOperationException();
                 lock (SyncObject) _DefaultAlgorithm = value;
             }
         }

@@ -1,9 +1,11 @@
-﻿namespace wan24.Crypto
+﻿using wan24.Core;
+
+namespace wan24.Crypto
 {
     /// <summary>
     /// Interface for a cryptographic algorithm
     /// </summary>
-    public interface ICryptoAlgorithm
+    public interface ICryptoAlgorithm : IStatusProvider
     {
         /// <summary>
         /// Algorithm name
@@ -29,5 +31,12 @@
         /// Is supported?
         /// </summary>
         bool IsSupported { get; }
+        /// <summary>
+        /// Ensure this algorithm is allowed in the current configuration
+        /// </summary>
+        /// <param name="throwIfDenied">Throw an exception, if this algorithm isn't allowed?</param>
+        /// <returns>If this algorithm is allowed in the current configuration</returns>
+        /// <exception cref="CryptographicException">This algorithm is not allowed in the current configuration</exception>
+        bool EnsureAllowed(in bool throwIfDenied = true);
     }
 }

@@ -14,6 +14,8 @@ namespace wan24.Crypto
         /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
         public Pake(in IPakeRecord identity, in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : this(options, cryptoOptions)
         {
+            options?.ValidateAlgorithms();
+            cryptoOptions?.ValidateAlgorithms();
             Key = null;
             Identity = identity;
         }

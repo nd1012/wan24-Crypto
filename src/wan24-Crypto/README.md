@@ -800,6 +800,44 @@ authentication message.
 
 **NOTE**: This PAKE implementation is patent free!
 
+### PAKE with http requests
+
+PAKE can encrypt http messages and provide an additional authentication to a 
+JWT. Benefits of encrypting http messages:
+
+- additional authentication to JWT
+- Perfect Forward Secrecy (PFS) encryption for every single http request
+- nothing from the request can be sniffed from a man in the middle (MiM)
+- the request can't be repeated in another authentication context
+- you can implement replay attack avoiding measures by denying the same random 
+data (from the PAKE authentication object) within a timespan
+
+The final http method, request path, headers and body are completely hidden to 
+any attacker who may be able to sniff your network traffic. Also in a client 
+browser the developer tools won't show any request details, which is perfect 
+in a WASM app to hide even your servers API effectively.
+
+Of course processing each request and response with PAKE has an overhead, 
+especially when using compression, too.
+
+Example client code:
+
+```cs
+using PakeHttpRequestFactory factory = new(username, password);
+using PakeRequest request = await factory.CreateRequestAsync(
+    new("https://domain.tld"), 
+    HttpMethod.Get, 
+    "/request/path"
+    );
+// request.Request contains the http request message
+using PakeResponse response = await httpResponseMessage.GetPakeResponseAsync(request.Key);
+// response.Response contains the decoded PAKE response, response.Body.CryptoStream the response stream
+response.Response.EnsureSuccessStatusCode();
+```
+
+The server needs to process messages, too, of course. This part isn't included 
+within this library and does vary depending on the webserver.
+
 ## Client/server authentication protocol
 
 ### Asymmetric keys + PAKE

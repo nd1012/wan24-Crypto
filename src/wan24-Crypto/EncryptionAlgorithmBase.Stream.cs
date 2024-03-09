@@ -17,9 +17,9 @@ namespace wan24.Crypto
         /// <returns>Encryption stream, transform and MAC</returns>
         public virtual EncryptionStreams GetEncryptionStream(Stream rawData, Stream cipherData, MacStreams? macStream, CryptoOptions options)
         {
+            EnsureAllowed();
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 EncryptionHelper.GetDefaultOptions(options);
@@ -103,9 +103,9 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
+            EnsureAllowed();
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 EncryptionHelper.GetDefaultOptions(options);

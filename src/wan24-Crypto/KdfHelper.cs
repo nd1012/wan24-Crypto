@@ -43,6 +43,8 @@ namespace wan24.Crypto
             get => _DefaultAlgorithm;
             set
             {
+                value.EnsureAllowed();
+                if (!value.IsSupported) throw new InvalidOperationException();
                 lock (SyncObject) _DefaultAlgorithm = value;
             }
         }

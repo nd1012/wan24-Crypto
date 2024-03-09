@@ -49,8 +49,11 @@ namespace wan24.Crypto.Authentication
                 hashOptions = options.HashOptions?.GetCopy() ?? HashHelper.GetDefaultOptions();
                 hashOptions.LeaveOpen = true;
                 hashOptions.ApplyPrivateKeySuite(options.PrivateKeys, forSignature: true);
+                hashOptions.ValidateAlgorithms();
                 pakeOptions = options.PakeOptions?.GetCopy() ?? Pake.DefaultOptions;
+                pakeOptions.ValidateAlgorithms();
                 cryptoOptions = options.CryptoOptions?.GetCopy() ?? Pake.DefaultCryptoOptions;
+                cryptoOptions.ValidateAlgorithms();
                 cryptoOptions.LeaveOpen = true;
                 pakeCryptoOptions = cryptoOptions.GetCopy();
                 EncryptionAlgorithmBase encryption = EncryptionHelper.GetAlgorithm(cryptoOptions.Algorithm!);

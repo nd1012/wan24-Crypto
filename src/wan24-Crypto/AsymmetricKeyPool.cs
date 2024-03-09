@@ -33,6 +33,7 @@ namespace wan24.Crypto
         /// <param name="options">Options</param>
         public AsymmetricKeyPool(in int capacity, in CryptoOptions? options = null) : base(capacity, Factory)
         {
+            options?.ValidateAlgorithms();
             Options = options ?? Algorithm.DefaultOptions;
             ErrorSource = Constants.CRYPTO_ERROR_SOURCE;
         }

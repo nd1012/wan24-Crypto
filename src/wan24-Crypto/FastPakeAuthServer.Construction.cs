@@ -260,6 +260,8 @@ namespace wan24.Crypto
         {
             try
             {
+                options?.ValidateAlgorithms();
+                cryptoOptions?.ValidateAlgorithms();
                 Name = name;
                 Pake = new(identity, options, cryptoOptions);
                 Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())

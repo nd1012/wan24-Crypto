@@ -355,6 +355,16 @@ namespace wan24.Crypto
             /// Denied encryption algorithms (key is the algorithm value, value the algorithm name)
             /// </summary>
             public Dictionary<int, string>? DeniedEncryption { get; set; }
+
+            /// <summary>
+            /// Capacity for key pools of all key sizes of all available asymmetric algorithms
+            /// </summary>
+            public int? AsymmericKeyPoolsCapacity { get; set; }
+
+            /// <summary>
+            /// Denied elliptic curve names
+            /// </summary>
+            public string[]? DeniedEllipticCurveNames { get; set; }
         }
     }
 }

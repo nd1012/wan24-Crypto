@@ -1,4 +1,6 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -99,10 +101,21 @@ namespace wan24.Crypto
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("Hash"), KdfPbKdf2Options.DefaultHashAlgorithm, __("The default hash algorithm name"));
+            }
+        }
+
+        /// <inheritdoc/>
         public override (byte[] Stretched, byte[] Salt) Stretch(byte[] pwd, int len, byte[]? salt = null, CryptoOptions? options = null)
         {
             try
             {
+                EnsureAllowed();
                 ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
                 options = KdfHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 if (options.KdfIterations < MIN_ITERATIONS) throw new ArgumentException("Invalid KDF iterations", nameof(options));

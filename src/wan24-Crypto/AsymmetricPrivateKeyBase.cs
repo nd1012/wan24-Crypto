@@ -1,5 +1,4 @@
-﻿using System.Security;
-using wan24.Core;
+﻿using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -53,10 +52,9 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
-                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 return SignHash(data.Hash(options), purpose, options);
@@ -77,10 +75,9 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
-                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 return SignHash(data.Hash(options), purpose, options);
@@ -101,10 +98,9 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
-                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 return SignHash(await data.HashAsync(options, cancellationToken).DynamicContext(), purpose, options);
@@ -125,10 +121,9 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
-                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
-                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
                 SignatureContainer res = new(options.HashAlgorithm!, hash, (ISignaturePrivateKey)this, options.CounterPrivateKey as ISignaturePrivateKey, purpose);

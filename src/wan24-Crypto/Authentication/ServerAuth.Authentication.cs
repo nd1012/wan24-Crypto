@@ -14,7 +14,10 @@ namespace wan24.Crypto.Authentication
         /// <returns>Client authentication context</returns>
         private async Task<ClientAuthContext> ProcessAuthenticationAsync(Stream stream, CancellationToken cancellationToken)
         {
+            Options.PakeOptions!.ValidateAlgorithms();
+            Options.CryptoOptions!.ValidateAlgorithms();
             CryptoOptions hashOptions = Options.HashOptions!.GetCopy();
+            hashOptions.ValidateAlgorithms();
             try
             {
                 using HashStreams hash = HashHelper.GetAlgorithm(hashOptions.HashAlgorithm!).GetHashStream(stream, writable: false, hashOptions);

@@ -32,7 +32,9 @@ namespace wan24.Crypto
         static ValueProtectionKeys()
         {
             _TpmMacAlgorithm = (from algo in MacHelper.Algorithms.Values
-                                where algo.UsesTpm
+                                where algo.UsesTpm && 
+                                    algo.IsSupported && 
+                                    algo.EnsureAllowed(throwIfDenied: false)
                                 orderby algo.MacLength descending
                                 select algo.Name)
                                 .FirstOrDefault() ?? DEFAULT_TPM_MAC_ALGORITHM;

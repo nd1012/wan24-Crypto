@@ -77,6 +77,11 @@ namespace wan24.Crypto
         /// </summary>
         public bool UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms { get; set; }
 
+        /// <summary>
+        /// Asymmetric key pool capacity for all allowed key sized of all available asymmetric algorithms
+        /// </summary>
+        public int? AsymmetricKeyPoolsCapacity { get; set; }
+
         /// <inheritdoc/>
         public sealed override void Apply()
         {
@@ -120,6 +125,7 @@ namespace wan24.Crypto
             options.UseCryptoExceptionDelay = UseCryptoExceptionDelay;
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
             options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms = UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms;
+            options.AsymmericKeyPoolsCapacity = AsymmetricKeyPoolsCapacity;
             ApplyProperties(afterBootstrap: false);
             if (Algorithms is not null)
             {
@@ -370,6 +376,11 @@ namespace wan24.Crypto
             public Dictionary<int, string>? DeniedEncryption { get; set; }
 
             /// <summary>
+            /// Denied elliptic curve names
+            /// </summary>
+            public string[]? DeniedEllipticCurves { get; set; }
+
+            /// <summary>
             /// Apply
             /// </summary>
             /// <param name="options">Options</param>
@@ -389,6 +400,7 @@ namespace wan24.Crypto
                 options.Sp800_108HashAlgorithm = Sp800_108HashAlgorithm;
                 options.DeniedAsymmetric = DeniedAsymmetric;
                 options.DeniedEncryption = DeniedEncryption;
+                options.DeniedEllipticCurveNames = DeniedEllipticCurves;
             }
 
             /// <summary>
@@ -412,6 +424,7 @@ namespace wan24.Crypto
                 options.Sp800_108HashAlgorithm = Sp800_108HashAlgorithm;
                 options.DeniedAsymmetric = DeniedAsymmetric;
                 options.DeniedEncryption = DeniedEncryption;
+                options.DeniedEllipticCurveNames = DeniedEllipticCurves;
                 return Task.CompletedTask;
             }
         }

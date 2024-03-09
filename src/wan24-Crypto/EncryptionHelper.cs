@@ -51,6 +51,7 @@ namespace wan24.Crypto
             get => _DefaultAlgorithm;
             set
             {
+                value.EnsureAllowed();
                 lock (SyncObject) _DefaultAlgorithm = value;
             }
         }
@@ -109,6 +110,14 @@ namespace wan24.Crypto
         public static IEnumerable<EncryptionAlgorithmBase> PostQuantum
             => from algo in Algorithms.Values
                where algo.IsPostQuantum
+               select algo;
+
+        /// <summary>
+        /// Denied algorithms
+        /// </summary>
+        public static IEnumerable<EncryptionAlgorithmBase> DeniedAlgorithms
+            => from algo in Algorithms.Values
+               where algo.IsDenied
                select algo;
 
         /// <summary>

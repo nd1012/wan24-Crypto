@@ -1,5 +1,4 @@
-﻿using System.Security;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using wan24.Core;
 using wan24.ObjectValidation;
 
@@ -94,9 +93,8 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
-                if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Algorithm.Value))
-                    throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {Algorithm.DisplayName} was denied"));
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
                 return (DeriveKey(publicKey.KeyData.Array.CloneArray()), PublicKey.KeyData.Array.CloneArray());
@@ -120,7 +118,7 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                EnsurePqcRequirement();
                 using AsymmetricEcDiffieHellmanPublicKey publicKey = new(keyExchangeData);
                 return PrivateKey.DeriveKeyMaterial(publicKey.PublicKey);
             }
@@ -140,7 +138,7 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                EnsurePqcRequirement();
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey key) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
                 return PrivateKey.DeriveKeyMaterial(key.PublicKey);
             }

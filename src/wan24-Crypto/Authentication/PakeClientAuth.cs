@@ -31,6 +31,8 @@ namespace wan24.Crypto.Authentication
             try
             {
                 if (!options.IsSignup) throw new ArgumentException("Signup options expected", nameof(options));
+                options.PakeOptions?.ValidateAlgorithms();
+                options.CryptoOptions?.ValidateAlgorithms();
                 // Ensure a symmetric key suite with an identifier
                 symmetricKey = options.SymmetricKey is null
                     ? new SymmetricKeySuite(options.Password!, options.Login, options.PakeOptions)
@@ -100,10 +102,12 @@ namespace wan24.Crypto.Authentication
             byte[]? serverRandom = null,
                 sessionKey = null;
             CryptoOptions cryptoOptions = options.CryptoOptions?.GetCopy() ?? Pake.DefaultCryptoOptions;
-            EncryptionAlgorithmBase encryption;
+            cryptoOptions.ValidateAlgorithms();
             cryptoOptions.LeaveOpen = true;
+            EncryptionAlgorithmBase encryption;
             try
             {
+                options.PakeOptions?.ValidateAlgorithms();
                 if (options.IsSignup) throw new ArgumentException("Authentication options expected", nameof(options));
                 if (options.PeerIdentity is null) throw new ArgumentException("Missing peer identity", nameof(options));
                 if (options.SymmetricKey is not null && options.SymmetricKey.Identifier is null)

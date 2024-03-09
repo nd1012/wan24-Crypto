@@ -30,6 +30,8 @@ namespace wan24.Crypto
         /// <param name="outputLength">Output length in bytes (a multiple of 8)</param>
         public NetShake256HashAlgorithmAdapter(int outputLength = HashShake256Algorithm.HASH_LENGTH) : base()
         {
+            HashShake256Algorithm.Instance.EnsureAllowed();
+            if (!HashShake256Algorithm.Instance.IsSupported) throw new InvalidOperationException();
             ArgumentOutOfRangeException.ThrowIfLessThan(outputLength, 8, nameof(outputLength));
             if ((outputLength & 7) != 0) throw new ArgumentException("Output length must be a multiple of 8", nameof(outputLength));
             OutputLength = outputLength;

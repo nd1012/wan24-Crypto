@@ -2,6 +2,7 @@
 using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -190,14 +191,14 @@ namespace wan24.Crypto
         {
             get
             {
-                yield return new("GUID", GUID, "Unique ID of the secure value");
-                yield return new("Name", Name, "Name of the secure value");
-                yield return new("Encrypted", IsEncrypted ? EncryptedSince : false, "If the secure value is encrypted at present (if encrypted, when it has been encrypted)");
-                yield return new("Encryption", IsEncrypted ? TimeSpan.Zero : LastAccess + EncryptTimeout, "When the raw value is going to be encrypted next time");
-                yield return new("Timeout", EncryptTimeout, "Value encryption timeout after the last access");
-                yield return new("Re-crypt", RecryptTimeout, "Encrypted value re-cryption interval");
-                yield return new("Access time", LastAccess, "Time of the last raw value access");
-                yield return new("Access count", AccessCount, "Number of value access since initialization");
+                yield return new(__("GUID"), GUID, __("Unique ID of the secure value"));
+                yield return new(__("Name"), Name, __("Name of the secure value"));
+                yield return new(__("Encrypted"), IsEncrypted ? EncryptedSince : false, __("If the secure value is encrypted at present (if encrypted, when it has been encrypted)"));
+                yield return new(__("Encryption"), IsEncrypted ? TimeSpan.Zero : LastAccess + EncryptTimeout, __("When the raw value is going to be encrypted next time"));
+                yield return new(__("Timeout"), EncryptTimeout, __("Value encryption timeout after the last access"));
+                yield return new(__("Re-crypt"), RecryptTimeout, __("Encrypted value re-cryption interval"));
+                yield return new(__("Access time"), LastAccess, __("Time of the last raw value access"));
+                yield return new(__("Access count"), AccessCount, __("Number of value access since initialization"));
             }
         }
 
@@ -378,7 +379,7 @@ namespace wan24.Crypto
         /// </summary>
         protected virtual void RaiseOnAccess()
         {
-            if (OnAccess is not null) _ = ((Func<Task>)(async () =>
+            if (OnAccess is not null) ((Func<Task>)(async () =>
             {
                 await Task.Yield();
                 OnAccess?.Invoke(this, new());
