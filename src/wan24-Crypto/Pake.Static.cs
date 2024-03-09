@@ -24,6 +24,7 @@ namespace wan24.Crypto
                 .WithMac()).GetCopy();
             set
             {
+                value.ValidateAlgorithms();
                 _DefaultOptions?.Clear();
                 _DefaultOptions = value;
                 if (value is null) return;
@@ -52,6 +53,7 @@ namespace wan24.Crypto
             }
             set
             {
+                value.ValidateAlgorithms();
                 _DefaultCryptoOptions?.Clear();
                 _DefaultCryptoOptions = value;
             }

@@ -1,4 +1,6 @@
 ﻿using System.Security.Cryptography;
+using wan24.Core;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -61,13 +63,27 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => true;
 
         /// <inheritdoc/>
+        public override bool IsSupported => !ENV.IsBrowserApp;
+
+        /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
+
+        /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("Hash"), KdfSp800_801HmacKbKdfOptions.DefaultHashAlgorithm, __("The default hash algorithm name"));
+            }
+        }
 
         /// <inheritdoc/>
         public override (byte[] Stretched, byte[] Salt) Stretch(byte[] pwd, int len, byte[]? salt = null, CryptoOptions? options = null)
         {
             try
             {
+                EnsureAllowed();
                 ArgumentOutOfRangeException.ThrowIfLessThan(len, 1);
                 options = KdfHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 options.KdfOptions ??= new KdfSp800_801HmacKbKdfOptions();

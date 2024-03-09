@@ -1,5 +1,6 @@
 ﻿using wan24.Core;
 using wan24.Crypto.Authentication;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -40,6 +41,8 @@ namespace wan24.Crypto
                 secret = null!;
             try
             {
+                options?.ValidateAlgorithms();
+                cryptoOptions?.ValidateAlgorithms();
                 Name = name;
                 Pake = new(key, options, cryptoOptions);
                 Key = new(Pake.CreateAuthKey(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
@@ -165,6 +168,8 @@ namespace wan24.Crypto
         {
             try
             {
+                options?.ValidateAlgorithms();
+                cryptoOptions?.ValidateAlgorithms();
                 Name = name;
                 Pake = new(key, options, cryptoOptions);
                 Key = new(authKey, encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
@@ -209,6 +214,8 @@ namespace wan24.Crypto
         {
             try
             {
+                options?.ValidateAlgorithms();
+                cryptoOptions?.ValidateAlgorithms();
                 Name = name;
                 Pake = new(new SymmetricKeySuite(cryptoOptions, record.Identifier.CloneArray(), []), options, cryptoOptions);
                 Key = new(record.Key.CloneArray(), encryptTimeout, recryptTimeout, Pake.CryptoOptions.GetCopy())
@@ -267,10 +274,10 @@ namespace wan24.Crypto
         {
             get
             {
-                yield return new("GUID", GUID, "Unique ID of this PAKE client");
-                yield return new("Name", Name, "Name of this PAKE client");
-                yield return new("Identifier", Convert.ToHexString(Pake.Identifier), "Client identifier");
-                yield return new("Count", _AuthCount, "Authentication count since initialization");
+                yield return new(__("GUID"), GUID, __("Unique ID of this PAKE client"));
+                yield return new(__("Name"), Name, __("Name of this PAKE client"));
+                yield return new(__("Identifier"), Convert.ToHexString(Pake.Identifier), __("Client identifier"));
+                yield return new(__("Count"), _AuthCount, __("Authentication count since initialization"));
             }
         }
 

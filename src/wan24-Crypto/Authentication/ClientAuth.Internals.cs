@@ -50,6 +50,7 @@ namespace wan24.Crypto.Authentication
             CancellationToken cancellationToken
             )
         {
+            cryptoOptions.ValidateAlgorithms();
             EncryptionStreams? cipher = null;
             PrivateKeySuite pfsKeys = new();
             try
@@ -102,6 +103,7 @@ namespace wan24.Crypto.Authentication
             CancellationToken cancellationToken
             )
         {
+            hashOptions.ValidateAlgorithms();
             SignatureContainer signature = options.PrivateKeys.SignatureKey!.SignHash(hash, purpose, hashOptions);
             await stream.WriteSerializedAsync(signature, cancellationToken).DynamicContext();
         }
@@ -125,6 +127,7 @@ namespace wan24.Crypto.Authentication
             CancellationToken cancellationToken
             )
         {
+            cryptoOptions.ValidateAlgorithms();
             IAsymmetricPublicKey key = (IAsymmetricPublicKey)options.PublicServerKeys!.KeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
             try
             {

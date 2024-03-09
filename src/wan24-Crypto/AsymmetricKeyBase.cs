@@ -2,6 +2,7 @@
 using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -42,6 +43,24 @@ namespace wan24.Crypto
         public SecureByteArray KeyData { get; protected set; } = null!;
 
         /// <inheritdoc/>
+        public virtual IEnumerable<Status> State
+        {
+            get
+            {
+                yield return new(__("Type"), GetType(), __("Asymmetric key CLR type"));
+                yield return new(__("ID base64"), ID.GetBase64String(), __("base64 encoded key ID"));
+                yield return new(__("ID hex"), Convert.ToHexString(ID), __("Hexadecimal encoded key ID"));
+                yield return new(__("Key size"), Bits, __("The key size in bits"));
+                yield return new(__("Key length"), KeyData?.Length, __("The key data length in bytes"));
+                yield return new(__("Algorithm display name"), Algorithm.DisplayName, __("The algorithm display name"));
+                yield return new(__("Algorithm name"), Algorithm.Name, __("The algorithm name"));
+                yield return new(__("Algorithm value"), Algorithm.Value, __("The algorithm value"));
+                yield return new(__("Key exchange"), Algorithm.CanExchangeKey, __("If the algorithm can be used for key exchange"));
+                yield return new(__("Signature"), Algorithm.CanSign, __("If the algorithm can be used for digital signature"));
+            }
+        }
+
+        /// <inheritdoc/>
         public byte[] Export()
         {
             // Export full key information
@@ -60,9 +79,39 @@ namespace wan24.Crypto
         public override string ToString() => $"Asymmetric key {GetType()} (algorithm \"{Algorithm.Name}\" with {Bits} bits key length)";
 
         /// <summary>
-        /// Serialize
+        /// Ensure PQC requirement
         /// </summary>
-        /// <param name="stream">Stream</param>
+        /// <param name="throwIfRequirementMismatch">Throw an axception if the PQC requirement does not match?</param>
+        /// <returns></returns>
+        /// <exception cref="CryptographicException">The PQC requirement does not match</exception>
+        protected virtual bool EnsurePqcRequirement(in bool throwIfRequirementMismatch = true)
+        {
+            if (!Algorithm.IsPostQuantum && CryptoHelper.StrictPostQuantumSafety)
+            {
+                if (!throwIfRequirementMismatch) return false;
+                throw CryptographicException.From(new InvalidOperationException($"Post quantum safety-forced - {Algorithm.DisplayName} isn't post quantum-safe"));
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Ensure using an allowed elliptic curve
+        /// </summary>
+        /// <param name="throwIfDenied">Throw an axception if the used curve was denied?</param>
+        /// <returns></returns>
+        /// <exception cref="CryptographicException">The used elliptic curve was denieds</exception>
+        protected virtual bool EnsureAllowedCurve(in bool throwIfDenied = true)
+        {
+            if (!Algorithm.IsEllipticCurveAlgorithm) return false;
+            if (Algorithm.IsEllipticCurveAlgorithm && !EllipticCurves.IsCurveAllowed(Bits))
+            {
+                if (!throwIfDenied) return false;
+                throw CryptographicException.From(new InvalidOperationException($"Elliptic curve with {Bits} bits key size was denied"));
+            }
+            return true;
+        }
+
+        /// <inheritdoc/>
         protected override void Serialize(Stream stream)
         {
             // Export minimal key information (which ensures correct serialized data when deserializing)
@@ -70,11 +119,7 @@ namespace wan24.Crypto
                 .WriteBytes(KeyData.Array);
         }
 
-        /// <summary>
-        /// Serialize
-        /// </summary>
-        /// <param name="stream">Stream</param>
-        /// <param name="cancellationToken">Cancellation token</param>
+        /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             // Export minimal key information (which ensures correct serialized data when deserializing)
@@ -82,11 +127,7 @@ namespace wan24.Crypto
             await stream.WriteBytesAsync(KeyData.Array, cancellationToken).DynamicContext();
         }
 
-        /// <summary>
-        /// Deserialize
-        /// </summary>
-        /// <param name="stream">Stream</param>
-        /// <param name="version">Serializer version</param>
+        /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
             if (stream.ReadNumber<int>() != Algorithm.Value) throw new SerializerException("Asymmetric algorithm mismatch");
@@ -94,12 +135,7 @@ namespace wan24.Crypto
             KeyData = new(stream.ReadBytes(version, minLen: 1, maxLen: MaxArrayLength).Value);
         }
 
-        /// <summary>
-        /// Deserialize
-        /// </summary>
-        /// <param name="stream">Stream</param>
-        /// <param name="version">Serializer version</param>
-        /// <param name="cancellationToken">Cancellation token</param>
+        /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             if (await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext() != Algorithm.Value)

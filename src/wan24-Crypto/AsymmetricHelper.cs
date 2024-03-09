@@ -58,6 +58,7 @@ namespace wan24.Crypto
             set
             {
                 if (!value.CanExchangeKey) throw new ArgumentException("Algorithm can't key exchange", nameof(value));
+                value.EnsureAllowed();
                 _DefaultKeyExchangeAlgorithm = value;
             }
         }
@@ -71,6 +72,7 @@ namespace wan24.Crypto
             set
             {
                 if (!value.CanSign) throw new ArgumentException("Algorithm can't sign", nameof(value));
+                value.EnsureAllowed();
                 _DefaultSignatureAlgorithm = value;
             }
         }
@@ -165,6 +167,14 @@ namespace wan24.Crypto
             => from algo in Algorithms.Values
                where algo.IsPostQuantum &&
                 algo.Usages.ContainsAnyFlag(AsymmetricAlgorithmUsages.Signature)
+               select algo;
+
+        /// <summary>
+        /// Denied algorithms
+        /// </summary>
+        public static IEnumerable<IAsymmetricAlgorithm> DeniedAlgorithms
+            => from algo in Algorithms.Values
+               where algo.IsDenied
                select algo;
 
         /// <summary>

@@ -18,6 +18,8 @@ namespace wan24.Crypto
         /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
         public Pake(in ISymmetricKeySuite key, in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : this(options, cryptoOptions)
         {
+            options?.ValidateAlgorithms();
+            cryptoOptions?.ValidateAlgorithms();
             if (key.Identifier is null) throw CryptographicException.From(new ArgumentException("Missing identifier", nameof(key)));
             Key = key;
             Identity = null;

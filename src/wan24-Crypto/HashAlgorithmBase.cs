@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -33,6 +34,16 @@ namespace wan24.Crypto
         /// </summary>
         public abstract int HashLength { get; }
 
+        /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("Hash length"), HashLength, __("The hash (digest) length in bytes"));
+            }
+        }
+
         /// <summary>
         /// Ensure that the given options include the default options for this algorithm
         /// </summary>
@@ -54,8 +65,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
-                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 return GetHashAlgorithmInt(options);
             }
             catch (CryptographicException)
@@ -79,7 +89,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 HashAlgorithm algo = GetHashAlgorithm(options);
@@ -129,12 +139,12 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 byte[] res = new byte[HashLength];
                 using HashAlgorithm hash = GetHashAlgorithm(options);
-                if (!hash.TryComputeHash(data, res, out _)) throw new IOException($"Failed to compute the final hash");
+                if (!hash.TryComputeHash(data, res, out int written)) throw new IOException($"Failed to compute the final hash");
                 return res;
             }
             catch (CryptographicException)
@@ -158,12 +168,12 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureAllowed();
                 if (outputBuffer.Length < HashLength) throw new ArgumentOutOfRangeException(nameof(outputBuffer));
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 using HashAlgorithm hash = GetHashAlgorithm(options);
-                if (!hash.TryComputeHash(data, outputBuffer, out _)) throw new IOException($"Failed to compute the final hash");
+                if (!hash.TryComputeHash(data, outputBuffer, out int written)) throw new IOException($"Failed to compute the final hash");
                 return outputBuffer;
             }
             catch (CryptographicException)
@@ -186,8 +196,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
-                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 using HashStreams hash = GetHashStream(options: options);
@@ -216,8 +225,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !HashHelper.GetAlgorithm(Name).IsPostQuantum)
-                    throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = options?.GetCopy() ?? DefaultOptions;
                 options = HashHelper.GetDefaultOptions(options);
                 HashStreams hash = GetHashStream(options: options);

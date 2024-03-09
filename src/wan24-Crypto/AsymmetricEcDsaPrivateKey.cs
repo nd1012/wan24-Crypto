@@ -110,7 +110,8 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 return PrivateKey.SignHash(hash, DSASignatureFormat.Rfc3279DerSequence);
             }
             catch(CryptographicException)

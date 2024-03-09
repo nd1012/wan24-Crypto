@@ -32,8 +32,11 @@ namespace wan24.Crypto.Authentication
                     options.HashOptions ??= HashHelper.GetDefaultOptions();
                     options.HashOptions.ApplyPrivateKeySuite(options.PrivateKeys, forSignature: true);
                     options.HashOptions.LeaveOpen = true;
+                    options.HashOptions.ValidateAlgorithms();
                     options.PakeOptions ??= Pake.DefaultOptions;
+                    options.PakeOptions.ValidateAlgorithms();
                     options.CryptoOptions ??= Pake.DefaultCryptoOptions;
+                    options.CryptoOptions.ValidateAlgorithms();
                     options.CryptoOptions.LeaveOpen = true;
                     Encryption = EncryptionHelper.GetAlgorithm(options.CryptoOptions.Algorithm!);
                     if (options.PfsKeyPool is not null)

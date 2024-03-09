@@ -1,7 +1,8 @@
 ﻿using System.Collections.Frozen;
-using System.Collections.ObjectModel;
+using System.Security;
 using System.Security.Cryptography;
 using wan24.Core;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -104,6 +105,31 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
+        public bool IsDenied => DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Value);
+
+        /// <inheritdoc/>
+        public Dictionary<int, IAsymmetricKeyPool>? KeyPool { get; set; }
+
+        /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("Public key"), PublicKeyType, __("CLR type of the public key"));
+                yield return new(__("Private key"), PrivateKeyType, __("CLR type of the private key"));
+                yield return new(__("Key exchange"), CanExchangeKey, __("If the algorithm can be used for key exchange"));
+                yield return new(__("Signature"), CanSign, __("If the algorithm can be used for digital signature"));
+                yield return new(__("EC"), IsEllipticCurveAlgorithm, __("If the algorithm uses elliptic curves"));
+                yield return new(__("Standard format"), IsPublicKeyStandardFormat, __("If the public key can be serialized in a standardized format"));
+                yield return new(__("Key sizes"), string.Join(", ", AllowedKeySizes), __("The possible key sizes in bits"));
+                yield return new(__("Default key size"), DefaultKeySize, __("The default key size in bits"));
+                yield return new(__("Denied"), IsDenied, __("If the algorithm was denied"));
+                yield return new(__("Key pools"), KeyPool is null ? false : string.Join(", ", KeyPool.Keys), __("The key sizes which offer a key pool"));
+            }
+        }
+
+        /// <inheritdoc/>
         public virtual CryptoOptions EnsureDefaultOptions(CryptoOptions? options = null)
         {
             if (options is null) return DefaultOptions;
@@ -111,6 +137,18 @@ namespace wan24.Crypto
             options.AsymmetricKeyBits = _DefaultOptions.AsymmetricKeyBits;
             if (CanSign && options.HashAlgorithm is null) HashHelper.GetDefaultOptions(options);
             return options;
+        }
+
+        /// <inheritdoc/>
+        public override bool EnsureAllowed(in bool throwIfDenied = true)
+        {
+            if (!base.EnsureAllowed(throwIfDenied)) return false;
+            if (DeniedAlgorithms.IsAsymmetricAlgorithmDenied(Value))
+            {
+                if (!throwIfDenied) return false;
+                throw CryptographicException.From(new SecurityException($"Asymmetric algorithm {DisplayName} was denied"));
+            }
+            return true;
         }
 
         /// <inheritdoc/>
@@ -175,6 +213,20 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public virtual bool CanHandleNetAlgorithm(AsymmetricAlgorithm algo) => false;
+
+        /// <summary>
+        /// Ensure an allowed elliptic curve
+        /// </summary>
+        /// <param name="bits">Key size in bits</param>
+        /// <param name="throwIfDenied">Throw an exception, if deniedß</param>
+        /// <returns>If the elliptic curve is allowed</returns>
+        /// <exception cref="CryptographicException">The elliptic curve is denied</exception>
+        protected virtual bool EnsureAllowedCurve(in int bits, in bool throwIfDenied = true)
+        {
+            if (EllipticCurves.IsCurveAllowed(bits)) return true;
+            if (!throwIfDenied) return false;
+            throw CryptographicException.From(new SecurityException($"Elliptic curve {EllipticCurves.GetCurveName(bits)} was denied"));
+        }
 
         /// <inheritdoc/>
         IAsymmetricPrivateKey IAsymmetricAlgorithm.CreateKeyPair(CryptoOptions? options) => CreateKeyPair(options);

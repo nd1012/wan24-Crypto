@@ -18,7 +18,9 @@ namespace wan24.Crypto.Authentication
             {
                 Options = options;
                 options.PakeOptions ??= Pake.DefaultOptions;
+                options.PakeOptions.ValidateAlgorithms();
                 options.CryptoOptions ??= Pake.DefaultCryptoOptions;
+                options.CryptoOptions.ValidateAlgorithms();
                 options.CryptoOptions.LeaveOpen = true;
                 Encryption = EncryptionHelper.GetAlgorithm(options.CryptoOptions.Algorithm!);
                 if (Encryption.RequireMacAuthentication)

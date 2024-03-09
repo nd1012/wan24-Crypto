@@ -1,4 +1,6 @@
-﻿namespace wan24.Crypto
+﻿using System.Security;
+
+namespace wan24.Crypto
 {
     /// <summary>
     /// Public asymmetric void key
@@ -23,5 +25,19 @@
 
         /// <inheritdoc/>
         public override IAsymmetricPublicKey GetCopy() => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        protected override bool EnsureAllowedCurve(in bool throwIfDenied = true)
+        {
+            if (!throwIfDenied) return false;
+            throw CryptographicException.From(new SecurityException("A VIOD algorithm public key can't be used"));
+        }
+
+        /// <inheritdoc/>
+        protected override bool EnsurePqcRequirement(in bool throwIfRequirementMismatch = true)
+        {
+            if (!throwIfRequirementMismatch) return false;
+            throw CryptographicException.From(new SecurityException("A VIOD algorithm public key can't be used"));
+        }
     }
 }

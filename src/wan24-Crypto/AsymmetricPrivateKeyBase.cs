@@ -52,7 +52,8 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
@@ -74,7 +75,8 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
@@ -96,7 +98,8 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);
@@ -118,7 +121,8 @@ namespace wan24.Crypto
             try
             {
                 EnsureUndisposed();
-                if (CryptoHelper.StrictPostQuantumSafety && !Algorithm.IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Algorithm.Name} isn't post quantum");
+                Algorithm.EnsureAllowed();
+                EnsureAllowedCurve();
                 if (!Algorithm.CanSign) throw new NotSupportedException("This asymmetric algorithm doesn't support signature");
                 options ??= Algorithm.DefaultOptions;
                 options = AsymmetricHelper.GetDefaultSignatureOptions(options);

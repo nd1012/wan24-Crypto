@@ -75,6 +75,9 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
+        public override bool IsSupported => !ENV.IsBrowserApp;
+
+        /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
@@ -82,7 +85,9 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureAllowed();
                 options ??= DefaultOptions;
+                EnsureAllowedCurve(options.AsymmetricKeyBits);
                 if (!options.AsymmetricKeyBits.In(AllowedKeySizes)) throw new ArgumentException("Invalid key size", nameof(options));
                 return new(ECDiffieHellman.Create(EllipticCurves.GetCurve(options.AsymmetricKeyBits)));
             }

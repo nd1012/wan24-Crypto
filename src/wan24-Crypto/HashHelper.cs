@@ -37,7 +37,7 @@ namespace wan24.Crypto
                 new(HashShake128Algorithm.ALGORITHM_NAME, HashShake128Algorithm.Instance),
                 new(HashShake256Algorithm.ALGORITHM_NAME, HashShake256Algorithm.Instance)
             ]);
-            _DefaultAlgorithm = HashSha3_512Algorithm.Instance;
+            _DefaultAlgorithm = HashSha3_512Algorithm.Instance.IsSupported ? HashSha3_512Algorithm.Instance : HashSha512Algorithm.Instance;
         }
 
         /// <summary>
@@ -53,6 +53,8 @@ namespace wan24.Crypto
             get => _DefaultAlgorithm;
             set
             {
+                value.EnsureAllowed();
+                if (!value.IsSupported) throw new InvalidOperationException();
                 lock (SyncObject) _DefaultAlgorithm = value;
             }
         }

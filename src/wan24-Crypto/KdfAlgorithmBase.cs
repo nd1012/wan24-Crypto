@@ -1,4 +1,7 @@
-﻿namespace wan24.Crypto
+﻿using wan24.Core;
+using static wan24.Core.TranslationHelper;
+
+namespace wan24.Crypto
 {
     /// <summary>
     /// Base class for a KDF algorithm
@@ -52,6 +55,20 @@
         /// Salt length in bytes
         /// </summary>
         public abstract int SaltLength { get; }
+
+        /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("Min. iterations"), MinIterations, __("The minimum number of iterations"));
+                yield return new(__("DefaultIterations"), DefaultIterations, __("The default number of iterations"));
+                yield return new(__("Options"), DefaultKdfOptions is not null, __("If the algorithm can be configured using an options object"));
+                yield return new(__("Min. salt length"), MinSaltLength, __("The minimum salt length in bytes"));
+                yield return new(__("Salt length"), SaltLength, __("The default salt length in bytes"));
+            }
+        }
 
         /// <summary>
         /// Ensure that the given options include the default options for this algorithm

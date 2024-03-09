@@ -53,6 +53,14 @@ namespace wan24.Crypto
         /// </summary>
         Type PublicKeyType { get; }
         /// <summary>
+        /// Was this allogithm denied (still usable for key derivation and signature validation, but not for key exchange initialization and signature)?
+        /// </summary>
+        bool IsDenied { get; }
+        /// <summary>
+        /// Key pool (key is the key size, value the key pool)
+        /// </summary>
+        Dictionary<int, IAsymmetricKeyPool>? KeyPool { get; set; }
+        /// <summary>
         /// Ensure that the given options include the default options for this algorithm
         /// </summary>
         /// <param name="options">Options</param>

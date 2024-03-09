@@ -17,9 +17,9 @@ namespace wan24.Crypto
         /// <returns>Encryption stream, transform and MAC</returns>
         public virtual EncryptionStreams GetEncryptionStream(Stream rawData, Stream cipherData, MacStreams? macStream, CryptoOptions options)
         {
+            EnsureAllowed();
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 EncryptionHelper.GetDefaultOptions(options);
@@ -103,9 +103,9 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
+            EnsureAllowed();
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 if (options.Password is null) throw new ArgumentException("Missing password", nameof(options));
                 EncryptionHelper.GetDefaultOptions(options);
@@ -202,11 +202,14 @@ namespace wan24.Crypto
                         using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new InvalidOperationException("No password yet"), options: macOptions);
                         int read = (int)(pos - (options.MacPosition + options.Mac!.Length));
                         using (RentedArrayRefStruct<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
-                            for (int red; read > 0; read -= red)
+                        {
+                            for (int red = 1; red > 0 && read > 0; read -= red)
                             {
                                 red = cipherData.Read(buffer.Span);
                                 if (red > 0) macStream.Stream.Write(buffer.Span[..red]);
                             }
+                            if (read > 0) throw new IOException($"Missing {read} bytes cipher data");
+                        }
                         macStream.Stream.FlushFinalBlock();
                         byte[] redMac = options.Mac;
                         options.Mac = macStream.Transform.Hash ?? throw new InvalidProgramException();
@@ -286,11 +289,14 @@ namespace wan24.Crypto
                         using MacStreams macStream = mac.GetMacStream(options.Password ?? throw new InvalidOperationException("No password yet"), options: macOptions);
                         int read = (int)(pos - (options.MacPosition + options.Mac!.Length));
                         using (RentedArrayStruct<byte> buffer = new(Math.Min(Settings.BufferSize, read)))
-                            for (int red; read > 0; read -= red)
+                        {
+                            for (int red = 1; red > 0 && read > 0; read -= red)
                             {
                                 red = await cipherData.ReadAsync(buffer.Memory, cancellationToken).DynamicContext();
                                 if (red > 0) macStream.Stream.Write(buffer.Span[..red]);
                             }
+                            if (read > 0) throw new IOException($"Missing {read} bytes cipher data");
+                        }
                         macStream.Stream.FlushFinalBlock();
                         byte[] redMac = options.Mac;
                         options.Mac = macStream.Transform.Hash ?? throw new InvalidProgramException();

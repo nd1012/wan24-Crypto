@@ -41,6 +41,14 @@ namespace wan24.Crypto
         public const int DEFAULT_KEY_SIZE = 521;
 
         /// <summary>
+        /// An object for static thread locking
+        /// </summary>
+        private static object SyncObject = new();
+        /// <summary>
+        /// Denied curve key sizes in bits
+        /// </summary>
+        private static readonly HashSet<int> DeniedCurves = [];
+        /// <summary>
         /// secp256r1 curve (NIST P-256, 128 bit security)
         /// </summary>
         public static readonly ECCurve SECP256R1_CURVE = ECCurve.NamedCurves.nistP256;
@@ -109,5 +117,50 @@ namespace wan24.Crypto
             SECP521R1_KEY_SIZE => SECP521R1_CURVE,
             _ => throw new ArgumentException("Unknown key size", nameof(bits))
         };
+
+        /// <summary>
+        /// Determine if an elliptic curve is allowed
+        /// </summary>
+        /// <param name="curve">Curve</param>
+        /// <returns>If the elliptic curve is allowed</returns>
+        public static bool IsCurveAllowed(in ECCurve curve) => IsCurveAllowed(GetKeySize(curve));
+
+        /// <summary>
+        /// Determine if an elliptic curve is allowed
+        /// </summary>
+        /// <param name="name">Curve name</param>
+        /// <returns>If the elliptic curve is allowed</returns>
+        public static bool IsCurveAllowed(in string name) => IsCurveAllowed(GetKeySize(name));
+
+        /// <summary>
+        /// Determine if an elliptic curve is allowed
+        /// </summary>
+        /// <param name="bits">Key size in bits</param>
+        /// <returns>If the elliptic curve is allowed</returns>
+        public static bool IsCurveAllowed(in int bits)
+        {
+            lock (SyncObject) return !DeniedCurves.Contains(bits);
+        }
+
+        /// <summary>
+        /// Deny an elliptic curve
+        /// </summary>
+        /// <param name="curve">Curve</param>
+        public static void DenyCurve(in ECCurve curve) => DenyCurve(GetKeySize(curve));
+
+        /// <summary>
+        /// Deny an elliptic curve
+        /// </summary>
+        /// <param name="name">Curve name</param>
+        public static void DenyCurve(in string name) => DenyCurve(GetKeySize(name));
+
+        /// <summary>
+        /// Deny an elliptic curve
+        /// </summary>
+        /// <param name="bits">Key size in bits</param>
+        public static void DenyCurve(in int bits)
+        {
+            lock (SyncObject) DeniedCurves.Add(bits);
+        }
     }
 }

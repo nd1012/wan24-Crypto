@@ -1,4 +1,5 @@
 ﻿using wan24.Core;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -60,11 +61,11 @@ namespace wan24.Crypto
         {
             get
             {
-                yield return new("GUID", GUID, "Unique ID of the fast PAKE server");
-                yield return new("Name", Name, "Name of the fast PAKE server");
-                yield return new("Identifier", Convert.ToHexString(Pake.Identifier), "Peer identifier");
-                yield return new("Count", _AuthCount, "Authentication count since initialization");
-                yield return new("Errors", _AuthErrorCount, "Authentication error count since initialization");
+                yield return new(__("GUID"), GUID, __("Unique ID of the fast PAKE server"));
+                yield return new(__("Name"), Name, __("Name of the fast PAKE server"));
+                yield return new(__("Identifier"), Convert.ToHexString(Pake.Identifier), __("Peer identifier"));
+                yield return new(__("Count"), _AuthCount, __("Authentication count since initialization"));
+                yield return new(__("Errors"), _AuthErrorCount, __("Authentication error count since initialization"));
             }
         }
     }

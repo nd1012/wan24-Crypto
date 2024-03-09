@@ -16,6 +16,7 @@ namespace wan24.Crypto.Authentication
         private async Task<ClientAuthContext> ProcessSignupAsync(Stream stream, byte[]? preSharedSecret, CancellationToken cancellationToken)
         {
             CryptoOptions hashOptions = Options.HashOptions!.GetCopy();
+            hashOptions.ValidateAlgorithms();
             try
             {
                 using HashStreams hash = HashHelper.GetAlgorithm(hashOptions.HashAlgorithm!).GetHashStream(stream, writable: false, hashOptions);
@@ -43,6 +44,7 @@ namespace wan24.Crypto.Authentication
                     context.ClientTimeOffset = DateTime.UtcNow - context.Payload.Created;
                     context.PublicClientKeys ??= context.Payload.PublicKeys ?? throw new InvalidDataException("No public client keys loaded and in signup payload");
                     await decipher.DisposeAsync().DynamicContext();
+                    context.CryptoOptions.ValidateAlgorithms();
                     decipher = await Encryption!.GetDecryptionStreamAsync(stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                     // Validate the authentication sequence signature
                     await ValidateAuthSequenceAsync(context, hash.Hash, decipher, ClientAuth.SIGNUP_SIGNATURE_PURPOSE, cancellationToken).DynamicContext();

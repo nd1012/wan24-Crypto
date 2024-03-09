@@ -345,6 +345,26 @@ namespace wan24.Crypto
             /// Default <see cref="RngStream"/> to set to <see cref="RngStream.Instance"/>
             /// </summary>
             public RngStream? DefaultRngStream { get; set; }
+
+            /// <summary>
+            /// Denied asymmetric algorithms (key is the algorithm value, value the algorithm name)
+            /// </summary>
+            public Dictionary<int, string>? DeniedAsymmetric { get; set; }
+
+            /// <summary>
+            /// Denied encryption algorithms (key is the algorithm value, value the algorithm name)
+            /// </summary>
+            public Dictionary<int, string>? DeniedEncryption { get; set; }
+
+            /// <summary>
+            /// Capacity for key pools of all key sizes of all available asymmetric algorithms
+            /// </summary>
+            public int? AsymmericKeyPoolsCapacity { get; set; }
+
+            /// <summary>
+            /// Denied elliptic curve names
+            /// </summary>
+            public string[]? DeniedEllipticCurveNames { get; set; }
         }
     }
 }

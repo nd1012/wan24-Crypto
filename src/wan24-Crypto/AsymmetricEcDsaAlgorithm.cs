@@ -1,5 +1,4 @@
 ﻿using System.Collections.Frozen;
-using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using wan24.Core;
 
@@ -76,6 +75,9 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
+        public override bool IsSupported => !ENV.IsBrowserApp;
+
+        /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
@@ -83,7 +85,9 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureAllowed();
                 options ??= DefaultOptions;
+                EnsureAllowedCurve(options.AsymmetricKeyBits);
                 if (!options.AsymmetricKeyBits.In(AllowedKeySizes)) throw new ArgumentException("Invalid key size", nameof(options));
                 return new(ECDsa.Create(EllipticCurves.GetCurve(options.AsymmetricKeyBits)));
             }

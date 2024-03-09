@@ -18,11 +18,11 @@ namespace wan24.Crypto
         /// <returns>Written options and used MAC stream</returns>
         public virtual (CryptoOptions Options, MacStreams? MacStream) WriteOptions(Stream rawData, Stream cipherData, byte[]? pwd = null, CryptoOptions? options = null)
         {
+            EnsureAllowed();
             CryptoOptions? givenOptions = options;
             try
             {
                 options?.Tracer?.WriteTrace($"Writing {GetType()} crypto header");
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.GetCopy() ?? DefaultOptions;
@@ -192,11 +192,11 @@ namespace wan24.Crypto
             CancellationToken cancellationToken = default
             )
         {
+            EnsureAllowed();
             CryptoOptions? givenOptions = options;
             try
             {
                 options?.Tracer?.WriteTrace($"Writing {GetType()} crypto header");
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Ensure having options and work with cloned options
                 options = options?.GetCopy() ?? DefaultOptions;

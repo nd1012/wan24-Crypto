@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using wan24.Core;
+using static wan24.Core.TranslationHelper;
 
 namespace wan24.Crypto
 {
@@ -34,6 +35,16 @@ namespace wan24.Crypto
         /// </summary>
         public abstract int MacLength { get; }
 
+        /// <inheritdoc/>
+        public override IEnumerable<Status> State
+        {
+            get
+            {
+                foreach (Status status in base.State) yield return status;
+                yield return new(__("MAC length"), MacLength, __("The MAC (digest) length in bytes"));
+            }
+        }
+
         /// <summary>
         /// Ensure that the given options include the default options for this algorithm
         /// </summary>
@@ -56,7 +67,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 return GetMacAlgorithmInt(pwd, options);
             }
             catch (CryptographicException)
@@ -81,7 +92,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 KeyedHashAlgorithm algo = GetMacAlgorithm(pwd, options);
                 try
@@ -123,11 +134,11 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 byte[] res = new byte[MacLength];
                 using KeyedHashAlgorithm mac = GetMacAlgorithm(pwd, options);
-                if (!mac.TryComputeHash(data, res, out _)) throw new IOException($"Failed to compute the final MAC");
+                if (!mac.TryComputeHash(data, res, out int written)) throw new IOException($"Failed to compute the final MAC");
                 return res;
             }
             catch (CryptographicException)
@@ -152,11 +163,11 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureAllowed();
                 if (outputBuffer.Length < MacLength) throw new ArgumentOutOfRangeException(nameof(outputBuffer));
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 using KeyedHashAlgorithm mac = GetMacAlgorithm(pwd, options);
-                if (!mac.TryComputeHash(data, outputBuffer, out _)) throw new IOException($"Failed to compute the final MAC");
+                if (!mac.TryComputeHash(data, outputBuffer, out int written)) throw new IOException($"Failed to compute the final MAC");
                 return outputBuffer;
             }
             catch (CryptographicException)
@@ -180,7 +191,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 using MacStreams mac = GetMacStream(pwd, options: options);
                 data.CopyTo(mac.Stream);
@@ -209,7 +220,7 @@ namespace wan24.Crypto
         {
             try
             {
-                if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
+                EnsureAllowed();
                 options = MacHelper.GetDefaultOptions(options?.GetCopy() ?? DefaultOptions);
                 MacStreams mac = GetMacStream(pwd, options: options);
                 await using (mac.DynamicContext())

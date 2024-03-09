@@ -68,6 +68,9 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => true;
 
         /// <inheritdoc/>
+        public override bool IsSupported => !ENV.IsBrowserApp;
+
+        /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
 
         /// <inheritdoc/>
@@ -126,6 +129,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureAllowed();
                 using Aes aes = CreateAes(options);
                 aes.IV = CreateIvBytes();
                 cipherData.Write(aes.IV);
@@ -146,6 +150,7 @@ namespace wan24.Crypto
         {
             try
             {
+                EnsureAllowed();
                 using Aes aes = CreateAes(options);
                 aes.IV = CreateIvBytes();
                 await cipherData.WriteAsync(aes.IV, cancellationToken).DynamicContext();

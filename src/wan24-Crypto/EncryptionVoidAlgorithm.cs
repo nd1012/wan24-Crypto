@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Security;
+using System.Security.Cryptography;
 
 namespace wan24.Crypto
 {
@@ -42,10 +43,20 @@ namespace wan24.Crypto
         public override bool IsPostQuantum => false;
 
         /// <inheritdoc/>
+        public override bool IsSupported => false;
+
+        /// <inheritdoc/>
         public override byte[] EnsureValidKeyLength(byte[] key) => throw new NotSupportedException();
 
         /// <inheritdoc/>
         public override bool IsKeyLengthValid(int len) => throw new NotSupportedException();
+
+        /// <inheritdoc/>
+        public override bool EnsureAllowed(in bool throwIfDenied = true)
+        {
+            if (!throwIfDenied) return false;
+            throw CryptographicException.From(new SecurityException("The VIOD algorithm can't be used"));
+        }
 
         /// <inheritdoc/>
         protected override ICryptoTransform GetDecryptor(Stream cipherData, CryptoOptions options) => throw new NotSupportedException();

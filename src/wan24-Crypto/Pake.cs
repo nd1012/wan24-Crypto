@@ -18,6 +18,8 @@ namespace wan24.Crypto
         /// <param name="cryptoOptions">Options for encryption (will be cleared!)</param>
         public Pake(in CryptoOptions? options = null, in CryptoOptions? cryptoOptions = null) : base(asyncDisposing: false)
         {
+            options?.ValidateAlgorithms();
+            cryptoOptions?.ValidateAlgorithms();
             Key = null;
             Options = options ?? DefaultOptions.GetCopy();
             if (Options.KdfAlgorithm is null) Options.WithKdf();
