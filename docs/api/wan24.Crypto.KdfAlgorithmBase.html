@@ -115,6 +115,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.KdfAlgorithmBase.html">KdfAlgorithmBase</a>&gt;</div>
   </div>
@@ -133,10 +134,19 @@
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_UsesTpm">CryptoAlgorithmBase.UsesTpm</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName">CryptoAlgorithmBase.DisplayName</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__">CryptoAlgorithmBase.EnsureAllowed(in bool)</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_ToString">CryptoAlgorithmBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_System_Boolean__">CryptoAlgorithmBase.EnsurePqcRequirement(in bool)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -161,7 +171,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_KdfAlgorithmBase_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract record KdfAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;KdfAlgorithmBase&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record KdfAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;KdfAlgorithmBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -170,7 +180,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase__ctor_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.%23ctor(System.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L18">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L21">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase__ctor_" data-uid="wan24.Crypto.KdfAlgorithmBase.#ctor*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.KdfAlgorithmBase.#ctor(System.String,System.Int32)">KdfAlgorithmBase(string, int)</h4>
@@ -212,7 +222,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase__DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase._DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L11">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L14">View Source</a>
   </span>
   <h4 id="wan24_Crypto_KdfAlgorithmBase__DefaultOptions" data-uid="wan24.Crypto.KdfAlgorithmBase._DefaultOptions">_DefaultOptions</h4>
   <div class="markdown level1 summary"><p>Default options</p>
@@ -244,7 +254,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_DefaultIterations.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.DefaultIterations%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L39">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L42">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_DefaultIterations_" data-uid="wan24.Crypto.KdfAlgorithmBase.DefaultIterations*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_DefaultIterations" data-uid="wan24.Crypto.KdfAlgorithmBase.DefaultIterations">DefaultIterations</h4>
@@ -275,7 +285,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_DefaultKdfOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L44">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L47">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_DefaultKdfOptions_" data-uid="wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_DefaultKdfOptions" data-uid="wan24.Crypto.KdfAlgorithmBase.DefaultKdfOptions">DefaultKdfOptions</h4>
@@ -306,7 +316,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L29">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L32">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_DefaultOptions_" data-uid="wan24.Crypto.KdfAlgorithmBase.DefaultOptions*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_DefaultOptions" data-uid="wan24.Crypto.KdfAlgorithmBase.DefaultOptions">DefaultOptions</h4>
@@ -337,7 +347,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_MinIterations.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.MinIterations%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L34">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L37">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_MinIterations_" data-uid="wan24.Crypto.KdfAlgorithmBase.MinIterations*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_MinIterations" data-uid="wan24.Crypto.KdfAlgorithmBase.MinIterations">MinIterations</h4>
@@ -368,7 +378,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_MinSaltLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.MinSaltLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L49">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L52">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_MinSaltLength_" data-uid="wan24.Crypto.KdfAlgorithmBase.MinSaltLength*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_MinSaltLength" data-uid="wan24.Crypto.KdfAlgorithmBase.MinSaltLength">MinSaltLength</h4>
@@ -399,7 +409,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_SaltLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.SaltLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L54">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L57">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_SaltLength_" data-uid="wan24.Crypto.KdfAlgorithmBase.SaltLength*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_SaltLength" data-uid="wan24.Crypto.KdfAlgorithmBase.SaltLength">SaltLength</h4>
@@ -425,6 +435,39 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L60">View Source</a>
+  </span>
+  <a id="wan24_Crypto_KdfAlgorithmBase_State_" data-uid="wan24.Crypto.KdfAlgorithmBase.State*"></a>
+  <h4 id="wan24_Crypto_KdfAlgorithmBase_State" data-uid="wan24.Crypto.KdfAlgorithmBase.State">State</h4>
+  <div class="markdown level1 summary"><p>Status information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Status&gt; State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Status</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_State">CryptoAlgorithmBase.State</a></div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -432,7 +475,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L61">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L78">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_EnsureDefaultOptions_" data-uid="wan24.Crypto.KdfAlgorithmBase.EnsureDefaultOptions*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.KdfAlgorithmBase.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)">EnsureDefaultOptions(CryptoOptions?)</h4>
@@ -482,7 +525,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_Stretch_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.Stretch(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L78">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L95">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_Stretch_" data-uid="wan24.Crypto.KdfAlgorithmBase.Stretch*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_Stretch_System_Byte___System_Int32_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.KdfAlgorithmBase.Stretch(System.Byte[],System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)">Stretch(byte[], int, byte[]?, CryptoOptions?)</h4>
@@ -550,7 +593,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_KdfAlgorithmBase_ValidateOptions_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.KdfAlgorithmBase.ValidateOptions(System.String%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L86">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/KdfAlgorithmBase.cs/#L103">View Source</a>
   </span>
   <a id="wan24_Crypto_KdfAlgorithmBase_ValidateOptions_" data-uid="wan24.Crypto.KdfAlgorithmBase.ValidateOptions*"></a>
   <h4 id="wan24_Crypto_KdfAlgorithmBase_ValidateOptions_System_String_System_Boolean_" data-uid="wan24.Crypto.KdfAlgorithmBase.ValidateOptions(System.String,System.Boolean)">ValidateOptions(string?, bool)</h4>
@@ -604,6 +647,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

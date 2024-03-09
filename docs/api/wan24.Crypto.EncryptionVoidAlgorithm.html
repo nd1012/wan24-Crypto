@@ -114,6 +114,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.EncryptionVoidAlgorithm.html">EncryptionVoidAlgorithm</a>&gt;</div>
@@ -122,6 +123,12 @@
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_DefaultOptions">EncryptionAlgorithmBase.DefaultOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_IsDenied">EncryptionAlgorithmBase.IsDenied</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_State">EncryptionAlgorithmBase.State</a>
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_">EncryptionAlgorithmBase.EnsureDefaultOptions(CryptoOptions)</a>
@@ -221,7 +228,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_EncryptionVoidAlgorithm_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed record EncryptionVoidAlgorithm : EncryptionAlgorithmBase, ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;EncryptionAlgorithmBase&gt;, IEquatable&lt;EncryptionVoidAlgorithm&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record EncryptionVoidAlgorithm : EncryptionAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;EncryptionAlgorithmBase&gt;, IEquatable&lt;EncryptionVoidAlgorithm&gt;</code></pre>
   </div>
   <h3 id="fields">Fields
 </h3>
@@ -230,7 +237,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_ALGORITHM_NAME.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.ALGORITHM_NAME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L13">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L14">View Source</a>
   </span>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_ALGORITHM_NAME" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.ALGORITHM_NAME">ALGORITHM_NAME</h4>
   <div class="markdown level1 summary"><p>Algorithm name</p>
@@ -260,7 +267,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_ALGORITHM_VALUE.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.ALGORITHM_VALUE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L17">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L18">View Source</a>
   </span>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_ALGORITHM_VALUE" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.ALGORITHM_VALUE">ALGORITHM_VALUE</h4>
   <div class="markdown level1 summary"><p>Algorithm value</p>
@@ -292,7 +299,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_BlockSize.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.BlockSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L36">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L37">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_BlockSize_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.BlockSize*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_BlockSize" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.BlockSize">BlockSize</h4>
@@ -325,7 +332,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_Instance.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.Instance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L27">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L28">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_Instance_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.Instance*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_Instance" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.Instance">Instance</h4>
@@ -356,7 +363,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_IsPostQuantum.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.IsPostQuantum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L42">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L43">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_IsPostQuantum_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IsPostQuantum*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_IsPostQuantum" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IsPostQuantum">IsPostQuantum</h4>
@@ -386,10 +393,43 @@
   <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum">CryptoAlgorithmBase.IsPostQuantum</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_IsSupported.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.IsSupported%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L46">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionVoidAlgorithm_IsSupported_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IsSupported*"></a>
+  <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_IsSupported" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IsSupported">IsSupported</h4>
+  <div class="markdown level1 summary"><p>Is supported?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsSupported { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_IvSize.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.IvSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L34">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_IvSize_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IvSize*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_IvSize" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IvSize">IvSize</h4>
@@ -422,7 +462,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_KeySize.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.KeySize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L31">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_KeySize_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.KeySize*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_KeySize" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.KeySize">KeySize</h4>
@@ -455,7 +495,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_RequireMacAuthentication.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.RequireMacAuthentication%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L39">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L40">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_RequireMacAuthentication_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.RequireMacAuthentication*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_RequireMacAuthentication" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.RequireMacAuthentication">RequireMacAuthentication</h4>
@@ -487,10 +527,78 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_EnsureAllowed_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.EnsureAllowed(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L55">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionVoidAlgorithm_EnsureAllowed_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.EnsureAllowed*"></a>
+  <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_EnsureAllowed_System_Boolean__" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.EnsureAllowed(System.Boolean@)">EnsureAllowed(in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure this algorithm is allowed in the current configuration</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool EnsureAllowed(in bool throwIfDenied = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfDenied</span></td>
+        <td><p>Throw an exception, if this algorithm isn't allowed?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>If this algorithm is allowed in the current configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_EnsureAllowed_System_Boolean__">EncryptionAlgorithmBase.EnsureAllowed(in bool)</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>This algorithm is not allowed in the current configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_EnsureValidKeyLength_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.EnsureValidKeyLength(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L45">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L49">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_EnsureValidKeyLength_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.EnsureValidKeyLength*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_EnsureValidKeyLength_System_Byte___" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.EnsureValidKeyLength(System.Byte[])">EnsureValidKeyLength(byte[])</h4>
@@ -542,7 +650,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_GetDecryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.GetDecryptor(System.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L51">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L62">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_GetDecryptor_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetDecryptor*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_GetDecryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetDecryptor(System.IO.Stream,wan24.Crypto.CryptoOptions)">GetDecryptor(Stream, CryptoOptions)</h4>
@@ -600,7 +708,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_GetDecryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.GetDecryptorAsync(System.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L54">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L65">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_GetDecryptorAsync_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetDecryptorAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_GetDecryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetDecryptorAsync(System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">GetDecryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
@@ -664,7 +772,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_GetEncryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.GetEncryptor(System.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L57">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L68">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_GetEncryptor_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetEncryptor*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_GetEncryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetEncryptor(System.IO.Stream,wan24.Crypto.CryptoOptions)">GetEncryptor(Stream, CryptoOptions)</h4>
@@ -722,7 +830,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_GetEncryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.GetEncryptorAsync(System.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L60">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L71">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_GetEncryptorAsync_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetEncryptorAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_GetEncryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.GetEncryptorAsync(System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">GetEncryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
@@ -786,7 +894,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionVoidAlgorithm_IsKeyLengthValid_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionVoidAlgorithm.IsKeyLengthValid(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L48">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionVoidAlgorithm.cs/#L52">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionVoidAlgorithm_IsKeyLengthValid_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IsKeyLengthValid*"></a>
   <h4 id="wan24_Crypto_EncryptionVoidAlgorithm_IsKeyLengthValid_System_Int32_" data-uid="wan24.Crypto.EncryptionVoidAlgorithm.IsKeyLengthValid(System.Int32)">IsKeyLengthValid(int)</h4>
@@ -836,6 +944,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

@@ -117,6 +117,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
@@ -144,7 +145,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_CryptoAlgorithmBase_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract record CryptoAlgorithmBase : ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record CryptoAlgorithmBase : ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -153,7 +154,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase__ctor_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.%23ctor(System.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L15">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L17">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase__ctor_" data-uid="wan24.Crypto.CryptoAlgorithmBase.#ctor*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.CryptoAlgorithmBase.#ctor(System.String,System.Int32)">CryptoAlgorithmBase(string, int)</h4>
@@ -195,7 +196,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_DisplayName.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.DisplayName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L36">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L41">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase_DisplayName_" data-uid="wan24.Crypto.CryptoAlgorithmBase.DisplayName*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase_DisplayName" data-uid="wan24.Crypto.CryptoAlgorithmBase.DisplayName">DisplayName</h4>
@@ -226,7 +227,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.IsPostQuantum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L32">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum_" data-uid="wan24.Crypto.CryptoAlgorithmBase.IsPostQuantum*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase_IsPostQuantum" data-uid="wan24.Crypto.CryptoAlgorithmBase.IsPostQuantum">IsPostQuantum</h4>
@@ -254,10 +255,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_IsSupported.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.IsSupported%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L38">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoAlgorithmBase_IsSupported_" data-uid="wan24.Crypto.CryptoAlgorithmBase.IsSupported*"></a>
+  <h4 id="wan24_Crypto_CryptoAlgorithmBase_IsSupported" data-uid="wan24.Crypto.CryptoAlgorithmBase.IsSupported">IsSupported</h4>
+  <div class="markdown level1 summary"><p>Is supported?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsSupported { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_Name.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.Name%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L22">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L24">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase_Name_" data-uid="wan24.Crypto.CryptoAlgorithmBase.Name*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase_Name" data-uid="wan24.Crypto.CryptoAlgorithmBase.Name">Name</h4>
@@ -286,10 +318,41 @@ public string Name { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L44">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoAlgorithmBase_State_" data-uid="wan24.Crypto.CryptoAlgorithmBase.State*"></a>
+  <h4 id="wan24_Crypto_CryptoAlgorithmBase_State" data-uid="wan24.Crypto.CryptoAlgorithmBase.State">State</h4>
+  <div class="markdown level1 summary"><p>Status information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;Status&gt; State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Status</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_UsesTpm.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.UsesTpm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L35">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase_UsesTpm_" data-uid="wan24.Crypto.CryptoAlgorithmBase.UsesTpm*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase_UsesTpm" data-uid="wan24.Crypto.CryptoAlgorithmBase.UsesTpm">UsesTpm</h4>
@@ -320,7 +383,7 @@ public string Name { get; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_Value.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.Value%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L26">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L28">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase_Value_" data-uid="wan24.Crypto.CryptoAlgorithmBase.Value*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase_Value" data-uid="wan24.Crypto.CryptoAlgorithmBase.Value">Value</h4>
@@ -351,10 +414,141 @@ public int Value { get; }</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.EnsureAllowed(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L59">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_" data-uid="wan24.Crypto.CryptoAlgorithmBase.EnsureAllowed*"></a>
+  <h4 id="wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__" data-uid="wan24.Crypto.CryptoAlgorithmBase.EnsureAllowed(System.Boolean@)">EnsureAllowed(in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure this algorithm is allowed in the current configuration</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool EnsureAllowed(in bool throwIfDenied = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfDenied</span></td>
+        <td><p>Throw an exception, if this algorithm isn't allowed?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>If this algorithm is allowed in the current configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>This algorithm is not allowed in the current configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.EnsurePqcRequirement(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L70">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_" data-uid="wan24.Crypto.CryptoAlgorithmBase.EnsurePqcRequirement*"></a>
+  <h4 id="wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_System_Boolean__" data-uid="wan24.Crypto.CryptoAlgorithmBase.EnsurePqcRequirement(System.Boolean@)">EnsurePqcRequirement(in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure PQC requirement</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool EnsurePqcRequirement(in bool throwIfRequirementMismatch = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfRequirementMismatch</span></td>
+        <td><p>Throw an axception if the PQC requirement does not match</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>The PQC requirement does not match</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAlgorithmBase_ToString.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAlgorithmBase.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L39">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAlgorithmBase.cs/#L62">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAlgorithmBase_ToString_" data-uid="wan24.Crypto.CryptoAlgorithmBase.ToString*"></a>
   <h4 id="wan24_Crypto_CryptoAlgorithmBase_ToString" data-uid="wan24.Crypto.CryptoAlgorithmBase.ToString">ToString()</h4>
@@ -386,6 +580,9 @@ public int Value { get; }</code></pre>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

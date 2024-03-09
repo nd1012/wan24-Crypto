@@ -1213,6 +1213,37 @@ protocol, for example, where each message is PAKE authenticated, and each
 followup message is encrypted using the session key of the first
 authentication message.</p>
 <p><strong>NOTE</strong>: This PAKE implementation is patent free!</p>
+<h3 id="pake-with-http-requests">PAKE with http requests</h3>
+<p>PAKE can encrypt http messages and provide an additional authentication to a
+JWT. Benefits of encrypting http messages:</p>
+<ul>
+<li>additional authentication to JWT</li>
+<li>Perfect Forward Secrecy (PFS) encryption for every single http request</li>
+<li>nothing from the request can be sniffed from a man in the middle (MiM)</li>
+<li>the request can't be repeated in another authentication context</li>
+<li>you can implement replay attack avoiding measures by denying the same random
+data (from the PAKE authentication object) within a timespan</li>
+</ul>
+<p>The final http method, request path, headers and body are completely hidden to
+any attacker who may be able to sniff your network traffic. Also in a client
+browser the developer tools won't show any request details, which is perfect
+in a WASM app to hide even your servers API effectively.</p>
+<p>Of course processing each request and response with PAKE has an overhead,
+especially when using compression, too.</p>
+<p>Example client code:</p>
+<pre><code class="lang-cs">using PakeHttpRequestFactory factory = new(username, password);
+using PakeRequest request = await factory.CreateRequestAsync(
+    new(&quot;https://domain.tld&quot;), 
+    HttpMethod.Get, 
+    &quot;/request/path&quot;
+    );
+// request.Request contains the http request message
+using PakeResponse response = await httpResponseMessage.GetPakeResponseAsync(request.Key);
+// response.Response contains the decoded PAKE response, response.Body.CryptoStream the response stream
+response.Response.EnsureSuccessStatusCode();
+</code></pre>
+<p>The server needs to process messages, too, of course. This part isn't included
+within this library and does vary depending on the webserver.</p>
 <h2 id="clientserver-authentication-protocol">Client/server authentication protocol</h2>
 <h3 id="asymmetric-keys--pake">Asymmetric keys + PAKE</h3>
 <p><code>wan24-Crypto</code> implements a client/server authentication protocol for stream

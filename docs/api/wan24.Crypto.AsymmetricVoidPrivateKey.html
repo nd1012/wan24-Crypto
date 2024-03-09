@@ -131,6 +131,7 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><span class="xref">IStreamSerializerVersion</span></div>
     <div><span class="xref">IStreamSerializer</span></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="wan24.Crypto.IKeyExchange.html">IKeyExchange</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricVoidPrivateKey.html">AsymmetricVoidPrivateKey</a>&gt;</div>
   </div>
@@ -183,6 +184,9 @@
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_KeyData">AsymmetricKeyBase.KeyData</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_State">AsymmetricKeyBase.State</a>
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_Export">AsymmetricKeyBase.Export()</a>
@@ -252,7 +256,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricVoidPrivateKey_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed record AsymmetricVoidPrivateKey : AsymmetricPrivateKeyBase&lt;AsymmetricVoidPublicKey, AsymmetricVoidPrivateKey&gt;, IWillDispose, IEquatable&lt;DisposableRecordBase&gt;, IObjectValidatable, IValidatableObject, IEquatable&lt;DisposableStreamSerializerRecordBase&gt;, IEquatable&lt;AsymmetricKeyBase&gt;, IEquatable&lt;AsymmetricPrivateKeyBase&lt;AsymmetricVoidPublicKey, AsymmetricVoidPrivateKey&gt;&gt;, ISignaturePrivateKey, IKeyExchangePrivateKey, IAsymmetricPrivateKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IKeyExchange, IEquatable&lt;AsymmetricVoidPrivateKey&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record AsymmetricVoidPrivateKey : AsymmetricPrivateKeyBase&lt;AsymmetricVoidPublicKey, AsymmetricVoidPrivateKey&gt;, IWillDispose, IEquatable&lt;DisposableRecordBase&gt;, IObjectValidatable, IValidatableObject, IEquatable&lt;DisposableStreamSerializerRecordBase&gt;, IEquatable&lt;AsymmetricKeyBase&gt;, IEquatable&lt;AsymmetricPrivateKeyBase&lt;AsymmetricVoidPublicKey, AsymmetricVoidPrivateKey&gt;&gt;, ISignaturePrivateKey, IKeyExchangePrivateKey, IAsymmetricPrivateKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IStatusProvider, IKeyExchange, IEquatable&lt;AsymmetricVoidPrivateKey&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -261,7 +265,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricVoidPrivateKey__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricVoidPrivateKey.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L12">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L14">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricVoidPrivateKey__ctor_" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.#ctor*"></a>
   <h4 id="wan24_Crypto_AsymmetricVoidPrivateKey__ctor" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.#ctor">AsymmetricVoidPrivateKey()</h4>
@@ -293,7 +297,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricVoidPrivateKey__ctor_System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricVoidPrivateKey.%23ctor(System.Byte%5B%5D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L19">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L21">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricVoidPrivateKey__ctor_" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.#ctor*"></a>
   <h4 id="wan24_Crypto_AsymmetricVoidPrivateKey__ctor_System_Byte____" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.#ctor(System.Byte[]@)">AsymmetricVoidPrivateKey(in byte[])</h4>
@@ -345,7 +349,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricVoidPrivateKey_Bits.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricVoidPrivateKey.Bits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L25">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L27">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricVoidPrivateKey_Bits_" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.Bits*"></a>
   <h4 id="wan24_Crypto_AsymmetricVoidPrivateKey_Bits" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.Bits">Bits</h4>
@@ -378,7 +382,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricVoidPrivateKey_PublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricVoidPrivateKey.PublicKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L22">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L24">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricVoidPrivateKey_PublicKey_" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.PublicKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricVoidPrivateKey_PublicKey" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.PublicKey">PublicKey</h4>
@@ -406,6 +410,142 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="wan24.Crypto.AsymmetricPrivateKeyBase-2.html#wan24_Crypto_AsymmetricPrivateKeyBase_2_PublicKey">AsymmetricPrivateKeyBase&lt;AsymmetricVoidPublicKey, AsymmetricVoidPrivateKey&gt;.PublicKey</a></div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricVoidPrivateKey_EnsureAllowedCurve_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricVoidPrivateKey.EnsureAllowedCurve(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L33">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricVoidPrivateKey_EnsureAllowedCurve_" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.EnsureAllowedCurve*"></a>
+  <h4 id="wan24_Crypto_AsymmetricVoidPrivateKey_EnsureAllowedCurve_System_Boolean__" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.EnsureAllowedCurve(System.Boolean@)">EnsureAllowedCurve(in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure using an allowed elliptic curve</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool EnsureAllowedCurve(in bool throwIfDenied = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfDenied</span></td>
+        <td><p>Throw an axception if the used curve was denied?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_EnsureAllowedCurve_System_Boolean__">AsymmetricKeyBase.EnsureAllowedCurve(in bool)</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>The used elliptic curve was denieds</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricVoidPrivateKey_EnsurePqcRequirement_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricVoidPrivateKey.EnsurePqcRequirement(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricVoidPrivateKey.cs/#L40">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricVoidPrivateKey_EnsurePqcRequirement_" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.EnsurePqcRequirement*"></a>
+  <h4 id="wan24_Crypto_AsymmetricVoidPrivateKey_EnsurePqcRequirement_System_Boolean__" data-uid="wan24.Crypto.AsymmetricVoidPrivateKey.EnsurePqcRequirement(System.Boolean@)">EnsurePqcRequirement(in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure PQC requirement</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool EnsurePqcRequirement(in bool throwIfRequirementMismatch = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfRequirementMismatch</span></td>
+        <td><p>Throw an axception if the PQC requirement does not match?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.AsymmetricKeyBase.html#wan24_Crypto_AsymmetricKeyBase_EnsurePqcRequirement_System_Boolean__">AsymmetricKeyBase.EnsurePqcRequirement(in bool)</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>The PQC requirement does not match</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
@@ -454,6 +594,9 @@
   </div>
   <div>
       <span class="xref">wan24.StreamSerializerExtensions.IStreamSerializer</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.IKeyExchange.html">IKeyExchange</a>

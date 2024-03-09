@@ -123,6 +123,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.HashAlgorithmBase.html">HashAlgorithmBase</a>&gt;</div>
   </div>
@@ -141,10 +142,19 @@
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_UsesTpm">CryptoAlgorithmBase.UsesTpm</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName">CryptoAlgorithmBase.DisplayName</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__">CryptoAlgorithmBase.EnsureAllowed(in bool)</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_ToString">CryptoAlgorithmBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_System_Boolean__">CryptoAlgorithmBase.EnsurePqcRequirement(in bool)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -169,7 +179,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_HashAlgorithmBase_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract record HashAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;HashAlgorithmBase&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record HashAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;HashAlgorithmBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -178,7 +188,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase__ctor_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.%23ctor(System.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L21">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L22">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase__ctor_" data-uid="wan24.Crypto.HashAlgorithmBase.#ctor*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.HashAlgorithmBase.#ctor(System.String,System.Int32)">HashAlgorithmBase(string, int)</h4>
@@ -220,7 +230,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase__DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase._DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L14">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L15">View Source</a>
   </span>
   <h4 id="wan24_Crypto_HashAlgorithmBase__DefaultOptions" data-uid="wan24.Crypto.HashAlgorithmBase._DefaultOptions">_DefaultOptions</h4>
   <div class="markdown level1 summary"><p>Default options</p>
@@ -252,7 +262,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L29">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L30">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_DefaultOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.DefaultOptions*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_DefaultOptions" data-uid="wan24.Crypto.HashAlgorithmBase.DefaultOptions">DefaultOptions</h4>
@@ -283,7 +293,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_HashLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.HashLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L34">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L35">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_HashLength_" data-uid="wan24.Crypto.HashAlgorithmBase.HashLength*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_HashLength" data-uid="wan24.Crypto.HashAlgorithmBase.HashLength">HashLength</h4>
@@ -309,6 +319,39 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L38">View Source</a>
+  </span>
+  <a id="wan24_Crypto_HashAlgorithmBase_State_" data-uid="wan24.Crypto.HashAlgorithmBase.State*"></a>
+  <h4 id="wan24_Crypto_HashAlgorithmBase_State" data-uid="wan24.Crypto.HashAlgorithmBase.State">State</h4>
+  <div class="markdown level1 summary"><p>Status information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Status&gt; State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Status</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_State">CryptoAlgorithmBase.State</a></div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -316,7 +359,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L41">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L52">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_EnsureDefaultOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.EnsureDefaultOptions*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)">EnsureDefaultOptions(CryptoOptions?)</h4>
@@ -366,7 +409,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_GetHashAlgorithm_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.GetHashAlgorithm(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L53">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L64">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_GetHashAlgorithm_" data-uid="wan24.Crypto.HashAlgorithmBase.GetHashAlgorithm*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_GetHashAlgorithm_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.GetHashAlgorithm(wan24.Crypto.CryptoOptions)">GetHashAlgorithm(CryptoOptions?)</h4>
@@ -416,7 +459,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L246">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L254">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_GetHashAlgorithmInt_" data-uid="wan24.Crypto.HashAlgorithmBase.GetHashAlgorithmInt*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_GetHashAlgorithmInt_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.GetHashAlgorithmInt(wan24.Crypto.CryptoOptions)">GetHashAlgorithmInt(CryptoOptions?)</h4>
@@ -466,7 +509,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_GetHashStream_System_IO_Stream_System_Boolean_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.GetHashStream(System.IO.Stream%2CSystem.Boolean%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L78">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L88">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_GetHashStream_" data-uid="wan24.Crypto.HashAlgorithmBase.GetHashStream*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_GetHashStream_System_IO_Stream_System_Boolean_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.GetHashStream(System.IO.Stream,System.Boolean,wan24.Crypto.CryptoOptions)">GetHashStream(Stream?, bool, CryptoOptions?)</h4>
@@ -528,7 +571,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_Hash_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.Hash(System.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L120">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L130">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_Hash_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_Hash_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash(System.Byte[],wan24.Crypto.CryptoOptions)">Hash(byte[], CryptoOptions?)</h4>
@@ -584,7 +627,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_Hash_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.Hash(System.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L185">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L195">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_Hash_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_Hash_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash(System.IO.Stream,wan24.Crypto.CryptoOptions)">Hash(Stream, CryptoOptions?)</h4>
@@ -640,7 +683,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_Hash_System_ReadOnlySpan_System_Byte__System_Span_System_Byte__wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.Hash(System.ReadOnlySpan%7BSystem.Byte%7D%2CSystem.Span%7BSystem.Byte%7D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L157">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L167">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_Hash_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_Hash_System_ReadOnlySpan_System_Byte__System_Span_System_Byte__wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash(System.ReadOnlySpan{System.Byte},System.Span{System.Byte},wan24.Crypto.CryptoOptions)">Hash(ReadOnlySpan&lt;byte&gt;, Span&lt;byte&gt;, CryptoOptions?)</h4>
@@ -702,7 +745,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_Hash_System_ReadOnlySpan_System_Byte__wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.Hash(System.ReadOnlySpan%7BSystem.Byte%7D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L128">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L138">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_Hash_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_Hash_System_ReadOnlySpan_System_Byte__wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.HashAlgorithmBase.Hash(System.ReadOnlySpan{System.Byte},wan24.Crypto.CryptoOptions)">Hash(ReadOnlySpan&lt;byte&gt;, CryptoOptions?)</h4>
@@ -758,7 +801,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_HashAlgorithmBase_HashAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.HashAlgorithmBase.HashAsync(System.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L215">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/HashAlgorithmBase.cs/#L224">View Source</a>
   </span>
   <a id="wan24_Crypto_HashAlgorithmBase_HashAsync_" data-uid="wan24.Crypto.HashAlgorithmBase.HashAsync*"></a>
   <h4 id="wan24_Crypto_HashAlgorithmBase_HashAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.HashAlgorithmBase.HashAsync(System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">HashAsync(Stream, CryptoOptions?, CancellationToken)</h4>
@@ -818,6 +861,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

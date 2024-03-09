@@ -118,6 +118,7 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></div>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html">AsymmetricAlgorithmBase</a>&lt;tPublic, tPrivate&gt;&gt;</div>
   </div>
   <div class="inheritedMembers">
@@ -135,10 +136,16 @@
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_UsesTpm">CryptoAlgorithmBase.UsesTpm</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName">CryptoAlgorithmBase.DisplayName</a>
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_ToString">CryptoAlgorithmBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_System_Boolean__">CryptoAlgorithmBase.EnsurePqcRequirement(in bool)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -163,7 +170,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricAlgorithmBase_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract record AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt; : CryptoAlgorithmBase, IEquatable&lt;CryptoAlgorithmBase&gt;, IAsymmetricAlgorithm, ICryptoAlgorithm, IEquatable&lt;AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;&gt; where tPublic : AsymmetricPublicKeyBase, IAsymmetricPublicKey, new() where tPrivate : AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;, IAsymmetricPrivateKey, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt; : CryptoAlgorithmBase, IEquatable&lt;CryptoAlgorithmBase&gt;, IAsymmetricAlgorithm, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;AsymmetricAlgorithmBase&lt;tPublic, tPrivate&gt;&gt; where tPublic : AsymmetricPublicKeyBase, IAsymmetricPublicKey, new() where tPrivate : AsymmetricPrivateKeyBase&lt;tPublic, tPrivate&gt;, IAsymmetricPrivateKey, new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -193,7 +200,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2__ctor_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.%23ctor(System.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L31">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L32">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2__ctor_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.#ctor*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.#ctor(System.String,System.Int32)">AsymmetricAlgorithmBase(string, int)</h4>
@@ -235,7 +242,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2__DefaultKeySize.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602._DefaultKeySize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L20">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L21">View Source</a>
   </span>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2__DefaultKeySize" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2._DefaultKeySize">_DefaultKeySize</h4>
   <div class="markdown level1 summary"><p>Default key size</p>
@@ -265,7 +272,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2__DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602._DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L24">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L25">View Source</a>
   </span>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2__DefaultOptions" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2._DefaultOptions">_DefaultOptions</h4>
   <div class="markdown level1 summary"><p>Default options</p>
@@ -297,7 +304,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.AllowedKeySizes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L80">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L81">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.AllowedKeySizes*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.AllowedKeySizes">AllowedKeySizes</h4>
@@ -328,7 +335,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CanExchangeKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CanExchangeKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L68">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L69">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanExchangeKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanExchangeKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanExchangeKey" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanExchangeKey">CanExchangeKey</h4>
@@ -359,7 +366,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CanSign.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CanSign%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L71">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L72">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanSign_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanSign*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanSign" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanSign">CanSign</h4>
@@ -390,7 +397,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultAlgorithmOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DefaultAlgorithmOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L62">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L63">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultAlgorithmOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultAlgorithmOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultAlgorithmOptions" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultAlgorithmOptions">DefaultAlgorithmOptions</h4>
@@ -421,7 +428,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DefaultKeySize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L89">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L90">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultKeySize*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultKeySize">DefaultKeySize</h4>
@@ -452,7 +459,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L50">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L51">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultOptions" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DefaultOptions">DefaultOptions</h4>
@@ -480,10 +487,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_IsDenied.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.IsDenied%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L108">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsDenied_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsDenied*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsDenied" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsDenied">IsDenied</h4>
+  <div class="markdown level1 summary"><p>Was this allogithm denied (still usable for key derivation and signature validation, but not for key exchange initialization and signature)?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDenied { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_IsEllipticCurveAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.IsEllipticCurveAlgorithm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L74">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L75">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsEllipticCurveAlgorithm_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsEllipticCurveAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsEllipticCurveAlgorithm" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsEllipticCurveAlgorithm">IsEllipticCurveAlgorithm</h4>
@@ -514,7 +552,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_IsPublicKeyStandardFormat.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.IsPublicKeyStandardFormat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L77">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L78">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsPublicKeyStandardFormat_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsPublicKeyStandardFormat*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_IsPublicKeyStandardFormat" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.IsPublicKeyStandardFormat">IsPublicKeyStandardFormat</h4>
@@ -542,10 +580,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_KeyPool.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.KeyPool%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L111">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_KeyPool_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.KeyPool*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_KeyPool" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.KeyPool">KeyPool</h4>
+  <div class="markdown level1 summary"><p>Key pool (key is the key size, value the key pool)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;int, IAsymmetricKeyPool&gt;? KeyPool { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_PrivateKeyType.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.PrivateKeyType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L42">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L43">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_PrivateKeyType_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.PrivateKeyType*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_PrivateKeyType" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.PrivateKeyType">PrivateKeyType</h4>
@@ -576,7 +645,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_PublicKeyType.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.PublicKeyType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L47">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L48">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_PublicKeyType_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.PublicKeyType*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_PublicKeyType" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.PublicKeyType">PublicKeyType</h4>
@@ -604,10 +673,43 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L114">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_State_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.State*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_State" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.State">State</h4>
+  <div class="markdown level1 summary"><p>Status information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Status&gt; State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Status</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_State">CryptoAlgorithmBase.State</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_Usages.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.Usages%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L65">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L66">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_Usages_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.Usages*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_Usages" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.Usages">Usages</h4>
@@ -640,7 +742,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CanHandleNetAlgorithm_System_Security_Cryptography_AsymmetricAlgorithm_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CanHandleNetAlgorithm(System.Security.Cryptography.AsymmetricAlgorithm)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L177">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L215">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanHandleNetAlgorithm_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanHandleNetAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CanHandleNetAlgorithm_System_Security_Cryptography_AsymmetricAlgorithm_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CanHandleNetAlgorithm(System.Security.Cryptography.AsymmetricAlgorithm)">CanHandleNetAlgorithm(AsymmetricAlgorithm)</h4>
@@ -690,7 +792,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CreateKeyPair(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L117">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L155">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPair*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPair(wan24.Crypto.CryptoOptions)">CreateKeyPair(CryptoOptions?)</h4>
@@ -737,7 +839,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPairAsync_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.CreateKeyPairAsync(wan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L120">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L158">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPairAsync_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPairAsync*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_CreateKeyPairAsync_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.CreateKeyPairAsync(wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">CreateKeyPairAsync(CryptoOptions?, CancellationToken)</h4>
@@ -789,7 +891,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeriveKey(System.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L157">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L195">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeriveKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeriveKey_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeriveKey(System.Byte[],wan24.Crypto.CryptoOptions)">DeriveKey(byte[], CryptoOptions?)</h4>
@@ -845,7 +947,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeserializePrivateKey(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L137">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L175">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKey(System.Byte[])">DeserializePrivateKey(byte[])</h4>
@@ -892,7 +994,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKeyV1_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeserializePrivateKeyV1(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L154">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L192">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKeyV1_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKeyV1*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePrivateKeyV1_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePrivateKeyV1(System.Byte[])">DeserializePrivateKeyV1(byte[])</h4>
@@ -942,7 +1044,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.DeserializePublicKey(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L124">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L162">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePublicKey*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_DeserializePublicKey_System_Byte___" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.DeserializePublicKey(System.Byte[])">DeserializePublicKey(byte[])</h4>
@@ -986,10 +1088,150 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureAllowed_System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.EnsureAllowed(System.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L143">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureAllowed_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureAllowed*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureAllowed_System_Boolean__" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureAllowed(System.Boolean@)">EnsureAllowed(in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure this algorithm is allowed in the current configuration</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool EnsureAllowed(in bool throwIfDenied = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfDenied</span></td>
+        <td><p>Throw an exception, if this algorithm isn't allowed?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>If this algorithm is allowed in the current configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__">CryptoAlgorithmBase.EnsureAllowed(in bool)</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>This algorithm is not allowed in the current configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureAllowedCurve_System_Int32__System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.EnsureAllowedCurve(System.Int32%40%2CSystem.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L224">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureAllowedCurve_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureAllowedCurve*"></a>
+  <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureAllowedCurve_System_Int32__System_Boolean__" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureAllowedCurve(System.Int32@,System.Boolean@)">EnsureAllowedCurve(in int, in bool)</h4>
+  <div class="markdown level1 summary"><p>Ensure an allowed elliptic curve</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool EnsureAllowedCurve(in int bits, in bool throwIfDenied = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">bits</span></td>
+        <td><p>Key size in bits</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">throwIfDenied</span></td>
+        <td><p>Throw an exception, if deniedß</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>If the elliptic curve is allowed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.CryptographicException.html">CryptographicException</a></td>
+        <td><p>The elliptic curve is denied</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricAlgorithmBase%602.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L107">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricAlgorithmBase.cs/#L133">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureDefaultOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureDefaultOptions*"></a>
   <h4 id="wan24_Crypto_AsymmetricAlgorithmBase_2_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricAlgorithmBase`2.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)">EnsureDefaultOptions(CryptoOptions?)</h4>
@@ -1045,7 +1287,23 @@
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
   </div>
   <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
+  </div>
+  <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_CreateKeyPools_wan24_Crypto_IAsymmetricAlgorithm_System_Int32_System_Boolean_">CryptoExtensions.CreateKeyPools(IAsymmetricAlgorithm, int, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_CreateKeyPoolsAsync_wan24_Crypto_IAsymmetricAlgorithm_System_Int32_System_Boolean_System_Threading_CancellationToken_">CryptoExtensions.CreateKeyPoolsAsync(IAsymmetricAlgorithm, int, bool, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_GetPooledKey_wan24_Crypto_IAsymmetricAlgorithm_wan24_Crypto_CryptoOptions__">CryptoExtensions.GetPooledKey(IAsymmetricAlgorithm, in CryptoOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_GetPooledKeyAsync_wan24_Crypto_IAsymmetricAlgorithm_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">CryptoExtensions.GetPooledKeyAsync(IAsymmetricAlgorithm, CryptoOptions?, CancellationToken)</a>
   </div>
 
 </article>

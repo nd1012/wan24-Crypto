@@ -114,6 +114,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.MacAlgorithmBase.html">MacAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.MacHmacSha256Algorithm.html">MacHmacSha256Algorithm</a>&gt;</div>
@@ -122,6 +123,9 @@
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="wan24.Crypto.MacAlgorithmBase.html#wan24_Crypto_MacAlgorithmBase_DefaultOptions">MacAlgorithmBase.DefaultOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.MacAlgorithmBase.html#wan24_Crypto_MacAlgorithmBase_State">MacAlgorithmBase.State</a>
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.MacAlgorithmBase.html#wan24_Crypto_MacAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_">MacAlgorithmBase.EnsureDefaultOptions(CryptoOptions)</a>
@@ -154,6 +158,12 @@
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_UsesTpm">CryptoAlgorithmBase.UsesTpm</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__">CryptoAlgorithmBase.EnsureAllowed(in bool)</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_ToString">CryptoAlgorithmBase.ToString()</a>
     </div>
     <div>
@@ -176,7 +186,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_MacHmacSha256Algorithm_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed record MacHmacSha256Algorithm : MacAlgorithmBase, ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;MacAlgorithmBase&gt;, IEquatable&lt;MacHmacSha256Algorithm&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record MacHmacSha256Algorithm : MacAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;MacAlgorithmBase&gt;, IEquatable&lt;MacHmacSha256Algorithm&gt;</code></pre>
   </div>
   <h3 id="fields">Fields
 </h3>
@@ -495,6 +505,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

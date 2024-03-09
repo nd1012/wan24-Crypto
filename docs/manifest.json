@@ -975,6 +975,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.DeniedAlgorithms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.DeniedAlgorithms.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.DevHwRng.yml",
       "output": {
         ".html": {
@@ -1865,6 +1875,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeHttpRequestFactory-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeHttpRequestFactory-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeHttpRequestFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeHttpRequestFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.PakeRecord.yml",
       "output": {
         ".html": {
@@ -1899,6 +1929,56 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.PakeRecordStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeRequest.PakeRequestDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeRequest.PakeRequestDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeResponse.PakeResponseDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeResponse.PakeResponseDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeResponseExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeResponseExtensions.html"
         }
       },
       "version": ""

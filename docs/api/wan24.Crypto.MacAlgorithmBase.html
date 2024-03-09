@@ -120,6 +120,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
+    <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.MacAlgorithmBase.html">MacAlgorithmBase</a>&gt;</div>
   </div>
@@ -138,10 +139,19 @@
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_UsesTpm">CryptoAlgorithmBase.UsesTpm</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_DisplayName">CryptoAlgorithmBase.DisplayName</a>
     </div>
     <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsureAllowed_System_Boolean__">CryptoAlgorithmBase.EnsureAllowed(in bool)</a>
+    </div>
+    <div>
       <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_ToString">CryptoAlgorithmBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_EnsurePqcRequirement_System_Boolean__">CryptoAlgorithmBase.EnsurePqcRequirement(in bool)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -166,7 +176,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_MacAlgorithmBase_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract record MacAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;MacAlgorithmBase&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record MacAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;MacAlgorithmBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -175,7 +185,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase__ctor_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.%23ctor(System.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L21">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L22">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase__ctor_" data-uid="wan24.Crypto.MacAlgorithmBase.#ctor*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase__ctor_System_String_System_Int32_" data-uid="wan24.Crypto.MacAlgorithmBase.#ctor(System.String,System.Int32)">MacAlgorithmBase(string, int)</h4>
@@ -217,7 +227,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase__DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase._DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L14">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L15">View Source</a>
   </span>
   <h4 id="wan24_Crypto_MacAlgorithmBase__DefaultOptions" data-uid="wan24.Crypto.MacAlgorithmBase._DefaultOptions">_DefaultOptions</h4>
   <div class="markdown level1 summary"><p>Default options</p>
@@ -249,7 +259,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_DefaultOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.DefaultOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L31">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_DefaultOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.DefaultOptions*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_DefaultOptions" data-uid="wan24.Crypto.MacAlgorithmBase.DefaultOptions">DefaultOptions</h4>
@@ -280,7 +290,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_MacLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.MacLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L35">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L36">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_MacLength_" data-uid="wan24.Crypto.MacAlgorithmBase.MacLength*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_MacLength" data-uid="wan24.Crypto.MacAlgorithmBase.MacLength">MacLength</h4>
@@ -306,6 +316,39 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_State.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L39">View Source</a>
+  </span>
+  <a id="wan24_Crypto_MacAlgorithmBase_State_" data-uid="wan24.Crypto.MacAlgorithmBase.State*"></a>
+  <h4 id="wan24_Crypto_MacAlgorithmBase_State" data-uid="wan24.Crypto.MacAlgorithmBase.State">State</h4>
+  <div class="markdown level1 summary"><p>Status information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Status&gt; State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Status</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_State">CryptoAlgorithmBase.State</a></div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -313,7 +356,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L42">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L53">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_EnsureDefaultOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.EnsureDefaultOptions*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_EnsureDefaultOptions_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.EnsureDefaultOptions(wan24.Crypto.CryptoOptions)">EnsureDefaultOptions(CryptoOptions?)</h4>
@@ -363,7 +406,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_GetMacAlgorithm_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.GetMacAlgorithm(System.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L55">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L66">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_GetMacAlgorithm_" data-uid="wan24.Crypto.MacAlgorithmBase.GetMacAlgorithm*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_GetMacAlgorithm_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.GetMacAlgorithm(System.Byte[],wan24.Crypto.CryptoOptions)">GetMacAlgorithm(byte[], CryptoOptions?)</h4>
@@ -419,7 +462,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_GetMacAlgorithmInt_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.GetMacAlgorithmInt(System.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L238">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L249">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_GetMacAlgorithmInt_" data-uid="wan24.Crypto.MacAlgorithmBase.GetMacAlgorithmInt*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_GetMacAlgorithmInt_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.GetMacAlgorithmInt(System.Byte[],wan24.Crypto.CryptoOptions)">GetMacAlgorithmInt(byte[], CryptoOptions?)</h4>
@@ -475,7 +518,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_GetMacStream_System_Byte___System_IO_Stream_System_Boolean_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.GetMacStream(System.Byte%5B%5D%2CSystem.IO.Stream%2CSystem.Boolean%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L80">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L91">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_GetMacStream_" data-uid="wan24.Crypto.MacAlgorithmBase.GetMacStream*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_GetMacStream_System_Byte___System_IO_Stream_System_Boolean_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.GetMacStream(System.Byte[],System.IO.Stream,System.Boolean,wan24.Crypto.CryptoOptions)">GetMacStream(byte[], Stream?, bool, CryptoOptions?)</h4>
@@ -543,7 +586,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_Mac_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.Mac(System.IO.Stream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L179">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L190">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_Mac_" data-uid="wan24.Crypto.MacAlgorithmBase.Mac*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_Mac_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.Mac(System.IO.Stream,System.Byte[],wan24.Crypto.CryptoOptions)">Mac(Stream, byte[], CryptoOptions?)</h4>
@@ -605,7 +648,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_Mac_System_ReadOnlySpan_System_Byte__System_Byte___System_Span_System_Byte__wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.Mac(System.ReadOnlySpan%7BSystem.Byte%7D%2CSystem.Byte%5B%5D%2CSystem.Span%7BSystem.Byte%7D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L151">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L162">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_Mac_" data-uid="wan24.Crypto.MacAlgorithmBase.Mac*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_Mac_System_ReadOnlySpan_System_Byte__System_Byte___System_Span_System_Byte__wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.Mac(System.ReadOnlySpan{System.Byte},System.Byte[],System.Span{System.Byte},wan24.Crypto.CryptoOptions)">Mac(ReadOnlySpan&lt;byte&gt;, byte[], Span&lt;byte&gt;, CryptoOptions?)</h4>
@@ -673,7 +716,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_Mac_System_ReadOnlySpan_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.Mac(System.ReadOnlySpan%7BSystem.Byte%7D%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L122">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L133">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_Mac_" data-uid="wan24.Crypto.MacAlgorithmBase.Mac*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_Mac_System_ReadOnlySpan_System_Byte__System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.MacAlgorithmBase.Mac(System.ReadOnlySpan{System.Byte},System.Byte[],wan24.Crypto.CryptoOptions)">Mac(ReadOnlySpan&lt;byte&gt;, byte[], CryptoOptions?)</h4>
@@ -735,7 +778,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_MacAlgorithmBase_MacAsync_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.MacAlgorithmBase.MacAsync(System.IO.Stream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L208">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/MacAlgorithmBase.cs/#L219">View Source</a>
   </span>
   <a id="wan24_Crypto_MacAlgorithmBase_MacAsync_" data-uid="wan24.Crypto.MacAlgorithmBase.MacAsync*"></a>
   <h4 id="wan24_Crypto_MacAlgorithmBase_MacAsync_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.MacAlgorithmBase.MacAsync(System.IO.Stream,System.Byte[],wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">MacAsync(Stream, byte[], CryptoOptions?, CancellationToken)</h4>
@@ -801,6 +844,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IStatusProvider</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
