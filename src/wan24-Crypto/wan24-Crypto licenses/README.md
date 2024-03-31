@@ -38,3 +38,12 @@ libraries:
 | [`Microsoft.Extensions.Options`](https://dot.net/) | [MIT](https://licenses.nuget.org/MIT) |
 | [`Microsoft.Extensions.Primitives`](https://dot.net/) | [MIT](https://licenses.nuget.org/MIT) |
 | [`System.Diagnostics.DiagnosticSource`](https://dot.net/) | [MIT](https://licenses.nuget.org/MIT) |
+
+## Used code from other open source projects
+
+The following list of files contains partial (and modified) source code of 
+other open source projects:
+
+| File | Project | License |
+| ---- | ------- | ------- |
+| `Rng.cs` | [.NET Reference Source](https://github.com/microsoft/referencesource) (.NET Framework 4.6.2) | [MIT](https://github.com/microsoft/referencesource/blob/master/LICENSE.txt) |
