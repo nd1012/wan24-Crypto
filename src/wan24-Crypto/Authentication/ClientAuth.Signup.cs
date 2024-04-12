@@ -78,7 +78,7 @@ namespace wan24.Crypto.Authentication
                                 : null,
                             options.PublicKeySigningRequest
                             );
-                        signup = pake.CreateSignup(authPayload);
+                        signup = pake.CreateSignup(authPayload, options.PayloadFactory);
                         sessionKey = pake.SessionKey.CloneArray();
                     }
                     symmetricKey = null;

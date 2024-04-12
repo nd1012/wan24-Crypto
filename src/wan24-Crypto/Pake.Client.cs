@@ -29,8 +29,9 @@ namespace wan24.Crypto
         /// Create a signup (client)
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
+        /// <param name="payloadFactory">Payload factory</param>
         /// <returns>Signup (send this to the server and don't forget to dispose!)</returns>
-        public PakeSignup CreateSignup(in byte[]? payload = null)
+        public PakeSignup CreateSignup(byte[]? payload = null, in PayloadFactory_Delegate? payloadFactory = null)
         {
             EnsureUndisposed();
             if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation"));
@@ -41,6 +42,7 @@ namespace wan24.Crypto
                 signature = null!;
             try
             {
+                if (payloadFactory is not null) payload = payloadFactory(this, random, payload);
                 key = CreateAuthKey();// MAC
                 secret = CreateSecret(key);// MAC
                 signatureKey = CreateSignatureKey(key, secret);// KDF
@@ -68,8 +70,9 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <param name="encryptPayload">Encrypt the payload?</param>
+        /// <param name="payloadFactory">Payload factory</param>
         /// <returns>Authentication (send this to the server and don't forget to dispose!)</returns>
-        public PakeAuth CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
+        public PakeAuth CreateAuth(byte[]? payload = null, in bool encryptPayload = false, in PayloadFactory_Delegate? payloadFactory = null)
         {
             EnsureUndisposed();
             if (Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
@@ -81,6 +84,7 @@ namespace wan24.Crypto
                 signature = null!;
             try
             {
+                if (payloadFactory is not null) payload = payloadFactory(this, random, payload);
                 key = CreateAuthKey();// MAC
                 secret = CreateSecret(key);// MAC
                 signatureKey = CreateSignatureKey(key, secret);// KDF
@@ -116,5 +120,14 @@ namespace wan24.Crypto
                 signatureKey?.Clear();
             }
         }
+
+        /// <summary>
+        /// Payload factory delegate
+        /// </summary>
+        /// <param name="pake">PAKE instance</param>
+        /// <param name="random">Random data</param>
+        /// <param name="payload">Given payload</param>
+        /// <returns>Payload to use</returns>
+        public delegate byte[]? PayloadFactory_Delegate(Pake pake, byte[] random, byte[]? payload);
     }
 }

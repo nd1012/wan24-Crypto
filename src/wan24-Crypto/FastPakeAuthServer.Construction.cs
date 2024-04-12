@@ -16,6 +16,7 @@ namespace wan24.Crypto
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
         /// <param name="name">Server name</param>
+        /// <param name="payloadProcessor">Payload processor</param>
         public FastPakeAuthServer(
             in Pake pake,
             in PakeAuth auth,
@@ -24,7 +25,8 @@ namespace wan24.Crypto
             in bool decryptPayload = false,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
-            in string? name = null
+            in string? name = null,
+            in Pake.PayloadProcessor_Delegate? payloadProcessor = null
             )
             : base()
         {
@@ -50,6 +52,12 @@ namespace wan24.Crypto
                     {
                         randomMac.Clear();
                     }
+                }
+                if(payloadProcessor is not null)
+                {
+                    byte[] temp = payloadProcessor(Pake, auth.Random, payload);
+                    payload.Clear();
+                    payload = temp;
                 }
                 // Run pre-actions
                 Pake.PakeServerEventArgs e = new(auth, payload);
@@ -141,6 +149,7 @@ namespace wan24.Crypto
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example)</param>
         /// <param name="name">Server name</param>
+        /// <param name="payloadProcessor">Payload processor</param>
         public FastPakeAuthServer(
             in PakeSignup signup,
             out PakeRecord identity,
@@ -149,7 +158,8 @@ namespace wan24.Crypto
             in Pake? pake = null,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
-            in string? name = null
+            in string? name = null,
+            in Pake.PayloadProcessor_Delegate? payloadProcessor = null
             )
             : base()
         {
@@ -162,6 +172,12 @@ namespace wan24.Crypto
                 Name = name;
                 Pake = pake ?? new();
                 if (Pake.Key is not null) throw CryptographicException.From(new ArgumentException("Initialized for client operation", nameof(pake)));
+                if (payloadProcessor is not null)
+                {
+                    byte[] temp = payloadProcessor(Pake, signup.Random, payload);
+                    payload.Clear();
+                    payload = temp;
+                }
                 byte[] signatureKey = null!,
                     signature = null!;
                 int len = MacHelper.GetAlgorithm(Pake.Options.MacAlgorithm!).MacLength;

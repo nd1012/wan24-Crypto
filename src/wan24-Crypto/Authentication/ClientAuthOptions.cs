@@ -108,6 +108,11 @@ namespace wan24.Crypto.Authentication
         public byte[]? Payload { get; set; }
 
         /// <summary>
+        /// Payload factory
+        /// </summary>
+        public Pake.PayloadFactory_Delegate? PayloadFactory { get; set; }
+
+        /// <summary>
         /// Encrypt the payload?
         /// </summary>
         public bool EncryptPayload { get; set; }
@@ -162,6 +167,7 @@ namespace wan24.Crypto.Authentication
             Password = Password?.CloneArray(),
             PublicServerKeys = PublicServerKeys?.GetCopy(),
             Payload = Payload?.CloneArray(),
+            PayloadFactory = PayloadFactory,
             EncryptPayload = EncryptPayload,
             HashOptions = HashOptions?.GetCopy(),
             PakeOptions = PakeOptions?.GetCopy(),

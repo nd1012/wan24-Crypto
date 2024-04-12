@@ -36,7 +36,7 @@ namespace wan24.Crypto.Authentication
                     using (Pake pake = new(SetPakeMacAlgorithm(signup.Identifier.Length, context.PakeOptions.GetCopy()), context.CryptoOptions.GetCopy()))
                     {
                         pake.OnSignup += (s, e) => OnPakeSignup?.Invoke(this, new(context, pake, e));
-                        payload = pake.HandleSignup(signup);
+                        payload = pake.HandleSignup(signup, Options.PayloadProcessor);
                         context.Identity ??= new PakeRecord(pake.Identity);
                         context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(pake.SessionKey, preSharedSecret);
                     }

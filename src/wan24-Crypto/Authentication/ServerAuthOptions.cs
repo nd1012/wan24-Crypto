@@ -91,6 +91,11 @@ namespace wan24.Crypto.Authentication
         public ServerAuth.Identity_Delegate? IdentityFactory { get; set; }
 
         /// <summary>
+        /// Payload processor
+        /// </summary>
+        public Pake.PayloadProcessor_Delegate? PayloadProcessor { get; set; }
+
+        /// <summary>
         /// Payload handler
         /// </summary>
         public ServerAuth.Payload_Delegate? PayloadHandler { get; set; }

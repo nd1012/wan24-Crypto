@@ -30,10 +30,11 @@ namespace wan24.Crypto
         /// Handle a signup (server)
         /// </summary>
         /// <param name="signup">Signup (will be disposed!)</param>
+        /// <param name="payloadProcessor">Payload processor</param>
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid signup record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleSignup(in PakeSignup signup)
+        public byte[] HandleSignup(in PakeSignup signup, in PayloadProcessor_Delegate? payloadProcessor = null)
         {
             try
             {
@@ -67,7 +68,9 @@ namespace wan24.Crypto
                     signature = SignAndCreateSessionKey(signatureKey, signup.Key, signup.Random, signup.Payload, signup.Secret);
                     if (!signup.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
-                    return signup.Payload.CloneArray();
+                    return payloadProcessor is null
+                        ? signup.Payload.CloneArray()
+                        : payloadProcessor(this, signup.Random, signup.Payload);
                 }
                 catch
                 {
@@ -98,10 +101,16 @@ namespace wan24.Crypto
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
         /// <param name="skipSignatureKeyValidation">Skip the signature key validation (KDF)?</param>
+        /// <param name="payloadProcessor">Payload processor</param>
         /// <returns>Payload</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
         [MemberNotNull(nameof(Identity))]
-        public byte[] HandleAuth(in IPakeRequest auth, in bool decryptPayload = false, in bool skipSignatureKeyValidation = false)
+        public byte[] HandleAuth(
+            in IPakeRequest auth, 
+            in bool decryptPayload = false, 
+            in bool skipSignatureKeyValidation = false, 
+            in PayloadProcessor_Delegate? payloadProcessor = null
+            )
         {
             byte[]? payload = null,
                 randomMac = null;
@@ -156,7 +165,9 @@ namespace wan24.Crypto
                         if (!Identity.SignatureKey.SlowCompare(signatureKey))
                             throw CryptographicException.From(new InvalidDataException("Authentication key validation failed"));
                     }
-                    return payload ?? auth.Payload.CloneArray();
+                    return payloadProcessor is null
+                        ? payload ?? auth.Payload.CloneArray()
+                        : payloadProcessor(this, auth.Random, payload ?? auth.Payload);
                 }
                 finally
                 {
@@ -164,6 +175,7 @@ namespace wan24.Crypto
                     secret?.Clear();
                     signatureKey?.Clear();
                     signature?.Clear();
+                    if (payloadProcessor is not null) payload?.Clear();
                 }
             }
             catch (Exception ex)
@@ -187,6 +199,15 @@ namespace wan24.Crypto
         /// <param name="pake">PAKE</param>
         /// <param name="e">Arguments</param>
         public delegate void PakeServer_Delegate(Pake pake, PakeServerEventArgs e);
+
+        /// <summary>
+        /// Payload processor (called after payload decryption to process the payload before returning)
+        /// </summary>
+        /// <param name="pake">PAKE</param>
+        /// <param name="random">Random data</param>
+        /// <param name="payload">Payload</param>
+        /// <returns>Payload to return (if this is the given payload, the return value should be a copy!)</returns>
+        public delegate byte[] PayloadProcessor_Delegate(Pake pake, byte[] random, byte[] payload);
 
         /// <summary>
         /// Raised on signup
