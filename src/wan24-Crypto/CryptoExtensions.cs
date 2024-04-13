@@ -277,32 +277,24 @@ namespace wan24.Crypto
         /// <returns>Services</returns>
         public static IServiceCollection AddWan24Crypto(this IServiceCollection services)
         {
-            foreach (IAsymmetricAlgorithm algo in AsymmetricHelper.Algorithms.Values.Where(a => a.IsSupported && a.EnsureAllowed(throwIfDenied: false)))
+            foreach (ICryptoAlgorithm algo in CryptoEnvironment.AllAlgorithms.Where(a => a.IsSupported && a.EnsureAllowed(throwIfDenied: false)))
                 services.AddSingleton(algo.GetType(), algo);
-            foreach (EncryptionAlgorithmBase algo in EncryptionHelper.Algorithms.Values.Where(a => a.IsSupported && a.EnsureAllowed(throwIfDenied: false)))
-                services.AddSingleton(algo.GetType(), algo);
-            foreach (HashAlgorithmBase algo in HashHelper.Algorithms.Values.Where(a => a.IsSupported && a.EnsureAllowed(throwIfDenied: false)))
-                services.AddSingleton(algo.GetType(), algo);
-            foreach (MacAlgorithmBase algo in MacHelper.Algorithms.Values.Where(a => a.IsSupported && a.EnsureAllowed(throwIfDenied: false)))
-                services.AddSingleton(algo.GetType(), algo);
-            foreach (KdfAlgorithmBase algo in KdfHelper.Algorithms.Values.Where(a => a.IsSupported && a.EnsureAllowed(throwIfDenied: false)))
-                services.AddSingleton(algo.GetType(), algo);
-            services.AddSingleton(EncryptionHelper.DefaultAlgorithm);
-            services.AddSingleton(HashHelper.DefaultAlgorithm);
-            services.AddSingleton(MacHelper.DefaultAlgorithm);
-            services.AddSingleton(KdfHelper.DefaultAlgorithm);
-            services.AddSingleton(serviceProvider => CryptoEnvironment.PKI ?? throw new InvalidOperationException("No PKI defined"));
-            services.AddSingleton(serviceProvider => CryptoEnvironment.PrivateKeysStore ?? throw new InvalidOperationException("No private keys store defined"));
-            services.AddSingleton(serviceProvider => CryptoEnvironment.RandomGenerator ?? throw new InvalidOperationException("No random data generator defined"));
-            services.AddSingleton(serviceProvider => CryptoEnvironment.PakeAuthClient ?? throw new InvalidOperationException("No fast PAKE authentication client defined"));
-            services.AddSingleton(serviceProvider => CryptoEnvironment.PakeAuthServer ?? throw new InvalidOperationException("No fast PAKE authentication server defined"));
-            services.AddSingleton(serviceProvider => CryptoEnvironment.AsymmetricKeyPool ?? throw new InvalidOperationException("No asymmetric key pool defined"));
-            services.AddSingleton(serviceProvider => CryptoEnvironment.PakeAuthRecordPool ?? throw new InvalidOperationException("No PAKE authentication record pool defined"));
-            services.AddSingleton(serviceProvider => RND.SeedConsumer ?? throw new InvalidOperationException("No seed consumer defined"));
-            services.AddSingleton(serviceProvider => RND.Generator ?? throw new InvalidOperationException("No RNG defined"));
-            services.AddTransient<CryptoOptions>();
-            services.AddTransient(serviceProvider => serviceProvider.GetRequiredService<IAsymmetricKeyPool>().GetKey());
-            services.AddTransient(serviceProvider => serviceProvider.GetRequiredService<IPakeAuthRecordPool>().GetOne());
+            services.AddSingleton(serviceProvider => CryptoEnvironment.PKI ?? throw new InvalidOperationException("No PKI defined"))
+                .AddSingleton(serviceProvider => CryptoEnvironment.PrivateKeysStore ?? throw new InvalidOperationException("No private keys store defined"))
+                .AddSingleton(serviceProvider => CryptoEnvironment.RandomGenerator ?? throw new InvalidOperationException("No random data generator defined"))
+                .AddSingleton(serviceProvider => CryptoEnvironment.PakeAuthClient ?? throw new InvalidOperationException("No fast PAKE authentication client defined"))
+                .AddSingleton(serviceProvider => CryptoEnvironment.PakeAuthServer ?? throw new InvalidOperationException("No fast PAKE authentication server defined"))
+                .AddSingleton(serviceProvider => CryptoEnvironment.AsymmetricKeyPool ?? throw new InvalidOperationException("No asymmetric key pool defined"))
+                .AddSingleton(serviceProvider => CryptoEnvironment.PakeAuthRecordPool ?? throw new InvalidOperationException("No PAKE authentication record pool defined"))
+                .AddSingleton(serviceProvider => RND.SeedConsumer ?? throw new InvalidOperationException("No seed consumer defined"))
+                .AddSingleton(serviceProvider => RND.Generator ?? throw new InvalidOperationException("No RNG defined"))
+                .AddSingleton(serviceProvider => serviceProvider.GetRequiredService<IAsymmetricKeyPool>().GetKey())
+                .AddSingleton(serviceProvider => serviceProvider.GetRequiredService<IPakeAuthRecordPool>().GetOne())
+                .AddTransient<CryptoOptions>()
+                .AddTransient(serviceProvider => EncryptionHelper.DefaultAlgorithm)
+                .AddTransient(serviceProvider => HashHelper.DefaultAlgorithm)
+                .AddTransient(serviceProvider => MacHelper.DefaultAlgorithm)
+                .AddTransient(serviceProvider => KdfHelper.DefaultAlgorithm);
             return services;
         }
     }
