@@ -26,7 +26,8 @@ namespace wan24.Crypto
         {
             byte[]? payload = null,
                 randomMac = null,
-                sessionKey = null;
+                sessionKey = null,
+                signatureKey = null;
             SemaphoreSyncContext? ssc = null;
             try
             {
@@ -35,10 +36,11 @@ namespace wan24.Crypto
                 _AuthCount++;
                 SetChanged(nameof(AuthCount));
                 // Decrypt the payload
+                signatureKey = SignatureKey;
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
                     if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
-                    randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
+                    randomMac = auth.Random.Mac(signatureKey, Pake.Options);
                     try
                     {
                         payload = Pake.DecryptPayload(auth.Payload, randomMac);
@@ -72,12 +74,13 @@ namespace wan24.Crypto
                     if (((Pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
                         RND.AddSeed(auth.Random);
                     // Extract key and secret
-                    randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
+                    signatureKey = SignatureKey;
+                    randomMac ??= auth.Random.Mac(signatureKey);
                     key = Key;
                     if (!auth.Key.Xor(randomMac).SlowCompare(key)) throw CryptographicException.From(new InvalidDataException("Authentication key invalid"));
                     // Validate the signature and create the session key (MAC)
                     secret = Secret;
-                    (signature, sessionKey) = Pake.SignAndCreateSessionKey2(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
+                    (signature, sessionKey) = Pake.SignAndCreateSessionKey2(signatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
                     return (payloadProcessor is null ? payload ?? auth.Payload.CloneArray() : payloadProcessor(Pake, auth.Random, payload ?? auth.Payload), sessionKey);
@@ -103,6 +106,7 @@ namespace wan24.Crypto
             finally
             {
                 auth.Dispose();
+                signatureKey?.Clear();
                 randomMac?.Clear();
                 ssc?.Dispose();
             }
@@ -126,7 +130,8 @@ namespace wan24.Crypto
         {
             byte[]? payload = null,
                 randomMac = null,
-                sessionKey = null;
+                sessionKey = null,
+                signatureKey = null;
             SemaphoreSyncContext? ssc = null;
             try
             {
@@ -135,10 +140,11 @@ namespace wan24.Crypto
                 _AuthCount++;
                 SetChanged(nameof(AuthCount));
                 // Decrypt the payload
+                signatureKey = SignatureKey;
                 if (decryptPayload && auth.Payload.Length != 0)
                 {
                     if (Pake.Identity is null) throw await CryptographicException.FromAsync(new InvalidOperationException("Unknown identity")).DynamicContext();
-                    randomMac = auth.Random.Mac(Pake.Identity.SignatureKey, Pake.Options);
+                    randomMac = auth.Random.Mac(signatureKey, Pake.Options);
                     try
                     {
                         payload = Pake.DecryptPayload(auth.Payload, randomMac);
@@ -173,13 +179,14 @@ namespace wan24.Crypto
                     if (((Pake.CryptoOptions.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Random) == RngSeedingTypes.Random)
                         await RND.AddSeedAsync(auth.Random, cancellationToken).DynamicContext();
                     // Extract key and secret
-                    randomMac ??= auth.Random.Mac(Pake.Identity.SignatureKey);
+                    signatureKey = SignatureKey;
+                    randomMac ??= auth.Random.Mac(signatureKey);
                     key = Key;
                     if (!auth.Key.Xor(randomMac).SlowCompare(key))
                         throw await CryptographicException.FromAsync(new InvalidDataException("Authentication key invalid")).DynamicContext();
                     // Validate the signature and create the session key (MAC)
                     secret = Secret;
-                    (signature, sessionKey) = Pake.SignAndCreateSessionKey2(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
+                    (signature, sessionKey) = Pake.SignAndCreateSessionKey2(signatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw await CryptographicException.FromAsync(new InvalidDataException("Signature validation failed")).DynamicContext();
                     return (payloadProcessor is null ? payload ?? auth.Payload.CloneArray() : payloadProcessor(Pake, auth.Random, payload ?? auth.Payload), sessionKey);
@@ -205,6 +212,7 @@ namespace wan24.Crypto
             finally
             {
                 auth.Dispose();
+                signatureKey?.Clear();
                 randomMac?.Clear();
                 ssc?.Dispose();
             }
