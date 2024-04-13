@@ -120,6 +120,16 @@ namespace wan24.Crypto.Authentication
         public byte[]? Payload { get; set; }
 
         /// <summary>
+        /// Client payload factory
+        /// </summary>
+        public Pake.PayloadFactory_Delegate? ClientPayloadFactory { get; set; }
+
+        /// <summary>
+        /// Server payload processor
+        /// </summary>
+        public Pake.PayloadProcessor_Delegate? ServerPayloadProcessor { get; set; }
+
+        /// <summary>
         /// Encrypt the payload?
         /// </summary>
         public bool EncryptPayload { get; set; }
@@ -188,6 +198,7 @@ namespace wan24.Crypto.Authentication
                 ? null
                 : new SymmetricKeySuite(SymmetricKey, (SymmetricKey as SymmetricKeySuite)?.Options),
             Payload = Payload?.CloneArray(),
+            ClientPayloadFactory = ClientPayloadFactory,
             EncryptPayload = EncryptPayload,
             FastPakeAuthClient = FastPakeAuthClient,
             PeerIdentity = PeerIdentity is null ? null : new PakeAuthRecord(PeerIdentity),

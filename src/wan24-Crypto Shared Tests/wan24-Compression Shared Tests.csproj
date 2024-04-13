@@ -2,39 +2,35 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>wan24.Crypto.Tests</RootNamespace>
+    <RootNamespace>wan24.Compression.Tests</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>wan24CryptoSharedTests</AssemblyName>
-    <PackageId>wan24-Crypto-Shared-Tests</PackageId>
-    <Title>wan24-Crypto Shared Tests</Title>
-    <Version>2.3.0</Version>
+    <AssemblyName>wan24CompressionSharedTests</AssemblyName>
+    <PackageId>wan24-Compression-Shared-Tests</PackageId>
+    <Title>wan24-Compression Shared Tests</Title>
+    <Version>2.2.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
-    <Product>wan24-Crypto</Product>
-    <Description>Shared tests for wan24-Crypto libraries</Description>
+    <Product>wan24-Compression</Product>
+    <Description>Shared tests for wan24-Compression libraries</Description>
     <Copyright>(c)2023 Andreas Zimmermann, wan24.de</Copyright>
-    <PackageProjectUrl>https://github.com/nd1012/wan24-Crypto</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/nd1012/wan24-Crypto</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/nd1012/wan24-Compression</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nd1012/wan24-Compression</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <DebugType>embedded</DebugType>
     <EmbedAllSources>true</EmbedAllSources>
     <Configurations>Debug;Release;Trunk</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wan24-Compression Shared Tests.csproj" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\wan24-Crypto\wan24-Crypto.csproj" />
+    <ProjectReference Include="..\wan24-Compression\wan24-Compression.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,16 +40,16 @@
       <Pack>True</Pack>
     </None>
     <None Update="README.md">
-      <PackagePath>\</PackagePath>
       <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
-    <None Update="wan24-Crypto Shared Tests\LICENSE">
+    <None Update="wan24-Compression Shared Tests\LICENSE">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="wan24-Crypto Shared Tests\MSTest.TestFramework.html">
+    <None Update="wan24-Compression Shared Tests\MSTest.TestFramework.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="wan24-Crypto Shared Tests\README.md">
+    <None Update="wan24-Compression Shared Tests\README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

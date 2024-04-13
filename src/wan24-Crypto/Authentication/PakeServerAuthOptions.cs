@@ -36,6 +36,16 @@
         public CryptoOptions? PakeOptions { get; set; }
 
         /// <summary>
+        /// Client payload processor
+        /// </summary>
+        public Pake.PayloadProcessor_Delegate? ClientPayloadProcessor { get; set; }
+
+        /// <summary>
+        /// Server payload factory
+        /// </summary>
+        public Pake.PayloadFactory_Delegate? ServerPayloadFactory { get; set; }
+
+        /// <summary>
         /// Decrypt the payload?
         /// </summary>
         public bool DecryptPayload { get; set; }

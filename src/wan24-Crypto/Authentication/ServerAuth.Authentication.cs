@@ -46,7 +46,7 @@ namespace wan24.Crypto.Authentication
                             );
                         pake.OnAuth += (s, e) => OnPakeAuth?.Invoke(this, new(context, pake, e));
                         pake.OnAuthError += (s, e) => OnPakeAuthError?.Invoke(this, new(context, pake, e));
-                        payload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipPakeSignatureKeyValidation);
+                        payload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipPakeSignatureKeyValidation, Options.PayloadProcessor);
                         context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(pake.SessionKey);
                     }
                     else
@@ -54,7 +54,12 @@ namespace wan24.Crypto.Authentication
                         byte[]? pakeSessionKey = null!;
                         try
                         {
-                            (payload, pakeSessionKey) = await context.FastPakeAuth.HandleAuthAsync(auth, Options.DecryptPayload, cancellationToken).DynamicContext();
+                            (payload, pakeSessionKey) = await context.FastPakeAuth.HandleAuthAsync(
+                                auth, 
+                                Options.DecryptPayload, 
+                                Options.PayloadProcessor, 
+                                cancellationToken
+                                ).DynamicContext();
                             context.CryptoOptions.Password = context.CryptoOptions.Password!.ExtendKey(pakeSessionKey);
                             pakeSessionKey = null;
                         }

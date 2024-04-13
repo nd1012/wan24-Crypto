@@ -83,14 +83,16 @@ namespace wan24.Crypto
         /// <param name="encryptTimeout">Encrypt timeout (<see cref="TimeSpan.Zero"/> to keep encrypted all the time; default is <see cref="SecureValue.DefaultEncryptTimeout"/>)</param>
         /// <param name="recryptTimeout">Re-crypt timeout (one minute, for example; default is <see cref="SecureValue.DefaultRecryptTimeout"/>)</param>
         /// <param name="name">Client name</param>
+        /// <param name="payloadFactory">Payload factory</param>
         public FastPakeAuthClient(
             in Pake pake,
             out PakeSignup signup,
             out byte[] sessionKey,
-            in byte[]? payload = null,
+            byte[]? payload = null,
             in TimeSpan? encryptTimeout = null,
             in TimeSpan? recryptTimeout = null,
-            in string? name = null
+            in string? name = null,
+            in Pake.PayloadFactory_Delegate? payloadFactory = null
             )
             : base()
         {
@@ -120,6 +122,7 @@ namespace wan24.Crypto
                 };
                 signatureKey = SignatureKey;
                 random = RND.GetBytes(pake.Key.ExpandedKey.Length);
+                if (payloadFactory is not null) payload = payloadFactory(Pake, random, payload);
                 (signature, sessionKey) = pake.SignAndCreateSessionKey2(signatureKey, authKey, random, payload ?? [], secret);// MAC
                 pake.ClearSessionKey();
                 signup = new PakeSignup(pake.Key.Identifier.CloneArray(), secret, authKey, signature, random, payload);
@@ -286,8 +289,13 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <param name="encryptPayload">Encrypt the payload?</param>
+        /// <param name="payloadFactory">Payload factory</param>
         /// <returns>Authentication (send this to the server and don't forget to dispose!) and session key (should be cleared!)</returns>
-        public (PakeAuth Auth, byte[] SessionKey) CreateAuth(byte[]? payload = null, in bool encryptPayload = false)
+        public (PakeAuth Auth, byte[] SessionKey) CreateAuth(
+            byte[]? payload = null, 
+            in bool encryptPayload = false, 
+            in Pake.PayloadFactory_Delegate? payloadFactory = null
+            )
         {
             byte[] random = null!,
                 randomMac = null!,
@@ -302,6 +310,7 @@ namespace wan24.Crypto
                 _AuthCount++;
                 if (Pake.Key?.Identifier is null) throw CryptographicException.From(new InvalidOperationException("Initialized for server operation or missing identifier"));
                 random = RND.GetBytes(Pake.Key.Identifier.Length);
+                if (payloadFactory is not null) payload = payloadFactory(Pake, random, payload);
                 signatureKey = SignatureKey;
                 randomMac = random.Mac(signatureKey, Pake.Options);
                 if (encryptPayload && payload is not null)
@@ -344,8 +353,13 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="payload">Payload (max. <see cref="ushort.MaxValue"/> length; will be cleared!)</param>
         /// <param name="encryptPayload">Encrypt the payload?</param>
+        /// <param name="payloadFactory">Payload factory</param>
         /// <returns>Authentication (send this to the server and don't forget to dispose!) and session key (should be cleared!)</returns>
-        public async Task<(PakeAuth Auth, byte[] SessionKey)> CreateAuthAsync(byte[]? payload = null, bool encryptPayload = false)
+        public async Task<(PakeAuth Auth, byte[] SessionKey)> CreateAuthAsync(
+            byte[]? payload = null, 
+            bool encryptPayload = false,
+            Pake.PayloadFactory_Delegate? payloadFactory = null
+            )
         {
             byte[] random = null!,
                 randomMac = null!,
@@ -361,6 +375,7 @@ namespace wan24.Crypto
                 if (Pake.Key?.Identifier is null)
                     throw await CryptographicException.FromAsync(new InvalidOperationException("Initialized for server operation or missing identifier")).DynamicContext();
                 random = await RND.GetBytesAsync(Pake.Key.Identifier.Length).DynamicContext();
+                if (payloadFactory is not null) payload = payloadFactory(Pake, random, payload);
                 signatureKey = SignatureKey;
                 randomMac = random.Mac(signatureKey, Pake.Options);
                 if (encryptPayload && payload is not null)

@@ -157,7 +157,7 @@ namespace wan24.Crypto
         {
             /*
              * NOTE: This piece of code is almost a 1:1 copy of the RandomNumberGenerator code, which is licensed under the MIT license by the .NET Foundation. See 
-             * Rng.LICENSE.md for details.
+             * licenses for details.
              */
             ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(fromInclusive, toExclusive);
             uint range = (uint)toExclusive - (uint)fromInclusive - 1;
@@ -199,7 +199,7 @@ namespace wan24.Crypto
         {
             /*
              * NOTE: This piece of code is almost a 1:1 copy of the RandomNumberGenerator code, which is licensed under the MIT license by the .NET Foundation. See 
-             * Rng.LICENSE.md for details.
+             * licenses for details.
              */
             ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(fromInclusive, toExclusive);
             uint range = (uint)toExclusive - (uint)fromInclusive - 1;

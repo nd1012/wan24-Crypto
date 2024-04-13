@@ -26,7 +26,7 @@ namespace wan24.Crypto.Authentication
                 using Pake pake = new(SetMacAlgorithm(signup.Identifier.Length, Options.PakeOptions?.GetCopy() ?? Pake.DefaultOptions), Options.CryptoOptions?.GetCopy());
                 pake.OnSignup += (s, e) => OnPakeSignup?.Invoke(this, new(context, pake, e));
                 // Receive the client signup request
-                context.ClientPayload = pake.HandleSignup(signup);
+                context.ClientPayload = pake.HandleSignup(signup, Options.ClientPayloadProcessor);
                 context.ClientIdentity = new PakeRecord(pake.Identity);
                 context.ClientTimeOffset = DateTime.UtcNow - context.ClientPayload.Created;
                 if (!context.ClientPayload.Created.IsInRange(Options.MaxTimeDifference, DateTime.UtcNow))
@@ -47,7 +47,9 @@ namespace wan24.Crypto.Authentication
                     serverSignup.Key = serverIdentity.Key.CloneArray();
                     serverSignup.Secret = serverIdentity.RawSecret.CloneArray();
                     serverSignup.Random = await RND.GetBytesAsync(serverIdentity.Identifier.Length).DynamicContext();
-                    serverSignup.Payload = context.ServerPayload ?? [];
+                    serverSignup.Payload = Options.ServerPayloadFactory is null
+                        ? context.ServerPayload ?? []
+                        : Options.ServerPayloadFactory(pake, serverSignup.Random, context.ServerPayload) ?? [];
                     serverSignup.Signature = pake.SignAndCreateSessionKey(
                         serverIdentity.SignatureKey, 
                         serverSignup.Key, 

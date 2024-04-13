@@ -50,7 +50,7 @@ namespace wan24.Crypto.Authentication
                 {
                     using PakeAuth auth = await decipher.CryptoStream.ReadSerializedAsync<PakeAuth>(cancellationToken: cancellationToken).DynamicContext();
                     SetMacAlgorithm(auth.Identifier.Length, pake.Options);
-                    context.ClientPayload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipSignatureKeyValidation);
+                    context.ClientPayload = pake.HandleAuth(auth, Options.DecryptPayload, Options.SkipSignatureKeyValidation, Options.ClientPayloadProcessor);
                     sessionKey = pake.SessionKey.CloneArray();
                     pake.ClearSessionKey();
                 }
@@ -59,6 +59,7 @@ namespace wan24.Crypto.Authentication
                     (context.ClientPayload, sessionKey) = await context.FastPakeAuthServer.HandleAuthAsync(
                         await decipher.CryptoStream.ReadSerializedAsync<PakeAuth>(cancellationToken: cancellationToken).DynamicContext(),
                         Options.DecryptPayload,
+                        Options.ClientPayloadProcessor,
                         cancellationToken
                         )
                         .DynamicContext();

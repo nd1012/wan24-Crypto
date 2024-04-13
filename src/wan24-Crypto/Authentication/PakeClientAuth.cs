@@ -16,7 +16,11 @@ namespace wan24.Crypto.Authentication
         /// <param name="options">Options (will be disposed!)</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Context (don't forget to dispose!)</returns>
-        public static async Task<PakeAuthContext> SignupAsync(this Stream stream, PakeClientAuthOptions? options = null, CancellationToken cancellationToken = default)
+        public static async Task<PakeAuthContext> SignupAsync(
+            this Stream stream, 
+            PakeClientAuthOptions? options = null, 
+            CancellationToken cancellationToken = default
+            )
         {
             await Task.Yield();
             options ??= PakeClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
@@ -40,7 +44,7 @@ namespace wan24.Crypto.Authentication
                 if (symmetricKey.Identifier is null) throw new ArgumentException("Missing identifier in symmetric key suite", nameof(options));
                 // Send the signup request
                 using Pake pake = new(symmetricKey, options.PakeOptions);
-                signup = pake.CreateSignup(new AuthPayload(options.Payload));
+                signup = pake.CreateSignup(new AuthPayload(options.Payload), options.ClientPayloadFactory);
                 sessionKey = pake.SessionKey.ExtendKey(options.PreSharedSecret);
                 await stream.WriteAsync((byte)AuthSequences.Signup, cancellationToken).DynamicContext();
                 await stream.WriteSerializedAsync(signup, cancellationToken).DynamicContext();
@@ -59,11 +63,14 @@ namespace wan24.Crypto.Authentication
                         throw new InvalidDataException($"Invalid server response sequence {sequence}");
                 }
                 signup = await stream.ReadSerializedAsync<PakeSignup>(cancellationToken: cancellationToken).DynamicContext();
+                payload = options.ServerPayloadProcessor is null 
+                    ? signup.Payload.CloneArray() 
+                    : options.ServerPayloadProcessor(pake, signup.Random, signup.Payload);
                 signatureKey = pake.CreateSignatureKey(signup.Key, signup.Secret);
                 return new(
                     options,
                     sessionKey.ExtendKey(pake.CreateSessionKey(signatureKey, signup.Secret, signup.Random)), 
-                    payload, 
+                    payload,
                     new PakeAuthRecord(signup, signatureKey)
                     );
             }
@@ -90,7 +97,11 @@ namespace wan24.Crypto.Authentication
         /// <param name="options">Options</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Context (don't forget to dispose!)</returns>
-        public static async Task<PakeAuthContext> AuthenticateAsync(this Stream stream, PakeClientAuthOptions? options = null, CancellationToken cancellationToken = default)
+        public static async Task<PakeAuthContext> AuthenticateAsync(
+            this Stream stream, 
+            PakeClientAuthOptions? options = null, 
+            CancellationToken cancellationToken = default
+            )
         {
             await Task.Yield();
             options ??= PakeClientAuthOptions.DefaultOptions ?? throw new ArgumentNullException(nameof(options));
@@ -139,12 +150,12 @@ namespace wan24.Crypto.Authentication
                         : new SymmetricKeySuite(options.SymmetricKey, options.PakeOptions?.GetCopy());
                     // Create the authentication and store the session key
                     using Pake pake = new(symmetricKey, options.PakeOptions?.GetCopy(), options.CryptoOptions?.GetCopy());
-                    auth = pake.CreateAuth(new AuthPayload(options.Payload), options.EncryptPayload);
+                    auth = pake.CreateAuth(new AuthPayload(options.Payload), options.EncryptPayload, options.ClientPayloadFactory);
                     sessionKey = pake.SessionKey.CloneArray();
                 }
                 else
                 {
-                    (auth, sessionKey) = options.FastPakeAuthClient.CreateAuth(options.Payload, options.EncryptPayload);
+                    (auth, sessionKey) = options.FastPakeAuthClient.CreateAuth(options.Payload, options.EncryptPayload, options.ClientPayloadFactory);
                 }
                 options.Payload = null;
                 await cipher.CryptoStream.WriteSerializedAsync(auth, cancellationToken).DynamicContext();

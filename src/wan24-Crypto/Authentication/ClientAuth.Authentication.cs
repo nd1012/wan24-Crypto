@@ -70,7 +70,7 @@ namespace wan24.Crypto.Authentication
                     {
                         using Pake pake = new(symmetricKey, pakeOptions, pakeCryptoOptions);
                         symmetricKey = null;
-                        auth = pake.CreateAuth(authPayload, options.EncryptPayload);
+                        auth = pake.CreateAuth(authPayload, options.EncryptPayload, options.PayloadFactory);
                         sessionKey = pake.SessionKey.CloneArray();
                     }
                     else

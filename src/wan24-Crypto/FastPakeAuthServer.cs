@@ -15,9 +15,14 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
+        /// <param name="payloadProcessor">Payload processor</param>
         /// <returns>Payload and session key (should be cleared!)</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
-        public (byte[] Payload, byte[] SessionKey) HandleAuth(in IPakeRequest auth, in bool decryptPayload = false)
+        public (byte[] Payload, byte[] SessionKey) HandleAuth(
+            in IPakeRequest auth, 
+            in bool decryptPayload = false, 
+            in Pake.PayloadProcessor_Delegate? payloadProcessor = null
+            )
         {
             byte[]? payload = null,
                 randomMac = null,
@@ -75,13 +80,14 @@ namespace wan24.Crypto
                     (signature, sessionKey) = Pake.SignAndCreateSessionKey2(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw CryptographicException.From(new InvalidDataException("Signature validation failed"));
-                    return (payload ?? auth.Payload.CloneArray(), sessionKey);
+                    return (payloadProcessor is null ? payload ?? auth.Payload.CloneArray() : payloadProcessor(Pake, auth.Random, payload ?? auth.Payload), sessionKey);
                 }
                 finally
                 {
                     signature?.Clear();
                     key?.Clear();
                     secret?.Clear();
+                    if (payloadProcessor is not null) payload?.Clear();
                 }
             }
             catch (Exception ex)
@@ -107,10 +113,16 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="auth">Authentication (will be disposed!)</param>
         /// <param name="decryptPayload">Decrypt the payload, if any? (for this the identity must be available already when calling this method!)</param>
+        /// <param name="payloadProcessor">Payload processor</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Payload and session key (should be cleared!)</returns>
         /// <exception cref="InvalidDataException">Invalid authentication record</exception>
-        public async Task<(byte[] Payload, byte[] SessionKey)> HandleAuthAsync(IPakeRequest auth, bool decryptPayload = false, CancellationToken cancellationToken = default)
+        public async Task<(byte[] Payload, byte[] SessionKey)> HandleAuthAsync(
+            IPakeRequest auth, 
+            bool decryptPayload = false,
+            Pake.PayloadProcessor_Delegate? payloadProcessor = null,
+            CancellationToken cancellationToken = default
+            )
         {
             byte[]? payload = null,
                 randomMac = null,
@@ -170,13 +182,14 @@ namespace wan24.Crypto
                     (signature, sessionKey) = Pake.SignAndCreateSessionKey2(Pake.Identity.SignatureKey, key, auth.Random, auth.Payload, secret);
                     if (!auth.Signature.SlowCompare(signature))
                         throw await CryptographicException.FromAsync(new InvalidDataException("Signature validation failed")).DynamicContext();
-                    return (payload ?? auth.Payload.CloneArray(), sessionKey);
+                    return (payloadProcessor is null ? payload ?? auth.Payload.CloneArray() : payloadProcessor(Pake, auth.Random, payload ?? auth.Payload), sessionKey);
                 }
                 finally
                 {
                     signature?.Clear();
                     key?.Clear();
                     secret?.Clear();
+                    if (payloadProcessor is not null) payload?.Clear();
                 }
             }
             catch (Exception ex)
