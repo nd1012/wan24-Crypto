@@ -4635,6 +4635,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Authentication.ClientAuthOptions.Payload
   nameWithType: ClientAuthOptions.Payload
+- uid: wan24.Crypto.Authentication.ClientAuthOptions.PayloadFactory
+  name: PayloadFactory
+  href: api/wan24.Crypto.Authentication.ClientAuthOptions.html#wan24_Crypto_Authentication_ClientAuthOptions_PayloadFactory
+  commentId: P:wan24.Crypto.Authentication.ClientAuthOptions.PayloadFactory
+  fullName: wan24.Crypto.Authentication.ClientAuthOptions.PayloadFactory
+  nameWithType: ClientAuthOptions.PayloadFactory
+- uid: wan24.Crypto.Authentication.ClientAuthOptions.PayloadFactory*
+  name: PayloadFactory
+  href: api/wan24.Crypto.Authentication.ClientAuthOptions.html#wan24_Crypto_Authentication_ClientAuthOptions_PayloadFactory_
+  commentId: Overload:wan24.Crypto.Authentication.ClientAuthOptions.PayloadFactory
+  isSpec: "True"
+  fullName: wan24.Crypto.Authentication.ClientAuthOptions.PayloadFactory
+  nameWithType: ClientAuthOptions.PayloadFactory
 - uid: wan24.Crypto.Authentication.ClientAuthOptions.PreSharedSecret
   name: PreSharedSecret
   href: api/wan24.Crypto.Authentication.ClientAuthOptions.html#wan24_Crypto_Authentication_ClientAuthOptions_PreSharedSecret
@@ -5808,6 +5821,19 @@ references:
   fullName.vb: wan24.Crypto.Authentication.PakeClientAuthOptions.New
   nameWithType: PakeClientAuthOptions.PakeClientAuthOptions
   nameWithType.vb: PakeClientAuthOptions.New
+- uid: wan24.Crypto.Authentication.PakeClientAuthOptions.ClientPayloadFactory
+  name: ClientPayloadFactory
+  href: api/wan24.Crypto.Authentication.PakeClientAuthOptions.html#wan24_Crypto_Authentication_PakeClientAuthOptions_ClientPayloadFactory
+  commentId: P:wan24.Crypto.Authentication.PakeClientAuthOptions.ClientPayloadFactory
+  fullName: wan24.Crypto.Authentication.PakeClientAuthOptions.ClientPayloadFactory
+  nameWithType: PakeClientAuthOptions.ClientPayloadFactory
+- uid: wan24.Crypto.Authentication.PakeClientAuthOptions.ClientPayloadFactory*
+  name: ClientPayloadFactory
+  href: api/wan24.Crypto.Authentication.PakeClientAuthOptions.html#wan24_Crypto_Authentication_PakeClientAuthOptions_ClientPayloadFactory_
+  commentId: Overload:wan24.Crypto.Authentication.PakeClientAuthOptions.ClientPayloadFactory
+  isSpec: "True"
+  fullName: wan24.Crypto.Authentication.PakeClientAuthOptions.ClientPayloadFactory
+  nameWithType: PakeClientAuthOptions.ClientPayloadFactory
 - uid: wan24.Crypto.Authentication.PakeClientAuthOptions.CryptoOptions
   name: CryptoOptions
   href: api/wan24.Crypto.Authentication.PakeClientAuthOptions.html#wan24_Crypto_Authentication_PakeClientAuthOptions_CryptoOptions
@@ -6019,6 +6045,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Authentication.PakeClientAuthOptions.RecryptTimeout
   nameWithType: PakeClientAuthOptions.RecryptTimeout
+- uid: wan24.Crypto.Authentication.PakeClientAuthOptions.ServerPayloadProcessor
+  name: ServerPayloadProcessor
+  href: api/wan24.Crypto.Authentication.PakeClientAuthOptions.html#wan24_Crypto_Authentication_PakeClientAuthOptions_ServerPayloadProcessor
+  commentId: P:wan24.Crypto.Authentication.PakeClientAuthOptions.ServerPayloadProcessor
+  fullName: wan24.Crypto.Authentication.PakeClientAuthOptions.ServerPayloadProcessor
+  nameWithType: PakeClientAuthOptions.ServerPayloadProcessor
+- uid: wan24.Crypto.Authentication.PakeClientAuthOptions.ServerPayloadProcessor*
+  name: ServerPayloadProcessor
+  href: api/wan24.Crypto.Authentication.PakeClientAuthOptions.html#wan24_Crypto_Authentication_PakeClientAuthOptions_ServerPayloadProcessor_
+  commentId: Overload:wan24.Crypto.Authentication.PakeClientAuthOptions.ServerPayloadProcessor
+  isSpec: "True"
+  fullName: wan24.Crypto.Authentication.PakeClientAuthOptions.ServerPayloadProcessor
+  nameWithType: PakeClientAuthOptions.ServerPayloadProcessor
 - uid: wan24.Crypto.Authentication.PakeClientAuthOptions.SessionKeyCryptoOptions
   name: SessionKeyCryptoOptions
   href: api/wan24.Crypto.Authentication.PakeClientAuthOptions.html#wan24_Crypto_Authentication_PakeClientAuthOptions_SessionKeyCryptoOptions
@@ -6453,6 +6492,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Authentication.PakeServerAuthOptions.ClientAuthFactory
   nameWithType: PakeServerAuthOptions.ClientAuthFactory
+- uid: wan24.Crypto.Authentication.PakeServerAuthOptions.ClientPayloadProcessor
+  name: ClientPayloadProcessor
+  href: api/wan24.Crypto.Authentication.PakeServerAuthOptions.html#wan24_Crypto_Authentication_PakeServerAuthOptions_ClientPayloadProcessor
+  commentId: P:wan24.Crypto.Authentication.PakeServerAuthOptions.ClientPayloadProcessor
+  fullName: wan24.Crypto.Authentication.PakeServerAuthOptions.ClientPayloadProcessor
+  nameWithType: PakeServerAuthOptions.ClientPayloadProcessor
+- uid: wan24.Crypto.Authentication.PakeServerAuthOptions.ClientPayloadProcessor*
+  name: ClientPayloadProcessor
+  href: api/wan24.Crypto.Authentication.PakeServerAuthOptions.html#wan24_Crypto_Authentication_PakeServerAuthOptions_ClientPayloadProcessor_
+  commentId: Overload:wan24.Crypto.Authentication.PakeServerAuthOptions.ClientPayloadProcessor
+  isSpec: "True"
+  fullName: wan24.Crypto.Authentication.PakeServerAuthOptions.ClientPayloadProcessor
+  nameWithType: PakeServerAuthOptions.ClientPayloadProcessor
 - uid: wan24.Crypto.Authentication.PakeServerAuthOptions.CryptoOptions
   name: CryptoOptions
   href: api/wan24.Crypto.Authentication.PakeServerAuthOptions.html#wan24_Crypto_Authentication_PakeServerAuthOptions_CryptoOptions
@@ -6544,6 +6596,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Authentication.PakeServerAuthOptions.SendAuthenticationResponse
   nameWithType: PakeServerAuthOptions.SendAuthenticationResponse
+- uid: wan24.Crypto.Authentication.PakeServerAuthOptions.ServerPayloadFactory
+  name: ServerPayloadFactory
+  href: api/wan24.Crypto.Authentication.PakeServerAuthOptions.html#wan24_Crypto_Authentication_PakeServerAuthOptions_ServerPayloadFactory
+  commentId: P:wan24.Crypto.Authentication.PakeServerAuthOptions.ServerPayloadFactory
+  fullName: wan24.Crypto.Authentication.PakeServerAuthOptions.ServerPayloadFactory
+  nameWithType: PakeServerAuthOptions.ServerPayloadFactory
+- uid: wan24.Crypto.Authentication.PakeServerAuthOptions.ServerPayloadFactory*
+  name: ServerPayloadFactory
+  href: api/wan24.Crypto.Authentication.PakeServerAuthOptions.html#wan24_Crypto_Authentication_PakeServerAuthOptions_ServerPayloadFactory_
+  commentId: Overload:wan24.Crypto.Authentication.PakeServerAuthOptions.ServerPayloadFactory
+  isSpec: "True"
+  fullName: wan24.Crypto.Authentication.PakeServerAuthOptions.ServerPayloadFactory
+  nameWithType: PakeServerAuthOptions.ServerPayloadFactory
 - uid: wan24.Crypto.Authentication.PakeServerAuthOptions.SessionKeyCryptoOptions
   name: SessionKeyCryptoOptions
   href: api/wan24.Crypto.Authentication.PakeServerAuthOptions.html#wan24_Crypto_Authentication_PakeServerAuthOptions_SessionKeyCryptoOptions
@@ -7259,6 +7324,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Authentication.ServerAuthOptions.PayloadHandler
   nameWithType: ServerAuthOptions.PayloadHandler
+- uid: wan24.Crypto.Authentication.ServerAuthOptions.PayloadProcessor
+  name: PayloadProcessor
+  href: api/wan24.Crypto.Authentication.ServerAuthOptions.html#wan24_Crypto_Authentication_ServerAuthOptions_PayloadProcessor
+  commentId: P:wan24.Crypto.Authentication.ServerAuthOptions.PayloadProcessor
+  fullName: wan24.Crypto.Authentication.ServerAuthOptions.PayloadProcessor
+  nameWithType: ServerAuthOptions.PayloadProcessor
+- uid: wan24.Crypto.Authentication.ServerAuthOptions.PayloadProcessor*
+  name: PayloadProcessor
+  href: api/wan24.Crypto.Authentication.ServerAuthOptions.html#wan24_Crypto_Authentication_ServerAuthOptions_PayloadProcessor_
+  commentId: Overload:wan24.Crypto.Authentication.ServerAuthOptions.PayloadProcessor
+  isSpec: "True"
+  fullName: wan24.Crypto.Authentication.ServerAuthOptions.PayloadProcessor
+  nameWithType: ServerAuthOptions.PayloadProcessor
 - uid: wan24.Crypto.Authentication.ServerAuthOptions.PfsCounterKeyPool
   name: PfsCounterKeyPool
   href: api/wan24.Crypto.Authentication.ServerAuthOptions.html#wan24_Crypto_Authentication_ServerAuthOptions_PfsCounterKeyPool
@@ -16920,15 +16998,15 @@ references:
   fullName.vb: wan24.Crypto.FastPakeAuthClient.New(wan24.Crypto.ISymmetricKeySuite, System.TimeSpan?, System.TimeSpan?, wan24.Crypto.CryptoOptions, wan24.Crypto.CryptoOptions, String)
   nameWithType: FastPakeAuthClient.FastPakeAuthClient(in ISymmetricKeySuite, in TimeSpan?, in TimeSpan?, in CryptoOptions?, in CryptoOptions?, in string?)
   nameWithType.vb: FastPakeAuthClient.New(ISymmetricKeySuite, TimeSpan?, TimeSpan?, CryptoOptions, CryptoOptions, String)
-- uid: wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeSignup@,System.Byte[]@,System.Byte[]@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)
-  name: FastPakeAuthClient(in Pake, out PakeSignup, out byte[], in byte[]?, in TimeSpan?, in TimeSpan?, in string?)
-  href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeSignup__System_Byte____System_Byte____System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__
-  commentId: M:wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeSignup@,System.Byte[]@,System.Byte[]@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)
-  name.vb: New(Pake, PakeSignup, Byte(), Byte(), TimeSpan?, TimeSpan?, String)
-  fullName: wan24.Crypto.FastPakeAuthClient.FastPakeAuthClient(in wan24.Crypto.Pake, out wan24.Crypto.PakeSignup, out byte[], in byte[]?, in System.TimeSpan?, in System.TimeSpan?, in string?)
-  fullName.vb: wan24.Crypto.FastPakeAuthClient.New(wan24.Crypto.Pake, wan24.Crypto.PakeSignup, Byte(), Byte(), System.TimeSpan?, System.TimeSpan?, String)
-  nameWithType: FastPakeAuthClient.FastPakeAuthClient(in Pake, out PakeSignup, out byte[], in byte[]?, in TimeSpan?, in TimeSpan?, in string?)
-  nameWithType.vb: FastPakeAuthClient.New(Pake, PakeSignup, Byte(), Byte(), TimeSpan?, TimeSpan?, String)
+- uid: wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeSignup@,System.Byte[]@,System.Byte[],System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@,wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name: FastPakeAuthClient(in Pake, out PakeSignup, out byte[], byte[]?, in TimeSpan?, in TimeSpan?, in string?, in PayloadFactory_Delegate?)
+  href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeSignup__System_Byte____System_Byte___System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__wan24_Crypto_Pake_PayloadFactory_Delegate__
+  commentId: M:wan24.Crypto.FastPakeAuthClient.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeSignup@,System.Byte[]@,System.Byte[],System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@,wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name.vb: New(Pake, PakeSignup, Byte(), Byte(), TimeSpan?, TimeSpan?, String, PayloadFactory_Delegate)
+  fullName: wan24.Crypto.FastPakeAuthClient.FastPakeAuthClient(in wan24.Crypto.Pake, out wan24.Crypto.PakeSignup, out byte[], byte[]?, in System.TimeSpan?, in System.TimeSpan?, in string?, in wan24.Crypto.Pake.PayloadFactory_Delegate?)
+  fullName.vb: wan24.Crypto.FastPakeAuthClient.New(wan24.Crypto.Pake, wan24.Crypto.PakeSignup, Byte(), Byte(), System.TimeSpan?, System.TimeSpan?, String, wan24.Crypto.Pake.PayloadFactory_Delegate)
+  nameWithType: FastPakeAuthClient.FastPakeAuthClient(in Pake, out PakeSignup, out byte[], byte[]?, in TimeSpan?, in TimeSpan?, in string?, in Pake.PayloadFactory_Delegate?)
+  nameWithType.vb: FastPakeAuthClient.New(Pake, PakeSignup, Byte(), Byte(), TimeSpan?, TimeSpan?, String, Pake.PayloadFactory_Delegate)
 - uid: wan24.Crypto.FastPakeAuthClient.#ctor*
   name: FastPakeAuthClient
   href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient__ctor_
@@ -16952,15 +17030,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.FastPakeAuthClient.AuthCount
   nameWithType: FastPakeAuthClient.AuthCount
-- uid: wan24.Crypto.FastPakeAuthClient.CreateAuth(System.Byte[],System.Boolean@)
-  name: CreateAuth(byte[]?, in bool)
-  href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient_CreateAuth_System_Byte___System_Boolean__
-  commentId: M:wan24.Crypto.FastPakeAuthClient.CreateAuth(System.Byte[],System.Boolean@)
-  name.vb: CreateAuth(Byte(), Boolean)
-  fullName: wan24.Crypto.FastPakeAuthClient.CreateAuth(byte[]?, in bool)
-  fullName.vb: wan24.Crypto.FastPakeAuthClient.CreateAuth(Byte(), Boolean)
-  nameWithType: FastPakeAuthClient.CreateAuth(byte[]?, in bool)
-  nameWithType.vb: FastPakeAuthClient.CreateAuth(Byte(), Boolean)
+- uid: wan24.Crypto.FastPakeAuthClient.CreateAuth(System.Byte[],System.Boolean@,wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name: CreateAuth(byte[]?, in bool, in PayloadFactory_Delegate?)
+  href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient_CreateAuth_System_Byte___System_Boolean__wan24_Crypto_Pake_PayloadFactory_Delegate__
+  commentId: M:wan24.Crypto.FastPakeAuthClient.CreateAuth(System.Byte[],System.Boolean@,wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name.vb: CreateAuth(Byte(), Boolean, PayloadFactory_Delegate)
+  fullName: wan24.Crypto.FastPakeAuthClient.CreateAuth(byte[]?, in bool, in wan24.Crypto.Pake.PayloadFactory_Delegate?)
+  fullName.vb: wan24.Crypto.FastPakeAuthClient.CreateAuth(Byte(), Boolean, wan24.Crypto.Pake.PayloadFactory_Delegate)
+  nameWithType: FastPakeAuthClient.CreateAuth(byte[]?, in bool, in Pake.PayloadFactory_Delegate?)
+  nameWithType.vb: FastPakeAuthClient.CreateAuth(Byte(), Boolean, Pake.PayloadFactory_Delegate)
 - uid: wan24.Crypto.FastPakeAuthClient.CreateAuth*
   name: CreateAuth
   href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient_CreateAuth_
@@ -16968,15 +17046,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.FastPakeAuthClient.CreateAuth
   nameWithType: FastPakeAuthClient.CreateAuth
-- uid: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(System.Byte[],System.Boolean)
-  name: CreateAuthAsync(byte[]?, bool)
-  href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient_CreateAuthAsync_System_Byte___System_Boolean_
-  commentId: M:wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(System.Byte[],System.Boolean)
-  name.vb: CreateAuthAsync(Byte(), Boolean)
-  fullName: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(byte[]?, bool)
-  fullName.vb: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(Byte(), Boolean)
-  nameWithType: FastPakeAuthClient.CreateAuthAsync(byte[]?, bool)
-  nameWithType.vb: FastPakeAuthClient.CreateAuthAsync(Byte(), Boolean)
+- uid: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(System.Byte[],System.Boolean,wan24.Crypto.Pake.PayloadFactory_Delegate)
+  name: CreateAuthAsync(byte[]?, bool, PayloadFactory_Delegate?)
+  href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient_CreateAuthAsync_System_Byte___System_Boolean_wan24_Crypto_Pake_PayloadFactory_Delegate_
+  commentId: M:wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(System.Byte[],System.Boolean,wan24.Crypto.Pake.PayloadFactory_Delegate)
+  name.vb: CreateAuthAsync(Byte(), Boolean, PayloadFactory_Delegate)
+  fullName: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(byte[]?, bool, wan24.Crypto.Pake.PayloadFactory_Delegate?)
+  fullName.vb: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync(Byte(), Boolean, wan24.Crypto.Pake.PayloadFactory_Delegate)
+  nameWithType: FastPakeAuthClient.CreateAuthAsync(byte[]?, bool, Pake.PayloadFactory_Delegate?)
+  nameWithType.vb: FastPakeAuthClient.CreateAuthAsync(Byte(), Boolean, Pake.PayloadFactory_Delegate)
 - uid: wan24.Crypto.FastPakeAuthClient.CreateAuthAsync*
   name: CreateAuthAsync
   href: api/wan24.Crypto.FastPakeAuthClient.html#wan24_Crypto_FastPakeAuthClient_CreateAuthAsync_
@@ -17119,24 +17197,24 @@ references:
   fullName.vb: wan24.Crypto.FastPakeAuthServer.New(wan24.Crypto.IPakeRecord, Byte(), Byte(), Byte(), System.TimeSpan?, System.TimeSpan?, wan24.Crypto.CryptoOptions, wan24.Crypto.CryptoOptions, String)
   nameWithType: FastPakeAuthServer.FastPakeAuthServer(in IPakeRecord, in byte[], in byte[], in byte[], in TimeSpan?, in TimeSpan?, in CryptoOptions?, in CryptoOptions?, in string?)
   nameWithType.vb: FastPakeAuthServer.New(IPakeRecord, Byte(), Byte(), Byte(), TimeSpan?, TimeSpan?, CryptoOptions, CryptoOptions, String)
-- uid: wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeAuth@,System.Byte[]@,System.Byte[]@,System.Boolean@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)
-  name: FastPakeAuthServer(in Pake, in PakeAuth, out byte[], out byte[], in bool, in TimeSpan?, in TimeSpan?, in string?)
-  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeAuth__System_Byte____System_Byte____System_Boolean__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__
-  commentId: M:wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeAuth@,System.Byte[]@,System.Byte[]@,System.Boolean@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)
-  name.vb: New(Pake, PakeAuth, Byte(), Byte(), Boolean, TimeSpan?, TimeSpan?, String)
-  fullName: wan24.Crypto.FastPakeAuthServer.FastPakeAuthServer(in wan24.Crypto.Pake, in wan24.Crypto.PakeAuth, out byte[], out byte[], in bool, in System.TimeSpan?, in System.TimeSpan?, in string?)
-  fullName.vb: wan24.Crypto.FastPakeAuthServer.New(wan24.Crypto.Pake, wan24.Crypto.PakeAuth, Byte(), Byte(), Boolean, System.TimeSpan?, System.TimeSpan?, String)
-  nameWithType: FastPakeAuthServer.FastPakeAuthServer(in Pake, in PakeAuth, out byte[], out byte[], in bool, in TimeSpan?, in TimeSpan?, in string?)
-  nameWithType.vb: FastPakeAuthServer.New(Pake, PakeAuth, Byte(), Byte(), Boolean, TimeSpan?, TimeSpan?, String)
-- uid: wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.PakeSignup@,wan24.Crypto.PakeRecord@,System.Byte[]@,System.Byte[]@,wan24.Crypto.Pake@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)
-  name: FastPakeAuthServer(in PakeSignup, out PakeRecord, out byte[], out byte[], in Pake?, in TimeSpan?, in TimeSpan?, in string?)
-  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_PakeSignup__wan24_Crypto_PakeRecord__System_Byte____System_Byte____wan24_Crypto_Pake__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__
-  commentId: M:wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.PakeSignup@,wan24.Crypto.PakeRecord@,System.Byte[]@,System.Byte[]@,wan24.Crypto.Pake@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@)
-  name.vb: New(PakeSignup, PakeRecord, Byte(), Byte(), Pake, TimeSpan?, TimeSpan?, String)
-  fullName: wan24.Crypto.FastPakeAuthServer.FastPakeAuthServer(in wan24.Crypto.PakeSignup, out wan24.Crypto.PakeRecord, out byte[], out byte[], in wan24.Crypto.Pake?, in System.TimeSpan?, in System.TimeSpan?, in string?)
-  fullName.vb: wan24.Crypto.FastPakeAuthServer.New(wan24.Crypto.PakeSignup, wan24.Crypto.PakeRecord, Byte(), Byte(), wan24.Crypto.Pake, System.TimeSpan?, System.TimeSpan?, String)
-  nameWithType: FastPakeAuthServer.FastPakeAuthServer(in PakeSignup, out PakeRecord, out byte[], out byte[], in Pake?, in TimeSpan?, in TimeSpan?, in string?)
-  nameWithType.vb: FastPakeAuthServer.New(PakeSignup, PakeRecord, Byte(), Byte(), Pake, TimeSpan?, TimeSpan?, String)
+- uid: wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeAuth@,System.Byte[]@,System.Byte[]@,System.Boolean@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name: FastPakeAuthServer(in Pake, in PakeAuth, out byte[], out byte[], in bool, in TimeSpan?, in TimeSpan?, in string?, in PayloadProcessor_Delegate?)
+  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_Pake__wan24_Crypto_PakeAuth__System_Byte____System_Byte____System_Boolean__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__wan24_Crypto_Pake_PayloadProcessor_Delegate__
+  commentId: M:wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.Pake@,wan24.Crypto.PakeAuth@,System.Byte[]@,System.Byte[]@,System.Boolean@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name.vb: New(Pake, PakeAuth, Byte(), Byte(), Boolean, TimeSpan?, TimeSpan?, String, PayloadProcessor_Delegate)
+  fullName: wan24.Crypto.FastPakeAuthServer.FastPakeAuthServer(in wan24.Crypto.Pake, in wan24.Crypto.PakeAuth, out byte[], out byte[], in bool, in System.TimeSpan?, in System.TimeSpan?, in string?, in wan24.Crypto.Pake.PayloadProcessor_Delegate?)
+  fullName.vb: wan24.Crypto.FastPakeAuthServer.New(wan24.Crypto.Pake, wan24.Crypto.PakeAuth, Byte(), Byte(), Boolean, System.TimeSpan?, System.TimeSpan?, String, wan24.Crypto.Pake.PayloadProcessor_Delegate)
+  nameWithType: FastPakeAuthServer.FastPakeAuthServer(in Pake, in PakeAuth, out byte[], out byte[], in bool, in TimeSpan?, in TimeSpan?, in string?, in Pake.PayloadProcessor_Delegate?)
+  nameWithType.vb: FastPakeAuthServer.New(Pake, PakeAuth, Byte(), Byte(), Boolean, TimeSpan?, TimeSpan?, String, Pake.PayloadProcessor_Delegate)
+- uid: wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.PakeSignup@,wan24.Crypto.PakeRecord@,System.Byte[]@,System.Byte[]@,wan24.Crypto.Pake@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name: FastPakeAuthServer(in PakeSignup, out PakeRecord, out byte[], out byte[], in Pake?, in TimeSpan?, in TimeSpan?, in string?, in PayloadProcessor_Delegate?)
+  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer__ctor_wan24_Crypto_PakeSignup__wan24_Crypto_PakeRecord__System_Byte____System_Byte____wan24_Crypto_Pake__System_Nullable_System_TimeSpan___System_Nullable_System_TimeSpan___System_String__wan24_Crypto_Pake_PayloadProcessor_Delegate__
+  commentId: M:wan24.Crypto.FastPakeAuthServer.#ctor(wan24.Crypto.PakeSignup@,wan24.Crypto.PakeRecord@,System.Byte[]@,System.Byte[]@,wan24.Crypto.Pake@,System.Nullable{System.TimeSpan}@,System.Nullable{System.TimeSpan}@,System.String@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name.vb: New(PakeSignup, PakeRecord, Byte(), Byte(), Pake, TimeSpan?, TimeSpan?, String, PayloadProcessor_Delegate)
+  fullName: wan24.Crypto.FastPakeAuthServer.FastPakeAuthServer(in wan24.Crypto.PakeSignup, out wan24.Crypto.PakeRecord, out byte[], out byte[], in wan24.Crypto.Pake?, in System.TimeSpan?, in System.TimeSpan?, in string?, in wan24.Crypto.Pake.PayloadProcessor_Delegate?)
+  fullName.vb: wan24.Crypto.FastPakeAuthServer.New(wan24.Crypto.PakeSignup, wan24.Crypto.PakeRecord, Byte(), Byte(), wan24.Crypto.Pake, System.TimeSpan?, System.TimeSpan?, String, wan24.Crypto.Pake.PayloadProcessor_Delegate)
+  nameWithType: FastPakeAuthServer.FastPakeAuthServer(in PakeSignup, out PakeRecord, out byte[], out byte[], in Pake?, in TimeSpan?, in TimeSpan?, in string?, in Pake.PayloadProcessor_Delegate?)
+  nameWithType.vb: FastPakeAuthServer.New(PakeSignup, PakeRecord, Byte(), Byte(), Pake, TimeSpan?, TimeSpan?, String, Pake.PayloadProcessor_Delegate)
 - uid: wan24.Crypto.FastPakeAuthServer.#ctor*
   name: FastPakeAuthServer
   href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer__ctor_
@@ -17241,15 +17319,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.FastPakeAuthServer.GUID
   nameWithType: FastPakeAuthServer.GUID
-- uid: wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@)
-  name: HandleAuth(in IPakeRequest, in bool)
-  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer_HandleAuth_wan24_Crypto_IPakeRequest__System_Boolean__
-  commentId: M:wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@)
-  name.vb: HandleAuth(IPakeRequest, Boolean)
-  fullName: wan24.Crypto.FastPakeAuthServer.HandleAuth(in wan24.Crypto.IPakeRequest, in bool)
-  fullName.vb: wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest, Boolean)
-  nameWithType: FastPakeAuthServer.HandleAuth(in IPakeRequest, in bool)
-  nameWithType.vb: FastPakeAuthServer.HandleAuth(IPakeRequest, Boolean)
+- uid: wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name: HandleAuth(in IPakeRequest, in bool, in PayloadProcessor_Delegate?)
+  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer_HandleAuth_wan24_Crypto_IPakeRequest__System_Boolean__wan24_Crypto_Pake_PayloadProcessor_Delegate__
+  commentId: M:wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name.vb: HandleAuth(IPakeRequest, Boolean, PayloadProcessor_Delegate)
+  fullName: wan24.Crypto.FastPakeAuthServer.HandleAuth(in wan24.Crypto.IPakeRequest, in bool, in wan24.Crypto.Pake.PayloadProcessor_Delegate?)
+  fullName.vb: wan24.Crypto.FastPakeAuthServer.HandleAuth(wan24.Crypto.IPakeRequest, Boolean, wan24.Crypto.Pake.PayloadProcessor_Delegate)
+  nameWithType: FastPakeAuthServer.HandleAuth(in IPakeRequest, in bool, in Pake.PayloadProcessor_Delegate?)
+  nameWithType.vb: FastPakeAuthServer.HandleAuth(IPakeRequest, Boolean, Pake.PayloadProcessor_Delegate)
 - uid: wan24.Crypto.FastPakeAuthServer.HandleAuth*
   name: HandleAuth
   href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer_HandleAuth_
@@ -17257,15 +17335,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.FastPakeAuthServer.HandleAuth
   nameWithType: FastPakeAuthServer.HandleAuth
-- uid: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest,System.Boolean,System.Threading.CancellationToken)
-  name: HandleAuthAsync(IPakeRequest, bool, CancellationToken)
-  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer_HandleAuthAsync_wan24_Crypto_IPakeRequest_System_Boolean_System_Threading_CancellationToken_
-  commentId: M:wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest,System.Boolean,System.Threading.CancellationToken)
-  name.vb: HandleAuthAsync(IPakeRequest, Boolean, CancellationToken)
-  fullName: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest, bool, System.Threading.CancellationToken)
-  fullName.vb: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest, Boolean, System.Threading.CancellationToken)
-  nameWithType: FastPakeAuthServer.HandleAuthAsync(IPakeRequest, bool, CancellationToken)
-  nameWithType.vb: FastPakeAuthServer.HandleAuthAsync(IPakeRequest, Boolean, CancellationToken)
+- uid: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest,System.Boolean,wan24.Crypto.Pake.PayloadProcessor_Delegate,System.Threading.CancellationToken)
+  name: HandleAuthAsync(IPakeRequest, bool, PayloadProcessor_Delegate?, CancellationToken)
+  href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer_HandleAuthAsync_wan24_Crypto_IPakeRequest_System_Boolean_wan24_Crypto_Pake_PayloadProcessor_Delegate_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest,System.Boolean,wan24.Crypto.Pake.PayloadProcessor_Delegate,System.Threading.CancellationToken)
+  name.vb: HandleAuthAsync(IPakeRequest, Boolean, PayloadProcessor_Delegate, CancellationToken)
+  fullName: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest, bool, wan24.Crypto.Pake.PayloadProcessor_Delegate?, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync(wan24.Crypto.IPakeRequest, Boolean, wan24.Crypto.Pake.PayloadProcessor_Delegate, System.Threading.CancellationToken)
+  nameWithType: FastPakeAuthServer.HandleAuthAsync(IPakeRequest, bool, Pake.PayloadProcessor_Delegate?, CancellationToken)
+  nameWithType.vb: FastPakeAuthServer.HandleAuthAsync(IPakeRequest, Boolean, Pake.PayloadProcessor_Delegate, CancellationToken)
 - uid: wan24.Crypto.FastPakeAuthServer.HandleAuthAsync*
   name: HandleAuthAsync
   href: api/wan24.Crypto.FastPakeAuthServer.html#wan24_Crypto_FastPakeAuthServer_HandleAuthAsync_
@@ -23861,15 +23939,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Pake.ClearSessionKey
   nameWithType: Pake.ClearSessionKey
-- uid: wan24.Crypto.Pake.CreateAuth(System.Byte[],System.Boolean@)
-  name: CreateAuth(byte[]?, in bool)
-  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateAuth_System_Byte___System_Boolean__
-  commentId: M:wan24.Crypto.Pake.CreateAuth(System.Byte[],System.Boolean@)
-  name.vb: CreateAuth(Byte(), Boolean)
-  fullName: wan24.Crypto.Pake.CreateAuth(byte[]?, in bool)
-  fullName.vb: wan24.Crypto.Pake.CreateAuth(Byte(), Boolean)
-  nameWithType: Pake.CreateAuth(byte[]?, in bool)
-  nameWithType.vb: Pake.CreateAuth(Byte(), Boolean)
+- uid: wan24.Crypto.Pake.CreateAuth(System.Byte[],System.Boolean@,wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name: CreateAuth(byte[]?, in bool, in PayloadFactory_Delegate?)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateAuth_System_Byte___System_Boolean__wan24_Crypto_Pake_PayloadFactory_Delegate__
+  commentId: M:wan24.Crypto.Pake.CreateAuth(System.Byte[],System.Boolean@,wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name.vb: CreateAuth(Byte(), Boolean, PayloadFactory_Delegate)
+  fullName: wan24.Crypto.Pake.CreateAuth(byte[]?, in bool, in wan24.Crypto.Pake.PayloadFactory_Delegate?)
+  fullName.vb: wan24.Crypto.Pake.CreateAuth(Byte(), Boolean, wan24.Crypto.Pake.PayloadFactory_Delegate)
+  nameWithType: Pake.CreateAuth(byte[]?, in bool, in Pake.PayloadFactory_Delegate?)
+  nameWithType.vb: Pake.CreateAuth(Byte(), Boolean, Pake.PayloadFactory_Delegate)
 - uid: wan24.Crypto.Pake.CreateAuth*
   name: CreateAuth
   href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateAuth_
@@ -23877,15 +23955,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Pake.CreateAuth
   nameWithType: Pake.CreateAuth
-- uid: wan24.Crypto.Pake.CreateSignup(System.Byte[]@)
-  name: CreateSignup(in byte[]?)
-  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateSignup_System_Byte____
-  commentId: M:wan24.Crypto.Pake.CreateSignup(System.Byte[]@)
-  name.vb: CreateSignup(Byte())
-  fullName: wan24.Crypto.Pake.CreateSignup(in byte[]?)
-  fullName.vb: wan24.Crypto.Pake.CreateSignup(Byte())
-  nameWithType: Pake.CreateSignup(in byte[]?)
-  nameWithType.vb: Pake.CreateSignup(Byte())
+- uid: wan24.Crypto.Pake.CreateSignup(System.Byte[],wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name: CreateSignup(byte[]?, in PayloadFactory_Delegate?)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateSignup_System_Byte___wan24_Crypto_Pake_PayloadFactory_Delegate__
+  commentId: M:wan24.Crypto.Pake.CreateSignup(System.Byte[],wan24.Crypto.Pake.PayloadFactory_Delegate@)
+  name.vb: CreateSignup(Byte(), PayloadFactory_Delegate)
+  fullName: wan24.Crypto.Pake.CreateSignup(byte[]?, in wan24.Crypto.Pake.PayloadFactory_Delegate?)
+  fullName.vb: wan24.Crypto.Pake.CreateSignup(Byte(), wan24.Crypto.Pake.PayloadFactory_Delegate)
+  nameWithType: Pake.CreateSignup(byte[]?, in Pake.PayloadFactory_Delegate?)
+  nameWithType.vb: Pake.CreateSignup(Byte(), Pake.PayloadFactory_Delegate)
 - uid: wan24.Crypto.Pake.CreateSignup*
   name: CreateSignup
   href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_CreateSignup_
@@ -23973,15 +24051,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Pake.Dispose
   nameWithType: Pake.Dispose
-- uid: wan24.Crypto.Pake.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@,System.Boolean@)
-  name: HandleAuth(in IPakeRequest, in bool, in bool)
-  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleAuth_wan24_Crypto_IPakeRequest__System_Boolean__System_Boolean__
-  commentId: M:wan24.Crypto.Pake.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@,System.Boolean@)
-  name.vb: HandleAuth(IPakeRequest, Boolean, Boolean)
-  fullName: wan24.Crypto.Pake.HandleAuth(in wan24.Crypto.IPakeRequest, in bool, in bool)
-  fullName.vb: wan24.Crypto.Pake.HandleAuth(wan24.Crypto.IPakeRequest, Boolean, Boolean)
-  nameWithType: Pake.HandleAuth(in IPakeRequest, in bool, in bool)
-  nameWithType.vb: Pake.HandleAuth(IPakeRequest, Boolean, Boolean)
+- uid: wan24.Crypto.Pake.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@,System.Boolean@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name: HandleAuth(in IPakeRequest, in bool, in bool, in PayloadProcessor_Delegate?)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleAuth_wan24_Crypto_IPakeRequest__System_Boolean__System_Boolean__wan24_Crypto_Pake_PayloadProcessor_Delegate__
+  commentId: M:wan24.Crypto.Pake.HandleAuth(wan24.Crypto.IPakeRequest@,System.Boolean@,System.Boolean@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name.vb: HandleAuth(IPakeRequest, Boolean, Boolean, PayloadProcessor_Delegate)
+  fullName: wan24.Crypto.Pake.HandleAuth(in wan24.Crypto.IPakeRequest, in bool, in bool, in wan24.Crypto.Pake.PayloadProcessor_Delegate?)
+  fullName.vb: wan24.Crypto.Pake.HandleAuth(wan24.Crypto.IPakeRequest, Boolean, Boolean, wan24.Crypto.Pake.PayloadProcessor_Delegate)
+  nameWithType: Pake.HandleAuth(in IPakeRequest, in bool, in bool, in Pake.PayloadProcessor_Delegate?)
+  nameWithType.vb: Pake.HandleAuth(IPakeRequest, Boolean, Boolean, Pake.PayloadProcessor_Delegate)
 - uid: wan24.Crypto.Pake.HandleAuth*
   name: HandleAuth
   href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleAuth_
@@ -23989,15 +24067,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Pake.HandleAuth
   nameWithType: Pake.HandleAuth
-- uid: wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup@)
-  name: HandleSignup(in PakeSignup)
-  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleSignup_wan24_Crypto_PakeSignup__
-  commentId: M:wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup@)
-  name.vb: HandleSignup(PakeSignup)
-  fullName: wan24.Crypto.Pake.HandleSignup(in wan24.Crypto.PakeSignup)
-  fullName.vb: wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup)
-  nameWithType: Pake.HandleSignup(in PakeSignup)
-  nameWithType.vb: Pake.HandleSignup(PakeSignup)
+- uid: wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name: HandleSignup(in PakeSignup, in PayloadProcessor_Delegate?)
+  href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleSignup_wan24_Crypto_PakeSignup__wan24_Crypto_Pake_PayloadProcessor_Delegate__
+  commentId: M:wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup@,wan24.Crypto.Pake.PayloadProcessor_Delegate@)
+  name.vb: HandleSignup(PakeSignup, PayloadProcessor_Delegate)
+  fullName: wan24.Crypto.Pake.HandleSignup(in wan24.Crypto.PakeSignup, in wan24.Crypto.Pake.PayloadProcessor_Delegate?)
+  fullName.vb: wan24.Crypto.Pake.HandleSignup(wan24.Crypto.PakeSignup, wan24.Crypto.Pake.PayloadProcessor_Delegate)
+  nameWithType: Pake.HandleSignup(in PakeSignup, in Pake.PayloadProcessor_Delegate?)
+  nameWithType.vb: Pake.HandleSignup(PakeSignup, Pake.PayloadProcessor_Delegate)
 - uid: wan24.Crypto.Pake.HandleSignup*
   name: HandleSignup
   href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_HandleSignup_
@@ -24158,6 +24236,18 @@ references:
   commentId: T:wan24.Crypto.Pake.PakeServer_Delegate
   fullName: wan24.Crypto.Pake.PakeServer_Delegate
   nameWithType: Pake.PakeServer_Delegate
+- uid: wan24.Crypto.Pake.PayloadFactory_Delegate
+  name: Pake.PayloadFactory_Delegate
+  href: api/wan24.Crypto.Pake.PayloadFactory_Delegate.html
+  commentId: T:wan24.Crypto.Pake.PayloadFactory_Delegate
+  fullName: wan24.Crypto.Pake.PayloadFactory_Delegate
+  nameWithType: Pake.PayloadFactory_Delegate
+- uid: wan24.Crypto.Pake.PayloadProcessor_Delegate
+  name: Pake.PayloadProcessor_Delegate
+  href: api/wan24.Crypto.Pake.PayloadProcessor_Delegate.html
+  commentId: T:wan24.Crypto.Pake.PayloadProcessor_Delegate
+  fullName: wan24.Crypto.Pake.PayloadProcessor_Delegate
+  nameWithType: Pake.PayloadProcessor_Delegate
 - uid: wan24.Crypto.Pake.SessionKey
   name: SessionKey
   href: api/wan24.Crypto.Pake.html#wan24_Crypto_Pake_SessionKey
