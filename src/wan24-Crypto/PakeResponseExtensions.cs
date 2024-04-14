@@ -42,7 +42,7 @@ namespace wan24.Crypto
         {
             response.EnsureSuccessStatusCode();
             if (!(response.Content.Headers.ContentType?.MediaType?.Equals(Constants.PAKE_RESPONSE_MIME_TYPE, StringComparison.OrdinalIgnoreCase) ?? false))
-                throw new InvalidDataException("Invalid content type (PAKE response expected)");
+                throw new InvalidDataException($"Invalid content type \"{response.Content.Headers.ContentType?.MediaType}\" (PAKE response expected)");
             Stream body = await response.Content.ReadAsStreamAsync(cancellationToken).DynamicContext();
             await using(body.DynamicContext())
                 return await PakeResponse.CreateAsync<T>(body, key, options, cancellationToken).DynamicContext();

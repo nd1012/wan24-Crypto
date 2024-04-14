@@ -67,6 +67,7 @@ namespace wan24.Crypto
         {
             options = options?.GetCopy() ?? EncryptionHelper.GetDefaultOptions();
             options.LeaveOpen = false;
+            options.HeaderProcessed = false;
             DecryptionStreams decipher = null!;
             try
             {

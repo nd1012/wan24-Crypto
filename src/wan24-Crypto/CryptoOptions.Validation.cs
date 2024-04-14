@@ -23,7 +23,7 @@ namespace wan24.Crypto
         {
             CryptoFlags requirements = Requirements,
                 flags = Flags.OnlyFlags() & ~CryptoFlags.Compressed;
-            if ((flags & requirements) != requirements) throw new CryptographicException("Requirements not met");
+            if ((flags & requirements) != requirements) throw new CryptographicException($"Requirements not met ({flags}/{requirements})");
         }
 
         /// <summary>

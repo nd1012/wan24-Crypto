@@ -43,7 +43,11 @@ namespace wan24.Crypto
     /// PAKE http request factory
     /// </summary>
     /// <typeparam name="T">Pake request DTO type</typeparam>
-    public class PakeHttpRequestFactory<T> : DisposableBase where T : PakeRequest.PakeRequestDto
+    /// <remarks>
+    /// Constructor
+    /// </remarks>
+    /// <param name="client">PAKE client (will be disposed!)</param>
+    public class PakeHttpRequestFactory<T>(in FastPakeAuthClient client) : DisposableBase() where T : PakeRequest.PakeRequestDto
     {
         /// <summary>
         /// PAKE content type
@@ -53,7 +57,7 @@ namespace wan24.Crypto
         /// <summary>
         /// PAKE client
         /// </summary>
-        protected readonly FastPakeAuthClient Client;
+        protected readonly FastPakeAuthClient Client = client;
 
         /// <summary>
         /// Constructor
@@ -67,12 +71,6 @@ namespace wan24.Crypto
         /// </summary>
         /// <param name="keySuite">Key suite (will be disposed!)</param>
         public PakeHttpRequestFactory(in ISymmetricKeySuite keySuite) : this(new FastPakeAuthClient(keySuite)) { }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="client">PAKE client (will be disposed!)</param>
-        public PakeHttpRequestFactory(in FastPakeAuthClient client) : base() => Client = client;
 
         /// <summary>
         /// Encryption options
@@ -108,14 +106,14 @@ namespace wan24.Crypto
                 bodyStream.WriteSerializerVersion()
                     .WriteSerialized(auth);
                 auth.Dispose();
-                using (MemoryPoolStream ms = new())
+                using (PooledTempStream temp = new())
                 {
-                    ms.WriteSerialized(CreateDto(method, path, headers, body, pakeResponse));
-                    ms.Position = 0;
-                    using CombinedStream raw = new(resetPosition: false, leaveOpen: true, body is null ? [ms] : [ms, body]);
+                    temp.WriteSerialized(CreateDto(method, path, headers, body, pakeResponse));
+                    body?.CopyTo(temp);
+                    temp.Position = 0;
                     CryptoOptions options = Options.GetCopy();
                     options.LeaveOpen = true;
-                    EncryptionHelper.Encrypt(raw, bodyStream, options);
+                    EncryptionHelper.Encrypt(temp, bodyStream, key, options);
                 }
                 bodyStream.Position = 0;
                 request = new(HttpMethod.Post, uri)
@@ -166,17 +164,17 @@ namespace wan24.Crypto
                 await bodyStream.WriteSerializerVersionAsync(cancellationToken).DynamicContext();
                 await bodyStream.WriteSerializedAsync(auth, cancellationToken).DynamicContext();
                 auth.Dispose();
-                using (MemoryPoolStream ms = new())
+                using (PooledTempStream temp = new())
                 {
-                    await ms.WriteSerializedAsync(CreateDto(method, path, headers, body, pakeResponse), cancellationToken).DynamicContext();
-                    ms.Position = 0;
-                    using CombinedStream raw = new(resetPosition: false, leaveOpen: true, body is null ? [ms] : [ms, body]);
+                    await temp.WriteSerializedAsync(CreateDto(method, path, headers, body, pakeResponse), cancellationToken).DynamicContext();
+                    if (body is not null) await body.CopyToAsync(temp, cancellationToken).DynamicContext();
+                    temp.Position = 0;
                     CryptoOptions options = Options.GetCopy();
                     options.LeaveOpen = true;
-                    await EncryptionHelper.EncryptAsync(raw, bodyStream, options, cancellationToken).DynamicContext();
+                    await EncryptionHelper.EncryptAsync(temp, bodyStream, key, options, cancellationToken: cancellationToken).DynamicContext();
                 }
                 bodyStream.Position = 0;
-                request = new(method, uri)
+                request = new(HttpMethod.Post, uri)
                 {
                     Content = new StreamContent(bodyStream)
                 };
