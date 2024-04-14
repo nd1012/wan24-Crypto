@@ -41,14 +41,7 @@ namespace wan24.Crypto
                 {
                     if (Pake.Identity is null) throw CryptographicException.From(new InvalidOperationException("Unknown identity"));
                     randomMac = auth.Random.Mac(signatureKey, Pake.Options);
-                    try
-                    {
-                        payload = Pake.DecryptPayload(auth.Payload, randomMac);
-                    }
-                    finally
-                    {
-                        randomMac.Clear();
-                    }
+                    payload = Pake.DecryptPayload(auth.Payload, randomMac);
                 }
                 // Run pre-actions
                 Pake.PakeServerEventArgs e = new(auth, payload);
@@ -145,14 +138,7 @@ namespace wan24.Crypto
                 {
                     if (Pake.Identity is null) throw await CryptographicException.FromAsync(new InvalidOperationException("Unknown identity")).DynamicContext();
                     randomMac = auth.Random.Mac(signatureKey, Pake.Options);
-                    try
-                    {
-                        payload = Pake.DecryptPayload(auth.Payload, randomMac);
-                    }
-                    finally
-                    {
-                        randomMac.Clear();
-                    }
+                    payload = Pake.DecryptPayload(auth.Payload, randomMac);
                 }
                 // Run pre-actions
                 Pake.PakeServerEventArgs e = new(auth, payload);

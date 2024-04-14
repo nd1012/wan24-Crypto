@@ -671,7 +671,7 @@ namespace wan24.Crypto
                     if (!rawData.CanWrite || (temp.RequireMac && !cipherData.CanSeek) || !cipherData.CanRead)
                     {
                         if (throwOnError)
-                            throw new ArgumentException($"Writable raw data and read{(temp.RequireMac ? "- and seek" : string.Empty)}able raw data stream required", nameof(cipherData));
+                            throw new ArgumentException($"Writable raw data and read{(temp.RequireMac ? "- and seek" : string.Empty)}able cipher data stream required", nameof(cipherData));
                         return false;
                     }
                 }
