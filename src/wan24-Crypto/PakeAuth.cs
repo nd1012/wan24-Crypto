@@ -70,14 +70,14 @@ namespace wan24.Crypto
         }
 
         /// <inheritdoc/>
-        protected override async Task DisposeCore()
+        protected override Task DisposeCore()
         {
-            await base.DisposeCore().DynamicContext();
             Identifier.Clear();
             Key.Clear();
             Signature.Clear();
             Random.Clear();
             Payload.Clear();
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc/>
