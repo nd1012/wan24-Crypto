@@ -14,7 +14,8 @@ namespace wan24.Crypto
     /// </remarks>
     /// <param name="response">PAKE response message</param>
     /// <param name="body">Response body stream (will be disposed!)</param>
-    public sealed class PakeResponse(in PakeResponse.PakeResponseDto response, in DecryptionStreams body) : DisposableBase()
+    /// <param name="responseStream">Response stream (will be disposed)</param>
+    public sealed class PakeResponse(in PakeResponse.PakeResponseDto response, in DecryptionStreams body, in Stream responseStream) : DisposableBase()
     {
         /// <summary>
         /// PAKE response message
@@ -26,11 +27,24 @@ namespace wan24.Crypto
         /// </summary>
         public DecryptionStreams Body { get; } = body;
 
-        /// <inheritdoc/>
-        protected override void Dispose(bool disposing) => Body.Dispose();
+        /// <summary>
+        /// Response stream
+        /// </summary>
+        public Stream ResponseStream { get; } = responseStream;
 
         /// <inheritdoc/>
-        protected override async Task DisposeCore() => await Body.DisposeAsync().DynamicContext();
+        protected override void Dispose(bool disposing)
+        {
+            Body.Dispose();
+            ResponseStream.Dispose();
+        }
+
+        /// <inheritdoc/>
+        protected override async Task DisposeCore()
+        {
+            await Body.DisposeAsync().DynamicContext();
+            await ResponseStream.DisposeAsync().DynamicContext();
+        }
 
         /// <summary>
         /// Create a PAKE response from a stream
@@ -66,7 +80,7 @@ namespace wan24.Crypto
             where T : PakeResponseDto
         {
             options = options?.GetCopy() ?? EncryptionHelper.GetDefaultOptions();
-            options.LeaveOpen = false;
+            options.LeaveOpen = true;
             options.HeaderProcessed = false;
             DecryptionStreams decipher = null!;
             try
@@ -78,7 +92,8 @@ namespace wan24.Crypto
                         await decipher.CryptoStream.ReadSerializerVersionAsync(cancellationToken).DynamicContext(),
                         cancellationToken
                         ).DynamicContext(),
-                    decipher
+                    decipher,
+                    stream
                     );
             }
             catch
