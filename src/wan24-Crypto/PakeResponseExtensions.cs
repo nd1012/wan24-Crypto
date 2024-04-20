@@ -41,11 +41,10 @@ namespace wan24.Crypto
             where T : PakeResponse.PakeResponseDto
         {
             response.EnsureSuccessStatusCode();
-            if (!(response.Content.Headers.ContentType?.MediaType?.Equals(Constants.PAKE_RESPONSE_MIME_TYPE, StringComparison.OrdinalIgnoreCase) ?? false))
+            if (!(response.Content.Headers.ContentType?.MediaType?.IsLike(Constants.PAKE_RESPONSE_MIME_TYPE) ?? false))
                 throw new InvalidDataException($"Invalid content type \"{response.Content.Headers.ContentType?.MediaType}\" (PAKE response expected)");
-            Stream body = await response.Content.ReadAsStreamAsync(cancellationToken).DynamicContext();
-            await using(body.DynamicContext())
-                return await PakeResponse.CreateAsync<T>(body, key, options, cancellationToken).DynamicContext();
+            return await PakeResponse.CreateAsync<T>(await response.Content.ReadAsStreamAsync(cancellationToken).DynamicContext(), key, options, cancellationToken)
+                .DynamicContext();
         }
     }
 }
