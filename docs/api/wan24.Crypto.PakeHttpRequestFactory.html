@@ -114,6 +114,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
+    <div><a class="xref" href="wan24.Crypto.IPakeHttpRequestFactory.html">IPakeHttpRequestFactory</a></div>
     <div><span class="xref">IDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
@@ -121,13 +122,22 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_Options">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.Options</a>
+      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_Collections_Generic_Dictionary_System_String_System_String___System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.CreateRequest(in Uri, in HttpMethod, in string, in Dictionary&lt;string, string&gt;, in Dictionary&lt;string, string[]&gt;, in bool)</a>
     </div>
     <div>
-      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_IO_Stream__System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.CreateRequest(in Uri, in HttpMethod, in string, in Stream, in Dictionary&lt;string, string[]&gt;, in bool)</a>
+      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_Net_Http_HttpContent__System_Boolean__">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.CreateRequest(in Uri, in HttpMethod, in string, in HttpContent, in bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequestAsync_System_Uri_System_Net_Http_HttpMethod_System_String_System_Net_Http_HttpContent_System_Boolean_System_Threading_CancellationToken_">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.CreateRequestAsync(Uri, HttpMethod, string, HttpContent, bool, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_IO_Stream__System_Boolean__System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__System_Threading_Tasks_TaskScheduler__System_Threading_CancellationToken__">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.CreateRequest(in Uri, in HttpMethod, in string, in Stream, in bool, in Dictionary&lt;string, string[]&gt;, in bool, in TaskScheduler, in CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequestAsync_System_Uri_System_Net_Http_HttpMethod_System_String_System_IO_Stream_System_Collections_Generic_Dictionary_System_String_System_String____System_Boolean_System_Threading_CancellationToken_">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.CreateRequestAsync(Uri, HttpMethod, string, Stream, Dictionary&lt;string, string[]&gt;, bool, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_Options">PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;.Options</a>
     </div>
     <div>
       <span class="xref">DisposableBase.RegisterForDispose&lt;T&gt;(in T)</span>
@@ -176,7 +186,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_PakeHttpRequestFactory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PakeHttpRequestFactory : PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PakeHttpRequestFactory : PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;, IWillDispose, IPakeHttpRequestFactory, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -185,7 +195,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeHttpRequestFactory__ctor_System_Byte____System_Byte____.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeHttpRequestFactory.%23ctor(System.Byte%5B%5D%40%2CSystem.Byte%5B%5D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L17">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L15">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeHttpRequestFactory__ctor_" data-uid="wan24.Crypto.PakeHttpRequestFactory.#ctor*"></a>
   <h4 id="wan24_Crypto_PakeHttpRequestFactory__ctor_System_Byte____System_Byte____" data-uid="wan24.Crypto.PakeHttpRequestFactory.#ctor(System.Byte[]@,System.Byte[]@)">PakeHttpRequestFactory(in byte[], in byte[])</h4>
@@ -225,7 +235,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeHttpRequestFactory__ctor_wan24_Crypto_FastPakeAuthClient__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeHttpRequestFactory.%23ctor(wan24.Crypto.FastPakeAuthClient%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L29">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L27">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeHttpRequestFactory__ctor_" data-uid="wan24.Crypto.PakeHttpRequestFactory.#ctor*"></a>
   <h4 id="wan24_Crypto_PakeHttpRequestFactory__ctor_wan24_Crypto_FastPakeAuthClient__" data-uid="wan24.Crypto.PakeHttpRequestFactory.#ctor(wan24.Crypto.FastPakeAuthClient@)">PakeHttpRequestFactory(in FastPakeAuthClient)</h4>
@@ -259,7 +269,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeHttpRequestFactory__ctor_wan24_Crypto_ISymmetricKeySuite__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeHttpRequestFactory.%23ctor(wan24.Crypto.ISymmetricKeySuite%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L23">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L21">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeHttpRequestFactory__ctor_" data-uid="wan24.Crypto.PakeHttpRequestFactory.#ctor*"></a>
   <h4 id="wan24_Crypto_PakeHttpRequestFactory__ctor_wan24_Crypto_ISymmetricKeySuite__" data-uid="wan24.Crypto.PakeHttpRequestFactory.#ctor(wan24.Crypto.ISymmetricKeySuite@)">PakeHttpRequestFactory(in ISymmetricKeySuite)</h4>
@@ -288,6 +298,39 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeHttpRequestFactory_Instance.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeHttpRequestFactory.Instance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L32">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PakeHttpRequestFactory_Instance_" data-uid="wan24.Crypto.PakeHttpRequestFactory.Instance*"></a>
+  <h4 id="wan24_Crypto_PakeHttpRequestFactory_Instance" data-uid="wan24.Crypto.PakeHttpRequestFactory.Instance">Instance</h4>
+  <div class="markdown level1 summary"><p>Default instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PakeHttpRequestFactory? Instance { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.PakeHttpRequestFactory.html">PakeHttpRequestFactory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -295,7 +338,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeHttpRequestFactory_CreateDto_System_Net_Http_HttpMethod__System_String__System_Collections_Generic_Dictionary_System_String_System_String_____System_IO_Stream__System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeHttpRequestFactory.CreateDto(System.Net.Http.HttpMethod%40%2CSystem.String%40%2CSystem.Collections.Generic.Dictionary%7BSystem.String%2CSystem.String%5B%5D%7D%40%2CSystem.IO.Stream%40%2CSystem.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.cs/#L32">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeHttpRequestFactory.Internals.cs/#L10">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeHttpRequestFactory_CreateDto_" data-uid="wan24.Crypto.PakeHttpRequestFactory.CreateDto*"></a>
   <h4 id="wan24_Crypto_PakeHttpRequestFactory_CreateDto_System_Net_Http_HttpMethod__System_String__System_Collections_Generic_Dictionary_System_String_System_String_____System_IO_Stream__System_Boolean__" data-uid="wan24.Crypto.PakeHttpRequestFactory.CreateDto(System.Net.Http.HttpMethod@,System.String@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.IO.Stream@,System.Boolean@)">CreateDto(in HttpMethod, in string, in Dictionary&lt;string, string[]&gt;?, in Stream?, in bool)</h4>
@@ -368,6 +411,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.IPakeHttpRequestFactory.html">IPakeHttpRequestFactory</a>
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>

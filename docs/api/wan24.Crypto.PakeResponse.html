@@ -175,19 +175,19 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.%23ctor(wan24.Crypto.PakeResponse.PakeResponseDto%40%2Cwan24.Crypto.DecryptionStreams%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__System_IO_Stream__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.%23ctor(wan24.Crypto.PakeResponse.PakeResponseDto%40%2Cwan24.Crypto.DecryptionStreams%40%2CSystem.IO.Stream%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L17">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L18">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse__ctor_" data-uid="wan24.Crypto.PakeResponse.#ctor*"></a>
-  <h4 id="wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__" data-uid="wan24.Crypto.PakeResponse.#ctor(wan24.Crypto.PakeResponse.PakeResponseDto@,wan24.Crypto.DecryptionStreams@)">PakeResponse(in PakeResponseDto, in DecryptionStreams)</h4>
+  <h4 id="wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__System_IO_Stream__" data-uid="wan24.Crypto.PakeResponse.#ctor(wan24.Crypto.PakeResponse.PakeResponseDto@,wan24.Crypto.DecryptionStreams@,System.IO.Stream@)">PakeResponse(in PakeResponseDto, in DecryptionStreams, in Stream)</h4>
   <div class="markdown level1 summary"><p>PAKE http response</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PakeResponse(in PakeResponse.PakeResponseDto response, in DecryptionStreams body)</code></pre>
+    <pre><code class="lang-csharp hljs">public PakeResponse(in PakeResponse.PakeResponseDto response, in DecryptionStreams body, in Stream responseStream)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -211,9 +211,15 @@
         <td><p>Response body stream (will be disposed!)</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td><span class="parametername">responseStream</span></td>
+        <td><p>Response stream (will be disposed)</p>
+</td>
+      </tr>
     </tbody>
   </table>
-  <h5 id="wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams___remarks">Remarks</h5>
+  <h5 id="wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__System_IO_Stream___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Constructor</p>
 </div>
   <h3 id="properties">Properties
@@ -223,7 +229,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_Body.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.Body%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L27">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L28">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse_Body_" data-uid="wan24.Crypto.PakeResponse.Body*"></a>
   <h4 id="wan24_Crypto_PakeResponse_Body" data-uid="wan24.Crypto.PakeResponse.Body">Body</h4>
@@ -254,7 +260,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_Response.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.Response%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L22">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L23">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse_Response_" data-uid="wan24.Crypto.PakeResponse.Response*"></a>
   <h4 id="wan24_Crypto_PakeResponse_Response" data-uid="wan24.Crypto.PakeResponse.Response">Response</h4>
@@ -280,6 +286,37 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_ResponseStream.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.ResponseStream%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L33">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PakeResponse_ResponseStream_" data-uid="wan24.Crypto.PakeResponse.ResponseStream*"></a>
+  <h4 id="wan24_Crypto_PakeResponse_ResponseStream" data-uid="wan24.Crypto.PakeResponse.ResponseStream">ResponseStream</h4>
+  <div class="markdown level1 summary"><p>Response stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Stream ResponseStream { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -287,7 +324,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_CreateAsync_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.CreateAsync(System.IO.Stream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L43">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L57">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse_CreateAsync_" data-uid="wan24.Crypto.PakeResponse.CreateAsync*"></a>
   <h4 id="wan24_Crypto_PakeResponse_CreateAsync_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.PakeResponse.CreateAsync(System.IO.Stream,System.Byte[],wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">CreateAsync(Stream, byte[], CryptoOptions?, CancellationToken)</h4>
@@ -355,7 +392,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_CreateAsync__1_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.CreateAsync%60%601(System.IO.Stream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L60">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L74">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse_CreateAsync_" data-uid="wan24.Crypto.PakeResponse.CreateAsync*"></a>
   <h4 id="wan24_Crypto_PakeResponse_CreateAsync__1_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.PakeResponse.CreateAsync``1(System.IO.Stream,System.Byte[],wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">CreateAsync&lt;T&gt;(Stream, byte[], CryptoOptions?, CancellationToken)</h4>
@@ -439,7 +476,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.Dispose(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L36">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse_Dispose_" data-uid="wan24.Crypto.PakeResponse.Dispose*"></a>
   <h4 id="wan24_Crypto_PakeResponse_Dispose_System_Boolean_" data-uid="wan24.Crypto.PakeResponse.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -475,7 +512,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeResponse_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeResponse.DisposeCore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L33">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PakeResponse.cs/#L43">View Source</a>
   </span>
   <a id="wan24_Crypto_PakeResponse_DisposeCore_" data-uid="wan24.Crypto.PakeResponse.DisposeCore*"></a>
   <h4 id="wan24_Crypto_PakeResponse_DisposeCore" data-uid="wan24.Crypto.PakeResponse.DisposeCore">DisposeCore()</h4>

@@ -1495,6 +1495,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.IPakeHttpRequestFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.IPakeHttpRequestFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.IPakeRecord.yml",
       "output": {
         ".html": {
@@ -1969,6 +1979,26 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.PakeRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeRequestExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeRequestExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PakeRequestStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PakeRequestStream.html"
         }
       },
       "version": ""

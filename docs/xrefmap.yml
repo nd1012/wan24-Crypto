@@ -20301,6 +20301,84 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData
   nameWithType: IKeyExchangePrivateKey.GetKeyExchangeData
+- uid: wan24.Crypto.IPakeHttpRequestFactory
+  name: IPakeHttpRequestFactory
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html
+  commentId: T:wan24.Crypto.IPakeHttpRequestFactory
+  fullName: wan24.Crypto.IPakeHttpRequestFactory
+  nameWithType: IPakeHttpRequestFactory
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@)
+  name: CreateRequest(in Uri, in HttpMethod, in string, in Dictionary<string, string>?, in Dictionary<string, string[]>?, in bool)
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_Collections_Generic_Dictionary_System_String_System_String___System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__
+  commentId: M:wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@)
+  name.vb: CreateRequest(Uri, HttpMethod, String, Dictionary(Of String, String), Dictionary(Of String, String()), Boolean)
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.Collections.Generic.Dictionary<string, string>?, in System.Collections.Generic.Dictionary<string, string[]>?, in bool)
+  fullName.vb: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.Collections.Generic.Dictionary(Of String, String), System.Collections.Generic.Dictionary(Of String, String()), Boolean)
+  nameWithType: IPakeHttpRequestFactory.CreateRequest(in Uri, in HttpMethod, in string, in Dictionary<string, string>?, in Dictionary<string, string[]>?, in bool)
+  nameWithType.vb: IPakeHttpRequestFactory.CreateRequest(Uri, HttpMethod, String, Dictionary(Of String, String), Dictionary(Of String, String()), Boolean)
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.IO.Stream@,System.Boolean@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@,System.Threading.Tasks.TaskScheduler@,System.Threading.CancellationToken@)
+  name: CreateRequest(in Uri, in HttpMethod, in string, in Stream, in bool, in Dictionary<string, string[]>?, in bool, in TaskScheduler?, in CancellationToken)
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_IO_Stream__System_Boolean__System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__System_Threading_Tasks_TaskScheduler__System_Threading_CancellationToken__
+  commentId: M:wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.IO.Stream@,System.Boolean@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@,System.Threading.Tasks.TaskScheduler@,System.Threading.CancellationToken@)
+  name.vb: CreateRequest(Uri, HttpMethod, String, Stream, Boolean, Dictionary(Of String, String()), Boolean, TaskScheduler, CancellationToken)
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.IO.Stream, in bool, in System.Collections.Generic.Dictionary<string, string[]>?, in bool, in System.Threading.Tasks.TaskScheduler?, in System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.IO.Stream, Boolean, System.Collections.Generic.Dictionary(Of String, String()), Boolean, System.Threading.Tasks.TaskScheduler, System.Threading.CancellationToken)
+  nameWithType: IPakeHttpRequestFactory.CreateRequest(in Uri, in HttpMethod, in string, in Stream, in bool, in Dictionary<string, string[]>?, in bool, in TaskScheduler?, in CancellationToken)
+  nameWithType.vb: IPakeHttpRequestFactory.CreateRequest(Uri, HttpMethod, String, Stream, Boolean, Dictionary(Of String, String()), Boolean, TaskScheduler, CancellationToken)
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Net.Http.HttpContent@,System.Boolean@)
+  name: CreateRequest(in Uri, in HttpMethod, in string, in HttpContent, in bool)
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_Net_Http_HttpContent__System_Boolean__
+  commentId: M:wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Net.Http.HttpContent@,System.Boolean@)
+  name.vb: CreateRequest(Uri, HttpMethod, String, HttpContent, Boolean)
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.Net.Http.HttpContent, in bool)
+  fullName.vb: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.Net.Http.HttpContent, Boolean)
+  nameWithType: IPakeHttpRequestFactory.CreateRequest(in Uri, in HttpMethod, in string, in HttpContent, in bool)
+  nameWithType.vb: IPakeHttpRequestFactory.CreateRequest(Uri, HttpMethod, String, HttpContent, Boolean)
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest*
+  name: CreateRequest
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequest_
+  commentId: Overload:wan24.Crypto.IPakeHttpRequestFactory.CreateRequest
+  isSpec: "True"
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequest
+  nameWithType: IPakeHttpRequestFactory.CreateRequest
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Boolean,System.Threading.CancellationToken)
+  name: CreateRequestAsync(Uri, HttpMethod, string, Stream, Dictionary<string, string[]>?, bool, CancellationToken)
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequestAsync_System_Uri_System_Net_Http_HttpMethod_System_String_System_IO_Stream_System_Collections_Generic_Dictionary_System_String_System_String____System_Boolean_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Boolean,System.Threading.CancellationToken)
+  name.vb: CreateRequestAsync(Uri, HttpMethod, String, Stream, Dictionary(Of String, String()), Boolean, CancellationToken)
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, string, System.IO.Stream, System.Collections.Generic.Dictionary<string, string[]>?, bool, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, String, System.IO.Stream, System.Collections.Generic.Dictionary(Of String, String()), Boolean, System.Threading.CancellationToken)
+  nameWithType: IPakeHttpRequestFactory.CreateRequestAsync(Uri, HttpMethod, string, Stream, Dictionary<string, string[]>?, bool, CancellationToken)
+  nameWithType.vb: IPakeHttpRequestFactory.CreateRequestAsync(Uri, HttpMethod, String, Stream, Dictionary(Of String, String()), Boolean, CancellationToken)
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Boolean,System.Threading.CancellationToken)
+  name: CreateRequestAsync(Uri, HttpMethod, string, HttpContent, bool, CancellationToken)
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequestAsync_System_Uri_System_Net_Http_HttpMethod_System_String_System_Net_Http_HttpContent_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Boolean,System.Threading.CancellationToken)
+  name.vb: CreateRequestAsync(Uri, HttpMethod, String, HttpContent, Boolean, CancellationToken)
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, string, System.Net.Http.HttpContent, bool, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, String, System.Net.Http.HttpContent, Boolean, System.Threading.CancellationToken)
+  nameWithType: IPakeHttpRequestFactory.CreateRequestAsync(Uri, HttpMethod, string, HttpContent, bool, CancellationToken)
+  nameWithType.vb: IPakeHttpRequestFactory.CreateRequestAsync(Uri, HttpMethod, String, HttpContent, Boolean, CancellationToken)
+- uid: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync*
+  name: CreateRequestAsync
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_CreateRequestAsync_
+  commentId: Overload:wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.CreateRequestAsync
+  nameWithType: IPakeHttpRequestFactory.CreateRequestAsync
+- uid: wan24.Crypto.IPakeHttpRequestFactory.Options
+  name: Options
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_Options
+  commentId: P:wan24.Crypto.IPakeHttpRequestFactory.Options
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.Options
+  nameWithType: IPakeHttpRequestFactory.Options
+- uid: wan24.Crypto.IPakeHttpRequestFactory.Options*
+  name: Options
+  href: api/wan24.Crypto.IPakeHttpRequestFactory.html#wan24_Crypto_IPakeHttpRequestFactory_Options_
+  commentId: Overload:wan24.Crypto.IPakeHttpRequestFactory.Options
+  isSpec: "True"
+  fullName: wan24.Crypto.IPakeHttpRequestFactory.Options
+  nameWithType: IPakeHttpRequestFactory.Options
 - uid: wan24.Crypto.IPakeRecord
   name: IPakeRecord
   href: api/wan24.Crypto.IPakeRecord.html
@@ -24623,6 +24701,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PakeHttpRequestFactory.CreateDto
   nameWithType: PakeHttpRequestFactory.CreateDto
+- uid: wan24.Crypto.PakeHttpRequestFactory.Instance
+  name: Instance
+  href: api/wan24.Crypto.PakeHttpRequestFactory.html#wan24_Crypto_PakeHttpRequestFactory_Instance
+  commentId: P:wan24.Crypto.PakeHttpRequestFactory.Instance
+  fullName: wan24.Crypto.PakeHttpRequestFactory.Instance
+  nameWithType: PakeHttpRequestFactory.Instance
+- uid: wan24.Crypto.PakeHttpRequestFactory.Instance*
+  name: Instance
+  href: api/wan24.Crypto.PakeHttpRequestFactory.html#wan24_Crypto_PakeHttpRequestFactory_Instance_
+  commentId: Overload:wan24.Crypto.PakeHttpRequestFactory.Instance
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeHttpRequestFactory.Instance
+  nameWithType: PakeHttpRequestFactory.Instance
 - uid: wan24.Crypto.PakeHttpRequestFactory`1
   name: PakeHttpRequestFactory<T>
   href: api/wan24.Crypto.PakeHttpRequestFactory-1.html
@@ -24695,15 +24786,33 @@ references:
   fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateDto
   nameWithType: PakeHttpRequestFactory<T>.CreateDto
   nameWithType.vb: PakeHttpRequestFactory(Of T).CreateDto
-- uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.IO.Stream@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@)
-  name: CreateRequest(in Uri, in HttpMethod, in string, in Stream?, in Dictionary<string, string[]>?, in bool)
-  href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_IO_Stream__System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__
-  commentId: M:wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.IO.Stream@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@)
-  name.vb: CreateRequest(Uri, HttpMethod, String, Stream, Dictionary(Of String, String()), Boolean)
-  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.IO.Stream?, in System.Collections.Generic.Dictionary<string, string[]>?, in bool)
-  fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.IO.Stream, System.Collections.Generic.Dictionary(Of String, String()), Boolean)
-  nameWithType: PakeHttpRequestFactory<T>.CreateRequest(in Uri, in HttpMethod, in string, in Stream?, in Dictionary<string, string[]>?, in bool)
-  nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequest(Uri, HttpMethod, String, Stream, Dictionary(Of String, String()), Boolean)
+- uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@)
+  name: CreateRequest(in Uri, in HttpMethod, in string, in Dictionary<string, string>?, in Dictionary<string, string[]>?, in bool)
+  href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_Collections_Generic_Dictionary_System_String_System_String___System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__
+  commentId: M:wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@)
+  name.vb: CreateRequest(Uri, HttpMethod, String, Dictionary(Of String, String), Dictionary(Of String, String()), Boolean)
+  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.Collections.Generic.Dictionary<string, string>?, in System.Collections.Generic.Dictionary<string, string[]>?, in bool)
+  fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.Collections.Generic.Dictionary(Of String, String), System.Collections.Generic.Dictionary(Of String, String()), Boolean)
+  nameWithType: PakeHttpRequestFactory<T>.CreateRequest(in Uri, in HttpMethod, in string, in Dictionary<string, string>?, in Dictionary<string, string[]>?, in bool)
+  nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequest(Uri, HttpMethod, String, Dictionary(Of String, String), Dictionary(Of String, String()), Boolean)
+- uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.IO.Stream@,System.Boolean@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@,System.Threading.Tasks.TaskScheduler@,System.Threading.CancellationToken@)
+  name: CreateRequest(in Uri, in HttpMethod, in string, in Stream, in bool, in Dictionary<string, string[]>?, in bool, in TaskScheduler?, in CancellationToken)
+  href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_IO_Stream__System_Boolean__System_Collections_Generic_Dictionary_System_String_System_String_____System_Boolean__System_Threading_Tasks_TaskScheduler__System_Threading_CancellationToken__
+  commentId: M:wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.IO.Stream@,System.Boolean@,System.Collections.Generic.Dictionary{System.String,System.String[]}@,System.Boolean@,System.Threading.Tasks.TaskScheduler@,System.Threading.CancellationToken@)
+  name.vb: CreateRequest(Uri, HttpMethod, String, Stream, Boolean, Dictionary(Of String, String()), Boolean, TaskScheduler, CancellationToken)
+  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.IO.Stream, in bool, in System.Collections.Generic.Dictionary<string, string[]>?, in bool, in System.Threading.Tasks.TaskScheduler?, in System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.IO.Stream, Boolean, System.Collections.Generic.Dictionary(Of String, String()), Boolean, System.Threading.Tasks.TaskScheduler, System.Threading.CancellationToken)
+  nameWithType: PakeHttpRequestFactory<T>.CreateRequest(in Uri, in HttpMethod, in string, in Stream, in bool, in Dictionary<string, string[]>?, in bool, in TaskScheduler?, in CancellationToken)
+  nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequest(Uri, HttpMethod, String, Stream, Boolean, Dictionary(Of String, String()), Boolean, TaskScheduler, CancellationToken)
+- uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Net.Http.HttpContent@,System.Boolean@)
+  name: CreateRequest(in Uri, in HttpMethod, in string, in HttpContent, in bool)
+  href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_System_Uri__System_Net_Http_HttpMethod__System_String__System_Net_Http_HttpContent__System_Boolean__
+  commentId: M:wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest(System.Uri@,System.Net.Http.HttpMethod@,System.String@,System.Net.Http.HttpContent@,System.Boolean@)
+  name.vb: CreateRequest(Uri, HttpMethod, String, HttpContent, Boolean)
+  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequest(in System.Uri, in System.Net.Http.HttpMethod, in string, in System.Net.Http.HttpContent, in bool)
+  fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateRequest(System.Uri, System.Net.Http.HttpMethod, String, System.Net.Http.HttpContent, Boolean)
+  nameWithType: PakeHttpRequestFactory<T>.CreateRequest(in Uri, in HttpMethod, in string, in HttpContent, in bool)
+  nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequest(Uri, HttpMethod, String, HttpContent, Boolean)
 - uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequest*
   name: CreateRequest
   href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequest_
@@ -24714,14 +24823,23 @@ references:
   nameWithType: PakeHttpRequestFactory<T>.CreateRequest
   nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequest
 - uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Boolean,System.Threading.CancellationToken)
-  name: CreateRequestAsync(Uri, HttpMethod, string, Stream?, Dictionary<string, string[]>?, bool, CancellationToken)
+  name: CreateRequestAsync(Uri, HttpMethod, string, Stream, Dictionary<string, string[]>?, bool, CancellationToken)
   href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequestAsync_System_Uri_System_Net_Http_HttpMethod_System_String_System_IO_Stream_System_Collections_Generic_Dictionary_System_String_System_String____System_Boolean_System_Threading_CancellationToken_
   commentId: M:wan24.Crypto.PakeHttpRequestFactory`1.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Boolean,System.Threading.CancellationToken)
   name.vb: CreateRequestAsync(Uri, HttpMethod, String, Stream, Dictionary(Of String, String()), Boolean, CancellationToken)
-  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, string, System.IO.Stream?, System.Collections.Generic.Dictionary<string, string[]>?, bool, System.Threading.CancellationToken)
+  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, string, System.IO.Stream, System.Collections.Generic.Dictionary<string, string[]>?, bool, System.Threading.CancellationToken)
   fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, String, System.IO.Stream, System.Collections.Generic.Dictionary(Of String, String()), Boolean, System.Threading.CancellationToken)
-  nameWithType: PakeHttpRequestFactory<T>.CreateRequestAsync(Uri, HttpMethod, string, Stream?, Dictionary<string, string[]>?, bool, CancellationToken)
+  nameWithType: PakeHttpRequestFactory<T>.CreateRequestAsync(Uri, HttpMethod, string, Stream, Dictionary<string, string[]>?, bool, CancellationToken)
   nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequestAsync(Uri, HttpMethod, String, Stream, Dictionary(Of String, String()), Boolean, CancellationToken)
+- uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Boolean,System.Threading.CancellationToken)
+  name: CreateRequestAsync(Uri, HttpMethod, string, HttpContent, bool, CancellationToken)
+  href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequestAsync_System_Uri_System_Net_Http_HttpMethod_System_String_System_Net_Http_HttpContent_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeHttpRequestFactory`1.CreateRequestAsync(System.Uri,System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Boolean,System.Threading.CancellationToken)
+  name.vb: CreateRequestAsync(Uri, HttpMethod, String, HttpContent, Boolean, CancellationToken)
+  fullName: wan24.Crypto.PakeHttpRequestFactory<T>.CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, string, System.Net.Http.HttpContent, bool, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeHttpRequestFactory(Of T).CreateRequestAsync(System.Uri, System.Net.Http.HttpMethod, String, System.Net.Http.HttpContent, Boolean, System.Threading.CancellationToken)
+  nameWithType: PakeHttpRequestFactory<T>.CreateRequestAsync(Uri, HttpMethod, string, HttpContent, bool, CancellationToken)
+  nameWithType.vb: PakeHttpRequestFactory(Of T).CreateRequestAsync(Uri, HttpMethod, String, HttpContent, Boolean, CancellationToken)
 - uid: wan24.Crypto.PakeHttpRequestFactory`1.CreateRequestAsync*
   name: CreateRequestAsync
   href: api/wan24.Crypto.PakeHttpRequestFactory-1.html#wan24_Crypto_PakeHttpRequestFactory_1_CreateRequestAsync_
@@ -25689,21 +25807,179 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PakeRequest.Request
   nameWithType: PakeRequest.Request
+- uid: wan24.Crypto.PakeRequestExtensions
+  name: PakeRequestExtensions
+  href: api/wan24.Crypto.PakeRequestExtensions.html
+  commentId: T:wan24.Crypto.PakeRequestExtensions
+  fullName: wan24.Crypto.PakeRequestExtensions
+  nameWithType: PakeRequestExtensions
+- uid: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String[]},System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.CancellationToken)
+  name: SendPakeAsync(HttpClient, HttpMethod, string, Dictionary<string, string>?, Dictionary<string, string[]>?, Uri?, IPakeHttpRequestFactory?, CancellationToken)
+  href: api/wan24.Crypto.PakeRequestExtensions.html#wan24_Crypto_PakeRequestExtensions_SendPakeAsync_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_String____System_Uri_wan24_Crypto_IPakeHttpRequestFactory_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String[]},System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.CancellationToken)
+  name.vb: SendPakeAsync(HttpClient, HttpMethod, String, Dictionary(Of String, String), Dictionary(Of String, String()), Uri, IPakeHttpRequestFactory, CancellationToken)
+  fullName: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, System.Collections.Generic.Dictionary<string, string>?, System.Collections.Generic.Dictionary<string, string[]>?, System.Uri?, wan24.Crypto.IPakeHttpRequestFactory?, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, System.Collections.Generic.Dictionary(Of String, String), System.Collections.Generic.Dictionary(Of String, String()), System.Uri, wan24.Crypto.IPakeHttpRequestFactory, System.Threading.CancellationToken)
+  nameWithType: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, string, Dictionary<string, string>?, Dictionary<string, string[]>?, Uri?, IPakeHttpRequestFactory?, CancellationToken)
+  nameWithType.vb: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, String, Dictionary(Of String, String), Dictionary(Of String, String()), Uri, IPakeHttpRequestFactory, CancellationToken)
+- uid: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.Tasks.TaskScheduler,System.Threading.CancellationToken)
+  name: SendPakeAsync(HttpClient, HttpMethod, string, Stream, bool, Dictionary<string, string[]>?, Uri?, IPakeHttpRequestFactory?, TaskScheduler?, CancellationToken)
+  href: api/wan24.Crypto.PakeRequestExtensions.html#wan24_Crypto_PakeRequestExtensions_SendPakeAsync_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String_System_IO_Stream_System_Boolean_System_Collections_Generic_Dictionary_System_String_System_String____System_Uri_wan24_Crypto_IPakeHttpRequestFactory_System_Threading_Tasks_TaskScheduler_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.Tasks.TaskScheduler,System.Threading.CancellationToken)
+  name.vb: SendPakeAsync(HttpClient, HttpMethod, String, Stream, Boolean, Dictionary(Of String, String()), Uri, IPakeHttpRequestFactory, TaskScheduler, CancellationToken)
+  fullName: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, System.IO.Stream, bool, System.Collections.Generic.Dictionary<string, string[]>?, System.Uri?, wan24.Crypto.IPakeHttpRequestFactory?, System.Threading.Tasks.TaskScheduler?, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, System.IO.Stream, Boolean, System.Collections.Generic.Dictionary(Of String, String()), System.Uri, wan24.Crypto.IPakeHttpRequestFactory, System.Threading.Tasks.TaskScheduler, System.Threading.CancellationToken)
+  nameWithType: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, string, Stream, bool, Dictionary<string, string[]>?, Uri?, IPakeHttpRequestFactory?, TaskScheduler?, CancellationToken)
+  nameWithType.vb: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, String, Stream, Boolean, Dictionary(Of String, String()), Uri, IPakeHttpRequestFactory, TaskScheduler, CancellationToken)
+- uid: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.CancellationToken)
+  name: SendPakeAsync(HttpClient, HttpMethod, string, Stream, Dictionary<string, string[]>?, Uri?, IPakeHttpRequestFactory?, CancellationToken)
+  href: api/wan24.Crypto.PakeRequestExtensions.html#wan24_Crypto_PakeRequestExtensions_SendPakeAsync_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String_System_IO_Stream_System_Collections_Generic_Dictionary_System_String_System_String____System_Uri_wan24_Crypto_IPakeHttpRequestFactory_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String[]},System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.CancellationToken)
+  name.vb: SendPakeAsync(HttpClient, HttpMethod, String, Stream, Dictionary(Of String, String()), Uri, IPakeHttpRequestFactory, CancellationToken)
+  fullName: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, System.IO.Stream, System.Collections.Generic.Dictionary<string, string[]>?, System.Uri?, wan24.Crypto.IPakeHttpRequestFactory?, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, System.IO.Stream, System.Collections.Generic.Dictionary(Of String, String()), System.Uri, wan24.Crypto.IPakeHttpRequestFactory, System.Threading.CancellationToken)
+  nameWithType: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, string, Stream, Dictionary<string, string[]>?, Uri?, IPakeHttpRequestFactory?, CancellationToken)
+  nameWithType.vb: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, String, Stream, Dictionary(Of String, String()), Uri, IPakeHttpRequestFactory, CancellationToken)
+- uid: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.CancellationToken)
+  name: SendPakeAsync(HttpClient, HttpMethod, string, HttpContent, Uri?, IPakeHttpRequestFactory?, CancellationToken)
+  href: api/wan24.Crypto.PakeRequestExtensions.html#wan24_Crypto_PakeRequestExtensions_SendPakeAsync_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String_System_Net_Http_HttpContent_System_Uri_wan24_Crypto_IPakeHttpRequestFactory_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Uri,wan24.Crypto.IPakeHttpRequestFactory,System.Threading.CancellationToken)
+  name.vb: SendPakeAsync(HttpClient, HttpMethod, String, HttpContent, Uri, IPakeHttpRequestFactory, CancellationToken)
+  fullName: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, System.Net.Http.HttpContent, System.Uri?, wan24.Crypto.IPakeHttpRequestFactory?, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeRequestExtensions.SendPakeAsync(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, System.Net.Http.HttpContent, System.Uri, wan24.Crypto.IPakeHttpRequestFactory, System.Threading.CancellationToken)
+  nameWithType: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, string, HttpContent, Uri?, IPakeHttpRequestFactory?, CancellationToken)
+  nameWithType.vb: PakeRequestExtensions.SendPakeAsync(HttpClient, HttpMethod, String, HttpContent, Uri, IPakeHttpRequestFactory, CancellationToken)
+- uid: wan24.Crypto.PakeRequestExtensions.SendPakeAsync*
+  name: SendPakeAsync
+  href: api/wan24.Crypto.PakeRequestExtensions.html#wan24_Crypto_PakeRequestExtensions_SendPakeAsync_
+  commentId: Overload:wan24.Crypto.PakeRequestExtensions.SendPakeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestExtensions.SendPakeAsync
+  nameWithType: PakeRequestExtensions.SendPakeAsync
+- uid: wan24.Crypto.PakeRequestStream
+  name: PakeRequestStream
+  href: api/wan24.Crypto.PakeRequestStream.html
+  commentId: T:wan24.Crypto.PakeRequestStream
+  fullName: wan24.Crypto.PakeRequestStream
+  nameWithType: PakeRequestStream
+- uid: wan24.Crypto.PakeRequestStream.#ctor(System.IO.Stream@,System.Int32@,System.Threading.CancellationToken@)
+  name: PakeRequestStream(in Stream, in int, in CancellationToken)
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream__ctor_System_IO_Stream__System_Int32__System_Threading_CancellationToken__
+  commentId: M:wan24.Crypto.PakeRequestStream.#ctor(System.IO.Stream@,System.Int32@,System.Threading.CancellationToken@)
+  name.vb: New(Stream, Integer, CancellationToken)
+  fullName: wan24.Crypto.PakeRequestStream.PakeRequestStream(in System.IO.Stream, in int, in System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeRequestStream.New(System.IO.Stream, Integer, System.Threading.CancellationToken)
+  nameWithType: PakeRequestStream.PakeRequestStream(in Stream, in int, in CancellationToken)
+  nameWithType.vb: PakeRequestStream.New(Stream, Integer, CancellationToken)
+- uid: wan24.Crypto.PakeRequestStream.#ctor*
+  name: PakeRequestStream
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream__ctor_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.PakeRequestStream.PakeRequestStream
+  fullName.vb: wan24.Crypto.PakeRequestStream.New
+  nameWithType: PakeRequestStream.PakeRequestStream
+  nameWithType.vb: PakeRequestStream.New
+- uid: wan24.Crypto.PakeRequestStream.CanWrite
+  name: CanWrite
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_CanWrite
+  commentId: P:wan24.Crypto.PakeRequestStream.CanWrite
+  fullName: wan24.Crypto.PakeRequestStream.CanWrite
+  nameWithType: PakeRequestStream.CanWrite
+- uid: wan24.Crypto.PakeRequestStream.CanWrite*
+  name: CanWrite
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_CanWrite_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.CanWrite
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestStream.CanWrite
+  nameWithType: PakeRequestStream.CanWrite
+- uid: wan24.Crypto.PakeRequestStream.Cipher
+  name: Cipher
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_Cipher
+  commentId: P:wan24.Crypto.PakeRequestStream.Cipher
+  fullName: wan24.Crypto.PakeRequestStream.Cipher
+  nameWithType: PakeRequestStream.Cipher
+- uid: wan24.Crypto.PakeRequestStream.Cipher*
+  name: Cipher
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_Cipher_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.Cipher
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestStream.Cipher
+  nameWithType: PakeRequestStream.Cipher
+- uid: wan24.Crypto.PakeRequestStream.ProcessAsync(System.Threading.CancellationToken)
+  name: ProcessAsync(CancellationToken)
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_ProcessAsync_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRequestStream.ProcessAsync(System.Threading.CancellationToken)
+  fullName: wan24.Crypto.PakeRequestStream.ProcessAsync(System.Threading.CancellationToken)
+  nameWithType: PakeRequestStream.ProcessAsync(CancellationToken)
+- uid: wan24.Crypto.PakeRequestStream.ProcessAsync*
+  name: ProcessAsync
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_ProcessAsync_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.ProcessAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestStream.ProcessAsync
+  nameWithType: PakeRequestStream.ProcessAsync
+- uid: wan24.Crypto.PakeRequestStream.SetCipher(System.IO.Stream@,System.Threading.Tasks.TaskScheduler@,System.Boolean@)
+  name: SetCipher(in Stream, in TaskScheduler?, in bool)
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_SetCipher_System_IO_Stream__System_Threading_Tasks_TaskScheduler__System_Boolean__
+  commentId: M:wan24.Crypto.PakeRequestStream.SetCipher(System.IO.Stream@,System.Threading.Tasks.TaskScheduler@,System.Boolean@)
+  name.vb: SetCipher(Stream, TaskScheduler, Boolean)
+  fullName: wan24.Crypto.PakeRequestStream.SetCipher(in System.IO.Stream, in System.Threading.Tasks.TaskScheduler?, in bool)
+  fullName.vb: wan24.Crypto.PakeRequestStream.SetCipher(System.IO.Stream, System.Threading.Tasks.TaskScheduler, Boolean)
+  nameWithType: PakeRequestStream.SetCipher(in Stream, in TaskScheduler?, in bool)
+  nameWithType.vb: PakeRequestStream.SetCipher(Stream, TaskScheduler, Boolean)
+- uid: wan24.Crypto.PakeRequestStream.SetCipher*
+  name: SetCipher
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_SetCipher_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.SetCipher
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestStream.SetCipher
+  nameWithType: PakeRequestStream.SetCipher
+- uid: wan24.Crypto.PakeRequestStream.Source
+  name: Source
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_Source
+  commentId: P:wan24.Crypto.PakeRequestStream.Source
+  fullName: wan24.Crypto.PakeRequestStream.Source
+  nameWithType: PakeRequestStream.Source
+- uid: wan24.Crypto.PakeRequestStream.Source*
+  name: Source
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_Source_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.Source
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestStream.Source
+  nameWithType: PakeRequestStream.Source
+- uid: wan24.Crypto.PakeRequestStream.WriteAsync(System.ReadOnlyMemory{System.Byte},System.Threading.CancellationToken)
+  name: WriteAsync(ReadOnlyMemory<byte>, CancellationToken)
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_WriteAsync_System_ReadOnlyMemory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PakeRequestStream.WriteAsync(System.ReadOnlyMemory{System.Byte},System.Threading.CancellationToken)
+  name.vb: WriteAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.PakeRequestStream.WriteAsync(System.ReadOnlyMemory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.PakeRequestStream.WriteAsync(System.ReadOnlyMemory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: PakeRequestStream.WriteAsync(ReadOnlyMemory<byte>, CancellationToken)
+  nameWithType.vb: PakeRequestStream.WriteAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.PakeRequestStream.WriteAsync*
+  name: WriteAsync
+  href: api/wan24.Crypto.PakeRequestStream.html#wan24_Crypto_PakeRequestStream_WriteAsync_
+  commentId: Overload:wan24.Crypto.PakeRequestStream.WriteAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeRequestStream.WriteAsync
+  nameWithType: PakeRequestStream.WriteAsync
 - uid: wan24.Crypto.PakeResponse
   name: PakeResponse
   href: api/wan24.Crypto.PakeResponse.html
   commentId: T:wan24.Crypto.PakeResponse
   fullName: wan24.Crypto.PakeResponse
   nameWithType: PakeResponse
-- uid: wan24.Crypto.PakeResponse.#ctor(wan24.Crypto.PakeResponse.PakeResponseDto@,wan24.Crypto.DecryptionStreams@)
-  name: PakeResponse(in PakeResponseDto, in DecryptionStreams)
-  href: api/wan24.Crypto.PakeResponse.html#wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__
-  commentId: M:wan24.Crypto.PakeResponse.#ctor(wan24.Crypto.PakeResponse.PakeResponseDto@,wan24.Crypto.DecryptionStreams@)
-  name.vb: New(PakeResponseDto, DecryptionStreams)
-  fullName: wan24.Crypto.PakeResponse.PakeResponse(in wan24.Crypto.PakeResponse.PakeResponseDto, in wan24.Crypto.DecryptionStreams)
-  fullName.vb: wan24.Crypto.PakeResponse.New(wan24.Crypto.PakeResponse.PakeResponseDto, wan24.Crypto.DecryptionStreams)
-  nameWithType: PakeResponse.PakeResponse(in PakeResponse.PakeResponseDto, in DecryptionStreams)
-  nameWithType.vb: PakeResponse.New(PakeResponse.PakeResponseDto, DecryptionStreams)
+- uid: wan24.Crypto.PakeResponse.#ctor(wan24.Crypto.PakeResponse.PakeResponseDto@,wan24.Crypto.DecryptionStreams@,System.IO.Stream@)
+  name: PakeResponse(in PakeResponseDto, in DecryptionStreams, in Stream)
+  href: api/wan24.Crypto.PakeResponse.html#wan24_Crypto_PakeResponse__ctor_wan24_Crypto_PakeResponse_PakeResponseDto__wan24_Crypto_DecryptionStreams__System_IO_Stream__
+  commentId: M:wan24.Crypto.PakeResponse.#ctor(wan24.Crypto.PakeResponse.PakeResponseDto@,wan24.Crypto.DecryptionStreams@,System.IO.Stream@)
+  name.vb: New(PakeResponseDto, DecryptionStreams, Stream)
+  fullName: wan24.Crypto.PakeResponse.PakeResponse(in wan24.Crypto.PakeResponse.PakeResponseDto, in wan24.Crypto.DecryptionStreams, in System.IO.Stream)
+  fullName.vb: wan24.Crypto.PakeResponse.New(wan24.Crypto.PakeResponse.PakeResponseDto, wan24.Crypto.DecryptionStreams, System.IO.Stream)
+  nameWithType: PakeResponse.PakeResponse(in PakeResponse.PakeResponseDto, in DecryptionStreams, in Stream)
+  nameWithType.vb: PakeResponse.New(PakeResponse.PakeResponseDto, DecryptionStreams, Stream)
 - uid: wan24.Crypto.PakeResponse.#ctor*
   name: PakeResponse
   href: api/wan24.Crypto.PakeResponse.html#wan24_Crypto_PakeResponse__ctor_
@@ -25949,6 +26225,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PakeResponse.Response
   nameWithType: PakeResponse.Response
+- uid: wan24.Crypto.PakeResponse.ResponseStream
+  name: ResponseStream
+  href: api/wan24.Crypto.PakeResponse.html#wan24_Crypto_PakeResponse_ResponseStream
+  commentId: P:wan24.Crypto.PakeResponse.ResponseStream
+  fullName: wan24.Crypto.PakeResponse.ResponseStream
+  nameWithType: PakeResponse.ResponseStream
+- uid: wan24.Crypto.PakeResponse.ResponseStream*
+  name: ResponseStream
+  href: api/wan24.Crypto.PakeResponse.html#wan24_Crypto_PakeResponse_ResponseStream_
+  commentId: Overload:wan24.Crypto.PakeResponse.ResponseStream
+  isSpec: "True"
+  fullName: wan24.Crypto.PakeResponse.ResponseStream
+  nameWithType: PakeResponse.ResponseStream
 - uid: wan24.Crypto.PakeResponseExtensions
   name: PakeResponseExtensions
   href: api/wan24.Crypto.PakeResponseExtensions.html
