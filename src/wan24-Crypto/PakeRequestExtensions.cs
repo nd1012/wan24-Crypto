@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using System.Net;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -38,6 +39,7 @@ namespace wan24.Crypto
                 HttpResponseMessage response = await client.SendAsync(request.Request, cancellationToken).DynamicContext();
                 try
                 {
+                    if (response.StatusCode != HttpStatusCode.OK) throw new HttpRequestException($"Invalid PAKE response http status code {response.StatusCode}");
                     PakeResponse res = await response.GetPakeResponseAsync(request.Key, requestFactory.Options.GetCopy(), cancellationToken).DynamicContext();
                     res.RegisterForDispose(response);
                     return res;
@@ -81,6 +83,7 @@ namespace wan24.Crypto
                     HttpResponseMessage response = await client.SendAsync(request.Request, cancellationToken).DynamicContext();
                     try
                     {
+                        if (response.StatusCode != HttpStatusCode.OK) throw new HttpRequestException($"Invalid PAKE response http status code {response.StatusCode}");
                         PakeResponse res = await response.GetPakeResponseAsync(request.Key, requestFactory.Options.GetCopy(), cancellationToken).DynamicContext();
                         res.RegisterForDispose(response);
                         return res;
@@ -144,6 +147,7 @@ namespace wan24.Crypto
                 HttpResponseMessage response = await client.SendAsync(request.Request, cancellationToken).DynamicContext();
                 try
                 {
+                    if (response.StatusCode != HttpStatusCode.OK) throw new HttpRequestException($"Invalid PAKE response http status code {response.StatusCode}");
                     PakeResponse res = await response.GetPakeResponseAsync(request.Key, requestFactory.Options.GetCopy(), cancellationToken).DynamicContext();
                     res.RegisterForDispose(response);
                     return res;
@@ -187,6 +191,7 @@ namespace wan24.Crypto
                 HttpResponseMessage response = await client.SendAsync(request.Request, cancellationToken).DynamicContext();
                 try
                 {
+                    if (response.StatusCode != HttpStatusCode.OK) throw new HttpRequestException($"Invalid PAKE response http status code {response.StatusCode}");
                     PakeResponse res = await response.GetPakeResponseAsync(request.Key, requestFactory.Options.GetCopy(), cancellationToken).DynamicContext();
                     res.RegisterForDispose(response);
                     return res;
