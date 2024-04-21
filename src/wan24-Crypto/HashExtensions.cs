@@ -13,7 +13,7 @@ namespace wan24.Crypto
         /// <param name="data">Data</param>
         /// <param name="options">Options</param>
         /// <returns>Hash</returns>
-        public static byte[] Hash(this Span<byte> data, CryptoOptions? options = null) => ((ReadOnlySpan<byte>)data).Hash(options);
+        public static byte[] Hash(this Span<byte> data, CryptoOptions? options = null) => data.AsReadOnly().Hash(options);
 
         /// <summary>
         /// Create a hash
@@ -22,7 +22,8 @@ namespace wan24.Crypto
         /// <param name="outputBuffer">Output buffer</param>
         /// <param name="options">Options</param>
         /// <returns>Hash</returns>
-        public static Span<byte> Hash(this Span<byte> data, Span<byte> outputBuffer, CryptoOptions? options = null) => ((ReadOnlySpan<byte>)data).Hash(outputBuffer, options);
+        public static Span<byte> Hash(this Span<byte> data, Span<byte> outputBuffer, CryptoOptions? options = null)
+            => data.AsReadOnly().Hash(outputBuffer, options);
 
         /// <summary>
         /// Create a hash
