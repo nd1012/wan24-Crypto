@@ -23,6 +23,7 @@
     <DebugType>embedded</DebugType>
     <EmbedAllSources>true</EmbedAllSources>
     <Configurations>Debug;Release;Trunk</Configurations>
+    <EnablePreviewFeatures Condition="'$(Configuration)' != 'Release'">True</EnablePreviewFeatures>
   </PropertyGroup>
 
   <ItemGroup>

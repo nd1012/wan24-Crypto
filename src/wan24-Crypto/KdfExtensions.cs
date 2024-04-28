@@ -41,6 +41,40 @@ namespace wan24.Crypto
                 }
             }
         }
+
+        /// <summary>
+        /// Stretch a password
+        /// </summary>
+        /// <param name="pwd">Password</param>
+        /// <param name="len">Required password length</param>
+        /// <param name="salt">Salt</param>
+        /// <param name="options">Options</param>
+        /// <returns>Stretched password and the used salt</returns>
+        public static (byte[] Stretched, byte[] Salt) Stretch(this Span<char> pwd, int len, byte[]? salt = null, CryptoOptions? options = null)
+            => pwd.AsReadOnly().Stretch(len, salt, options);
+
+        /// <summary>
+        /// Stretch a password
+        /// </summary>
+        /// <param name="pwd">Password</param>
+        /// <param name="len">Required password length</param>
+        /// <param name="salt">Salt</param>
+        /// <param name="options">Options</param>
+        /// <returns>Stretched password and the used salt</returns>
+        public static (byte[] Stretched, byte[] Salt) Stretch(this Memory<char> pwd, int len, byte[]? salt = null, CryptoOptions? options = null)
+            => pwd.Span.AsReadOnly().Stretch(len, salt, options);
+
+        /// <summary>
+        /// Stretch a password
+        /// </summary>
+        /// <param name="pwd">Password</param>
+        /// <param name="len">Required password length</param>
+        /// <param name="salt">Salt</param>
+        /// <param name="options">Options</param>
+        /// <returns>Stretched password and the used salt</returns>
+        public static (byte[] Stretched, byte[] Salt) Stretch(this ReadOnlyMemory<char> pwd, int len, byte[]? salt = null, CryptoOptions? options = null)
+            => pwd.Span.Stretch(len, salt, options);
+
         /// <summary>
         /// Stretch a password
         /// </summary>
