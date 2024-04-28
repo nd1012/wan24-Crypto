@@ -21114,6 +21114,24 @@ references:
   commentId: T:wan24.Crypto.KdfExtensions
   fullName: wan24.Crypto.KdfExtensions
   nameWithType: KdfExtensions
+- uid: wan24.Crypto.KdfExtensions.Stretch(System.Memory{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Stretch(Memory<char>, int, byte[]?, CryptoOptions?)
+  href: api/wan24.Crypto.KdfExtensions.html#wan24_Crypto_KdfExtensions_Stretch_System_Memory_System_Char__System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.KdfExtensions.Stretch(System.Memory{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Stretch(Memory(Of Char), Integer, Byte(), CryptoOptions)
+  fullName: wan24.Crypto.KdfExtensions.Stretch(System.Memory<char>, int, byte[]?, wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.KdfExtensions.Stretch(System.Memory(Of Char), Integer, Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: KdfExtensions.Stretch(Memory<char>, int, byte[]?, CryptoOptions?)
+  nameWithType.vb: KdfExtensions.Stretch(Memory(Of Char), Integer, Byte(), CryptoOptions)
+- uid: wan24.Crypto.KdfExtensions.Stretch(System.ReadOnlyMemory{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Stretch(ReadOnlyMemory<char>, int, byte[]?, CryptoOptions?)
+  href: api/wan24.Crypto.KdfExtensions.html#wan24_Crypto_KdfExtensions_Stretch_System_ReadOnlyMemory_System_Char__System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.KdfExtensions.Stretch(System.ReadOnlyMemory{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Stretch(ReadOnlyMemory(Of Char), Integer, Byte(), CryptoOptions)
+  fullName: wan24.Crypto.KdfExtensions.Stretch(System.ReadOnlyMemory<char>, int, byte[]?, wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.KdfExtensions.Stretch(System.ReadOnlyMemory(Of Char), Integer, Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: KdfExtensions.Stretch(ReadOnlyMemory<char>, int, byte[]?, CryptoOptions?)
+  nameWithType.vb: KdfExtensions.Stretch(ReadOnlyMemory(Of Char), Integer, Byte(), CryptoOptions)
 - uid: wan24.Crypto.KdfExtensions.Stretch(System.ReadOnlySpan{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
   name: Stretch(ReadOnlySpan<char>, int, byte[]?, CryptoOptions?)
   href: api/wan24.Crypto.KdfExtensions.html#wan24_Crypto_KdfExtensions_Stretch_System_ReadOnlySpan_System_Char__System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
@@ -21123,6 +21141,15 @@ references:
   fullName.vb: wan24.Crypto.KdfExtensions.Stretch(System.ReadOnlySpan(Of Char), Integer, Byte(), wan24.Crypto.CryptoOptions)
   nameWithType: KdfExtensions.Stretch(ReadOnlySpan<char>, int, byte[]?, CryptoOptions?)
   nameWithType.vb: KdfExtensions.Stretch(ReadOnlySpan(Of Char), Integer, Byte(), CryptoOptions)
+- uid: wan24.Crypto.KdfExtensions.Stretch(System.Span{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Stretch(Span<char>, int, byte[]?, CryptoOptions?)
+  href: api/wan24.Crypto.KdfExtensions.html#wan24_Crypto_KdfExtensions_Stretch_System_Span_System_Char__System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.KdfExtensions.Stretch(System.Span{System.Char},System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Stretch(Span(Of Char), Integer, Byte(), CryptoOptions)
+  fullName: wan24.Crypto.KdfExtensions.Stretch(System.Span<char>, int, byte[]?, wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.KdfExtensions.Stretch(System.Span(Of Char), Integer, Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: KdfExtensions.Stretch(Span<char>, int, byte[]?, CryptoOptions?)
+  nameWithType.vb: KdfExtensions.Stretch(Span(Of Char), Integer, Byte(), CryptoOptions)
 - uid: wan24.Crypto.KdfExtensions.Stretch(System.String,System.Int32,System.Byte[],wan24.Crypto.CryptoOptions)
   name: Stretch(string, int, byte[]?, CryptoOptions?)
   href: api/wan24.Crypto.KdfExtensions.html#wan24_Crypto_KdfExtensions_Stretch_System_String_System_Int32_System_Byte___wan24_Crypto_CryptoOptions_
