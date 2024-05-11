@@ -125,6 +125,10 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><span class="xref">IStatusProvider</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.iproducerconsumercollection-1">IProducerConsumerCollection</a>&lt;<span class="xref">QueueWorker</span>.<span class="xref">Task_Delegate</span>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">QueueWorker</span>.<span class="xref">Task_Delegate</span>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
     <div><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></div>
     <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
     <div><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></div>
@@ -162,6 +166,24 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">QueueWorker.EnqueueRangeAsync(IAsyncEnumerable&lt;QueueWorker.Task_Delegate&gt;, CancellationToken)</a>
     </div>
     <div>
+      <span class="xref">QueueWorker.TryAdd(QueueWorker.Task_Delegate)</span>
+    </div>
+    <div>
+      <span class="xref">QueueWorker.TryTake(out QueueWorker.Task_Delegate)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">QueueWorker.CopyTo(QueueWorker.Task_Delegate[], int)</a>
+    </div>
+    <div>
+      <span class="xref">QueueWorker.ToArray()</span>
+    </div>
+    <div>
+      <span class="xref">QueueWorker.GetEnumerator()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.array">QueueWorker.CopyTo(Array, int)</a>
+    </div>
+    <div>
       <span class="xref">QueueWorker.WorkerAsync()</span>
     </div>
     <div>
@@ -172,6 +194,15 @@
     </div>
     <div>
       <span class="xref">QueueWorker.State</span>
+    </div>
+    <div>
+      <span class="xref">QueueWorker.Count</span>
+    </div>
+    <div>
+      <span class="xref">QueueWorker.IsSynchronized</span>
+    </div>
+    <div>
+      <span class="xref">QueueWorker.SyncRoot</span>
     </div>
     <div>
       <span class="xref">HostedServiceBase.Sync</span>
@@ -400,7 +431,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_RngSeederQueue_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RngSeederQueue : ItemQueueWorkerBase&lt;byte[]&gt;, IWillDispose, IItemQueueWorker&lt;byte[]&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, ISeedableRng, IRng, ISeedConsumer</code></pre>
+    <pre><code class="lang-csharp hljs">public class RngSeederQueue : ItemQueueWorkerBase&lt;byte[]&gt;, IWillDispose, IItemQueueWorker&lt;byte[]&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, IProducerConsumerCollection&lt;QueueWorker.Task_Delegate&gt;, IEnumerable&lt;QueueWorker.Task_Delegate&gt;, ICollection, IEnumerable, ISeedableRng, IRng, ISeedConsumer</code></pre>
   </div>
   <h5 id="wan24_Crypto_RngSeederQueue_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Constructor</p>
@@ -661,6 +692,18 @@
   </div>
   <div>
       <span class="xref">wan24.Core.IStatusProvider</span>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.iproducerconsumercollection-1">IProducerConsumerCollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a>
