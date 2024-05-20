@@ -1685,6 +1685,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.KeyRing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.KeyRing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.KeyTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.KeyTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.MacAlgorithmBase.yml",
       "output": {
         ".html": {

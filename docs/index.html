@@ -1180,6 +1180,51 @@ attribute validations you can set
 suite store was given, key exchange/signature keys will be looked up in the
 PKI, which was given in the options (<code>CryptoEnvironment.PKI</code> is being used per
 default).</p>
+<h2 id="key-ring">Key ring</h2>
+<p>The <code>KeyRing</code> type can store these key types:</p>
+<ul>
+<li>Symmetric key (a byte sequence)</li>
+<li>Asymmetric key</li>
+<li>Key suite</li>
+<li>Key suite store</li>
+<li>PAKE record</li>
+<li>PAKE record store</li>
+<li>PKI</li>
+</ul>
+<p>In addition different <code>CryptoOptions</code> can be stored to a name.</p>
+<p>Every key will be stored with a unique name, which is required to get the key
+later:</p>
+<pre><code class="lang-cs">// Create a new key ring
+using KeyRing keys = new();
+
+// Add a key
+if(!keys.TryAdd(&quot;name&quot;, anyKey))
+    throw new Exception(&quot;Key exists already&quot;);
+
+// Get a key
+if(!keys.TryGetSymmetric(&quot;name&quot;, out anyKey))
+    throw new Exception(&quot;Key not found&quot;);
+
+// Encrypt/decrypt
+byte[] keyBytes = keys.Encrypt(secret);
+// Can be restored using `KeyRing.Decrypt(keyBytes, secret)`
+</code></pre>
+<p>Adding, updating, getting, removing keys and encryption is thread safe.</p>
+<p>The static <code>MaxCount</code> and <code>MaxSymmetricKeyLength</code> properties limit the max.
+number of stored keys and the max. symmetric key length in bytes. A key name
+is limited to 255 characters.</p>
+<p><strong>NOTE</strong>: If a key ring uses algorithms or types which are not available in a
+deserializing context, it can't be restored anymore!</p>
+<p>In order to ignore unusable keys during deserialization use the constructor
+which takes <code>ignoreSerializationErrors</code> and set the value to <code>true</code>:</p>
+<pre><code class="lang-cs">using KeyRing keys = new(ignoreSerializationErrors: true);
+int serializerVersion = stream.ReadSerializerVersion();
+((IStreamSerializer)keys).Deserialize(stream, serializerVersion);
+</code></pre>
+<p>It's assumed that <code>stream</code> contains the decrypted key ring serialization data
+already.</p>
+<p><strong>NOTE</strong>: Only type/algorithm incompatibilities will be ignored by skipping
+the stored object. Serialized structure errors will still throw.</p>
 <h2 id="pake">PAKE</h2>
 <p><code>Pake</code> (see tests) can be used for implementing a password authenticated key
 exchange, which should be wrapped with a PFS protocol in addition. PAKE uses

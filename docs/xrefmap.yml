@@ -10206,6 +10206,45 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoExtensions.GetPooledKeyAsync
   nameWithType: CryptoExtensions.GetPooledKeyAsync
+- uid: wan24.Crypto.CryptoExtensions.IsPrivate(wan24.Crypto.KeyTypes)
+  name: IsPrivate(KeyTypes)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_IsPrivate_wan24_Crypto_KeyTypes_
+  commentId: M:wan24.Crypto.CryptoExtensions.IsPrivate(wan24.Crypto.KeyTypes)
+  fullName: wan24.Crypto.CryptoExtensions.IsPrivate(wan24.Crypto.KeyTypes)
+  nameWithType: CryptoExtensions.IsPrivate(KeyTypes)
+- uid: wan24.Crypto.CryptoExtensions.IsPrivate*
+  name: IsPrivate
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_IsPrivate_
+  commentId: Overload:wan24.Crypto.CryptoExtensions.IsPrivate
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoExtensions.IsPrivate
+  nameWithType: CryptoExtensions.IsPrivate
+- uid: wan24.Crypto.CryptoExtensions.IsPublic(wan24.Crypto.KeyTypes)
+  name: IsPublic(KeyTypes)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_IsPublic_wan24_Crypto_KeyTypes_
+  commentId: M:wan24.Crypto.CryptoExtensions.IsPublic(wan24.Crypto.KeyTypes)
+  fullName: wan24.Crypto.CryptoExtensions.IsPublic(wan24.Crypto.KeyTypes)
+  nameWithType: CryptoExtensions.IsPublic(KeyTypes)
+- uid: wan24.Crypto.CryptoExtensions.IsPublic*
+  name: IsPublic
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_IsPublic_
+  commentId: Overload:wan24.Crypto.CryptoExtensions.IsPublic
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoExtensions.IsPublic
+  nameWithType: CryptoExtensions.IsPublic
+- uid: wan24.Crypto.CryptoExtensions.IsStore(wan24.Crypto.KeyTypes)
+  name: IsStore(KeyTypes)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_IsStore_wan24_Crypto_KeyTypes_
+  commentId: M:wan24.Crypto.CryptoExtensions.IsStore(wan24.Crypto.KeyTypes)
+  fullName: wan24.Crypto.CryptoExtensions.IsStore(wan24.Crypto.KeyTypes)
+  nameWithType: CryptoExtensions.IsStore(KeyTypes)
+- uid: wan24.Crypto.CryptoExtensions.IsStore*
+  name: IsStore
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_IsStore_
+  commentId: Overload:wan24.Crypto.CryptoExtensions.IsStore
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoExtensions.IsStore
+  nameWithType: CryptoExtensions.IsStore
 - uid: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream,System.Byte[],System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions)
   name: ValidateMac(Stream, byte[], byte[], bool, CryptoOptions?)
   href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMac_System_IO_Stream_System_Byte___System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_
@@ -22114,6 +22153,1519 @@ references:
   fullName.vb: wan24.Crypto.KeyExchangeDataContainer.CType
   nameWithType: KeyExchangeDataContainer.implicit operator
   nameWithType.vb: KeyExchangeDataContainer.CType
+- uid: wan24.Crypto.KeyRing
+  name: KeyRing
+  href: api/wan24.Crypto.KeyRing.html
+  commentId: T:wan24.Crypto.KeyRing
+  fullName: wan24.Crypto.KeyRing
+  nameWithType: KeyRing
+- uid: wan24.Crypto.KeyRing.#ctor
+  name: KeyRing()
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing__ctor
+  commentId: M:wan24.Crypto.KeyRing.#ctor
+  name.vb: New()
+  fullName: wan24.Crypto.KeyRing.KeyRing()
+  fullName.vb: wan24.Crypto.KeyRing.New()
+  nameWithType: KeyRing.KeyRing()
+  nameWithType.vb: KeyRing.New()
+- uid: wan24.Crypto.KeyRing.#ctor(System.Boolean@)
+  name: KeyRing(in bool)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing__ctor_System_Boolean__
+  commentId: M:wan24.Crypto.KeyRing.#ctor(System.Boolean@)
+  name.vb: New(Boolean)
+  fullName: wan24.Crypto.KeyRing.KeyRing(in bool)
+  fullName.vb: wan24.Crypto.KeyRing.New(Boolean)
+  nameWithType: KeyRing.KeyRing(in bool)
+  nameWithType.vb: KeyRing.New(Boolean)
+- uid: wan24.Crypto.KeyRing.#ctor*
+  name: KeyRing
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing__ctor_
+  commentId: Overload:wan24.Crypto.KeyRing.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.KeyRing.KeyRing
+  fullName.vb: wan24.Crypto.KeyRing.New
+  nameWithType: KeyRing.KeyRing
+  nameWithType.vb: KeyRing.New
+- uid: wan24.Crypto.KeyRing.Clear
+  name: Clear()
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Clear
+  commentId: M:wan24.Crypto.KeyRing.Clear
+  fullName: wan24.Crypto.KeyRing.Clear()
+  nameWithType: KeyRing.Clear()
+- uid: wan24.Crypto.KeyRing.Clear*
+  name: Clear
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Clear_
+  commentId: Overload:wan24.Crypto.KeyRing.Clear
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Clear
+  nameWithType: KeyRing.Clear
+- uid: wan24.Crypto.KeyRing.ClearAsync
+  name: ClearAsync()
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_ClearAsync
+  commentId: M:wan24.Crypto.KeyRing.ClearAsync
+  fullName: wan24.Crypto.KeyRing.ClearAsync()
+  nameWithType: KeyRing.ClearAsync()
+- uid: wan24.Crypto.KeyRing.ClearAsync*
+  name: ClearAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_ClearAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.ClearAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.ClearAsync
+  nameWithType: KeyRing.ClearAsync
+- uid: wan24.Crypto.KeyRing.Count
+  name: Count
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Count
+  commentId: P:wan24.Crypto.KeyRing.Count
+  fullName: wan24.Crypto.KeyRing.Count
+  nameWithType: KeyRing.Count
+- uid: wan24.Crypto.KeyRing.Count*
+  name: Count
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Count_
+  commentId: Overload:wan24.Crypto.KeyRing.Count
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Count
+  nameWithType: KeyRing.Count
+- uid: wan24.Crypto.KeyRing.Decrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Decrypt(byte[], byte[], CryptoOptions?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Decrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.KeyRing.Decrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Decrypt(Byte(), Byte(), CryptoOptions)
+  fullName: wan24.Crypto.KeyRing.Decrypt(byte[], byte[], wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.KeyRing.Decrypt(Byte(), Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: KeyRing.Decrypt(byte[], byte[], CryptoOptions?)
+  nameWithType.vb: KeyRing.Decrypt(Byte(), Byte(), CryptoOptions)
+- uid: wan24.Crypto.KeyRing.Decrypt*
+  name: Decrypt
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Decrypt_
+  commentId: Overload:wan24.Crypto.KeyRing.Decrypt
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Decrypt
+  nameWithType: KeyRing.Decrypt
+- uid: wan24.Crypto.KeyRing.Deserialize(System.IO.Stream,System.Int32)
+  name: Deserialize(Stream, int)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Deserialize_System_IO_Stream_System_Int32_
+  commentId: M:wan24.Crypto.KeyRing.Deserialize(System.IO.Stream,System.Int32)
+  name.vb: Deserialize(Stream, Integer)
+  fullName: wan24.Crypto.KeyRing.Deserialize(System.IO.Stream, int)
+  fullName.vb: wan24.Crypto.KeyRing.Deserialize(System.IO.Stream, Integer)
+  nameWithType: KeyRing.Deserialize(Stream, int)
+  nameWithType.vb: KeyRing.Deserialize(Stream, Integer)
+- uid: wan24.Crypto.KeyRing.Deserialize*
+  name: Deserialize
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Deserialize_
+  commentId: Overload:wan24.Crypto.KeyRing.Deserialize
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Deserialize
+  nameWithType: KeyRing.Deserialize
+- uid: wan24.Crypto.KeyRing.DeserializeAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
+  name: DeserializeAsync(Stream, int, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.DeserializeAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Stream, Integer, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.DeserializeAsync(System.IO.Stream, int, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.DeserializeAsync(System.IO.Stream, Integer, System.Threading.CancellationToken)
+  nameWithType: KeyRing.DeserializeAsync(Stream, int, CancellationToken)
+  nameWithType.vb: KeyRing.DeserializeAsync(Stream, Integer, CancellationToken)
+- uid: wan24.Crypto.KeyRing.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_DeserializeAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.DeserializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.DeserializeAsync
+  nameWithType: KeyRing.DeserializeAsync
+- uid: wan24.Crypto.KeyRing.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.KeyRing.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.KeyRing.Dispose(bool)
+  fullName.vb: wan24.Crypto.KeyRing.Dispose(Boolean)
+  nameWithType: KeyRing.Dispose(bool)
+  nameWithType.vb: KeyRing.Dispose(Boolean)
+- uid: wan24.Crypto.KeyRing.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Dispose_
+  commentId: Overload:wan24.Crypto.KeyRing.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Dispose
+  nameWithType: KeyRing.Dispose
+- uid: wan24.Crypto.KeyRing.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_DisposeCore
+  commentId: M:wan24.Crypto.KeyRing.DisposeCore
+  fullName: wan24.Crypto.KeyRing.DisposeCore()
+  nameWithType: KeyRing.DisposeCore()
+- uid: wan24.Crypto.KeyRing.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_DisposeCore_
+  commentId: Overload:wan24.Crypto.KeyRing.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.DisposeCore
+  nameWithType: KeyRing.DisposeCore
+- uid: wan24.Crypto.KeyRing.Encrypt(System.Byte[],wan24.Crypto.CryptoOptions)
+  name: Encrypt(byte[], CryptoOptions?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Encrypt_System_Byte___wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.KeyRing.Encrypt(System.Byte[],wan24.Crypto.CryptoOptions)
+  name.vb: Encrypt(Byte(), CryptoOptions)
+  fullName: wan24.Crypto.KeyRing.Encrypt(byte[], wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.KeyRing.Encrypt(Byte(), wan24.Crypto.CryptoOptions)
+  nameWithType: KeyRing.Encrypt(byte[], CryptoOptions?)
+  nameWithType.vb: KeyRing.Encrypt(Byte(), CryptoOptions)
+- uid: wan24.Crypto.KeyRing.Encrypt*
+  name: Encrypt
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Encrypt_
+  commentId: Overload:wan24.Crypto.KeyRing.Encrypt
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Encrypt
+  nameWithType: KeyRing.Encrypt
+- uid: wan24.Crypto.KeyRing.GetCount(wan24.Crypto.KeyTypes@)
+  name: GetCount(in KeyTypes)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_GetCount_wan24_Crypto_KeyTypes__
+  commentId: M:wan24.Crypto.KeyRing.GetCount(wan24.Crypto.KeyTypes@)
+  name.vb: GetCount(KeyTypes)
+  fullName: wan24.Crypto.KeyRing.GetCount(in wan24.Crypto.KeyTypes)
+  fullName.vb: wan24.Crypto.KeyRing.GetCount(wan24.Crypto.KeyTypes)
+  nameWithType: KeyRing.GetCount(in KeyTypes)
+  nameWithType.vb: KeyRing.GetCount(KeyTypes)
+- uid: wan24.Crypto.KeyRing.GetCount*
+  name: GetCount
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_GetCount_
+  commentId: Overload:wan24.Crypto.KeyRing.GetCount
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.GetCount
+  nameWithType: KeyRing.GetCount
+- uid: wan24.Crypto.KeyRing.GetNames(wan24.Crypto.KeyTypes@)
+  name: GetNames(in KeyTypes)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_GetNames_wan24_Crypto_KeyTypes__
+  commentId: M:wan24.Crypto.KeyRing.GetNames(wan24.Crypto.KeyTypes@)
+  name.vb: GetNames(KeyTypes)
+  fullName: wan24.Crypto.KeyRing.GetNames(in wan24.Crypto.KeyTypes)
+  fullName.vb: wan24.Crypto.KeyRing.GetNames(wan24.Crypto.KeyTypes)
+  nameWithType: KeyRing.GetNames(in KeyTypes)
+  nameWithType.vb: KeyRing.GetNames(KeyTypes)
+- uid: wan24.Crypto.KeyRing.GetNames*
+  name: GetNames
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_GetNames_
+  commentId: Overload:wan24.Crypto.KeyRing.GetNames
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.GetNames
+  nameWithType: KeyRing.GetNames
+- uid: wan24.Crypto.KeyRing.Item(System.String)
+  name: this[string]
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Item_System_String_
+  commentId: P:wan24.Crypto.KeyRing.Item(System.String)
+  name.vb: this[](String)
+  fullName: wan24.Crypto.KeyRing.this[string]
+  fullName.vb: wan24.Crypto.KeyRing.this[](String)
+  nameWithType: KeyRing.this[string]
+  nameWithType.vb: KeyRing.this[](String)
+- uid: wan24.Crypto.KeyRing.Item*
+  name: this
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Item_
+  commentId: Overload:wan24.Crypto.KeyRing.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: wan24.Crypto.KeyRing.this
+  fullName.vb: wan24.Crypto.KeyRing.this[]
+  nameWithType: KeyRing.this
+  nameWithType.vb: KeyRing.this[]
+- uid: wan24.Crypto.KeyRing.MaxCount
+  name: MaxCount
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_MaxCount
+  commentId: P:wan24.Crypto.KeyRing.MaxCount
+  fullName: wan24.Crypto.KeyRing.MaxCount
+  nameWithType: KeyRing.MaxCount
+- uid: wan24.Crypto.KeyRing.MaxCount*
+  name: MaxCount
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_MaxCount_
+  commentId: Overload:wan24.Crypto.KeyRing.MaxCount
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.MaxCount
+  nameWithType: KeyRing.MaxCount
+- uid: wan24.Crypto.KeyRing.MaxSymmetricKeyLength
+  name: MaxSymmetricKeyLength
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_MaxSymmetricKeyLength
+  commentId: P:wan24.Crypto.KeyRing.MaxSymmetricKeyLength
+  fullName: wan24.Crypto.KeyRing.MaxSymmetricKeyLength
+  nameWithType: KeyRing.MaxSymmetricKeyLength
+- uid: wan24.Crypto.KeyRing.MaxSymmetricKeyLength*
+  name: MaxSymmetricKeyLength
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_MaxSymmetricKeyLength_
+  commentId: Overload:wan24.Crypto.KeyRing.MaxSymmetricKeyLength
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.MaxSymmetricKeyLength
+  nameWithType: KeyRing.MaxSymmetricKeyLength
+- uid: wan24.Crypto.KeyRing.Names
+  name: Names
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Names
+  commentId: P:wan24.Crypto.KeyRing.Names
+  fullName: wan24.Crypto.KeyRing.Names
+  nameWithType: KeyRing.Names
+- uid: wan24.Crypto.KeyRing.Names*
+  name: Names
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Names_
+  commentId: Overload:wan24.Crypto.KeyRing.Names
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Names
+  nameWithType: KeyRing.Names
+- uid: wan24.Crypto.KeyRing.Serialize(System.IO.Stream)
+  name: Serialize(Stream)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Serialize_System_IO_Stream_
+  commentId: M:wan24.Crypto.KeyRing.Serialize(System.IO.Stream)
+  fullName: wan24.Crypto.KeyRing.Serialize(System.IO.Stream)
+  nameWithType: KeyRing.Serialize(Stream)
+- uid: wan24.Crypto.KeyRing.Serialize*
+  name: Serialize
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_Serialize_
+  commentId: Overload:wan24.Crypto.KeyRing.Serialize
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.Serialize
+  nameWithType: KeyRing.Serialize
+- uid: wan24.Crypto.KeyRing.SerializeAsync(System.IO.Stream,System.Threading.CancellationToken)
+  name: SerializeAsync(Stream, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.SerializeAsync(System.IO.Stream,System.Threading.CancellationToken)
+  fullName: wan24.Crypto.KeyRing.SerializeAsync(System.IO.Stream, System.Threading.CancellationToken)
+  nameWithType: KeyRing.SerializeAsync(Stream, CancellationToken)
+- uid: wan24.Crypto.KeyRing.SerializeAsync*
+  name: SerializeAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_SerializeAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.SerializeAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.SerializeAsync
+  nameWithType: KeyRing.SerializeAsync
+- uid: wan24.Crypto.KeyRing.SerializedCount
+  name: SerializedCount
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_SerializedCount
+  commentId: P:wan24.Crypto.KeyRing.SerializedCount
+  fullName: wan24.Crypto.KeyRing.SerializedCount
+  nameWithType: KeyRing.SerializedCount
+- uid: wan24.Crypto.KeyRing.SerializedCount*
+  name: SerializedCount
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_SerializedCount_
+  commentId: Overload:wan24.Crypto.KeyRing.SerializedCount
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.SerializedCount
+  nameWithType: KeyRing.SerializedCount
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,System.Byte[]@)
+  name: TryAdd(in string, in byte[])
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__System_Byte____
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,System.Byte[]@)
+  name.vb: TryAdd(String, Byte())
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in byte[])
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, Byte())
+  nameWithType: KeyRing.TryAdd(in string, in byte[])
+  nameWithType.vb: KeyRing.TryAdd(String, Byte())
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.CryptoOptions@)
+  name: TryAdd(in string, in CryptoOptions)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.CryptoOptions@)
+  name.vb: TryAdd(String, CryptoOptions)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.CryptoOptions)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.CryptoOptions)
+  nameWithType: KeyRing.TryAdd(in string, in CryptoOptions)
+  nameWithType.vb: KeyRing.TryAdd(String, CryptoOptions)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.IAsymmetricKey@)
+  name: TryAdd(in string, in IAsymmetricKey)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_IAsymmetricKey__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.IAsymmetricKey@)
+  name.vb: TryAdd(String, IAsymmetricKey)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.IAsymmetricKey)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.IAsymmetricKey)
+  nameWithType: KeyRing.TryAdd(in string, in IAsymmetricKey)
+  nameWithType.vb: KeyRing.TryAdd(String, IAsymmetricKey)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PakeRecord@)
+  name: TryAdd(in string, in PakeRecord)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_PakeRecord__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PakeRecord@)
+  name.vb: TryAdd(String, PakeRecord)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.PakeRecord)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.PakeRecord)
+  nameWithType: KeyRing.TryAdd(in string, in PakeRecord)
+  nameWithType.vb: KeyRing.TryAdd(String, PakeRecord)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PakeRecordStore@)
+  name: TryAdd(in string, in PakeRecordStore)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_PakeRecordStore__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PakeRecordStore@)
+  name.vb: TryAdd(String, PakeRecordStore)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.PakeRecordStore)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.PakeRecordStore)
+  nameWithType: KeyRing.TryAdd(in string, in PakeRecordStore)
+  nameWithType.vb: KeyRing.TryAdd(String, PakeRecordStore)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PrivateKeySuite@)
+  name: TryAdd(in string, in PrivateKeySuite)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_PrivateKeySuite__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PrivateKeySuite@)
+  name.vb: TryAdd(String, PrivateKeySuite)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.PrivateKeySuite)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.PrivateKeySuite)
+  nameWithType: KeyRing.TryAdd(in string, in PrivateKeySuite)
+  nameWithType.vb: KeyRing.TryAdd(String, PrivateKeySuite)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PrivateKeySuiteStore@)
+  name: TryAdd(in string, in PrivateKeySuiteStore)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_PrivateKeySuiteStore__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PrivateKeySuiteStore@)
+  name.vb: TryAdd(String, PrivateKeySuiteStore)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.PrivateKeySuiteStore)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.PrivateKeySuiteStore)
+  nameWithType: KeyRing.TryAdd(in string, in PrivateKeySuiteStore)
+  nameWithType.vb: KeyRing.TryAdd(String, PrivateKeySuiteStore)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PublicKeySuite@)
+  name: TryAdd(in string, in PublicKeySuite)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_PublicKeySuite__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PublicKeySuite@)
+  name.vb: TryAdd(String, PublicKeySuite)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.PublicKeySuite)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.PublicKeySuite)
+  nameWithType: KeyRing.TryAdd(in string, in PublicKeySuite)
+  nameWithType.vb: KeyRing.TryAdd(String, PublicKeySuite)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PublicKeySuiteStore@)
+  name: TryAdd(in string, in PublicKeySuiteStore)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_PublicKeySuiteStore__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.PublicKeySuiteStore@)
+  name.vb: TryAdd(String, PublicKeySuiteStore)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.PublicKeySuiteStore)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.PublicKeySuiteStore)
+  nameWithType: KeyRing.TryAdd(in string, in PublicKeySuiteStore)
+  nameWithType.vb: KeyRing.TryAdd(String, PublicKeySuiteStore)
+- uid: wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.SignedPkiStore@)
+  name: TryAdd(in string, in SignedPkiStore)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_System_String__wan24_Crypto_SignedPkiStore__
+  commentId: M:wan24.Crypto.KeyRing.TryAdd(System.String@,wan24.Crypto.SignedPkiStore@)
+  name.vb: TryAdd(String, SignedPkiStore)
+  fullName: wan24.Crypto.KeyRing.TryAdd(in string, in wan24.Crypto.SignedPkiStore)
+  fullName.vb: wan24.Crypto.KeyRing.TryAdd(String, wan24.Crypto.SignedPkiStore)
+  nameWithType: KeyRing.TryAdd(in string, in SignedPkiStore)
+  nameWithType.vb: KeyRing.TryAdd(String, SignedPkiStore)
+- uid: wan24.Crypto.KeyRing.TryAdd*
+  name: TryAdd
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAdd_
+  commentId: Overload:wan24.Crypto.KeyRing.TryAdd
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryAdd
+  nameWithType: KeyRing.TryAdd
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,System.Byte[],System.Threading.CancellationToken)
+  name: TryAddAsync(string, byte[], CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_System_Byte___System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,System.Byte[],System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, Byte(), CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, byte[], System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, Byte(), System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, byte[], CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, Byte(), CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name: TryAddAsync(string, CryptoOptions, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, CryptoOptions, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, CryptoOptions, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, CryptoOptions, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.IAsymmetricKey,System.Threading.CancellationToken)
+  name: TryAddAsync(string, IAsymmetricKey, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_IAsymmetricKey_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.IAsymmetricKey,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, IAsymmetricKey, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.IAsymmetricKey, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.IAsymmetricKey, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, IAsymmetricKey, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, IAsymmetricKey, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PakeRecord,System.Threading.CancellationToken)
+  name: TryAddAsync(string, PakeRecord, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_PakeRecord_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PakeRecord,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, PakeRecord, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.PakeRecord, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.PakeRecord, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, PakeRecord, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, PakeRecord, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PakeRecordStore,System.Threading.CancellationToken)
+  name: TryAddAsync(string, PakeRecordStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_PakeRecordStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PakeRecordStore,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, PakeRecordStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.PakeRecordStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.PakeRecordStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, PakeRecordStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, PakeRecordStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PrivateKeySuite,System.Threading.CancellationToken)
+  name: TryAddAsync(string, PrivateKeySuite, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_PrivateKeySuite_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PrivateKeySuite,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, PrivateKeySuite, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.PrivateKeySuite, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.PrivateKeySuite, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, PrivateKeySuite, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, PrivateKeySuite, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PrivateKeySuiteStore,System.Threading.CancellationToken)
+  name: TryAddAsync(string, PrivateKeySuiteStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_PrivateKeySuiteStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PrivateKeySuiteStore,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, PrivateKeySuiteStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.PrivateKeySuiteStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.PrivateKeySuiteStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, PrivateKeySuiteStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, PrivateKeySuiteStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PublicKeySuite,System.Threading.CancellationToken)
+  name: TryAddAsync(string, PublicKeySuite, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_PublicKeySuite_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PublicKeySuite,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, PublicKeySuite, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.PublicKeySuite, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.PublicKeySuite, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, PublicKeySuite, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, PublicKeySuite, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PublicKeySuiteStore,System.Threading.CancellationToken)
+  name: TryAddAsync(string, PublicKeySuiteStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_PublicKeySuiteStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.PublicKeySuiteStore,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, PublicKeySuiteStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.PublicKeySuiteStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.PublicKeySuiteStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, PublicKeySuiteStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, PublicKeySuiteStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.SignedPkiStore,System.Threading.CancellationToken)
+  name: TryAddAsync(string, SignedPkiStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_System_String_wan24_Crypto_SignedPkiStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryAddAsync(System.String,wan24.Crypto.SignedPkiStore,System.Threading.CancellationToken)
+  name.vb: TryAddAsync(String, SignedPkiStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryAddAsync(string, wan24.Crypto.SignedPkiStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryAddAsync(String, wan24.Crypto.SignedPkiStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryAddAsync(string, SignedPkiStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryAddAsync(String, SignedPkiStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryAddAsync*
+  name: TryAddAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryAddAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryAddAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryAddAsync
+  nameWithType: KeyRing.TryAddAsync
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPrivate(System.String@)
+  name: TryGetAsymmetricPrivate(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPrivate_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetAsymmetricPrivate(System.String@)
+  name.vb: TryGetAsymmetricPrivate(String)
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPrivate(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetAsymmetricPrivate(String)
+  nameWithType: KeyRing.TryGetAsymmetricPrivate(in string)
+  nameWithType.vb: KeyRing.TryGetAsymmetricPrivate(String)
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPrivate*
+  name: TryGetAsymmetricPrivate
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPrivate_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetAsymmetricPrivate
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPrivate
+  nameWithType: KeyRing.TryGetAsymmetricPrivate
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetAsymmetricPrivateAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPrivateAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetAsymmetricPrivateAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetAsymmetricPrivateAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetAsymmetricPrivateAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync*
+  name: TryGetAsymmetricPrivateAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPrivateAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPrivateAsync
+  nameWithType: KeyRing.TryGetAsymmetricPrivateAsync
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPublic(System.String@)
+  name: TryGetAsymmetricPublic(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPublic_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetAsymmetricPublic(System.String@)
+  name.vb: TryGetAsymmetricPublic(String)
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPublic(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetAsymmetricPublic(String)
+  nameWithType: KeyRing.TryGetAsymmetricPublic(in string)
+  nameWithType.vb: KeyRing.TryGetAsymmetricPublic(String)
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPublic*
+  name: TryGetAsymmetricPublic
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPublic_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetAsymmetricPublic
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPublic
+  nameWithType: KeyRing.TryGetAsymmetricPublic
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetAsymmetricPublicAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPublicAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetAsymmetricPublicAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetAsymmetricPublicAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetAsymmetricPublicAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync*
+  name: TryGetAsymmetricPublicAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetAsymmetricPublicAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetAsymmetricPublicAsync
+  nameWithType: KeyRing.TryGetAsymmetricPublicAsync
+- uid: wan24.Crypto.KeyRing.TryGetOptions(System.String@)
+  name: TryGetOptions(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetOptions_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetOptions(System.String@)
+  name.vb: TryGetOptions(String)
+  fullName: wan24.Crypto.KeyRing.TryGetOptions(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetOptions(String)
+  nameWithType: KeyRing.TryGetOptions(in string)
+  nameWithType.vb: KeyRing.TryGetOptions(String)
+- uid: wan24.Crypto.KeyRing.TryGetOptions*
+  name: TryGetOptions
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetOptions_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetOptions
+  nameWithType: KeyRing.TryGetOptions
+- uid: wan24.Crypto.KeyRing.TryGetOptionsAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetOptionsAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetOptionsAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetOptionsAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetOptionsAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetOptionsAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetOptionsAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetOptionsAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetOptionsAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetOptionsAsync*
+  name: TryGetOptionsAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetOptionsAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetOptionsAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetOptionsAsync
+  nameWithType: KeyRing.TryGetOptionsAsync
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecord(System.String@)
+  name: TryGetPakeRecord(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecord_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPakeRecord(System.String@)
+  name.vb: TryGetPakeRecord(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecord(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPakeRecord(String)
+  nameWithType: KeyRing.TryGetPakeRecord(in string)
+  nameWithType.vb: KeyRing.TryGetPakeRecord(String)
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecord*
+  name: TryGetPakeRecord
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecord_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPakeRecord
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecord
+  nameWithType: KeyRing.TryGetPakeRecord
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecordAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPakeRecordAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecordAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPakeRecordAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPakeRecordAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecordAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPakeRecordAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPakeRecordAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPakeRecordAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecordAsync*
+  name: TryGetPakeRecordAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecordAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPakeRecordAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecordAsync
+  nameWithType: KeyRing.TryGetPakeRecordAsync
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecordStore(System.String@)
+  name: TryGetPakeRecordStore(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecordStore_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPakeRecordStore(System.String@)
+  name.vb: TryGetPakeRecordStore(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecordStore(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPakeRecordStore(String)
+  nameWithType: KeyRing.TryGetPakeRecordStore(in string)
+  nameWithType.vb: KeyRing.TryGetPakeRecordStore(String)
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecordStore*
+  name: TryGetPakeRecordStore
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecordStore_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPakeRecordStore
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecordStore
+  nameWithType: KeyRing.TryGetPakeRecordStore
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPakeRecordStoreAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecordStoreAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPakeRecordStoreAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPakeRecordStoreAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPakeRecordStoreAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync*
+  name: TryGetPakeRecordStoreAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPakeRecordStoreAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPakeRecordStoreAsync
+  nameWithType: KeyRing.TryGetPakeRecordStoreAsync
+- uid: wan24.Crypto.KeyRing.TryGetPki(System.String@)
+  name: TryGetPki(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPki_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPki(System.String@)
+  name.vb: TryGetPki(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPki(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPki(String)
+  nameWithType: KeyRing.TryGetPki(in string)
+  nameWithType.vb: KeyRing.TryGetPki(String)
+- uid: wan24.Crypto.KeyRing.TryGetPki*
+  name: TryGetPki
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPki_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPki
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPki
+  nameWithType: KeyRing.TryGetPki
+- uid: wan24.Crypto.KeyRing.TryGetPkiAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPkiAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPkiAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPkiAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPkiAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPkiAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPkiAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPkiAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPkiAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPkiAsync*
+  name: TryGetPkiAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPkiAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPkiAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPkiAsync
+  nameWithType: KeyRing.TryGetPkiAsync
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKey(System.String@)
+  name: TryGetPrivateKey(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKey_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPrivateKey(System.String@)
+  name.vb: TryGetPrivateKey(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKey(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPrivateKey(String)
+  nameWithType: KeyRing.TryGetPrivateKey(in string)
+  nameWithType.vb: KeyRing.TryGetPrivateKey(String)
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKey*
+  name: TryGetPrivateKey
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKey_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPrivateKey
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKey
+  nameWithType: KeyRing.TryGetPrivateKey
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKeyAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPrivateKeyAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKeyAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPrivateKeyAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPrivateKeyAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKeyAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPrivateKeyAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPrivateKeyAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPrivateKeyAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKeyAsync*
+  name: TryGetPrivateKeyAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKeyAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPrivateKeyAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKeyAsync
+  nameWithType: KeyRing.TryGetPrivateKeyAsync
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKeySuites(System.String@)
+  name: TryGetPrivateKeySuites(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKeySuites_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPrivateKeySuites(System.String@)
+  name.vb: TryGetPrivateKeySuites(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKeySuites(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPrivateKeySuites(String)
+  nameWithType: KeyRing.TryGetPrivateKeySuites(in string)
+  nameWithType.vb: KeyRing.TryGetPrivateKeySuites(String)
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKeySuites*
+  name: TryGetPrivateKeySuites
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKeySuites_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPrivateKeySuites
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKeySuites
+  nameWithType: KeyRing.TryGetPrivateKeySuites
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPrivateKeySuitesAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKeySuitesAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPrivateKeySuitesAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPrivateKeySuitesAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPrivateKeySuitesAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync*
+  name: TryGetPrivateKeySuitesAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPrivateKeySuitesAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPrivateKeySuitesAsync
+  nameWithType: KeyRing.TryGetPrivateKeySuitesAsync
+- uid: wan24.Crypto.KeyRing.TryGetPublicKey(System.String@)
+  name: TryGetPublicKey(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKey_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPublicKey(System.String@)
+  name.vb: TryGetPublicKey(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKey(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPublicKey(String)
+  nameWithType: KeyRing.TryGetPublicKey(in string)
+  nameWithType.vb: KeyRing.TryGetPublicKey(String)
+- uid: wan24.Crypto.KeyRing.TryGetPublicKey*
+  name: TryGetPublicKey
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKey_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPublicKey
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKey
+  nameWithType: KeyRing.TryGetPublicKey
+- uid: wan24.Crypto.KeyRing.TryGetPublicKeyAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPublicKeyAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKeyAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPublicKeyAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPublicKeyAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKeyAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPublicKeyAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPublicKeyAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPublicKeyAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPublicKeyAsync*
+  name: TryGetPublicKeyAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKeyAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPublicKeyAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKeyAsync
+  nameWithType: KeyRing.TryGetPublicKeyAsync
+- uid: wan24.Crypto.KeyRing.TryGetPublicKeySuites(System.String@)
+  name: TryGetPublicKeySuites(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKeySuites_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetPublicKeySuites(System.String@)
+  name.vb: TryGetPublicKeySuites(String)
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKeySuites(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPublicKeySuites(String)
+  nameWithType: KeyRing.TryGetPublicKeySuites(in string)
+  nameWithType.vb: KeyRing.TryGetPublicKeySuites(String)
+- uid: wan24.Crypto.KeyRing.TryGetPublicKeySuites*
+  name: TryGetPublicKeySuites
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKeySuites_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPublicKeySuites
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKeySuites
+  nameWithType: KeyRing.TryGetPublicKeySuites
+- uid: wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetPublicKeySuitesAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKeySuitesAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetPublicKeySuitesAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetPublicKeySuitesAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetPublicKeySuitesAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync*
+  name: TryGetPublicKeySuitesAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetPublicKeySuitesAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetPublicKeySuitesAsync
+  nameWithType: KeyRing.TryGetPublicKeySuitesAsync
+- uid: wan24.Crypto.KeyRing.TryGetSymmetric(System.String@)
+  name: TryGetSymmetric(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetSymmetric_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryGetSymmetric(System.String@)
+  name.vb: TryGetSymmetric(String)
+  fullName: wan24.Crypto.KeyRing.TryGetSymmetric(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetSymmetric(String)
+  nameWithType: KeyRing.TryGetSymmetric(in string)
+  nameWithType.vb: KeyRing.TryGetSymmetric(String)
+- uid: wan24.Crypto.KeyRing.TryGetSymmetric*
+  name: TryGetSymmetric
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetSymmetric_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetSymmetric
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetSymmetric
+  nameWithType: KeyRing.TryGetSymmetric
+- uid: wan24.Crypto.KeyRing.TryGetSymmetricAsync(System.String,System.Threading.CancellationToken)
+  name: TryGetSymmetricAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetSymmetricAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryGetSymmetricAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryGetSymmetricAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryGetSymmetricAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryGetSymmetricAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryGetSymmetricAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryGetSymmetricAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryGetSymmetricAsync*
+  name: TryGetSymmetricAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryGetSymmetricAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryGetSymmetricAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryGetSymmetricAsync
+  nameWithType: KeyRing.TryGetSymmetricAsync
+- uid: wan24.Crypto.KeyRing.TryRemoveAsymmetric(System.String@)
+  name: TryRemoveAsymmetric(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveAsymmetric_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemoveAsymmetric(System.String@)
+  name.vb: TryRemoveAsymmetric(String)
+  fullName: wan24.Crypto.KeyRing.TryRemoveAsymmetric(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemoveAsymmetric(String)
+  nameWithType: KeyRing.TryRemoveAsymmetric(in string)
+  nameWithType.vb: KeyRing.TryRemoveAsymmetric(String)
+- uid: wan24.Crypto.KeyRing.TryRemoveAsymmetric*
+  name: TryRemoveAsymmetric
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveAsymmetric_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemoveAsymmetric
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemoveAsymmetric
+  nameWithType: KeyRing.TryRemoveAsymmetric
+- uid: wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemoveAsymmetricAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveAsymmetricAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemoveAsymmetricAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemoveAsymmetricAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemoveAsymmetricAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync*
+  name: TryRemoveAsymmetricAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveAsymmetricAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemoveAsymmetricAsync
+  nameWithType: KeyRing.TryRemoveAsymmetricAsync
+- uid: wan24.Crypto.KeyRing.TryRemoveOptions(System.String@)
+  name: TryRemoveOptions(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveOptions_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemoveOptions(System.String@)
+  name.vb: TryRemoveOptions(String)
+  fullName: wan24.Crypto.KeyRing.TryRemoveOptions(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemoveOptions(String)
+  nameWithType: KeyRing.TryRemoveOptions(in string)
+  nameWithType.vb: KeyRing.TryRemoveOptions(String)
+- uid: wan24.Crypto.KeyRing.TryRemoveOptions*
+  name: TryRemoveOptions
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveOptions_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemoveOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemoveOptions
+  nameWithType: KeyRing.TryRemoveOptions
+- uid: wan24.Crypto.KeyRing.TryRemoveOptionsAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemoveOptionsAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveOptionsAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemoveOptionsAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemoveOptionsAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemoveOptionsAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemoveOptionsAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemoveOptionsAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemoveOptionsAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemoveOptionsAsync*
+  name: TryRemoveOptionsAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveOptionsAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemoveOptionsAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemoveOptionsAsync
+  nameWithType: KeyRing.TryRemoveOptionsAsync
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecord(System.String@)
+  name: TryRemovePakeRecord(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecord_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePakeRecord(System.String@)
+  name.vb: TryRemovePakeRecord(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecord(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePakeRecord(String)
+  nameWithType: KeyRing.TryRemovePakeRecord(in string)
+  nameWithType.vb: KeyRing.TryRemovePakeRecord(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecord*
+  name: TryRemovePakeRecord
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecord_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePakeRecord
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecord
+  nameWithType: KeyRing.TryRemovePakeRecord
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc(System.String,System.Threading.CancellationToken)
+  name: TryRemovePakeRecordAsnyc(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecordAsnyc_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePakeRecordAsnyc(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePakeRecordAsnyc(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePakeRecordAsnyc(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc*
+  name: TryRemovePakeRecordAsnyc
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecordAsnyc_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecordAsnyc
+  nameWithType: KeyRing.TryRemovePakeRecordAsnyc
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecordStore(System.String@)
+  name: TryRemovePakeRecordStore(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecordStore_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePakeRecordStore(System.String@)
+  name.vb: TryRemovePakeRecordStore(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecordStore(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePakeRecordStore(String)
+  nameWithType: KeyRing.TryRemovePakeRecordStore(in string)
+  nameWithType.vb: KeyRing.TryRemovePakeRecordStore(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecordStore*
+  name: TryRemovePakeRecordStore
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecordStore_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePakeRecordStore
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecordStore
+  nameWithType: KeyRing.TryRemovePakeRecordStore
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemovePakeRecordStoreAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecordStoreAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePakeRecordStoreAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePakeRecordStoreAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePakeRecordStoreAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync*
+  name: TryRemovePakeRecordStoreAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePakeRecordStoreAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePakeRecordStoreAsync
+  nameWithType: KeyRing.TryRemovePakeRecordStoreAsync
+- uid: wan24.Crypto.KeyRing.TryRemovePki(System.String@)
+  name: TryRemovePki(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePki_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePki(System.String@)
+  name.vb: TryRemovePki(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePki(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePki(String)
+  nameWithType: KeyRing.TryRemovePki(in string)
+  nameWithType.vb: KeyRing.TryRemovePki(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePki*
+  name: TryRemovePki
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePki_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePki
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePki
+  nameWithType: KeyRing.TryRemovePki
+- uid: wan24.Crypto.KeyRing.TryRemovePkiAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemovePkiAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePkiAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePkiAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePkiAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePkiAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePkiAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePkiAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePkiAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePkiAsync*
+  name: TryRemovePkiAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePkiAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePkiAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePkiAsync
+  nameWithType: KeyRing.TryRemovePkiAsync
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuite(System.String@)
+  name: TryRemovePrivateKeySuite(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuite_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePrivateKeySuite(System.String@)
+  name.vb: TryRemovePrivateKeySuite(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuite(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePrivateKeySuite(String)
+  nameWithType: KeyRing.TryRemovePrivateKeySuite(in string)
+  nameWithType.vb: KeyRing.TryRemovePrivateKeySuite(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuite*
+  name: TryRemovePrivateKeySuite
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuite_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePrivateKeySuite
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuite
+  nameWithType: KeyRing.TryRemovePrivateKeySuite
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemovePrivateKeySuiteAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuiteAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePrivateKeySuiteAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePrivateKeySuiteAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePrivateKeySuiteAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync*
+  name: TryRemovePrivateKeySuiteAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuiteAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteAsync
+  nameWithType: KeyRing.TryRemovePrivateKeySuiteAsync
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore(System.String@)
+  name: TryRemovePrivateKeySuiteStore(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuiteStore_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore(System.String@)
+  name.vb: TryRemovePrivateKeySuiteStore(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore(String)
+  nameWithType: KeyRing.TryRemovePrivateKeySuiteStore(in string)
+  nameWithType.vb: KeyRing.TryRemovePrivateKeySuiteStore(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore*
+  name: TryRemovePrivateKeySuiteStore
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuiteStore_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStore
+  nameWithType: KeyRing.TryRemovePrivateKeySuiteStore
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemovePrivateKeySuiteStoreAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuiteStoreAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePrivateKeySuiteStoreAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePrivateKeySuiteStoreAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePrivateKeySuiteStoreAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync*
+  name: TryRemovePrivateKeySuiteStoreAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePrivateKeySuiteStoreAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePrivateKeySuiteStoreAsync
+  nameWithType: KeyRing.TryRemovePrivateKeySuiteStoreAsync
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuite(System.String@)
+  name: TryRemovePublicKeySuite(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuite_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePublicKeySuite(System.String@)
+  name.vb: TryRemovePublicKeySuite(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuite(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePublicKeySuite(String)
+  nameWithType: KeyRing.TryRemovePublicKeySuite(in string)
+  nameWithType.vb: KeyRing.TryRemovePublicKeySuite(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuite*
+  name: TryRemovePublicKeySuite
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuite_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePublicKeySuite
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuite
+  nameWithType: KeyRing.TryRemovePublicKeySuite
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemovePublicKeySuiteAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuiteAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePublicKeySuiteAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePublicKeySuiteAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePublicKeySuiteAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync*
+  name: TryRemovePublicKeySuiteAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuiteAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteAsync
+  nameWithType: KeyRing.TryRemovePublicKeySuiteAsync
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore(System.String@)
+  name: TryRemovePublicKeySuiteStore(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuiteStore_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore(System.String@)
+  name.vb: TryRemovePublicKeySuiteStore(String)
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore(String)
+  nameWithType: KeyRing.TryRemovePublicKeySuiteStore(in string)
+  nameWithType.vb: KeyRing.TryRemovePublicKeySuiteStore(String)
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore*
+  name: TryRemovePublicKeySuiteStore
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuiteStore_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStore
+  nameWithType: KeyRing.TryRemovePublicKeySuiteStore
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemovePublicKeySuiteStoreAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuiteStoreAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemovePublicKeySuiteStoreAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemovePublicKeySuiteStoreAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemovePublicKeySuiteStoreAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync*
+  name: TryRemovePublicKeySuiteStoreAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemovePublicKeySuiteStoreAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemovePublicKeySuiteStoreAsync
+  nameWithType: KeyRing.TryRemovePublicKeySuiteStoreAsync
+- uid: wan24.Crypto.KeyRing.TryRemoveSymmetric(System.String@)
+  name: TryRemoveSymmetric(in string)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveSymmetric_System_String__
+  commentId: M:wan24.Crypto.KeyRing.TryRemoveSymmetric(System.String@)
+  name.vb: TryRemoveSymmetric(String)
+  fullName: wan24.Crypto.KeyRing.TryRemoveSymmetric(in string)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemoveSymmetric(String)
+  nameWithType: KeyRing.TryRemoveSymmetric(in string)
+  nameWithType.vb: KeyRing.TryRemoveSymmetric(String)
+- uid: wan24.Crypto.KeyRing.TryRemoveSymmetric*
+  name: TryRemoveSymmetric
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveSymmetric_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemoveSymmetric
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemoveSymmetric
+  nameWithType: KeyRing.TryRemoveSymmetric
+- uid: wan24.Crypto.KeyRing.TryRemoveSymmetricAsync(System.String,System.Threading.CancellationToken)
+  name: TryRemoveSymmetricAsync(string, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveSymmetricAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryRemoveSymmetricAsync(System.String,System.Threading.CancellationToken)
+  name.vb: TryRemoveSymmetricAsync(String, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryRemoveSymmetricAsync(string, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryRemoveSymmetricAsync(String, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryRemoveSymmetricAsync(string, CancellationToken)
+  nameWithType.vb: KeyRing.TryRemoveSymmetricAsync(String, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryRemoveSymmetricAsync*
+  name: TryRemoveSymmetricAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryRemoveSymmetricAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryRemoveSymmetricAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryRemoveSymmetricAsync
+  nameWithType: KeyRing.TryRemoveSymmetricAsync
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,System.Byte[]@,System.Byte[]@)
+  name: TryUpdate(in string, in byte[], out byte[]?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__System_Byte____System_Byte____
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,System.Byte[]@,System.Byte[]@)
+  name.vb: TryUpdate(String, Byte(), Byte())
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in byte[], out byte[]?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, Byte(), Byte())
+  nameWithType: KeyRing.TryUpdate(in string, in byte[], out byte[]?)
+  nameWithType.vb: KeyRing.TryUpdate(String, Byte(), Byte())
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions@)
+  name: TryUpdate(in string, in CryptoOptions, out CryptoOptions?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_CryptoOptions__wan24_Crypto_CryptoOptions__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.CryptoOptions@,wan24.Crypto.CryptoOptions@)
+  name.vb: TryUpdate(String, CryptoOptions, CryptoOptions)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.CryptoOptions, out wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.CryptoOptions, wan24.Crypto.CryptoOptions)
+  nameWithType: KeyRing.TryUpdate(in string, in CryptoOptions, out CryptoOptions?)
+  nameWithType.vb: KeyRing.TryUpdate(String, CryptoOptions, CryptoOptions)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.IAsymmetricKey@,wan24.Crypto.IAsymmetricKey@)
+  name: TryUpdate(in string, in IAsymmetricKey, out IAsymmetricKey?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_IAsymmetricKey__wan24_Crypto_IAsymmetricKey__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.IAsymmetricKey@,wan24.Crypto.IAsymmetricKey@)
+  name.vb: TryUpdate(String, IAsymmetricKey, IAsymmetricKey)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.IAsymmetricKey, out wan24.Crypto.IAsymmetricKey?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.IAsymmetricKey, wan24.Crypto.IAsymmetricKey)
+  nameWithType: KeyRing.TryUpdate(in string, in IAsymmetricKey, out IAsymmetricKey?)
+  nameWithType.vb: KeyRing.TryUpdate(String, IAsymmetricKey, IAsymmetricKey)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PakeRecord@,wan24.Crypto.PakeRecord@)
+  name: TryUpdate(in string, in PakeRecord, out PakeRecord?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_PakeRecord__wan24_Crypto_PakeRecord__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PakeRecord@,wan24.Crypto.PakeRecord@)
+  name.vb: TryUpdate(String, PakeRecord, PakeRecord)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.PakeRecord, out wan24.Crypto.PakeRecord?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.PakeRecord, wan24.Crypto.PakeRecord)
+  nameWithType: KeyRing.TryUpdate(in string, in PakeRecord, out PakeRecord?)
+  nameWithType.vb: KeyRing.TryUpdate(String, PakeRecord, PakeRecord)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PakeRecordStore@,wan24.Crypto.PakeRecordStore@)
+  name: TryUpdate(in string, in PakeRecordStore, out PakeRecordStore?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_PakeRecordStore__wan24_Crypto_PakeRecordStore__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PakeRecordStore@,wan24.Crypto.PakeRecordStore@)
+  name.vb: TryUpdate(String, PakeRecordStore, PakeRecordStore)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.PakeRecordStore, out wan24.Crypto.PakeRecordStore?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.PakeRecordStore, wan24.Crypto.PakeRecordStore)
+  nameWithType: KeyRing.TryUpdate(in string, in PakeRecordStore, out PakeRecordStore?)
+  nameWithType.vb: KeyRing.TryUpdate(String, PakeRecordStore, PakeRecordStore)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PrivateKeySuite@,wan24.Crypto.PrivateKeySuite@)
+  name: TryUpdate(in string, in PrivateKeySuite, out PrivateKeySuite?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_PrivateKeySuite__wan24_Crypto_PrivateKeySuite__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PrivateKeySuite@,wan24.Crypto.PrivateKeySuite@)
+  name.vb: TryUpdate(String, PrivateKeySuite, PrivateKeySuite)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.PrivateKeySuite, out wan24.Crypto.PrivateKeySuite?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.PrivateKeySuite, wan24.Crypto.PrivateKeySuite)
+  nameWithType: KeyRing.TryUpdate(in string, in PrivateKeySuite, out PrivateKeySuite?)
+  nameWithType.vb: KeyRing.TryUpdate(String, PrivateKeySuite, PrivateKeySuite)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PrivateKeySuiteStore@,wan24.Crypto.PrivateKeySuiteStore@)
+  name: TryUpdate(in string, in PrivateKeySuiteStore, out PrivateKeySuiteStore?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_PrivateKeySuiteStore__wan24_Crypto_PrivateKeySuiteStore__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PrivateKeySuiteStore@,wan24.Crypto.PrivateKeySuiteStore@)
+  name.vb: TryUpdate(String, PrivateKeySuiteStore, PrivateKeySuiteStore)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.PrivateKeySuiteStore, out wan24.Crypto.PrivateKeySuiteStore?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.PrivateKeySuiteStore, wan24.Crypto.PrivateKeySuiteStore)
+  nameWithType: KeyRing.TryUpdate(in string, in PrivateKeySuiteStore, out PrivateKeySuiteStore?)
+  nameWithType.vb: KeyRing.TryUpdate(String, PrivateKeySuiteStore, PrivateKeySuiteStore)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PublicKeySuite@,wan24.Crypto.PublicKeySuite@)
+  name: TryUpdate(in string, in PublicKeySuite, out PublicKeySuite?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_PublicKeySuite__wan24_Crypto_PublicKeySuite__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PublicKeySuite@,wan24.Crypto.PublicKeySuite@)
+  name.vb: TryUpdate(String, PublicKeySuite, PublicKeySuite)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.PublicKeySuite, out wan24.Crypto.PublicKeySuite?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.PublicKeySuite, wan24.Crypto.PublicKeySuite)
+  nameWithType: KeyRing.TryUpdate(in string, in PublicKeySuite, out PublicKeySuite?)
+  nameWithType.vb: KeyRing.TryUpdate(String, PublicKeySuite, PublicKeySuite)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PublicKeySuiteStore@,wan24.Crypto.PublicKeySuiteStore@)
+  name: TryUpdate(in string, in PublicKeySuiteStore, out PublicKeySuiteStore?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_PublicKeySuiteStore__wan24_Crypto_PublicKeySuiteStore__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.PublicKeySuiteStore@,wan24.Crypto.PublicKeySuiteStore@)
+  name.vb: TryUpdate(String, PublicKeySuiteStore, PublicKeySuiteStore)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.PublicKeySuiteStore, out wan24.Crypto.PublicKeySuiteStore?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.PublicKeySuiteStore, wan24.Crypto.PublicKeySuiteStore)
+  nameWithType: KeyRing.TryUpdate(in string, in PublicKeySuiteStore, out PublicKeySuiteStore?)
+  nameWithType.vb: KeyRing.TryUpdate(String, PublicKeySuiteStore, PublicKeySuiteStore)
+- uid: wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.SignedPkiStore@,wan24.Crypto.SignedPkiStore@)
+  name: TryUpdate(in string, in SignedPkiStore, out SignedPkiStore?)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_System_String__wan24_Crypto_SignedPkiStore__wan24_Crypto_SignedPkiStore__
+  commentId: M:wan24.Crypto.KeyRing.TryUpdate(System.String@,wan24.Crypto.SignedPkiStore@,wan24.Crypto.SignedPkiStore@)
+  name.vb: TryUpdate(String, SignedPkiStore, SignedPkiStore)
+  fullName: wan24.Crypto.KeyRing.TryUpdate(in string, in wan24.Crypto.SignedPkiStore, out wan24.Crypto.SignedPkiStore?)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdate(String, wan24.Crypto.SignedPkiStore, wan24.Crypto.SignedPkiStore)
+  nameWithType: KeyRing.TryUpdate(in string, in SignedPkiStore, out SignedPkiStore?)
+  nameWithType.vb: KeyRing.TryUpdate(String, SignedPkiStore, SignedPkiStore)
+- uid: wan24.Crypto.KeyRing.TryUpdate*
+  name: TryUpdate
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdate_
+  commentId: Overload:wan24.Crypto.KeyRing.TryUpdate
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryUpdate
+  nameWithType: KeyRing.TryUpdate
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,System.Byte[],System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, byte[], CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_System_Byte___System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,System.Byte[],System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, Byte(), CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, byte[], System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, Byte(), System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, byte[], CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, Byte(), CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, CryptoOptions, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, CryptoOptions, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, CryptoOptions, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, CryptoOptions, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.IAsymmetricKey,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, IAsymmetricKey, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_IAsymmetricKey_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.IAsymmetricKey,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, IAsymmetricKey, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.IAsymmetricKey, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.IAsymmetricKey, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, IAsymmetricKey, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, IAsymmetricKey, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PakeRecord,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, PakeRecord, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_PakeRecord_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PakeRecord,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, PakeRecord, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.PakeRecord, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.PakeRecord, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, PakeRecord, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, PakeRecord, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PakeRecordStore,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, PakeRecordStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_PakeRecordStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PakeRecordStore,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, PakeRecordStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.PakeRecordStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.PakeRecordStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, PakeRecordStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, PakeRecordStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PrivateKeySuite,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, PrivateKeySuite, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_PrivateKeySuite_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PrivateKeySuite,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, PrivateKeySuite, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.PrivateKeySuite, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.PrivateKeySuite, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, PrivateKeySuite, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, PrivateKeySuite, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PrivateKeySuiteStore,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, PrivateKeySuiteStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_PrivateKeySuiteStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PrivateKeySuiteStore,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, PrivateKeySuiteStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.PrivateKeySuiteStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.PrivateKeySuiteStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, PrivateKeySuiteStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, PrivateKeySuiteStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PublicKeySuite,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, PublicKeySuite, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_PublicKeySuite_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PublicKeySuite,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, PublicKeySuite, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.PublicKeySuite, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.PublicKeySuite, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, PublicKeySuite, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, PublicKeySuite, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PublicKeySuiteStore,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, PublicKeySuiteStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_PublicKeySuiteStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.PublicKeySuiteStore,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, PublicKeySuiteStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.PublicKeySuiteStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.PublicKeySuiteStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, PublicKeySuiteStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, PublicKeySuiteStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.SignedPkiStore,System.Threading.CancellationToken)
+  name: TryUpdateAsync(string, SignedPkiStore, CancellationToken)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_System_String_wan24_Crypto_SignedPkiStore_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyRing.TryUpdateAsync(System.String,wan24.Crypto.SignedPkiStore,System.Threading.CancellationToken)
+  name.vb: TryUpdateAsync(String, SignedPkiStore, CancellationToken)
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync(string, wan24.Crypto.SignedPkiStore, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyRing.TryUpdateAsync(String, wan24.Crypto.SignedPkiStore, System.Threading.CancellationToken)
+  nameWithType: KeyRing.TryUpdateAsync(string, SignedPkiStore, CancellationToken)
+  nameWithType.vb: KeyRing.TryUpdateAsync(String, SignedPkiStore, CancellationToken)
+- uid: wan24.Crypto.KeyRing.TryUpdateAsync*
+  name: TryUpdateAsync
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_TryUpdateAsync_
+  commentId: Overload:wan24.Crypto.KeyRing.TryUpdateAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyRing.TryUpdateAsync
+  nameWithType: KeyRing.TryUpdateAsync
+- uid: wan24.Crypto.KeyRing.VERSION
+  name: VERSION
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_VERSION
+  commentId: F:wan24.Crypto.KeyRing.VERSION
+  fullName: wan24.Crypto.KeyRing.VERSION
+  nameWithType: KeyRing.VERSION
+- uid: wan24.Crypto.KeyRing.op_Explicit(System.Byte[])~wan24.Crypto.KeyRing
+  name: explicit operator KeyRing(byte[])
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_op_Explicit_System_Byte____wan24_Crypto_KeyRing
+  commentId: M:wan24.Crypto.KeyRing.op_Explicit(System.Byte[])~wan24.Crypto.KeyRing
+  name.vb: CType(Byte())
+  fullName: wan24.Crypto.KeyRing.explicit operator wan24.Crypto.KeyRing(byte[])
+  fullName.vb: wan24.Crypto.KeyRing.CType(Byte())
+  nameWithType: KeyRing.explicit operator KeyRing(byte[])
+  nameWithType.vb: KeyRing.CType(Byte())
+- uid: wan24.Crypto.KeyRing.op_Explicit*
+  name: explicit operator
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_op_Explicit_
+  commentId: Overload:wan24.Crypto.KeyRing.op_Explicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: wan24.Crypto.KeyRing.explicit operator
+  fullName.vb: wan24.Crypto.KeyRing.CType
+  nameWithType: KeyRing.explicit operator
+  nameWithType.vb: KeyRing.CType
+- uid: wan24.Crypto.KeyRing.op_Implicit(wan24.Crypto.KeyRing)~System.Byte[]
+  name: implicit operator byte[](KeyRing)
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_op_Implicit_wan24_Crypto_KeyRing__System_Byte__
+  commentId: M:wan24.Crypto.KeyRing.op_Implicit(wan24.Crypto.KeyRing)~System.Byte[]
+  name.vb: CType(KeyRing)
+  fullName: wan24.Crypto.KeyRing.implicit operator byte[](wan24.Crypto.KeyRing)
+  fullName.vb: wan24.Crypto.KeyRing.CType(wan24.Crypto.KeyRing)
+  nameWithType: KeyRing.implicit operator byte[](KeyRing)
+  nameWithType.vb: KeyRing.CType(KeyRing)
+- uid: wan24.Crypto.KeyRing.op_Implicit*
+  name: implicit operator
+  href: api/wan24.Crypto.KeyRing.html#wan24_Crypto_KeyRing_op_Implicit_
+  commentId: Overload:wan24.Crypto.KeyRing.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: wan24.Crypto.KeyRing.implicit operator
+  fullName.vb: wan24.Crypto.KeyRing.CType
+  nameWithType: KeyRing.implicit operator
+  nameWithType.vb: KeyRing.CType
+- uid: wan24.Crypto.KeyTypes
+  name: KeyTypes
+  href: api/wan24.Crypto.KeyTypes.html
+  commentId: T:wan24.Crypto.KeyTypes
+  fullName: wan24.Crypto.KeyTypes
+  nameWithType: KeyTypes
+- uid: wan24.Crypto.KeyTypes.Asymmetric
+  name: Asymmetric
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Asymmetric
+  commentId: F:wan24.Crypto.KeyTypes.Asymmetric
+  fullName: wan24.Crypto.KeyTypes.Asymmetric
+  nameWithType: KeyTypes.Asymmetric
+- uid: wan24.Crypto.KeyTypes.AsymmetricPrivate
+  name: AsymmetricPrivate
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_AsymmetricPrivate
+  commentId: F:wan24.Crypto.KeyTypes.AsymmetricPrivate
+  fullName: wan24.Crypto.KeyTypes.AsymmetricPrivate
+  nameWithType: KeyTypes.AsymmetricPrivate
+- uid: wan24.Crypto.KeyTypes.AsymmetricPublic
+  name: AsymmetricPublic
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_AsymmetricPublic
+  commentId: F:wan24.Crypto.KeyTypes.AsymmetricPublic
+  fullName: wan24.Crypto.KeyTypes.AsymmetricPublic
+  nameWithType: KeyTypes.AsymmetricPublic
+- uid: wan24.Crypto.KeyTypes.FLAGS
+  name: FLAGS
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_FLAGS
+  commentId: F:wan24.Crypto.KeyTypes.FLAGS
+  fullName: wan24.Crypto.KeyTypes.FLAGS
+  nameWithType: KeyTypes.FLAGS
+- uid: wan24.Crypto.KeyTypes.None
+  name: None
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_None
+  commentId: F:wan24.Crypto.KeyTypes.None
+  fullName: wan24.Crypto.KeyTypes.None
+  nameWithType: KeyTypes.None
+- uid: wan24.Crypto.KeyTypes.Options
+  name: Options
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Options
+  commentId: F:wan24.Crypto.KeyTypes.Options
+  fullName: wan24.Crypto.KeyTypes.Options
+  nameWithType: KeyTypes.Options
+- uid: wan24.Crypto.KeyTypes.Pake
+  name: Pake
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Pake
+  commentId: F:wan24.Crypto.KeyTypes.Pake
+  fullName: wan24.Crypto.KeyTypes.Pake
+  nameWithType: KeyTypes.Pake
+- uid: wan24.Crypto.KeyTypes.PakeStore
+  name: PakeStore
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_PakeStore
+  commentId: F:wan24.Crypto.KeyTypes.PakeStore
+  fullName: wan24.Crypto.KeyTypes.PakeStore
+  nameWithType: KeyTypes.PakeStore
+- uid: wan24.Crypto.KeyTypes.Pki
+  name: Pki
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Pki
+  commentId: F:wan24.Crypto.KeyTypes.Pki
+  fullName: wan24.Crypto.KeyTypes.Pki
+  nameWithType: KeyTypes.Pki
+- uid: wan24.Crypto.KeyTypes.Private
+  name: Private
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Private
+  commentId: F:wan24.Crypto.KeyTypes.Private
+  fullName: wan24.Crypto.KeyTypes.Private
+  nameWithType: KeyTypes.Private
+- uid: wan24.Crypto.KeyTypes.PrivateSuite
+  name: PrivateSuite
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_PrivateSuite
+  commentId: F:wan24.Crypto.KeyTypes.PrivateSuite
+  fullName: wan24.Crypto.KeyTypes.PrivateSuite
+  nameWithType: KeyTypes.PrivateSuite
+- uid: wan24.Crypto.KeyTypes.PrivateSuiteStore
+  name: PrivateSuiteStore
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_PrivateSuiteStore
+  commentId: F:wan24.Crypto.KeyTypes.PrivateSuiteStore
+  fullName: wan24.Crypto.KeyTypes.PrivateSuiteStore
+  nameWithType: KeyTypes.PrivateSuiteStore
+- uid: wan24.Crypto.KeyTypes.Public
+  name: Public
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Public
+  commentId: F:wan24.Crypto.KeyTypes.Public
+  fullName: wan24.Crypto.KeyTypes.Public
+  nameWithType: KeyTypes.Public
+- uid: wan24.Crypto.KeyTypes.PublicSuite
+  name: PublicSuite
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_PublicSuite
+  commentId: F:wan24.Crypto.KeyTypes.PublicSuite
+  fullName: wan24.Crypto.KeyTypes.PublicSuite
+  nameWithType: KeyTypes.PublicSuite
+- uid: wan24.Crypto.KeyTypes.PublicSuiteStore
+  name: PublicSuiteStore
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_PublicSuiteStore
+  commentId: F:wan24.Crypto.KeyTypes.PublicSuiteStore
+  fullName: wan24.Crypto.KeyTypes.PublicSuiteStore
+  nameWithType: KeyTypes.PublicSuiteStore
+- uid: wan24.Crypto.KeyTypes.Store
+  name: Store
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Store
+  commentId: F:wan24.Crypto.KeyTypes.Store
+  fullName: wan24.Crypto.KeyTypes.Store
+  nameWithType: KeyTypes.Store
+- uid: wan24.Crypto.KeyTypes.Suite
+  name: Suite
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Suite
+  commentId: F:wan24.Crypto.KeyTypes.Suite
+  fullName: wan24.Crypto.KeyTypes.Suite
+  nameWithType: KeyTypes.Suite
+- uid: wan24.Crypto.KeyTypes.Symmetric
+  name: Symmetric
+  href: api/wan24.Crypto.KeyTypes.html#wan24_Crypto_KeyTypes_Symmetric
+  commentId: F:wan24.Crypto.KeyTypes.Symmetric
+  fullName: wan24.Crypto.KeyTypes.Symmetric
+  nameWithType: KeyTypes.Symmetric
 - uid: wan24.Crypto.MacAlgorithmBase
   name: MacAlgorithmBase
   href: api/wan24.Crypto.MacAlgorithmBase.html
