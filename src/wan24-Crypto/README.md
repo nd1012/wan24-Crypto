@@ -758,6 +758,64 @@ suite store was given, key exchange/signature keys will be looked up in the
 PKI, which was given in the options (`CryptoEnvironment.PKI` is being used per 
 default).
 
+## Key ring
+
+The `KeyRing` type can store these key types:
+
+- Symmetric key (a byte sequence)
+- Asymmetric key
+- Key suite
+- Key suite store
+- PAKE record
+- PAKE record store
+- PKI
+
+In addition different `CryptoOptions` can be stored to a name.
+
+Every key will be stored with a unique name, which is required to get the key 
+later:
+
+```cs
+// Create a new key ring
+using KeyRing keys = new();
+
+// Add a key
+if(!keys.TryAdd("name", anyKey))
+    throw new Exception("Key exists already");
+
+// Get a key
+if(!keys.TryGetSymmetric("name", out anyKey))
+    throw new Exception("Key not found");
+
+// Encrypt/decrypt
+byte[] keyBytes = keys.Encrypt(secret);
+// Can be restored using `KeyRing.Decrypt(keyBytes, secret)`
+```
+
+Adding, updating, getting, removing keys and encryption is thread safe.
+
+The static `MaxCount` and `MaxSymmetricKeyLength` properties limit the max. 
+number of stored keys and the max. symmetric key length in bytes. A key name 
+is limited to 255 characters.
+
+**NOTE**: If a key ring uses algorithms or types which are not available in a 
+deserializing context, it can't be restored anymore!
+
+In order to ignore unusable keys during deserialization use the constructor 
+which takes `ignoreSerializationErrors` and set the value to `true`:
+
+```cs
+using KeyRing keys = new(ignoreSerializationErrors: true);
+int serializerVersion = stream.ReadSerializerVersion();
+((IStreamSerializer)keys).Deserialize(stream, serializerVersion);
+```
+
+It's assumed that `stream` contains the decrypted key ring serialization data 
+already.
+
+**NOTE**: Only type/algorithm incompatibilities will be ignored by skipping 
+the stored object. Serialized structure errors will still throw.
+
 ## PAKE
 
 `Pake` (see tests) can be used for implementing a password authenticated key 

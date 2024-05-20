@@ -297,5 +297,26 @@ namespace wan24.Crypto
                 .AddTransient(serviceProvider => KdfHelper.DefaultAlgorithm);
             return services;
         }
+
+        /// <summary>
+        /// Determine if the key type is for a private key
+        /// </summary>
+        /// <param name="keyType">Key type</param>
+        /// <returns>If the key type is for a private key</returns>
+        public static bool IsPrivate(this KeyTypes keyType) => (keyType & KeyTypes.Private) == KeyTypes.Private;
+
+        /// <summary>
+        /// Determine if the key type is for a public key
+        /// </summary>
+        /// <param name="keyType">Key type</param>
+        /// <returns>If the key type is for a public key</returns>
+        public static bool IsPublic(this KeyTypes keyType) => (keyType & KeyTypes.Public) == KeyTypes.Public;
+
+        /// <summary>
+        /// Determine if the key type is for a key store
+        /// </summary>
+        /// <param name="keyType">Key type</param>
+        /// <returns>If the key type is for a key store</returns>
+        public static bool IsStore(this KeyTypes keyType) => (keyType & KeyTypes.Store) == KeyTypes.Store;
     }
 }
