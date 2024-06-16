@@ -14,7 +14,7 @@ namespace wan24.Crypto
     /// <param name="bufferSize">Buffer size in bytes</param>
     /// <param name="cancellationToken">Cancellation token</param>
     public sealed class PakeRequestStream(in Stream source, in int bufferSize, in CancellationToken cancellationToken = default)
-        : BackgroundProcessingStream(bufferSize, cancellationToken)
+        : BackgroundProcessingStreamBase(bufferSize, cancellationToken)
     {
         /// <summary>
         /// Source stream (contents will be copied to the <see cref="Cipher"/> which is going to be set using 
