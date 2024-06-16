@@ -111,8 +111,9 @@
     <div class="level2"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></div>
     <div class="level3"><span class="xref">StreamBase</span></div>
     <div class="level4"><span class="xref">BlockingBufferStream</span></div>
-    <div class="level5"><span class="xref">BackgroundProcessingStream</span></div>
-    <div class="level6"><span class="xref">PakeRequestStream</span></div>
+    <div class="level5"><span class="xref">BackgroundProcessingStreamBase</span></div>
+    <div class="level6"><span class="xref">BackgroundProcessingStream</span></div>
+    <div class="level7"><span class="xref">PakeRequestStream</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -125,31 +126,25 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">BackgroundProcessingStream.Write(ReadOnlySpan&lt;byte&gt;)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">BackgroundProcessingStreamBase.Write(ReadOnlySpan&lt;byte&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">BackgroundProcessingStream.WriteByte(byte)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">BackgroundProcessingStreamBase.WriteByte(byte)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">BackgroundProcessingStream.TryWrite(ReadOnlySpan&lt;byte&gt;)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">BackgroundProcessingStreamBase.TryWrite(ReadOnlySpan&lt;byte&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">BackgroundProcessingStream.TryWriteAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">BackgroundProcessingStreamBase.TryWriteAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">BackgroundProcessingStream.BeginWrite(byte[], int, int, AsyncCallback, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">BackgroundProcessingStreamBase.BeginWrite(byte[], int, int, AsyncCallback, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">BackgroundProcessingStream.WriteIntAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a>
+      <span class="xref">BackgroundProcessingStreamBase.LastException</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">BackgroundProcessingStream.TryWriteIntAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a>
-    </div>
-    <div>
-      <span class="xref">BackgroundProcessingStream.LastException</span>
-    </div>
-    <div>
-      <span class="xref">BackgroundProcessingStream.OnError</span>
+      <span class="xref">BackgroundProcessingStreamBase.OnError</span>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">BlockingBufferStream.SetIsEndOfFileAsync(CancellationToken)</a>
@@ -269,10 +264,16 @@
       <span class="xref">BlockingBufferStream.OnNeedSpace</span>
     </div>
     <div>
+      <span class="xref">StreamBase.StackInfo</span>
+    </div>
+    <div>
       <span class="xref">StreamBase.Close()</span>
     </div>
     <div>
       <span class="xref">StreamBase.DisposeAsync()</span>
+    </div>
+    <div>
+      <span class="xref">StreamBase.CreateStackInfo</span>
     </div>
     <div>
       <span class="xref">StreamBase.Name</span>
@@ -485,7 +486,7 @@
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">wan24.Core.BackgroundProcessingStream.CanWrite</span></div>
+  <div><span class="xref">wan24.Core.BackgroundProcessingStreamBase.CanWrite</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRequestStream_Cipher.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRequestStream.Cipher%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -602,7 +603,7 @@ for writing to the buffer!)</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">BackgroundProcessingStream.ProcessAsync(CancellationToken)</a></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">BackgroundProcessingStreamBase.ProcessAsync(CancellationToken)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PakeRequestStream_SetCipher_System_IO_Stream__System_Threading_Tasks_TaskScheduler__System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PakeRequestStream.SetCipher(System.IO.Stream%40%2CSystem.Threading.Tasks.TaskScheduler%40%2CSystem.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -706,7 +707,7 @@ for writing to the buffer!)</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">BackgroundProcessingStream.WriteAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">BackgroundProcessingStreamBase.WriteAsync(ReadOnlyMemory&lt;byte&gt;, CancellationToken)</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IStream</span>
