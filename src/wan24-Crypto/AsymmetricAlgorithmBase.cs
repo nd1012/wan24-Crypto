@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using wan24.Core;
 using static wan24.Core.TranslationHelper;
 
-namespace wan24.Crypto
+namespace wan24.Crypto 
 {
     /// <summary>
     /// Base class for an asymmetric algorithm
