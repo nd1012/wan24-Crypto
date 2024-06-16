@@ -1,6 +1,8 @@
 ﻿using wan24.Core;
 using wan24.StreamSerializerExtensions;
 
+//TODO Add KMAC from .NET 9
+
 [assembly: Bootstrapper(typeof(wan24.Crypto.Bootstrap), nameof(wan24.Crypto.Bootstrap.Boot))]
 
 namespace wan24.Crypto
