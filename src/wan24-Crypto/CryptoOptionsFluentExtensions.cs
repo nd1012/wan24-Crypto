@@ -716,7 +716,7 @@ namespace wan24.Crypto
         {
             postProcessor ??= PasswordPostProcessor.Instance;
             options.EncryptionPasswordPreProcessor = postProcessor.PreProcessEncryptionPassword;
-            options.EncryptionPasswordAsyncPreProcessor = postProcessor.PreProcessAsyncEncryptionPassword;
+            options.EncryptionPasswordAsyncPreProcessor = postProcessor.PreProcessEncryptionPasswordAsync;
             return options;
         }
 

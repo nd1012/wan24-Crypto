@@ -186,6 +186,15 @@ namespace wan24.Crypto
             if (options.AsymmericKeyPoolsCapacity.HasValue)
                 foreach (IAsymmetricAlgorithm algo in AsymmetricHelper.Algorithms.Values.Where(a => a.EnsureAllowed(throwIfDenied: false)))
                     algo.CreateKeyPools(options.AsymmericKeyPoolsCapacity.Value);
+            if (options.PasswordPostProcessors is not null && options.PasswordPostProcessors.Length > 0)
+            {
+                PasswordPostProcessor.Instance = new PasswordPostProcessorChain(options.PasswordPostProcessors);
+                if(options.UsePasswordPostProcessorsInCryptoOptions)
+                {
+                    CryptoOptions.DefaultEncryptionPasswordPreProcessor = PasswordPostProcessor.Instance.PreProcessEncryptionPassword;
+                    CryptoOptions.DefaultEncryptionPasswordAsyncPreProcessor = PasswordPostProcessor.Instance.PreProcessEncryptionPasswordAsync;
+                }
+            }
         }
 
         /// <summary>
