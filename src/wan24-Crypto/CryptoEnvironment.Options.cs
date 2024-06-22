@@ -365,6 +365,16 @@ namespace wan24.Crypto
             /// Denied elliptic curve names
             /// </summary>
             public string[]? DeniedEllipticCurveNames { get; set; }
+
+            /// <summary>
+            /// Password post-processors to apply in a sequential chain (set to <see cref="PasswordPostProcessor.Instance"/>)
+            /// </summary>
+            public PasswordPostProcessor[]? PasswordPostProcessors { get; set; }
+
+            /// <summary>
+            /// If to use <see cref="PasswordPostProcessors"/> in the <see cref="CryptoOptions"/>
+            /// </summary>
+            public bool UsePasswordPostProcessorsInCryptoOptions { get; set; }
         }
     }
 }

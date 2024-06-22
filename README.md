@@ -1267,7 +1267,9 @@ offer everything a C# developer needs for a better random number source.
 An entered user password may be easy to break using brute force. For this 
 reason it's recommended to apply at last KDF on the raw password. The 
 `PasswordPostProcessor` base type allows to create a reuseable post-processor, 
-which can also be used for pre-processing an encryption password.
+which can also be used for pre-processing an encryption password. 
+`PasswordPostProcessorChain` does apply a chain of `PasswordPostProcessor` in 
+sequential order.
 
 The `PasswordPostProcessor.Instance` is a ready-to-use post-processor, which 
 does these steps for processing a password:
@@ -1284,6 +1286,18 @@ You're free to set your own default processor to
 `PasswordPostProcessor.Instance` (which will be used when calling 
 `WithEncryptionPasswordPreProcessing` on `CryptoOptions` without any argument 
 values).
+
+The `CryptoEnvironment.Options` have a property `PasswordPostProcessors` for 
+storing password post-processor instances which are used to build a 
+`PasswordPostProcessorChain`, which will be set to 
+`PasswordPostProcessor.Instance`. If the property 
+`UsePasswordPostProcessorsInCryptoOptions` was set to `true`, its methods will 
+be set to `CryptoOptions.DefaultEncryptionPassword(Async)PreProcessor`.
+
+For the `CryptoAppConfig` it's the same logic, except that you need to define 
+the CLR type names including namespace to the `PasswordPostProcessors` 
+property. The password post-processors need a parameterless constructor in 
+order to be able to be used in this context.
 
 ## Object encryption
 

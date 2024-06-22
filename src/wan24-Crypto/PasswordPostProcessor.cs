@@ -39,7 +39,17 @@
         /// <param name="algo">Encryption algorithm</param>
         /// <param name="options">Options</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        public virtual Task PreProcessAsyncEncryptionPassword(EncryptionAlgorithmBase algo, CryptoOptions options, CancellationToken cancellationToken)
+        [Obsolete("Use PreProcessEncryptionPasswordAsync instead")]
+        public Task PreProcessAsyncEncryptionPassword(EncryptionAlgorithmBase algo, CryptoOptions options, CancellationToken cancellationToken)
+            => PreProcessEncryptionPasswordAsync(algo, options, cancellationToken);
+
+        /// <summary>
+        /// A <see cref="CryptoOptions.AsyncEncryptionPasswordPreProcessor_Delegate"/> for pre-processing an encryption password
+        /// </summary>
+        /// <param name="algo">Encryption algorithm</param>
+        /// <param name="options">Options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        public virtual Task PreProcessEncryptionPasswordAsync(EncryptionAlgorithmBase algo, CryptoOptions options, CancellationToken cancellationToken)
         {
             if (options.Password is null) throw new ArgumentException("Password not set", nameof(options));
             options.SetNewPassword(PostProcess(options.Password));

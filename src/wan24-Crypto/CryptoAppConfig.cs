@@ -6,8 +6,8 @@ using wan24.Core;
 namespace wan24.Crypto
 {
     /// <summary>
-    /// Crypto app configuration (<see cref="AppConfig"/>; should be applied AFTER bootstrapping (<see cref="AppConfigAttribute.AfterBootstrap"/>); another <see cref="CryptoEnvironment.Options"/> 
-    /// may be applied in addition)
+    /// Crypto app configuration (<see cref="AppConfig"/>; should be applied AFTER bootstrapping (<see cref="AppConfigAttribute.AfterBootstrap"/>); another 
+    /// <see cref="CryptoEnvironment.Options"/> may be applied in addition)
     /// </summary>
     public class CryptoAppConfig : AppConfigBase
     {
@@ -78,9 +78,19 @@ namespace wan24.Crypto
         public bool UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms { get; set; }
 
         /// <summary>
-        /// Asymmetric key pool capacity for all allowed key sized of all available asymmetric algorithms
+        /// Asymmetric key pool capacity for all allowed key sizes of all available asymmetric algorithms
         /// </summary>
         public int? AsymmetricKeyPoolsCapacity { get; set; }
+
+        /// <summary>
+        /// Password post-processor type names to apply in a sequential chain (need parameterless constructors)
+        /// </summary>
+        public string[]? PasswordPostProcessors { get; set; }//TODO Apply
+
+        /// <summary>
+        /// If to use <see cref="PasswordPostProcessors"/> in the <see cref="CryptoOptions"/>
+        /// </summary>
+        public bool UsePasswordPostProcessorsInCryptoOptions { get; set; }//TODO Apply
 
         /// <inheritdoc/>
         public sealed override void Apply()
@@ -126,6 +136,22 @@ namespace wan24.Crypto
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
             options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms = UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms;
             options.AsymmericKeyPoolsCapacity = AsymmetricKeyPoolsCapacity;
+            if (PasswordPostProcessors is not null)
+            {
+                List<PasswordPostProcessor> ppr = [];
+                Type type;
+                foreach(string typeName in PasswordPostProcessors)
+                {
+                    type = TypeHelper.Instance.GetType(typeName, throwOnError: true)
+                        ?? throw new InvalidDataException("Invalid/unknown type name in crypto app config at PasswordPostProcessors");
+                    if (!type.CanConstruct() || !typeof(PasswordPostProcessor).IsAssignableFrom(type))
+                        throw new InvalidDataException($"Invalid type {type} in crypto app config at PasswordPostProcessors");
+                    ppr.Add(Activator.CreateInstance(type) as PasswordPostProcessor
+                        ?? throw new InvalidDataException($"Invalid type {type} in crypto app config at PasswordPostProcessors: Failed to construct instance"));
+                }
+                options.PasswordPostProcessors = [.. ppr];
+                options.UsePasswordPostProcessorsInCryptoOptions = UsePasswordPostProcessorsInCryptoOptions;
+            }
             ApplyProperties(afterBootstrap: false);
             if (Algorithms is not null)
             {
@@ -201,6 +227,22 @@ namespace wan24.Crypto
             options.UseCryptoExceptionDelay = UseCryptoExceptionDelay;
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
             options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms = UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms;
+            if (PasswordPostProcessors is not null)
+            {
+                List<PasswordPostProcessor> ppr = [];
+                Type type;
+                foreach (string typeName in PasswordPostProcessors)
+                {
+                    type = TypeHelper.Instance.GetType(typeName, throwOnError: true)
+                        ?? throw new InvalidDataException("Invalid/unknown type name in crypto app config at PasswordPostProcessors");
+                    if (!type.CanConstruct() || !typeof(PasswordPostProcessor).IsAssignableFrom(type))
+                        throw new InvalidDataException($"Invalid type {type} in crypto app config at PasswordPostProcessors");
+                    ppr.Add(Activator.CreateInstance(type) as PasswordPostProcessor
+                        ?? throw new InvalidDataException($"Invalid type {type} in crypto app config at PasswordPostProcessors: Failed to construct instance"));
+                }
+                options.PasswordPostProcessors = [.. ppr];
+                options.UsePasswordPostProcessorsInCryptoOptions = UsePasswordPostProcessorsInCryptoOptions;
+            }
             await ApplyPropertiesAsync(afterBootstrap: false, cancellationToken).DynamicContext();
             if (Algorithms is not null)
             {
