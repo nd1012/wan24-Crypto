@@ -101,8 +101,8 @@
 
 
   <h1 id="wan24_Crypto_CryptoAppConfig" data-uid="wan24.Crypto.CryptoAppConfig" class="text-break">Class CryptoAppConfig</h1>
-  <div class="markdown level0 summary"><p>Crypto app configuration (<span class="xref">wan24.Core.AppConfig</span>; should be applied AFTER bootstrapping (<span class="xref">wan24.Core.AppConfigAttribute.AfterBootstrap</span>); another <a class="xref" href="wan24.Crypto.CryptoEnvironment.Options.html">CryptoEnvironment.Options</a>
-may be applied in addition)</p>
+  <div class="markdown level0 summary"><p>Crypto app configuration (<span class="xref">wan24.Core.AppConfig</span>; should be applied AFTER bootstrapping (<span class="xref">wan24.Core.AppConfigAttribute.AfterBootstrap</span>); another
+<a class="xref" href="wan24.Crypto.CryptoEnvironment.Options.html">CryptoEnvironment.Options</a> may be applied in addition)</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -249,7 +249,7 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
   </span>
   <a id="wan24_Crypto_CryptoAppConfig_AsymmetricKeyPoolsCapacity_" data-uid="wan24.Crypto.CryptoAppConfig.AsymmetricKeyPoolsCapacity*"></a>
   <h4 id="wan24_Crypto_CryptoAppConfig_AsymmetricKeyPoolsCapacity" data-uid="wan24.Crypto.CryptoAppConfig.AsymmetricKeyPoolsCapacity">AsymmetricKeyPoolsCapacity</h4>
-  <div class="markdown level1 summary"><p>Asymmetric key pool capacity for all allowed key sized of all available asymmetric algorithms</p>
+  <div class="markdown level1 summary"><p>Asymmetric key pool capacity for all allowed key sizes of all available asymmetric algorithms</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -360,6 +360,37 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
     <tbody>
       <tr>
         <td><a class="xref" href="wan24.Crypto.CryptoAppConfig.html">CryptoAppConfig</a>.<a class="xref" href="wan24.Crypto.CryptoAppConfig.CryptoOptions.html">CryptoOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAppConfig_PasswordPostProcessors.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAppConfig.PasswordPostProcessors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L88">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoAppConfig_PasswordPostProcessors_" data-uid="wan24.Crypto.CryptoAppConfig.PasswordPostProcessors*"></a>
+  <h4 id="wan24_Crypto_CryptoAppConfig_PasswordPostProcessors" data-uid="wan24.Crypto.CryptoAppConfig.PasswordPostProcessors">PasswordPostProcessors</h4>
+  <div class="markdown level1 summary"><p>Password post-processor type names to apply in a sequential chain (need parameterless constructors)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[]? PasswordPostProcessors { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -581,6 +612,37 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAppConfig_UsePasswordPostProcessorsInCryptoOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L93">View Source</a>
+  </span>
+  <a id="wan24_Crypto_CryptoAppConfig_UsePasswordPostProcessorsInCryptoOptions_" data-uid="wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions*"></a>
+  <h4 id="wan24_Crypto_CryptoAppConfig_UsePasswordPostProcessorsInCryptoOptions" data-uid="wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions">UsePasswordPostProcessorsInCryptoOptions</h4>
+  <div class="markdown level1 summary"><p>If to use <a class="xref" href="wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_PasswordPostProcessors">PasswordPostProcessors</a> in the <a class="xref" href="wan24.Crypto.CryptoAppConfig.CryptoOptions.html">CryptoAppConfig.CryptoOptions</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsePasswordPostProcessorsInCryptoOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -588,7 +650,7 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAppConfig_Apply.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAppConfig.Apply%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L86">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L96">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAppConfig_Apply_" data-uid="wan24.Crypto.CryptoAppConfig.Apply*"></a>
   <h4 id="wan24_Crypto_CryptoAppConfig_Apply" data-uid="wan24.Crypto.CryptoAppConfig.Apply">Apply()</h4>
@@ -606,7 +668,7 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAppConfig_Apply_wan24_Crypto_CryptoEnvironment_Options__.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAppConfig.Apply(wan24.Crypto.CryptoEnvironment.Options%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L115">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L125">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAppConfig_Apply_" data-uid="wan24.Crypto.CryptoAppConfig.Apply*"></a>
   <h4 id="wan24_Crypto_CryptoAppConfig_Apply_wan24_Crypto_CryptoEnvironment_Options__" data-uid="wan24.Crypto.CryptoAppConfig.Apply(wan24.Crypto.CryptoEnvironment.Options@)">Apply(in Options)</h4>
@@ -640,7 +702,7 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAppConfig_ApplyAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAppConfig.ApplyAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L99">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L109">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAppConfig_ApplyAsync_" data-uid="wan24.Crypto.CryptoAppConfig.ApplyAsync*"></a>
   <h4 id="wan24_Crypto_CryptoAppConfig_ApplyAsync_System_Threading_CancellationToken_" data-uid="wan24.Crypto.CryptoAppConfig.ApplyAsync(System.Threading.CancellationToken)">ApplyAsync(CancellationToken)</h4>
@@ -691,7 +753,7 @@ public static CryptoAppConfig? AppliedCryptoConfig { get; protected set; }</code
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_CryptoAppConfig_ApplyAsync_wan24_Crypto_CryptoEnvironment_Options_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.CryptoAppConfig.ApplyAsync(wan24.Crypto.CryptoEnvironment.Options%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L191">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/CryptoAppConfig.cs/#L217">View Source</a>
   </span>
   <a id="wan24_Crypto_CryptoAppConfig_ApplyAsync_" data-uid="wan24.Crypto.CryptoAppConfig.ApplyAsync*"></a>
   <h4 id="wan24_Crypto_CryptoAppConfig_ApplyAsync_wan24_Crypto_CryptoEnvironment_Options_System_Threading_CancellationToken_" data-uid="wan24.Crypto.CryptoAppConfig.ApplyAsync(wan24.Crypto.CryptoEnvironment.Options,System.Threading.CancellationToken)">ApplyAsync(Options, CancellationToken)</h4>

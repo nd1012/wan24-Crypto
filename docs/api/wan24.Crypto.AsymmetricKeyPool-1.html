@@ -115,6 +115,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IExportUserActions</span></div>
     <div><span class="xref">IInstancePool</span>&lt;T&gt;</div>
     <div><a class="xref" href="wan24.Crypto.IAsymmetricKeyPool.html">IAsymmetricKeyPool</a></div>
     <div><span class="xref">IInstancePool</span></div>
@@ -256,7 +257,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricKeyPool_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeyPool&lt;T&gt; : InstancePool&lt;T&gt;, IWillDispose, IInstancePool&lt;T&gt;, IAsymmetricKeyPool, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider where T : class, IAsymmetricPrivateKey, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeyPool&lt;T&gt; : InstancePool&lt;T&gt;, IWillDispose, IExportUserActions, IInstancePool&lt;T&gt;, IAsymmetricKeyPool, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider where T : class, IAsymmetricPrivateKey, new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -319,6 +320,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IExportUserActions</span>
   </div>
   <div>
       <span class="xref">wan24.Core.IInstancePool&lt;T&gt;</span>

@@ -117,6 +117,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IExportUserActions</span></div>
     <div><span class="xref">IParallelQueueWorker</span></div>
     <div><span class="xref">IItemQueueWorker</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a>&gt;</div>
     <div><span class="xref">IQueueWorker</span></div>
@@ -304,7 +305,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricKeySignerService_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeySignerService : ParallelItemQueueWorkerBase&lt;Action&gt;, IWillDispose, IParallelQueueWorker, IItemQueueWorker&lt;Action&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, IProducerConsumerCollection&lt;QueueWorker.Task_Delegate&gt;, IEnumerable&lt;QueueWorker.Task_Delegate&gt;, ICollection, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AsymmetricKeySignerService : ParallelItemQueueWorkerBase&lt;Action&gt;, IWillDispose, IExportUserActions, IParallelQueueWorker, IItemQueueWorker&lt;Action&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, IProducerConsumerCollection&lt;QueueWorker.Task_Delegate&gt;, IEnumerable&lt;QueueWorker.Task_Delegate&gt;, ICollection, IEnumerable</code></pre>
   </div>
   <h5 id="wan24_Crypto_AsymmetricKeySignerService_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Constructor</p>
@@ -542,6 +543,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IExportUserActions</span>
   </div>
   <div>
       <span class="xref">wan24.Core.IParallelQueueWorker</span>

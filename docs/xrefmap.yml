@@ -8553,6 +8553,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAppConfig.Options
   nameWithType: CryptoAppConfig.Options
+- uid: wan24.Crypto.CryptoAppConfig.PasswordPostProcessors
+  name: PasswordPostProcessors
+  href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_PasswordPostProcessors
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordPostProcessors
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordPostProcessors
+  nameWithType: CryptoAppConfig.PasswordPostProcessors
+- uid: wan24.Crypto.CryptoAppConfig.PasswordPostProcessors*
+  name: PasswordPostProcessors
+  href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_PasswordPostProcessors_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordPostProcessors
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordPostProcessors
+  nameWithType: CryptoAppConfig.PasswordPostProcessors
 - uid: wan24.Crypto.CryptoAppConfig.RemoveUnsupportedAlgorithms
   name: RemoveUnsupportedAlgorithms
   href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_RemoveUnsupportedAlgorithms
@@ -9001,6 +9014,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAppConfig.UseCryptoExceptionDelay
   nameWithType: CryptoAppConfig.UseCryptoExceptionDelay
+- uid: wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
+  name: UsePasswordPostProcessorsInCryptoOptions
+  href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_UsePasswordPostProcessorsInCryptoOptions
+  commentId: P:wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
+  fullName: wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
+  nameWithType: CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
+- uid: wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions*
+  name: UsePasswordPostProcessorsInCryptoOptions
+  href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_UsePasswordPostProcessorsInCryptoOptions_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
+  nameWithType: CryptoAppConfig.UsePasswordPostProcessorsInCryptoOptions
 - uid: wan24.Crypto.CryptoEnvironment
   name: CryptoEnvironment
   href: api/wan24.Crypto.CryptoEnvironment.html
@@ -9763,6 +9789,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.PKI
   nameWithType: CryptoEnvironment.Options.PKI
+- uid: wan24.Crypto.CryptoEnvironment.Options.PasswordPostProcessors
+  name: PasswordPostProcessors
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_PasswordPostProcessors
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.PasswordPostProcessors
+  fullName: wan24.Crypto.CryptoEnvironment.Options.PasswordPostProcessors
+  nameWithType: CryptoEnvironment.Options.PasswordPostProcessors
+- uid: wan24.Crypto.CryptoEnvironment.Options.PasswordPostProcessors*
+  name: PasswordPostProcessors
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_PasswordPostProcessors_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.PasswordPostProcessors
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.PasswordPostProcessors
+  nameWithType: CryptoEnvironment.Options.PasswordPostProcessors
 - uid: wan24.Crypto.CryptoEnvironment.Options.PbKdf2HashAlgorithm
   name: PbKdf2HashAlgorithm
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_PbKdf2HashAlgorithm
@@ -9945,6 +9984,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.UseDevRandom
   nameWithType: CryptoEnvironment.Options.UseDevRandom
+- uid: wan24.Crypto.CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
+  name: UsePasswordPostProcessorsInCryptoOptions
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UsePasswordPostProcessorsInCryptoOptions
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
+  fullName: wan24.Crypto.CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
+  nameWithType: CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
+- uid: wan24.Crypto.CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions*
+  name: UsePasswordPostProcessorsInCryptoOptions
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UsePasswordPostProcessorsInCryptoOptions_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
+  nameWithType: CryptoEnvironment.Options.UsePasswordPostProcessorsInCryptoOptions
 - uid: wan24.Crypto.CryptoEnvironment.Options.UserScopeKey
   name: UserScopeKey
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_UserScopeKey
@@ -28162,6 +28214,73 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPassword
   nameWithType: PasswordPostProcessor.PreProcessEncryptionPassword
+- uid: wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPasswordAsync(wan24.Crypto.EncryptionAlgorithmBase,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name: PreProcessEncryptionPasswordAsync(EncryptionAlgorithmBase, CryptoOptions, CancellationToken)
+  href: api/wan24.Crypto.PasswordPostProcessor.html#wan24_Crypto_PasswordPostProcessor_PreProcessEncryptionPasswordAsync_wan24_Crypto_EncryptionAlgorithmBase_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPasswordAsync(wan24.Crypto.EncryptionAlgorithmBase,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  fullName: wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPasswordAsync(wan24.Crypto.EncryptionAlgorithmBase, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
+  nameWithType: PasswordPostProcessor.PreProcessEncryptionPasswordAsync(EncryptionAlgorithmBase, CryptoOptions, CancellationToken)
+- uid: wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPasswordAsync*
+  name: PreProcessEncryptionPasswordAsync
+  href: api/wan24.Crypto.PasswordPostProcessor.html#wan24_Crypto_PasswordPostProcessor_PreProcessEncryptionPasswordAsync_
+  commentId: Overload:wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPasswordAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordPostProcessor.PreProcessEncryptionPasswordAsync
+  nameWithType: PasswordPostProcessor.PreProcessEncryptionPasswordAsync
+- uid: wan24.Crypto.PasswordPostProcessorChain
+  name: PasswordPostProcessorChain
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html
+  commentId: T:wan24.Crypto.PasswordPostProcessorChain
+  fullName: wan24.Crypto.PasswordPostProcessorChain
+  nameWithType: PasswordPostProcessorChain
+- uid: wan24.Crypto.PasswordPostProcessorChain.#ctor(wan24.Crypto.PasswordPostProcessor[])
+  name: PasswordPostProcessorChain(params PasswordPostProcessor[])
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html#wan24_Crypto_PasswordPostProcessorChain__ctor_wan24_Crypto_PasswordPostProcessor___
+  commentId: M:wan24.Crypto.PasswordPostProcessorChain.#ctor(wan24.Crypto.PasswordPostProcessor[])
+  name.vb: New(ParamArray PasswordPostProcessor())
+  fullName: wan24.Crypto.PasswordPostProcessorChain.PasswordPostProcessorChain(params wan24.Crypto.PasswordPostProcessor[])
+  fullName.vb: wan24.Crypto.PasswordPostProcessorChain.New(ParamArray wan24.Crypto.PasswordPostProcessor())
+  nameWithType: PasswordPostProcessorChain.PasswordPostProcessorChain(params PasswordPostProcessor[])
+  nameWithType.vb: PasswordPostProcessorChain.New(ParamArray PasswordPostProcessor())
+- uid: wan24.Crypto.PasswordPostProcessorChain.#ctor*
+  name: PasswordPostProcessorChain
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html#wan24_Crypto_PasswordPostProcessorChain__ctor_
+  commentId: Overload:wan24.Crypto.PasswordPostProcessorChain.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.PasswordPostProcessorChain.PasswordPostProcessorChain
+  fullName.vb: wan24.Crypto.PasswordPostProcessorChain.New
+  nameWithType: PasswordPostProcessorChain.PasswordPostProcessorChain
+  nameWithType.vb: PasswordPostProcessorChain.New
+- uid: wan24.Crypto.PasswordPostProcessorChain.PostProcess(System.Byte[])
+  name: PostProcess(byte[])
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html#wan24_Crypto_PasswordPostProcessorChain_PostProcess_System_Byte___
+  commentId: M:wan24.Crypto.PasswordPostProcessorChain.PostProcess(System.Byte[])
+  name.vb: PostProcess(Byte())
+  fullName: wan24.Crypto.PasswordPostProcessorChain.PostProcess(byte[])
+  fullName.vb: wan24.Crypto.PasswordPostProcessorChain.PostProcess(Byte())
+  nameWithType: PasswordPostProcessorChain.PostProcess(byte[])
+  nameWithType.vb: PasswordPostProcessorChain.PostProcess(Byte())
+- uid: wan24.Crypto.PasswordPostProcessorChain.PostProcess*
+  name: PostProcess
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html#wan24_Crypto_PasswordPostProcessorChain_PostProcess_
+  commentId: Overload:wan24.Crypto.PasswordPostProcessorChain.PostProcess
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordPostProcessorChain.PostProcess
+  nameWithType: PasswordPostProcessorChain.PostProcess
+- uid: wan24.Crypto.PasswordPostProcessorChain.Processors
+  name: Processors
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html#wan24_Crypto_PasswordPostProcessorChain_Processors
+  commentId: P:wan24.Crypto.PasswordPostProcessorChain.Processors
+  fullName: wan24.Crypto.PasswordPostProcessorChain.Processors
+  nameWithType: PasswordPostProcessorChain.Processors
+- uid: wan24.Crypto.PasswordPostProcessorChain.Processors*
+  name: Processors
+  href: api/wan24.Crypto.PasswordPostProcessorChain.html#wan24_Crypto_PasswordPostProcessorChain_Processors_
+  commentId: Overload:wan24.Crypto.PasswordPostProcessorChain.Processors
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordPostProcessorChain.Processors
+  nameWithType: PasswordPostProcessorChain.Processors
 - uid: wan24.Crypto.PrivateKeySuite
   name: PrivateKeySuite
   href: api/wan24.Crypto.PrivateKeySuite.html

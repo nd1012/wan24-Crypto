@@ -116,6 +116,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IExportUserActions</span></div>
     <div><span class="xref">IItemQueueWorker</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</div>
     <div><span class="xref">IQueueWorker</span></div>
     <div><span class="xref">IServiceWorkerStatus</span></div>
@@ -431,7 +432,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_RngSeederQueue_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RngSeederQueue : ItemQueueWorkerBase&lt;byte[]&gt;, IWillDispose, IItemQueueWorker&lt;byte[]&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, IProducerConsumerCollection&lt;QueueWorker.Task_Delegate&gt;, IEnumerable&lt;QueueWorker.Task_Delegate&gt;, ICollection, IEnumerable, ISeedableRng, IRng, ISeedConsumer</code></pre>
+    <pre><code class="lang-csharp hljs">public class RngSeederQueue : ItemQueueWorkerBase&lt;byte[]&gt;, IWillDispose, IExportUserActions, IItemQueueWorker&lt;byte[]&gt;, IQueueWorker, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider, IProducerConsumerCollection&lt;QueueWorker.Task_Delegate&gt;, IEnumerable&lt;QueueWorker.Task_Delegate&gt;, ICollection, IEnumerable, ISeedableRng, IRng, ISeedConsumer</code></pre>
   </div>
   <h5 id="wan24_Crypto_RngSeederQueue_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Constructor</p>
@@ -665,6 +666,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IExportUserActions</span>
   </div>
   <div>
       <span class="xref">wan24.Core.IItemQueueWorker&lt;T&gt;</span>

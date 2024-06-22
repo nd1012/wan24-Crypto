@@ -115,6 +115,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IExportUserActions</span></div>
     <div><a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecordPool.html">IPakeAuthRecordPool</a></div>
     <div><span class="xref">IInstancePool</span>&lt;<a class="xref" href="wan24.Crypto.Authentication.PakeAuthRecord.html">PakeAuthRecord</a>&gt;</div>
     <div><span class="xref">IInstancePool</span></div>
@@ -256,7 +257,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_Authentication_PakeAuthRecordPool_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PakeAuthRecordPool : InstancePool&lt;PakeAuthRecord&gt;, IWillDispose, IPakeAuthRecordPool, IInstancePool&lt;PakeAuthRecord&gt;, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PakeAuthRecordPool : InstancePool&lt;PakeAuthRecord&gt;, IWillDispose, IExportUserActions, IPakeAuthRecordPool, IInstancePool&lt;PakeAuthRecord&gt;, IInstancePool, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -420,6 +421,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">wan24.Core.IWillDispose</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IExportUserActions</span>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.Authentication.IPakeAuthRecordPool.html">IPakeAuthRecordPool</a>

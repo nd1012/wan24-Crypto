@@ -119,6 +119,7 @@
     <div><span class="xref">IDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    <div><span class="xref">IExportUserActions</span></div>
     <div><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></div>
     <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
     <div><a class="xref" href="wan24.Crypto.ISeedConsumer.html">ISeedConsumer</a></div>
@@ -346,7 +347,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_RandomDataGenerator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RandomDataGenerator : HostedServiceBase, IWillDispose, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, ISeedableRng, IRng, ISeedConsumer</code></pre>
+    <pre><code class="lang-csharp hljs">public class RandomDataGenerator : HostedServiceBase, IWillDispose, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IExportUserActions, ISeedableRng, IRng, ISeedConsumer</code></pre>
   </div>
   <h5 id="wan24_Crypto_RandomDataGenerator_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Constructor</p>
@@ -1168,6 +1169,9 @@
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IExportUserActions</span>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a>
