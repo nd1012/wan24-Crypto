@@ -375,6 +375,31 @@ namespace wan24.Crypto
             /// If to use <see cref="PasswordPostProcessors"/> in the <see cref="CryptoOptions"/>
             /// </summary>
             public bool UsePasswordPostProcessorsInCryptoOptions { get; set; }
+
+            /// <summary>
+            /// Default entropy algorithm bits
+            /// </summary>
+            public int? DefaultEntropyAlgorithm { get; set; }
+
+            /// <summary>
+            /// Default entropy algorithms bits
+            /// </summary>
+            public int? DefaultEntropyAlgorithms { get; set; }
+
+            /// <summary>
+            /// Min. required Shannon bit entropy (zero to disable checks)
+            /// </summary>
+            public double? MinShannonBitEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Shannon byte entropy (zero to disable checks)
+            /// </summary>
+            public double? MinShannonByteEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required custom entropy (zero to disable checks)
+            /// </summary>
+            public double? MinCustomEntropy { get; set; }
         }
     }
 }
