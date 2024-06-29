@@ -127,6 +127,12 @@ namespace wan24.Crypto
             if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
             if (options.FillRandomBytes is not null) RND.FillBytes = options.FillRandomBytes;
             if (options.FillRandomBytesAsync is not null) RND.FillBytesAsync = options.FillRandomBytesAsync;
+            // Entropy
+            if (options.DefaultEntropyAlgorithm.HasValue) EntropyHelper.DefaultAlgorithm = (EntropyHelper.Algorithms)options.DefaultEntropyAlgorithm.Value;
+            if (options.DefaultEntropyAlgorithms.HasValue) EntropyHelper.DefaultAlgorithms = (EntropyHelper.Algorithms)options.DefaultEntropyAlgorithms.Value;
+            if (options.MinShannonBitEntropy.HasValue) EntropyHelper.MinShannonBitEntropy = options.MinShannonBitEntropy.Value;
+            if (options.MinShannonByteEntropy.HasValue) EntropyHelper.MinShannonByteEntropy = options.MinShannonByteEntropy.Value;
+            if (options.MinCustomEntropy.HasValue) EntropyHelper.MinCustomEntropy = options.MinCustomEntropy.Value;
             // Secure value
             if (options.DefaultEncryptTimeout.HasValue) SecureValue.DefaultEncryptTimeout = options.DefaultEncryptTimeout.Value;
             if (options.DefaultRecryptTimeout.HasValue) SecureValue.DefaultRecryptTimeout = options.DefaultRecryptTimeout.Value;

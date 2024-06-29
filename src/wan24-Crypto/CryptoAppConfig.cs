@@ -85,12 +85,17 @@ namespace wan24.Crypto
         /// <summary>
         /// Password post-processor type names to apply in a sequential chain (need parameterless constructors)
         /// </summary>
-        public string[]? PasswordPostProcessors { get; set; }//TODO Apply
+        public string[]? PasswordPostProcessors { get; set; }
 
         /// <summary>
         /// If to use <see cref="PasswordPostProcessors"/> in the <see cref="CryptoOptions"/>
         /// </summary>
-        public bool UsePasswordPostProcessorsInCryptoOptions { get; set; }//TODO Apply
+        public bool UsePasswordPostProcessorsInCryptoOptions { get; set; }
+
+        /// <summary>
+        /// <see cref="EntropyHelper"/> options
+        /// </summary>
+        public EntropyOptions? Entropy { get; set; }
 
         /// <inheritdoc/>
         public sealed override void Apply()
@@ -131,6 +136,7 @@ namespace wan24.Crypto
             SecureValue?.Apply(options);
             SignedAttributes?.Apply(options);
             Limits?.Apply(options);
+            Entropy?.Apply(options);
             options.CryptoExceptionDelay = CryptoExceptionDelay;
             options.UseCryptoExceptionDelay = UseCryptoExceptionDelay;
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
@@ -223,6 +229,7 @@ namespace wan24.Crypto
             if (SecureValue is not null) await SecureValue.ApplyAsync(options, cancellationToken).DynamicContext();
             if (SignedAttributes is not null) await SignedAttributes.ApplyAsync(options, cancellationToken).DynamicContext();
             if (Limits is not null) await Limits.ApplyAsync(options, cancellationToken).DynamicContext();
+            if (Entropy is not null) await Entropy.ApplyAsync(options, cancellationToken).DynamicContext();
             options.CryptoExceptionDelay = CryptoExceptionDelay;
             options.UseCryptoExceptionDelay = UseCryptoExceptionDelay;
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
@@ -762,6 +769,71 @@ namespace wan24.Crypto
                 options.SignatureContainerMaxArrayLength = SignatureContainerMaxArrayLength;
                 options.AsymmetricKeyMaxArrayLength = AsymmetricKeyMaxArrayLength;
                 options.MaxKeyExchangeDataLength = MaxKeyExchangeDataLength;
+                return Task.CompletedTask;
+            }
+        }
+
+        /// <summary>
+        /// Entropy options
+        /// </summary>
+        public class EntropyOptions
+        {
+            /// <summary>
+            /// Constructor
+            /// </summary>
+            public EntropyOptions() { }
+
+            /// <summary>
+            /// Default algorithm bits
+            /// </summary>
+            [DeniedValues(0)]
+            public int? DefaultAlgorithm { get; set; }
+
+            /// <summary>
+            /// Default algorithms bits
+            /// </summary>
+            public int? DefaultAlgorithms { get; set; }
+
+            /// <summary>
+            /// Min. required Shannon bit entropy (zero to disable checks)
+            /// </summary>
+            public double? MinShannonBitEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Shannon byte entropy (zero to disable checks)
+            /// </summary>
+            public double? MinShannonByteEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required custom entropy (zero to disable checks)
+            /// </summary>
+            public double? MinCustomEntropy { get; set; }
+
+            /// <summary>
+            /// Apply
+            /// </summary>
+            /// <param name="options">Options</param>
+            public virtual void Apply(in CryptoEnvironment.Options options)
+            {
+                options.DefaultEntropyAlgorithm = DefaultAlgorithm;
+                options.DefaultEntropyAlgorithms = DefaultAlgorithms;
+                options.MinShannonBitEntropy = MinShannonBitEntropy;
+                options.MinShannonByteEntropy = MinShannonByteEntropy;
+                options.MinCustomEntropy = MinCustomEntropy;
+            }
+
+            /// <summary>
+            /// Apply
+            /// </summary>
+            /// <param name="options">Options</param>
+            /// <param name="cancellationToken">Cancellation token</param>
+            public virtual Task ApplyAsync(CryptoEnvironment.Options options, CancellationToken cancellationToken)
+            {
+                options.DefaultEntropyAlgorithm = DefaultAlgorithm;
+                options.DefaultEntropyAlgorithms = DefaultAlgorithms;
+                options.MinShannonBitEntropy = MinShannonBitEntropy;
+                options.MinShannonByteEntropy = MinShannonByteEntropy;
+                options.MinCustomEntropy = MinCustomEntropy;
                 return Task.CompletedTask;
             }
         }
