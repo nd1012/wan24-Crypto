@@ -695,6 +695,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.BackupRng.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.BackupRng.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.BinaryPayloadContainer.yml",
       "output": {
         ".html": {
@@ -749,6 +759,16 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.CryptoAppConfig.DefaultAlgorithms.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.EntropyOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html"
         }
       },
       "version": ""
@@ -1015,6 +1035,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.DisposablEntropyMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.DisposablEntropyMonitor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.DisposableBackupRng.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.DisposableBackupRng.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.DisposableCryptoOptions.yml",
       "output": {
         ".html": {
@@ -1169,6 +1209,46 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.EncryptionVoidAlgorithm.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EntropyHelper.Algorithms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EntropyHelper.Algorithms.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EntropyHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EntropyHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.EntropyMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.EntropyMonitor.html"
         }
       },
       "version": ""

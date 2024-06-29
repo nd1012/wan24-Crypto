@@ -164,6 +164,9 @@ Classes
       <h5><a class="xref" href="wan24.Crypto.AsymmetricVoidPublicKey.html">AsymmetricVoidPublicKey</a></h5>
       <section><p>Public asymmetric void key</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.BackupRng.html">BackupRng</a></h5>
+      <section><p>RNG which uses backup RNGs on error</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html">BinaryPayloadContainer</a></h5>
       <section><p>Binary payload container (you should extend this type and define the min./max. payload length in bytes in the <a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MinPayloadLength">MinPayloadLength</a> and <a class="xref" href="wan24.Crypto.BinaryPayloadContainer.html#wan24_Crypto_BinaryPayloadContainer_MaxPayloadLength">MaxPayloadLength</a>
 properties (can be done by calling the protected constructors); default max. length is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16.maxvalue">MaxValue</a>, while the default min. length is <code>1</code> byte)</p>
@@ -186,6 +189,9 @@ properties (can be done by calling the protected constructors); default max. len
 </section>
       <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.DefaultAlgorithms.html">CryptoAppConfig.DefaultAlgorithms</a></h5>
       <section><p>Default algorithms</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.EntropyOptions.html">CryptoAppConfig.EntropyOptions</a></h5>
+      <section><p>Entropy options</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.CryptoAppConfig.Limitations.html">CryptoAppConfig.Limitations</a></h5>
       <section><p>Limitations</p>
@@ -248,6 +254,12 @@ algorithm)</p>
       <h5><a class="xref" href="wan24.Crypto.DevRandomStreamPool.html">DevRandomStreamPool</a></h5>
       <section><p><code>/dev/random</code> readable stream pool</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.DisposablEntropyMonitor.html">DisposablEntropyMonitor</a></h5>
+      <section><p>Entropy monitoring RNG (uses <a class="xref" href="wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_CheckEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__System_Boolean__">CheckEntropy(in ReadOnlySpan&lt;byte&gt;, Algorithms?, in bool)</a>)</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.DisposableBackupRng.html">DisposableBackupRng</a></h5>
+      <section><p>RNG which uses backup RNGs on error</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.DisposableCryptoOptions.html">DisposableCryptoOptions</a></h5>
       <section><p>Disposable <a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a> (will clear the hosted options when disposing)</p>
 </section>
@@ -295,6 +307,12 @@ algorithm)</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.EncryptionVoidAlgorithm.html">EncryptionVoidAlgorithm</a></h5>
       <section><p>Symmetric void encryption algorithm (used when there's no algorithm available)</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.EntropyHelper.html">EntropyHelper</a></h5>
+      <section><p>Entropy helper</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.EntropyMonitor.html">EntropyMonitor</a></h5>
+      <section><p>Entropy monitoring RNG (uses <a class="xref" href="wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_CheckEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__System_Boolean__">CheckEntropy(in ReadOnlySpan&lt;byte&gt;, Algorithms?, in bool)</a>)</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.FastPakeAuthClient.html">FastPakeAuthClient</a></h5>
       <section><p>Fast PAKE authentication client (will skip KDF after initialization)</p>
@@ -694,6 +712,9 @@ Enums
       <h5><a class="xref" href="wan24.Crypto.CryptoFlags.html">CryptoFlags</a></h5>
       <section><p>Crypto flags</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.EntropyHelper.Algorithms.html">EntropyHelper.Algorithms</a></h5>
+      <section><p>Algorithms</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.KeyTypes.html">KeyTypes</a></h5>
       <section><p>Key types enumeration</p>
 </section>
@@ -738,6 +759,9 @@ Delegates
 </section>
       <h5><a class="xref" href="wan24.Crypto.CryptoOptions.Instanced_Delegate.html">CryptoOptions.Instanced_Delegate</a></h5>
       <section><p>Delegate for a <a class="xref" href="wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_OnInstanced">OnInstanced</a> event handler</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate.html">EntropyHelper.EntropyAlgorithm_Delegate</a></h5>
+      <section><p>Delegate for an entropy algorithm</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.Pake.PakeServer_Delegate.html">Pake.PakeServer_Delegate</a></h5>
       <section><p>Delegate for a PAKE server event handler delegate</p>

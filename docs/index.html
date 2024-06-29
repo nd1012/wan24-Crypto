@@ -1543,7 +1543,7 @@ which is a simple hosted service that seeds the given target <code>ISeedableRng<
 background, using a copy of the given seeds. The <code>RngSeederQueue</code> may be
 customized easily by extending the type (pregnant methods are virtual).</p>
 <p><strong>CAUTION</strong>: Be aware of the patent US10402172B1!</p>
-<h3 id="some-words-on-secure-seeding">Some words on secure seeding</h3>
+<h4 id="some-words-on-secure-seeding">Some words on secure seeding</h4>
 <p>A PRNG isn't enough, and even a CSRNG isn't enough, if the RNG's seed is not
 good. Modern OS CSRNG implementations use hardware and software environment
 information like</p>
@@ -1592,6 +1592,14 @@ good results with a CSRNG already, even you don't have access to a quantum
 entropy source. The <code>wan24-Crypto</code> and <code>wan24-Crypto-BC</code> libraries should
 offer everything a C# developer needs for a better random number source.</p>
 <p><strong>NOTE</strong>: Even the best PQC algorithm will <em>fail</em> when not using a good RNG!</p>
+<h3 id="entropy-monitoring">Entropy monitoring</h3>
+<p>The <code>(Disposable)EntropyMonitor</code> can monitor the entropy of produced RND and
+enforce a minimum required entropy using available algorithms from
+<code>EntropyHelper</code>. The monitor simply wraps an <code>IRng</code> for this and adds entropy
+checks for produced RND before returning.</p>
+<p><strong>CAUTION</strong>: If you didn't set a <code>MaxRetries</code> value larger than zero, a wrong
+<code>EntropyHelper</code> configuration could cause system exhaustion when RND was
+requested.</p>
 <h2 id="password-post-processing">Password post-processing</h2>
 <p>An entered user password may be easy to break using brute force. For this
 reason it's recommended to apply at last KDF on the raw password. The
