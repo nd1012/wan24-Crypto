@@ -1206,7 +1206,7 @@ customized easily by extending the type (pregnant methods are virtual).
 
 **CAUTION**: Be aware of the patent US10402172B1!
 
-### Some words on secure seeding
+#### Some words on secure seeding
 
 A PRNG isn't enough, and even a CSRNG isn't enough, if the RNG's seed is not 
 good. Modern OS CSRNG implementations use hardware and software environment 
@@ -1261,6 +1261,17 @@ entropy source. The `wan24-Crypto` and `wan24-Crypto-BC` libraries should
 offer everything a C# developer needs for a better random number source.
 
 **NOTE**: Even the best PQC algorithm will _fail_ when not using a good RNG!
+
+### Entropy monitoring
+
+The `(Disposable)EntropyMonitor` can monitor the entropy of produced RND and 
+enforce a minimum required entropy using available algorithms from 
+`EntropyHelper`. The monitor simply wraps an `IRng` for this and adds entropy 
+checks for produced RND before returning.
+
+**CAUTION**: If you didn't set a `MaxRetries` value larger than zero, a wrong 
+`EntropyHelper` configuration could cause system exhaustion when RND was 
+requested.
 
 ## Password post-processing
 
