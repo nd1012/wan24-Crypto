@@ -10,6 +10,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Values (key is the GUID)
         /// </summary>
+        [InstanceTable]
         public static readonly ConcurrentChangeTokenDictionary<string, SecureValue> Values = [];
     }
 }
