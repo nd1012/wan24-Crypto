@@ -1192,7 +1192,7 @@
   "api/wan24.Crypto.SecureValueTable.html": {
     "href": "api/wan24.Crypto.SecureValueTable.html",
     "title": "Class SecureValueTable | wan24-Crypto",
-    "keywords": "Class SecureValueTable Secure value table Inheritance object SecureValueTable Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: wan24.Crypto Assembly: wan24Crypto.dll Syntax public static class SecureValueTable Fields | Edit this page View Source Values Values (key is the GUID) Declaration public static readonly ConcurrentChangeTokenDictionary<string, SecureValue> Values Field Value Type Description ConcurrentChangeTokenDictionary<string, SecureValue>"
+    "keywords": "Class SecureValueTable Secure value table Inheritance object SecureValueTable Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: wan24.Crypto Assembly: wan24Crypto.dll Syntax public static class SecureValueTable Fields | Edit this page View Source Values Values (key is the GUID) Declaration [InstanceTable] public static readonly ConcurrentChangeTokenDictionary<string, SecureValue> Values Field Value Type Description ConcurrentChangeTokenDictionary<string, SecureValue>"
   },
   "api/wan24.Crypto.SeedableRngBase.html": {
     "href": "api/wan24.Crypto.SeedableRngBase.html",
