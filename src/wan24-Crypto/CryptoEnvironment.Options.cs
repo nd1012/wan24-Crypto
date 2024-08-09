@@ -359,7 +359,7 @@ namespace wan24.Crypto
             /// <summary>
             /// Capacity for key pools of all key sizes of all available asymmetric algorithms
             /// </summary>
-            public int? AsymmericKeyPoolsCapacity { get; set; }
+            public int? AsymmetricKeyPoolsCapacity { get; set; }
 
             /// <summary>
             /// Denied elliptic curve names
@@ -400,6 +400,47 @@ namespace wan24.Crypto
             /// Min. required custom entropy (zero to disable checks)
             /// </summary>
             public double? MinCustomEntropy { get; set; }
+
+            /// <summary>
+            /// Max. tries for generating a password using the specified options 
+            /// (see <see cref="PasswordHelper.GeneratePassword(int?, PasswordOptions?, bool?, string?, string?, string?, string?)"/>)
+            /// </summary>
+            public int? MaxPasswordGeneratorTries { get; set; }
+
+            /// <summary>
+            /// Default password options
+            /// </summary>
+            public PasswordOptions? DefaultPasswordGeneratorOptions { get; set; }
+
+            /// <summary>
+            /// Default password length in characters
+            /// </summary>
+            public int? DefaultPasswordGeneratorLength { get; set; }
+
+            /// <summary>
+            /// If to check the password entropy per default (see <see cref="EntropyHelper.CheckEntropy(in ReadOnlySpan{byte}, EntropyHelper.Algorithms?, in bool)"/>)
+            /// </summary>
+            public bool? DefaultPasswordGeneratorEntropy { get; set; }
+
+            /// <summary>
+            /// Default lower case character set
+            /// </summary>
+            public string? DefaultPasswordGeneratorLowerCase { get; set; }
+
+            /// <summary>
+            /// Default upper case character set
+            /// </summary>
+            public string? DefaultPasswordGeneratorUpperCase { get; set; }
+
+            /// <summary>
+            /// Default numeric character set
+            /// </summary>
+            public string? DefaultPasswordGeneratorNumeric { get; set; }
+
+            /// <summary>
+            /// Default special character set
+            /// </summary>
+            public string? DefaultPasswordGeneratorSpecial { get; set; }
         }
     }
 }

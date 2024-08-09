@@ -241,7 +241,7 @@ namespace wan24.Crypto
             /// Custom
             /// </summary>
             [DisplayText("Custom")]
-            Custom = 3,
+            Custom = 4,
             /// <summary>
             /// All algorithms
             /// </summary>
