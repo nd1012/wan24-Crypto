@@ -1600,6 +1600,44 @@ checks for produced RND before returning.</p>
 <p><strong>CAUTION</strong>: If you didn't set a <code>MaxRetries</code> value larger than zero, a wrong
 <code>EntropyHelper</code> configuration could cause system exhaustion when RND was
 requested.</p>
+<h2 id="password-helper">Password helper</h2>
+<p>Using the <code>PasswordHelper</code> you can easily generate and validate passwords:</p>
+<pre><code class="lang-cs">string pwd = new(PasswordHelper.GeneratePassword());
+Assert.AreEqual(PasswordOptions.None, PasswordHelper.CheckPassword(pwd, PasswordOptions.Lower));
+</code></pre>
+<p>The <code>PasswordOptions</code> flags allow to specify password requirements for the
+generator and the validation. These options are available for generating a
+password:</p>
+<ul>
+<li>Length</li>
+<li>Entropy validation</li>
+<li>Lower case character set</li>
+<li>Upper case character set</li>
+<li>Numeric character set</li>
+<li>Special character set</li>
+</ul>
+<p>All used character sets may be customized as required.</p>
+<p>The generator can</p>
+<ul>
+<li>use any password length</li>
+<li>use a lower case character set</li>
+<li>use an upper case character set</li>
+<li>use a numeric character set</li>
+<li>use a special character set</li>
+<li>validate the entropy of the generated password</li>
+</ul>
+<p>while the validation checks</p>
+<ul>
+<li>password length restrictions</li>
+<li>a minimum entropy</li>
+<li>for lower case characters</li>
+<li>for upper case characters</li>
+<li>for numeric characters</li>
+<li>for special characters</li>
+</ul>
+<p>All those options can be mixed up using the <code>PasswordOptions</code> as required.</p>
+<p>The <code>CheckPassword</code> returns <code>PasswordOptions.None</code> on success. Any other
+return value contains a flag for each found problem with the given password.</p>
 <h2 id="password-post-processing">Password post-processing</h2>
 <p>An entered user password may be easy to break using brute force. For this
 reason it's recommended to apply at last KDF on the raw password. The

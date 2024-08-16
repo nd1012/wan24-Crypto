@@ -8755,6 +8755,158 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAppConfig.Options
   nameWithType: CryptoAppConfig.Options
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelper
+  name: PasswordHelper
+  href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_PasswordHelper
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelper
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelper
+  nameWithType: CryptoAppConfig.PasswordHelper
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelper*
+  name: PasswordHelper
+  href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_PasswordHelper_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelper
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelper
+  nameWithType: CryptoAppConfig.PasswordHelper
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions
+  name: CryptoAppConfig.PasswordHelperOptions
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html
+  commentId: T:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions
+  nameWithType: CryptoAppConfig.PasswordHelperOptions
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply(wan24.Crypto.CryptoEnvironment.Options@)
+  name: Apply(in Options)
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Apply_wan24_Crypto_CryptoEnvironment_Options__
+  commentId: M:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply(wan24.Crypto.CryptoEnvironment.Options@)
+  name.vb: Apply(Options)
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply(in wan24.Crypto.CryptoEnvironment.Options)
+  fullName.vb: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply(wan24.Crypto.CryptoEnvironment.Options)
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Apply(in CryptoEnvironment.Options)
+  nameWithType.vb: CryptoAppConfig.PasswordHelperOptions.Apply(CryptoEnvironment.Options)
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply*
+  name: Apply
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Apply_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Apply
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Apply
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.ApplyAsync(wan24.Crypto.CryptoEnvironment.Options,System.Threading.CancellationToken)
+  name: ApplyAsync(Options, CancellationToken)
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_ApplyAsync_wan24_Crypto_CryptoEnvironment_Options_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.ApplyAsync(wan24.Crypto.CryptoEnvironment.Options,System.Threading.CancellationToken)
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.ApplyAsync(wan24.Crypto.CryptoEnvironment.Options, System.Threading.CancellationToken)
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.ApplyAsync(CryptoEnvironment.Options, CancellationToken)
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.ApplyAsync*
+  name: ApplyAsync
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_ApplyAsync_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.ApplyAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.ApplyAsync
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.ApplyAsync
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Entropy
+  name: Entropy
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Entropy
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Entropy
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Entropy
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Entropy
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Entropy*
+  name: Entropy
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Entropy_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Entropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Entropy
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Entropy
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Length
+  name: Length
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Length
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Length
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Length
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Length
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Length*
+  name: Length
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Length_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Length
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Length
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Length
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.LowerCase
+  name: LowerCase
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_LowerCase
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.LowerCase
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.LowerCase
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.LowerCase
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.LowerCase*
+  name: LowerCase
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_LowerCase_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.LowerCase
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.LowerCase
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.LowerCase
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.MaxTries
+  name: MaxTries
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_MaxTries
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.MaxTries
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.MaxTries
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.MaxTries
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.MaxTries*
+  name: MaxTries
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_MaxTries_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.MaxTries
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.MaxTries
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.MaxTries
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Numeric
+  name: Numeric
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Numeric
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Numeric
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Numeric
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Numeric
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Numeric*
+  name: Numeric
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Numeric_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Numeric
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Numeric
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Numeric
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Options
+  name: Options
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Options
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Options
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Options
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Options
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Options*
+  name: Options
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Options_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Options
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Options
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Options
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Special
+  name: Special
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Special
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Special
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Special
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Special
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Special*
+  name: Special
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_Special_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Special
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.Special
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.Special
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.UpperCase
+  name: UpperCase
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_UpperCase
+  commentId: P:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.UpperCase
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.UpperCase
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.UpperCase
+- uid: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.UpperCase*
+  name: UpperCase
+  href: api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html#wan24_Crypto_CryptoAppConfig_PasswordHelperOptions_UpperCase_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.UpperCase
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.UpperCase
+  nameWithType: CryptoAppConfig.PasswordHelperOptions.UpperCase
 - uid: wan24.Crypto.CryptoAppConfig.PasswordPostProcessors
   name: PasswordPostProcessors
   href: api/wan24.Crypto.CryptoAppConfig.html#wan24_Crypto_CryptoAppConfig_PasswordPostProcessors
@@ -9328,19 +9480,6 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.AdditionalValidationAsync
   nameWithType: CryptoEnvironment.Options.AdditionalValidationAsync
-- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
-  name: AsymmericKeyPoolsCapacity
-  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmericKeyPoolsCapacity
-  commentId: P:wan24.Crypto.CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
-  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
-  nameWithType: CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
-- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmericKeyPoolsCapacity*
-  name: AsymmericKeyPoolsCapacity
-  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmericKeyPoolsCapacity_
-  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
-  isSpec: "True"
-  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
-  nameWithType: CryptoEnvironment.Options.AsymmericKeyPoolsCapacity
 - uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
   name: AsymmetricKeyMaxArrayLength
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeyMaxArrayLength
@@ -9354,6 +9493,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
   nameWithType: CryptoEnvironment.Options.AsymmetricKeyMaxArrayLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
+  name: AsymmetricKeyPoolsCapacity
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeyPoolsCapacity
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
+- uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity*
+  name: AsymmetricKeyPoolsCapacity
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeyPoolsCapacity_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
+  nameWithType: CryptoEnvironment.Options.AsymmetricKeyPoolsCapacity
 - uid: wan24.Crypto.CryptoEnvironment.Options.AsymmetricKeySigner
   name: AsymmetricKeySigner
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_AsymmetricKeySigner
@@ -9770,6 +9922,97 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPakeOptions
   nameWithType: CryptoEnvironment.Options.DefaultPakeOptions
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+  name: DefaultPasswordGeneratorEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorEntropy
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy*
+  name: DefaultPasswordGeneratorEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorEntropy_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+  name: DefaultPasswordGeneratorLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorLength
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLength*
+  name: DefaultPasswordGeneratorLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorLength_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+  name: DefaultPasswordGeneratorLowerCase
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorLowerCase
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase*
+  name: DefaultPasswordGeneratorLowerCase
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorLowerCase_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorLowerCase
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+  name: DefaultPasswordGeneratorNumeric
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorNumeric
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric*
+  name: DefaultPasswordGeneratorNumeric
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorNumeric_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorNumeric
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+  name: DefaultPasswordGeneratorOptions
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorOptions
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorOptions*
+  name: DefaultPasswordGeneratorOptions
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorOptions_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorOptions
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+  name: DefaultPasswordGeneratorSpecial
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorSpecial
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial*
+  name: DefaultPasswordGeneratorSpecial
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorSpecial_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorSpecial
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
+  name: DefaultPasswordGeneratorUpperCase
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorUpperCase
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase*
+  name: DefaultPasswordGeneratorUpperCase
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordGeneratorUpperCase_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
+  nameWithType: CryptoEnvironment.Options.DefaultPasswordGeneratorUpperCase
 - uid: wan24.Crypto.CryptoEnvironment.Options.DefaultPasswordPostProcessor
   name: DefaultPasswordPostProcessor
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultPasswordPostProcessor
@@ -10004,6 +10247,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
   nameWithType: CryptoEnvironment.Options.MaxKeyExchangeDataLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.MaxPasswordGeneratorTries
+  name: MaxPasswordGeneratorTries
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MaxPasswordGeneratorTries
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.MaxPasswordGeneratorTries
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MaxPasswordGeneratorTries
+  nameWithType: CryptoEnvironment.Options.MaxPasswordGeneratorTries
+- uid: wan24.Crypto.CryptoEnvironment.Options.MaxPasswordGeneratorTries*
+  name: MaxPasswordGeneratorTries
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MaxPasswordGeneratorTries_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.MaxPasswordGeneratorTries
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MaxPasswordGeneratorTries
+  nameWithType: CryptoEnvironment.Options.MaxPasswordGeneratorTries
 - uid: wan24.Crypto.CryptoEnvironment.Options.MinCustomEntropy
   name: MinCustomEntropy
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinCustomEntropy
@@ -28998,6 +29254,220 @@ references:
   fullName.vb: wan24.Crypto.PakeSignup.CType
   nameWithType: PakeSignup.implicit operator
   nameWithType.vb: PakeSignup.CType
+- uid: wan24.Crypto.PasswordHelper
+  name: PasswordHelper
+  href: api/wan24.Crypto.PasswordHelper.html
+  commentId: T:wan24.Crypto.PasswordHelper
+  fullName: wan24.Crypto.PasswordHelper
+  nameWithType: PasswordHelper
+- uid: wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlySpan{System.Char}@,wan24.Crypto.PasswordOptions@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@,System.Nullable{System.Boolean}@,System.String@,System.String@,System.String@,System.String@)
+  name: CheckPassword(in ReadOnlySpan<char>, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_CheckPassword_System_ReadOnlySpan_System_Char___wan24_Crypto_PasswordOptions__System_Nullable_System_Int32___System_Nullable_System_Int32___System_Nullable_System_Boolean___System_String__System_String__System_String__System_String__
+  commentId: M:wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlySpan{System.Char}@,wan24.Crypto.PasswordOptions@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@,System.Nullable{System.Boolean}@,System.String@,System.String@,System.String@,System.String@)
+  name.vb: CheckPassword(ReadOnlySpan(Of Char), PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
+  fullName: wan24.Crypto.PasswordHelper.CheckPassword(in System.ReadOnlySpan<char>, in wan24.Crypto.PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
+  fullName.vb: wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlySpan(Of Char), wan24.Crypto.PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
+  nameWithType: PasswordHelper.CheckPassword(in ReadOnlySpan<char>, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
+  nameWithType.vb: PasswordHelper.CheckPassword(ReadOnlySpan(Of Char), PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
+- uid: wan24.Crypto.PasswordHelper.CheckPassword*
+  name: CheckPassword
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_CheckPassword_
+  commentId: Overload:wan24.Crypto.PasswordHelper.CheckPassword
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.CheckPassword
+  nameWithType: PasswordHelper.CheckPassword
+- uid: wan24.Crypto.PasswordHelper.DefaultEntropy
+  name: DefaultEntropy
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultEntropy
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultEntropy
+  fullName: wan24.Crypto.PasswordHelper.DefaultEntropy
+  nameWithType: PasswordHelper.DefaultEntropy
+- uid: wan24.Crypto.PasswordHelper.DefaultEntropy*
+  name: DefaultEntropy
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultEntropy_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultEntropy
+  nameWithType: PasswordHelper.DefaultEntropy
+- uid: wan24.Crypto.PasswordHelper.DefaultLength
+  name: DefaultLength
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultLength
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultLength
+  fullName: wan24.Crypto.PasswordHelper.DefaultLength
+  nameWithType: PasswordHelper.DefaultLength
+- uid: wan24.Crypto.PasswordHelper.DefaultLength*
+  name: DefaultLength
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultLength_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultLength
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultLength
+  nameWithType: PasswordHelper.DefaultLength
+- uid: wan24.Crypto.PasswordHelper.DefaultLowerCase
+  name: DefaultLowerCase
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultLowerCase
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultLowerCase
+  fullName: wan24.Crypto.PasswordHelper.DefaultLowerCase
+  nameWithType: PasswordHelper.DefaultLowerCase
+- uid: wan24.Crypto.PasswordHelper.DefaultLowerCase*
+  name: DefaultLowerCase
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultLowerCase_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultLowerCase
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultLowerCase
+  nameWithType: PasswordHelper.DefaultLowerCase
+- uid: wan24.Crypto.PasswordHelper.DefaultNumeric
+  name: DefaultNumeric
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultNumeric
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultNumeric
+  fullName: wan24.Crypto.PasswordHelper.DefaultNumeric
+  nameWithType: PasswordHelper.DefaultNumeric
+- uid: wan24.Crypto.PasswordHelper.DefaultNumeric*
+  name: DefaultNumeric
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultNumeric_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultNumeric
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultNumeric
+  nameWithType: PasswordHelper.DefaultNumeric
+- uid: wan24.Crypto.PasswordHelper.DefaultOptions
+  name: DefaultOptions
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultOptions
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultOptions
+  fullName: wan24.Crypto.PasswordHelper.DefaultOptions
+  nameWithType: PasswordHelper.DefaultOptions
+- uid: wan24.Crypto.PasswordHelper.DefaultOptions*
+  name: DefaultOptions
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultOptions_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultOptions
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultOptions
+  nameWithType: PasswordHelper.DefaultOptions
+- uid: wan24.Crypto.PasswordHelper.DefaultSpecial
+  name: DefaultSpecial
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultSpecial
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultSpecial
+  fullName: wan24.Crypto.PasswordHelper.DefaultSpecial
+  nameWithType: PasswordHelper.DefaultSpecial
+- uid: wan24.Crypto.PasswordHelper.DefaultSpecial*
+  name: DefaultSpecial
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultSpecial_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultSpecial
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultSpecial
+  nameWithType: PasswordHelper.DefaultSpecial
+- uid: wan24.Crypto.PasswordHelper.DefaultUpperCase
+  name: DefaultUpperCase
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultUpperCase
+  commentId: P:wan24.Crypto.PasswordHelper.DefaultUpperCase
+  fullName: wan24.Crypto.PasswordHelper.DefaultUpperCase
+  nameWithType: PasswordHelper.DefaultUpperCase
+- uid: wan24.Crypto.PasswordHelper.DefaultUpperCase*
+  name: DefaultUpperCase
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_DefaultUpperCase_
+  commentId: Overload:wan24.Crypto.PasswordHelper.DefaultUpperCase
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.DefaultUpperCase
+  nameWithType: PasswordHelper.DefaultUpperCase
+- uid: wan24.Crypto.PasswordHelper.GeneratePassword(System.Nullable{System.Int32},System.Nullable{wan24.Crypto.PasswordOptions},System.Nullable{System.Boolean},System.String,System.String,System.String,System.String)
+  name: GeneratePassword(int?, PasswordOptions?, bool?, string?, string?, string?, string?)
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_GeneratePassword_System_Nullable_System_Int32__System_Nullable_wan24_Crypto_PasswordOptions__System_Nullable_System_Boolean__System_String_System_String_System_String_System_String_
+  commentId: M:wan24.Crypto.PasswordHelper.GeneratePassword(System.Nullable{System.Int32},System.Nullable{wan24.Crypto.PasswordOptions},System.Nullable{System.Boolean},System.String,System.String,System.String,System.String)
+  name.vb: GeneratePassword(Integer?, PasswordOptions?, Boolean?, String, String, String, String)
+  fullName: wan24.Crypto.PasswordHelper.GeneratePassword(int?, wan24.Crypto.PasswordOptions?, bool?, string?, string?, string?, string?)
+  fullName.vb: wan24.Crypto.PasswordHelper.GeneratePassword(Integer?, wan24.Crypto.PasswordOptions?, Boolean?, String, String, String, String)
+  nameWithType: PasswordHelper.GeneratePassword(int?, PasswordOptions?, bool?, string?, string?, string?, string?)
+  nameWithType.vb: PasswordHelper.GeneratePassword(Integer?, PasswordOptions?, Boolean?, String, String, String, String)
+- uid: wan24.Crypto.PasswordHelper.GeneratePassword*
+  name: GeneratePassword
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_GeneratePassword_
+  commentId: Overload:wan24.Crypto.PasswordHelper.GeneratePassword
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.GeneratePassword
+  nameWithType: PasswordHelper.GeneratePassword
+- uid: wan24.Crypto.PasswordHelper.LOWER
+  name: LOWER
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_LOWER
+  commentId: F:wan24.Crypto.PasswordHelper.LOWER
+  fullName: wan24.Crypto.PasswordHelper.LOWER
+  nameWithType: PasswordHelper.LOWER
+- uid: wan24.Crypto.PasswordHelper.MaxTries
+  name: MaxTries
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_MaxTries
+  commentId: P:wan24.Crypto.PasswordHelper.MaxTries
+  fullName: wan24.Crypto.PasswordHelper.MaxTries
+  nameWithType: PasswordHelper.MaxTries
+- uid: wan24.Crypto.PasswordHelper.MaxTries*
+  name: MaxTries
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_MaxTries_
+  commentId: Overload:wan24.Crypto.PasswordHelper.MaxTries
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.MaxTries
+  nameWithType: PasswordHelper.MaxTries
+- uid: wan24.Crypto.PasswordHelper.NUMERIC
+  name: NUMERIC
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_NUMERIC
+  commentId: F:wan24.Crypto.PasswordHelper.NUMERIC
+  fullName: wan24.Crypto.PasswordHelper.NUMERIC
+  nameWithType: PasswordHelper.NUMERIC
+- uid: wan24.Crypto.PasswordHelper.SPECIAL
+  name: SPECIAL
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_SPECIAL
+  commentId: F:wan24.Crypto.PasswordHelper.SPECIAL
+  fullName: wan24.Crypto.PasswordHelper.SPECIAL
+  nameWithType: PasswordHelper.SPECIAL
+- uid: wan24.Crypto.PasswordHelper.UPPER
+  name: UPPER
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_UPPER
+  commentId: F:wan24.Crypto.PasswordHelper.UPPER
+  fullName: wan24.Crypto.PasswordHelper.UPPER
+  nameWithType: PasswordHelper.UPPER
+- uid: wan24.Crypto.PasswordOptions
+  name: PasswordOptions
+  href: api/wan24.Crypto.PasswordOptions.html
+  commentId: T:wan24.Crypto.PasswordOptions
+  fullName: wan24.Crypto.PasswordOptions
+  nameWithType: PasswordOptions
+- uid: wan24.Crypto.PasswordOptions.Entropy
+  name: Entropy
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_Entropy
+  commentId: F:wan24.Crypto.PasswordOptions.Entropy
+  fullName: wan24.Crypto.PasswordOptions.Entropy
+  nameWithType: PasswordOptions.Entropy
+- uid: wan24.Crypto.PasswordOptions.Length
+  name: Length
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_Length
+  commentId: F:wan24.Crypto.PasswordOptions.Length
+  fullName: wan24.Crypto.PasswordOptions.Length
+  nameWithType: PasswordOptions.Length
+- uid: wan24.Crypto.PasswordOptions.Lower
+  name: Lower
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_Lower
+  commentId: F:wan24.Crypto.PasswordOptions.Lower
+  fullName: wan24.Crypto.PasswordOptions.Lower
+  nameWithType: PasswordOptions.Lower
+- uid: wan24.Crypto.PasswordOptions.None
+  name: None
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_None
+  commentId: F:wan24.Crypto.PasswordOptions.None
+  fullName: wan24.Crypto.PasswordOptions.None
+  nameWithType: PasswordOptions.None
+- uid: wan24.Crypto.PasswordOptions.Numeric
+  name: Numeric
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_Numeric
+  commentId: F:wan24.Crypto.PasswordOptions.Numeric
+  fullName: wan24.Crypto.PasswordOptions.Numeric
+  nameWithType: PasswordOptions.Numeric
+- uid: wan24.Crypto.PasswordOptions.Special
+  name: Special
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_Special
+  commentId: F:wan24.Crypto.PasswordOptions.Special
+  fullName: wan24.Crypto.PasswordOptions.Special
+  nameWithType: PasswordOptions.Special
+- uid: wan24.Crypto.PasswordOptions.Upper
+  name: Upper
+  href: api/wan24.Crypto.PasswordOptions.html#wan24_Crypto_PasswordOptions_Upper
+  commentId: F:wan24.Crypto.PasswordOptions.Upper
+  fullName: wan24.Crypto.PasswordOptions.Upper
+  nameWithType: PasswordOptions.Upper
 - uid: wan24.Crypto.PasswordPostProcessor
   name: PasswordPostProcessor
   href: api/wan24.Crypto.PasswordPostProcessor.html

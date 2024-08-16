@@ -34,11 +34,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -779,6 +779,16 @@
       "output": {
         ".html": {
           "relative_path": "api/wan24.Crypto.CryptoAppConfig.Limitations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.CryptoAppConfig.PasswordHelperOptions.html"
         }
       },
       "version": ""
@@ -2145,6 +2155,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PasswordHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PasswordHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/wan24.Crypto.PasswordOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/wan24.Crypto.PasswordOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/wan24.Crypto.PasswordPostProcessor.yml",
       "output": {
         ".html": {
@@ -2747,11 +2777,11 @@
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "articles/toc.html"
-        },
         ".json": {
           "relative_path": "articles/toc.json"
+        },
+        ".html": {
+          "relative_path": "articles/toc.html"
         }
       },
       "version": ""
@@ -2770,11 +2800,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""
