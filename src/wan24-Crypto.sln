@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectValidation", "..\..\O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wan24-Core-Validation", "..\..\wan24-Core\src\Wan24-Core-Validation\Wan24-Core-Validation.csproj", "{D25D9574-917B-4A03-AFF7-64FCAAC3DB0A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Referenced", "Referenced", "{661B5F46-B279-445B-AB32-2D22C9141B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6B0AB983-FC05-4B77-89A3-E1BE712C4A97} = {661B5F46-B279-445B-AB32-2D22C9141B97}
+		{3A0744E9-9EDB-4258-9711-CBC3D980CC30} = {661B5F46-B279-445B-AB32-2D22C9141B97}
+		{05B10BFF-BA50-419A-8D2E-391B0B68EFFB} = {661B5F46-B279-445B-AB32-2D22C9141B97}
+		{8D7662EA-96C5-448C-8629-2CE16A6B2C99} = {661B5F46-B279-445B-AB32-2D22C9141B97}
+		{D25D9574-917B-4A03-AFF7-64FCAAC3DB0A} = {661B5F46-B279-445B-AB32-2D22C9141B97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2263758D-EB8B-45E9-BE7F-EE9EA2BB334D}

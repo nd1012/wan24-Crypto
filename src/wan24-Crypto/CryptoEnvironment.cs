@@ -133,6 +133,14 @@ namespace wan24.Crypto
             if (options.MinShannonBitEntropy.HasValue) EntropyHelper.MinShannonBitEntropy = options.MinShannonBitEntropy.Value;
             if (options.MinShannonByteEntropy.HasValue) EntropyHelper.MinShannonByteEntropy = options.MinShannonByteEntropy.Value;
             if (options.MinCustomEntropy.HasValue) EntropyHelper.MinCustomEntropy = options.MinCustomEntropy.Value;
+            // Password helper
+            if (options.MaxPasswordGeneratorTries.HasValue) PasswordHelper.MaxTries = options.MaxPasswordGeneratorTries.Value;
+            if (options.DefaultPasswordGeneratorOptions.HasValue) PasswordHelper.DefaultOptions = options.DefaultPasswordGeneratorOptions.Value;
+            if (options.DefaultPasswordGeneratorLength.HasValue) PasswordHelper.DefaultLength = options.DefaultPasswordGeneratorLength.Value;
+            if (options.DefaultPasswordGeneratorLowerCase is not null) PasswordHelper.DefaultLowerCase = options.DefaultPasswordGeneratorLowerCase;
+            if (options.DefaultPasswordGeneratorUpperCase is not null) PasswordHelper.DefaultUpperCase = options.DefaultPasswordGeneratorUpperCase;
+            if (options.DefaultPasswordGeneratorNumeric is not null) PasswordHelper.DefaultNumeric = options.DefaultPasswordGeneratorNumeric;
+            if (options.DefaultPasswordGeneratorSpecial is not null) PasswordHelper.DefaultSpecial = options.DefaultPasswordGeneratorSpecial;
             // Secure value
             if (options.DefaultEncryptTimeout.HasValue) SecureValue.DefaultEncryptTimeout = options.DefaultEncryptTimeout.Value;
             if (options.DefaultRecryptTimeout.HasValue) SecureValue.DefaultRecryptTimeout = options.DefaultRecryptTimeout.Value;
@@ -189,9 +197,9 @@ namespace wan24.Crypto
             options.PKI?.EnableLocalPki();
             if (options.RemoveUnsupportedAlgorithms) CryptoHelper.RemoveUnsupportedAlgorithms(options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms);
             if (options.StrictPostQuantum.HasValue) CryptoHelper.ForcePostQuantumSafety(options.StrictPostQuantum.Value);
-            if (options.AsymmericKeyPoolsCapacity.HasValue)
+            if (options.AsymmetricKeyPoolsCapacity.HasValue)
                 foreach (IAsymmetricAlgorithm algo in AsymmetricHelper.Algorithms.Values.Where(a => a.EnsureAllowed(throwIfDenied: false)))
-                    algo.CreateKeyPools(options.AsymmericKeyPoolsCapacity.Value);
+                    algo.CreateKeyPools(options.AsymmetricKeyPoolsCapacity.Value);
             if (options.PasswordPostProcessors is not null && options.PasswordPostProcessors.Length > 0)
             {
                 PasswordPostProcessor.Instance = new PasswordPostProcessorChain(options.PasswordPostProcessors);

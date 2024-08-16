@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using wan24.Core;
+using static wan24.Crypto.CryptoAppConfig;
 
 namespace wan24.Crypto
 {
@@ -97,6 +98,11 @@ namespace wan24.Crypto
         /// </summary>
         public EntropyOptions? Entropy { get; set; }
 
+        /// <summary>
+        /// <see cref="Crypto.PasswordHelper"/> options
+        /// </summary>
+        public PasswordHelperOptions? PasswordHelper { get; set; }
+
         /// <inheritdoc/>
         public sealed override void Apply()
         {
@@ -137,16 +143,17 @@ namespace wan24.Crypto
             SignedAttributes?.Apply(options);
             Limits?.Apply(options);
             Entropy?.Apply(options);
+            PasswordHelper?.Apply(options);
             options.CryptoExceptionDelay = CryptoExceptionDelay;
             options.UseCryptoExceptionDelay = UseCryptoExceptionDelay;
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
             options.UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms = UpdateDefaultOptionsAfterRemoveUnsupportedAlgorithms;
-            options.AsymmericKeyPoolsCapacity = AsymmetricKeyPoolsCapacity;
+            options.AsymmetricKeyPoolsCapacity = AsymmetricKeyPoolsCapacity;
             if (PasswordPostProcessors is not null)
             {
                 List<PasswordPostProcessor> ppr = [];
                 Type type;
-                foreach(string typeName in PasswordPostProcessors)
+                foreach (string typeName in PasswordPostProcessors)
                 {
                     type = TypeHelper.Instance.GetType(typeName, throwOnError: true)
                         ?? throw new InvalidDataException("Invalid/unknown type name in crypto app config at PasswordPostProcessors");
@@ -230,6 +237,7 @@ namespace wan24.Crypto
             if (SignedAttributes is not null) await SignedAttributes.ApplyAsync(options, cancellationToken).DynamicContext();
             if (Limits is not null) await Limits.ApplyAsync(options, cancellationToken).DynamicContext();
             if (Entropy is not null) await Entropy.ApplyAsync(options, cancellationToken).DynamicContext();
+            if (PasswordHelper is not null) await PasswordHelper.ApplyAsync(options, cancellationToken).DynamicContext();
             options.CryptoExceptionDelay = CryptoExceptionDelay;
             options.UseCryptoExceptionDelay = UseCryptoExceptionDelay;
             options.RemoveUnsupportedAlgorithms = RemoveUnsupportedAlgorithms;
@@ -834,6 +842,87 @@ namespace wan24.Crypto
                 options.MinShannonBitEntropy = MinShannonBitEntropy;
                 options.MinShannonByteEntropy = MinShannonByteEntropy;
                 options.MinCustomEntropy = MinCustomEntropy;
+                return Task.CompletedTask;
+            }
+        }
+
+        /// <summary>
+        /// Password helper options
+        /// </summary>
+        public class PasswordHelperOptions
+        {
+            /// <summary>
+            /// Max. tries for generating a password using the specified options 
+            /// (see <see cref="PasswordHelper.GeneratePassword(int?, PasswordOptions?, bool?, string?, string?, string?, string?)"/>)
+            /// </summary>
+            public int? MaxTries { get; set; }
+
+            /// <summary>
+            /// Default password options
+            /// </summary>
+            public PasswordOptions? Options { get; set; }
+
+            /// <summary>
+            /// Default password length in characters
+            /// </summary>
+            public int? Length { get; set; }
+
+            /// <summary>
+            /// If to check the password entropy per default (see <see cref="EntropyHelper.CheckEntropy(in ReadOnlySpan{byte}, EntropyHelper.Algorithms?, in bool)"/>)
+            /// </summary>
+            public bool? Entropy { get; set; }
+
+            /// <summary>
+            /// Default lower case character set
+            /// </summary>
+            public string? LowerCase { get; set; }
+
+            /// <summary>
+            /// Default upper case character set
+            /// </summary>
+            public string? UpperCase { get; set; }
+
+            /// <summary>
+            /// Default numeric character set
+            /// </summary>
+            public string? Numeric { get; set; }
+
+            /// <summary>
+            /// Default special character set
+            /// </summary>
+            public string? Special { get; set; }
+
+            /// <summary>
+            /// Apply
+            /// </summary>
+            /// <param name="options">Options</param>
+            public virtual void Apply(in CryptoEnvironment.Options options)
+            {
+                options.MaxPasswordGeneratorTries = MaxTries;
+                options.DefaultPasswordGeneratorOptions = Options;
+                options.DefaultPasswordGeneratorLength = Length;
+                options.DefaultPasswordGeneratorEntropy = Entropy;
+                options.DefaultPasswordGeneratorLowerCase = LowerCase;
+                options.DefaultPasswordGeneratorUpperCase = UpperCase;
+                options.DefaultPasswordGeneratorNumeric = Numeric;
+                options.DefaultPasswordGeneratorSpecial = Special;
+            }
+
+            /// <summary>
+            /// Apply
+            /// </summary>
+            /// <param name="options">Options</param>
+            /// <param name="cancellationToken">Cancellation token</param>
+            public virtual Task ApplyAsync(CryptoEnvironment.Options options, CancellationToken cancellationToken)
+            {
+                options.MaxPasswordGeneratorTries = MaxTries;
+                options.DefaultPasswordGeneratorOptions = Options;
+                options.DefaultPasswordGeneratorLength = Length;
+                options.DefaultPasswordGeneratorEntropy = Entropy;
+                options.DefaultPasswordGeneratorLowerCase = LowerCase;
+                options.DefaultPasswordGeneratorUpperCase = UpperCase;
+                options.DefaultPasswordGeneratorNumeric = Numeric;
+                options.DefaultPasswordGeneratorSpecial = Special;
                 return Task.CompletedTask;
             }
         }

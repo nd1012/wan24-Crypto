@@ -121,7 +121,7 @@ namespace wan24.Crypto
             /// <summary>
             /// <see cref="Headers"/> property
             /// </summary>
-            protected static readonly PropertyInfo HeadersProperty = typeof(PakeResponseDto).GetPropertyCached(nameof(Headers))!;
+            protected static readonly PropertyInfoExt HeadersProperty = typeof(PakeResponseDto).GetPropertyCached(nameof(Headers))!;
 
             /// <summary>
             /// Higher level object version

@@ -1273,6 +1273,51 @@ checks for produced RND before returning.
 `EntropyHelper` configuration could cause system exhaustion when RND was 
 requested.
 
+## Password helper
+
+Using the `PasswordHelper` you can easily generate and validate passwords:
+
+```cs
+string pwd = new(PasswordHelper.GeneratePassword());
+Assert.AreEqual(PasswordOptions.None, PasswordHelper.CheckPassword(pwd, PasswordOptions.Lower));
+```
+
+The `PasswordOptions` flags allow to specify password requirements for the 
+generator and the validation. These options are available for generating a 
+password:
+
+- Length
+- Entropy validation
+- Lower case character set
+- Upper case character set
+- Numeric character set
+- Special character set
+
+All used character sets may be customized as required.
+
+The generator can
+
+- use any password length
+- use a lower case character set
+- use an upper case character set
+- use a numeric character set
+- use a special character set
+- validate the entropy of the generated password
+
+while the validation checks
+
+- password length restrictions
+- a minimum entropy
+- for lower case characters
+- for upper case characters
+- for numeric characters
+- for special characters
+
+All those options can be mixed up using the `PasswordOptions` as required.
+
+The `CheckPassword` returns `PasswordOptions.None` on success. Any other 
+return value contains a flag for each found problem with the given password.
+
 ## Password post-processing
 
 An entered user password may be easy to break using brute force. For this 
