@@ -318,5 +318,23 @@ namespace wan24.Crypto
         /// <param name="keyType">Key type</param>
         /// <returns>If the key type is for a key store</returns>
         public static bool IsStore(this KeyTypes keyType) => (keyType & KeyTypes.Store) == KeyTypes.Store;
+
+        /// <summary>
+        /// Get a random double
+        /// </summary>
+        /// <param name="buffer">Buffer (will be overwritten)</param>
+        /// <returns>Random double</returns>
+        public static double ToRandomDouble(this byte[] buffer) => buffer.AsSpan().ToRandomDouble();
+
+        /// <summary>
+        /// Get a random double
+        /// </summary>
+        /// <param name="buffer">Buffer (will be overwritten)</param>
+        /// <returns>Random double</returns>
+        public static double ToRandomDouble(this Span<byte> buffer)
+        {
+            RND.FillBytes(buffer[..sizeof(double)]);
+            return buffer.ToDouble() / double.MaxValue;
+        }
     }
 }
