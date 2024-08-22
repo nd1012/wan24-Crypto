@@ -1,9 +1,10 @@
 ﻿using wan24.Crypto.Tests;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class Hybrid_Tests
+    public class Hybrid_Tests : TestBase
     {
         [TestMethod]
         public void Asymmetric_Tests()

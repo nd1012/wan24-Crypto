@@ -1,10 +1,11 @@
 ﻿using wan24.Crypto;
 using wan24.Crypto.Tests;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class Asymmetric_Tests
+    public class Asymmetric_Tests : TestBase
     {
         [TestMethod]
         public void AllAlgo_Tests() => AsymmetricTests.TestAllAlgorithms();

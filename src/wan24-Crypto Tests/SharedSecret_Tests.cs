@@ -1,10 +1,11 @@
 ﻿using wan24.Core;
 using wan24.Crypto;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class SharedSecret_Tests
+    public class SharedSecret_Tests : TestBase
     {
         [TestMethod]
         public void General_Tests()

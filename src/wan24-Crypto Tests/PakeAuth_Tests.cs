@@ -2,11 +2,12 @@
 using wan24.Core;
 using wan24.Crypto;
 using wan24.Crypto.Authentication;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class PakeAuth_Tests
+    public class PakeAuth_Tests : TestBase
     {
         [TestMethod, Timeout(10000)]
         public async Task GeneralAsync_Tests()
