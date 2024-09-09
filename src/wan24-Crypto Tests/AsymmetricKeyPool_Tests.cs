@@ -1,9 +1,10 @@
 ﻿using wan24.Crypto;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class AsymmetricKeyPool_Tests
+    public class AsymmetricKeyPool_Tests : TestBase
     {
         [TestMethod]
         public void General_Tests()

@@ -1,11 +1,12 @@
 ﻿using System.Security.Cryptography;
 using wan24.Crypto;
 using wan24.Crypto.Tests;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class Hashing_Tests
+    public class Hashing_Tests : TestBase
     {
         [TestMethod]
         public async Task All_Tests() => await HashingTests.TestAllAlgorithms();

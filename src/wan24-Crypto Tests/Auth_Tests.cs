@@ -1,13 +1,13 @@
-﻿using System.Diagnostics;
-using System.Text;
+﻿using System.Text;
 using wan24.Core;
 using wan24.Crypto;
 using wan24.Crypto.Authentication;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class Auth_Tests
+    public class Auth_Tests : TestBase
     {
         [TestMethod, /*Timeout(10000)*/]
         public async Task GeneralAsync_Tests()

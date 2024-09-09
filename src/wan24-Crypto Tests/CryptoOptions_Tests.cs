@@ -1,11 +1,12 @@
 ﻿using wan24.Compression;
 using wan24.Crypto;
 using wan24.StreamSerializerExtensions;
+using wan24.Tests;
 
 namespace wan24_Crypto_Tests
 {
     [TestClass]
-    public class CryptoOptions_Tests
+    public class CryptoOptions_Tests : TestBase
     {
         [TestMethod]
         public void General_Tests()
