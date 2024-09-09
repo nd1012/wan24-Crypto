@@ -10820,6 +10820,31 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoExtensions.IsStore
   nameWithType: CryptoExtensions.IsStore
+- uid: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Byte[])
+  name: ToRandomDouble(byte[])
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ToRandomDouble_System_Byte___
+  commentId: M:wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Byte[])
+  name.vb: ToRandomDouble(Byte())
+  fullName: wan24.Crypto.CryptoExtensions.ToRandomDouble(byte[])
+  fullName.vb: wan24.Crypto.CryptoExtensions.ToRandomDouble(Byte())
+  nameWithType: CryptoExtensions.ToRandomDouble(byte[])
+  nameWithType.vb: CryptoExtensions.ToRandomDouble(Byte())
+- uid: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Span{System.Byte})
+  name: ToRandomDouble(Span<byte>)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ToRandomDouble_System_Span_System_Byte__
+  commentId: M:wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Span{System.Byte})
+  name.vb: ToRandomDouble(Span(Of Byte))
+  fullName: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Span<byte>)
+  fullName.vb: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Span(Of Byte))
+  nameWithType: CryptoExtensions.ToRandomDouble(Span<byte>)
+  nameWithType.vb: CryptoExtensions.ToRandomDouble(Span(Of Byte))
+- uid: wan24.Crypto.CryptoExtensions.ToRandomDouble*
+  name: ToRandomDouble
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ToRandomDouble_
+  commentId: Overload:wan24.Crypto.CryptoExtensions.ToRandomDouble
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoExtensions.ToRandomDouble
+  nameWithType: CryptoExtensions.ToRandomDouble
 - uid: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream,System.Byte[],System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions)
   name: ValidateMac(Stream, byte[], byte[], bool, CryptoOptions?)
   href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMac_System_IO_Stream_System_Byte___System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_
