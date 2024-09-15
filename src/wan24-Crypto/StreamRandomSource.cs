@@ -6,12 +6,13 @@ namespace wan24.Crypto
     /// Stream RND source
     /// </summary>
     /// <param name="stream">Stream (will be wrapped with <see cref="SynchronizedStream"/> and disposed)</param>
-    public class StreamRandomSource(in Stream stream) : DisposableRngBase()
+    /// <param name="preBuffer">Number of bytes to pre-buffer from the stream</param>
+    public class StreamRandomSource(in Stream stream, in int? preBuffer = null) : DisposableRngBase()
     {
         /// <summary>
         /// Stream (will be disposed)
         /// </summary>
-        public SynchronizedStream Stream { get; } = new SynchronizedStream(stream);
+        public Stream Stream { get; } = new SynchronizedStream(preBuffer.HasValue ? new PreBufferingStream(stream, preBuffer) : stream);
 
         /// <inheritdoc/>
         public override Span<byte> FillBytes(in Span<byte> buffer)
