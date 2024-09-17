@@ -39,7 +39,7 @@
         /// <param name="algo">Encryption algorithm</param>
         /// <param name="options">Options</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        [Obsolete("Use PreProcessEncryptionPasswordAsync instead")]
+        [Obsolete("Use PreProcessEncryptionPasswordAsync instead")]//TODO Remove in v3
         public Task PreProcessAsyncEncryptionPassword(EncryptionAlgorithmBase algo, CryptoOptions options, CancellationToken cancellationToken)
             => PreProcessEncryptionPasswordAsync(algo, options, cancellationToken);
 
