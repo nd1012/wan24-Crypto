@@ -113,7 +113,7 @@ namespace wan24.Crypto
             catch (Exception ex)
             {
                 if (ServiceTask is null || cancellationToken != CancelToken) throw;
-                ErrorHandling.Handle(new($"{GetType()} failed to get and process seed from \"{URI}\"", ex, Constants.CRYPTO_ERROR_SOURCE));
+                ErrorHandling.Handle(new($"{GetType()} failed to get and process seed from \"{URI}\"", ex, Constants.CRYPTO_ERROR_SOURCE, this));
                 return false;
             }
             finally

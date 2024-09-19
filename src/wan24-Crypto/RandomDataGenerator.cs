@@ -197,7 +197,7 @@ namespace wan24.Crypto
                 }
                 catch(Exception ex)
                 {
-                    ErrorHandling.Handle(new($"Failed to use {RND.RANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE));
+                    ErrorHandling.Handle(new($"Failed to use {RND.RANDOM}", ex, Constants.CRYPTO_ERROR_SOURCE, this));
                     if (RND.RequireDevRandom)
                         throw await CryptographicException.FromAsync($"{RND.RANDOM} required and available, but failed", ex).DynamicContext();
                     Logging.WriteWarning($"Failed to use {RND.RANDOM} as random byte source (disabling and fallback to {nameof(RandomNumberGenerator)})");
