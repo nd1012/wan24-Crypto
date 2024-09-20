@@ -1,4 +1,5 @@
-﻿using wan24.Core;
+﻿using System.ComponentModel.DataAnnotations;
+using wan24.Core;
 
 namespace wan24.Crypto
 {
@@ -14,8 +15,8 @@ namespace wan24.Crypto
         /// <summary>
         /// Permutation entropy calculator window size (if the given data count is less than this value, the algorithm will return <see cref="MinPermutationEntropy"/>)
         /// </summary>
-        [CliConfig]
-        public static int PermutationWindowSize { get; set; } = 5;
+        [CliConfig, Range(3, int.MaxValue)]
+        public static int PermutationWindowSize { get; set; } = 3;
 
         /// <summary>
         /// Permutation entropy algorithm
