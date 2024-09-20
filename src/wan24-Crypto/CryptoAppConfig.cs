@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using wan24.Core;
-using static wan24.Crypto.CryptoAppConfig;
 
 namespace wan24.Crypto
 {
@@ -512,6 +511,12 @@ namespace wan24.Crypto
             public CryptoFlags? DefaultFlags { get; set; }
 
             /// <summary>
+            /// Default maximum cipher data length in bytes (won't overflow <see cref="EncryptionAlgorithmBase.MaxCipherDataLength"/>)
+            /// </summary>
+            [Range(1, long.MaxValue)]
+            public int? DefaultMaxCipherDataLength { get; set; }
+
+            /// <summary>
             /// Apply
             /// </summary>
             /// <param name="options">Options</param>
@@ -520,6 +525,7 @@ namespace wan24.Crypto
                 options.DefaultMaximumAge = DefaultMaximumAge;
                 options.DefaultMaximumTimeOffset = DefaultMaximumTimeOffset;
                 options.DefaultFlags = DefaultFlags;
+                options.DefaultMaxCipherDataLength = DefaultMaxCipherDataLength;
             }
 
             /// <summary>
@@ -532,6 +538,7 @@ namespace wan24.Crypto
                 options.DefaultMaximumAge = DefaultMaximumAge;
                 options.DefaultMaximumTimeOffset = DefaultMaximumTimeOffset;
                 options.DefaultFlags = DefaultFlags;
+                options.DefaultMaxCipherDataLength = DefaultMaxCipherDataLength;
                 return Task.CompletedTask;
             }
         }

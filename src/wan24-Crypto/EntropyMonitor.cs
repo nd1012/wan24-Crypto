@@ -29,7 +29,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Min. RND length required for monitoring
         /// </summary>
-        public int MinRndlength { get; init; }
+        public int MinRndLength { get; init; }
 
         /// <inheritdoc/>
         public override Span<byte> FillBytes(in Span<byte> buffer)
@@ -38,7 +38,7 @@ namespace wan24.Crypto
             for (int i = 0, len = MaxRetries < 1 ? int.MaxValue : MaxRetries; i < len; i++)
             {
                 RNG.FillBytes(buffer);
-                if (buffer.Length < MinRndlength || EntropyHelper.CheckEntropy(buffer, Algorithms)) return buffer;
+                if (buffer.Length < MinRndLength || EntropyHelper.CheckEntropy(buffer, Algorithms)) return buffer;
             }
             throw CryptographicException.From("Failed to get RND with the required entropy", new InvalidDataException());
         }
@@ -50,7 +50,7 @@ namespace wan24.Crypto
             for (int i = 0, len = MaxRetries < 1 ? int.MaxValue : MaxRetries; i < len; i++)
             {
                 await RNG.FillBytesAsync(buffer, cancellationToken).DynamicContext();
-                if (buffer.Length < MinRndlength || EntropyHelper.CheckEntropy(buffer.Span, Algorithms)) return buffer;
+                if (buffer.Length < MinRndLength || EntropyHelper.CheckEntropy(buffer.Span, Algorithms)) return buffer;
             }
             throw CryptographicException.From("Failed to get RND with the required entropy", new InvalidDataException());
         }

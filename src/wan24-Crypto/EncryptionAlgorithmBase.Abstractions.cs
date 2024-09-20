@@ -26,6 +26,16 @@ namespace wan24.Crypto
         public abstract bool RequireMacAuthentication { get; }
 
         /// <summary>
+        /// Maximum cipher data length in bytes
+        /// </summary>
+        public abstract long MaxCipherDataLength { get; }
+
+        /// <summary>
+        /// Maximum key usage count (before a fresh key should be used for encrypting more messages)
+        /// </summary>
+        public abstract long MaxKeyUsageCount { get; }
+
+        /// <summary>
         /// Get the encryptor (need to write the information (IV bytes etc.) which is required to create a decryptor)
         /// </summary>
         /// <param name="cipherData">Cipher data</param>

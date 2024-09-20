@@ -33,6 +33,7 @@ namespace wan24.Crypto.Authentication
                 await key.DeserializeAsync(hash.Stream, StreamSerializer.Version, cancellationToken).DynamicContext();
                 clientPfsKeys.KeyExchangeKey = key;
                 context.CryptoOptions.ValidateAlgorithms();
+                context.CryptoOptions.KeySuite?.CountAsymmetricKeyUsage(Options.PrivateKeys.KeyExchangeKey);
                 context.CryptoOptions.SetNewPassword(Options.PrivateKeys.KeyExchangeKey.DeriveKey(key));
                 decipher = await Encryption!.GetDecryptionStreamAsync(hash.Stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();
                 if(Options.PrivateKeys.CounterKeyExchangeKey is not null)
@@ -40,6 +41,7 @@ namespace wan24.Crypto.Authentication
                     key = (IAsymmetricPublicKey)Options.PrivateKeys!.CounterKeyExchangeKey!.Algorithm.PublicKeyType.ConstructAuto();
                     await key.DeserializeAsync(hash.Stream, StreamSerializer.Version, cancellationToken).DynamicContext();
                     clientPfsKeys.CounterKeyExchangeKey = key;
+                    context.CryptoOptions.KeySuite?.CountAsymmetricKeyUsage(Options.PrivateKeys.CounterKeyExchangeKey);
                     context.CryptoOptions.Password = context.CryptoOptions.Password.ExtendKey(Options.PrivateKeys.CounterKeyExchangeKey.DeriveKey(key));
                     await decipher.DisposeAsync().DynamicContext();
                     decipher = await Encryption!.GetDecryptionStreamAsync(hash.Stream, Stream.Null, context.CryptoOptions, cancellationToken).DynamicContext();

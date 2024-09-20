@@ -441,6 +441,21 @@ namespace wan24.Crypto
             /// Default special character set
             /// </summary>
             public string? DefaultPasswordGeneratorSpecial { get; set; }
+
+            /// <summary>
+            /// Default maximum cipher data length in bytes (won't overflow <see cref="EncryptionAlgorithmBase.MaxCipherDataLength"/>)
+            /// </summary>
+            public int? DefaultMaxCipherDataLength { get; set; }
+
+            /// <summary>
+            /// <see cref="IvHelper.RNG"/>
+            /// </summary>
+            public IRng? IvHelperRng { get; set; }
+
+            /// <summary>
+            /// <see cref="KeyHelper.RNG"/>
+            /// </summary>
+            public IRng? KeyHelperRng { get; set; }
         }
     }
 }

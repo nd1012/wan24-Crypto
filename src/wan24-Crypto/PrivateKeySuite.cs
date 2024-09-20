@@ -1,4 +1,6 @@
-﻿using wan24.Core;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using wan24.Core;
 using wan24.ObjectValidation;
 using wan24.StreamSerializerExtensions;
 
@@ -12,8 +14,28 @@ namespace wan24.Crypto
         /// <summary>
         /// Object version
         /// </summary>
-        public const int VERSION = 2;
+        public const int VERSION = 3;
 
+        /// <summary>
+        /// An object for thread synchronization for accessing <see cref="KeyExchangeKey"/>
+        /// </summary>
+        private readonly object SyncKeyExchangeKey = new();
+        /// <summary>
+        /// An object for thread synchronization for accessing <see cref="CounterKeyExchangeKey"/>
+        /// </summary>
+        private readonly object SyncCounterKeyExchangeKey = new();
+        /// <summary>
+        /// An object for thread synchronization for accessing <see cref="SignatureKey"/>
+        /// </summary>
+        private readonly object SyncSignatureKey = new();
+        /// <summary>
+        /// An object for thread synchronization for accessing <see cref="CounterSignatureKey"/>
+        /// </summary>
+        private readonly object SyncCounterSignatureKey = new();
+        /// <summary>
+        /// An object for thread synchronization for accessing <see cref="SymmetricKey"/>
+        /// </summary>
+        private readonly object SyncSymmetricKey = new();
         /// <summary>
         /// Public key suite
         /// </summary>
@@ -31,10 +53,34 @@ namespace wan24.Crypto
         public IKeyExchangePrivateKey? KeyExchangeKey { get; set; }
 
         /// <summary>
+        /// Key exchange private key usage count
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long KeyExchangeKeyUsageCount { get; set; }
+
+        /// <summary>
+        /// Key exchange private key usage count maximum
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long MaxKeyExchangeKeyUsageCount { get; set; } = long.MaxValue;
+
+        /// <summary>
         /// Counter key exchange private key (will be disposed)
         /// </summary>
         [SensitiveData]
         public IKeyExchangePrivateKey? CounterKeyExchangeKey { get; set; }
+
+        /// <summary>
+        /// Counter key exchange private key usage count
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long CounterKeyExchangeKeyUsageCount { get; set; }
+
+        /// <summary>
+        /// Counter key exchange private key usage count maximum
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long MaxCounterKeyExchangeKeyUsageCount { get; set; } = long.MaxValue;
 
         /// <summary>
         /// Signature private key (will be disposed)
@@ -43,10 +89,34 @@ namespace wan24.Crypto
         public ISignaturePrivateKey? SignatureKey { get; set; }
 
         /// <summary>
+        /// Signature private key usage count
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long SignatureKeyUsageCount { get; set; }
+
+        /// <summary>
+        /// Signature private key usage count maximum
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long MaxSignatureKeyUsageCount { get; set; } = long.MaxValue;
+
+        /// <summary>
         /// Counter signature private key (will be disposed)
         /// </summary>
         [SensitiveData]
         public ISignaturePrivateKey? CounterSignatureKey { get; set; }
+
+        /// <summary>
+        /// Counter signature private key usage count
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long CounterSignatureKeyUsageCount { get; set; }
+
+        /// <summary>
+        /// Counter signature private key usage count maximum
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long MaxCounterSignatureKeyUsageCount { get; set; } = long.MaxValue;
 
         /// <summary>
         /// Signed public key (will be disposed)
@@ -65,6 +135,18 @@ namespace wan24.Crypto
         public byte[]? SymmetricKey { get; set; }
 
         /// <summary>
+        /// Symmetric key usage count
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long SymmetricKeyUsageCount { get; set; }
+
+        /// <summary>
+        /// Symmetric key usage count
+        /// </summary>
+        [Range(0, long.MaxValue)]
+        public long MaxSymmetricKeyUsageCount { get; set; } = long.MaxValue;
+
+        /// <summary>
         /// Public key suite (will be disposed when this instance is being disposed)
         /// </summary>
         public PublicKeySuite Public => IfUndisposed(() => _Public ??= new()
@@ -76,6 +158,11 @@ namespace wan24.Crypto
             SignedPublicKey = SignedPublicKey?.GetCopy(),
             SignedPublicCounterKey = SignedPublicCounterKey?.GetCopy()
         });
+
+        /// <summary>
+        /// If the private key suite has been used
+        /// </summary>
+        public bool WasUsed { get; private set; }
 
         /// <summary>
         /// Serialize and encrypt this private key suite for physical cold storage
@@ -108,7 +195,116 @@ namespace wan24.Crypto
         public byte[] DeriveKey(byte[] keyExchangeData)
         {
             EnsureUndisposed();
-            return KeyExchangeKey?.DeriveKey(keyExchangeData) ?? throw new InvalidOperationException();
+            CountKeyExchangeKeyUsage();
+            return KeyExchangeKey.DeriveKey(keyExchangeData) ?? throw new InvalidOperationException();
+        }
+
+        /// <summary>
+        /// Count an asymmetric key usage
+        /// </summary>
+        /// <param name="key">Key</param>
+        public void CountAsymmetricKeyUsage(in IAsymmetricPrivateKey key)
+        {
+            if (key == KeyExchangeKey) CountKeyExchangeKeyUsage();
+            else if (key == CounterKeyExchangeKey) CountCounterKeyExchangeKeyUsage();
+            else if (key == SignatureKey) CountSignatureKeyUsage();
+            else if (key == CounterSignatureKey) CountCounterSignatureKeyUsage();
+            else throw new ArgumentException("Unknown key", nameof(key));
+        }
+
+        /// <summary>
+        /// Count key exchange key usage (thread-safe)
+        /// </summary>
+        /// <returns>Key</returns>
+        [MemberNotNull(nameof(KeyExchangeKey))]
+        public IKeyExchangePrivateKey CountKeyExchangeKeyUsage()
+        {
+            EnsureUndisposed();
+            if (KeyExchangeKey is null) throw new InvalidOperationException();
+            lock (SyncKeyExchangeKey)
+            {
+                if (KeyExchangeKeyUsageCount >= MaxKeyExchangeKeyUsageCount) throw new KeyUsageExceededException();
+                if (KeyExchangeKeyUsageCount > KeyExchangeKey.Algorithm.MaxKeyUsageCount) throw new KeyUsageExceededException();
+                KeyExchangeKeyUsageCount++;
+            }
+            WasUsed = true;
+            return KeyExchangeKey;
+        }
+
+        /// <summary>
+        /// Count counter key exchange key usage (thread-safe)
+        /// </summary>
+        /// <returns>Key</returns>
+        [MemberNotNull(nameof(CounterKeyExchangeKey))]
+        public IKeyExchangePrivateKey CountCounterKeyExchangeKeyUsage()
+        {
+            EnsureUndisposed();
+            if (CounterKeyExchangeKey is null) throw new InvalidOperationException();
+            lock (SyncCounterKeyExchangeKey)
+            {
+                if (CounterKeyExchangeKeyUsageCount >= MaxCounterKeyExchangeKeyUsageCount) throw new KeyUsageExceededException();
+                if (CounterKeyExchangeKeyUsageCount > CounterKeyExchangeKey.Algorithm.MaxKeyUsageCount) throw new KeyUsageExceededException();
+                CounterKeyExchangeKeyUsageCount++;
+            }
+            WasUsed = true;
+            return CounterKeyExchangeKey;
+        }
+
+        /// <summary>
+        /// Count signature key usage (thread-safe)
+        /// </summary>
+        /// <returns>Key</returns>
+        [MemberNotNull(nameof(SignatureKey))]
+        public ISignaturePrivateKey CountSignatureKeyUsage()
+        {
+            EnsureUndisposed();
+            if (SignatureKey is null) throw new InvalidOperationException();
+            lock (SyncSignatureKey)
+            {
+                if (SignatureKeyUsageCount >= MaxSignatureKeyUsageCount) throw new KeyUsageExceededException();
+                if (SignatureKeyUsageCount > SignatureKey.Algorithm.MaxKeyUsageCount) throw new KeyUsageExceededException();
+                SignatureKeyUsageCount++;
+            }
+            WasUsed = true;
+            return SignatureKey;
+        }
+
+        /// <summary>
+        /// Count counter signature key usage (thread-safe)
+        /// </summary>
+        /// <returns>Key</returns>
+        [MemberNotNull(nameof(CounterSignatureKey))]
+        public ISignaturePrivateKey CountCounterSignatureKeyUsage()
+        {
+            EnsureUndisposed();
+            if (CounterSignatureKey is null) throw new InvalidOperationException();
+            lock (SyncCounterSignatureKey)
+            {
+                if (CounterSignatureKeyUsageCount >= MaxCounterSignatureKeyUsageCount) throw new KeyUsageExceededException();
+                if (CounterSignatureKeyUsageCount > CounterSignatureKey.Algorithm.MaxKeyUsageCount) throw new KeyUsageExceededException();
+                CounterSignatureKeyUsageCount++;
+            }
+            WasUsed = true;
+            return CounterSignatureKey;
+        }
+
+        /// <summary>
+        /// Count counter signature key usage (thread-safe)
+        /// </summary>
+        /// <param name="usageLimit">Usage limit</param>
+        /// <returns>Key</returns>
+        public byte[] CountSymmetricKeyUsage(in ILimitKeyUsageCount? usageLimit = null)
+        {
+            EnsureUndisposed();
+            if (SymmetricKey is null) throw new InvalidOperationException();
+            lock (SyncSymmetricKey)
+            {
+                if (SymmetricKeyUsageCount >= MaxSymmetricKeyUsageCount) throw new KeyUsageExceededException();
+                if (usageLimit is not null && SymmetricKeyUsageCount > usageLimit.MaxKeyUsageCount) throw new KeyUsageExceededException();
+                SymmetricKeyUsageCount++;
+            }
+            WasUsed = true;
+            return SymmetricKey;
         }
 
         /// <summary>
@@ -119,12 +315,21 @@ namespace wan24.Crypto
         {
             _Public = _Public?.GetCopy(),
             KeyExchangeKey = (IKeyExchangePrivateKey?)KeyExchangeKey?.GetCopy(),
+            KeyExchangeKeyUsageCount = KeyExchangeKeyUsageCount,
+            MaxKeyExchangeKeyUsageCount = MaxKeyExchangeKeyUsageCount,
             CounterKeyExchangeKey = (IKeyExchangePrivateKey?)CounterKeyExchangeKey?.GetCopy(),
+            CounterKeyExchangeKeyUsageCount = CounterKeyExchangeKeyUsageCount,
+            MaxCounterKeyExchangeKeyUsageCount = MaxCounterKeyExchangeKeyUsageCount,
             SignatureKey = (ISignaturePrivateKey?)SignatureKey?.GetCopy(),
+            SignatureKeyUsageCount = SignatureKeyUsageCount,
             CounterSignatureKey = (ISignaturePrivateKey?)CounterSignatureKey?.GetCopy(),
+            CounterSignatureKeyUsageCount = CounterSignatureKeyUsageCount,
+            MaxCounterSignatureKeyUsageCount = MaxCounterSignatureKeyUsageCount,
             SignedPublicKey = SignedPublicKey?.GetCopy(),
             SignedPublicCounterKey = SignedPublicCounterKey?.GetCopy(),
-            SymmetricKey = (byte[]?)SymmetricKey?.Clone()
+            SymmetricKey = (byte[]?)SymmetricKey?.Clone(),
+            SymmetricKeyUsageCount = SymmetricKeyUsageCount,
+            MaxSymmetricKeyUsageCount = MaxSymmetricKeyUsageCount
         });
 
         /// <inheritdoc/>
@@ -161,24 +366,44 @@ namespace wan24.Crypto
         protected override void Serialize(Stream stream)
         {
             stream.WriteBytesNullable(KeyExchangeKey?.Export())
+                .WriteNumber(KeyExchangeKeyUsageCount)
+                .WriteNumber(MaxKeyExchangeKeyUsageCount)
                 .WriteBytesNullable(CounterKeyExchangeKey?.Export())
+                .WriteNumber(CounterKeyExchangeKeyUsageCount)
+                .WriteNumber(MaxCounterKeyExchangeKeyUsageCount)
                 .WriteBytesNullable(SignatureKey?.Export())
+                .WriteNumber(SignatureKeyUsageCount)
+                .WriteNumber(MaxSignatureKeyUsageCount)
                 .WriteBytesNullable(CounterSignatureKey?.Export())
+                .WriteNumber(CounterSignatureKeyUsageCount)
+                .WriteNumber(MaxCounterSignatureKeyUsageCount)
                 .WriteSerializedNullable(SignedPublicKey)
                 .WriteSerializedNullable(SignedPublicCounterKey)
-                .WriteBytesNullable(SymmetricKey);
+                .WriteBytesNullable(SymmetricKey)
+                .WriteNumber(SymmetricKeyUsageCount)
+                .WriteNumber(MaxSymmetricKeyUsageCount);
         }
 
         /// <inheritdoc/>
         protected override async Task SerializeAsync(Stream stream, CancellationToken cancellationToken)
         {
             await stream.WriteBytesNullableAsync(KeyExchangeKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(KeyExchangeKeyUsageCount, cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(MaxKeyExchangeKeyUsageCount, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(CounterKeyExchangeKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(CounterKeyExchangeKeyUsageCount, cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(MaxCounterKeyExchangeKeyUsageCount, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(SignatureKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(SignatureKeyUsageCount, cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(MaxSignatureKeyUsageCount, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(CounterSignatureKey?.Export(), cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(CounterSignatureKeyUsageCount, cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(MaxCounterSignatureKeyUsageCount, cancellationToken).DynamicContext();
             await stream.WriteSerializedNullableAsync(SignedPublicKey, cancellationToken).DynamicContext();
             await stream.WriteSerializedNullableAsync(SignedPublicCounterKey, cancellationToken).DynamicContext();
             await stream.WriteBytesNullableAsync(SymmetricKey, cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(SymmetricKeyUsageCount, cancellationToken).DynamicContext();
+            await stream.WriteNumberAsync(MaxSymmetricKeyUsageCount, cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>
@@ -188,12 +413,40 @@ namespace wan24.Crypto
             try
             {
                 if (keyData is not null) KeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        KeyExchangeKeyUsageCount = stream.ReadNumber<long>(version);
+                        MaxKeyExchangeKeyUsageCount = stream.ReadNumber<long>(version);
+                        break;
+                }
                 keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
                 if (keyData is not null) CounterKeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        CounterKeyExchangeKeyUsageCount = stream.ReadNumber<long>(version);
+                        MaxCounterKeyExchangeKeyUsageCount = stream.ReadNumber<long>(version);
+                        break;
+                }
                 keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
                 if (keyData is not null) SignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        SignatureKeyUsageCount = stream.ReadNumber<long>(version);
+                        MaxSignatureKeyUsageCount = stream.ReadNumber<long>(version);
+                        break;
+                }
                 keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
                 if (keyData is not null) CounterSignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        CounterSignatureKeyUsageCount = stream.ReadNumber<long>(version);
+                        MaxCounterSignatureKeyUsageCount = stream.ReadNumber<long>(version);
+                        break;
+                }
             }
             catch
             {
@@ -204,10 +457,18 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion!.Value)// Object version switch
             {
                 case 2:
+                case 3:
                     SignedPublicCounterKey = stream.ReadSerializedNullable<AsymmetricSignedPublicKey>(version);
                     break;
             }
             SymmetricKey = stream.ReadBytesNullable(version, minLen: 1, maxLen: byte.MaxValue)?.Value;
+            switch (SerializedObjectVersion!.Value)// Object version switch
+            {
+                case 3:
+                    SymmetricKeyUsageCount = stream.ReadNumber<long>(version);
+                    MaxSymmetricKeyUsageCount = stream.ReadNumber<long>(version);
+                    break;
+            }
         }
 
         /// <inheritdoc/>
@@ -218,12 +479,40 @@ namespace wan24.Crypto
             try
             {
                 if (keyData is not null) KeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        KeyExchangeKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        MaxKeyExchangeKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        break;
+                }
                 keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
                 if (keyData is not null) CounterKeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        CounterKeyExchangeKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        MaxCounterKeyExchangeKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        break;
+                }
                 keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
                 if (keyData is not null) SignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        SignatureKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        MaxSignatureKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        break;
+                }
                 keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
                 if (keyData is not null) CounterSignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
+                switch (SerializedObjectVersion!.Value)// Object version switch
+                {
+                    case 3:
+                        CounterSignatureKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        MaxCounterSignatureKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                        break;
+                }
             }
             catch
             {
@@ -239,6 +528,13 @@ namespace wan24.Crypto
                     break;
             }
             SymmetricKey = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            switch (SerializedObjectVersion!.Value)// Object version switch
+            {
+                case 3:
+                    SymmetricKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                    MaxSymmetricKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
+                    break;
+            }
         }
 
         /// <summary>

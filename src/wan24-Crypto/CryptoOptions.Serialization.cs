@@ -14,6 +14,7 @@ namespace wan24.Crypto
                 .WriteNumber(MaxUncompressedDataLength)
                 .WriteStringNullable(Algorithm)
                 .WriteStringNullable(EncryptionOptions)
+                .WriteNumberNullable(MaxCipherDataLength)
                 .WriteStringNullable(MacAlgorithm)
                 .WriteStringNullable(KdfAlgorithm)
                 .WriteNumber(KdfIterations)
@@ -41,6 +42,7 @@ namespace wan24.Crypto
             await stream.WriteNumberAsync(MaxUncompressedDataLength, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(Algorithm, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(EncryptionOptions, cancellationToken).DynamicContext();
+            await stream.WriteNumberNullableAsync(MaxCipherDataLength, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(MacAlgorithm, cancellationToken).DynamicContext();
             await stream.WriteStringNullableAsync(KdfAlgorithm, cancellationToken).DynamicContext();
             await stream.WriteNumberAsync(KdfIterations, cancellationToken).DynamicContext();
@@ -69,6 +71,7 @@ namespace wan24.Crypto
             {
                 case 2:
                 case 3:
+                case 4:
                     MaxUncompressedDataLength = stream.ReadNumber<long>(version);
                     break;
             }
@@ -76,7 +79,14 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     EncryptionOptions = stream.ReadStringNullable(version, minLen: 2, maxLen: byte.MaxValue);
+                    break;
+            }
+            switch (SerializedObjectVersion ?? VERSION)// Object version switch
+            {
+                case 4:
+                    MaxCipherDataLength = stream.ReadNumberNullable<int>(version);
                     break;
             }
             MacAlgorithm = stream.ReadStringNullable(version, minLen: 1, maxLen: byte.MaxValue);
@@ -85,6 +95,7 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     KdfOptions = stream.ReadStringNullable(version, minLen: 2, maxLen: byte.MaxValue);
                     break;
             }
@@ -92,6 +103,7 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     AsymmetricAlgorithmOptions = stream.ReadStringNullable(version, minLen: 2, maxLen: byte.MaxValue);
                     break;
             }
@@ -101,6 +113,7 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     CounterKdfOptions = stream.ReadStringNullable(version, minLen: 2, maxLen: byte.MaxValue);
                     break;
             }
@@ -124,6 +137,7 @@ namespace wan24.Crypto
             {
                 case 2:
                 case 3:
+                case 4:
                     MaxUncompressedDataLength = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
                     break;
             }
@@ -131,7 +145,14 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     EncryptionOptions = await stream.ReadStringNullableAsync(version, minLen: 2, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+                    break;
+            }
+            switch (SerializedObjectVersion ?? VERSION)// Object version switch
+            {
+                case 4:
+                    MaxCipherDataLength = await stream.ReadNumberNullableAsync<int>(version, cancellationToken: cancellationToken).DynamicContext();
                     break;
             }
             MacAlgorithm = await stream.ReadStringNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
@@ -140,6 +161,7 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     KdfOptions = await stream.ReadStringNullableAsync(version, minLen: 2, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     break;
             }
@@ -147,6 +169,7 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     AsymmetricAlgorithmOptions = await stream.ReadStringNullableAsync(version, minLen: 2, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     break;
             }
@@ -156,6 +179,7 @@ namespace wan24.Crypto
             switch (SerializedObjectVersion ?? VERSION)// Object version switch
             {
                 case 3:
+                case 4:
                     CounterKdfOptions = await stream.ReadStringNullableAsync(version, minLen: 2, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     break;
             }

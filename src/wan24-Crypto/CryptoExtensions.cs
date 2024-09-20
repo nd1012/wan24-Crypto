@@ -92,7 +92,7 @@ namespace wan24.Crypto
         /// <param name="resetPosition">Reset the original stream position?</param>
         /// <param name="options">Options</param>
         /// <returns>If the MAC is valid</returns>
-        public static bool ValidateMac(this Stream stream, byte[] mac, byte[] pwd, bool resetPosition = true, CryptoOptions? options = null)
+        public static bool ValidateMac(this Stream stream, ReadOnlySpan<byte> mac, byte[] pwd, bool resetPosition = true, CryptoOptions? options = null)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace wan24.Crypto
                 long pos = resetPosition ? stream.Position : 0;
                 try
                 {
-                    return mac.AsSpan().SlowCompare(stream.Mac(pwd, options));
+                    return mac.SlowCompare(stream.Mac(pwd, options));
                 }
                 finally
                 {
@@ -130,7 +130,7 @@ namespace wan24.Crypto
         /// <returns>If the MAC is valid</returns>
         public static async Task<bool> ValidateMacAsync(
             this Stream stream,
-            byte[] mac,
+            ReadOnlyMemory<byte> mac,
             byte[] pwd,
             bool resetPosition = true,
             CryptoOptions? options = null,
@@ -145,7 +145,7 @@ namespace wan24.Crypto
                 try
                 {
                     byte[] mac2 = await stream.MacAsync(pwd, options, cancellationToken).DynamicContext();
-                    return mac.AsSpan().SlowCompare(mac2);
+                    return mac.Span.SlowCompare(mac2);
                 }
                 finally
                 {
@@ -336,5 +336,12 @@ namespace wan24.Crypto
             RND.FillBytes(buffer[..sizeof(double)]);
             return buffer.ToDouble() / double.MaxValue;
         }
+
+        /// <summary>
+        /// Get a random double
+        /// </summary>
+        /// <param name="buffer">Buffer (will be overwritten)</param>
+        /// <returns>Random double</returns>
+        public static double ToRandomDouble(this Memory<byte> buffer) => buffer.Span.ToRandomDouble();
     }
 }

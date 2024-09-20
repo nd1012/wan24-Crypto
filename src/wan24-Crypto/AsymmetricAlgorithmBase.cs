@@ -81,6 +81,9 @@ namespace wan24.Crypto
         public abstract FrozenSet<int> AllowedKeySizes { get; }
 
         /// <inheritdoc/>
+        public abstract long MaxKeyUsageCount { get; }
+
+        /// <inheritdoc/>
         Type IAsymmetricAlgorithm.PrivateKeyType => PrivateKeyType;
 
         /// <inheritdoc/>
@@ -198,6 +201,8 @@ namespace wan24.Crypto
             {
                 if (CryptoHelper.StrictPostQuantumSafety && !IsPostQuantum) throw new InvalidOperationException($"Post quantum safety-forced - {Name} isn't post quantum");
                 options = options?.GetCopy() ?? DefaultOptions;
+                if (this is IAsymmetricPrivateKey privateKey)
+                    options.KeySuite?.CountAsymmetricKeyUsage(privateKey);
                 using IKeyExchangePrivateKey key = (CreateKeyPair(options) as IKeyExchangePrivateKey)!;
                 return key.DeriveKey(keyExchangeData);
             }
@@ -218,7 +223,7 @@ namespace wan24.Crypto
         /// Ensure an allowed elliptic curve
         /// </summary>
         /// <param name="bits">Key size in bits</param>
-        /// <param name="throwIfDenied">Throw an exception, if deniedß</param>
+        /// <param name="throwIfDenied">Throw an exception, if denied</param>
         /// <returns>If the elliptic curve is allowed</returns>
         /// <exception cref="CryptographicException">The elliptic curve is denied</exception>
         protected virtual bool EnsureAllowedCurve(in int bits, in bool throwIfDenied = true)

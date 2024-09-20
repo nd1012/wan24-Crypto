@@ -95,6 +95,7 @@ namespace wan24.Crypto
                 EnsureUndisposed();
                 Algorithm.EnsureAllowed();
                 EnsureAllowedCurve();
+                options?.KeySuite?.CountAsymmetricKeyUsage(this);
                 publicKey ??= options?.PublicKey ?? options?.PrivateKey?.PublicKey ?? PublicKey;
                 if (publicKey is not AsymmetricEcDiffieHellmanPublicKey) throw new ArgumentException("Public ECDH key required", nameof(publicKey));
                 return (DeriveKey(publicKey.KeyData.Array.CloneArray()), PublicKey.KeyData.Array.CloneArray());
