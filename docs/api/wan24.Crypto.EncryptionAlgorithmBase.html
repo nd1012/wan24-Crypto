@@ -117,6 +117,7 @@
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
     <div><span class="xref">IStatusProvider</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html">CryptoAlgorithmBase</a>&gt;</div>
+    <div><a class="xref" href="wan24.Crypto.ILimitKeyUsageCount.html">ILimitKeyUsageCount</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.EncryptionAlgorithmBase.html">EncryptionAlgorithmBase</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
@@ -168,7 +169,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_EncryptionAlgorithmBase_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract record EncryptionAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, IEquatable&lt;EncryptionAlgorithmBase&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract record EncryptionAlgorithmBase : CryptoAlgorithmBase, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;CryptoAlgorithmBase&gt;, ILimitKeyUsageCount, IEquatable&lt;EncryptionAlgorithmBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -317,7 +318,7 @@
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_IsDenied_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.IsDenied*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_IsDenied" data-uid="wan24.Crypto.EncryptionAlgorithmBase.IsDenied">IsDenied</h4>
-  <div class="markdown level1 summary"><p>Was this allogithm denied (still usable for decryption, but not for encryption)?</p>
+  <div class="markdown level1 summary"><p>Was this algorithm denied (still usable for decryption, but not for encryption)?</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -397,6 +398,68 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_MaxCipherDataLength.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L31">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_MaxCipherDataLength_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_MaxCipherDataLength" data-uid="wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength">MaxCipherDataLength</h4>
+  <div class="markdown level1 summary"><p>Maximum cipher data length in bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract long MaxCipherDataLength { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_MaxKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L36">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EncryptionAlgorithmBase_MaxKeyUsageCount_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_EncryptionAlgorithmBase_MaxKeyUsageCount" data-uid="wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount">MaxKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Maximum key usage count (before a fresh key should be used for encrypting more messages)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract long MaxKeyUsageCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1082,7 +1145,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_Encrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.Encrypt(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L111">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L112">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt(System.IO.Stream,System.IO.Stream,wan24.Crypto.CryptoOptions)">Encrypt(Stream, Stream, CryptoOptions)</h4>
@@ -1144,7 +1207,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_Encrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.Encrypt(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L71">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L72">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_Encrypt_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.Encrypt(System.IO.Stream,System.IO.Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions)">Encrypt(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions?)</h4>
@@ -1212,7 +1275,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_System_IO_Stream_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(System.IO.Stream%2CSystem.IO.Stream%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions%2Cwan24.Crypto.MacStreams%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L160">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L161">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_System_IO_Stream_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_wan24_Crypto_MacStreams_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(System.IO.Stream,System.IO.Stream,System.Byte[],wan24.Crypto.CryptoOptions,wan24.Crypto.MacStreams,System.Threading.CancellationToken)">EncryptAsync(Stream, Stream, byte[], CryptoOptions?, MacStreams?, CancellationToken)</h4>
@@ -1292,7 +1355,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L265">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L267">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(System.IO.Stream,System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">EncryptAsync(Stream, Stream, CryptoOptions, CancellationToken)</h4>
@@ -1360,7 +1423,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.IAsymmetricPrivateKey%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L224">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Encryption.cs/#L226">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_EncryptAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_IAsymmetricPrivateKey_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.EncryptAsync(System.IO.Stream,System.IO.Stream,wan24.Crypto.IAsymmetricPrivateKey,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">EncryptAsync(Stream, Stream, IAsymmetricPrivateKey, CryptoOptions?, CancellationToken)</h4>
@@ -1602,7 +1665,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStream_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStream(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Stream.cs/#L182">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Stream.cs/#L198">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStream_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStream*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStream_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStream(System.IO.Stream,System.IO.Stream,wan24.Crypto.CryptoOptions)">GetDecryptionStream(Stream, Stream, CryptoOptions)</h4>
@@ -1664,7 +1727,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStreamAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStreamAsync(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Stream.cs/#L264">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Stream.cs/#L291">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStreamAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStreamAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptionStreamAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptionStreamAsync(System.IO.Stream,System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">GetDecryptionStreamAsync(Stream, Stream, CryptoOptions, CancellationToken)</h4>
@@ -1732,7 +1795,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetDecryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetDecryptor(System.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L51">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L61">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptor_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptor*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptor(System.IO.Stream,wan24.Crypto.CryptoOptions)">GetDecryptor(Stream, CryptoOptions)</h4>
@@ -1788,7 +1851,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetDecryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetDecryptorAsync(System.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L60">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L70">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptorAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptorAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetDecryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetDecryptorAsync(System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">GetDecryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
@@ -1918,7 +1981,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStreamAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_MacStreams_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStreamAsync(System.IO.Stream%2CSystem.IO.Stream%2Cwan24.Crypto.MacStreams%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Stream.cs/#L98">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Stream.cs/#L106">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStreamAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStreamAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptionStreamAsync_System_IO_Stream_System_IO_Stream_wan24_Crypto_MacStreams_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptionStreamAsync(System.IO.Stream,System.IO.Stream,wan24.Crypto.MacStreams,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">GetEncryptionStreamAsync(Stream, Stream, MacStreams?, CryptoOptions, CancellationToken)</h4>
@@ -1992,7 +2055,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetEncryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetEncryptor(System.IO.Stream%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L34">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L44">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptor_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptor*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptor_System_IO_Stream_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptor(System.IO.Stream,wan24.Crypto.CryptoOptions)">GetEncryptor(Stream, CryptoOptions)</h4>
@@ -2048,7 +2111,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EncryptionAlgorithmBase_GetEncryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.EncryptionAlgorithmBase.GetEncryptorAsync(System.IO.Stream%2Cwan24.Crypto.CryptoOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L43">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EncryptionAlgorithmBase.Abstractions.cs/#L53">View Source</a>
   </span>
   <a id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptorAsync_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptorAsync*"></a>
   <h4 id="wan24_Crypto_EncryptionAlgorithmBase_GetEncryptorAsync_System_IO_Stream_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_" data-uid="wan24.Crypto.EncryptionAlgorithmBase.GetEncryptorAsync(System.IO.Stream,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)">GetEncryptorAsync(Stream, CryptoOptions, CancellationToken)</h4>
@@ -2740,6 +2803,9 @@
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.ILimitKeyUsageCount.html">ILimitKeyUsageCount</a>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

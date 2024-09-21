@@ -117,6 +117,7 @@
     <div><a class="xref" href="wan24.Crypto.IAsymmetricAlgorithm.html">IAsymmetricAlgorithm</a></div>
     <div><a class="xref" href="wan24.Crypto.ICryptoAlgorithm.html">ICryptoAlgorithm</a></div>
     <div><span class="xref">IStatusProvider</span></div>
+    <div><a class="xref" href="wan24.Crypto.ILimitKeyUsageCount.html">ILimitKeyUsageCount</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html">AsymmetricAlgorithmBase</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricEcDsaPublicKey.html">AsymmetricEcDsaPublicKey</a>, <a class="xref" href="wan24.Crypto.AsymmetricEcDsaPrivateKey.html">AsymmetricEcDsaPrivateKey</a>&gt;&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.AsymmetricEcDsaAlgorithm.html">AsymmetricEcDsaAlgorithm</a>&gt;</div>
   </div>
@@ -151,6 +152,9 @@
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_AllowedKeySizes">AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.AllowedKeySizes</a>
+    </div>
+    <div>
+      <a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_MaxKeyUsageCount">AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.MaxKeyUsageCount</a>
     </div>
     <div>
       <a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_DefaultKeySize">AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.DefaultKeySize</a>
@@ -229,7 +233,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed record AsymmetricEcDsaAlgorithm : AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;, IEquatable&lt;CryptoAlgorithmBase&gt;, IAsymmetricAlgorithm, ICryptoAlgorithm, IStatusProvider, IEquatable&lt;AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;&gt;, IEquatable&lt;AsymmetricEcDsaAlgorithm&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record AsymmetricEcDsaAlgorithm : AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;, IEquatable&lt;CryptoAlgorithmBase&gt;, IAsymmetricAlgorithm, ICryptoAlgorithm, IStatusProvider, ILimitKeyUsageCount, IEquatable&lt;AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;&gt;, IEquatable&lt;AsymmetricEcDsaAlgorithm&gt;</code></pre>
   </div>
   <h3 id="fields">Fields
 </h3>
@@ -328,7 +332,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_DISPLAY_NAME.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.DISPLAY_NAME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L31">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L35">View Source</a>
   </span>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_DISPLAY_NAME" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.DISPLAY_NAME">DISPLAY_NAME</h4>
   <div class="markdown level1 summary"><p>Display name</p>
@@ -355,10 +359,40 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_USAGES.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.USAGES%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_MAX_KEY_USAGE_COUNT.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.MAX_KEY_USAGE_COUNT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L27">View Source</a>
+  </span>
+  <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_MAX_KEY_USAGE_COUNT" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.MAX_KEY_USAGE_COUNT">MAX_KEY_USAGE_COUNT</h4>
+  <div class="markdown level1 summary"><p>Maximum key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long MAX_KEY_USAGE_COUNT = 9223372036854775807</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_USAGES.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.USAGES%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L31">View Source</a>
   </span>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_USAGES" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.USAGES">USAGES</h4>
   <div class="markdown level1 summary"><p>Algorithm usages</p>
@@ -390,7 +424,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_AllowedKeySizes.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.AllowedKeySizes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L72">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L76">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_AllowedKeySizes_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.AllowedKeySizes*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_AllowedKeySizes" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.AllowedKeySizes">AllowedKeySizes</h4>
@@ -423,7 +457,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_DisplayName.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L81">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L85">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_DisplayName_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_DisplayName" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.DisplayName">DisplayName</h4>
@@ -456,7 +490,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_Instance.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.Instance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L60">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L64">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_Instance_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.Instance*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_Instance" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.Instance">Instance</h4>
@@ -487,7 +521,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_IsEllipticCurveAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.IsEllipticCurveAlgorithm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L66">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L70">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsEllipticCurveAlgorithm_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsEllipticCurveAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsEllipticCurveAlgorithm" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsEllipticCurveAlgorithm">IsEllipticCurveAlgorithm</h4>
@@ -520,7 +554,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_IsPostQuantum.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.IsPostQuantum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L75">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L79">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsPostQuantum_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsPostQuantum*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsPostQuantum" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsPostQuantum">IsPostQuantum</h4>
@@ -553,7 +587,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_IsPublicKeyStandardFormat.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.IsPublicKeyStandardFormat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L69">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L73">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsPublicKeyStandardFormat_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsPublicKeyStandardFormat*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsPublicKeyStandardFormat" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsPublicKeyStandardFormat">IsPublicKeyStandardFormat</h4>
@@ -586,7 +620,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_IsSupported.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.IsSupported%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L78">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L82">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsSupported_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsSupported*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_IsSupported" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.IsSupported">IsSupported</h4>
@@ -616,10 +650,43 @@
   <div><a class="xref" href="wan24.Crypto.CryptoAlgorithmBase.html#wan24_Crypto_CryptoAlgorithmBase_IsSupported">CryptoAlgorithmBase.IsSupported</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_MaxKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L88">View Source</a>
+  </span>
+  <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_MaxKeyUsageCount_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_MaxKeyUsageCount" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount">MaxKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Maximum key usage count (before a fresh key should be used for processing more messages)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override long MaxKeyUsageCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_MaxKeyUsageCount">AsymmetricAlgorithmBase&lt;AsymmetricEcDsaPublicKey, AsymmetricEcDsaPrivateKey&gt;.MaxKeyUsageCount</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_Usages.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.Usages%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L63">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L67">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_Usages_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.Usages*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_Usages" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.Usages">Usages</h4>
@@ -654,7 +721,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_CanHandleNetAlgorithm_System_Security_Cryptography_AsymmetricAlgorithm_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.CanHandleNetAlgorithm(System.Security.Cryptography.AsymmetricAlgorithm)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L105">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L112">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_CanHandleNetAlgorithm_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.CanHandleNetAlgorithm*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_CanHandleNetAlgorithm_System_Security_Cryptography_AsymmetricAlgorithm_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.CanHandleNetAlgorithm(System.Security.Cryptography.AsymmetricAlgorithm)">CanHandleNetAlgorithm(AsymmetricAlgorithm)</h4>
@@ -706,7 +773,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_CreateKeyPair_wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.CreateKeyPair(wan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L84">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L91">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_CreateKeyPair_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.CreateKeyPair*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_CreateKeyPair_wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.CreateKeyPair(wan24.Crypto.CryptoOptions)">CreateKeyPair(CryptoOptions?)</h4>
@@ -755,7 +822,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_AsymmetricEcDsaAlgorithm_DeserializePrivateKeyV1_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.AsymmetricEcDsaAlgorithm.DeserializePrivateKeyV1(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L108">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/AsymmetricEcDsaAlgorithm.cs/#L115">View Source</a>
   </span>
   <a id="wan24_Crypto_AsymmetricEcDsaAlgorithm_DeserializePrivateKeyV1_" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.DeserializePrivateKeyV1*"></a>
   <h4 id="wan24_Crypto_AsymmetricEcDsaAlgorithm_DeserializePrivateKeyV1_System_Byte___" data-uid="wan24.Crypto.AsymmetricEcDsaAlgorithm.DeserializePrivateKeyV1(System.Byte[])">DeserializePrivateKeyV1(byte[])</h4>
@@ -814,6 +881,9 @@
   </div>
   <div>
       <span class="xref">wan24.Core.IStatusProvider</span>
+  </div>
+  <div>
+      <a class="xref" href="wan24.Crypto.ILimitKeyUsageCount.html">ILimitKeyUsageCount</a>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>

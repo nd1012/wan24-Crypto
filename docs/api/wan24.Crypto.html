@@ -164,6 +164,12 @@ Classes
       <h5><a class="xref" href="wan24.Crypto.AsymmetricVoidPublicKey.html">AsymmetricVoidPublicKey</a></h5>
       <section><p>Public asymmetric void key</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.AutoSeedRngWrapper-1.html">AutoSeedRngWrapper&lt;T&gt;</a></h5>
+      <section><p>Auto-seed RNG wrapper (seeds the wrapped <a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a> by reading seed from a list of streams in an interval)</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html">AutoSeedRngWrapper&lt;T&gt;.SeedSource</a></h5>
+      <section><p>Seed source</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.BackupRng.html">BackupRng</a></h5>
       <section><p>RNG which uses backup RNGs on error</p>
 </section>
@@ -257,14 +263,14 @@ algorithm)</p>
       <h5><a class="xref" href="wan24.Crypto.DevRandomStreamPool.html">DevRandomStreamPool</a></h5>
       <section><p><code>/dev/random</code> readable stream pool</p>
 </section>
-      <h5><a class="xref" href="wan24.Crypto.DisposablEntropyMonitor.html">DisposablEntropyMonitor</a></h5>
-      <section><p>Entropy monitoring RNG (uses <a class="xref" href="wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_CheckEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__System_Boolean__">CheckEntropy(in ReadOnlySpan&lt;byte&gt;, Algorithms?, in bool)</a>)</p>
-</section>
       <h5><a class="xref" href="wan24.Crypto.DisposableBackupRng.html">DisposableBackupRng</a></h5>
       <section><p>RNG which uses backup RNGs on error</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.DisposableCryptoOptions.html">DisposableCryptoOptions</a></h5>
       <section><p>Disposable <a class="xref" href="wan24.Crypto.CryptoOptions.html">CryptoOptions</a> (will clear the hosted options when disposing)</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.DisposableEntropyMonitor.html">DisposableEntropyMonitor</a></h5>
+      <section><p>Entropy monitoring RNG (uses <a class="xref" href="wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_CheckEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__System_Boolean__">CheckEntropy(in ReadOnlySpan&lt;byte&gt;, Algorithms?, in bool)</a>)</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.DisposableRngBase.html">DisposableRngBase</a></h5>
       <section><p>Base class for a disposable RNG</p>
@@ -377,6 +383,9 @@ algorithm)</p>
       <h5><a class="xref" href="wan24.Crypto.HybridAlgorithmHelper.html">HybridAlgorithmHelper</a></h5>
       <section><p>Hybrid algorithm helper</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.IvHelper.html">IvHelper</a></h5>
+      <section><p>IV helper</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.JsonObjectWrapper.html">JsonObjectWrapper</a></h5>
       <section><p>JSON object wrapper</p>
 </section>
@@ -404,8 +413,14 @@ algorithm)</p>
       <h5><a class="xref" href="wan24.Crypto.KeyExchangeDataContainer.html">KeyExchangeDataContainer</a></h5>
       <section><p>Key exchange data container</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.KeyHelper.html">KeyHelper</a></h5>
+      <section><p>Key helper</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.KeyRing.html">KeyRing</a></h5>
       <section><p>Key ring</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.KeyUsageExceededException.html">KeyUsageExceededException</a></h5>
+      <section><p>Thrown if a key usage limitation was exceeded</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.MacAlgorithmBase.html">MacAlgorithmBase</a></h5>
       <section><p>Base class for an MAC algorithm</p>
@@ -454,6 +469,15 @@ algorithm)</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.ObjectEncryption.html">ObjectEncryption</a></h5>
       <section><p>Object encryption helper</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.OtpStream.html">OtpStream</a></h5>
+      <section><p>OTP stream</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.OtpStream-1.html">OtpStream&lt;T&gt;</a></h5>
+      <section><p>OTP stream</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.OtpStream-1.Context.html">OtpStream&lt;T&gt;.Context</a></h5>
+      <section><p>OTP sequence synchronization context</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.Pake.html">Pake</a></h5>
       <section><p>PAKE</p>
@@ -508,6 +532,9 @@ algorithm)</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.PasswordHelper.html">PasswordHelper</a></h5>
       <section><p>Password helper</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.PasswordHelper.ValidationEventArgs.html">PasswordHelper.ValidationEventArgs</a></h5>
+      <section><p>Validation event arguments</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.PasswordPostProcessor.html">PasswordPostProcessor</a></h5>
       <section><p>Base class for a password post-processor</p>
@@ -607,6 +634,9 @@ algorithm)</p>
       <h5><a class="xref" href="wan24.Crypto.SignedPkiStore.html">SignedPkiStore</a></h5>
       <section><p>Signed PKI store</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.StreamRandomSource.html">StreamRandomSource</a></h5>
+      <section><p>Stream RND source</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html">StreamSerializerExtensions</a></h5>
       <section><p>Stream serializer extensions</p>
 </section>
@@ -675,6 +705,9 @@ Interfaces
 </section>
       <h5><a class="xref" href="wan24.Crypto.IKeyExchangePrivateKey.html">IKeyExchangePrivateKey</a></h5>
       <section><p>Key exchange private key</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.ILimitKeyUsageCount.html">ILimitKeyUsageCount</a></h5>
+      <section><p>Interface for types which limit a key usage count</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.IPakeHttpRequestFactory.html">IPakeHttpRequestFactory</a></h5>
       <section><p>Interface for a PAKE request factory</p>
@@ -757,6 +790,9 @@ Delegates
       <h5><a class="xref" href="wan24.Crypto.AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate.html">AsymmetricSignedPublicKey.SignedPublicKeyStore_Delegate</a></h5>
       <section><p>Delegate for a public key store</p>
 </section>
+      <h5><a class="xref" href="wan24.Crypto.AutoSeedRngWrapper-1.Error_Delegate.html">AutoSeedRngWrapper&lt;T&gt;.Error_Delegate</a></h5>
+      <section><p>Delegate for an error handler</p>
+</section>
       <h5><a class="xref" href="wan24.Crypto.CryptoHelper.ForcePostQuantum_Delegate.html">CryptoHelper.ForcePostQuantum_Delegate</a></h5>
       <section><p>Delegate for a force post quantum handler</p>
 </section>
@@ -780,6 +816,9 @@ Delegates
 </section>
       <h5><a class="xref" href="wan24.Crypto.Pake.PayloadProcessor_Delegate.html">Pake.PayloadProcessor_Delegate</a></h5>
       <section><p>Payload processor (called after payload decryption to process the payload before returning)</p>
+</section>
+      <h5><a class="xref" href="wan24.Crypto.PasswordHelper.Validation_Delegate.html">PasswordHelper.Validation_Delegate</a></h5>
+      <section><p>Delegate for a password validation handler</p>
 </section>
       <h5><a class="xref" href="wan24.Crypto.RND.RNGAsync_Delegate.html">RND.RNGAsync_Delegate</a></h5>
       <section><p>Delegate for a random generator</p>

@@ -384,6 +384,23 @@ references:
   fullName.vb: wan24.Crypto.AsymmetricAlgorithmBase(Of tPublic, tPrivate).KeyPool
   nameWithType: AsymmetricAlgorithmBase<tPublic, tPrivate>.KeyPool
   nameWithType.vb: AsymmetricAlgorithmBase(Of tPublic, tPrivate).KeyPool
+- uid: wan24.Crypto.AsymmetricAlgorithmBase`2.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.AsymmetricAlgorithmBase`2.MaxKeyUsageCount
+  fullName: wan24.Crypto.AsymmetricAlgorithmBase<tPublic, tPrivate>.MaxKeyUsageCount
+  fullName.vb: wan24.Crypto.AsymmetricAlgorithmBase(Of tPublic, tPrivate).MaxKeyUsageCount
+  nameWithType: AsymmetricAlgorithmBase<tPublic, tPrivate>.MaxKeyUsageCount
+  nameWithType.vb: AsymmetricAlgorithmBase(Of tPublic, tPrivate).MaxKeyUsageCount
+- uid: wan24.Crypto.AsymmetricAlgorithmBase`2.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.AsymmetricAlgorithmBase`2.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricAlgorithmBase<tPublic, tPrivate>.MaxKeyUsageCount
+  fullName.vb: wan24.Crypto.AsymmetricAlgorithmBase(Of tPublic, tPrivate).MaxKeyUsageCount
+  nameWithType: AsymmetricAlgorithmBase<tPublic, tPrivate>.MaxKeyUsageCount
+  nameWithType.vb: AsymmetricAlgorithmBase(Of tPublic, tPrivate).MaxKeyUsageCount
 - uid: wan24.Crypto.AsymmetricAlgorithmBase`2.PrivateKeyType
   name: PrivateKeyType
   href: api/wan24.Crypto.AsymmetricAlgorithmBase-2.html#wan24_Crypto_AsymmetricAlgorithmBase_2_PrivateKeyType
@@ -652,6 +669,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.IsSupported
   nameWithType: AsymmetricEcDiffieHellmanAlgorithm.IsSupported
+- uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MAX_KEY_USAGE_COUNT
+  name: MAX_KEY_USAGE_COUNT
+  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_MAX_KEY_USAGE_COUNT
+  commentId: F:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MAX_KEY_USAGE_COUNT
+  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MAX_KEY_USAGE_COUNT
+  nameWithType: AsymmetricEcDiffieHellmanAlgorithm.MAX_KEY_USAGE_COUNT
+- uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
+  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
+  nameWithType: AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
+- uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
+  nameWithType: AsymmetricEcDiffieHellmanAlgorithm.MaxKeyUsageCount
 - uid: wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.USAGES
   name: USAGES
   href: api/wan24.Crypto.AsymmetricEcDiffieHellmanAlgorithm.html#wan24_Crypto_AsymmetricEcDiffieHellmanAlgorithm_USAGES
@@ -1163,6 +1199,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.IsSupported
   nameWithType: AsymmetricEcDsaAlgorithm.IsSupported
+- uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.MAX_KEY_USAGE_COUNT
+  name: MAX_KEY_USAGE_COUNT
+  href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_MAX_KEY_USAGE_COUNT
+  commentId: F:wan24.Crypto.AsymmetricEcDsaAlgorithm.MAX_KEY_USAGE_COUNT
+  fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.MAX_KEY_USAGE_COUNT
+  nameWithType: AsymmetricEcDsaAlgorithm.MAX_KEY_USAGE_COUNT
+- uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
+  fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
+  nameWithType: AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
+- uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
+  nameWithType: AsymmetricEcDsaAlgorithm.MaxKeyUsageCount
 - uid: wan24.Crypto.AsymmetricEcDsaAlgorithm.USAGES
   name: USAGES
   href: api/wan24.Crypto.AsymmetricEcDsaAlgorithm.html#wan24_Crypto_AsymmetricEcDsaAlgorithm_USAGES
@@ -3749,6 +3804,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.AsymmetricVoidAlgorithm.IsSupported
   nameWithType: AsymmetricVoidAlgorithm.IsSupported
+- uid: wan24.Crypto.AsymmetricVoidAlgorithm.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricVoidAlgorithm.html#wan24_Crypto_AsymmetricVoidAlgorithm_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.AsymmetricVoidAlgorithm.MaxKeyUsageCount
+  fullName: wan24.Crypto.AsymmetricVoidAlgorithm.MaxKeyUsageCount
+  nameWithType: AsymmetricVoidAlgorithm.MaxKeyUsageCount
+- uid: wan24.Crypto.AsymmetricVoidAlgorithm.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.AsymmetricVoidAlgorithm.html#wan24_Crypto_AsymmetricVoidAlgorithm_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.AsymmetricVoidAlgorithm.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.AsymmetricVoidAlgorithm.MaxKeyUsageCount
+  nameWithType: AsymmetricVoidAlgorithm.MaxKeyUsageCount
 - uid: wan24.Crypto.AsymmetricVoidAlgorithm.USAGES
   name: USAGES
   href: api/wan24.Crypto.AsymmetricVoidAlgorithm.html#wan24_Crypto_AsymmetricVoidAlgorithm_USAGES
@@ -7493,6 +7561,400 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.Authentication.ServerAuthOptions.SkipPakeSignatureKeyValidation
   nameWithType: ServerAuthOptions.SkipPakeSignatureKeyValidation
+- uid: wan24.Crypto.AutoSeedRngWrapper`1
+  name: AutoSeedRngWrapper<T>
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html
+  commentId: T:wan24.Crypto.AutoSeedRngWrapper`1
+  name.vb: AutoSeedRngWrapper(Of T)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T)
+  nameWithType: AutoSeedRngWrapper<T>
+  nameWithType.vb: AutoSeedRngWrapper(Of T)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.#ctor(System.TimeSpan@,wan24.Crypto.AutoSeedRngWrapper{`0}.SeedSource[])
+  name: AutoSeedRngWrapper(in TimeSpan, params SeedSource[])
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1__ctor_System_TimeSpan__wan24_Crypto_AutoSeedRngWrapper__0__SeedSource___
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.#ctor(System.TimeSpan@,wan24.Crypto.AutoSeedRngWrapper{`0}.SeedSource[])
+  name.vb: New(TimeSpan, ParamArray SeedSource())
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.AutoSeedRngWrapper(in System.TimeSpan, params wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource[])
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).New(System.TimeSpan, ParamArray wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource())
+  nameWithType: AutoSeedRngWrapper<T>.AutoSeedRngWrapper(in TimeSpan, params AutoSeedRngWrapper<T>.SeedSource[])
+  nameWithType.vb: AutoSeedRngWrapper(Of T).New(TimeSpan, ParamArray AutoSeedRngWrapper(Of T).SeedSource())
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.#ctor*
+  name: AutoSeedRngWrapper
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1__ctor_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.AutoSeedRngWrapper
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).New
+  nameWithType: AutoSeedRngWrapper<T>.AutoSeedRngWrapper
+  nameWithType.vb: AutoSeedRngWrapper(Of T).New
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.AddSeed(System.ReadOnlySpan{System.Byte})
+  name: AddSeed(ReadOnlySpan<byte>)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_AddSeed_System_ReadOnlySpan_System_Byte__
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.AddSeed(System.ReadOnlySpan{System.Byte})
+  name.vb: AddSeed(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.AddSeed(System.ReadOnlySpan<byte>)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).AddSeed(System.ReadOnlySpan(Of Byte))
+  nameWithType: AutoSeedRngWrapper<T>.AddSeed(ReadOnlySpan<byte>)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).AddSeed(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.AddSeed*
+  name: AddSeed
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_AddSeed_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.AddSeed
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.AddSeed
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).AddSeed
+  nameWithType: AutoSeedRngWrapper<T>.AddSeed
+  nameWithType.vb: AutoSeedRngWrapper(Of T).AddSeed
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.AddSeedAsync(System.ReadOnlyMemory{System.Byte},System.Threading.CancellationToken)
+  name: AddSeedAsync(ReadOnlyMemory<byte>, CancellationToken)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_AddSeedAsync_System_ReadOnlyMemory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.AddSeedAsync(System.ReadOnlyMemory{System.Byte},System.Threading.CancellationToken)
+  name.vb: AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.AddSeedAsync(System.ReadOnlyMemory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).AddSeedAsync(System.ReadOnlyMemory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: AutoSeedRngWrapper<T>.AddSeedAsync(ReadOnlyMemory<byte>, CancellationToken)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).AddSeedAsync(ReadOnlyMemory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.AddSeedAsync*
+  name: AddSeedAsync
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_AddSeedAsync_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.AddSeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.AddSeedAsync
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).AddSeedAsync
+  nameWithType: AutoSeedRngWrapper<T>.AddSeedAsync
+  nameWithType.vb: AutoSeedRngWrapper(Of T).AddSeedAsync
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.Dispose(bool)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).Dispose(Boolean)
+  nameWithType: AutoSeedRngWrapper<T>.Dispose(bool)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).Dispose(Boolean)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_Dispose_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.Dispose
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).Dispose
+  nameWithType: AutoSeedRngWrapper<T>.Dispose
+  nameWithType.vb: AutoSeedRngWrapper(Of T).Dispose
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_DisposeCore
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.DisposeCore
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.DisposeCore()
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).DisposeCore()
+  nameWithType: AutoSeedRngWrapper<T>.DisposeCore()
+  nameWithType.vb: AutoSeedRngWrapper(Of T).DisposeCore()
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_DisposeCore_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.DisposeCore
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).DisposeCore
+  nameWithType: AutoSeedRngWrapper<T>.DisposeCore
+  nameWithType.vb: AutoSeedRngWrapper(Of T).DisposeCore
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.Error_Delegate
+  name: AutoSeedRngWrapper<T>.Error_Delegate
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.Error_Delegate.html
+  commentId: T:wan24.Crypto.AutoSeedRngWrapper`1.Error_Delegate
+  name.vb: AutoSeedRngWrapper(Of T).Error_Delegate
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.Error_Delegate
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).Error_Delegate
+  nameWithType: AutoSeedRngWrapper<T>.Error_Delegate
+  nameWithType.vb: AutoSeedRngWrapper(Of T).Error_Delegate
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.FillBytes(System.Span{System.Byte}@)
+  name: FillBytes(in Span<byte>)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_FillBytes_System_Span_System_Byte___
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.FillBytes(System.Span{System.Byte}@)
+  name.vb: FillBytes(Span(Of Byte))
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.FillBytes(in System.Span<byte>)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).FillBytes(System.Span(Of Byte))
+  nameWithType: AutoSeedRngWrapper<T>.FillBytes(in Span<byte>)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).FillBytes(Span(Of Byte))
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_FillBytes_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.FillBytes
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).FillBytes
+  nameWithType: AutoSeedRngWrapper<T>.FillBytes
+  nameWithType.vb: AutoSeedRngWrapper(Of T).FillBytes
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name: FillBytesAsync(Memory<byte>, CancellationToken)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_FillBytesAsync_System_Memory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.FillBytesAsync(System.Memory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).FillBytesAsync(System.Memory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: AutoSeedRngWrapper<T>.FillBytesAsync(Memory<byte>, CancellationToken)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.FillBytesAsync
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).FillBytesAsync
+  nameWithType: AutoSeedRngWrapper<T>.FillBytesAsync
+  nameWithType.vb: AutoSeedRngWrapper(Of T).FillBytesAsync
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.GetBytes(System.Int32@)
+  name: GetBytes(in int)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_GetBytes_System_Int32__
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.GetBytes(System.Int32@)
+  name.vb: GetBytes(Integer)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.GetBytes(in int)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).GetBytes(Integer)
+  nameWithType: AutoSeedRngWrapper<T>.GetBytes(in int)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).GetBytes(Integer)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.GetBytes*
+  name: GetBytes
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_GetBytes_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.GetBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.GetBytes
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).GetBytes
+  nameWithType: AutoSeedRngWrapper<T>.GetBytes
+  nameWithType.vb: AutoSeedRngWrapper(Of T).GetBytes
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.GetBytesAsync(System.Int32,System.Threading.CancellationToken)
+  name: GetBytesAsync(int, CancellationToken)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_GetBytesAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.GetBytesAsync(System.Int32,System.Threading.CancellationToken)
+  name.vb: GetBytesAsync(Integer, CancellationToken)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.GetBytesAsync(int, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).GetBytesAsync(Integer, System.Threading.CancellationToken)
+  nameWithType: AutoSeedRngWrapper<T>.GetBytesAsync(int, CancellationToken)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).GetBytesAsync(Integer, CancellationToken)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.GetBytesAsync*
+  name: GetBytesAsync
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_GetBytesAsync_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.GetBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.GetBytesAsync
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).GetBytesAsync
+  nameWithType: AutoSeedRngWrapper<T>.GetBytesAsync
+  nameWithType.vb: AutoSeedRngWrapper(Of T).GetBytesAsync
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.LastException
+  name: LastException
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_LastException
+  commentId: P:wan24.Crypto.AutoSeedRngWrapper`1.LastException
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.LastException
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).LastException
+  nameWithType: AutoSeedRngWrapper<T>.LastException
+  nameWithType.vb: AutoSeedRngWrapper(Of T).LastException
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.LastException*
+  name: LastException
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_LastException_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.LastException
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.LastException
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).LastException
+  nameWithType: AutoSeedRngWrapper<T>.LastException
+  nameWithType.vb: AutoSeedRngWrapper(Of T).LastException
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.OnError
+  name: OnError
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_OnError
+  commentId: E:wan24.Crypto.AutoSeedRngWrapper`1.OnError
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.OnError
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).OnError
+  nameWithType: AutoSeedRngWrapper<T>.OnError
+  nameWithType.vb: AutoSeedRngWrapper(Of T).OnError
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.RNG
+  name: RNG
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_RNG
+  commentId: P:wan24.Crypto.AutoSeedRngWrapper`1.RNG
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.RNG
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).RNG
+  nameWithType: AutoSeedRngWrapper<T>.RNG
+  nameWithType.vb: AutoSeedRngWrapper(Of T).RNG
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.RNG*
+  name: RNG
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_RNG_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.RNG
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).RNG
+  nameWithType: AutoSeedRngWrapper<T>.RNG
+  nameWithType.vb: AutoSeedRngWrapper(Of T).RNG
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.RaiseOnError
+  name: RaiseOnError()
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_RaiseOnError
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.RaiseOnError
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.RaiseOnError()
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).RaiseOnError()
+  nameWithType: AutoSeedRngWrapper<T>.RaiseOnError()
+  nameWithType.vb: AutoSeedRngWrapper(Of T).RaiseOnError()
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.RaiseOnError*
+  name: RaiseOnError
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_RaiseOnError_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.RaiseOnError
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.RaiseOnError
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).RaiseOnError
+  nameWithType: AutoSeedRngWrapper<T>.RaiseOnError
+  nameWithType.vb: AutoSeedRngWrapper(Of T).RaiseOnError
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedAsync
+  name: SeedAsync()
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedAsync
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.SeedAsync
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedAsync()
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedAsync()
+  nameWithType: AutoSeedRngWrapper<T>.SeedAsync()
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedAsync()
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedAsync*
+  name: SeedAsync
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedAsync_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedAsync
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedAsync
+  nameWithType: AutoSeedRngWrapper<T>.SeedAsync
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedAsync
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedLength
+  name: SeedLength
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedLength
+  commentId: F:wan24.Crypto.AutoSeedRngWrapper`1.SeedLength
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedLength
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedLength
+  nameWithType: AutoSeedRngWrapper<T>.SeedLength
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedLength
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource
+  name: AutoSeedRngWrapper<T>.SeedSource
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html
+  commentId: T:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource
+  name.vb: AutoSeedRngWrapper(Of T).SeedSource
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.#ctor
+  name: SeedSource()
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource__ctor
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.#ctor
+  name.vb: New()
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.SeedSource()
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.New()
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.SeedSource()
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.New()
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.#ctor*
+  name: SeedSource
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource__ctor_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.SeedSource
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.New
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.SeedSource
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.New
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.Dispose(bool)
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.Dispose(Boolean)
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.Dispose(bool)
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.Dispose(Boolean)
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_Dispose_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.Dispose
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.Dispose
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.Dispose
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.Dispose
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_DisposeCore
+  commentId: M:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.DisposeCore
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.DisposeCore()
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.DisposeCore()
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.DisposeCore()
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.DisposeCore()
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_DisposeCore_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.DisposeCore
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.DisposeCore
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.DisposeCore
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.DisposeCore
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.SeedLength
+  name: SeedLength
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_SeedLength
+  commentId: P:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.SeedLength
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.SeedLength
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.SeedLength
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.SeedLength
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.SeedLength
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.SeedLength*
+  name: SeedLength
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_SeedLength_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.SeedLength
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.SeedLength
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.SeedLength
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.SeedLength
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.SeedLength
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Source
+  name: Source
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_Source
+  commentId: P:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Source
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.Source
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.Source
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.Source
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.Source
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Source*
+  name: Source
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.SeedSource.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSource_Source_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedSource.Source
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSource.Source
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSource.Source
+  nameWithType: AutoSeedRngWrapper<T>.SeedSource.Source
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSource.Source
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSources
+  name: SeedSources
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSources
+  commentId: P:wan24.Crypto.AutoSeedRngWrapper`1.SeedSources
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSources
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSources
+  nameWithType: AutoSeedRngWrapper<T>.SeedSources
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSources
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedSources*
+  name: SeedSources
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedSources_
+  commentId: Overload:wan24.Crypto.AutoSeedRngWrapper`1.SeedSources
+  isSpec: "True"
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedSources
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedSources
+  nameWithType: AutoSeedRngWrapper<T>.SeedSources
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedSources
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedTask
+  name: SeedTask
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedTask
+  commentId: F:wan24.Crypto.AutoSeedRngWrapper`1.SeedTask
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedTask
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedTask
+  nameWithType: AutoSeedRngWrapper<T>.SeedTask
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedTask
+- uid: wan24.Crypto.AutoSeedRngWrapper`1.SeedTimer
+  name: SeedTimer
+  href: api/wan24.Crypto.AutoSeedRngWrapper-1.html#wan24_Crypto_AutoSeedRngWrapper_1_SeedTimer
+  commentId: F:wan24.Crypto.AutoSeedRngWrapper`1.SeedTimer
+  fullName: wan24.Crypto.AutoSeedRngWrapper<T>.SeedTimer
+  fullName.vb: wan24.Crypto.AutoSeedRngWrapper(Of T).SeedTimer
+  nameWithType: AutoSeedRngWrapper<T>.SeedTimer
+  nameWithType.vb: AutoSeedRngWrapper(Of T).SeedTimer
 - uid: wan24.Crypto.BackupRng
   name: BackupRng
   href: api/wan24.Crypto.BackupRng.html
@@ -8164,6 +8626,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultFlags
   nameWithType: CryptoAppConfig.CryptoOptions.DefaultFlags
+- uid: wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
+  name: DefaultMaxCipherDataLength
+  href: api/wan24.Crypto.CryptoAppConfig.CryptoOptions.html#wan24_Crypto_CryptoAppConfig_CryptoOptions_DefaultMaxCipherDataLength
+  commentId: P:wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
+  fullName: wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
+  nameWithType: CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
+- uid: wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength*
+  name: DefaultMaxCipherDataLength
+  href: api/wan24.Crypto.CryptoAppConfig.CryptoOptions.html#wan24_Crypto_CryptoAppConfig_CryptoOptions_DefaultMaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
+  nameWithType: CryptoAppConfig.CryptoOptions.DefaultMaxCipherDataLength
 - uid: wan24.Crypto.CryptoAppConfig.CryptoOptions.DefaultMaximumAge
   name: DefaultMaximumAge
   href: api/wan24.Crypto.CryptoAppConfig.CryptoOptions.html#wan24_Crypto_CryptoAppConfig_CryptoOptions_DefaultMaximumAge
@@ -8610,6 +9085,58 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinCustomEntropy
   nameWithType: CryptoAppConfig.EntropyOptions.MinCustomEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+  name: MinKolmogorovComplexity
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinKolmogorovComplexity
+  commentId: P:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+  nameWithType: CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity*
+  name: MinKolmogorovComplexity
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinKolmogorovComplexity_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+  nameWithType: CryptoAppConfig.EntropyOptions.MinKolmogorovComplexity
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinMinEntropy
+  name: MinMinEntropy
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinMinEntropy
+  commentId: P:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinMinEntropy
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinMinEntropy
+  nameWithType: CryptoAppConfig.EntropyOptions.MinMinEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinMinEntropy*
+  name: MinMinEntropy
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinMinEntropy_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinMinEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinMinEntropy
+  nameWithType: CryptoAppConfig.EntropyOptions.MinMinEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+  name: MinPermutationEntropy
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinPermutationEntropy
+  commentId: P:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+  nameWithType: CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinPermutationEntropy*
+  name: MinPermutationEntropy
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinPermutationEntropy_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+  nameWithType: CryptoAppConfig.EntropyOptions.MinPermutationEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinRenyiEntropy
+  name: MinRenyiEntropy
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinRenyiEntropy
+  commentId: P:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinRenyiEntropy
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinRenyiEntropy
+  nameWithType: CryptoAppConfig.EntropyOptions.MinRenyiEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinRenyiEntropy*
+  name: MinRenyiEntropy
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinRenyiEntropy_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.EntropyOptions.MinRenyiEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinRenyiEntropy
+  nameWithType: CryptoAppConfig.EntropyOptions.MinRenyiEntropy
 - uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinShannonBitEntropy
   name: MinShannonBitEntropy
   href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_MinShannonBitEntropy
@@ -8636,6 +9163,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.MinShannonByteEntropy
   nameWithType: CryptoAppConfig.EntropyOptions.MinShannonByteEntropy
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.PermutationWindowSize
+  name: PermutationWindowSize
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_PermutationWindowSize
+  commentId: P:wan24.Crypto.CryptoAppConfig.EntropyOptions.PermutationWindowSize
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.PermutationWindowSize
+  nameWithType: CryptoAppConfig.EntropyOptions.PermutationWindowSize
+- uid: wan24.Crypto.CryptoAppConfig.EntropyOptions.PermutationWindowSize*
+  name: PermutationWindowSize
+  href: api/wan24.Crypto.CryptoAppConfig.EntropyOptions.html#wan24_Crypto_CryptoAppConfig_EntropyOptions_PermutationWindowSize_
+  commentId: Overload:wan24.Crypto.CryptoAppConfig.EntropyOptions.PermutationWindowSize
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoAppConfig.EntropyOptions.PermutationWindowSize
+  nameWithType: CryptoAppConfig.EntropyOptions.PermutationWindowSize
 - uid: wan24.Crypto.CryptoAppConfig.Limitations
   name: CryptoAppConfig.Limitations
   href: api/wan24.Crypto.CryptoAppConfig.Limitations.html
@@ -9857,6 +10397,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultMacAlgorithm
   nameWithType: CryptoEnvironment.Options.DefaultMacAlgorithm
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultMaxCipherDataLength
+  name: DefaultMaxCipherDataLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultMaxCipherDataLength
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.DefaultMaxCipherDataLength
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultMaxCipherDataLength
+  nameWithType: CryptoEnvironment.Options.DefaultMaxCipherDataLength
+- uid: wan24.Crypto.CryptoEnvironment.Options.DefaultMaxCipherDataLength*
+  name: DefaultMaxCipherDataLength
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultMaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.DefaultMaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.DefaultMaxCipherDataLength
+  nameWithType: CryptoEnvironment.Options.DefaultMaxCipherDataLength
 - uid: wan24.Crypto.CryptoEnvironment.Options.DefaultMaximumAge
   name: DefaultMaximumAge
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_DefaultMaximumAge
@@ -10234,6 +10787,32 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.FillRandomBytesAsync
   nameWithType: CryptoEnvironment.Options.FillRandomBytesAsync
+- uid: wan24.Crypto.CryptoEnvironment.Options.IvHelperRng
+  name: IvHelperRng
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_IvHelperRng
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.IvHelperRng
+  fullName: wan24.Crypto.CryptoEnvironment.Options.IvHelperRng
+  nameWithType: CryptoEnvironment.Options.IvHelperRng
+- uid: wan24.Crypto.CryptoEnvironment.Options.IvHelperRng*
+  name: IvHelperRng
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_IvHelperRng_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.IvHelperRng
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.IvHelperRng
+  nameWithType: CryptoEnvironment.Options.IvHelperRng
+- uid: wan24.Crypto.CryptoEnvironment.Options.KeyHelperRng
+  name: KeyHelperRng
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_KeyHelperRng
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.KeyHelperRng
+  fullName: wan24.Crypto.CryptoEnvironment.Options.KeyHelperRng
+  nameWithType: CryptoEnvironment.Options.KeyHelperRng
+- uid: wan24.Crypto.CryptoEnvironment.Options.KeyHelperRng*
+  name: KeyHelperRng
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_KeyHelperRng_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.KeyHelperRng
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.KeyHelperRng
+  nameWithType: CryptoEnvironment.Options.KeyHelperRng
 - uid: wan24.Crypto.CryptoEnvironment.Options.MaxKeyExchangeDataLength
   name: MaxKeyExchangeDataLength
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MaxKeyExchangeDataLength
@@ -10273,6 +10852,58 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.MinCustomEntropy
   nameWithType: CryptoEnvironment.Options.MinCustomEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinKolmogorovComplexity
+  name: MinKolmogorovComplexity
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinKolmogorovComplexity
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.MinKolmogorovComplexity
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinKolmogorovComplexity
+  nameWithType: CryptoEnvironment.Options.MinKolmogorovComplexity
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinKolmogorovComplexity*
+  name: MinKolmogorovComplexity
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinKolmogorovComplexity_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.MinKolmogorovComplexity
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinKolmogorovComplexity
+  nameWithType: CryptoEnvironment.Options.MinKolmogorovComplexity
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinMinEntropy
+  name: MinMinEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinMinEntropy
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.MinMinEntropy
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinMinEntropy
+  nameWithType: CryptoEnvironment.Options.MinMinEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinMinEntropy*
+  name: MinMinEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinMinEntropy_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.MinMinEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinMinEntropy
+  nameWithType: CryptoEnvironment.Options.MinMinEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinPermutationEntropy
+  name: MinPermutationEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinPermutationEntropy
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.MinPermutationEntropy
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinPermutationEntropy
+  nameWithType: CryptoEnvironment.Options.MinPermutationEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinPermutationEntropy*
+  name: MinPermutationEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinPermutationEntropy_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.MinPermutationEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinPermutationEntropy
+  nameWithType: CryptoEnvironment.Options.MinPermutationEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinRenyiEntropy
+  name: MinRenyiEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinRenyiEntropy
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.MinRenyiEntropy
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinRenyiEntropy
+  nameWithType: CryptoEnvironment.Options.MinRenyiEntropy
+- uid: wan24.Crypto.CryptoEnvironment.Options.MinRenyiEntropy*
+  name: MinRenyiEntropy
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinRenyiEntropy_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.MinRenyiEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.MinRenyiEntropy
+  nameWithType: CryptoEnvironment.Options.MinRenyiEntropy
 - uid: wan24.Crypto.CryptoEnvironment.Options.MinShannonBitEntropy
   name: MinShannonBitEntropy
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_MinShannonBitEntropy
@@ -10338,6 +10969,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoEnvironment.Options.PbKdf2HashAlgorithm
   nameWithType: CryptoEnvironment.Options.PbKdf2HashAlgorithm
+- uid: wan24.Crypto.CryptoEnvironment.Options.PermutationWindowSize
+  name: PermutationWindowSize
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_PermutationWindowSize
+  commentId: P:wan24.Crypto.CryptoEnvironment.Options.PermutationWindowSize
+  fullName: wan24.Crypto.CryptoEnvironment.Options.PermutationWindowSize
+  nameWithType: CryptoEnvironment.Options.PermutationWindowSize
+- uid: wan24.Crypto.CryptoEnvironment.Options.PermutationWindowSize*
+  name: PermutationWindowSize
+  href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_PermutationWindowSize_
+  commentId: Overload:wan24.Crypto.CryptoEnvironment.Options.PermutationWindowSize
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoEnvironment.Options.PermutationWindowSize
+  nameWithType: CryptoEnvironment.Options.PermutationWindowSize
 - uid: wan24.Crypto.CryptoEnvironment.Options.ProcessScopeKey
   name: ProcessScopeKey
   href: api/wan24.Crypto.CryptoEnvironment.Options.html#wan24_Crypto_CryptoEnvironment_Options_ProcessScopeKey
@@ -10829,6 +11473,15 @@ references:
   fullName.vb: wan24.Crypto.CryptoExtensions.ToRandomDouble(Byte())
   nameWithType: CryptoExtensions.ToRandomDouble(byte[])
   nameWithType.vb: CryptoExtensions.ToRandomDouble(Byte())
+- uid: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Memory{System.Byte})
+  name: ToRandomDouble(Memory<byte>)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ToRandomDouble_System_Memory_System_Byte__
+  commentId: M:wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Memory{System.Byte})
+  name.vb: ToRandomDouble(Memory(Of Byte))
+  fullName: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Memory<byte>)
+  fullName.vb: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Memory(Of Byte))
+  nameWithType: CryptoExtensions.ToRandomDouble(Memory<byte>)
+  nameWithType.vb: CryptoExtensions.ToRandomDouble(Memory(Of Byte))
 - uid: wan24.Crypto.CryptoExtensions.ToRandomDouble(System.Span{System.Byte})
   name: ToRandomDouble(Span<byte>)
   href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ToRandomDouble_System_Span_System_Byte__
@@ -10845,15 +11498,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoExtensions.ToRandomDouble
   nameWithType: CryptoExtensions.ToRandomDouble
-- uid: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream,System.Byte[],System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions)
-  name: ValidateMac(Stream, byte[], byte[], bool, CryptoOptions?)
-  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMac_System_IO_Stream_System_Byte___System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_
-  commentId: M:wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream,System.Byte[],System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions)
-  name.vb: ValidateMac(Stream, Byte(), Byte(), Boolean, CryptoOptions)
-  fullName: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream, byte[], byte[], bool, wan24.Crypto.CryptoOptions?)
-  fullName.vb: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream, Byte(), Byte(), Boolean, wan24.Crypto.CryptoOptions)
-  nameWithType: CryptoExtensions.ValidateMac(Stream, byte[], byte[], bool, CryptoOptions?)
-  nameWithType.vb: CryptoExtensions.ValidateMac(Stream, Byte(), Byte(), Boolean, CryptoOptions)
+- uid: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream,System.ReadOnlySpan{System.Byte},System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions)
+  name: ValidateMac(Stream, ReadOnlySpan<byte>, byte[], bool, CryptoOptions?)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMac_System_IO_Stream_System_ReadOnlySpan_System_Byte__System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_
+  commentId: M:wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream,System.ReadOnlySpan{System.Byte},System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions)
+  name.vb: ValidateMac(Stream, ReadOnlySpan(Of Byte), Byte(), Boolean, CryptoOptions)
+  fullName: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream, System.ReadOnlySpan<byte>, byte[], bool, wan24.Crypto.CryptoOptions?)
+  fullName.vb: wan24.Crypto.CryptoExtensions.ValidateMac(System.IO.Stream, System.ReadOnlySpan(Of Byte), Byte(), Boolean, wan24.Crypto.CryptoOptions)
+  nameWithType: CryptoExtensions.ValidateMac(Stream, ReadOnlySpan<byte>, byte[], bool, CryptoOptions?)
+  nameWithType.vb: CryptoExtensions.ValidateMac(Stream, ReadOnlySpan(Of Byte), Byte(), Boolean, CryptoOptions)
 - uid: wan24.Crypto.CryptoExtensions.ValidateMac*
   name: ValidateMac
   href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMac_
@@ -10861,15 +11514,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoExtensions.ValidateMac
   nameWithType: CryptoExtensions.ValidateMac
-- uid: wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream,System.Byte[],System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
-  name: ValidateMacAsync(Stream, byte[], byte[], bool, CryptoOptions?, CancellationToken)
-  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMacAsync_System_IO_Stream_System_Byte___System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_
-  commentId: M:wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream,System.Byte[],System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
-  name.vb: ValidateMacAsync(Stream, Byte(), Byte(), Boolean, CryptoOptions, CancellationToken)
-  fullName: wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream, byte[], byte[], bool, wan24.Crypto.CryptoOptions?, System.Threading.CancellationToken)
-  fullName.vb: wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream, Byte(), Byte(), Boolean, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
-  nameWithType: CryptoExtensions.ValidateMacAsync(Stream, byte[], byte[], bool, CryptoOptions?, CancellationToken)
-  nameWithType.vb: CryptoExtensions.ValidateMacAsync(Stream, Byte(), Byte(), Boolean, CryptoOptions, CancellationToken)
+- uid: wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream,System.ReadOnlyMemory{System.Byte},System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name: ValidateMacAsync(Stream, ReadOnlyMemory<byte>, byte[], bool, CryptoOptions?, CancellationToken)
+  href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMacAsync_System_IO_Stream_System_ReadOnlyMemory_System_Byte__System_Byte___System_Boolean_wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream,System.ReadOnlyMemory{System.Byte},System.Byte[],System.Boolean,wan24.Crypto.CryptoOptions,System.Threading.CancellationToken)
+  name.vb: ValidateMacAsync(Stream, ReadOnlyMemory(Of Byte), Byte(), Boolean, CryptoOptions, CancellationToken)
+  fullName: wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream, System.ReadOnlyMemory<byte>, byte[], bool, wan24.Crypto.CryptoOptions?, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.CryptoExtensions.ValidateMacAsync(System.IO.Stream, System.ReadOnlyMemory(Of Byte), Byte(), Boolean, wan24.Crypto.CryptoOptions, System.Threading.CancellationToken)
+  nameWithType: CryptoExtensions.ValidateMacAsync(Stream, ReadOnlyMemory<byte>, byte[], bool, CryptoOptions?, CancellationToken)
+  nameWithType.vb: CryptoExtensions.ValidateMacAsync(Stream, ReadOnlyMemory(Of Byte), Byte(), Boolean, CryptoOptions, CancellationToken)
 - uid: wan24.Crypto.CryptoExtensions.ValidateMacAsync*
   name: ValidateMacAsync
   href: api/wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_ValidateMacAsync_
@@ -11105,15 +11758,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.Algorithm
   nameWithType: CryptoOptions.Algorithm
-- uid: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite,System.Boolean,System.Boolean)
-  name: ApplyPrivateKeySuite(PrivateKeySuite, bool, bool)
-  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_wan24_Crypto_PrivateKeySuite_System_Boolean_System_Boolean_
-  commentId: M:wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite,System.Boolean,System.Boolean)
-  name.vb: ApplyPrivateKeySuite(PrivateKeySuite, Boolean, Boolean)
-  fullName: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite, bool, bool)
-  fullName.vb: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite, Boolean, Boolean)
-  nameWithType: CryptoOptions.ApplyPrivateKeySuite(PrivateKeySuite, bool, bool)
-  nameWithType.vb: CryptoOptions.ApplyPrivateKeySuite(PrivateKeySuite, Boolean, Boolean)
+- uid: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite,System.Boolean,System.Boolean,System.Boolean)
+  name: ApplyPrivateKeySuite(PrivateKeySuite, bool, bool, bool)
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_wan24_Crypto_PrivateKeySuite_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite,System.Boolean,System.Boolean,System.Boolean)
+  name.vb: ApplyPrivateKeySuite(PrivateKeySuite, Boolean, Boolean, Boolean)
+  fullName: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite, bool, bool, bool)
+  fullName.vb: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite(wan24.Crypto.PrivateKeySuite, Boolean, Boolean, Boolean)
+  nameWithType: CryptoOptions.ApplyPrivateKeySuite(PrivateKeySuite, bool, bool, bool)
+  nameWithType.vb: CryptoOptions.ApplyPrivateKeySuite(PrivateKeySuite, Boolean, Boolean, Boolean)
 - uid: wan24.Crypto.CryptoOptions.ApplyPrivateKeySuite*
   name: ApplyPrivateKeySuite
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_ApplyPrivateKeySuite_
@@ -11507,6 +12160,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.DefaultFlagsIncluded
   nameWithType: CryptoOptions.DefaultFlagsIncluded
+- uid: wan24.Crypto.CryptoOptions.DefaultMaxCipherDataLength
+  name: DefaultMaxCipherDataLength
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_DefaultMaxCipherDataLength
+  commentId: P:wan24.Crypto.CryptoOptions.DefaultMaxCipherDataLength
+  fullName: wan24.Crypto.CryptoOptions.DefaultMaxCipherDataLength
+  nameWithType: CryptoOptions.DefaultMaxCipherDataLength
+- uid: wan24.Crypto.CryptoOptions.DefaultMaxCipherDataLength*
+  name: DefaultMaxCipherDataLength
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_DefaultMaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.CryptoOptions.DefaultMaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoOptions.DefaultMaxCipherDataLength
+  nameWithType: CryptoOptions.DefaultMaxCipherDataLength
 - uid: wan24.Crypto.CryptoOptions.DefaultMaximumAge
   name: DefaultMaximumAge
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_DefaultMaximumAge
@@ -11919,6 +12585,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.KeyExchangeDataIncluded
   nameWithType: CryptoOptions.KeyExchangeDataIncluded
+- uid: wan24.Crypto.CryptoOptions.KeySuite
+  name: KeySuite
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_KeySuite
+  commentId: P:wan24.Crypto.CryptoOptions.KeySuite
+  fullName: wan24.Crypto.CryptoOptions.KeySuite
+  nameWithType: CryptoOptions.KeySuite
+- uid: wan24.Crypto.CryptoOptions.KeySuite*
+  name: KeySuite
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_KeySuite_
+  commentId: Overload:wan24.Crypto.CryptoOptions.KeySuite
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoOptions.KeySuite
+  nameWithType: CryptoOptions.KeySuite
 - uid: wan24.Crypto.CryptoOptions.LeaveOpen
   name: LeaveOpen
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_LeaveOpen
@@ -12010,6 +12689,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.CryptoOptions.MacPosition
   nameWithType: CryptoOptions.MacPosition
+- uid: wan24.Crypto.CryptoOptions.MaxCipherDataLength
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_MaxCipherDataLength
+  commentId: P:wan24.Crypto.CryptoOptions.MaxCipherDataLength
+  fullName: wan24.Crypto.CryptoOptions.MaxCipherDataLength
+  nameWithType: CryptoOptions.MaxCipherDataLength
+- uid: wan24.Crypto.CryptoOptions.MaxCipherDataLength*
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_MaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.CryptoOptions.MaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.CryptoOptions.MaxCipherDataLength
+  nameWithType: CryptoOptions.MaxCipherDataLength
 - uid: wan24.Crypto.CryptoOptions.MaxUncompressedDataLength
   name: MaxUncompressedDataLength
   href: api/wan24.Crypto.CryptoOptions.html#wan24_Crypto_CryptoOptions_MaxUncompressedDataLength
@@ -14292,144 +14984,6 @@ references:
   fullName.vb: wan24.Crypto.DevRandomStreamPool.New
   nameWithType: DevRandomStreamPool.DevRandomStreamPool
   nameWithType.vb: DevRandomStreamPool.New
-- uid: wan24.Crypto.DisposablEntropyMonitor
-  name: DisposablEntropyMonitor
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html
-  commentId: T:wan24.Crypto.DisposablEntropyMonitor
-  fullName: wan24.Crypto.DisposablEntropyMonitor
-  nameWithType: DisposablEntropyMonitor
-- uid: wan24.Crypto.DisposablEntropyMonitor.#ctor(wan24.Crypto.IRng@)
-  name: DisposablEntropyMonitor(in IRng)
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor__ctor_wan24_Crypto_IRng__
-  commentId: M:wan24.Crypto.DisposablEntropyMonitor.#ctor(wan24.Crypto.IRng@)
-  name.vb: New(IRng)
-  fullName: wan24.Crypto.DisposablEntropyMonitor.DisposablEntropyMonitor(in wan24.Crypto.IRng)
-  fullName.vb: wan24.Crypto.DisposablEntropyMonitor.New(wan24.Crypto.IRng)
-  nameWithType: DisposablEntropyMonitor.DisposablEntropyMonitor(in IRng)
-  nameWithType.vb: DisposablEntropyMonitor.New(IRng)
-- uid: wan24.Crypto.DisposablEntropyMonitor.#ctor*
-  name: DisposablEntropyMonitor
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor__ctor_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: wan24.Crypto.DisposablEntropyMonitor.DisposablEntropyMonitor
-  fullName.vb: wan24.Crypto.DisposablEntropyMonitor.New
-  nameWithType: DisposablEntropyMonitor.DisposablEntropyMonitor
-  nameWithType.vb: DisposablEntropyMonitor.New
-- uid: wan24.Crypto.DisposablEntropyMonitor.Algorithms
-  name: Algorithms
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_Algorithms
-  commentId: P:wan24.Crypto.DisposablEntropyMonitor.Algorithms
-  fullName: wan24.Crypto.DisposablEntropyMonitor.Algorithms
-  nameWithType: DisposablEntropyMonitor.Algorithms
-- uid: wan24.Crypto.DisposablEntropyMonitor.Algorithms*
-  name: Algorithms
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_Algorithms_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.Algorithms
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.Algorithms
-  nameWithType: DisposablEntropyMonitor.Algorithms
-- uid: wan24.Crypto.DisposablEntropyMonitor.Dispose(System.Boolean)
-  name: Dispose(bool)
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_Dispose_System_Boolean_
-  commentId: M:wan24.Crypto.DisposablEntropyMonitor.Dispose(System.Boolean)
-  name.vb: Dispose(Boolean)
-  fullName: wan24.Crypto.DisposablEntropyMonitor.Dispose(bool)
-  fullName.vb: wan24.Crypto.DisposablEntropyMonitor.Dispose(Boolean)
-  nameWithType: DisposablEntropyMonitor.Dispose(bool)
-  nameWithType.vb: DisposablEntropyMonitor.Dispose(Boolean)
-- uid: wan24.Crypto.DisposablEntropyMonitor.Dispose*
-  name: Dispose
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_Dispose_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.Dispose
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.Dispose
-  nameWithType: DisposablEntropyMonitor.Dispose
-- uid: wan24.Crypto.DisposablEntropyMonitor.DisposeCore
-  name: DisposeCore()
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_DisposeCore
-  commentId: M:wan24.Crypto.DisposablEntropyMonitor.DisposeCore
-  fullName: wan24.Crypto.DisposablEntropyMonitor.DisposeCore()
-  nameWithType: DisposablEntropyMonitor.DisposeCore()
-- uid: wan24.Crypto.DisposablEntropyMonitor.DisposeCore*
-  name: DisposeCore
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_DisposeCore_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.DisposeCore
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.DisposeCore
-  nameWithType: DisposablEntropyMonitor.DisposeCore
-- uid: wan24.Crypto.DisposablEntropyMonitor.FillBytes(System.Span{System.Byte}@)
-  name: FillBytes(in Span<byte>)
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_FillBytes_System_Span_System_Byte___
-  commentId: M:wan24.Crypto.DisposablEntropyMonitor.FillBytes(System.Span{System.Byte}@)
-  name.vb: FillBytes(Span(Of Byte))
-  fullName: wan24.Crypto.DisposablEntropyMonitor.FillBytes(in System.Span<byte>)
-  fullName.vb: wan24.Crypto.DisposablEntropyMonitor.FillBytes(System.Span(Of Byte))
-  nameWithType: DisposablEntropyMonitor.FillBytes(in Span<byte>)
-  nameWithType.vb: DisposablEntropyMonitor.FillBytes(Span(Of Byte))
-- uid: wan24.Crypto.DisposablEntropyMonitor.FillBytes*
-  name: FillBytes
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_FillBytes_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.FillBytes
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.FillBytes
-  nameWithType: DisposablEntropyMonitor.FillBytes
-- uid: wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
-  name: FillBytesAsync(Memory<byte>, CancellationToken)
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_FillBytesAsync_System_Memory_System_Byte__System_Threading_CancellationToken_
-  commentId: M:wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
-  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
-  fullName: wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync(System.Memory<byte>, System.Threading.CancellationToken)
-  fullName.vb: wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync(System.Memory(Of Byte), System.Threading.CancellationToken)
-  nameWithType: DisposablEntropyMonitor.FillBytesAsync(Memory<byte>, CancellationToken)
-  nameWithType.vb: DisposablEntropyMonitor.FillBytesAsync(Memory(Of Byte), CancellationToken)
-- uid: wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync*
-  name: FillBytesAsync
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_FillBytesAsync_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.FillBytesAsync
-  nameWithType: DisposablEntropyMonitor.FillBytesAsync
-- uid: wan24.Crypto.DisposablEntropyMonitor.MaxRetries
-  name: MaxRetries
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_MaxRetries
-  commentId: P:wan24.Crypto.DisposablEntropyMonitor.MaxRetries
-  fullName: wan24.Crypto.DisposablEntropyMonitor.MaxRetries
-  nameWithType: DisposablEntropyMonitor.MaxRetries
-- uid: wan24.Crypto.DisposablEntropyMonitor.MaxRetries*
-  name: MaxRetries
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_MaxRetries_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.MaxRetries
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.MaxRetries
-  nameWithType: DisposablEntropyMonitor.MaxRetries
-- uid: wan24.Crypto.DisposablEntropyMonitor.MinRndlength
-  name: MinRndlength
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_MinRndlength
-  commentId: P:wan24.Crypto.DisposablEntropyMonitor.MinRndlength
-  fullName: wan24.Crypto.DisposablEntropyMonitor.MinRndlength
-  nameWithType: DisposablEntropyMonitor.MinRndlength
-- uid: wan24.Crypto.DisposablEntropyMonitor.MinRndlength*
-  name: MinRndlength
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_MinRndlength_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.MinRndlength
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.MinRndlength
-  nameWithType: DisposablEntropyMonitor.MinRndlength
-- uid: wan24.Crypto.DisposablEntropyMonitor.RNG
-  name: RNG
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_RNG
-  commentId: P:wan24.Crypto.DisposablEntropyMonitor.RNG
-  fullName: wan24.Crypto.DisposablEntropyMonitor.RNG
-  nameWithType: DisposablEntropyMonitor.RNG
-- uid: wan24.Crypto.DisposablEntropyMonitor.RNG*
-  name: RNG
-  href: api/wan24.Crypto.DisposablEntropyMonitor.html#wan24_Crypto_DisposablEntropyMonitor_RNG_
-  commentId: Overload:wan24.Crypto.DisposablEntropyMonitor.RNG
-  isSpec: "True"
-  fullName: wan24.Crypto.DisposablEntropyMonitor.RNG
-  nameWithType: DisposablEntropyMonitor.RNG
 - uid: wan24.Crypto.DisposableBackupRng
   name: DisposableBackupRng
   href: api/wan24.Crypto.DisposableBackupRng.html
@@ -14611,6 +15165,144 @@ references:
   fullName.vb: wan24.Crypto.DisposableCryptoOptions.CType
   nameWithType: DisposableCryptoOptions.implicit operator
   nameWithType.vb: DisposableCryptoOptions.CType
+- uid: wan24.Crypto.DisposableEntropyMonitor
+  name: DisposableEntropyMonitor
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html
+  commentId: T:wan24.Crypto.DisposableEntropyMonitor
+  fullName: wan24.Crypto.DisposableEntropyMonitor
+  nameWithType: DisposableEntropyMonitor
+- uid: wan24.Crypto.DisposableEntropyMonitor.#ctor(wan24.Crypto.IRng@)
+  name: DisposableEntropyMonitor(in IRng)
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor__ctor_wan24_Crypto_IRng__
+  commentId: M:wan24.Crypto.DisposableEntropyMonitor.#ctor(wan24.Crypto.IRng@)
+  name.vb: New(IRng)
+  fullName: wan24.Crypto.DisposableEntropyMonitor.DisposableEntropyMonitor(in wan24.Crypto.IRng)
+  fullName.vb: wan24.Crypto.DisposableEntropyMonitor.New(wan24.Crypto.IRng)
+  nameWithType: DisposableEntropyMonitor.DisposableEntropyMonitor(in IRng)
+  nameWithType.vb: DisposableEntropyMonitor.New(IRng)
+- uid: wan24.Crypto.DisposableEntropyMonitor.#ctor*
+  name: DisposableEntropyMonitor
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor__ctor_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.DisposableEntropyMonitor.DisposableEntropyMonitor
+  fullName.vb: wan24.Crypto.DisposableEntropyMonitor.New
+  nameWithType: DisposableEntropyMonitor.DisposableEntropyMonitor
+  nameWithType.vb: DisposableEntropyMonitor.New
+- uid: wan24.Crypto.DisposableEntropyMonitor.Algorithms
+  name: Algorithms
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_Algorithms
+  commentId: P:wan24.Crypto.DisposableEntropyMonitor.Algorithms
+  fullName: wan24.Crypto.DisposableEntropyMonitor.Algorithms
+  nameWithType: DisposableEntropyMonitor.Algorithms
+- uid: wan24.Crypto.DisposableEntropyMonitor.Algorithms*
+  name: Algorithms
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_Algorithms_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.Algorithms
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.Algorithms
+  nameWithType: DisposableEntropyMonitor.Algorithms
+- uid: wan24.Crypto.DisposableEntropyMonitor.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.DisposableEntropyMonitor.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.DisposableEntropyMonitor.Dispose(bool)
+  fullName.vb: wan24.Crypto.DisposableEntropyMonitor.Dispose(Boolean)
+  nameWithType: DisposableEntropyMonitor.Dispose(bool)
+  nameWithType.vb: DisposableEntropyMonitor.Dispose(Boolean)
+- uid: wan24.Crypto.DisposableEntropyMonitor.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_Dispose_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.Dispose
+  nameWithType: DisposableEntropyMonitor.Dispose
+- uid: wan24.Crypto.DisposableEntropyMonitor.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_DisposeCore
+  commentId: M:wan24.Crypto.DisposableEntropyMonitor.DisposeCore
+  fullName: wan24.Crypto.DisposableEntropyMonitor.DisposeCore()
+  nameWithType: DisposableEntropyMonitor.DisposeCore()
+- uid: wan24.Crypto.DisposableEntropyMonitor.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_DisposeCore_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.DisposeCore
+  nameWithType: DisposableEntropyMonitor.DisposeCore
+- uid: wan24.Crypto.DisposableEntropyMonitor.FillBytes(System.Span{System.Byte}@)
+  name: FillBytes(in Span<byte>)
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_FillBytes_System_Span_System_Byte___
+  commentId: M:wan24.Crypto.DisposableEntropyMonitor.FillBytes(System.Span{System.Byte}@)
+  name.vb: FillBytes(Span(Of Byte))
+  fullName: wan24.Crypto.DisposableEntropyMonitor.FillBytes(in System.Span<byte>)
+  fullName.vb: wan24.Crypto.DisposableEntropyMonitor.FillBytes(System.Span(Of Byte))
+  nameWithType: DisposableEntropyMonitor.FillBytes(in Span<byte>)
+  nameWithType.vb: DisposableEntropyMonitor.FillBytes(Span(Of Byte))
+- uid: wan24.Crypto.DisposableEntropyMonitor.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_FillBytes_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.FillBytes
+  nameWithType: DisposableEntropyMonitor.FillBytes
+- uid: wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name: FillBytesAsync(Memory<byte>, CancellationToken)
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_FillBytesAsync_System_Memory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync(System.Memory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync(System.Memory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: DisposableEntropyMonitor.FillBytesAsync(Memory<byte>, CancellationToken)
+  nameWithType.vb: DisposableEntropyMonitor.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.FillBytesAsync
+  nameWithType: DisposableEntropyMonitor.FillBytesAsync
+- uid: wan24.Crypto.DisposableEntropyMonitor.MaxRetries
+  name: MaxRetries
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_MaxRetries
+  commentId: P:wan24.Crypto.DisposableEntropyMonitor.MaxRetries
+  fullName: wan24.Crypto.DisposableEntropyMonitor.MaxRetries
+  nameWithType: DisposableEntropyMonitor.MaxRetries
+- uid: wan24.Crypto.DisposableEntropyMonitor.MaxRetries*
+  name: MaxRetries
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_MaxRetries_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.MaxRetries
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.MaxRetries
+  nameWithType: DisposableEntropyMonitor.MaxRetries
+- uid: wan24.Crypto.DisposableEntropyMonitor.MinRndLength
+  name: MinRndLength
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_MinRndLength
+  commentId: P:wan24.Crypto.DisposableEntropyMonitor.MinRndLength
+  fullName: wan24.Crypto.DisposableEntropyMonitor.MinRndLength
+  nameWithType: DisposableEntropyMonitor.MinRndLength
+- uid: wan24.Crypto.DisposableEntropyMonitor.MinRndLength*
+  name: MinRndLength
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_MinRndLength_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.MinRndLength
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.MinRndLength
+  nameWithType: DisposableEntropyMonitor.MinRndLength
+- uid: wan24.Crypto.DisposableEntropyMonitor.RNG
+  name: RNG
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_RNG
+  commentId: P:wan24.Crypto.DisposableEntropyMonitor.RNG
+  fullName: wan24.Crypto.DisposableEntropyMonitor.RNG
+  nameWithType: DisposableEntropyMonitor.RNG
+- uid: wan24.Crypto.DisposableEntropyMonitor.RNG*
+  name: RNG
+  href: api/wan24.Crypto.DisposableEntropyMonitor.html#wan24_Crypto_DisposableEntropyMonitor_RNG_
+  commentId: Overload:wan24.Crypto.DisposableEntropyMonitor.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.DisposableEntropyMonitor.RNG
+  nameWithType: DisposableEntropyMonitor.RNG
 - uid: wan24.Crypto.DisposableRngBase
   name: DisposableRngBase
   href: api/wan24.Crypto.DisposableRngBase.html
@@ -16150,6 +16842,44 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.KeySize
   nameWithType: EncryptionAes256CbcAlgorithm.KeySize
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.MAX_CIPHER_DATA_LENGTH
+  name: MAX_CIPHER_DATA_LENGTH
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_MAX_CIPHER_DATA_LENGTH
+  commentId: F:wan24.Crypto.EncryptionAes256CbcAlgorithm.MAX_CIPHER_DATA_LENGTH
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.MAX_CIPHER_DATA_LENGTH
+  nameWithType: EncryptionAes256CbcAlgorithm.MAX_CIPHER_DATA_LENGTH
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.MAX_KEY_USAGE_COUNT
+  name: MAX_KEY_USAGE_COUNT
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_MAX_KEY_USAGE_COUNT
+  commentId: F:wan24.Crypto.EncryptionAes256CbcAlgorithm.MAX_KEY_USAGE_COUNT
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.MAX_KEY_USAGE_COUNT
+  nameWithType: EncryptionAes256CbcAlgorithm.MAX_KEY_USAGE_COUNT
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_MaxCipherDataLength
+  commentId: P:wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+  nameWithType: EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxCipherDataLength*
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_MaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+  nameWithType: EncryptionAes256CbcAlgorithm.MaxCipherDataLength
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
+  nameWithType: EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
+- uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
+  nameWithType: EncryptionAes256CbcAlgorithm.MaxKeyUsageCount
 - uid: wan24.Crypto.EncryptionAes256CbcAlgorithm.PROFILE_AES256CBC_RAW
   name: PROFILE_AES256CBC_RAW
   href: api/wan24.Crypto.EncryptionAes256CbcAlgorithm.html#wan24_Crypto_EncryptionAes256CbcAlgorithm_PROFILE_AES256CBC_RAW
@@ -16618,6 +17348,32 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptionAlgorithmBase.KeySize
   nameWithType: EncryptionAlgorithmBase.KeySize
+- uid: wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_MaxCipherDataLength
+  commentId: P:wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength
+  fullName: wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength
+  nameWithType: EncryptionAlgorithmBase.MaxCipherDataLength
+- uid: wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength*
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_MaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionAlgorithmBase.MaxCipherDataLength
+  nameWithType: EncryptionAlgorithmBase.MaxCipherDataLength
+- uid: wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount
+  fullName: wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount
+  nameWithType: EncryptionAlgorithmBase.MaxKeyUsageCount
+- uid: wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionAlgorithmBase.MaxKeyUsageCount
+  nameWithType: EncryptionAlgorithmBase.MaxKeyUsageCount
 - uid: wan24.Crypto.EncryptionAlgorithmBase.ReadFixedIvBytes(System.IO.Stream,wan24.Crypto.CryptoOptions)
   name: ReadFixedIvBytes(Stream, CryptoOptions)
   href: api/wan24.Crypto.EncryptionAlgorithmBase.html#wan24_Crypto_EncryptionAlgorithmBase_ReadFixedIvBytes_System_IO_Stream_wan24_Crypto_CryptoOptions_
@@ -17828,6 +18584,32 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EncryptionVoidAlgorithm.KeySize
   nameWithType: EncryptionVoidAlgorithm.KeySize
+- uid: wan24.Crypto.EncryptionVoidAlgorithm.MaxCipherDataLength
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.EncryptionVoidAlgorithm.html#wan24_Crypto_EncryptionVoidAlgorithm_MaxCipherDataLength
+  commentId: P:wan24.Crypto.EncryptionVoidAlgorithm.MaxCipherDataLength
+  fullName: wan24.Crypto.EncryptionVoidAlgorithm.MaxCipherDataLength
+  nameWithType: EncryptionVoidAlgorithm.MaxCipherDataLength
+- uid: wan24.Crypto.EncryptionVoidAlgorithm.MaxCipherDataLength*
+  name: MaxCipherDataLength
+  href: api/wan24.Crypto.EncryptionVoidAlgorithm.html#wan24_Crypto_EncryptionVoidAlgorithm_MaxCipherDataLength_
+  commentId: Overload:wan24.Crypto.EncryptionVoidAlgorithm.MaxCipherDataLength
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionVoidAlgorithm.MaxCipherDataLength
+  nameWithType: EncryptionVoidAlgorithm.MaxCipherDataLength
+- uid: wan24.Crypto.EncryptionVoidAlgorithm.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.EncryptionVoidAlgorithm.html#wan24_Crypto_EncryptionVoidAlgorithm_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.EncryptionVoidAlgorithm.MaxKeyUsageCount
+  fullName: wan24.Crypto.EncryptionVoidAlgorithm.MaxKeyUsageCount
+  nameWithType: EncryptionVoidAlgorithm.MaxKeyUsageCount
+- uid: wan24.Crypto.EncryptionVoidAlgorithm.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.EncryptionVoidAlgorithm.html#wan24_Crypto_EncryptionVoidAlgorithm_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.EncryptionVoidAlgorithm.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.EncryptionVoidAlgorithm.MaxKeyUsageCount
+  nameWithType: EncryptionVoidAlgorithm.MaxKeyUsageCount
 - uid: wan24.Crypto.EncryptionVoidAlgorithm.RequireMacAuthentication
   name: RequireMacAuthentication
   href: api/wan24.Crypto.EncryptionVoidAlgorithm.html#wan24_Crypto_EncryptionVoidAlgorithm_RequireMacAuthentication
@@ -17865,12 +18647,36 @@ references:
   commentId: F:wan24.Crypto.EntropyHelper.Algorithms.Custom
   fullName: wan24.Crypto.EntropyHelper.Algorithms.Custom
   nameWithType: EntropyHelper.Algorithms.Custom
+- uid: wan24.Crypto.EntropyHelper.Algorithms.Kolmogorov
+  name: Kolmogorov
+  href: api/wan24.Crypto.EntropyHelper.Algorithms.html#wan24_Crypto_EntropyHelper_Algorithms_Kolmogorov
+  commentId: F:wan24.Crypto.EntropyHelper.Algorithms.Kolmogorov
+  fullName: wan24.Crypto.EntropyHelper.Algorithms.Kolmogorov
+  nameWithType: EntropyHelper.Algorithms.Kolmogorov
+- uid: wan24.Crypto.EntropyHelper.Algorithms.Min
+  name: Min
+  href: api/wan24.Crypto.EntropyHelper.Algorithms.html#wan24_Crypto_EntropyHelper_Algorithms_Min
+  commentId: F:wan24.Crypto.EntropyHelper.Algorithms.Min
+  fullName: wan24.Crypto.EntropyHelper.Algorithms.Min
+  nameWithType: EntropyHelper.Algorithms.Min
 - uid: wan24.Crypto.EntropyHelper.Algorithms.None
   name: None
   href: api/wan24.Crypto.EntropyHelper.Algorithms.html#wan24_Crypto_EntropyHelper_Algorithms_None
   commentId: F:wan24.Crypto.EntropyHelper.Algorithms.None
   fullName: wan24.Crypto.EntropyHelper.Algorithms.None
   nameWithType: EntropyHelper.Algorithms.None
+- uid: wan24.Crypto.EntropyHelper.Algorithms.Permutation
+  name: Permutation
+  href: api/wan24.Crypto.EntropyHelper.Algorithms.html#wan24_Crypto_EntropyHelper_Algorithms_Permutation
+  commentId: F:wan24.Crypto.EntropyHelper.Algorithms.Permutation
+  fullName: wan24.Crypto.EntropyHelper.Algorithms.Permutation
+  nameWithType: EntropyHelper.Algorithms.Permutation
+- uid: wan24.Crypto.EntropyHelper.Algorithms.Renyi
+  name: Renyi
+  href: api/wan24.Crypto.EntropyHelper.Algorithms.html#wan24_Crypto_EntropyHelper_Algorithms_Renyi
+  commentId: F:wan24.Crypto.EntropyHelper.Algorithms.Renyi
+  fullName: wan24.Crypto.EntropyHelper.Algorithms.Renyi
+  nameWithType: EntropyHelper.Algorithms.Renyi
 - uid: wan24.Crypto.EntropyHelper.Algorithms.ShannonBit
   name: ShannonBit
   href: api/wan24.Crypto.EntropyHelper.Algorithms.html#wan24_Crypto_EntropyHelper_Algorithms_ShannonBit
@@ -17954,12 +18760,44 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EntropyHelper.DefaultAlgorithms
   nameWithType: EntropyHelper.DefaultAlgorithms
+- uid: wan24.Crypto.EntropyHelper.EnsureValidByteCounters(wan24.Core.OrderedDictionary{System.Byte,System.Int32}@)
+  name: EnsureValidByteCounters(in OrderedDictionary<byte, int>)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_EnsureValidByteCounters_wan24_Core_OrderedDictionary_System_Byte_System_Int32___
+  commentId: M:wan24.Crypto.EntropyHelper.EnsureValidByteCounters(wan24.Core.OrderedDictionary{System.Byte,System.Int32}@)
+  name.vb: EnsureValidByteCounters(OrderedDictionary(Of Byte, Integer))
+  fullName: wan24.Crypto.EntropyHelper.EnsureValidByteCounters(in wan24.Core.OrderedDictionary<byte, int>)
+  fullName.vb: wan24.Crypto.EntropyHelper.EnsureValidByteCounters(wan24.Core.OrderedDictionary(Of Byte, Integer))
+  nameWithType: EntropyHelper.EnsureValidByteCounters(in OrderedDictionary<byte, int>)
+  nameWithType.vb: EntropyHelper.EnsureValidByteCounters(OrderedDictionary(Of Byte, Integer))
+- uid: wan24.Crypto.EntropyHelper.EnsureValidByteCounters*
+  name: EnsureValidByteCounters
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_EnsureValidByteCounters_
+  commentId: Overload:wan24.Crypto.EntropyHelper.EnsureValidByteCounters
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.EnsureValidByteCounters
+  nameWithType: EntropyHelper.EnsureValidByteCounters
 - uid: wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate
   name: EntropyHelper.EntropyAlgorithm_Delegate
   href: api/wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate.html
   commentId: T:wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate
   fullName: wan24.Crypto.EntropyHelper.EntropyAlgorithm_Delegate
   nameWithType: EntropyHelper.EntropyAlgorithm_Delegate
+- uid: wan24.Crypto.EntropyHelper.GetByteCounters(System.ReadOnlySpan{System.Byte}@)
+  name: GetByteCounters(in ReadOnlySpan<byte>)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_GetByteCounters_System_ReadOnlySpan_System_Byte___
+  commentId: M:wan24.Crypto.EntropyHelper.GetByteCounters(System.ReadOnlySpan{System.Byte}@)
+  name.vb: GetByteCounters(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.EntropyHelper.GetByteCounters(in System.ReadOnlySpan<byte>)
+  fullName.vb: wan24.Crypto.EntropyHelper.GetByteCounters(System.ReadOnlySpan(Of Byte))
+  nameWithType: EntropyHelper.GetByteCounters(in ReadOnlySpan<byte>)
+  nameWithType.vb: EntropyHelper.GetByteCounters(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.EntropyHelper.GetByteCounters*
+  name: GetByteCounters
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_GetByteCounters_
+  commentId: Overload:wan24.Crypto.EntropyHelper.GetByteCounters
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.GetByteCounters
+  nameWithType: EntropyHelper.GetByteCounters
 - uid: wan24.Crypto.EntropyHelper.GetEntropy(System.Byte[],System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)
   name: GetEntropy(byte[], in Algorithms?)
   href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_GetEntropy_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___
@@ -18021,6 +18859,22 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EntropyHelper.GetEntropy
   nameWithType: EntropyHelper.GetEntropy
+- uid: wan24.Crypto.EntropyHelper.KolmogorovComplexity(System.ReadOnlySpan{System.Byte}@)
+  name: KolmogorovComplexity(in ReadOnlySpan<byte>)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_KolmogorovComplexity_System_ReadOnlySpan_System_Byte___
+  commentId: M:wan24.Crypto.EntropyHelper.KolmogorovComplexity(System.ReadOnlySpan{System.Byte}@)
+  name.vb: KolmogorovComplexity(ReadOnlySpan(Of Byte))
+  fullName: wan24.Crypto.EntropyHelper.KolmogorovComplexity(in System.ReadOnlySpan<byte>)
+  fullName.vb: wan24.Crypto.EntropyHelper.KolmogorovComplexity(System.ReadOnlySpan(Of Byte))
+  nameWithType: EntropyHelper.KolmogorovComplexity(in ReadOnlySpan<byte>)
+  nameWithType.vb: EntropyHelper.KolmogorovComplexity(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.EntropyHelper.KolmogorovComplexity*
+  name: KolmogorovComplexity
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_KolmogorovComplexity_
+  commentId: Overload:wan24.Crypto.EntropyHelper.KolmogorovComplexity
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.KolmogorovComplexity
+  nameWithType: EntropyHelper.KolmogorovComplexity
 - uid: wan24.Crypto.EntropyHelper.MinCustomEntropy
   name: MinCustomEntropy
   href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinCustomEntropy
@@ -18034,6 +18888,74 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EntropyHelper.MinCustomEntropy
   nameWithType: EntropyHelper.MinCustomEntropy
+- uid: wan24.Crypto.EntropyHelper.MinEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name: MinEntropy(in ReadOnlySpan<byte>, OrderedDictionary<byte, int>?)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__
+  commentId: M:wan24.Crypto.EntropyHelper.MinEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name.vb: MinEntropy(ReadOnlySpan(Of Byte), OrderedDictionary(Of Byte, Integer))
+  fullName: wan24.Crypto.EntropyHelper.MinEntropy(in System.ReadOnlySpan<byte>, wan24.Core.OrderedDictionary<byte, int>?)
+  fullName.vb: wan24.Crypto.EntropyHelper.MinEntropy(System.ReadOnlySpan(Of Byte), wan24.Core.OrderedDictionary(Of Byte, Integer))
+  nameWithType: EntropyHelper.MinEntropy(in ReadOnlySpan<byte>, OrderedDictionary<byte, int>?)
+  nameWithType.vb: EntropyHelper.MinEntropy(ReadOnlySpan(Of Byte), OrderedDictionary(Of Byte, Integer))
+- uid: wan24.Crypto.EntropyHelper.MinEntropy*
+  name: MinEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinEntropy_
+  commentId: Overload:wan24.Crypto.EntropyHelper.MinEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.MinEntropy
+  nameWithType: EntropyHelper.MinEntropy
+- uid: wan24.Crypto.EntropyHelper.MinKolmogorovComplexity
+  name: MinKolmogorovComplexity
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinKolmogorovComplexity
+  commentId: P:wan24.Crypto.EntropyHelper.MinKolmogorovComplexity
+  fullName: wan24.Crypto.EntropyHelper.MinKolmogorovComplexity
+  nameWithType: EntropyHelper.MinKolmogorovComplexity
+- uid: wan24.Crypto.EntropyHelper.MinKolmogorovComplexity*
+  name: MinKolmogorovComplexity
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinKolmogorovComplexity_
+  commentId: Overload:wan24.Crypto.EntropyHelper.MinKolmogorovComplexity
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.MinKolmogorovComplexity
+  nameWithType: EntropyHelper.MinKolmogorovComplexity
+- uid: wan24.Crypto.EntropyHelper.MinMinEntropy
+  name: MinMinEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinMinEntropy
+  commentId: P:wan24.Crypto.EntropyHelper.MinMinEntropy
+  fullName: wan24.Crypto.EntropyHelper.MinMinEntropy
+  nameWithType: EntropyHelper.MinMinEntropy
+- uid: wan24.Crypto.EntropyHelper.MinMinEntropy*
+  name: MinMinEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinMinEntropy_
+  commentId: Overload:wan24.Crypto.EntropyHelper.MinMinEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.MinMinEntropy
+  nameWithType: EntropyHelper.MinMinEntropy
+- uid: wan24.Crypto.EntropyHelper.MinPermutationEntropy
+  name: MinPermutationEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinPermutationEntropy
+  commentId: P:wan24.Crypto.EntropyHelper.MinPermutationEntropy
+  fullName: wan24.Crypto.EntropyHelper.MinPermutationEntropy
+  nameWithType: EntropyHelper.MinPermutationEntropy
+- uid: wan24.Crypto.EntropyHelper.MinPermutationEntropy*
+  name: MinPermutationEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinPermutationEntropy_
+  commentId: Overload:wan24.Crypto.EntropyHelper.MinPermutationEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.MinPermutationEntropy
+  nameWithType: EntropyHelper.MinPermutationEntropy
+- uid: wan24.Crypto.EntropyHelper.MinRenyiEntropy
+  name: MinRenyiEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinRenyiEntropy
+  commentId: P:wan24.Crypto.EntropyHelper.MinRenyiEntropy
+  fullName: wan24.Crypto.EntropyHelper.MinRenyiEntropy
+  nameWithType: EntropyHelper.MinRenyiEntropy
+- uid: wan24.Crypto.EntropyHelper.MinRenyiEntropy*
+  name: MinRenyiEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinRenyiEntropy_
+  commentId: Overload:wan24.Crypto.EntropyHelper.MinRenyiEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.MinRenyiEntropy
+  nameWithType: EntropyHelper.MinRenyiEntropy
 - uid: wan24.Crypto.EntropyHelper.MinShannonBitEntropy
   name: MinShannonBitEntropy
   href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinShannonBitEntropy
@@ -18060,15 +18982,73 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EntropyHelper.MinShannonByteEntropy
   nameWithType: EntropyHelper.MinShannonByteEntropy
-- uid: wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan{System.Byte}@)
-  name: ShannonBitEntropy(in ReadOnlySpan<byte>)
-  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_ShannonBitEntropy_System_ReadOnlySpan_System_Byte___
-  commentId: M:wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan{System.Byte}@)
-  name.vb: ShannonBitEntropy(ReadOnlySpan(Of Byte))
-  fullName: wan24.Crypto.EntropyHelper.ShannonBitEntropy(in System.ReadOnlySpan<byte>)
-  fullName.vb: wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan(Of Byte))
-  nameWithType: EntropyHelper.ShannonBitEntropy(in ReadOnlySpan<byte>)
-  nameWithType.vb: EntropyHelper.ShannonBitEntropy(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.EntropyHelper.PermutationEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{System.Int32}@)
+  name: PermutationEntropy(in ReadOnlySpan<byte>, in int?)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_PermutationEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_System_Int32___
+  commentId: M:wan24.Crypto.EntropyHelper.PermutationEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{System.Int32}@)
+  name.vb: PermutationEntropy(ReadOnlySpan(Of Byte), Integer?)
+  fullName: wan24.Crypto.EntropyHelper.PermutationEntropy(in System.ReadOnlySpan<byte>, in int?)
+  fullName.vb: wan24.Crypto.EntropyHelper.PermutationEntropy(System.ReadOnlySpan(Of Byte), Integer?)
+  nameWithType: EntropyHelper.PermutationEntropy(in ReadOnlySpan<byte>, in int?)
+  nameWithType.vb: EntropyHelper.PermutationEntropy(ReadOnlySpan(Of Byte), Integer?)
+- uid: wan24.Crypto.EntropyHelper.PermutationEntropy*
+  name: PermutationEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_PermutationEntropy_
+  commentId: Overload:wan24.Crypto.EntropyHelper.PermutationEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.PermutationEntropy
+  nameWithType: EntropyHelper.PermutationEntropy
+- uid: wan24.Crypto.EntropyHelper.PermutationWindowSize
+  name: PermutationWindowSize
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_PermutationWindowSize
+  commentId: P:wan24.Crypto.EntropyHelper.PermutationWindowSize
+  fullName: wan24.Crypto.EntropyHelper.PermutationWindowSize
+  nameWithType: EntropyHelper.PermutationWindowSize
+- uid: wan24.Crypto.EntropyHelper.PermutationWindowSize*
+  name: PermutationWindowSize
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_PermutationWindowSize_
+  commentId: Overload:wan24.Crypto.EntropyHelper.PermutationWindowSize
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.PermutationWindowSize
+  nameWithType: EntropyHelper.PermutationWindowSize
+- uid: wan24.Crypto.EntropyHelper.RenyiEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{System.Double}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name: RenyiEntropy(in ReadOnlySpan<byte>, in double?, OrderedDictionary<byte, int>?)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_RenyiEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_System_Double___wan24_Core_OrderedDictionary_System_Byte_System_Int32__
+  commentId: M:wan24.Crypto.EntropyHelper.RenyiEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{System.Double}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name.vb: RenyiEntropy(ReadOnlySpan(Of Byte), Double?, OrderedDictionary(Of Byte, Integer))
+  fullName: wan24.Crypto.EntropyHelper.RenyiEntropy(in System.ReadOnlySpan<byte>, in double?, wan24.Core.OrderedDictionary<byte, int>?)
+  fullName.vb: wan24.Crypto.EntropyHelper.RenyiEntropy(System.ReadOnlySpan(Of Byte), Double?, wan24.Core.OrderedDictionary(Of Byte, Integer))
+  nameWithType: EntropyHelper.RenyiEntropy(in ReadOnlySpan<byte>, in double?, OrderedDictionary<byte, int>?)
+  nameWithType.vb: EntropyHelper.RenyiEntropy(ReadOnlySpan(Of Byte), Double?, OrderedDictionary(Of Byte, Integer))
+- uid: wan24.Crypto.EntropyHelper.RenyiEntropy*
+  name: RenyiEntropy
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_RenyiEntropy_
+  commentId: Overload:wan24.Crypto.EntropyHelper.RenyiEntropy
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.RenyiEntropy
+  nameWithType: EntropyHelper.RenyiEntropy
+- uid: wan24.Crypto.EntropyHelper.RenyiEntropyAlpha
+  name: RenyiEntropyAlpha
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_RenyiEntropyAlpha
+  commentId: P:wan24.Crypto.EntropyHelper.RenyiEntropyAlpha
+  fullName: wan24.Crypto.EntropyHelper.RenyiEntropyAlpha
+  nameWithType: EntropyHelper.RenyiEntropyAlpha
+- uid: wan24.Crypto.EntropyHelper.RenyiEntropyAlpha*
+  name: RenyiEntropyAlpha
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_RenyiEntropyAlpha_
+  commentId: Overload:wan24.Crypto.EntropyHelper.RenyiEntropyAlpha
+  isSpec: "True"
+  fullName: wan24.Crypto.EntropyHelper.RenyiEntropyAlpha
+  nameWithType: EntropyHelper.RenyiEntropyAlpha
+- uid: wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name: ShannonBitEntropy(in ReadOnlySpan<byte>, OrderedDictionary<byte, int>?)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_ShannonBitEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__
+  commentId: M:wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name.vb: ShannonBitEntropy(ReadOnlySpan(Of Byte), OrderedDictionary(Of Byte, Integer))
+  fullName: wan24.Crypto.EntropyHelper.ShannonBitEntropy(in System.ReadOnlySpan<byte>, wan24.Core.OrderedDictionary<byte, int>?)
+  fullName.vb: wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan(Of Byte), wan24.Core.OrderedDictionary(Of Byte, Integer))
+  nameWithType: EntropyHelper.ShannonBitEntropy(in ReadOnlySpan<byte>, OrderedDictionary<byte, int>?)
+  nameWithType.vb: EntropyHelper.ShannonBitEntropy(ReadOnlySpan(Of Byte), OrderedDictionary(Of Byte, Integer))
 - uid: wan24.Crypto.EntropyHelper.ShannonBitEntropy*
   name: ShannonBitEntropy
   href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_ShannonBitEntropy_
@@ -18076,15 +19056,15 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EntropyHelper.ShannonBitEntropy
   nameWithType: EntropyHelper.ShannonBitEntropy
-- uid: wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan{System.Byte}@)
-  name: ShannonByteEntropy(in ReadOnlySpan<byte>)
-  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_ShannonByteEntropy_System_ReadOnlySpan_System_Byte___
-  commentId: M:wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan{System.Byte}@)
-  name.vb: ShannonByteEntropy(ReadOnlySpan(Of Byte))
-  fullName: wan24.Crypto.EntropyHelper.ShannonByteEntropy(in System.ReadOnlySpan<byte>)
-  fullName.vb: wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan(Of Byte))
-  nameWithType: EntropyHelper.ShannonByteEntropy(in ReadOnlySpan<byte>)
-  nameWithType.vb: EntropyHelper.ShannonByteEntropy(ReadOnlySpan(Of Byte))
+- uid: wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name: ShannonByteEntropy(in ReadOnlySpan<byte>, OrderedDictionary<byte, int>?)
+  href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_ShannonByteEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__
+  commentId: M:wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})
+  name.vb: ShannonByteEntropy(ReadOnlySpan(Of Byte), OrderedDictionary(Of Byte, Integer))
+  fullName: wan24.Crypto.EntropyHelper.ShannonByteEntropy(in System.ReadOnlySpan<byte>, wan24.Core.OrderedDictionary<byte, int>?)
+  fullName.vb: wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan(Of Byte), wan24.Core.OrderedDictionary(Of Byte, Integer))
+  nameWithType: EntropyHelper.ShannonByteEntropy(in ReadOnlySpan<byte>, OrderedDictionary<byte, int>?)
+  nameWithType.vb: EntropyHelper.ShannonByteEntropy(ReadOnlySpan(Of Byte), OrderedDictionary(Of Byte, Integer))
 - uid: wan24.Crypto.EntropyHelper.ShannonByteEntropy*
   name: ShannonByteEntropy
   href: api/wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_ShannonByteEntropy_
@@ -18175,19 +19155,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.EntropyMonitor.MaxRetries
   nameWithType: EntropyMonitor.MaxRetries
-- uid: wan24.Crypto.EntropyMonitor.MinRndlength
-  name: MinRndlength
-  href: api/wan24.Crypto.EntropyMonitor.html#wan24_Crypto_EntropyMonitor_MinRndlength
-  commentId: P:wan24.Crypto.EntropyMonitor.MinRndlength
-  fullName: wan24.Crypto.EntropyMonitor.MinRndlength
-  nameWithType: EntropyMonitor.MinRndlength
-- uid: wan24.Crypto.EntropyMonitor.MinRndlength*
-  name: MinRndlength
-  href: api/wan24.Crypto.EntropyMonitor.html#wan24_Crypto_EntropyMonitor_MinRndlength_
-  commentId: Overload:wan24.Crypto.EntropyMonitor.MinRndlength
+- uid: wan24.Crypto.EntropyMonitor.MinRndLength
+  name: MinRndLength
+  href: api/wan24.Crypto.EntropyMonitor.html#wan24_Crypto_EntropyMonitor_MinRndLength
+  commentId: P:wan24.Crypto.EntropyMonitor.MinRndLength
+  fullName: wan24.Crypto.EntropyMonitor.MinRndLength
+  nameWithType: EntropyMonitor.MinRndLength
+- uid: wan24.Crypto.EntropyMonitor.MinRndLength*
+  name: MinRndLength
+  href: api/wan24.Crypto.EntropyMonitor.html#wan24_Crypto_EntropyMonitor_MinRndLength_
+  commentId: Overload:wan24.Crypto.EntropyMonitor.MinRndLength
   isSpec: "True"
-  fullName: wan24.Crypto.EntropyMonitor.MinRndlength
-  nameWithType: EntropyMonitor.MinRndlength
+  fullName: wan24.Crypto.EntropyMonitor.MinRndLength
+  nameWithType: EntropyMonitor.MinRndLength
 - uid: wan24.Crypto.EntropyMonitor.RNG
   name: RNG
   href: api/wan24.Crypto.EntropyMonitor.html#wan24_Crypto_EntropyMonitor_RNG
@@ -21537,6 +22517,25 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.IKeyExchangePrivateKey.GetKeyExchangeData
   nameWithType: IKeyExchangePrivateKey.GetKeyExchangeData
+- uid: wan24.Crypto.ILimitKeyUsageCount
+  name: ILimitKeyUsageCount
+  href: api/wan24.Crypto.ILimitKeyUsageCount.html
+  commentId: T:wan24.Crypto.ILimitKeyUsageCount
+  fullName: wan24.Crypto.ILimitKeyUsageCount
+  nameWithType: ILimitKeyUsageCount
+- uid: wan24.Crypto.ILimitKeyUsageCount.MaxKeyUsageCount
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.ILimitKeyUsageCount.html#wan24_Crypto_ILimitKeyUsageCount_MaxKeyUsageCount
+  commentId: P:wan24.Crypto.ILimitKeyUsageCount.MaxKeyUsageCount
+  fullName: wan24.Crypto.ILimitKeyUsageCount.MaxKeyUsageCount
+  nameWithType: ILimitKeyUsageCount.MaxKeyUsageCount
+- uid: wan24.Crypto.ILimitKeyUsageCount.MaxKeyUsageCount*
+  name: MaxKeyUsageCount
+  href: api/wan24.Crypto.ILimitKeyUsageCount.html#wan24_Crypto_ILimitKeyUsageCount_MaxKeyUsageCount_
+  commentId: Overload:wan24.Crypto.ILimitKeyUsageCount.MaxKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.ILimitKeyUsageCount.MaxKeyUsageCount
+  nameWithType: ILimitKeyUsageCount.MaxKeyUsageCount
 - uid: wan24.Crypto.IPakeHttpRequestFactory
   name: IPakeHttpRequestFactory
   href: api/wan24.Crypto.IPakeHttpRequestFactory.html
@@ -22038,6 +23037,75 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.ISymmetricKeySuite.Identifier
   nameWithType: ISymmetricKeySuite.Identifier
+- uid: wan24.Crypto.IvHelper
+  name: IvHelper
+  href: api/wan24.Crypto.IvHelper.html
+  commentId: T:wan24.Crypto.IvHelper
+  fullName: wan24.Crypto.IvHelper
+  nameWithType: IvHelper
+- uid: wan24.Crypto.IvHelper.CreateUniqueIv(System.Int32@)
+  name: CreateUniqueIv(in int)
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_CreateUniqueIv_System_Int32__
+  commentId: M:wan24.Crypto.IvHelper.CreateUniqueIv(System.Int32@)
+  name.vb: CreateUniqueIv(Integer)
+  fullName: wan24.Crypto.IvHelper.CreateUniqueIv(in int)
+  fullName.vb: wan24.Crypto.IvHelper.CreateUniqueIv(Integer)
+  nameWithType: IvHelper.CreateUniqueIv(in int)
+  nameWithType.vb: IvHelper.CreateUniqueIv(Integer)
+- uid: wan24.Crypto.IvHelper.CreateUniqueIv(System.Span{System.Byte}@)
+  name: CreateUniqueIv(in Span<byte>)
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_CreateUniqueIv_System_Span_System_Byte___
+  commentId: M:wan24.Crypto.IvHelper.CreateUniqueIv(System.Span{System.Byte}@)
+  name.vb: CreateUniqueIv(Span(Of Byte))
+  fullName: wan24.Crypto.IvHelper.CreateUniqueIv(in System.Span<byte>)
+  fullName.vb: wan24.Crypto.IvHelper.CreateUniqueIv(System.Span(Of Byte))
+  nameWithType: IvHelper.CreateUniqueIv(in Span<byte>)
+  nameWithType.vb: IvHelper.CreateUniqueIv(Span(Of Byte))
+- uid: wan24.Crypto.IvHelper.CreateUniqueIv*
+  name: CreateUniqueIv
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_CreateUniqueIv_
+  commentId: Overload:wan24.Crypto.IvHelper.CreateUniqueIv
+  isSpec: "True"
+  fullName: wan24.Crypto.IvHelper.CreateUniqueIv
+  nameWithType: IvHelper.CreateUniqueIv
+- uid: wan24.Crypto.IvHelper.CreateUniqueIvAsync(System.Int32,System.Threading.CancellationToken)
+  name: CreateUniqueIvAsync(int, CancellationToken)
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_CreateUniqueIvAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.IvHelper.CreateUniqueIvAsync(System.Int32,System.Threading.CancellationToken)
+  name.vb: CreateUniqueIvAsync(Integer, CancellationToken)
+  fullName: wan24.Crypto.IvHelper.CreateUniqueIvAsync(int, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.IvHelper.CreateUniqueIvAsync(Integer, System.Threading.CancellationToken)
+  nameWithType: IvHelper.CreateUniqueIvAsync(int, CancellationToken)
+  nameWithType.vb: IvHelper.CreateUniqueIvAsync(Integer, CancellationToken)
+- uid: wan24.Crypto.IvHelper.CreateUniqueIvAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name: CreateUniqueIvAsync(Memory<byte>, CancellationToken)
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_CreateUniqueIvAsync_System_Memory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.IvHelper.CreateUniqueIvAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name.vb: CreateUniqueIvAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.IvHelper.CreateUniqueIvAsync(System.Memory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.IvHelper.CreateUniqueIvAsync(System.Memory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: IvHelper.CreateUniqueIvAsync(Memory<byte>, CancellationToken)
+  nameWithType.vb: IvHelper.CreateUniqueIvAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.IvHelper.CreateUniqueIvAsync*
+  name: CreateUniqueIvAsync
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_CreateUniqueIvAsync_
+  commentId: Overload:wan24.Crypto.IvHelper.CreateUniqueIvAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.IvHelper.CreateUniqueIvAsync
+  nameWithType: IvHelper.CreateUniqueIvAsync
+- uid: wan24.Crypto.IvHelper.RNG
+  name: RNG
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_RNG
+  commentId: P:wan24.Crypto.IvHelper.RNG
+  fullName: wan24.Crypto.IvHelper.RNG
+  nameWithType: IvHelper.RNG
+- uid: wan24.Crypto.IvHelper.RNG*
+  name: RNG
+  href: api/wan24.Crypto.IvHelper.html#wan24_Crypto_IvHelper_RNG_
+  commentId: Overload:wan24.Crypto.IvHelper.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.IvHelper.RNG
+  nameWithType: IvHelper.RNG
 - uid: wan24.Crypto.JsonObjectWrapper
   name: JsonObjectWrapper
   href: api/wan24.Crypto.JsonObjectWrapper.html
@@ -23350,6 +24418,75 @@ references:
   fullName.vb: wan24.Crypto.KeyExchangeDataContainer.CType
   nameWithType: KeyExchangeDataContainer.implicit operator
   nameWithType.vb: KeyExchangeDataContainer.CType
+- uid: wan24.Crypto.KeyHelper
+  name: KeyHelper
+  href: api/wan24.Crypto.KeyHelper.html
+  commentId: T:wan24.Crypto.KeyHelper
+  fullName: wan24.Crypto.KeyHelper
+  nameWithType: KeyHelper
+- uid: wan24.Crypto.KeyHelper.CreateUniqueKey(System.Int32@)
+  name: CreateUniqueKey(in int)
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_CreateUniqueKey_System_Int32__
+  commentId: M:wan24.Crypto.KeyHelper.CreateUniqueKey(System.Int32@)
+  name.vb: CreateUniqueKey(Integer)
+  fullName: wan24.Crypto.KeyHelper.CreateUniqueKey(in int)
+  fullName.vb: wan24.Crypto.KeyHelper.CreateUniqueKey(Integer)
+  nameWithType: KeyHelper.CreateUniqueKey(in int)
+  nameWithType.vb: KeyHelper.CreateUniqueKey(Integer)
+- uid: wan24.Crypto.KeyHelper.CreateUniqueKey(System.Span{System.Byte}@)
+  name: CreateUniqueKey(in Span<byte>)
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_CreateUniqueKey_System_Span_System_Byte___
+  commentId: M:wan24.Crypto.KeyHelper.CreateUniqueKey(System.Span{System.Byte}@)
+  name.vb: CreateUniqueKey(Span(Of Byte))
+  fullName: wan24.Crypto.KeyHelper.CreateUniqueKey(in System.Span<byte>)
+  fullName.vb: wan24.Crypto.KeyHelper.CreateUniqueKey(System.Span(Of Byte))
+  nameWithType: KeyHelper.CreateUniqueKey(in Span<byte>)
+  nameWithType.vb: KeyHelper.CreateUniqueKey(Span(Of Byte))
+- uid: wan24.Crypto.KeyHelper.CreateUniqueKey*
+  name: CreateUniqueKey
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_CreateUniqueKey_
+  commentId: Overload:wan24.Crypto.KeyHelper.CreateUniqueKey
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyHelper.CreateUniqueKey
+  nameWithType: KeyHelper.CreateUniqueKey
+- uid: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(System.Int32,System.Threading.CancellationToken)
+  name: CreateUniqueKeyAsync(int, CancellationToken)
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_CreateUniqueKeyAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(System.Int32,System.Threading.CancellationToken)
+  name.vb: CreateUniqueKeyAsync(Integer, CancellationToken)
+  fullName: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(int, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(Integer, System.Threading.CancellationToken)
+  nameWithType: KeyHelper.CreateUniqueKeyAsync(int, CancellationToken)
+  nameWithType.vb: KeyHelper.CreateUniqueKeyAsync(Integer, CancellationToken)
+- uid: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name: CreateUniqueKeyAsync(Memory<byte>, CancellationToken)
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_CreateUniqueKeyAsync_System_Memory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name.vb: CreateUniqueKeyAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(System.Memory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync(System.Memory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: KeyHelper.CreateUniqueKeyAsync(Memory<byte>, CancellationToken)
+  nameWithType.vb: KeyHelper.CreateUniqueKeyAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync*
+  name: CreateUniqueKeyAsync
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_CreateUniqueKeyAsync_
+  commentId: Overload:wan24.Crypto.KeyHelper.CreateUniqueKeyAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyHelper.CreateUniqueKeyAsync
+  nameWithType: KeyHelper.CreateUniqueKeyAsync
+- uid: wan24.Crypto.KeyHelper.RNG
+  name: RNG
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_RNG
+  commentId: P:wan24.Crypto.KeyHelper.RNG
+  fullName: wan24.Crypto.KeyHelper.RNG
+  nameWithType: KeyHelper.RNG
+- uid: wan24.Crypto.KeyHelper.RNG*
+  name: RNG
+  href: api/wan24.Crypto.KeyHelper.html#wan24_Crypto_KeyHelper_RNG_
+  commentId: Overload:wan24.Crypto.KeyHelper.RNG
+  isSpec: "True"
+  fullName: wan24.Crypto.KeyHelper.RNG
+  nameWithType: KeyHelper.RNG
 - uid: wan24.Crypto.KeyRing
   name: KeyRing
   href: api/wan24.Crypto.KeyRing.html
@@ -24863,6 +26000,49 @@ references:
   commentId: F:wan24.Crypto.KeyTypes.Symmetric
   fullName: wan24.Crypto.KeyTypes.Symmetric
   nameWithType: KeyTypes.Symmetric
+- uid: wan24.Crypto.KeyUsageExceededException
+  name: KeyUsageExceededException
+  href: api/wan24.Crypto.KeyUsageExceededException.html
+  commentId: T:wan24.Crypto.KeyUsageExceededException
+  fullName: wan24.Crypto.KeyUsageExceededException
+  nameWithType: KeyUsageExceededException
+- uid: wan24.Crypto.KeyUsageExceededException.#ctor
+  name: KeyUsageExceededException()
+  href: api/wan24.Crypto.KeyUsageExceededException.html#wan24_Crypto_KeyUsageExceededException__ctor
+  commentId: M:wan24.Crypto.KeyUsageExceededException.#ctor
+  name.vb: New()
+  fullName: wan24.Crypto.KeyUsageExceededException.KeyUsageExceededException()
+  fullName.vb: wan24.Crypto.KeyUsageExceededException.New()
+  nameWithType: KeyUsageExceededException.KeyUsageExceededException()
+  nameWithType.vb: KeyUsageExceededException.New()
+- uid: wan24.Crypto.KeyUsageExceededException.#ctor(System.String)
+  name: KeyUsageExceededException(string?)
+  href: api/wan24.Crypto.KeyUsageExceededException.html#wan24_Crypto_KeyUsageExceededException__ctor_System_String_
+  commentId: M:wan24.Crypto.KeyUsageExceededException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: wan24.Crypto.KeyUsageExceededException.KeyUsageExceededException(string?)
+  fullName.vb: wan24.Crypto.KeyUsageExceededException.New(String)
+  nameWithType: KeyUsageExceededException.KeyUsageExceededException(string?)
+  nameWithType.vb: KeyUsageExceededException.New(String)
+- uid: wan24.Crypto.KeyUsageExceededException.#ctor(System.String,System.Exception)
+  name: KeyUsageExceededException(string?, Exception?)
+  href: api/wan24.Crypto.KeyUsageExceededException.html#wan24_Crypto_KeyUsageExceededException__ctor_System_String_System_Exception_
+  commentId: M:wan24.Crypto.KeyUsageExceededException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: wan24.Crypto.KeyUsageExceededException.KeyUsageExceededException(string?, System.Exception?)
+  fullName.vb: wan24.Crypto.KeyUsageExceededException.New(String, System.Exception)
+  nameWithType: KeyUsageExceededException.KeyUsageExceededException(string?, Exception?)
+  nameWithType.vb: KeyUsageExceededException.New(String, Exception)
+- uid: wan24.Crypto.KeyUsageExceededException.#ctor*
+  name: KeyUsageExceededException
+  href: api/wan24.Crypto.KeyUsageExceededException.html#wan24_Crypto_KeyUsageExceededException__ctor_
+  commentId: Overload:wan24.Crypto.KeyUsageExceededException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.KeyUsageExceededException.KeyUsageExceededException
+  fullName.vb: wan24.Crypto.KeyUsageExceededException.New
+  nameWithType: KeyUsageExceededException.KeyUsageExceededException
+  nameWithType.vb: KeyUsageExceededException.New
 - uid: wan24.Crypto.MacAlgorithmBase
   name: MacAlgorithmBase
   href: api/wan24.Crypto.MacAlgorithmBase.html
@@ -26737,6 +27917,260 @@ references:
   fullName.vb: wan24.Crypto.ObjectEncryption.HasDek(Of T)(T)
   nameWithType: ObjectEncryption.HasDek<T>(T)
   nameWithType.vb: ObjectEncryption.HasDek(Of T)(T)
+- uid: wan24.Crypto.OtpStream
+  name: OtpStream
+  href: api/wan24.Crypto.OtpStream.html
+  commentId: T:wan24.Crypto.OtpStream
+  fullName: wan24.Crypto.OtpStream
+  nameWithType: OtpStream
+- uid: wan24.Crypto.OtpStream.#ctor(System.IO.Stream@,System.Boolean@)
+  name: OtpStream(in Stream, in bool)
+  href: api/wan24.Crypto.OtpStream.html#wan24_Crypto_OtpStream__ctor_System_IO_Stream__System_Boolean__
+  commentId: M:wan24.Crypto.OtpStream.#ctor(System.IO.Stream@,System.Boolean@)
+  name.vb: New(Stream, Boolean)
+  fullName: wan24.Crypto.OtpStream.OtpStream(in System.IO.Stream, in bool)
+  fullName.vb: wan24.Crypto.OtpStream.New(System.IO.Stream, Boolean)
+  nameWithType: OtpStream.OtpStream(in Stream, in bool)
+  nameWithType.vb: OtpStream.New(Stream, Boolean)
+- uid: wan24.Crypto.OtpStream.#ctor*
+  name: OtpStream
+  href: api/wan24.Crypto.OtpStream.html#wan24_Crypto_OtpStream__ctor_
+  commentId: Overload:wan24.Crypto.OtpStream.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.OtpStream.OtpStream
+  fullName.vb: wan24.Crypto.OtpStream.New
+  nameWithType: OtpStream.OtpStream
+  nameWithType.vb: OtpStream.New
+- uid: wan24.Crypto.OtpStream`1
+  name: OtpStream<T>
+  href: api/wan24.Crypto.OtpStream-1.html
+  commentId: T:wan24.Crypto.OtpStream`1
+  name.vb: OtpStream(Of T)
+  fullName: wan24.Crypto.OtpStream<T>
+  fullName.vb: wan24.Crypto.OtpStream(Of T)
+  nameWithType: OtpStream<T>
+  nameWithType.vb: OtpStream(Of T)
+- uid: wan24.Crypto.OtpStream`1.#ctor(`0@,System.Boolean@)
+  name: OtpStream(in T, in bool)
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1__ctor__0__System_Boolean__
+  commentId: M:wan24.Crypto.OtpStream`1.#ctor(`0@,System.Boolean@)
+  name.vb: New(T, Boolean)
+  fullName: wan24.Crypto.OtpStream<T>.OtpStream(in T, in bool)
+  fullName.vb: wan24.Crypto.OtpStream(Of T).New(T, Boolean)
+  nameWithType: OtpStream<T>.OtpStream(in T, in bool)
+  nameWithType.vb: OtpStream(Of T).New(T, Boolean)
+- uid: wan24.Crypto.OtpStream`1.#ctor*
+  name: OtpStream
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1__ctor_
+  commentId: Overload:wan24.Crypto.OtpStream`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.OtpStream<T>.OtpStream
+  fullName.vb: wan24.Crypto.OtpStream(Of T).New
+  nameWithType: OtpStream<T>.OtpStream
+  nameWithType.vb: OtpStream(Of T).New
+- uid: wan24.Crypto.OtpStream`1.Context
+  name: OtpStream<T>.Context
+  href: api/wan24.Crypto.OtpStream-1.Context.html
+  commentId: T:wan24.Crypto.OtpStream`1.Context
+  name.vb: OtpStream(Of T).Context
+  fullName: wan24.Crypto.OtpStream<T>.Context
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context
+  nameWithType: OtpStream<T>.Context
+  nameWithType.vb: OtpStream(Of T).Context
+- uid: wan24.Crypto.OtpStream`1.Context.#ctor(wan24.Crypto.OtpStream{`0}@,System.Int64@,wan24.Core.SemaphoreSyncContext@)
+  name: Context(in OtpStream<T>, in long, in SemaphoreSyncContext)
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context__ctor_wan24_Crypto_OtpStream__0___System_Int64__wan24_Core_SemaphoreSyncContext__
+  commentId: M:wan24.Crypto.OtpStream`1.Context.#ctor(wan24.Crypto.OtpStream{`0}@,System.Int64@,wan24.Core.SemaphoreSyncContext@)
+  name.vb: New(OtpStream(Of T), Long, SemaphoreSyncContext)
+  fullName: wan24.Crypto.OtpStream<T>.Context.Context(in wan24.Crypto.OtpStream<T>, in long, in wan24.Core.SemaphoreSyncContext)
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.New(wan24.Crypto.OtpStream(Of T), Long, wan24.Core.SemaphoreSyncContext)
+  nameWithType: OtpStream<T>.Context.Context(in OtpStream<T>, in long, in SemaphoreSyncContext)
+  nameWithType.vb: OtpStream(Of T).Context.New(OtpStream(Of T), Long, SemaphoreSyncContext)
+- uid: wan24.Crypto.OtpStream`1.Context.#ctor*
+  name: Context
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context__ctor_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Context.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.OtpStream<T>.Context.Context
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.New
+  nameWithType: OtpStream<T>.Context.Context
+  nameWithType.vb: OtpStream(Of T).Context.New
+- uid: wan24.Crypto.OtpStream`1.Context.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.OtpStream`1.Context.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.OtpStream<T>.Context.Dispose(bool)
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Dispose(Boolean)
+  nameWithType: OtpStream<T>.Context.Dispose(bool)
+  nameWithType.vb: OtpStream(Of T).Context.Dispose(Boolean)
+- uid: wan24.Crypto.OtpStream`1.Context.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Dispose_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Context.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.Context.Dispose
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Dispose
+  nameWithType: OtpStream<T>.Context.Dispose
+  nameWithType.vb: OtpStream(Of T).Context.Dispose
+- uid: wan24.Crypto.OtpStream`1.Context.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_DisposeCore
+  commentId: M:wan24.Crypto.OtpStream`1.Context.DisposeCore
+  fullName: wan24.Crypto.OtpStream<T>.Context.DisposeCore()
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.DisposeCore()
+  nameWithType: OtpStream<T>.Context.DisposeCore()
+  nameWithType.vb: OtpStream(Of T).Context.DisposeCore()
+- uid: wan24.Crypto.OtpStream`1.Context.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_DisposeCore_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Context.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.Context.DisposeCore
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.DisposeCore
+  nameWithType: OtpStream<T>.Context.DisposeCore
+  nameWithType.vb: OtpStream(Of T).Context.DisposeCore
+- uid: wan24.Crypto.OtpStream`1.Context.Offset
+  name: Offset
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Offset
+  commentId: P:wan24.Crypto.OtpStream`1.Context.Offset
+  fullName: wan24.Crypto.OtpStream<T>.Context.Offset
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Offset
+  nameWithType: OtpStream<T>.Context.Offset
+  nameWithType.vb: OtpStream(Of T).Context.Offset
+- uid: wan24.Crypto.OtpStream`1.Context.Offset*
+  name: Offset
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Offset_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Context.Offset
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.Context.Offset
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Offset
+  nameWithType: OtpStream<T>.Context.Offset
+  nameWithType.vb: OtpStream(Of T).Context.Offset
+- uid: wan24.Crypto.OtpStream`1.Context.Stream
+  name: Stream
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Stream
+  commentId: P:wan24.Crypto.OtpStream`1.Context.Stream
+  fullName: wan24.Crypto.OtpStream<T>.Context.Stream
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Stream
+  nameWithType: OtpStream<T>.Context.Stream
+  nameWithType.vb: OtpStream(Of T).Context.Stream
+- uid: wan24.Crypto.OtpStream`1.Context.Stream*
+  name: Stream
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Stream_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Context.Stream
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.Context.Stream
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Stream
+  nameWithType: OtpStream<T>.Context.Stream
+  nameWithType.vb: OtpStream(Of T).Context.Stream
+- uid: wan24.Crypto.OtpStream`1.Context.SyncContext
+  name: SyncContext
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_SyncContext
+  commentId: F:wan24.Crypto.OtpStream`1.Context.SyncContext
+  fullName: wan24.Crypto.OtpStream<T>.Context.SyncContext
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.SyncContext
+  nameWithType: OtpStream<T>.Context.SyncContext
+  nameWithType.vb: OtpStream(Of T).Context.SyncContext
+- uid: wan24.Crypto.OtpStream`1.Context.Synchronize
+  name: Synchronize
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Synchronize
+  commentId: P:wan24.Crypto.OtpStream`1.Context.Synchronize
+  fullName: wan24.Crypto.OtpStream<T>.Context.Synchronize
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Synchronize
+  nameWithType: OtpStream<T>.Context.Synchronize
+  nameWithType.vb: OtpStream(Of T).Context.Synchronize
+- uid: wan24.Crypto.OtpStream`1.Context.Synchronize*
+  name: Synchronize
+  href: api/wan24.Crypto.OtpStream-1.Context.html#wan24_Crypto_OtpStream_1_Context_Synchronize_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Context.Synchronize
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.Context.Synchronize
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Context.Synchronize
+  nameWithType: OtpStream<T>.Context.Synchronize
+  nameWithType.vb: OtpStream(Of T).Context.Synchronize
+- uid: wan24.Crypto.OtpStream`1.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.OtpStream`1.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.OtpStream<T>.Dispose(bool)
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Dispose(Boolean)
+  nameWithType: OtpStream<T>.Dispose(bool)
+  nameWithType.vb: OtpStream(Of T).Dispose(Boolean)
+- uid: wan24.Crypto.OtpStream`1.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_Dispose_
+  commentId: Overload:wan24.Crypto.OtpStream`1.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.Dispose
+  fullName.vb: wan24.Crypto.OtpStream(Of T).Dispose
+  nameWithType: OtpStream<T>.Dispose
+  nameWithType.vb: OtpStream(Of T).Dispose
+- uid: wan24.Crypto.OtpStream`1.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_DisposeCore
+  commentId: M:wan24.Crypto.OtpStream`1.DisposeCore
+  fullName: wan24.Crypto.OtpStream<T>.DisposeCore()
+  fullName.vb: wan24.Crypto.OtpStream(Of T).DisposeCore()
+  nameWithType: OtpStream<T>.DisposeCore()
+  nameWithType.vb: OtpStream(Of T).DisposeCore()
+- uid: wan24.Crypto.OtpStream`1.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_DisposeCore_
+  commentId: Overload:wan24.Crypto.OtpStream`1.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.DisposeCore
+  fullName.vb: wan24.Crypto.OtpStream(Of T).DisposeCore
+  nameWithType: OtpStream<T>.DisposeCore
+  nameWithType.vb: OtpStream(Of T).DisposeCore
+- uid: wan24.Crypto.OtpStream`1.ReadOtpSequence(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name: ReadOtpSequence(Memory<byte>, CancellationToken)
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_ReadOtpSequence_System_Memory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.OtpStream`1.ReadOtpSequence(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name.vb: ReadOtpSequence(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.OtpStream<T>.ReadOtpSequence(System.Memory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.OtpStream(Of T).ReadOtpSequence(System.Memory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: OtpStream<T>.ReadOtpSequence(Memory<byte>, CancellationToken)
+  nameWithType.vb: OtpStream(Of T).ReadOtpSequence(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.OtpStream`1.ReadOtpSequence*
+  name: ReadOtpSequence
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_ReadOtpSequence_
+  commentId: Overload:wan24.Crypto.OtpStream`1.ReadOtpSequence
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.ReadOtpSequence
+  fullName.vb: wan24.Crypto.OtpStream(Of T).ReadOtpSequence
+  nameWithType: OtpStream<T>.ReadOtpSequence
+  nameWithType.vb: OtpStream(Of T).ReadOtpSequence
+- uid: wan24.Crypto.OtpStream`1.SequenceSync
+  name: SequenceSync
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_SequenceSync
+  commentId: F:wan24.Crypto.OtpStream`1.SequenceSync
+  fullName: wan24.Crypto.OtpStream<T>.SequenceSync
+  fullName.vb: wan24.Crypto.OtpStream(Of T).SequenceSync
+  nameWithType: OtpStream<T>.SequenceSync
+  nameWithType.vb: OtpStream(Of T).SequenceSync
+- uid: wan24.Crypto.OtpStream`1.SynchronizeOtpSequenceOffsetAsync(System.Int64,System.Threading.CancellationToken)
+  name: SynchronizeOtpSequenceOffsetAsync(long, CancellationToken)
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_SynchronizeOtpSequenceOffsetAsync_System_Int64_System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.OtpStream`1.SynchronizeOtpSequenceOffsetAsync(System.Int64,System.Threading.CancellationToken)
+  name.vb: SynchronizeOtpSequenceOffsetAsync(Long, CancellationToken)
+  fullName: wan24.Crypto.OtpStream<T>.SynchronizeOtpSequenceOffsetAsync(long, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.OtpStream(Of T).SynchronizeOtpSequenceOffsetAsync(Long, System.Threading.CancellationToken)
+  nameWithType: OtpStream<T>.SynchronizeOtpSequenceOffsetAsync(long, CancellationToken)
+  nameWithType.vb: OtpStream(Of T).SynchronizeOtpSequenceOffsetAsync(Long, CancellationToken)
+- uid: wan24.Crypto.OtpStream`1.SynchronizeOtpSequenceOffsetAsync*
+  name: SynchronizeOtpSequenceOffsetAsync
+  href: api/wan24.Crypto.OtpStream-1.html#wan24_Crypto_OtpStream_1_SynchronizeOtpSequenceOffsetAsync_
+  commentId: Overload:wan24.Crypto.OtpStream`1.SynchronizeOtpSequenceOffsetAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.OtpStream<T>.SynchronizeOtpSequenceOffsetAsync
+  fullName.vb: wan24.Crypto.OtpStream(Of T).SynchronizeOtpSequenceOffsetAsync
+  nameWithType: OtpStream<T>.SynchronizeOtpSequenceOffsetAsync
+  nameWithType.vb: OtpStream(Of T).SynchronizeOtpSequenceOffsetAsync
 - uid: wan24.Crypto.Pake
   name: Pake
   href: api/wan24.Crypto.Pake.html
@@ -29285,15 +30719,15 @@ references:
   commentId: T:wan24.Crypto.PasswordHelper
   fullName: wan24.Crypto.PasswordHelper
   nameWithType: PasswordHelper
-- uid: wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlySpan{System.Char}@,wan24.Crypto.PasswordOptions@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@,System.Nullable{System.Boolean}@,System.String@,System.String@,System.String@,System.String@)
-  name: CheckPassword(in ReadOnlySpan<char>, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
-  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_CheckPassword_System_ReadOnlySpan_System_Char___wan24_Crypto_PasswordOptions__System_Nullable_System_Int32___System_Nullable_System_Int32___System_Nullable_System_Boolean___System_String__System_String__System_String__System_String__
-  commentId: M:wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlySpan{System.Char}@,wan24.Crypto.PasswordOptions@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@,System.Nullable{System.Boolean}@,System.String@,System.String@,System.String@,System.String@)
-  name.vb: CheckPassword(ReadOnlySpan(Of Char), PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
-  fullName: wan24.Crypto.PasswordHelper.CheckPassword(in System.ReadOnlySpan<char>, in wan24.Crypto.PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
-  fullName.vb: wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlySpan(Of Char), wan24.Crypto.PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
-  nameWithType: PasswordHelper.CheckPassword(in ReadOnlySpan<char>, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
-  nameWithType.vb: PasswordHelper.CheckPassword(ReadOnlySpan(Of Char), PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
+- uid: wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlyMemory{System.Char}@,wan24.Crypto.PasswordOptions@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@,System.Nullable{System.Boolean}@,System.String@,System.String@,System.String@,System.String@)
+  name: CheckPassword(in ReadOnlyMemory<char>, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_CheckPassword_System_ReadOnlyMemory_System_Char___wan24_Crypto_PasswordOptions__System_Nullable_System_Int32___System_Nullable_System_Int32___System_Nullable_System_Boolean___System_String__System_String__System_String__System_String__
+  commentId: M:wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlyMemory{System.Char}@,wan24.Crypto.PasswordOptions@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@,System.Nullable{System.Boolean}@,System.String@,System.String@,System.String@,System.String@)
+  name.vb: CheckPassword(ReadOnlyMemory(Of Char), PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
+  fullName: wan24.Crypto.PasswordHelper.CheckPassword(in System.ReadOnlyMemory<char>, in wan24.Crypto.PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
+  fullName.vb: wan24.Crypto.PasswordHelper.CheckPassword(System.ReadOnlyMemory(Of Char), wan24.Crypto.PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
+  nameWithType: PasswordHelper.CheckPassword(in ReadOnlyMemory<char>, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)
+  nameWithType.vb: PasswordHelper.CheckPassword(ReadOnlyMemory(Of Char), PasswordOptions, Integer?, Integer?, Boolean?, String, String, String, String)
 - uid: wan24.Crypto.PasswordHelper.CheckPassword*
   name: CheckPassword
   href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_CheckPassword_
@@ -29433,6 +30867,12 @@ references:
   commentId: F:wan24.Crypto.PasswordHelper.NUMERIC
   fullName: wan24.Crypto.PasswordHelper.NUMERIC
   nameWithType: PasswordHelper.NUMERIC
+- uid: wan24.Crypto.PasswordHelper.OnValidation
+  name: OnValidation
+  href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_OnValidation
+  commentId: E:wan24.Crypto.PasswordHelper.OnValidation
+  fullName: wan24.Crypto.PasswordHelper.OnValidation
+  nameWithType: PasswordHelper.OnValidation
 - uid: wan24.Crypto.PasswordHelper.SPECIAL
   name: SPECIAL
   href: api/wan24.Crypto.PasswordHelper.html#wan24_Crypto_PasswordHelper_SPECIAL
@@ -29445,6 +30885,148 @@ references:
   commentId: F:wan24.Crypto.PasswordHelper.UPPER
   fullName: wan24.Crypto.PasswordHelper.UPPER
   nameWithType: PasswordHelper.UPPER
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs
+  name: PasswordHelper.ValidationEventArgs
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html
+  commentId: T:wan24.Crypto.PasswordHelper.ValidationEventArgs
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs
+  nameWithType: PasswordHelper.ValidationEventArgs
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Entropy
+  name: Entropy
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Entropy
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.Entropy
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Entropy
+  nameWithType: PasswordHelper.ValidationEventArgs.Entropy
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Entropy*
+  name: Entropy
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Entropy_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.Entropy
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Entropy
+  nameWithType: PasswordHelper.ValidationEventArgs.Entropy
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.LowerCase
+  name: LowerCase
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_LowerCase
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.LowerCase
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.LowerCase
+  nameWithType: PasswordHelper.ValidationEventArgs.LowerCase
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.LowerCase*
+  name: LowerCase
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_LowerCase_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.LowerCase
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.LowerCase
+  nameWithType: PasswordHelper.ValidationEventArgs.LowerCase
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.MaxLength
+  name: MaxLength
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_MaxLength
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.MaxLength
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.MaxLength
+  nameWithType: PasswordHelper.ValidationEventArgs.MaxLength
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.MaxLength*
+  name: MaxLength
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_MaxLength_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.MaxLength
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.MaxLength
+  nameWithType: PasswordHelper.ValidationEventArgs.MaxLength
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.MinLength
+  name: MinLength
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_MinLength
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.MinLength
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.MinLength
+  nameWithType: PasswordHelper.ValidationEventArgs.MinLength
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.MinLength*
+  name: MinLength
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_MinLength_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.MinLength
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.MinLength
+  nameWithType: PasswordHelper.ValidationEventArgs.MinLength
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Numeric
+  name: Numeric
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Numeric
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.Numeric
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Numeric
+  nameWithType: PasswordHelper.ValidationEventArgs.Numeric
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Numeric*
+  name: Numeric
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Numeric_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.Numeric
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Numeric
+  nameWithType: PasswordHelper.ValidationEventArgs.Numeric
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Password
+  name: Password
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Password
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.Password
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Password
+  nameWithType: PasswordHelper.ValidationEventArgs.Password
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Password*
+  name: Password
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Password_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.Password
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Password
+  nameWithType: PasswordHelper.ValidationEventArgs.Password
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Requirements
+  name: Requirements
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Requirements
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.Requirements
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Requirements
+  nameWithType: PasswordHelper.ValidationEventArgs.Requirements
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Requirements*
+  name: Requirements
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Requirements_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.Requirements
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Requirements
+  nameWithType: PasswordHelper.ValidationEventArgs.Requirements
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Result
+  name: Result
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Result
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.Result
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Result
+  nameWithType: PasswordHelper.ValidationEventArgs.Result
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Result*
+  name: Result
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Result_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.Result
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Result
+  nameWithType: PasswordHelper.ValidationEventArgs.Result
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Special
+  name: Special
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Special
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.Special
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Special
+  nameWithType: PasswordHelper.ValidationEventArgs.Special
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.Special*
+  name: Special
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_Special_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.Special
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.Special
+  nameWithType: PasswordHelper.ValidationEventArgs.Special
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.UpperCase
+  name: UpperCase
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_UpperCase
+  commentId: P:wan24.Crypto.PasswordHelper.ValidationEventArgs.UpperCase
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.UpperCase
+  nameWithType: PasswordHelper.ValidationEventArgs.UpperCase
+- uid: wan24.Crypto.PasswordHelper.ValidationEventArgs.UpperCase*
+  name: UpperCase
+  href: api/wan24.Crypto.PasswordHelper.ValidationEventArgs.html#wan24_Crypto_PasswordHelper_ValidationEventArgs_UpperCase_
+  commentId: Overload:wan24.Crypto.PasswordHelper.ValidationEventArgs.UpperCase
+  isSpec: "True"
+  fullName: wan24.Crypto.PasswordHelper.ValidationEventArgs.UpperCase
+  nameWithType: PasswordHelper.ValidationEventArgs.UpperCase
+- uid: wan24.Crypto.PasswordHelper.Validation_Delegate
+  name: PasswordHelper.Validation_Delegate
+  href: api/wan24.Crypto.PasswordHelper.Validation_Delegate.html
+  commentId: T:wan24.Crypto.PasswordHelper.Validation_Delegate
+  fullName: wan24.Crypto.PasswordHelper.Validation_Delegate
+  nameWithType: PasswordHelper.Validation_Delegate
 - uid: wan24.Crypto.PasswordOptions
   name: PasswordOptions
   href: api/wan24.Crypto.PasswordOptions.html
@@ -29665,6 +31247,90 @@ references:
   fullName.vb: wan24.Crypto.PrivateKeySuite.New
   nameWithType: PrivateKeySuite.PrivateKeySuite
   nameWithType.vb: PrivateKeySuite.New
+- uid: wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage(wan24.Crypto.IAsymmetricPrivateKey@)
+  name: CountAsymmetricKeyUsage(in IAsymmetricPrivateKey)
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountAsymmetricKeyUsage_wan24_Crypto_IAsymmetricPrivateKey__
+  commentId: M:wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage(wan24.Crypto.IAsymmetricPrivateKey@)
+  name.vb: CountAsymmetricKeyUsage(IAsymmetricPrivateKey)
+  fullName: wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage(in wan24.Crypto.IAsymmetricPrivateKey)
+  fullName.vb: wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage(wan24.Crypto.IAsymmetricPrivateKey)
+  nameWithType: PrivateKeySuite.CountAsymmetricKeyUsage(in IAsymmetricPrivateKey)
+  nameWithType.vb: PrivateKeySuite.CountAsymmetricKeyUsage(IAsymmetricPrivateKey)
+- uid: wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage*
+  name: CountAsymmetricKeyUsage
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountAsymmetricKeyUsage_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage
+  nameWithType: PrivateKeySuite.CountAsymmetricKeyUsage
+- uid: wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage
+  name: CountCounterKeyExchangeKeyUsage()
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountCounterKeyExchangeKeyUsage
+  commentId: M:wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage
+  fullName: wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage()
+  nameWithType: PrivateKeySuite.CountCounterKeyExchangeKeyUsage()
+- uid: wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage*
+  name: CountCounterKeyExchangeKeyUsage
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountCounterKeyExchangeKeyUsage_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage
+  nameWithType: PrivateKeySuite.CountCounterKeyExchangeKeyUsage
+- uid: wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage
+  name: CountCounterSignatureKeyUsage()
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountCounterSignatureKeyUsage
+  commentId: M:wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage
+  fullName: wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage()
+  nameWithType: PrivateKeySuite.CountCounterSignatureKeyUsage()
+- uid: wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage*
+  name: CountCounterSignatureKeyUsage
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountCounterSignatureKeyUsage_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage
+  nameWithType: PrivateKeySuite.CountCounterSignatureKeyUsage
+- uid: wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage
+  name: CountKeyExchangeKeyUsage()
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountKeyExchangeKeyUsage
+  commentId: M:wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage
+  fullName: wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage()
+  nameWithType: PrivateKeySuite.CountKeyExchangeKeyUsage()
+- uid: wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage*
+  name: CountKeyExchangeKeyUsage
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountKeyExchangeKeyUsage_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage
+  nameWithType: PrivateKeySuite.CountKeyExchangeKeyUsage
+- uid: wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage
+  name: CountSignatureKeyUsage()
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountSignatureKeyUsage
+  commentId: M:wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage
+  fullName: wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage()
+  nameWithType: PrivateKeySuite.CountSignatureKeyUsage()
+- uid: wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage*
+  name: CountSignatureKeyUsage
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountSignatureKeyUsage_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage
+  nameWithType: PrivateKeySuite.CountSignatureKeyUsage
+- uid: wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage(wan24.Crypto.ILimitKeyUsageCount@)
+  name: CountSymmetricKeyUsage(in ILimitKeyUsageCount?)
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountSymmetricKeyUsage_wan24_Crypto_ILimitKeyUsageCount__
+  commentId: M:wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage(wan24.Crypto.ILimitKeyUsageCount@)
+  name.vb: CountSymmetricKeyUsage(ILimitKeyUsageCount)
+  fullName: wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage(in wan24.Crypto.ILimitKeyUsageCount?)
+  fullName.vb: wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage(wan24.Crypto.ILimitKeyUsageCount)
+  nameWithType: PrivateKeySuite.CountSymmetricKeyUsage(in ILimitKeyUsageCount?)
+  nameWithType.vb: PrivateKeySuite.CountSymmetricKeyUsage(ILimitKeyUsageCount)
+- uid: wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage*
+  name: CountSymmetricKeyUsage
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CountSymmetricKeyUsage_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage
+  nameWithType: PrivateKeySuite.CountSymmetricKeyUsage
 - uid: wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKey
   name: CounterKeyExchangeKey
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKey
@@ -29678,6 +31344,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKey
   nameWithType: PrivateKeySuite.CounterKeyExchangeKey
+- uid: wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount
+  name: CounterKeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.CounterKeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount*
+  name: CounterKeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.CounterKeyExchangeKeyUsageCount
 - uid: wan24.Crypto.PrivateKeySuite.CounterSignatureKey
   name: CounterSignatureKey
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CounterSignatureKey
@@ -29691,6 +31370,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PrivateKeySuite.CounterSignatureKey
   nameWithType: PrivateKeySuite.CounterSignatureKey
+- uid: wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount
+  name: CounterSignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CounterSignatureKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.CounterSignatureKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount*
+  name: CounterSignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_CounterSignatureKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.CounterSignatureKeyUsageCount
 - uid: wan24.Crypto.PrivateKeySuite.Create
   name: Create()
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_Create
@@ -29878,6 +31570,84 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PrivateKeySuite.KeyExchangeKey
   nameWithType: PrivateKeySuite.KeyExchangeKey
+- uid: wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount
+  name: KeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_KeyExchangeKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.KeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount*
+  name: KeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_KeyExchangeKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.KeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+  name: MaxCounterKeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxCounterKeyExchangeKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount*
+  name: MaxCounterKeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxCounterKeyExchangeKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+  name: MaxCounterSignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxCounterSignatureKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount*
+  name: MaxCounterSignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxCounterSignatureKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxCounterSignatureKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+  name: MaxKeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxKeyExchangeKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount*
+  name: MaxKeyExchangeKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxKeyExchangeKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxKeyExchangeKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount
+  name: MaxSignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxSignatureKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxSignatureKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount*
+  name: MaxSignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxSignatureKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxSignatureKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount
+  name: MaxSymmetricKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxSymmetricKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxSymmetricKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount*
+  name: MaxSymmetricKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_MaxSymmetricKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount
+  nameWithType: PrivateKeySuite.MaxSymmetricKeyUsageCount
 - uid: wan24.Crypto.PrivateKeySuite.Public
   name: Public
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_Public
@@ -29930,6 +31700,19 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PrivateKeySuite.SignatureKey
   nameWithType: PrivateKeySuite.SignatureKey
+- uid: wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount
+  name: SignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_SignatureKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.SignatureKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount*
+  name: SignatureKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_SignatureKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount
+  nameWithType: PrivateKeySuite.SignatureKeyUsageCount
 - uid: wan24.Crypto.PrivateKeySuite.SignedPublicCounterKey
   name: SignedPublicCounterKey
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_SignedPublicCounterKey
@@ -29969,12 +31752,38 @@ references:
   isSpec: "True"
   fullName: wan24.Crypto.PrivateKeySuite.SymmetricKey
   nameWithType: PrivateKeySuite.SymmetricKey
+- uid: wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount
+  name: SymmetricKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_SymmetricKeyUsageCount
+  commentId: P:wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount
+  fullName: wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount
+  nameWithType: PrivateKeySuite.SymmetricKeyUsageCount
+- uid: wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount*
+  name: SymmetricKeyUsageCount
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_SymmetricKeyUsageCount_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount
+  nameWithType: PrivateKeySuite.SymmetricKeyUsageCount
 - uid: wan24.Crypto.PrivateKeySuite.VERSION
   name: VERSION
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_VERSION
   commentId: F:wan24.Crypto.PrivateKeySuite.VERSION
   fullName: wan24.Crypto.PrivateKeySuite.VERSION
   nameWithType: PrivateKeySuite.VERSION
+- uid: wan24.Crypto.PrivateKeySuite.WasUsed
+  name: WasUsed
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_WasUsed
+  commentId: P:wan24.Crypto.PrivateKeySuite.WasUsed
+  fullName: wan24.Crypto.PrivateKeySuite.WasUsed
+  nameWithType: PrivateKeySuite.WasUsed
+- uid: wan24.Crypto.PrivateKeySuite.WasUsed*
+  name: WasUsed
+  href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_WasUsed_
+  commentId: Overload:wan24.Crypto.PrivateKeySuite.WasUsed
+  isSpec: "True"
+  fullName: wan24.Crypto.PrivateKeySuite.WasUsed
+  nameWithType: PrivateKeySuite.WasUsed
 - uid: wan24.Crypto.PrivateKeySuite.op_Explicit(System.Byte[])~wan24.Crypto.PrivateKeySuite
   name: explicit operator PrivateKeySuite(byte[])
   href: api/wan24.Crypto.PrivateKeySuite.html#wan24_Crypto_PrivateKeySuite_op_Explicit_System_Byte____wan24_Crypto_PrivateKeySuite
@@ -36169,6 +37978,105 @@ references:
   commentId: F:wan24.Crypto.SignedPkiStore._RootKeys
   fullName: wan24.Crypto.SignedPkiStore._RootKeys
   nameWithType: SignedPkiStore._RootKeys
+- uid: wan24.Crypto.StreamRandomSource
+  name: StreamRandomSource
+  href: api/wan24.Crypto.StreamRandomSource.html
+  commentId: T:wan24.Crypto.StreamRandomSource
+  fullName: wan24.Crypto.StreamRandomSource
+  nameWithType: StreamRandomSource
+- uid: wan24.Crypto.StreamRandomSource.#ctor(System.IO.Stream@,System.Nullable{System.Int32}@)
+  name: StreamRandomSource(in Stream, in int?)
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource__ctor_System_IO_Stream__System_Nullable_System_Int32___
+  commentId: M:wan24.Crypto.StreamRandomSource.#ctor(System.IO.Stream@,System.Nullable{System.Int32}@)
+  name.vb: New(Stream, Integer?)
+  fullName: wan24.Crypto.StreamRandomSource.StreamRandomSource(in System.IO.Stream, in int?)
+  fullName.vb: wan24.Crypto.StreamRandomSource.New(System.IO.Stream, Integer?)
+  nameWithType: StreamRandomSource.StreamRandomSource(in Stream, in int?)
+  nameWithType.vb: StreamRandomSource.New(Stream, Integer?)
+- uid: wan24.Crypto.StreamRandomSource.#ctor*
+  name: StreamRandomSource
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource__ctor_
+  commentId: Overload:wan24.Crypto.StreamRandomSource.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: wan24.Crypto.StreamRandomSource.StreamRandomSource
+  fullName.vb: wan24.Crypto.StreamRandomSource.New
+  nameWithType: StreamRandomSource.StreamRandomSource
+  nameWithType.vb: StreamRandomSource.New
+- uid: wan24.Crypto.StreamRandomSource.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_Dispose_System_Boolean_
+  commentId: M:wan24.Crypto.StreamRandomSource.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: wan24.Crypto.StreamRandomSource.Dispose(bool)
+  fullName.vb: wan24.Crypto.StreamRandomSource.Dispose(Boolean)
+  nameWithType: StreamRandomSource.Dispose(bool)
+  nameWithType.vb: StreamRandomSource.Dispose(Boolean)
+- uid: wan24.Crypto.StreamRandomSource.Dispose*
+  name: Dispose
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_Dispose_
+  commentId: Overload:wan24.Crypto.StreamRandomSource.Dispose
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamRandomSource.Dispose
+  nameWithType: StreamRandomSource.Dispose
+- uid: wan24.Crypto.StreamRandomSource.DisposeCore
+  name: DisposeCore()
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_DisposeCore
+  commentId: M:wan24.Crypto.StreamRandomSource.DisposeCore
+  fullName: wan24.Crypto.StreamRandomSource.DisposeCore()
+  nameWithType: StreamRandomSource.DisposeCore()
+- uid: wan24.Crypto.StreamRandomSource.DisposeCore*
+  name: DisposeCore
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_DisposeCore_
+  commentId: Overload:wan24.Crypto.StreamRandomSource.DisposeCore
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamRandomSource.DisposeCore
+  nameWithType: StreamRandomSource.DisposeCore
+- uid: wan24.Crypto.StreamRandomSource.FillBytes(System.Span{System.Byte}@)
+  name: FillBytes(in Span<byte>)
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_FillBytes_System_Span_System_Byte___
+  commentId: M:wan24.Crypto.StreamRandomSource.FillBytes(System.Span{System.Byte}@)
+  name.vb: FillBytes(Span(Of Byte))
+  fullName: wan24.Crypto.StreamRandomSource.FillBytes(in System.Span<byte>)
+  fullName.vb: wan24.Crypto.StreamRandomSource.FillBytes(System.Span(Of Byte))
+  nameWithType: StreamRandomSource.FillBytes(in Span<byte>)
+  nameWithType.vb: StreamRandomSource.FillBytes(Span(Of Byte))
+- uid: wan24.Crypto.StreamRandomSource.FillBytes*
+  name: FillBytes
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_FillBytes_
+  commentId: Overload:wan24.Crypto.StreamRandomSource.FillBytes
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamRandomSource.FillBytes
+  nameWithType: StreamRandomSource.FillBytes
+- uid: wan24.Crypto.StreamRandomSource.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name: FillBytesAsync(Memory<byte>, CancellationToken)
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_FillBytesAsync_System_Memory_System_Byte__System_Threading_CancellationToken_
+  commentId: M:wan24.Crypto.StreamRandomSource.FillBytesAsync(System.Memory{System.Byte},System.Threading.CancellationToken)
+  name.vb: FillBytesAsync(Memory(Of Byte), CancellationToken)
+  fullName: wan24.Crypto.StreamRandomSource.FillBytesAsync(System.Memory<byte>, System.Threading.CancellationToken)
+  fullName.vb: wan24.Crypto.StreamRandomSource.FillBytesAsync(System.Memory(Of Byte), System.Threading.CancellationToken)
+  nameWithType: StreamRandomSource.FillBytesAsync(Memory<byte>, CancellationToken)
+  nameWithType.vb: StreamRandomSource.FillBytesAsync(Memory(Of Byte), CancellationToken)
+- uid: wan24.Crypto.StreamRandomSource.FillBytesAsync*
+  name: FillBytesAsync
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_FillBytesAsync_
+  commentId: Overload:wan24.Crypto.StreamRandomSource.FillBytesAsync
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamRandomSource.FillBytesAsync
+  nameWithType: StreamRandomSource.FillBytesAsync
+- uid: wan24.Crypto.StreamRandomSource.Stream
+  name: Stream
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_Stream
+  commentId: P:wan24.Crypto.StreamRandomSource.Stream
+  fullName: wan24.Crypto.StreamRandomSource.Stream
+  nameWithType: StreamRandomSource.Stream
+- uid: wan24.Crypto.StreamRandomSource.Stream*
+  name: Stream
+  href: api/wan24.Crypto.StreamRandomSource.html#wan24_Crypto_StreamRandomSource_Stream_
+  commentId: Overload:wan24.Crypto.StreamRandomSource.Stream
+  isSpec: "True"
+  fullName: wan24.Crypto.StreamRandomSource.Stream
+  nameWithType: StreamRandomSource.Stream
 - uid: wan24.Crypto.StreamSerializerExtensions
   name: StreamSerializerExtensions
   href: api/wan24.Crypto.StreamSerializerExtensions.html

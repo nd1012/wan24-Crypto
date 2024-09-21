@@ -563,6 +563,12 @@ sections, it's easy to overview:</p>
 </tr>
 <tr>
 <td></td>
+<td><code>MaxCipherDataLength</code></td>
+<td>Maximum cipher data length in bytes</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td></td>
 <td><code>EncryptionPasswordPreProcessor</code></td>
 <td>Delegate for pre-processing an encryption password (the default can be set to <code>DefaultEncryptionPasswordPreProcessor</code>)</td>
 <td><code>null</code></td>
@@ -916,6 +922,12 @@ sections, it's easy to overview:</p>
 <td><code>false</code></td>
 </tr>
 <tr>
+<td>Key usage counting options</td>
+<td><code>KeySuite</code></td>
+<td>Private key suite to use for key usage counting</td>
+<td><code>null</code></td>
+</tr>
+<tr>
 <td>Debug options</td>
 <td><code>Tracer</code></td>
 <td>Collects tracing information during en-/decryption</td>
@@ -946,6 +958,7 @@ calling any method.</p>
 <li>Encryption time</li>
 <li>Compression</li>
 <li>Stream options</li>
+<li>Key usage counting options</li>
 </ul>
 <p>In case you want to use the <code>*Counter*</code> options, you'll need to set the
 <code>CounterPrivateKey</code> value.</p>
@@ -959,12 +972,17 @@ calling any method.</p>
 <li>Hashing</li>
 <li>Stream options</li>
 </ul>
-<p>For asymmetric key creation the &quot;Key creation&quot; section matters.</p>
+<p>For asymmetric key creation these sections matter:</p>
+<ul>
+<li>Key creation</li>
+<li>Key usage counting options</li>
+</ul>
 <p>For signature these sections matter:</p>
 <ul>
 <li>Signature</li>
 <li>Hashing</li>
 <li>Stream options</li>
+<li>Key usage counting options</li>
 </ul>
 <p>The <code>CryptoEnvironment</code> helps configuring the whole <code>wan24-Crypto</code> environment
 at once by providing an options class which contains all the options that one
@@ -1024,6 +1042,7 @@ in <code>DefaultPrivateKeysStore</code>)</li>
 <li><code>CounterPrivateKey</code> (needs to be stored in another place)</li>
 <li><code>PublicKey</code></li>
 <li><code>CounterPublicKey</code></li>
+<li><code>KeySuite</code> (needs to be stored in another place)</li>
 <li><code>KeyExchangeData</code></li>
 <li><code>PayloadData</code></li>
 <li><code>Time</code></li>
@@ -2070,7 +2089,20 @@ in the <code>HybridAlgorithmHelper</code> properties.</p>
 really good - it's only a trade-off to gain compatibility and performance. You
 should consinder to create a counter MAC from the whole raw data manually, if
 possible, instead.</p>
-<h3 id="post-quantum-safety">Post quantum safety</h3>
+<h2 id="key-usage-counting">Key usage counting</h2>
+<p>Some algorithms have an usage limit. After that limit was exceeded, a
+(private) key should be renewed. <code>wan24-Crypto</code> supports key usage counting
+for keys which are managed in a <code>PrivateKeySuite</code>. To count key usage, set
+the private key suite instance to the <code>CryptoOptions.KeySuite</code>.</p>
+<p><strong>CAUTION</strong>: Key usage can't be counted for asymmetric private keys, if the
+raw key derivation or raw hash signature methods are called directly, 'cause
+the methods don't use <code>CryptoOptions</code>. Before using those methods directly,
+please call any <code>PrivateKeySuite.Count*KeyUsage</code> method by yourself.</p>
+<p>If the key usage was exceeded, a <code>KeyUsageExceededException</code> will be thrown
+on any attempt to use the key once more.</p>
+<p><strong>NOTE</strong>: Different algorithms have different key usage count limits. Those
+are defined in their <code>MAX_KEY_USAGE_COUNT</code> constants, IF there's any limit.</p>
+<h2 id="post-quantum-safety">Post quantum safety</h2>
 <p>Some of the used cryptographic algorithms are quantum safe already, but
 especially the asymmetric algorithms are not post quantum safe at all. If you
 use an extension library which offers asymmetric post quantum safe algorithms

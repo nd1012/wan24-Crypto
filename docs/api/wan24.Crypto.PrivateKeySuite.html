@@ -197,7 +197,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite__ctor.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L25">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L47">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite__ctor_" data-uid="wan24.Crypto.PrivateKeySuite.#ctor*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite__ctor" data-uid="wan24.Crypto.PrivateKeySuite.#ctor">PrivateKeySuite()</h4>
@@ -215,7 +215,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_VERSION.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.VERSION%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L15">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L17">View Source</a>
   </span>
   <h4 id="wan24_Crypto_PrivateKeySuite_VERSION" data-uid="wan24.Crypto.PrivateKeySuite.VERSION">VERSION</h4>
   <div class="markdown level1 summary"><p>Object version</p>
@@ -223,7 +223,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int VERSION = 2</code></pre>
+    <pre><code class="lang-csharp hljs">public const int VERSION = 3</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -247,7 +247,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L36">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L70">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKey_" data-uid="wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKey" data-uid="wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKey">CounterKeyExchangeKey</h4>
@@ -276,10 +276,42 @@ public IKeyExchangePrivateKey? CounterKeyExchangeKey { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L76">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CounterKeyExchangeKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.CounterKeyExchangeKeyUsageCount">CounterKeyExchangeKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Counter key exchange private key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long CounterKeyExchangeKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CounterSignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CounterSignatureKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L48">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L106">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_CounterSignatureKey_" data-uid="wan24.Crypto.PrivateKeySuite.CounterSignatureKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_CounterSignatureKey" data-uid="wan24.Crypto.PrivateKeySuite.CounterSignatureKey">CounterSignatureKey</h4>
@@ -308,10 +340,42 @@ public ISignaturePrivateKey? CounterSignatureKey { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CounterSignatureKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L112">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CounterSignatureKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CounterSignatureKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.CounterSignatureKeyUsageCount">CounterSignatureKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Counter signature private key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long CounterSignatureKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_KeyExchangeKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.KeyExchangeKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L30">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L52">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_KeyExchangeKey_" data-uid="wan24.Crypto.PrivateKeySuite.KeyExchangeKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_KeyExchangeKey" data-uid="wan24.Crypto.PrivateKeySuite.KeyExchangeKey">KeyExchangeKey</h4>
@@ -340,10 +404,202 @@ public IKeyExchangePrivateKey? KeyExchangeKey { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_KeyExchangeKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L58">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_KeyExchangeKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_KeyExchangeKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.KeyExchangeKeyUsageCount">KeyExchangeKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Key exchange private key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long KeyExchangeKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_MaxCounterKeyExchangeKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L82">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_MaxCounterKeyExchangeKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_MaxCounterKeyExchangeKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.MaxCounterKeyExchangeKeyUsageCount">MaxCounterKeyExchangeKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Counter key exchange private key usage count maximum</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long MaxCounterKeyExchangeKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_MaxCounterSignatureKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L118">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_MaxCounterSignatureKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_MaxCounterSignatureKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.MaxCounterSignatureKeyUsageCount">MaxCounterSignatureKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Counter signature private key usage count maximum</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long MaxCounterSignatureKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_MaxKeyExchangeKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L64">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_MaxKeyExchangeKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_MaxKeyExchangeKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.MaxKeyExchangeKeyUsageCount">MaxKeyExchangeKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Key exchange private key usage count maximum</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long MaxKeyExchangeKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_MaxSignatureKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L100">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_MaxSignatureKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_MaxSignatureKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.MaxSignatureKeyUsageCount">MaxSignatureKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Signature private key usage count maximum</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long MaxSignatureKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_MaxSymmetricKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L146">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_MaxSymmetricKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_MaxSymmetricKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.MaxSymmetricKeyUsageCount">MaxSymmetricKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Symmetric key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long MaxSymmetricKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Public.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Public%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L70">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L152">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Public_" data-uid="wan24.Crypto.PrivateKeySuite.Public*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Public" data-uid="wan24.Crypto.PrivateKeySuite.Public">Public</h4>
@@ -374,7 +630,7 @@ public IKeyExchangePrivateKey? KeyExchangeKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SignatureKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SignatureKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L42">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L88">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_SignatureKey_" data-uid="wan24.Crypto.PrivateKeySuite.SignatureKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_SignatureKey" data-uid="wan24.Crypto.PrivateKeySuite.SignatureKey">SignatureKey</h4>
@@ -403,10 +659,42 @@ public ISignaturePrivateKey? SignatureKey { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SignatureKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L94">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_SignatureKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_SignatureKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.SignatureKeyUsageCount">SignatureKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Signature private key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long SignatureKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SignedPublicCounterKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SignedPublicCounterKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L59">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L129">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_SignedPublicCounterKey_" data-uid="wan24.Crypto.PrivateKeySuite.SignedPublicCounterKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_SignedPublicCounterKey" data-uid="wan24.Crypto.PrivateKeySuite.SignedPublicCounterKey">SignedPublicCounterKey</h4>
@@ -437,7 +725,7 @@ public ISignaturePrivateKey? SignatureKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SignedPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SignedPublicKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L54">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L124">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_SignedPublicKey_" data-uid="wan24.Crypto.PrivateKeySuite.SignedPublicKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_SignedPublicKey" data-uid="wan24.Crypto.PrivateKeySuite.SignedPublicKey">SignedPublicKey</h4>
@@ -468,7 +756,7 @@ public ISignaturePrivateKey? SignatureKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SymmetricKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SymmetricKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L64">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L134">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_SymmetricKey_" data-uid="wan24.Crypto.PrivateKeySuite.SymmetricKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_SymmetricKey" data-uid="wan24.Crypto.PrivateKeySuite.SymmetricKey">SymmetricKey</h4>
@@ -496,14 +784,289 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SymmetricKeyUsageCount.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L140">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_SymmetricKeyUsageCount_" data-uid="wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_SymmetricKeyUsageCount" data-uid="wan24.Crypto.PrivateKeySuite.SymmetricKeyUsageCount">SymmetricKeyUsageCount</h4>
+  <div class="markdown level1 summary"><p>Symmetric key usage count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(0, 9.223372036854776E+18)]
+public long SymmetricKeyUsageCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_WasUsed.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.WasUsed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L165">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_WasUsed_" data-uid="wan24.Crypto.PrivateKeySuite.WasUsed*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_WasUsed" data-uid="wan24.Crypto.PrivateKeySuite.WasUsed">WasUsed</h4>
+  <div class="markdown level1 summary"><p>If the private key suite has been used</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WasUsed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CountAsymmetricKeyUsage_wan24_Crypto_IAsymmetricPrivateKey__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage(wan24.Crypto.IAsymmetricPrivateKey%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L206">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CountAsymmetricKeyUsage_" data-uid="wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CountAsymmetricKeyUsage_wan24_Crypto_IAsymmetricPrivateKey__" data-uid="wan24.Crypto.PrivateKeySuite.CountAsymmetricKeyUsage(wan24.Crypto.IAsymmetricPrivateKey@)">CountAsymmetricKeyUsage(in IAsymmetricPrivateKey)</h4>
+  <div class="markdown level1 summary"><p>Count an asymmetric key usage</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CountAsymmetricKeyUsage(in IAsymmetricPrivateKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IAsymmetricPrivateKey.html">IAsymmetricPrivateKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CountCounterKeyExchangeKeyUsage.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L238">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CountCounterKeyExchangeKeyUsage_" data-uid="wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CountCounterKeyExchangeKeyUsage" data-uid="wan24.Crypto.PrivateKeySuite.CountCounterKeyExchangeKeyUsage">CountCounterKeyExchangeKeyUsage()</h4>
+  <div class="markdown level1 summary"><p>Count counter key exchange key usage (thread-safe)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKeyExchangePrivateKey CountCounterKeyExchangeKeyUsage()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IKeyExchangePrivateKey.html">IKeyExchangePrivateKey</a></td>
+        <td><p>Key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CountCounterSignatureKeyUsage.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L276">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CountCounterSignatureKeyUsage_" data-uid="wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CountCounterSignatureKeyUsage" data-uid="wan24.Crypto.PrivateKeySuite.CountCounterSignatureKeyUsage">CountCounterSignatureKeyUsage()</h4>
+  <div class="markdown level1 summary"><p>Count counter signature key usage (thread-safe)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISignaturePrivateKey CountCounterSignatureKeyUsage()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></td>
+        <td><p>Key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CountKeyExchangeKeyUsage.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L219">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CountKeyExchangeKeyUsage_" data-uid="wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CountKeyExchangeKeyUsage" data-uid="wan24.Crypto.PrivateKeySuite.CountKeyExchangeKeyUsage">CountKeyExchangeKeyUsage()</h4>
+  <div class="markdown level1 summary"><p>Count key exchange key usage (thread-safe)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKeyExchangePrivateKey CountKeyExchangeKeyUsage()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.IKeyExchangePrivateKey.html">IKeyExchangePrivateKey</a></td>
+        <td><p>Key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CountSignatureKeyUsage.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L257">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CountSignatureKeyUsage_" data-uid="wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CountSignatureKeyUsage" data-uid="wan24.Crypto.PrivateKeySuite.CountSignatureKeyUsage">CountSignatureKeyUsage()</h4>
+  <div class="markdown level1 summary"><p>Count signature key usage (thread-safe)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISignaturePrivateKey CountSignatureKeyUsage()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ISignaturePrivateKey.html">ISignaturePrivateKey</a></td>
+        <td><p>Key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CountSymmetricKeyUsage_wan24_Crypto_ILimitKeyUsageCount__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage(wan24.Crypto.ILimitKeyUsageCount%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L296">View Source</a>
+  </span>
+  <a id="wan24_Crypto_PrivateKeySuite_CountSymmetricKeyUsage_" data-uid="wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage*"></a>
+  <h4 id="wan24_Crypto_PrivateKeySuite_CountSymmetricKeyUsage_wan24_Crypto_ILimitKeyUsageCount__" data-uid="wan24.Crypto.PrivateKeySuite.CountSymmetricKeyUsage(wan24.Crypto.ILimitKeyUsageCount@)">CountSymmetricKeyUsage(in ILimitKeyUsageCount?)</h4>
+  <div class="markdown level1 summary"><p>Count counter signature key usage (thread-safe)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] CountSymmetricKeyUsage(in ILimitKeyUsageCount? usageLimit = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="wan24.Crypto.ILimitKeyUsageCount.html">ILimitKeyUsageCount</a></td>
+        <td><span class="parametername">usageLimit</span></td>
+        <td><p>Usage limit</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td><p>Key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Create.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Create%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L272">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L568">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Create_" data-uid="wan24.Crypto.PrivateKeySuite.Create*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Create" data-uid="wan24.Crypto.PrivateKeySuite.Create">Create()</h4>
@@ -535,7 +1098,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CreateOptions.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CreateOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L92">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L179">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_CreateOptions_" data-uid="wan24.Crypto.PrivateKeySuite.CreateOptions*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_CreateOptions" data-uid="wan24.Crypto.PrivateKeySuite.CreateOptions">CreateOptions()</h4>
@@ -567,7 +1130,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_CreateWithCounterAlgorithms.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.CreateWithCounterAlgorithms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L281">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L577">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_CreateWithCounterAlgorithms_" data-uid="wan24.Crypto.PrivateKeySuite.CreateWithCounterAlgorithms*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_CreateWithCounterAlgorithms" data-uid="wan24.Crypto.PrivateKeySuite.CreateWithCounterAlgorithms">CreateWithCounterAlgorithms()</h4>
@@ -599,7 +1162,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Decrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Decrypt(System.Byte%5B%5D%2CSystem.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L295">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L591">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Decrypt_" data-uid="wan24.Crypto.PrivateKeySuite.Decrypt*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Decrypt_System_Byte___System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.PrivateKeySuite.Decrypt(System.Byte[],System.Byte[],wan24.Crypto.CryptoOptions)">Decrypt(byte[], byte[], CryptoOptions?)</h4>
@@ -661,7 +1224,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_DeriveKey_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.DeriveKey(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L108">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L195">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_DeriveKey_" data-uid="wan24.Crypto.PrivateKeySuite.DeriveKey*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_DeriveKey_System_Byte___" data-uid="wan24.Crypto.PrivateKeySuite.DeriveKey(System.Byte[])">DeriveKey(byte[])</h4>
@@ -711,7 +1274,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Deserialize_System_IO_Stream_System_Int32_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Deserialize(System.IO.Stream%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L185">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L410">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Deserialize_" data-uid="wan24.Crypto.PrivateKeySuite.Deserialize*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Deserialize_System_IO_Stream_System_Int32_" data-uid="wan24.Crypto.PrivateKeySuite.Deserialize(System.IO.Stream,System.Int32)">Deserialize(Stream, int)</h4>
@@ -753,7 +1316,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.DeserializeAsync(System.IO.Stream%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L214">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L475">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_DeserializeAsync_" data-uid="wan24.Crypto.PrivateKeySuite.DeserializeAsync*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_DeserializeAsync_System_IO_Stream_System_Int32_System_Threading_CancellationToken_" data-uid="wan24.Crypto.PrivateKeySuite.DeserializeAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)">DeserializeAsync(Stream, int, CancellationToken)</h4>
@@ -816,7 +1379,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Dispose(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L131">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L336">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Dispose_" data-uid="wan24.Crypto.PrivateKeySuite.Dispose*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Dispose_System_Boolean_" data-uid="wan24.Crypto.PrivateKeySuite.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -852,7 +1415,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_DisposeCore.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.DisposeCore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L144">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L349">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_DisposeCore_" data-uid="wan24.Crypto.PrivateKeySuite.DisposeCore*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_DisposeCore" data-uid="wan24.Crypto.PrivateKeySuite.DisposeCore">DisposeCore()</h4>
@@ -885,7 +1448,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Encrypt_System_Byte___wan24_Crypto_CryptoOptions_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Encrypt(System.Byte%5B%5D%2Cwan24.Crypto.CryptoOptions)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L86">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L173">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Encrypt_" data-uid="wan24.Crypto.PrivateKeySuite.Encrypt*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Encrypt_System_Byte___wan24_Crypto_CryptoOptions_" data-uid="wan24.Crypto.PrivateKeySuite.Encrypt(System.Byte[],wan24.Crypto.CryptoOptions)">Encrypt(byte[], CryptoOptions?)</h4>
@@ -941,7 +1504,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_GetCopy.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.GetCopy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L118">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L314">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_GetCopy_" data-uid="wan24.Crypto.PrivateKeySuite.GetCopy*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_GetCopy" data-uid="wan24.Crypto.PrivateKeySuite.GetCopy">GetCopy()</h4>
@@ -973,7 +1536,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_GetKeyExchangeData.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.GetKeyExchangeData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L101">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L188">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_GetKeyExchangeData_" data-uid="wan24.Crypto.PrivateKeySuite.GetKeyExchangeData*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_GetKeyExchangeData" data-uid="wan24.Crypto.PrivateKeySuite.GetKeyExchangeData">GetKeyExchangeData()</h4>
@@ -1005,7 +1568,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_Serialize_System_IO_Stream_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.Serialize(System.IO.Stream)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L161">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L366">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_Serialize_" data-uid="wan24.Crypto.PrivateKeySuite.Serialize*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_Serialize_System_IO_Stream_" data-uid="wan24.Crypto.PrivateKeySuite.Serialize(System.IO.Stream)">Serialize(Stream)</h4>
@@ -1041,7 +1604,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.SerializeAsync(System.IO.Stream%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L173">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L388">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_SerializeAsync_" data-uid="wan24.Crypto.PrivateKeySuite.SerializeAsync*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_SerializeAsync_System_IO_Stream_System_Threading_CancellationToken_" data-uid="wan24.Crypto.PrivateKeySuite.SerializeAsync(System.IO.Stream,System.Threading.CancellationToken)">SerializeAsync(Stream, CancellationToken)</h4>
@@ -1100,7 +1663,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Explicit_System_Byte____wan24_Crypto_PrivateKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Explicit(System.Byte%5B%5D)~wan24.Crypto.PrivateKeySuite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L266">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L562">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Explicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Explicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Explicit_System_Byte____wan24_Crypto_PrivateKeySuite" data-uid="wan24.Crypto.PrivateKeySuite.op_Explicit(System.Byte[])~wan24.Crypto.PrivateKeySuite">explicit operator PrivateKeySuite(byte[])</h4>
@@ -1149,7 +1712,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__System_Byte__.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~System.Byte%5B%5D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L260">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L556">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Implicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__System_Byte__" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~System.Byte[]">implicit operator byte[](PrivateKeySuite)</h4>
@@ -1198,7 +1761,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_AsymmetricSignedPublicKey.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.AsymmetricSignedPublicKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L254">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L550">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Implicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_AsymmetricSignedPublicKey" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.AsymmetricSignedPublicKey">implicit operator AsymmetricSignedPublicKey(PrivateKeySuite)</h4>
@@ -1247,7 +1810,7 @@ public byte[]? SymmetricKey { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_PublicKeySuite.md&amp;value=---%0Auid%3A%20wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.PublicKeySuite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L248">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/PrivateKeySuite.cs/#L544">View Source</a>
   </span>
   <a id="wan24_Crypto_PrivateKeySuite_op_Implicit_" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit*"></a>
   <h4 id="wan24_Crypto_PrivateKeySuite_op_Implicit_wan24_Crypto_PrivateKeySuite__wan24_Crypto_PublicKeySuite" data-uid="wan24.Crypto.PrivateKeySuite.op_Implicit(wan24.Crypto.PrivateKeySuite)~wan24.Crypto.PublicKeySuite">implicit operator PublicKeySuite(PrivateKeySuite)</h4>

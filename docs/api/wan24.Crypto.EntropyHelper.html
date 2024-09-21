@@ -146,7 +146,7 @@
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_CustomAlgorithm.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.CustomAlgorithm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L26">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Custom.cs/#L11">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_CustomAlgorithm_" data-uid="wan24.Crypto.EntropyHelper.CustomAlgorithm*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_CustomAlgorithm" data-uid="wan24.Crypto.EntropyHelper.CustomAlgorithm">CustomAlgorithm</h4>
@@ -241,7 +241,7 @@ public static EntropyHelper.Algorithms DefaultAlgorithms { get; set; }</code></p
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinCustomEntropy.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinCustomEntropy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L43">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Custom.cs/#L16">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_MinCustomEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinCustomEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_MinCustomEntropy" data-uid="wan24.Crypto.EntropyHelper.MinCustomEntropy">MinCustomEntropy</h4>
@@ -270,14 +270,142 @@ public static double MinCustomEntropy { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinKolmogorovComplexity.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinKolmogorovComplexity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Kolmogorov.cs/#L12">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_MinKolmogorovComplexity_" data-uid="wan24.Crypto.EntropyHelper.MinKolmogorovComplexity*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_MinKolmogorovComplexity" data-uid="wan24.Crypto.EntropyHelper.MinKolmogorovComplexity">MinKolmogorovComplexity</h4>
+  <div class="markdown level1 summary"><p>Min. required Kolmogorov complexity (zero to disable checks; depends on the data length! <code>2</code> for 8 byte)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CliConfig]
+public static double MinKolmogorovComplexity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinMinEntropy.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinMinEntropy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Min.cs/#L11">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_MinMinEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinMinEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_MinMinEntropy" data-uid="wan24.Crypto.EntropyHelper.MinMinEntropy">MinMinEntropy</h4>
+  <div class="markdown level1 summary"><p>Min. required Min entropy (zero to disable checks; depends on the data length! <code>2.5</code> for 8 byte)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CliConfig]
+public static double MinMinEntropy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinPermutationEntropy.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinPermutationEntropy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Permutation.cs/#L12">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_MinPermutationEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinPermutationEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_MinPermutationEntropy" data-uid="wan24.Crypto.EntropyHelper.MinPermutationEntropy">MinPermutationEntropy</h4>
+  <div class="markdown level1 summary"><p>Min. required Permutation entropy (zero to disable checks; depends on the data length! <code>2</code> for 8 byte)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CliConfig]
+public static double MinPermutationEntropy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinRenyiEntropy.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinRenyiEntropy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Renyi.cs/#L12">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_MinRenyiEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinRenyiEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_MinRenyiEntropy" data-uid="wan24.Crypto.EntropyHelper.MinRenyiEntropy">MinRenyiEntropy</h4>
+  <div class="markdown level1 summary"><p>Min. required Rényi entropy (zero to disable checks; depends on the data length! <code>2.5</code> for 8 byte)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CliConfig]
+public static double MinRenyiEntropy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinShannonBitEntropy.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinShannonBitEntropy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L31">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Shannon.cs/#L11">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_MinShannonBitEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinShannonBitEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_MinShannonBitEntropy" data-uid="wan24.Crypto.EntropyHelper.MinShannonBitEntropy">MinShannonBitEntropy</h4>
-  <div class="markdown level1 summary"><p>Min. required Shannon bit entropy (zero to disable checks)</p>
+  <div class="markdown level1 summary"><p>Min. required Shannon bit entropy (zero to disable checks; depends on the data length! <code>20</code> for 8 byte)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -305,17 +433,83 @@ public static double MinShannonBitEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinShannonByteEntropy.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinShannonByteEntropy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L37">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Shannon.cs/#L17">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_MinShannonByteEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinShannonByteEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_MinShannonByteEntropy" data-uid="wan24.Crypto.EntropyHelper.MinShannonByteEntropy">MinShannonByteEntropy</h4>
-  <div class="markdown level1 summary"><p>Min. required Shannon byte entropy (zero to disable checks)</p>
+  <div class="markdown level1 summary"><p>Min. required Shannon byte entropy (zero to disable checks; depends on the data length! <code>0.2</code> for 8 byte)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[CliConfig]
 public static double MinShannonByteEntropy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_PermutationWindowSize.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.PermutationWindowSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Permutation.cs/#L18">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_PermutationWindowSize_" data-uid="wan24.Crypto.EntropyHelper.PermutationWindowSize*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_PermutationWindowSize" data-uid="wan24.Crypto.EntropyHelper.PermutationWindowSize">PermutationWindowSize</h4>
+  <div class="markdown level1 summary"><p>Permutation entropy calculator window size (if the given data count is less than this value, the algorithm will return <a class="xref" href="wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinPermutationEntropy">MinPermutationEntropy</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CliConfig]
+[Range(3, 2147483647)]
+public static int PermutationWindowSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_RenyiEntropyAlpha.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.RenyiEntropyAlpha%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Renyi.cs/#L18">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_RenyiEntropyAlpha_" data-uid="wan24.Crypto.EntropyHelper.RenyiEntropyAlpha*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_RenyiEntropyAlpha" data-uid="wan24.Crypto.EntropyHelper.RenyiEntropyAlpha">RenyiEntropyAlpha</h4>
+  <div class="markdown level1 summary"><p>Rényi entropy alpha value (<code>1</code> would be Shannon entropy)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CliConfig]
+[Range(5E-324, 1.7976931348623157E+308)]
+public static double RenyiEntropyAlpha { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -339,7 +533,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_CalculateEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.CalculateEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L98">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L29">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_CalculateEntropy_" data-uid="wan24.Crypto.EntropyHelper.CalculateEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_CalculateEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__" data-uid="wan24.Crypto.EntropyHelper.CalculateEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{wan24.Crypto.EntropyHelper.Algorithms})">CalculateEntropy(in ReadOnlySpan&lt;byte&gt;, Algorithms?)</h4>
@@ -395,7 +589,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_CheckEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__System_Boolean__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.CheckEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%2CSystem.Boolean%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L117">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L52">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_CheckEntropy_" data-uid="wan24.Crypto.EntropyHelper.CheckEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_CheckEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms__System_Boolean__" data-uid="wan24.Crypto.EntropyHelper.CheckEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{wan24.Crypto.EntropyHelper.Algorithms},System.Boolean@)">CheckEntropy(in ReadOnlySpan&lt;byte&gt;, Algorithms?, in bool)</h4>
@@ -470,10 +664,126 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_EnsureValidByteCounters_wan24_Core_OrderedDictionary_System_Byte_System_Int32___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.EnsureValidByteCounters(wan24.Core.OrderedDictionary%7BSystem.Byte%2CSystem.Int32%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Tools.cs/#L32">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_EnsureValidByteCounters_" data-uid="wan24.Crypto.EntropyHelper.EnsureValidByteCounters*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_EnsureValidByteCounters_wan24_Core_OrderedDictionary_System_Byte_System_Int32___" data-uid="wan24.Crypto.EntropyHelper.EnsureValidByteCounters(wan24.Core.OrderedDictionary{System.Byte,System.Int32}@)">EnsureValidByteCounters(in OrderedDictionary&lt;byte, int&gt;)</h4>
+  <div class="markdown level1 summary"><p>Ensure valid byte counters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OrderedDictionary&lt;byte, int&gt; EnsureValidByteCounters(in OrderedDictionary&lt;byte, int&gt; byteCounters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">byteCounters</span></td>
+        <td><p>Byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><p>Valid byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Invalid byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetByteCounters_System_ReadOnlySpan_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetByteCounters(System.ReadOnlySpan%7BSystem.Byte%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Tools.cs/#L13">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_GetByteCounters_" data-uid="wan24.Crypto.EntropyHelper.GetByteCounters*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_GetByteCounters_System_ReadOnlySpan_System_Byte___" data-uid="wan24.Crypto.EntropyHelper.GetByteCounters(System.ReadOnlySpan{System.Byte}@)">GetByteCounters(in ReadOnlySpan&lt;byte&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get byte counters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OrderedDictionary&lt;byte, int&gt; GetByteCounters(in ReadOnlySpan&lt;byte&gt; data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><p>Byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetEntropy_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetEntropy(System.Byte%5B%5D%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L176">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L160">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_GetEntropy_" data-uid="wan24.Crypto.EntropyHelper.GetEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_GetEntropy_System_Byte___System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___" data-uid="wan24.Crypto.EntropyHelper.GetEntropy(System.Byte[],System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)">GetEntropy(byte[], in Algorithms?)</h4>
@@ -529,7 +839,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetEntropy_System_Memory_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetEntropy(System.Memory%7BSystem.Byte%7D%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L200">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L184">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_GetEntropy_" data-uid="wan24.Crypto.EntropyHelper.GetEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_GetEntropy_System_Memory_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___" data-uid="wan24.Crypto.EntropyHelper.GetEntropy(System.Memory{System.Byte},System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)">GetEntropy(Memory&lt;byte&gt;, in Algorithms?)</h4>
@@ -585,7 +895,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetEntropy_System_ReadOnlyMemory_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetEntropy(System.ReadOnlyMemory%7BSystem.Byte%7D%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L208">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L192">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_GetEntropy_" data-uid="wan24.Crypto.EntropyHelper.GetEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_GetEntropy_System_ReadOnlyMemory_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___" data-uid="wan24.Crypto.EntropyHelper.GetEntropy(System.ReadOnlyMemory{System.Byte},System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)">GetEntropy(ReadOnlyMemory&lt;byte&gt;, in Algorithms?)</h4>
@@ -641,7 +951,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetEntropy_System_ReadOnlySpan_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L192">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L176">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_GetEntropy_" data-uid="wan24.Crypto.EntropyHelper.GetEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_GetEntropy_System_ReadOnlySpan_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___" data-uid="wan24.Crypto.EntropyHelper.GetEntropy(System.ReadOnlySpan{System.Byte},System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)">GetEntropy(ReadOnlySpan&lt;byte&gt;, in Algorithms?)</h4>
@@ -697,7 +1007,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetEntropy_System_Span_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetEntropy(System.Span%7BSystem.Byte%7D%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L184">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L168">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_GetEntropy_" data-uid="wan24.Crypto.EntropyHelper.GetEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_GetEntropy_System_Span_System_Byte__System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___" data-uid="wan24.Crypto.EntropyHelper.GetEntropy(System.Span{System.Byte},System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)">GetEntropy(Span&lt;byte&gt;, in Algorithms?)</h4>
@@ -753,7 +1063,7 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_GetEntropy_System_String_System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.GetEntropy(System.String%2CSystem.Nullable%7Bwan24.Crypto.EntropyHelper.Algorithms%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L160">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L144">View Source</a>
   </span>
   <a id="wan24_Crypto_EntropyHelper_GetEntropy_" data-uid="wan24.Crypto.EntropyHelper.GetEntropy*"></a>
   <h4 id="wan24_Crypto_EntropyHelper_GetEntropy_System_String_System_Nullable_wan24_Crypto_EntropyHelper_Algorithms___" data-uid="wan24.Crypto.EntropyHelper.GetEntropy(System.String,System.Nullable{wan24.Crypto.EntropyHelper.Algorithms}@)">GetEntropy(string, in Algorithms?)</h4>
@@ -806,19 +1116,19 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_ShannonBitEntropy_System_ReadOnlySpan_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_KolmogorovComplexity_System_ReadOnlySpan_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.KolmogorovComplexity(System.ReadOnlySpan%7BSystem.Byte%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L51">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Kolmogorov.cs/#L20">View Source</a>
   </span>
-  <a id="wan24_Crypto_EntropyHelper_ShannonBitEntropy_" data-uid="wan24.Crypto.EntropyHelper.ShannonBitEntropy*"></a>
-  <h4 id="wan24_Crypto_EntropyHelper_ShannonBitEntropy_System_ReadOnlySpan_System_Byte___" data-uid="wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan{System.Byte}@)">ShannonBitEntropy(in ReadOnlySpan&lt;byte&gt;)</h4>
-  <div class="markdown level1 summary"><p>Shannon bit entropy algorithm</p>
+  <a id="wan24_Crypto_EntropyHelper_KolmogorovComplexity_" data-uid="wan24.Crypto.EntropyHelper.KolmogorovComplexity*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_KolmogorovComplexity_System_ReadOnlySpan_System_Byte___" data-uid="wan24.Crypto.EntropyHelper.KolmogorovComplexity(System.ReadOnlySpan{System.Byte}@)">KolmogorovComplexity(in ReadOnlySpan&lt;byte&gt;)</h4>
+  <div class="markdown level1 summary"><p>Kolmogorov complexity algorithm (using GZip)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double ShannonBitEntropy(in ReadOnlySpan&lt;byte&gt; data)</code></pre>
+    <pre><code class="lang-csharp hljs">public static double KolmogorovComplexity(in ReadOnlySpan&lt;byte&gt; data)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -849,26 +1159,26 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td><p>Entropy (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.minvalue">MinValue</a>, if <code>data</code> was empty)</p>
+        <td><p>Complexity (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.minvalue">MinValue</a>, if <code>data</code> was empty)</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_ShannonByteEntropy_System_ReadOnlySpan_System_Byte___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_MinEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.MinEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2Cwan24.Core.OrderedDictionary%7BSystem.Byte%2CSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.cs/#L74">View Source</a>
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Min.cs/#L20">View Source</a>
   </span>
-  <a id="wan24_Crypto_EntropyHelper_ShannonByteEntropy_" data-uid="wan24.Crypto.EntropyHelper.ShannonByteEntropy*"></a>
-  <h4 id="wan24_Crypto_EntropyHelper_ShannonByteEntropy_System_ReadOnlySpan_System_Byte___" data-uid="wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan{System.Byte}@)">ShannonByteEntropy(in ReadOnlySpan&lt;byte&gt;)</h4>
-  <div class="markdown level1 summary"><p>Shannon byte entropy algorithm</p>
+  <a id="wan24_Crypto_EntropyHelper_MinEntropy_" data-uid="wan24.Crypto.EntropyHelper.MinEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_MinEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__" data-uid="wan24.Crypto.EntropyHelper.MinEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})">MinEntropy(in ReadOnlySpan&lt;byte&gt;, OrderedDictionary&lt;byte, int&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Min entropy algorithm</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double ShannonByteEntropy(in ReadOnlySpan&lt;byte&gt; data)</code></pre>
+    <pre><code class="lang-csharp hljs">public static double MinEntropy(in ReadOnlySpan&lt;byte&gt; data, OrderedDictionary&lt;byte, int&gt;? byteCounters = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -884,6 +1194,242 @@ public static double MinShannonByteEntropy { get; set; }</code></pre>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
         <td><span class="parametername">data</span></td>
         <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">byteCounters</span></td>
+        <td><p>Byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><p>Entropy (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.minvalue">MinValue</a>, if <code>data</code> was empty)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_PermutationEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_System_Int32___.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.PermutationEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2CSystem.Nullable%7BSystem.Int32%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Permutation.cs/#L27">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_PermutationEntropy_" data-uid="wan24.Crypto.EntropyHelper.PermutationEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_PermutationEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_System_Int32___" data-uid="wan24.Crypto.EntropyHelper.PermutationEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{System.Int32}@)">PermutationEntropy(in ReadOnlySpan&lt;byte&gt;, in int?)</h4>
+  <div class="markdown level1 summary"><p>Permutation entropy algorithm</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double PermutationEntropy(in ReadOnlySpan&lt;byte&gt; data, in int? windowSize = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td><span class="parametername">windowSize</span></td>
+        <td><p>Window size (if the given <code>data</code> count is less than this value, the algorithm will return <a class="xref" href="wan24.Crypto.EntropyHelper.html#wan24_Crypto_EntropyHelper_MinPermutationEntropy">MinPermutationEntropy</a>)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><p>Entropy (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.minvalue">MinValue</a>, if <code>data</code> was empty)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_RenyiEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_System_Double___wan24_Core_OrderedDictionary_System_Byte_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.RenyiEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2CSystem.Nullable%7BSystem.Double%7D%40%2Cwan24.Core.OrderedDictionary%7BSystem.Byte%2CSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Renyi.cs/#L28">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_RenyiEntropy_" data-uid="wan24.Crypto.EntropyHelper.RenyiEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_RenyiEntropy_System_ReadOnlySpan_System_Byte___System_Nullable_System_Double___wan24_Core_OrderedDictionary_System_Byte_System_Int32__" data-uid="wan24.Crypto.EntropyHelper.RenyiEntropy(System.ReadOnlySpan{System.Byte}@,System.Nullable{System.Double}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})">RenyiEntropy(in ReadOnlySpan&lt;byte&gt;, in double?, OrderedDictionary&lt;byte, int&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Rényi entropy algorithm</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double RenyiEntropy(in ReadOnlySpan&lt;byte&gt; data, in double? customAlpha = null, OrderedDictionary&lt;byte, int&gt;? byteCounters = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</td>
+        <td><span class="parametername">customAlpha</span></td>
+        <td><p>Custom alpha value (<code>1</code> would be Shannon entropy)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">byteCounters</span></td>
+        <td><p>Byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><p>Entropy (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.minvalue">MinValue</a>, if <code>data</code> was empty)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_ShannonBitEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2Cwan24.Core.OrderedDictionary%7BSystem.Byte%2CSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Shannon.cs/#L26">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_ShannonBitEntropy_" data-uid="wan24.Crypto.EntropyHelper.ShannonBitEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_ShannonBitEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__" data-uid="wan24.Crypto.EntropyHelper.ShannonBitEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})">ShannonBitEntropy(in ReadOnlySpan&lt;byte&gt;, OrderedDictionary&lt;byte, int&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Shannon bit entropy algorithm</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ShannonBitEntropy(in ReadOnlySpan&lt;byte&gt; data, OrderedDictionary&lt;byte, int&gt;? byteCounters = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">byteCounters</span></td>
+        <td><p>Byte counters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><p>Entropy (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.minvalue">MinValue</a>, if <code>data</code> was empty)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nd1012/wan24-Crypto/new/main/apiSpec/new?filename=wan24_Crypto_EntropyHelper_ShannonByteEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__.md&amp;value=---%0Auid%3A%20wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan%7BSystem.Byte%7D%40%2Cwan24.Core.OrderedDictionary%7BSystem.Byte%2CSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nd1012/wan24-Crypto/blob/main/src/wan24-Crypto/EntropyHelper.Shannon.cs/#L43">View Source</a>
+  </span>
+  <a id="wan24_Crypto_EntropyHelper_ShannonByteEntropy_" data-uid="wan24.Crypto.EntropyHelper.ShannonByteEntropy*"></a>
+  <h4 id="wan24_Crypto_EntropyHelper_ShannonByteEntropy_System_ReadOnlySpan_System_Byte___wan24_Core_OrderedDictionary_System_Byte_System_Int32__" data-uid="wan24.Crypto.EntropyHelper.ShannonByteEntropy(System.ReadOnlySpan{System.Byte}@,wan24.Core.OrderedDictionary{System.Byte,System.Int32})">ShannonByteEntropy(in ReadOnlySpan&lt;byte&gt;, OrderedDictionary&lt;byte, int&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Shannon byte entropy algorithm</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ShannonByteEntropy(in ReadOnlySpan&lt;byte&gt; data, OrderedDictionary&lt;byte, int&gt;? byteCounters = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">OrderedDictionary</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">byteCounters</span></td>
+        <td><p>Byte counters</p>
 </td>
       </tr>
     </tbody>
