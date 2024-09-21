@@ -136,6 +136,11 @@ namespace wan24.Crypto
             if (options.MinShannonBitEntropy.HasValue) EntropyHelper.MinShannonBitEntropy = options.MinShannonBitEntropy.Value;
             if (options.MinShannonByteEntropy.HasValue) EntropyHelper.MinShannonByteEntropy = options.MinShannonByteEntropy.Value;
             if (options.MinCustomEntropy.HasValue) EntropyHelper.MinCustomEntropy = options.MinCustomEntropy.Value;
+            if (options.MinRenyiEntropy.HasValue) EntropyHelper.MinRenyiEntropy = options.MinRenyiEntropy.Value;
+            if (options.MinMinEntropy.HasValue) EntropyHelper.MinMinEntropy = options.MinMinEntropy.Value;
+            if (options.MinPermutationEntropy.HasValue) EntropyHelper.MinPermutationEntropy = options.MinPermutationEntropy.Value;
+            if (options.PermutationWindowSize.HasValue) EntropyHelper.PermutationWindowSize = options.PermutationWindowSize.Value;
+            if (options.MinKolmogorovComplexity.HasValue) EntropyHelper.MinKolmogorovComplexity = options.MinKolmogorovComplexity.Value;
             // Password helper
             if (options.MaxPasswordGeneratorTries.HasValue) PasswordHelper.MaxTries = options.MaxPasswordGeneratorTries.Value;
             if (options.DefaultPasswordGeneratorOptions.HasValue) PasswordHelper.DefaultOptions = options.DefaultPasswordGeneratorOptions.Value;

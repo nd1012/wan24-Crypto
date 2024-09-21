@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using wan24.Crypto.Authentication;
 
 namespace wan24.Crypto
@@ -400,6 +401,31 @@ namespace wan24.Crypto
             /// Min. required custom entropy (zero to disable checks)
             /// </summary>
             public double? MinCustomEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Rényi entropy (zero to disable checks; depends on the data length! <c>2.5</c> for 8 byte)
+            /// </summary>
+            public double? MinRenyiEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Min entropy (zero to disable checks; depends on the data length! <c>2.5</c> for 8 byte)
+            /// </summary>
+            public double? MinMinEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Permutation entropy (zero to disable checks; depends on the data length! <c>2</c> for 8 byte)
+            /// </summary>
+            public double? MinPermutationEntropy { get; set; }
+
+            /// <summary>
+            /// Permutation entropy calculator window size (if the given data count is less than this value, the algorithm will return <see cref="MinPermutationEntropy"/>)
+            /// </summary>
+            public int? PermutationWindowSize { get; set; }
+
+            /// <summary>
+            /// Min. required Kolmogorov complexity (zero to disable checks; depends on the data length! <c>2</c> for 8 byte)
+            /// </summary>
+            public double? MinKolmogorovComplexity { get; set; }
 
             /// <summary>
             /// Max. tries for generating a password using the specified options 
