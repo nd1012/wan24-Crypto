@@ -31,6 +31,10 @@ namespace wan24_Crypto_Tests
 
         public override string DisplayName => DISPLAY_NAME;
 
+        public override long MaxCipherDataLength => long.MaxValue;
+
+        public override long MaxKeyUsageCount => long.MaxValue;
+
         public override byte[] EnsureValidKeyLength(byte[] key) => GetValidLengthKey(key, KEY_SIZE);
 
         public override bool IsKeyLengthValid(int len) => len == KEY_SIZE;

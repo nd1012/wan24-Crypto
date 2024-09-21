@@ -11,7 +11,8 @@ namespace wan24.Crypto
         /// <param name="suite">Private key suite</param>
         /// <param name="withCounterAlgorithms">With counter algorithms?</param>
         /// <param name="forSignature">Use the keys for signature?</param>
-        public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true, bool forSignature = false)
+        /// <param name="countKeyUsage">If to count key usage</param>
+        public void ApplyPrivateKeySuite(PrivateKeySuite suite, bool withCounterAlgorithms = true, bool forSignature = false, bool countKeyUsage = true)
         {
             if (forSignature)
             {
@@ -22,6 +23,7 @@ namespace wan24.Crypto
             if (suite.KeyExchangeKey is not null) SetKeys(suite.KeyExchangeKey, suite.Public.KeyExchangeKey);
             if (withCounterAlgorithms && suite.CounterKeyExchangeKey is not null) SetCounterKeys(suite.CounterKeyExchangeKey, suite.Public.CounterKeyExchangeKey);
             if (suite.KeyExchangeKey is null && suite.SymmetricKey is not null) Password = suite.SymmetricKey.CloneArray();
+            KeySuite = countKeyUsage ? suite : null;
         }
 
         /// <summary>

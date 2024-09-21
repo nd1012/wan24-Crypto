@@ -57,6 +57,14 @@ namespace wan24.Crypto
                         CryptoStreamMode.Write, 
                         leaveOpen: false
                         );
+                    // Respect the MaxCipherDataLength
+                    if (MaxCipherDataLength < long.MaxValue || options.MaxCipherDataLength.HasValue)
+                        stream = new LimitedLengthStream(
+                            stream,
+                            options.MaxCipherDataLength.HasValue
+                                ? Math.Min(options.MaxCipherDataLength.Value, MaxCipherDataLength)
+                                : MaxCipherDataLength
+                            );
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
@@ -143,6 +151,14 @@ namespace wan24.Crypto
                         CryptoStreamMode.Write,
                         leaveOpen: false
                         );
+                    // Respect the MaxCipherDataLength
+                    if (MaxCipherDataLength < long.MaxValue || options.MaxCipherDataLength.HasValue)
+                        stream = new LimitedLengthStream(
+                            stream,
+                            options.MaxCipherDataLength.HasValue
+                                ? Math.Min(options.MaxCipherDataLength.Value, MaxCipherDataLength)
+                                : MaxCipherDataLength
+                            );
                     // Prepend a compression stream
                     if (options.Compressed)
                     {
@@ -222,6 +238,17 @@ namespace wan24.Crypto
                     // Apply RNG seeding
                     if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.CipherData) == RngSeedingTypes.CipherData)
                         stream = new RngSeedingStream(stream);
+                    // Respect the MaxCipherDataLength
+                    if (MaxCipherDataLength < long.MaxValue || options.MaxCipherDataLength.HasValue)
+                        stream = new LimitedLengthStream(
+                            stream,
+                            options.MaxCipherDataLength.HasValue
+                                ? Math.Min(options.MaxCipherDataLength.Value, MaxCipherDataLength)
+                                : MaxCipherDataLength
+                            )
+                        {
+                            ThrowOnReadOverflow = true
+                        };
                     // Create the crypto stream
                     stream = new CryptoStream(stream, transform, CryptoStreamMode.Read, leaveOpen: false);
                     // Prepend a compression stream
@@ -309,6 +336,17 @@ namespace wan24.Crypto
                     // Apply RNG seeding
                     if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.CipherData) == RngSeedingTypes.CipherData)
                         stream = new RngSeedingStream(stream);
+                    // Respect the MaxCipherDataLength
+                    if (MaxCipherDataLength < long.MaxValue || options.MaxCipherDataLength.HasValue)
+                        stream = new LimitedLengthStream(
+                            stream,
+                            options.MaxCipherDataLength.HasValue
+                                ? Math.Min(options.MaxCipherDataLength.Value, MaxCipherDataLength)
+                                : MaxCipherDataLength
+                            )
+                        {
+                            ThrowOnReadOverflow = true
+                        };
                     // Create the crypto stream
                     stream = new CryptoStream(stream, transform, CryptoStreamMode.Read, leaveOpen: false);
                     // Prepend a compression stream

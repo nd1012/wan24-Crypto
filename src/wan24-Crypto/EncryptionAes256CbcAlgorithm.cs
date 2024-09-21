@@ -29,6 +29,14 @@ namespace wan24.Crypto
         /// </summary>
         public const int BLOCK_SIZE = 16;
         /// <summary>
+        /// Maximum cipher data length in bytes
+        /// </summary>
+        public const long MAX_CIPHER_DATA_LENGTH = 140737488355328;
+        /// <summary>
+        /// Maximum key usage count
+        /// </summary>
+        public const long MAX_KEY_USAGE_COUNT = 65000000;
+        /// <summary>
         /// Display name
         /// </summary>
         public const string DISPLAY_NAME = "AES-256-CBC";
@@ -72,6 +80,12 @@ namespace wan24.Crypto
 
         /// <inheritdoc/>
         public override string DisplayName => DISPLAY_NAME;
+
+        /// <inheritdoc/>
+        public override long MaxCipherDataLength => MAX_CIPHER_DATA_LENGTH;
+
+        /// <inheritdoc/>
+        public override long MaxKeyUsageCount => MAX_KEY_USAGE_COUNT;
 
         /// <inheritdoc/>
         public override byte[] EnsureValidKeyLength(byte[] key) => GetValidLengthKey(key, KEY_SIZE);

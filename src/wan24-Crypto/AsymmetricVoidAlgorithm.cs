@@ -55,6 +55,9 @@ namespace wan24.Crypto
         public override bool IsSupported => false;
 
         /// <inheritdoc/>
+        public override long MaxKeyUsageCount => 0;
+
+        /// <inheritdoc/>
         public override AsymmetricVoidPrivateKey CreateKeyPair(CryptoOptions? options = null) => throw new NotSupportedException();
 
         /// <inheritdoc/>

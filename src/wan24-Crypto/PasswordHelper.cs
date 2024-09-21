@@ -143,7 +143,7 @@ namespace wan24.Crypto
         /// <param name="special">Special characters to use</param>
         /// <returns><see cref="PasswordOptions.None"/>, if the password matches the requirements (error flags otherwise)</returns>
         public static PasswordOptions CheckPassword(
-            in ReadOnlySpan<char> pwd,
+            in ReadOnlyMemory<char> pwd,
             in PasswordOptions requirements,
             in int? minLen = null,
             in int? maxLen = null,
@@ -170,14 +170,127 @@ namespace wan24.Crypto
             if (entropy.HasValue)
             {
                 using SecureByteArrayRefStruct securePwdBytes = new(Encoding.UTF8.GetMaxByteCount(pwd.Length));
-                if (!EntropyHelper.CheckEntropy(securePwdBytes.Span[..Encoding.UTF8.GetBytes(pwd, securePwdBytes.Span)])) res |= PasswordOptions.Entropy;
+                if (!EntropyHelper.CheckEntropy(securePwdBytes.Span[..Encoding.UTF8.GetBytes(pwd.Span, securePwdBytes.Span)])) res |= PasswordOptions.Entropy;
             }
             // Character checks
-            if ((requirements & PasswordOptions.Lower) == PasswordOptions.Lower && !pwd.ContainsAny(lowerCase ?? DefaultLowerCase ?? LOWER)) res |= PasswordOptions.Lower;
-            if ((requirements & PasswordOptions.Upper) == PasswordOptions.Upper && !pwd.ContainsAny(upperCase ?? DefaultUpperCase ?? UPPER)) res |= PasswordOptions.Upper;
-            if ((requirements & PasswordOptions.Numeric) == PasswordOptions.Numeric && !pwd.ContainsAny(numeric ?? DefaultNumeric ?? NUMERIC)) res |= PasswordOptions.Numeric;
-            if ((requirements & PasswordOptions.Special) == PasswordOptions.Special && !pwd.ContainsAny(special ?? DefaultSpecial ?? SPECIAL)) res |= PasswordOptions.Special;
+            if ((requirements & PasswordOptions.Lower) == PasswordOptions.Lower && !pwd.Span.ContainsAny(lowerCase ?? DefaultLowerCase ?? LOWER)) res |= PasswordOptions.Lower;
+            if ((requirements & PasswordOptions.Upper) == PasswordOptions.Upper && !pwd.Span.ContainsAny(upperCase ?? DefaultUpperCase ?? UPPER)) res |= PasswordOptions.Upper;
+            if ((requirements & PasswordOptions.Numeric) == PasswordOptions.Numeric && !pwd.Span.ContainsAny(numeric ?? DefaultNumeric ?? NUMERIC)) res |= PasswordOptions.Numeric;
+            if ((requirements & PasswordOptions.Special) == PasswordOptions.Special && !pwd.Span.ContainsAny(special ?? DefaultSpecial ?? SPECIAL)) res |= PasswordOptions.Special;
+            // Extended checks
+            res = RaiseOnValidation(res, pwd, requirements, minLen, maxLen, entropy, lowerCase, upperCase, numeric, special);
             return res;
+        }
+
+        /// <summary>
+        /// Delegate for a password validation handler
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Arguments</param>
+        public delegate void Validation_Delegate(object? sender, ValidationEventArgs e);
+        /// <summary>
+        /// Raised when <see cref="CheckPassword(in ReadOnlyMemory{char}, in PasswordOptions, in int?, in int?, in bool?, in string?, in string?, in string?, in string?)"/> was called
+        /// </summary>
+        public static event Validation_Delegate? OnValidation;
+        /// <summary>
+        /// Raise the <see cref="OnValidation"/> event
+        /// </summary>
+        /// <param name="res">Present result</param>
+        /// <param name="pwd">Password (empty password isn't allowed)</param>
+        /// <param name="requirements">Requirements</param>
+        /// <param name="minLen">Min. length in characters</param>
+        /// <param name="maxLen">Max. length in characters</param>
+        /// <param name="entropy">If to check the entropy using <see cref="EntropyHelper.CheckEntropy(in ReadOnlySpan{byte}, EntropyHelper.Algorithms?, in bool)"/></param>
+        /// <param name="lowerCase">Lower case characters to use</param>
+        /// <param name="upperCase">Upper case characters to use</param>
+        /// <param name="numeric">Numeric characters to use</param>
+        /// <param name="special">Special characters to use</param>
+        /// <returns><see cref="PasswordOptions.None"/>, if the password matches the requirements (error flags otherwise)</returns>
+        private static PasswordOptions RaiseOnValidation(
+            in PasswordOptions res,
+            in ReadOnlyMemory<char> pwd,
+            in PasswordOptions requirements,
+            in int? minLen = null,
+            in int? maxLen = null,
+            in bool? entropy = null,
+            in string? lowerCase = null,
+            in string? upperCase = null,
+            in string? numeric = null,
+            in string? special = null
+            )
+        {
+            if (OnValidation is null) return res;
+            ValidationEventArgs e = new()
+            {
+                Result = res,
+                Password = pwd,
+                Requirements = requirements,
+                MinLength = minLen,
+                MaxLength = maxLen,
+                Entropy = entropy,
+                LowerCase = lowerCase,
+                UpperCase = upperCase,
+                Numeric = numeric,
+                Special = special
+            };
+            OnValidation?.Invoke(sender: null, e);
+            return e.Result;
+        }
+
+        /// <summary>
+        /// Validation event arguments
+        /// </summary>
+        public sealed class ValidationEventArgs : EventArgs
+        {
+            /// <summary>
+            /// Result
+            /// </summary>
+            public required PasswordOptions Result { get; set; }
+
+            /// <summary>
+            /// Password
+            /// </summary>
+            public required ReadOnlyMemory<char> Password { get; init; }
+
+            /// <summary>
+            /// Requirements
+            /// </summary>
+            public required PasswordOptions Requirements { get; init; }
+
+            /// <summary>
+            /// Min. length in characters
+            /// </summary>
+            public required int? MinLength { get; init; }
+
+            /// <summary>
+            /// Max. length in characters
+            /// </summary>
+            public required int? MaxLength { get; init; }
+
+            /// <summary>
+            /// If to check the entropy using <see cref="EntropyHelper.CheckEntropy(in ReadOnlySpan{byte}, EntropyHelper.Algorithms?, in bool)"/>
+            /// </summary>
+            public required bool? Entropy { get; init; }
+
+            /// <summary>
+            /// Lower case characters to use
+            /// </summary>
+            public required string? LowerCase { get; init; }
+
+            /// <summary>
+            /// Upper case characters to use
+            /// </summary>
+            public required string? UpperCase { get; init; }
+
+            /// <summary>
+            /// Numeric characters to use
+            /// </summary>
+            public required string? Numeric { get; init; }
+
+            /// <summary>
+            /// Special characters to use
+            /// </summary>
+            public required string? Special { get; init; }
         }
     }
 }

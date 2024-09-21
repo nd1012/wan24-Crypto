@@ -8,7 +8,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Base class for a symmetric encryption algorithm
     /// </summary>
-    public abstract partial record class EncryptionAlgorithmBase : CryptoAlgorithmBase
+    public abstract partial record class EncryptionAlgorithmBase : CryptoAlgorithmBase, ILimitKeyUsageCount
     {
         /// <summary>
         /// Default options
@@ -34,7 +34,7 @@ namespace wan24.Crypto
         public virtual CryptoOptions DefaultOptions => EncryptionHelper.GetDefaultOptions(_DefaultOptions.GetCopy());
 
         /// <summary>
-        /// Was this allogithm denied (still usable for decryption, but not for encryption)?
+        /// Was this algorithm denied (still usable for decryption, but not for encryption)?
         /// </summary>
         public bool IsDenied => DeniedAlgorithms.IsEncryptionAlgorithmDenied(Value);
 

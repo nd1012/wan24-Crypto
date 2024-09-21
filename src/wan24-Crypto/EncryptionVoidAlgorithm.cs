@@ -46,6 +46,12 @@ namespace wan24.Crypto
         public override bool IsSupported => false;
 
         /// <inheritdoc/>
+        public override long MaxCipherDataLength => 0;
+
+        /// <inheritdoc/>
+        public override long MaxKeyUsageCount => 0;
+
+        /// <inheritdoc/>
         public override byte[] EnsureValidKeyLength(byte[] key) => throw new NotSupportedException();
 
         /// <inheritdoc/>

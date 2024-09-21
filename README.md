@@ -450,6 +450,7 @@ sections, it's easy to overview:
 | --- | --- | --- | --- |
 | Encryption | `Algorithm` | Encryption algorithm name | `null` (`AES256CBC`) |
 |  | `EncryptionOptions` | String serialized encryption options | `null` |
+|  | `MaxCipherDataLength` | Maximum cipher data length in bytes | `null` |
 |  | `EncryptionPasswordPreProcessor` | Delegate for pre-processing an encryption password (the default can be set to `DefaultEncryptionPasswordPreProcessor`) | `null` |
 |  | `EncryptionPasswordAsyncPreProcessor` | Delegate for pre-processing an encryption password (only applied during asynchronous operation; the default can be set to `DefaultEncryptionPasswordAsyncPreProcessor`) | `null` |
 |  | `FlagsIncluded` | Are the flags included in the header? | `true` |
@@ -509,6 +510,7 @@ sections, it's easy to overview:
 | Hashing / Signature | `HashAlgorithm` | The name of the hash algorithm to use | `null` (`SHA3-512`) |
 | Key creation | `AsymmetricKeyBits` | Key size in bits to use for creating a new asymmetric key pair | `1` |
 | Stream options | `LeaveOpen` | Leave the processing stream open after operation? | `false` |
+| Key usage counting options | `KeySuite` | Private key suite to use for key usage counting | `null` |
 | Debug options | `Tracer` | Collects tracing information during en-/decryption | `null` |
 | Tag | `Tag` | Can store any tagged object which will be cloned on `GetCopy`, if `IClonable` is implemented | `null` |
 
@@ -531,6 +533,7 @@ For encryption these sections matter:
 - Encryption time
 - Compression
 - Stream options
+- Key usage counting options
 
 In case you want to use the `*Counter*` options, you'll need to set the 
 `CounterPrivateKey` value.
@@ -545,13 +548,17 @@ For hashing these sections matter:
 - Hashing
 - Stream options
 
-For asymmetric key creation the "Key creation" section matters.
+For asymmetric key creation these sections matter:
+
+- Key creation
+- Key usage counting options
 
 For signature these sections matter:
 
 - Signature
 - Hashing
 - Stream options
+- Key usage counting options
 
 The `CryptoEnvironment` helps configuring the whole `wan24-Crypto` environment 
 at once by providing an options class which contains all the options that one 
@@ -626,6 +633,7 @@ in `DefaultPrivateKeysStore`)
 - `CounterPrivateKey` (needs to be stored in another place)
 - `PublicKey`
 - `CounterPublicKey`
+- `KeySuite` (needs to be stored in another place)
 - `KeyExchangeData`
 - `PayloadData`
 - `Time`
@@ -1557,7 +1565,25 @@ really good - it's only a trade-off to gain compatibility and performance. You
 should consinder to create a counter MAC from the whole raw data manually, if 
 possible, instead.
 
-### Post quantum safety
+## Key usage counting
+
+Some algorithms have an usage limit. After that limit was exceeded, a 
+(private) key should be renewed. `wan24-Crypto` supports key usage counting 
+for keys which are managed in a `PrivateKeySuite`. To count key usage, set 
+the private key suite instance to the `CryptoOptions.KeySuite`.
+
+**CAUTION**: Key usage can't be counted for asymmetric private keys, if the 
+raw key derivation or raw hash signature methods are called directly, 'cause 
+the methods don't use `CryptoOptions`. Before using those methods directly, 
+please call any `PrivateKeySuite.Count*KeyUsage` method by yourself.
+
+If the key usage was exceeded, a `KeyUsageExceededException` will be thrown 
+on any attempt to use the key once more.
+
+**NOTE**: Different algorithms have different key usage count limits. Those 
+are defined in their `MAX_KEY_USAGE_COUNT` constants, IF there's any limit.
+
+## Post quantum safety
 
 Some of the used cryptographic algorithms are quantum safe already, but 
 especially the asymmetric algorithms are not post quantum safe at all. If you 

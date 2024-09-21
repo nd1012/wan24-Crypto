@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using wan24.Core;
-using static wan24.Crypto.CryptoAppConfig;
 
 namespace wan24.Crypto
 {
@@ -512,6 +511,12 @@ namespace wan24.Crypto
             public CryptoFlags? DefaultFlags { get; set; }
 
             /// <summary>
+            /// Default maximum cipher data length in bytes (won't overflow <see cref="EncryptionAlgorithmBase.MaxCipherDataLength"/>)
+            /// </summary>
+            [Range(1, long.MaxValue)]
+            public int? DefaultMaxCipherDataLength { get; set; }
+
+            /// <summary>
             /// Apply
             /// </summary>
             /// <param name="options">Options</param>
@@ -520,6 +525,7 @@ namespace wan24.Crypto
                 options.DefaultMaximumAge = DefaultMaximumAge;
                 options.DefaultMaximumTimeOffset = DefaultMaximumTimeOffset;
                 options.DefaultFlags = DefaultFlags;
+                options.DefaultMaxCipherDataLength = DefaultMaxCipherDataLength;
             }
 
             /// <summary>
@@ -532,6 +538,7 @@ namespace wan24.Crypto
                 options.DefaultMaximumAge = DefaultMaximumAge;
                 options.DefaultMaximumTimeOffset = DefaultMaximumTimeOffset;
                 options.DefaultFlags = DefaultFlags;
+                options.DefaultMaxCipherDataLength = DefaultMaxCipherDataLength;
                 return Task.CompletedTask;
             }
         }
@@ -818,6 +825,31 @@ namespace wan24.Crypto
             public double? MinCustomEntropy { get; set; }
 
             /// <summary>
+            /// Min. required Rényi entropy (zero to disable checks; depends on the data length! <c>2.5</c> for 8 byte)
+            /// </summary>
+            public double? MinRenyiEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Min entropy (zero to disable checks; depends on the data length! <c>2.5</c> for 8 byte)
+            /// </summary>
+            public double? MinMinEntropy { get; set; }
+
+            /// <summary>
+            /// Min. required Permutation entropy (zero to disable checks; depends on the data length! <c>2</c> for 8 byte)
+            /// </summary>
+            public double? MinPermutationEntropy { get; set; }
+
+            /// <summary>
+            /// Permutation entropy calculator window size (if the given data count is less than this value, the algorithm will return <see cref="MinPermutationEntropy"/>)
+            /// </summary>
+            public int? PermutationWindowSize { get; set; }
+
+            /// <summary>
+            /// Min. required Kolmogorov complexity (zero to disable checks; depends on the data length! <c>2</c> for 8 byte)
+            /// </summary>
+            public double? MinKolmogorovComplexity { get; set; }
+
+            /// <summary>
             /// Apply
             /// </summary>
             /// <param name="options">Options</param>
@@ -828,6 +860,11 @@ namespace wan24.Crypto
                 options.MinShannonBitEntropy = MinShannonBitEntropy;
                 options.MinShannonByteEntropy = MinShannonByteEntropy;
                 options.MinCustomEntropy = MinCustomEntropy;
+                options.MinRenyiEntropy = MinRenyiEntropy;
+                options.MinMinEntropy = MinRenyiEntropy;
+                options.MinPermutationEntropy = MinPermutationEntropy;
+                options.PermutationWindowSize = PermutationWindowSize;
+                options.MinKolmogorovComplexity = MinKolmogorovComplexity;
             }
 
             /// <summary>
@@ -842,6 +879,10 @@ namespace wan24.Crypto
                 options.MinShannonBitEntropy = MinShannonBitEntropy;
                 options.MinShannonByteEntropy = MinShannonByteEntropy;
                 options.MinCustomEntropy = MinCustomEntropy;
+                options.MinMinEntropy = MinRenyiEntropy;
+                options.MinPermutationEntropy = MinPermutationEntropy;
+                options.PermutationWindowSize = PermutationWindowSize;
+                options.MinKolmogorovComplexity = MinKolmogorovComplexity;
                 return Task.CompletedTask;
             }
         }

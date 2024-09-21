@@ -16,7 +16,7 @@ namespace wan24.Crypto
         /// <summary>
         /// Object version
         /// </summary>
-        public const int VERSION = 3;
+        public const int VERSION = 4;
         /// <summary>
         /// Header version
         /// </summary>
@@ -81,6 +81,11 @@ namespace wan24.Crypto
         public static AsyncEncryptionPasswordPreProcessor_Delegate? DefaultEncryptionPasswordAsyncPreProcessor { get; set; }
 
         /// <summary>
+        /// Default maximum cipher data length in bytes (won't overflow <see cref="EncryptionAlgorithmBase.MaxCipherDataLength"/>)
+        /// </summary>
+        public static int? DefaultMaxCipherDataLength { get; set; }
+
+        /// <summary>
         /// Any tagged object (will be cloned, if it implements <see cref="ICloneable"/>, and <see cref="GetCopy"/> has been called)
         /// </summary>
         public object? Tag { get; set; }
@@ -129,6 +134,12 @@ namespace wan24.Crypto
         /// Encryption password pre-processor (only applied during asynchronous operation)
         /// </summary>
         public AsyncEncryptionPasswordPreProcessor_Delegate? EncryptionPasswordAsyncPreProcessor { get; set; } = DefaultEncryptionPasswordAsyncPreProcessor;
+
+        /// <summary>
+        /// Maximum cipher data length in bytes (won't overflow <see cref="EncryptionAlgorithmBase.MaxCipherDataLength"/>)
+        /// </summary>
+        [Range(1, long.MaxValue)]
+        public int? MaxCipherDataLength { get; set; } = DefaultMaxCipherDataLength;
 
         /// <summary>
         /// MAC algorithm name
@@ -236,6 +247,11 @@ namespace wan24.Crypto
         /// RNG seeding flags (to override <see cref="RND.AutoRngSeeding"/>; won't be serialized!)
         /// </summary>
         public RngSeedingTypes? RngSeeding { get; set; }
+
+        /// <summary>
+        /// Private key suite to use for counting key usage (for encryption, key exchange and signature)
+        /// </summary>
+        public PrivateKeySuite? KeySuite { get; set; }
 
         /// <summary>
         /// Set the payload
@@ -404,6 +420,7 @@ namespace wan24.Crypto
                 }
                 else
                 {
+                    KeySuite?.CountAsymmetricKeyUsage(key);
                     SetNewPassword(key.DeriveKey(KeyExchangeData.KeyExchangeData));
                 }
                 return Password;
@@ -480,6 +497,7 @@ namespace wan24.Crypto
             EncryptionOptions = EncryptionOptions,
             EncryptionPasswordPreProcessor = EncryptionPasswordPreProcessor,
             EncryptionPasswordAsyncPreProcessor = EncryptionPasswordAsyncPreProcessor,
+            MaxCipherDataLength = MaxCipherDataLength,
             MacAlgorithm = MacAlgorithm,
             MacPassword = MacPassword?.CloneArray(),
             KdfAlgorithm = KdfAlgorithm,
@@ -520,7 +538,8 @@ namespace wan24.Crypto
             CounterPublicKey = CounterPublicKey,
             LeaveOpen = LeaveOpen,
             Tracer = Tracer,
-            RngSeeding = RngSeeding
+            RngSeeding = RngSeeding,
+            KeySuite = KeySuite
         };
 
         /// <inheritdoc/>

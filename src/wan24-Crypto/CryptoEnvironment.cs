@@ -114,6 +114,7 @@ namespace wan24.Crypto
             if (options.DefaultFlagsIncluded.HasValue) CryptoOptions.DefaultFlagsIncluded = options.DefaultFlagsIncluded.Value;
             if (options.DefaultEncryptionPasswordPreProcessor is not null) CryptoOptions.DefaultEncryptionPasswordPreProcessor = options.DefaultEncryptionPasswordPreProcessor;
             if (options.DefaultEncryptionPasswordAsyncPreProcessor is not null) CryptoOptions.DefaultEncryptionPasswordAsyncPreProcessor = options.DefaultEncryptionPasswordAsyncPreProcessor;
+            if (options.DefaultMaxCipherDataLength.HasValue) CryptoOptions.DefaultMaxCipherDataLength = options.DefaultMaxCipherDataLength.Value;
             // PAKE
             if (options.DefaultPakeOptions is not null) Pake.DefaultOptions = options.DefaultPakeOptions;
             if (options.DefaultPakeCryptoOptions is not null) Pake.DefaultCryptoOptions = options.DefaultPakeCryptoOptions;
@@ -127,12 +128,19 @@ namespace wan24.Crypto
             if (options.AutoRngSeeding.HasValue) RND.AutoRngSeeding = options.AutoRngSeeding.Value;
             if (options.FillRandomBytes is not null) RND.FillBytes = options.FillRandomBytes;
             if (options.FillRandomBytesAsync is not null) RND.FillBytesAsync = options.FillRandomBytesAsync;
+            if (options.IvHelperRng is not null) IvHelper.RNG = options.IvHelperRng;
+            if (options.KeyHelperRng is not null) KeyHelper.RNG = options.KeyHelperRng;
             // Entropy
             if (options.DefaultEntropyAlgorithm.HasValue) EntropyHelper.DefaultAlgorithm = (EntropyHelper.Algorithms)options.DefaultEntropyAlgorithm.Value;
             if (options.DefaultEntropyAlgorithms.HasValue) EntropyHelper.DefaultAlgorithms = (EntropyHelper.Algorithms)options.DefaultEntropyAlgorithms.Value;
             if (options.MinShannonBitEntropy.HasValue) EntropyHelper.MinShannonBitEntropy = options.MinShannonBitEntropy.Value;
             if (options.MinShannonByteEntropy.HasValue) EntropyHelper.MinShannonByteEntropy = options.MinShannonByteEntropy.Value;
             if (options.MinCustomEntropy.HasValue) EntropyHelper.MinCustomEntropy = options.MinCustomEntropy.Value;
+            if (options.MinRenyiEntropy.HasValue) EntropyHelper.MinRenyiEntropy = options.MinRenyiEntropy.Value;
+            if (options.MinMinEntropy.HasValue) EntropyHelper.MinMinEntropy = options.MinMinEntropy.Value;
+            if (options.MinPermutationEntropy.HasValue) EntropyHelper.MinPermutationEntropy = options.MinPermutationEntropy.Value;
+            if (options.PermutationWindowSize.HasValue) EntropyHelper.PermutationWindowSize = options.PermutationWindowSize.Value;
+            if (options.MinKolmogorovComplexity.HasValue) EntropyHelper.MinKolmogorovComplexity = options.MinKolmogorovComplexity.Value;
             // Password helper
             if (options.MaxPasswordGeneratorTries.HasValue) PasswordHelper.MaxTries = options.MaxPasswordGeneratorTries.Value;
             if (options.DefaultPasswordGeneratorOptions.HasValue) PasswordHelper.DefaultOptions = options.DefaultPasswordGeneratorOptions.Value;

@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Entropy helper
     /// </summary>
-    public static class EntropyHelper
+    public static partial class EntropyHelper
     {
         /// <summary>
         /// Single default algorithm
@@ -21,75 +21,6 @@ namespace wan24.Crypto
         public static Algorithms DefaultAlgorithms { get; set; } = Algorithms.ALL;
 
         /// <summary>
-        /// Custom entropy algorithm
-        /// </summary>
-        public static EntropyAlgorithm_Delegate? CustomAlgorithm { get; set; }
-
-        /// <summary>
-        /// Min. required Shannon bit entropy (zero to disable checks)
-        /// </summary>
-        [CliConfig]
-        public static double MinShannonBitEntropy { get; set; }
-
-        /// <summary>
-        /// Min. required Shannon byte entropy (zero to disable checks)
-        /// </summary>
-        [CliConfig]
-        public static double MinShannonByteEntropy { get; set; }
-
-        /// <summary>
-        /// Min. required custom entropy (zero to disable checks)
-        /// </summary>
-        [CliConfig]
-        public static double MinCustomEntropy { get; set; }
-
-        /// <summary>
-        /// Shannon bit entropy algorithm
-        /// </summary>
-        /// <param name="data">Data</param>
-        /// <returns>Entropy (<see cref="double.MinValue"/>, if <c>data</c> was empty)</returns>
-        public static double ShannonBitEntropy(in ReadOnlySpan<byte> data)
-        {
-            int len = data.Length;
-            if (len < 1) return double.MinValue;
-            int[] counters;
-            {
-                Dictionary<byte, int> temp = new(Math.Min(256, len));
-                for (int i = 0; i < len; i++)
-                    if (!temp.TryAdd(data[i], 1))
-                        temp[data[i]]++;
-                counters = [.. temp.Values];
-            }
-            double res = 0,
-                lenD = len;
-            for (int i = 0, mapLen = counters.Length; i < mapLen; res -= Math.Log2(counters[i] / lenD), i++) ;
-            return res / lenD;
-        }
-
-        /// <summary>
-        /// Shannon byte entropy algorithm
-        /// </summary>
-        /// <param name="data">Data</param>
-        /// <returns>Entropy (<see cref="double.MinValue"/>, if <c>data</c> was empty)</returns>
-        public static double ShannonByteEntropy(in ReadOnlySpan<byte> data)
-        {
-            int len = data.Length;
-            if (len < 1) return double.MinValue;
-            int[] counters;
-            {
-                Dictionary<byte, int> temp = new(Math.Min(256, len));
-                for (int i = 0; i < len; i++)
-                    if (!temp.TryAdd(data[i], 1))
-                        temp[data[i]]++;
-                counters = [.. temp.Values];
-            }
-            double res = 0,
-                lenD = len;
-            for (int i = 0, mapLen = counters.Length; i < mapLen; res -= Math.Log(counters[i] / lenD, 256), i++) ;
-            return res / lenD;
-        }
-
-        /// <summary>
         /// Get the entropy using a specific algorithm
         /// </summary>
         /// <param name="data">Data</param>
@@ -100,9 +31,13 @@ namespace wan24.Crypto
             {
                 Algorithms.ShannonBit => ShannonBitEntropy(data),
                 Algorithms.ShannonByte => ShannonByteEntropy(data),
+                Algorithms.Renyi => RenyiEntropy(data),
+                Algorithms.Min => MinEntropy(data),
+                Algorithms.Permutation => PermutationEntropy(data),
+                Algorithms.Kolmogorov => KolmogorovComplexity(data),
                 Algorithms.None => throw new ArgumentException($"Invalid algorithm \"{algo}\"", nameof(algo)),
-                _ => CustomAlgorithm is null 
-                    ? throw new ArgumentException($"Invalid algorithm \"{algo}\"", nameof(algo)) 
+                _ => CustomAlgorithm is null
+                    ? throw new ArgumentException($"Invalid algorithm \"{algo}\"", nameof(algo))
                     : CustomAlgorithm(data, (int)(algo.Value & ~Algorithms.Custom), throwOnInvalidAlgorithm: true)
             };
 
@@ -120,23 +55,72 @@ namespace wan24.Crypto
             algos ??= DefaultAlgorithms;
             if (algos.Value == Algorithms.None) return true;
             double entropy;
+            OrderedDictionary<byte, int>? byteCounters = null;
             // Shannon bit
-            if (MinShannonBitEntropy != 0 && (algos.Value & Algorithms.ShannonBit) == Algorithms.ShannonBit && (entropy = ShannonBitEntropy(data)) < MinShannonBitEntropy)
+            if (
+                MinShannonBitEntropy != 0 &&
+                (algos.Value & Algorithms.ShannonBit) == Algorithms.ShannonBit &&
+                (entropy = ShannonBitEntropy(data, byteCounters = GetByteCounters(data))) < MinShannonBitEntropy
+                )
             {
                 if (!throwOnError) return false;
                 throw new InvalidDataException($"Shannon bit entropy of {entropy} doesn't fit the min. required entropy of {MinShannonBitEntropy}");
             }
             // Shannon byte
-            if (MinShannonByteEntropy != 0 && (algos.Value & Algorithms.ShannonByte) == Algorithms.ShannonByte && (entropy = ShannonByteEntropy(data)) < MinShannonByteEntropy)
+            if (
+                MinShannonByteEntropy != 0 &&
+                (algos.Value & Algorithms.ShannonByte) == Algorithms.ShannonByte &&
+                (entropy = ShannonByteEntropy(data, byteCounters ??= GetByteCounters(data))) < MinShannonByteEntropy
+                )
             {
                 if (!throwOnError) return false;
                 throw new InvalidDataException($"Shannon byte entropy of {entropy} doesn't fit the min. required entropy of {MinShannonByteEntropy}");
             }
+            // Rényi
+            if (
+                MinRenyiEntropy != 0 &&
+                (algos.Value & Algorithms.Renyi) == Algorithms.Renyi &&
+                (entropy = RenyiEntropy(data, byteCounters ??= GetByteCounters(data))) < MinRenyiEntropy
+                )
+            {
+                if (!throwOnError) return false;
+                throw new InvalidDataException($"Rényi entropy of {entropy} doesn't fit the min. required entropy of {MinRenyiEntropy}");
+            }
+            // Min
+            if (
+                MinMinEntropy != 0 &&
+                (algos.Value & Algorithms.Min) == Algorithms.Min &&
+                (entropy = MinEntropy(data, byteCounters ??= GetByteCounters(data))) < MinMinEntropy
+                )
+            {
+                if (!throwOnError) return false;
+                throw new InvalidDataException($"Min entropy of {entropy} doesn't fit the max. required entropy of {MinMinEntropy}");
+            }
+            // Permutation
+            if (
+                MinPermutationEntropy != 0 &&
+                (algos.Value & Algorithms.Permutation) == Algorithms.Permutation &&
+                (entropy = PermutationEntropy(data)) < MinPermutationEntropy
+                )
+            {
+                if (!throwOnError) return false;
+                throw new InvalidDataException($"Permutation entropy of {entropy} doesn't fit the min. required entropy of {MinPermutationEntropy}");
+            }
+            // Kolmogorov
+            if (
+                MinKolmogorovComplexity != 0 &&
+                (algos.Value & Algorithms.Kolmogorov) == Algorithms.Kolmogorov &&
+                (entropy = KolmogorovComplexity(data)) < MinKolmogorovComplexity
+                )
+            {
+                if (!throwOnError) return false;
+                throw new InvalidDataException($"Kolmogorov complexity of {entropy} doesn't fit the min. required complexity of {MinKolmogorovComplexity}");
+            }
             // Custom
             if (CustomAlgorithm is not null && MinCustomEntropy != 0 && (algos.Value & Algorithms.Custom) == Algorithms.Custom)
             {
-                int customAlgo = (int)(algos.Value & Algorithms.ALL);
-                entropy = CustomAlgorithm(data, customAlgo);
+                int customAlgo = (int)(algos.Value & ~Algorithms.ALL);
+                entropy = CustomAlgorithm(data, customAlgo, byteCounters);
                 if (double.IsNaN(entropy))
                 {
                     if (!throwOnError) return false;
@@ -208,19 +192,10 @@ namespace wan24.Crypto
         public static double GetEntropy(this ReadOnlyMemory<byte> data, in Algorithms? algo = null) => CalculateEntropy(data.Span, algo);
 
         /// <summary>
-        /// Delegate for an entropy algorithm
-        /// </summary>
-        /// <param name="data">Data</param>
-        /// <param name="algo">Custom algorithm bits (excluding <see cref="Algorithms.Custom"/>)</param>
-        /// <param name="throwOnInvalidAlgorithm">Throw an exception on an invalid value of <c>algo</c>?</param>
-        /// <returns>Entropy (<see cref="double.MinValue"/>, if <c>str</c> was empty; <see cref="double.NaN"/>, if <c>algo</c> was invalid)</returns>
-        public delegate double EntropyAlgorithm_Delegate(ReadOnlySpan<byte> data, int algo, bool throwOnInvalidAlgorithm = false);
-
-        /// <summary>
         /// Algorithms
         /// </summary>
         [Flags]
-        public enum Algorithms
+        public enum Algorithms : int
         {
             /// <summary>
             /// None
@@ -231,22 +206,42 @@ namespace wan24.Crypto
             /// Shannon bit
             /// </summary>
             [DisplayText("Shannon bit")]
-            ShannonBit = 1,
+            ShannonBit = 1 << 1,
             /// <summary>
             /// Shannon byte
             /// </summary>
             [DisplayText("Shannon byte")]
-            ShannonByte = 2,
+            ShannonByte = 1 << 2,
             /// <summary>
             /// Custom
             /// </summary>
             [DisplayText("Custom")]
-            Custom = 4,
+            Custom = 1 << 3,
+            /// <summary>
+            /// Rényi
+            /// </summary>
+            [DisplayText("Rényi")]
+            Renyi = 1 << 4,
+            /// <summary>
+            /// Min
+            /// </summary>
+            [DisplayText("Min")]
+            Min = 1 << 5,
+            /// <summary>
+            /// Permutation
+            /// </summary>
+            [DisplayText("Permutation")]
+            Permutation = 1 << 6,
+            /// <summary>
+            /// Kolmogorov
+            /// </summary>
+            [DisplayText("Kolmogorov")]
+            Kolmogorov = 1 << 7,
             /// <summary>
             /// All algorithms
             /// </summary>
             [DisplayText("All algorithms")]
-            ALL = ShannonBit | ShannonByte | Custom
+            ALL = ShannonBit | ShannonByte | Custom | Renyi | Min | Permutation | Kolmogorov
         }
     }
 }

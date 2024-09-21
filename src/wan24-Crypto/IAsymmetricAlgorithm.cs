@@ -6,7 +6,7 @@ namespace wan24.Crypto
     /// <summary>
     /// Interface for an asymmetric algorithm
     /// </summary>
-    public interface IAsymmetricAlgorithm : ICryptoAlgorithm
+    public interface IAsymmetricAlgorithm : ICryptoAlgorithm, ILimitKeyUsageCount
     {
         /// <summary>
         /// Default options

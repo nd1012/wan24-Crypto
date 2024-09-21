@@ -20,6 +20,7 @@ namespace wan24.Crypto
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
+                options.KeySuite?.CountSymmetricKeyUsage(this);
                 options.SetNewPassword(pwd.CloneArray());
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header
@@ -170,6 +171,7 @@ namespace wan24.Crypto
             options = options?.GetCopy() ?? DefaultOptions;
             try
             {
+                options.KeySuite?.CountSymmetricKeyUsage(this);
                 options.SetNewPassword(pwd.CloneArray());
                 EncryptionHelper.ValidateStreams(rawData, cipherData, forEncryption: true, options);
                 // Write the header

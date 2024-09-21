@@ -241,7 +241,9 @@ namespace wan24.Crypto
                     key2 = null;
                 try
                 {
+                    options.KeySuite?.CountAsymmetricKeyUsage(key);
                     key1 = key.DeriveKey(keyExchangeData.KeyExchangeData);
+                    options.KeySuite?.CountAsymmetricKeyUsage(counterKey);
                     key2 = counterKey.DeriveKey(keyExchangeData.CounterKeyExchangeData);
                     options.SetNewPassword(key1.ExtendKey(key2));
                 }
@@ -322,6 +324,7 @@ namespace wan24.Crypto
             try
             {
                 if (options.CounterPrivateKey is not ISignaturePrivateKey key) throw new ArgumentException("Missing counter private key", nameof(options));
+                options.KeySuite?.CountAsymmetricKeyUsage(key);
                 signature.CounterSignature = key.SignHashRaw(signature.CreateSignatureHash(forCounterSignature: true));
             }
             catch (CryptographicException)
