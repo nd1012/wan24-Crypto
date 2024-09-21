@@ -6,10 +6,10 @@ namespace wan24.Crypto
     public static partial class EntropyHelper
     {
         /// <summary>
-        /// Max. required Min entropy (zero to disable checks)
+        /// Min. required Min entropy (zero to disable checks; depends on the data length! <c>2.5</c> for 8 byte)
         /// </summary>
         [CliConfig]
-        public static double MaxMinEntropy { get; set; }
+        public static double MinMinEntropy { get; set; } = 2.5d;
 
         /// <summary>
         /// Min entropy algorithm
@@ -22,10 +22,13 @@ namespace wan24.Crypto
             int len = data.Length;
             if (len < 1) return double.MinValue;
             byteCounters ??= GetByteCounters(data);
+            EnsureValidByteCounters(byteCounters);
             int max = 0;
-            for (int i = 0, len2 = byteCounters.Count; i < len2; i++)
-                if (byteCounters[i] > max)
-                    max = byteCounters[i];
+            for (int i = 0, len2 = byteCounters.Count, cnt; i < len2; i++)
+            {
+                cnt = byteCounters[i];
+                if (cnt > max) max = cnt;
+            }
             return -Math.Log2((double)max / len);
         }
     }

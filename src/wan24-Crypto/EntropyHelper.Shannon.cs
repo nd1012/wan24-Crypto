@@ -6,16 +6,16 @@ namespace wan24.Crypto
     public static partial class EntropyHelper
     {
         /// <summary>
-        /// Min. required Shannon bit entropy (zero to disable checks)
+        /// Min. required Shannon bit entropy (zero to disable checks; depends on the data length! <c>20</c> for 8 byte)
         /// </summary>
         [CliConfig]
-        public static double MinShannonBitEntropy { get; set; }
+        public static double MinShannonBitEntropy { get; set; } = 20d;
 
         /// <summary>
-        /// Min. required Shannon byte entropy (zero to disable checks)
+        /// Min. required Shannon byte entropy (zero to disable checks; depends on the data length! <c>0.2</c> for 8 byte)
         /// </summary>
         [CliConfig]
-        public static double MinShannonByteEntropy { get; set; }
+        public static double MinShannonByteEntropy { get; set; } = 0.2d;
 
         /// <summary>
         /// Shannon bit entropy algorithm
@@ -30,8 +30,8 @@ namespace wan24.Crypto
             byteCounters ??= GetByteCounters(data);
             double res = 0,
                 lenD = len;
-            for (int i = 0, mapLen = byteCounters.Count; i < mapLen; res -= Math.Log2(byteCounters[i] / lenD), i++) ;
-            return res / lenD;
+            for (int i = 0, len2 = byteCounters.Count; i < len2; res -= Math.Log2(byteCounters[i] / lenD), i++) ;
+            return res;
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace wan24.Crypto
             byteCounters ??= GetByteCounters(data);
             double res = 0,
                 lenD = len;
-            for (int i = 0, mapLen = byteCounters.Count; i < mapLen; res -= Math.Log(byteCounters[i] / lenD, 256), i++) ;
-            return res / lenD;
+            for (int i = 0, len2 = byteCounters.Count; i < len2; res -= Math.Log(byteCounters[i] / lenD, 256), i++) ;
+            return res;
         }
     }
 }

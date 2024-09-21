@@ -7,13 +7,13 @@ namespace wan24.Crypto
     public static partial class EntropyHelper
     {
         /// <summary>
-        /// Min. required Kolmogorov complexity (zero to disable checks)
+        /// Min. required Kolmogorov complexity (zero to disable checks; depends on the data length! <c>2</c> for 8 byte)
         /// </summary>
         [CliConfig]
-        public static double MinKolmogorovComplexity { get; set; }
+        public static double MinKolmogorovComplexity { get; set; } = 2d;
 
         /// <summary>
-        /// Kolmogorov complexity algorithm
+        /// Kolmogorov complexity algorithm (using GZip)
         /// </summary>
         /// <param name="data">Data</param>
         /// <returns>Complexity (<see cref="double.MinValue"/>, if <c>data</c> was empty)</returns>
@@ -23,9 +23,9 @@ namespace wan24.Crypto
             {
                 CleanReturned = true
             };
-            using (GZipStream zip = new(ms, CompressionLevel.Optimal))
-                zip.Write(data);
-            return ms.Length - data.Length;
+            using (GZipStream zip = new(ms, CompressionLevel.Optimal)) zip.Write(data);
+            int len = data.Length;
+            return ms.Length - len;
         }
     }
 }

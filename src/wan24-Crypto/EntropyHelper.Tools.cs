@@ -22,5 +22,21 @@ namespace wan24.Crypto
             }
             return res;
         }
+
+        /// <summary>
+        /// Ensure valid byte counters
+        /// </summary>
+        /// <param name="byteCounters">Byte counters</param>
+        /// <returns>Valid byte counters</returns>
+        /// <exception cref="ArgumentException">Invalid byte counters</exception>
+        public static OrderedDictionary<byte, int> EnsureValidByteCounters(in OrderedDictionary<byte, int> byteCounters)
+        {
+            int len = byteCounters.Count;
+            if (len < 1) throw new ArgumentException("Empty byte counters", nameof(byteCounters));
+            for (int i = 0; i < len; i++)
+                if (byteCounters[i] < 1)
+                    throw new ArgumentException("Invalid byte counters", nameof(byteCounters));
+            return byteCounters;
+        }
     }
 }

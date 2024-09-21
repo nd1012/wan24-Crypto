@@ -58,8 +58,8 @@ namespace wan24.Crypto
             OrderedDictionary<byte, int>? byteCounters = null;
             // Shannon bit
             if (
-                MinShannonBitEntropy != 0 && 
-                (algos.Value & Algorithms.ShannonBit) == Algorithms.ShannonBit && 
+                MinShannonBitEntropy != 0 &&
+                (algos.Value & Algorithms.ShannonBit) == Algorithms.ShannonBit &&
                 (entropy = ShannonBitEntropy(data, byteCounters = GetByteCounters(data))) < MinShannonBitEntropy
                 )
             {
@@ -68,8 +68,8 @@ namespace wan24.Crypto
             }
             // Shannon byte
             if (
-                MinShannonByteEntropy != 0 && 
-                (algos.Value & Algorithms.ShannonByte) == Algorithms.ShannonByte && 
+                MinShannonByteEntropy != 0 &&
+                (algos.Value & Algorithms.ShannonByte) == Algorithms.ShannonByte &&
                 (entropy = ShannonByteEntropy(data, byteCounters ??= GetByteCounters(data))) < MinShannonByteEntropy
                 )
             {
@@ -88,19 +88,19 @@ namespace wan24.Crypto
             }
             // Min
             if (
-                MaxMinEntropy != 0 &&
+                MinMinEntropy != 0 &&
                 (algos.Value & Algorithms.Min) == Algorithms.Min &&
-                (entropy = MinEntropy(data, byteCounters ??= GetByteCounters(data))) < MaxMinEntropy
+                (entropy = MinEntropy(data, byteCounters ??= GetByteCounters(data))) < MinMinEntropy
                 )
             {
                 if (!throwOnError) return false;
-                throw new InvalidDataException($"Min entropy of {entropy} doesn't fit the max. required entropy of {MaxMinEntropy}");
+                throw new InvalidDataException($"Min entropy of {entropy} doesn't fit the max. required entropy of {MinMinEntropy}");
             }
             // Permutation
             if (
                 MinPermutationEntropy != 0 &&
                 (algos.Value & Algorithms.Permutation) == Algorithms.Permutation &&
-                (entropy = MinEntropy(data, byteCounters ??= GetByteCounters(data))) < MinPermutationEntropy
+                (entropy = PermutationEntropy(data)) < MinPermutationEntropy
                 )
             {
                 if (!throwOnError) return false;
@@ -206,37 +206,37 @@ namespace wan24.Crypto
             /// Shannon bit
             /// </summary>
             [DisplayText("Shannon bit")]
-            ShannonBit = 1,
+            ShannonBit = 1 << 1,
             /// <summary>
             /// Shannon byte
             /// </summary>
             [DisplayText("Shannon byte")]
-            ShannonByte = 2,
+            ShannonByte = 1 << 2,
             /// <summary>
             /// Custom
             /// </summary>
             [DisplayText("Custom")]
-            Custom = 4,
+            Custom = 1 << 3,
             /// <summary>
             /// Rényi
             /// </summary>
             [DisplayText("Rényi")]
-            Renyi = 8,
+            Renyi = 1 << 4,
             /// <summary>
             /// Min
             /// </summary>
             [DisplayText("Min")]
-            Min = 16,
+            Min = 1 << 5,
             /// <summary>
             /// Permutation
             /// </summary>
             [DisplayText("Permutation")]
-            Permutation = 32,
+            Permutation = 1 << 6,
             /// <summary>
             /// Kolmogorov
             /// </summary>
             [DisplayText("Kolmogorov")]
-            Kolmogorov = 64,
+            Kolmogorov = 1 << 7,
             /// <summary>
             /// All algorithms
             /// </summary>
