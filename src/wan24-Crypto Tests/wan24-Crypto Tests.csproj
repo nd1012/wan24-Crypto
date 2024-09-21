@@ -23,7 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
-    <PackageReference Include="wan24-Tests" Version="1.1.0" />
+    <PackageReference Include="wan24-Tests" Version="1.2.0" />
   </ItemGroup>
 
   <ItemGroup>
