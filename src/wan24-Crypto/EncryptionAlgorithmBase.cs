@@ -174,7 +174,7 @@ namespace wan24.Crypto
         {
             try
             {
-                byte[] res = cipherData.ReadBytes(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue).Value;
+                byte[] res = cipherData.ReadArray<byte>(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue);
                 if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
                     RND.AddSeed(res);
                 return res;
@@ -196,7 +196,7 @@ namespace wan24.Crypto
         {
             try
             {
-                byte[] res = (await cipherData.ReadBytesAsync(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                byte[] res = await cipherData.ReadArrayAsync<byte>(options.CustomSerializerVersion, minLen: IvSize, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                 if (((options.RngSeeding ?? RND.AutoRngSeeding) & RngSeedingTypes.Iv) == RngSeedingTypes.Iv)
                     await RND.AddSeedAsync(res, cancellationToken).DynamicContext();
                 return res;

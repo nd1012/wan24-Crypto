@@ -453,7 +453,7 @@ namespace wan24.Crypto
                     options.Tracer?.WriteTrace("Reading KDF algorithm");
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                     options.KdfIterations = cipherData.ReadNumber<int>(serializerVersion);
-                    options.KdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
+                    options.KdfSalt = cipherData.ReadArray<byte>(serializerVersion, minLen: 1, maxLen: byte.MaxValue);
                     options.KdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                     options.Tracer?.WriteTrace($"Using KDF algorithm {options.KdfAlgorithm} with {options.KdfIterations} iterations and {options.KdfSalt.Length} byte salt");
                     if (options.KdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.KdfOptions}");
@@ -464,7 +464,7 @@ namespace wan24.Crypto
                         options.Tracer?.WriteTrace("Reading counter KDF algorithm");
                         options.CounterKdfAlgorithm = KdfHelper.GetAlgorithm(cipherData.ReadNumber<int>(serializerVersion)).Name;
                         options.CounterKdfIterations = cipherData.ReadNumber<int>(serializerVersion);
-                        options.CounterKdfSalt = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: byte.MaxValue).Value;
+                        options.CounterKdfSalt = cipherData.ReadArray<byte>(serializerVersion, minLen: 1, maxLen: byte.MaxValue);
                         options.CounterKdfOptions = cipherData.ReadStringNullable(serializerVersion, minLen: 0, maxLen: byte.MaxValue);
                         options.Tracer?.WriteTrace($"Using KDF algorithm {options.CounterKdfAlgorithm} with {options.CounterKdfIterations} iterations and {options.CounterKdfSalt.Length} byte salt");
                         if (options.CounterKdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.CounterKdfOptions}");
@@ -484,7 +484,7 @@ namespace wan24.Crypto
                 if (options.PayloadIncluded)
                 {
                     options.Tracer?.WriteTrace("Reading payload");
-                    options.PayloadData = cipherData.ReadBytes(serializerVersion, minLen: 1, maxLen: ushort.MaxValue).Value;
+                    options.PayloadData = cipherData.ReadArray<byte>(serializerVersion, minLen: 1, maxLen: ushort.MaxValue);
                     options.Tracer?.WriteTrace($"Got {options.PayloadData.Length} payload byte");
                 }
                 if (options.TimeIncluded)
@@ -646,7 +646,7 @@ namespace wan24.Crypto
                     options.Tracer?.WriteTrace("Reading KDF algorithm");
                     options.KdfAlgorithm = KdfHelper.GetAlgorithm(await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()).Name;
                     options.KdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
-                    options.KdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    options.KdfSalt = await cipherData.ReadArrayAsync<byte>(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     options.KdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     options.Tracer?.WriteTrace($"Using KDF algorithm {options.KdfAlgorithm} with {options.KdfIterations} iterations and {options.KdfSalt.Length} byte salt");
                     if (options.KdfOptions is not null && options.Tracer is not null) options.Tracer.WriteTrace($"KDF options {options.KdfOptions}");
@@ -659,8 +659,7 @@ namespace wan24.Crypto
                             await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext()
                             ).Name;
                         options.CounterKdfIterations = await cipherData.ReadNumberAsync<int>(serializerVersion, cancellationToken: cancellationToken).DynamicContext();
-                        options.CounterKdfSalt = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())
-                            .Value;
+                        options.CounterKdfSalt = await cipherData.ReadArrayAsync<byte>(serializerVersion, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                         options.CounterKdfOptions = await cipherData.ReadStringNullableAsync(serializerVersion, minLen: 0, maxLen: byte.MaxValue, cancellationToken: cancellationToken)
                             .DynamicContext();
                         options.Tracer?.WriteTrace($"Using KDF algorithm {options.CounterKdfAlgorithm} with {options.CounterKdfIterations} iterations and {options.CounterKdfSalt.Length} byte salt");
@@ -687,7 +686,7 @@ namespace wan24.Crypto
                 if (options.PayloadIncluded)
                 {
                     options.Tracer?.WriteTrace("Reading payload");
-                    options.PayloadData = (await cipherData.ReadBytesAsync(serializerVersion, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    options.PayloadData = await cipherData.ReadArrayAsync<byte>(serializerVersion, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                     options.Tracer?.WriteTrace($"Got {options.PayloadData.Length} payload byte");
                 }
                 if (options.TimeIncluded)

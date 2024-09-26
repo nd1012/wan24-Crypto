@@ -62,15 +62,15 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            KeyExchangeData = stream.ReadBytes(version, minLen: 1, maxLen: ushort.MaxValue).Value;
-            CounterKeyExchangeData = stream.ReadBytesNullable(version, minLen: 1, maxLen: ushort.MaxValue)?.Value;
+            KeyExchangeData = stream.ReadArray<byte>(version, minLen: 1, maxLen: ushort.MaxValue);
+            CounterKeyExchangeData = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: ushort.MaxValue);
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            KeyExchangeData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
-            CounterKeyExchangeData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            KeyExchangeData = await stream.ReadArrayAsync<byte>(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+            CounterKeyExchangeData = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }
 
         /// <inheritdoc/>

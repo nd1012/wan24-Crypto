@@ -138,7 +138,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: SignedDataMaxLength).Value;
+            SignedData = stream.ReadArray<byte>(version, minLen: 1, maxLen: SignedDataMaxLength);
             DeserializeSignedData();
             Signature = stream.ReadSerialized<SignatureContainer>(version);
         }
@@ -146,7 +146,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: SignedDataMaxLength, cancellationToken: cancellationToken).DynamicContext()).Value;
+            SignedData = await stream.ReadArrayAsync<byte>(version, minLen: 1, maxLen: SignedDataMaxLength, cancellationToken: cancellationToken).DynamicContext();
             DeserializeSignedData();
             Signature = await stream.ReadSerializedAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
         }

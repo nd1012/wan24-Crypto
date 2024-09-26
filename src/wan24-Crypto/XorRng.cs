@@ -32,7 +32,7 @@ namespace wan24.Crypto
         public override Span<byte> FillBytes(in Span<byte> buffer)
         {
             if (buffer.Length == 0) return buffer;
-            using RentedArrayRefStruct<byte> res = new(buffer.Length, clean: false)
+            using RentedMemoryRef<byte> res = new(buffer.Length, clean: false)
             {
                 Clear = true
             };
@@ -44,11 +44,11 @@ namespace wan24.Crypto
         public override async Task<Memory<byte>> FillBytesAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             if (buffer.Length == 0) return buffer;
-            using RentedArrayStructSimple<byte> res = new(buffer.Length, clean: false)
+            using RentedMemory<byte> res = new(buffer.Length, clean: false)
             {
                 Clear = true
             };
-            for (int i = 0; i != Count; await RNG[i].FillBytesAsync(res.Memory, cancellationToken).DynamicContext(), buffer.Span.Xor(res.Span), i++) ;
+            for (int i = 0; i != Count; await RNG[i].FillBytesAsync(res.Memory, cancellationToken).DynamicContext(), buffer.Span.Xor(res.Memory.Span), i++) ;
             return buffer;
         }
     }

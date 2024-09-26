@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using wan24.Core;
 using wan24.Crypto;
 using wan24.Tests;
 
@@ -22,9 +23,9 @@ namespace wan24_Crypto_Tests
             Assert.IsTrue(tt.ValidateToken(pwd, throwOnError: false));
             Assert.IsFalse(tt.ValidateToken(RandomNumberGenerator.GetBytes(20), throwOnError: false));
             long ticks = tt.Timeout.Ticks;
-            byte[] serialized = tt;
+            using RentedMemory<byte> serialized = tt.Serialize();
             Thread.Sleep(100);
-            tt = (TimeoutToken)serialized;
+            tt = (TimeoutToken)serialized.Memory.Span;
             Assert.IsTrue(tt.IsTimeout);
             Assert.AreEqual(TimeSpan.Zero, tt.TimeLeft);
             Assert.AreEqual(ticks, tt.Timeout.Ticks);

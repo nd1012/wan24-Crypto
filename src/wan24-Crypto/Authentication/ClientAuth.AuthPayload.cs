@@ -111,8 +111,8 @@ namespace wan24.Crypto.Authentication
             protected override void Deserialize(Stream stream, int version)
             {
                 Created = new(stream.ReadLong(version), DateTimeKind.Utc);
-                Payload = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
-                PublicKeyId = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                Payload = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
+                PublicKeyId = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
                 if (PublicKeyId is null) return;
                 PublicKeys = stream.ReadSerializedNullable<PublicKeySuite>(version);
                 KeySigningRequest = stream.ReadSerializedNullable<AsymmetricPublicKeySigningRequest>(version);
@@ -122,8 +122,8 @@ namespace wan24.Crypto.Authentication
             protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
             {
                 Created = new(await stream.ReadLongAsync(version, cancellationToken: cancellationToken).DynamicContext(), DateTimeKind.Utc);
-                Payload = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
-                PublicKeyId = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                Payload = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
+                PublicKeyId = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                 if (PublicKeyId is null) return;
                 PublicKeys = await stream.ReadSerializedNullableAsync<PublicKeySuite>(version, cancellationToken).DynamicContext();
                 KeySigningRequest = await stream.ReadSerializedNullableAsync<AsymmetricPublicKeySigningRequest>(version, cancellationToken).DynamicContext();

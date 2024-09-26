@@ -132,7 +132,7 @@ namespace wan24.Crypto
         {
             if (stream.ReadNumber<int>() != Algorithm.Value) throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
-            KeyData = new(stream.ReadBytes(version, minLen: 1, maxLen: MaxArrayLength).Value);
+            KeyData = new(stream.ReadArray<byte>(version, minLen: 1, maxLen: MaxArrayLength));
         }
 
         /// <inheritdoc/>
@@ -141,7 +141,7 @@ namespace wan24.Crypto
             if (await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext() != Algorithm.Value)
                 throw new SerializerException("Asymmetric algorithm mismatch");
             KeyData?.Dispose();
-            KeyData = new((await stream.ReadBytesAsync(version, minLen: 1, maxLen: MaxArrayLength, cancellationToken: cancellationToken).DynamicContext()).Value);
+            KeyData = new(await stream.ReadArrayAsync<byte>(version, minLen: 1, maxLen: MaxArrayLength, cancellationToken: cancellationToken).DynamicContext());
         }
 
         /// <inheritdoc/>
@@ -173,7 +173,7 @@ namespace wan24.Crypto
                 : TypeHelper.Instance.GetType(typeName) ?? throw new InvalidDataException($"Failed to get serialized asymmetric key type \"{typeName}\"");// For downward compatibility
             if (!typeof(T).IsAssignableFrom(type) || type.IsAbstract || type.IsInterface)
                 throw new InvalidDataException($"Type {type} isn't a valid asymmetric key type (expected {typeof(T)})");
-            keyData = ms.ReadBytes(ssv, minLen: 1, maxLen: MaxArrayLength).Value;
+            keyData = ms.ReadArray<byte>(ssv, minLen: 1, maxLen: MaxArrayLength);
             if (ms.Position != ms.Length) throw new InvalidDataException("Didn't use all available key data for deserializing asymmetric key");
             byte[] data = keyData.CloneArray();
             try

@@ -44,7 +44,7 @@ namespace wan24.Crypto
         protected override async Task DisposeCore()
         {
             FastPakeAuthServerTable.Servers.TryRemove(GUID, out _);
-            await using (Sync.DynamicContext())
+            using (Sync)
             {
                 using SemaphoreSyncContext ssc = await Sync.SyncContextAsync().DynamicContext();
                 if (Secret is not null) await Secret.DisposeAsync().DynamicContext();

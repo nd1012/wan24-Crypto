@@ -26,7 +26,7 @@ namespace wan24.Crypto
                 int len = blockSize - (int)((written ?? stream.Length) % blockSize);
                 if (len > Settings.StackAllocBorder)
                 {
-                    using RentedArrayRefStruct<byte> buffer = new(len, clean: false)
+                    using RentedMemoryRef<byte> buffer = new(len, clean: false)
                     {
                         Clear = true
                     };
@@ -66,11 +66,11 @@ namespace wan24.Crypto
                 ArgumentOutOfRangeException.ThrowIfLessThan(blockSize, 1);
                 if (written is not null && written < 0) throw new ArgumentOutOfRangeException(nameof(written));
                 int len = blockSize - (int)((written ?? stream.Length) % blockSize);
-                using RentedArrayStruct<byte> buffer = new(len, clean: false)
+                using RentedMemory<byte> buffer = new(len, clean: false)
                 {
                     Clear = true
                 };
-                RND.FillBytes(buffer.Span);
+                RND.FillBytes(buffer.Memory.Span);
                 await stream.WriteAsync(buffer.Memory, cancellationToken).DynamicContext();
             }
             catch (CryptographicException)

@@ -107,7 +107,7 @@ namespace wan24.Crypto
             await Task.Yield();
             try
             {
-                using RentedArrayStructSimple<byte> buffer = new(len: SeedLength, clean: false)
+                using RentedMemory<byte> buffer = new(len: SeedLength, clean: false)
                 {
                     Clear = true
                 };

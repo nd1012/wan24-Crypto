@@ -103,9 +103,9 @@ namespace wan24.Crypto
                             return false;
                         }
                         using Stream responseBody = await response.Content.ReadAsStreamAsync(cancellationToken).DynamicContext();
-                        using RentedArrayStructSimple<byte> buffer = new(len: byte.MaxValue, clean: false);
+                        using RentedMemory<byte> buffer = new(len: byte.MaxValue, clean: false);
                         int red = await responseBody.ReadAsync(buffer.Memory, cancellationToken).DynamicContext();
-                        if (!long.TryParse(buffer.Span[0..red].ToUtf8String(), out long timeStamp))
+                        if (!long.TryParse(buffer.Memory.Span[..red].ToUtf8String(), out long timeStamp))
                         {
                             if (throwOnError) throw new InvalidDataException($"{ONLINE_KEY_VALIDATION_API_URI} - Online key validation failed with invalid response");
                             return false;
@@ -207,7 +207,7 @@ namespace wan24.Crypto
                         if (throwOnError) throw new InvalidDataException($"{KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER} - Public key exchange key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = buffer.Span[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -254,7 +254,7 @@ namespace wan24.Crypto
                         if (throwOnError) throw new InvalidDataException($"{KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER} - Public counter key exchange key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = buffer.Span[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -301,7 +301,7 @@ namespace wan24.Crypto
                         if (throwOnError) throw new InvalidDataException($"{SIGNATURE_PUBLIC_KEY_IDENTIFIER} - Public signature key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = buffer.Span[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -348,7 +348,7 @@ namespace wan24.Crypto
                         if (throwOnError) throw new InvalidDataException($"{SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER} - Public counter signature key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = buffer.Span[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -376,10 +376,10 @@ namespace wan24.Crypto
                     return false;
                 }
                 int len = Base64.GetMaxDecodedFromUtf8Length(cipherSuiteChars.Length);
-                using RentedArrayStructSimple<byte> buffer = new(len, clean: false);
-                len = cipherSuiteChars.Span.GetBase64Bytes(buffer.Span);
+                using RentedMemory<byte> buffer = new(len, clean: false);
+                len = cipherSuiteChars.Span.GetBase64Bytes(buffer.Memory.Span);
                 using MemoryPoolStream ms = new();
-                ms.Write(buffer.Span[0..len]);
+                ms.Write(buffer.Memory.Span[..len]);
                 ms.Position = 0;
                 CryptoOptions suite;
                 try

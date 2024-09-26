@@ -94,7 +94,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
+            Identifier = stream.ReadArray<byte>(version, minLen: 1, maxLen: byte.MaxValue);
             Secret = new byte[Identifier.Length];
             stream.ReadExactly(Secret);
             SignatureKey = new byte[Identifier.Length];
@@ -104,7 +104,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Identifier = await stream.ReadArrayAsync<byte>(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             Secret = new byte[Identifier.Length];
             await stream.ReadExactlyAsync(Secret, cancellationToken).DynamicContext();
             SignatureKey = new byte[Identifier.Length];

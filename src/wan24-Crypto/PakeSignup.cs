@@ -116,7 +116,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            Identifier = stream.ReadBytes(version, minLen: 1, maxLen: byte.MaxValue).Value;
+            Identifier = stream.ReadArray<byte>(version, minLen: 1, maxLen: byte.MaxValue);
             Secret = new byte[Identifier.Length];
             stream.ReadExactly(Secret);
             Key = new byte[Identifier.Length];
@@ -125,13 +125,13 @@ namespace wan24.Crypto
             stream.ReadExactly(Signature);
             Random = new byte[Identifier.Length];
             stream.ReadExactly(Random);
-            Payload = stream.ReadBytes(version, minLen: 0, maxLen: ushort.MaxValue).Value;
+            Payload = stream.ReadArray<byte>(version, minLen: 0, maxLen: ushort.MaxValue);
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            Identifier = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Identifier = await stream.ReadArrayAsync<byte>(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             Secret = new byte[Identifier.Length];
             await stream.ReadExactlyAsync(Secret, cancellationToken).DynamicContext();
             Key = new byte[Identifier.Length];
@@ -140,7 +140,7 @@ namespace wan24.Crypto
             await stream.ReadExactlyAsync(Signature, cancellationToken).DynamicContext();
             Random = new byte[Identifier.Length];
             await stream.ReadExactlyAsync(Random, cancellationToken).DynamicContext();
-            Payload = (await stream.ReadBytesAsync(version, minLen: 0, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Payload = await stream.ReadArrayAsync<byte>(version, minLen: 0, maxLen: ushort.MaxValue, cancellationToken: cancellationToken).DynamicContext();
         }
 
         /// <summary>

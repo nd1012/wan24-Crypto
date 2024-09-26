@@ -19,6 +19,7 @@ namespace wan24.Crypto
         {
             // wan24-Core
             BytesExtensions.ClearHandler = ClearBytes;
+            Settings.ClearBuffers = true;
             InstanceTables.Registered[typeof(SecureValue)] = typeof(SecureValueTable);
             // TimeoutToken serializer
             StreamSerializer.SyncSerializer[typeof(TimeoutToken)] = (s, v) => StreamSerializerExtensions.Write(s, (TimeoutToken)SerializerHelper.EnsureNotNull(v));

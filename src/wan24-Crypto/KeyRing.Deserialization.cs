@@ -25,7 +25,7 @@ namespace wan24.Crypto
                     nameHashCode = stream.ReadNumber<int>(version);
                     if (!nameHashCodes.TryGetValue(nameHashCode, out string? name))
                         throw new InvalidDataException($"Unknown symmetric key name (key #{i}, hash code {nameHashCode})");
-                    key = stream.ReadBytes(version, maxLen: MaxSymmetricKeyLength).Value;
+                    key = stream.ReadArray<byte>(version, maxLen: MaxSymmetricKeyLength);
                     if (!TryAdd(name, key))
                     {
                         key.Clear();
@@ -43,7 +43,7 @@ namespace wan24.Crypto
                     nameHashCode = stream.ReadNumber<int>(version);
                     if (!nameHashCodes.TryGetValue(nameHashCode, out string? name))
                         throw new InvalidDataException($"Unknown asymmetric private key name (key #{i}, hash code {nameHashCode})");
-                    keyData = stream.ReadBytes(version, maxLen: MaxSymmetricKeyLength).Value;
+                    keyData = stream.ReadArray<byte>(version, maxLen: MaxSymmetricKeyLength);
                     try
                     {
                         key = AsymmetricKeyBase.Import(keyData);
@@ -84,7 +84,7 @@ namespace wan24.Crypto
                     nameHashCode = stream.ReadNumber<int>(version);
                     if (!nameHashCodes.TryGetValue(nameHashCode, out string? name))
                         throw new InvalidDataException($"Unknown asymmetric public key name (key #{i}, hash code {nameHashCode})");
-                    keyData = stream.ReadBytes(version, maxLen: MaxSymmetricKeyLength).Value;
+                    keyData = stream.ReadArray<byte>(version, maxLen: MaxSymmetricKeyLength);
                     try
                     {
                         key = AsymmetricKeyBase.Import(keyData);
@@ -354,7 +354,7 @@ namespace wan24.Crypto
                     nameHashCode = await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext();
                     if (!nameHashCodes.TryGetValue(nameHashCode, out string? name))
                         throw new InvalidDataException($"Unknown symmetric key name (key #{i}, hash code {nameHashCode})");
-                    key = (await stream.ReadBytesAsync(version, maxLen: MaxSymmetricKeyLength, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    key = (await stream.ReadArrayAsync<byte>(version, maxLen: MaxSymmetricKeyLength, cancellationToken: cancellationToken).DynamicContext());
                     if (!TryAdd(name, key))
                     {
                         key.Clear();
@@ -372,7 +372,7 @@ namespace wan24.Crypto
                     nameHashCode = await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext();
                     if (!nameHashCodes.TryGetValue(nameHashCode, out string? name))
                         throw new InvalidDataException($"Unknown asymmetric private key name (key #{i}, hash code {nameHashCode})");
-                    keyData = (await stream.ReadBytesAsync(version, maxLen: MaxSymmetricKeyLength, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    keyData = await stream.ReadArrayAsync<byte>(version, maxLen: MaxSymmetricKeyLength, cancellationToken: cancellationToken).DynamicContext();
                     try
                     {
                         key = AsymmetricKeyBase.Import(keyData);
@@ -413,7 +413,7 @@ namespace wan24.Crypto
                     nameHashCode = await stream.ReadNumberAsync<int>(version, cancellationToken: cancellationToken).DynamicContext();
                     if (!nameHashCodes.TryGetValue(nameHashCode, out string? name))
                         throw new InvalidDataException($"Unknown asymmetric public key name (key #{i}, hash code {nameHashCode})");
-                    keyData = (await stream.ReadBytesAsync(version, maxLen: MaxSymmetricKeyLength, cancellationToken: cancellationToken).DynamicContext()).Value;
+                    keyData = await stream.ReadArrayAsync<byte>(version, maxLen: MaxSymmetricKeyLength, cancellationToken: cancellationToken).DynamicContext();
                     try
                     {
                         key = AsymmetricKeyBase.Import(keyData);

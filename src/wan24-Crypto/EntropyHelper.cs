@@ -144,7 +144,7 @@ namespace wan24.Crypto
         public static double GetEntropy(this string str, in Algorithms? algo = null)
         {
             if (str.Length < 1) return double.MinValue;
-            using RentedArrayRefStruct<byte> buffer = new(len: Encoding.UTF8.GetMaxByteCount(str.Length), clean: false)
+            using RentedMemoryRef<byte> buffer = new(len: Encoding.UTF8.GetMaxByteCount(str.Length), clean: false)
             {
                 Clear = true
             };

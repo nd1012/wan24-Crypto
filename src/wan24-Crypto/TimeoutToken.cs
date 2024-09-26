@@ -158,10 +158,11 @@ namespace wan24.Crypto
         /// <exception cref="CryptographicException">The token integrity is invalid (the token may have been manipulated)</exception>
         public bool ValidateToken(in byte[] pwd, in bool throwOnError = true)
         {
-            using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
-            _Timeout.GetBytes(buffer.Span);
-            _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
-            if (buffer.Span.Mac(pwd, MacHmacSha384Algorithm.Instance.DefaultOptions).SlowCompare(_MAC)) return true;
+            using RentedMemoryRef<byte> buffer = new(MAC_OFFSET, clean: false);
+            Span<byte> bufferSpan = buffer.Span;
+            _Timeout.GetBytes(bufferSpan);
+            _Payload.GetBytes(bufferSpan[PAYLOAD_OFFSET..]);
+            if (bufferSpan.Mac(pwd, MacHmacSha384Algorithm.Instance.DefaultOptions).SlowCompare(_MAC)) return true;
             if (!throwOnError) return false;
             throw new CryptographicException("MAC mismatch", new InvalidDataException());
         }
@@ -186,36 +187,36 @@ namespace wan24.Crypto
         /// <returns>MAC</returns>
         public Span<byte> CreateMac(in byte[] pwd, in Span<byte> outputBuffer)
         {
-            using RentedArrayRefStruct<byte> buffer = new(MAC_OFFSET, clean: false);
-            _Timeout.GetBytes(buffer.Span);
-            _Payload.GetBytes(buffer.Span[PAYLOAD_OFFSET..]);
-            buffer.Span.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);
+            using RentedMemoryRef<byte> buffer = new(MAC_OFFSET, clean: false);
+            Span<byte> bufferSpan = buffer.Span;
+            _Timeout.GetBytes(bufferSpan);
+            _Payload.GetBytes(bufferSpan[PAYLOAD_OFFSET..]);
+            bufferSpan.Mac(pwd, outputBuffer, MacHmacSha384Algorithm.Instance.DefaultOptions);
             return outputBuffer;
         }
 
         /// <summary>
         /// Serialize
         /// </summary>
-        /// <param name="buffer">Buffer</param>
-        /// <param name="pool">Buffer pool (if given, and <c>buffer</c> is <see langword="null"/>, the returned serialized data needs to be returned to this pool)</param>
+        /// <param name="buffer">Buffer (if <see langword="null"/>, the returned serialized data needs to be disposed)</param>
+        /// <param name="pool">Buffer pool</param>
         /// <returns>Serialized data</returns>
-        public byte[] Serialize(in byte[]? buffer = null, in ArrayPool<byte>? pool = null)
+        public RentedMemory<byte> Serialize(in RentedMemory<byte>? buffer = null, in MemoryPool<byte>? pool = null)
         {
-            byte[] res;
+            RentedMemory<byte> res;
             if (buffer is not null)
             {
-                if (buffer.Length < STRUCT_LENGTH) throw new ArgumentOutOfRangeException(nameof(buffer));
-                res = buffer;
-            }
-            else if (pool is not null)
-            {
-                res = pool.Rent(STRUCT_LENGTH);
+                if (buffer.Value.Memory.Length < STRUCT_LENGTH) throw new ArgumentOutOfRangeException(nameof(buffer));
+                res = buffer.Value;
             }
             else
             {
-                res = new byte[STRUCT_LENGTH];
+                res = new(STRUCT_LENGTH, pool, clean: false)
+                {
+                    Clear = true
+                };
             }
-            Span<byte> resSpan = res.AsSpan();
+            Span<byte> resSpan = res.Memory.Span;
             _Timeout.GetBytes(resSpan);
             _Payload.GetBytes(resSpan[PAYLOAD_OFFSET..]);
             _MAC.AsSpan().CopyTo(resSpan[MAC_OFFSET..]);
@@ -228,17 +229,16 @@ namespace wan24.Crypto
         /// <param name="stream">Stream</param>
         /// <param name="buffer">Buffer</param>
         /// <param name="pool">Buffer pool</param>
-        public void Serialize(in Stream stream, in byte[]? buffer = null, ArrayPool<byte>? pool = null)
+        public void Serialize(in Stream stream, in RentedMemory<byte>? buffer = null, MemoryPool<byte>? pool = null)
         {
-            if (buffer is null) pool ??= ArrayPool<byte>.Shared;
-            byte[] data = Serialize(buffer, pool);
+            RentedMemory<byte> data = Serialize(buffer, pool);
             try
             {
-                stream.Write(data.AsSpan(0, STRUCT_LENGTH));
+                stream.Write(data.Memory.Span[..STRUCT_LENGTH]);
             }
             finally
             {
-                if (buffer is null) pool!.Return(data);
+                if (!buffer.HasValue) data.Dispose();
             }
         }
 
@@ -249,35 +249,21 @@ namespace wan24.Crypto
         /// <param name="buffer">Buffer</param>
         /// <param name="pool">Buffer pool</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        public async ValueTask SerializeAsync(Stream stream, byte[]? buffer = null, ArrayPool<byte>? pool = null, CancellationToken cancellationToken = default)
+        public async ValueTask SerializeAsync(Stream stream, RentedMemory<byte>? buffer = null, MemoryPool<byte>? pool = null, CancellationToken cancellationToken = default)
         {
-            if (buffer is null) pool ??= ArrayPool<byte>.Shared;
-            byte[] data = Serialize(buffer, pool);
+            RentedMemory<byte> data = Serialize(buffer, pool);
             try
             {
-                await stream.WriteAsync(data.AsMemory(0, STRUCT_LENGTH), cancellationToken).DynamicContext();
+                await stream.WriteAsync(data.Memory[..STRUCT_LENGTH], cancellationToken).DynamicContext();
             }
             finally
             {
-                if (buffer is null) pool!.Return(data);
+                if (!buffer.HasValue) data.Dispose();
             }
         }
 
         /// <inheritdoc/>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) => ValidatableObjectBase.ObjectValidatable(this);
-
-        /// <summary>
-        /// Cast as serialized data
-        /// </summary>
-        /// <param name="tt">Timeout token</param>
-        public static implicit operator byte[](in TimeoutToken tt) => tt.Serialize();
-
-        /// <summary>
-        /// Cast as serialized data
-        /// </summary>
-        /// <param name="tt">Timeout token</param>
-        [return: NotNullIfNotNull(nameof(tt))]
-        public static implicit operator byte[]?(in TimeoutToken? tt) => tt?.Serialize();
 
         /// <summary>
         /// Cast as timeout ticks (UTC)

@@ -69,11 +69,11 @@ namespace wan24.Crypto
         {
             int res = base.ReadByte();
             if (res == -1) return res;
-            using RentedArrayRefStruct<byte> buffer = new(len: 1, clean: false)
+            using RentedMemoryRef<byte> buffer = new(len: 1, clean: false)
             {
                 Clear = true
             };
-            buffer[0] = (byte)res;
+            buffer.Span[0] = (byte)res;
             AddSeed(buffer.Span);
             return res;
         }
@@ -110,11 +110,11 @@ namespace wan24.Crypto
         public override void WriteByte(byte value)
         {
             base.WriteByte(value);
-            using RentedArrayRefStruct<byte> buffer = new(len: 1, clean: false)
+            using RentedMemoryRef<byte> buffer = new(len: 1, clean: false)
             {
                 Clear = true
             };
-            buffer[0] = value;
+            buffer.Span[0] = value;
             AddSeed(buffer.Span);
         }
 
