@@ -32,7 +32,7 @@
     <PackageReference Include="ObjectValidation" Version="2.8.0" Condition="'$(Configuration)' != 'Trunk'" />
     <PackageReference Include="Stream-Serializer-Extensions" Version="3.11.0" Condition="'$(Configuration)' != 'Trunk'" />
     <PackageReference Include="wan24-Compression" Version="2.12.0" Condition="'$(Configuration)' != 'Trunk'" />
-    <PackageReference Include="wan24-Core" Version="2.38.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Core" Version="2.39.0" Condition="'$(Configuration)' != 'Trunk'" />
     <PackageReference Include="wan24-Core-Validation" Version="1.4.0" Condition="'$(Configuration)' != 'Trunk'" />
     <ProjectReference Include="..\..\..\ObjectValidation\src\ObjectValidation\ObjectValidation.csproj" Condition="'$(Configuration)' == 'Trunk'" />
     <ProjectReference Include="..\..\..\wan24-Core\src\Wan24-Core-Validation\Wan24-Core-Validation.csproj" Condition="'$(Configuration)' == 'Trunk'" />
