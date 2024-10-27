@@ -122,6 +122,7 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span class="xref">DisposableStreamSerializerRecordBase</span>&gt;</div>
     <div><a class="xref" href="wan24.Crypto.IPakeRequest.html">IPakeRequest</a></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="wan24.Crypto.PakeSignup.html">PakeSignup</a>&gt;</div>
@@ -187,7 +188,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_PakeSignup_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed record PakeSignup : DisposableStreamSerializerRecordBase, IWillDispose, IEquatable&lt;DisposableRecordBase&gt;, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject, IEquatable&lt;DisposableStreamSerializerRecordBase&gt;, IPakeRequest, IDisposableObject, IDisposable, IAsyncDisposable, IEquatable&lt;PakeSignup&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed record PakeSignup : DisposableStreamSerializerRecordBase, IWillDispose, IEquatable&lt;DisposableRecordBase&gt;, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject, IEquatable&lt;DisposableStreamSerializerRecordBase&gt;, IPakeRequest, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable, IEquatable&lt;PakeSignup&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -832,6 +833,9 @@ public byte[] Signature { get; }</code></pre>
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

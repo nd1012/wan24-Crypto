@@ -114,6 +114,7 @@
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><a class="xref" href="wan24.Crypto.ISeedableRng.html">ISeedableRng</a></div>
@@ -223,7 +224,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_AutoSeedRngWrapper_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AutoSeedRngWrapper&lt;T&gt; : DisposableBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, ISeedableRng, IRng, ISeedConsumer where T : class, ISeedableRng</code></pre>
+    <pre><code class="lang-csharp hljs">public class AutoSeedRngWrapper&lt;T&gt; : DisposableBase, IWillDispose, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable, ISeedableRng, IRng, ISeedConsumer where T : class, ISeedableRng</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -926,6 +927,9 @@
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

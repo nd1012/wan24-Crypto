@@ -107,14 +107,14 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">DisposableBase</span></div>
+    <div class="level1"><span class="xref">SimpleDisposableBase</span></div>
     <div class="level2"><span class="xref">DisposableObjectPool</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</div>
     <div class="level3"><span class="xref">DevRandomStreamPool</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IWillDispose</span></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><span class="xref">IObjectPool</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</div>
@@ -151,28 +151,25 @@
       <span class="xref">DisposableObjectPool&lt;Stream&gt;.ForceResetOnReturn</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.RegisterForDispose&lt;T&gt;(in T)</span>
+      <span class="xref">SimpleDisposableBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.Dispose()</span>
+      <span class="xref">SimpleDisposableBase.DisposeAsync()</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.DisposeAsync()</span>
+      <span class="xref">SimpleDisposableBase.CreateStackInfo</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.CreateStackInfo</span>
+      <span class="xref">SimpleDisposableBase.IsDisposing</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.IsDisposing</span>
+      <span class="xref">SimpleDisposableBase.IsDisposed</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.IsDisposed</span>
+      <span class="xref">SimpleDisposableBase.OnDisposing</span>
     </div>
     <div>
-      <span class="xref">DisposableBase.OnDisposing</span>
-    </div>
-    <div>
-      <span class="xref">DisposableBase.OnDisposed</span>
+      <span class="xref">SimpleDisposableBase.OnDisposed</span>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -197,7 +194,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_DevRandomStreamPool_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class DevRandomStreamPool : DisposableObjectPool&lt;Stream&gt;, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IObjectPool&lt;Stream&gt;, IObjectPool, IPool</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class DevRandomStreamPool : DisposableObjectPool&lt;Stream&gt;, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable, IObjectPool&lt;Stream&gt;, IObjectPool, IPool</code></pre>
   </div>
   <h5 id="wan24_Crypto_DevRandomStreamPool_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Constructor</p>
@@ -243,10 +240,10 @@
 </div>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">wan24.Core.IWillDispose</span>
+      <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
   <div>
-      <span class="xref">wan24.Core.IDisposableObject</span>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

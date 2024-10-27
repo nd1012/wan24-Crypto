@@ -117,6 +117,7 @@
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><span class="xref">IStreamSerializerVersion</span></div>
@@ -238,7 +239,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_PakeRecordStore_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PakeRecordStore&lt;T&gt; : DisposableStreamSerializerBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject, IChangeToken, INotifyPropertyChanged where T : notnull, IPakeRecord</code></pre>
+    <pre><code class="lang-csharp hljs">public class PakeRecordStore&lt;T&gt; : DisposableStreamSerializerBase, IWillDispose, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IObjectValidatable, IValidatableObject, IChangeToken, INotifyPropertyChanged where T : notnull, IPakeRecord</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1106,6 +1107,9 @@ poll <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exte
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

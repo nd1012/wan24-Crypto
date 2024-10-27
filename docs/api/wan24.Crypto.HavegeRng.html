@@ -115,6 +115,7 @@
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><a class="xref" href="wan24.Crypto.IRng.html">IRng</a></div>
@@ -174,7 +175,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_HavegeRng_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class HavegeRng : DisposableRngBase, IWillDispose, IDisposableObject, IDisposable, IAsyncDisposable, IRng</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class HavegeRng : DisposableRngBase, IWillDispose, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable, IRng</code></pre>
   </div>
   <h5 id="wan24_Crypto_HavegeRng_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Constructor</p>
@@ -437,6 +438,9 @@
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

@@ -128,16 +128,16 @@
       <a class="xref" href="wan24.Crypto.IAsymmetricKey.html#wan24_Crypto_IAsymmetricKey_Export">IAsymmetricKey.Export()</a>
     </div>
     <div>
-      <span class="xref">IDisposableObject.IsDisposing</span>
-    </div>
-    <div>
-      <span class="xref">IDisposableObject.IsDisposed</span>
-    </div>
-    <div>
       <span class="xref">IDisposableObject.OnDisposing</span>
     </div>
     <div>
       <span class="xref">IDisposableObject.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">IBasicDisposableObject.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">IBasicDisposableObject.IsDisposed</span>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
@@ -174,7 +174,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_ISignaturePrivateKey_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISignaturePrivateKey : IAsymmetricPrivateKey, IAsymmetricKey, IDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IStatusProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ISignaturePrivateKey : IAsymmetricPrivateKey, IAsymmetricKey, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable, IStreamSerializerVersion, IStreamSerializer, IStatusProvider</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>

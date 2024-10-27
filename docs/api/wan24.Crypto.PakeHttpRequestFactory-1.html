@@ -116,6 +116,7 @@
     <div><span class="xref">IWillDispose</span></div>
     <div><a class="xref" href="wan24.Crypto.IPakeHttpRequestFactory.html">IPakeHttpRequestFactory</a></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
   </div>
@@ -222,7 +223,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_PakeHttpRequestFactory_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PakeHttpRequestFactory&lt;T&gt; : DisposableBase, IWillDispose, IPakeHttpRequestFactory, IDisposableObject, IDisposable, IAsyncDisposable where T : PakeRequest.PakeRequestDto</code></pre>
+    <pre><code class="lang-csharp hljs">public class PakeHttpRequestFactory&lt;T&gt; : DisposableBase, IWillDispose, IPakeHttpRequestFactory, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable where T : PakeRequest.PakeRequestDto</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1023,6 +1024,9 @@
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

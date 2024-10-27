@@ -116,6 +116,7 @@
     <h5>Implements</h5>
     <div><span class="xref">IStream</span></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
   </div>
@@ -264,7 +265,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_CryptoRandomStream_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class CryptoRandomStream : StreamBase, IStream, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class CryptoRandomStream : StreamBase, IStream, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
@@ -1332,6 +1333,9 @@
       <span class="xref">wan24.Core.IDisposableObject</span>
   </div>
   <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
+  </div>
+  <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
   <div>
@@ -1405,10 +1409,10 @@
       <a class="xref" href="wan24.Crypto.MacHelper.html#wan24_Crypto_MacHelper_MacAsync_System_IO_Stream_System_Byte___wan24_Crypto_CryptoOptions_System_Threading_CancellationToken_">MacHelper.MacAsync(Stream, byte[], CryptoOptions?, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutToken_System_IO_Stream_System_Buffers_ArrayPool_System_Byte__">StreamSerializerExtensions.ReadTimeoutToken(Stream, ArrayPool&lt;byte&gt;?)</a>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutToken_System_IO_Stream_System_Buffers_MemoryPool_System_Byte__">StreamSerializerExtensions.ReadTimeoutToken(Stream, MemoryPool&lt;byte&gt;?)</a>
   </div>
   <div>
-      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutTokenAsync_System_IO_Stream_System_Buffers_ArrayPool_System_Byte__System_Threading_CancellationToken_">StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, ArrayPool&lt;byte&gt;?, CancellationToken)</a>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_ReadTimeoutTokenAsync_System_IO_Stream_System_Buffers_MemoryPool_System_Byte__System_Threading_CancellationToken_">StreamSerializerExtensions.ReadTimeoutTokenAsync(Stream, MemoryPool&lt;byte&gt;?, CancellationToken)</a>
   </div>
   <div>
       <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_AddPaddingAsync__1___0_System_Int32_System_Nullable_System_Int64__System_Threading_CancellationToken_">CryptoExtensions.AddPaddingAsync&lt;T&gt;(T, int, long?, CancellationToken)</a>
@@ -1417,10 +1421,10 @@
       <a class="xref" href="wan24.Crypto.CryptoExtensions.html#wan24_Crypto_CryptoExtensions_AddPadding__1___0_System_Int32_System_Nullable_System_Int64__">CryptoExtensions.AddPadding&lt;T&gt;(T, int, long?)</a>
   </div>
   <div>
-      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_WriteAsync__1___0_wan24_Crypto_TimeoutToken_System_Byte___System_Buffers_ArrayPool_System_Byte__System_Threading_CancellationToken_">StreamSerializerExtensions.WriteAsync&lt;T&gt;(T, TimeoutToken, byte[]?, ArrayPool&lt;byte&gt;?, CancellationToken)</a>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_WriteAsync__1___0_wan24_Crypto_TimeoutToken_System_Nullable_wan24_Core_RentedMemory_System_Byte___System_Buffers_MemoryPool_System_Byte__System_Threading_CancellationToken_">StreamSerializerExtensions.WriteAsync&lt;T&gt;(T, TimeoutToken, RentedMemory&lt;byte&gt;?, MemoryPool&lt;byte&gt;?, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_Write__1___0_wan24_Crypto_TimeoutToken__System_Byte___System_Buffers_ArrayPool_System_Byte__">StreamSerializerExtensions.Write&lt;T&gt;(T, in TimeoutToken, byte[]?, ArrayPool&lt;byte&gt;?)</a>
+      <a class="xref" href="wan24.Crypto.StreamSerializerExtensions.html#wan24_Crypto_StreamSerializerExtensions_Write__1___0_wan24_Crypto_TimeoutToken__System_Nullable_wan24_Core_RentedMemory_System_Byte___System_Buffers_MemoryPool_System_Byte__">StreamSerializerExtensions.Write&lt;T&gt;(T, in TimeoutToken, RentedMemory&lt;byte&gt;?, MemoryPool&lt;byte&gt;?)</a>
   </div>
 
 </article>

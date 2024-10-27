@@ -116,6 +116,7 @@
     <div><span class="xref">IWillDispose</span></div>
     <div><a class="xref" href="wan24.Crypto.IPakeHttpRequestFactory.html">IPakeHttpRequestFactory</a></div>
     <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
   </div>
@@ -186,7 +187,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_PakeHttpRequestFactory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PakeHttpRequestFactory : PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;, IWillDispose, IPakeHttpRequestFactory, IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PakeHttpRequestFactory : PakeHttpRequestFactory&lt;PakeRequest.PakeRequestDto&gt;, IWillDispose, IPakeHttpRequestFactory, IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -417,6 +418,9 @@
   </div>
   <div>
       <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

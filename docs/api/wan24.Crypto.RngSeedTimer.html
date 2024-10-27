@@ -115,12 +115,13 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">IWillDispose</span></div>
+    <div><span class="xref">IDisposableObject</span></div>
     <div><span class="xref">IExportUserActions</span></div>
     <div><span class="xref">ITimer</span></div>
     <div><span class="xref">IServiceWorkerStatus</span></div>
     <div><span class="xref">IServiceWorker</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostedservice">IHostedService</a></div>
-    <div><span class="xref">IDisposableObject</span></div>
+    <div><span class="xref">IBasicDisposableObject</span></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><span class="xref">IStatusProvider</span></div>
@@ -252,7 +253,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_RngSeedTimer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class RngSeedTimer : TimedHostedServiceBase, IWillDispose, IExportUserActions, ITimer, IServiceWorkerStatus, IServiceWorker, IHostedService, IDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class RngSeedTimer : TimedHostedServiceBase, IWillDispose, IDisposableObject, IExportUserActions, ITimer, IServiceWorkerStatus, IServiceWorker, IHostedService, IBasicDisposableObject, IDisposable, IAsyncDisposable, IStatusProvider</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -348,6 +349,9 @@
       <span class="xref">wan24.Core.IWillDispose</span>
   </div>
   <div>
+      <span class="xref">wan24.Core.IDisposableObject</span>
+  </div>
+  <div>
       <span class="xref">wan24.Core.IExportUserActions</span>
   </div>
   <div>
@@ -363,7 +367,7 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostedservice">IHostedService</a>
   </div>
   <div>
-      <span class="xref">wan24.Core.IDisposableObject</span>
+      <span class="xref">wan24.Core.IBasicDisposableObject</span>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

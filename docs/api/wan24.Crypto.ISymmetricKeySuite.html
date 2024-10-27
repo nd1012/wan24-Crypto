@@ -107,16 +107,16 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">IDisposableObject.IsDisposing</span>
-    </div>
-    <div>
-      <span class="xref">IDisposableObject.IsDisposed</span>
-    </div>
-    <div>
       <span class="xref">IDisposableObject.OnDisposing</span>
     </div>
     <div>
       <span class="xref">IDisposableObject.OnDisposed</span>
+    </div>
+    <div>
+      <span class="xref">IBasicDisposableObject.IsDisposing</span>
+    </div>
+    <div>
+      <span class="xref">IBasicDisposableObject.IsDisposed</span>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
@@ -129,7 +129,7 @@
   <h6><strong>Assembly</strong>: wan24Crypto.dll</h6>
   <h5 id="wan24_Crypto_ISymmetricKeySuite_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISymmetricKeySuite : IDisposableObject, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ISymmetricKeySuite : IDisposableObject, IBasicDisposableObject, IDisposable, IAsyncDisposable</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
