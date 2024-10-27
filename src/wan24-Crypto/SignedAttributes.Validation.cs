@@ -144,13 +144,14 @@ namespace wan24.Crypto
                 byte[] keyId;
                 using (RentedArrayRefStruct<byte> buffer = new(len, clean: false))
                 {
-                    len = kePubKeyChars.GetBase64Bytes(buffer.Span);
+                    Span<byte> bufferSpan = buffer.Span;
+                    len = kePubKeyChars.GetBase64Bytes(bufferSpan);
                     if (len != HashSha512Algorithm.HASH_LENGTH)
                     {
                         if (throwOnError) throw new InvalidDataException($"{KEY_EXCHANGE_PUBLIC_KEY_IDENTIFIER} - Public key exchange key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = bufferSpan[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -191,13 +192,14 @@ namespace wan24.Crypto
                 byte[] keyId;
                 using (RentedArrayRefStruct<byte> buffer = new(len, clean: false))
                 {
-                    len = kePubKeyChars.GetBase64Bytes(buffer.Span);
+                    Span<byte> bufferSpan = buffer.Span;
+                    len = kePubKeyChars.GetBase64Bytes(bufferSpan);
                     if (len != HashSha512Algorithm.HASH_LENGTH)
                     {
                         if (throwOnError) throw new InvalidDataException($"{KEY_EXCHANGE_PUBLIC_COUNTER_KEY_IDENTIFIER} - Public counter key exchange key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = bufferSpan[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -238,13 +240,14 @@ namespace wan24.Crypto
                 byte[] keyId;
                 using (RentedArrayRefStruct<byte> buffer = new(len, clean: false))
                 {
-                    len = sigPubKeyChars.GetBase64Bytes(buffer.Span);
+                    Span<byte> bufferSpan = buffer.Span;
+                    len = sigPubKeyChars.GetBase64Bytes(bufferSpan);
                     if (len != HashSha512Algorithm.HASH_LENGTH)
                     {
                         if (throwOnError) throw new InvalidDataException($"{SIGNATURE_PUBLIC_KEY_IDENTIFIER} - Public signature key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = bufferSpan[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -285,13 +288,14 @@ namespace wan24.Crypto
                 byte[] keyId;
                 using (RentedArrayRefStruct<byte> buffer = new(len, clean: false))
                 {
-                    len = sigPubKeyChars.GetBase64Bytes(buffer.Span);
+                    Span<byte> bufferSpan = buffer.Span;
+                    len = sigPubKeyChars.GetBase64Bytes(bufferSpan);
                     if (len != HashSha512Algorithm.HASH_LENGTH)
                     {
                         if (throwOnError) throw new InvalidDataException($"{SIGNATURE_PUBLIC_COUNTER_KEY_IDENTIFIER} - Public counter signature key identifier is invalid");
                         return false;
                     }
-                    keyId = buffer.Span[0..len].ToArray();
+                    keyId = bufferSpan[..len].ToArray();
                 }
                 if (keyStore is not null && keyStore.GetSuite(keyId) is null)
                 {
@@ -319,10 +323,11 @@ namespace wan24.Crypto
                     return false;
                 }
                 int len = Base64.GetMaxDecodedFromUtf8Length(cipherSuiteChars.Length);
-                using RentedArrayRefStruct<byte> buffer = new(len, clean: false);
-                len = cipherSuiteChars.GetBase64Bytes(buffer.Span);
+                using RentedMemoryRef<byte> buffer = new(len, clean: false);
+                Span<byte> bufferSpan = buffer.Span;
+                len = cipherSuiteChars.GetBase64Bytes(bufferSpan);
                 using MemoryPoolStream ms = new();
-                ms.Write(buffer.Span[0..len]);
+                ms.Write(bufferSpan[..len]);
                 ms.Position = 0;
                 CryptoOptions suite;
                 try

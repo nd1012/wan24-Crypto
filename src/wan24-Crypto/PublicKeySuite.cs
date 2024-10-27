@@ -189,7 +189,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            SignedData = stream.ReadBytes(version, minLen: 1, maxLen: 524280).Value;
+            SignedData = stream.ReadArray<byte>(version, minLen: 1, maxLen: 524280);
             DeserializeSignedData();
             Signature = stream.ReadSerializedNullable<SignatureContainer>(version);
         }
@@ -197,7 +197,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            SignedData = (await stream.ReadBytesAsync(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext()).Value;
+            SignedData = await stream.ReadArrayAsync<byte>(version, minLen: 1, maxLen: 524280, cancellationToken: cancellationToken).DynamicContext();
             DeserializeSignedData();
             Signature = await stream.ReadSerializedNullableAsync<SignatureContainer>(version, cancellationToken).DynamicContext();
         }
@@ -213,7 +213,7 @@ namespace wan24.Crypto
             int ssv = ms.ReadSerializerVersion(),
                 ov = ms.ReadNumber<int>(ssv);
             if (ov < 1 || ov > VERSION) throw new SerializerException($"Invalid object version {ov}", new InvalidDataException());
-            byte[]? keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+            byte[]? keyData = ms.ReadArrayNullable<byte>(ssv, minLen: 1, maxLen: short.MaxValue);
             IAsymmetricPublicKey? key = null;
             try
             {
@@ -223,16 +223,16 @@ namespace wan24.Crypto
                     if (!key.Algorithm.CanExchangeKey) throw new SerializerException("Invalid public key exchange key");
                     _KeyExchangeKey = key;
                 }
-                keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+                keyData = ms.ReadArrayNullable<byte>(ssv, minLen: 1, maxLen: short.MaxValue);
                 if (keyData is not null)
                 {
                     key = AsymmetricKeyBase.Import<IAsymmetricPublicKey>(keyData);
                     if (!key.Algorithm.CanExchangeKey) throw new SerializerException("Invalid public counter key exchange key");
                     _CounterKeyExchangeKey = key;
                 }
-                keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+                keyData = ms.ReadArrayNullable<byte>(ssv, minLen: 1, maxLen: short.MaxValue);
                 if (keyData is not null) SignatureKey = AsymmetricKeyBase.Import<ISignaturePublicKey>(keyData);
-                keyData = ms.ReadBytesNullable(ssv, minLen: 1, maxLen: short.MaxValue)?.Value;
+                keyData = ms.ReadArrayNullable<byte>(ssv, minLen: 1, maxLen: short.MaxValue);
                 if (keyData is not null) CounterSignatureKey = AsymmetricKeyBase.Import<ISignaturePublicKey>(keyData);
             }
             catch

@@ -99,12 +99,12 @@ namespace wan24.Crypto
                 if (red < 1) return false;
                 if (XorRnd)
                 {
-                    using RentedArrayStructSimple<byte> buffer = new(red, clean: false)
+                    using RentedMemory<byte> buffer = new(red, clean: false)
                     {
                         Clear = true
                     };
                     await RND.FillBytesAsync(buffer.Memory).DynamicContext();
-                    Seed.Xor(buffer.Span);
+                    Seed.Xor(buffer.Memory.Span);
                 }
                 if (RNG is null) await RND.AddSeedAsync(Seed.AsMemory(0, red), cancellationToken).DynamicContext();
                 else await RNG.AddSeedAsync(Seed.AsMemory(0, red), cancellationToken).DynamicContext();

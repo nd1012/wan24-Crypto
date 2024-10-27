@@ -20,7 +20,7 @@ namespace wan24.Crypto
         /// <param name="pool">Buffer pool</param>
         /// <returns>Stream</returns>
         [TargetedPatchingOptOut("Tiny method")]
-        public static T Write<T>(this T stream, in TimeoutToken tt, byte[]? buffer = null, ArrayPool<byte>? pool = null) where T : Stream
+        public static T Write<T>(this T stream, in TimeoutToken tt, RentedMemory<byte>? buffer = null, MemoryPool<byte>? pool = null) where T : Stream
         {
             tt.Serialize(stream, buffer, pool ?? StreamSerializer.BufferPool);
             return stream;
@@ -37,7 +37,7 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Stream</returns>
         [TargetedPatchingOptOut("Tiny method")]
-        public static async Task<T> WriteAsync<T>(this T stream, TimeoutToken tt, byte[]? buffer = null, ArrayPool<byte>? pool = null, CancellationToken cancellationToken = default)
+        public static async Task<T> WriteAsync<T>(this T stream, TimeoutToken tt, RentedMemory<byte>? buffer = null, MemoryPool<byte>? pool = null, CancellationToken cancellationToken = default)
             where T : Stream
         {
             await tt.SerializeAsync(stream, buffer, pool ?? StreamSerializer.BufferPool, cancellationToken).DynamicContext();
@@ -51,9 +51,9 @@ namespace wan24.Crypto
         /// <param name="pool">Buffer pool</param>
         /// <returns>Timeout token</returns>
         [TargetedPatchingOptOut("Tiny method")]
-        public static TimeoutToken ReadTimeoutToken(this Stream stream, ArrayPool<byte>? pool = null)
+        public static TimeoutToken ReadTimeoutToken(this Stream stream, MemoryPool<byte>? pool = null)
         {
-            using RentedArrayRefStruct<byte> buffer = new(TimeoutToken.STRUCT_LENGTH, pool, clean: false);
+            using RentedMemoryRef<byte> buffer = new(TimeoutToken.STRUCT_LENGTH, pool, clean: false);
             stream.ReadExactly(buffer.Span);
             return (TimeoutToken)buffer.Span!;
         }
@@ -66,11 +66,11 @@ namespace wan24.Crypto
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Timeout token</returns>
         [TargetedPatchingOptOut("Tiny method")]
-        public static async Task<TimeoutToken> ReadTimeoutTokenAsync(this Stream stream, ArrayPool<byte>? pool = null, CancellationToken cancellationToken = default)
+        public static async Task<TimeoutToken> ReadTimeoutTokenAsync(this Stream stream, MemoryPool<byte>? pool = null, CancellationToken cancellationToken = default)
         {
-            using RentedArrayStruct<byte> buffer = new(TimeoutToken.STRUCT_LENGTH, pool, clean: false);
+            using RentedMemory<byte> buffer = new(TimeoutToken.STRUCT_LENGTH, pool, clean: false);
             await stream.ReadExactlyAsync(buffer.Memory, cancellationToken).DynamicContext();
-            return (TimeoutToken)buffer.Span;
+            return (TimeoutToken)buffer.Memory.Span;
         }
     }
 }

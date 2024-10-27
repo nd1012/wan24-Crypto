@@ -241,14 +241,14 @@ namespace wan24.Crypto.Authentication
             protected override void Deserialize(Stream stream, int version)
             {
                 Created = new(stream.ReadLong(version), DateTimeKind.Utc);
-                Payload = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                Payload = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
             }
 
             /// <inheritdoc/>
             protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
             {
                 Created = new(await stream.ReadLongAsync(version, cancellationToken: cancellationToken).DynamicContext(), DateTimeKind.Utc);
-                Payload = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                Payload = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             }
 
             /// <summary>

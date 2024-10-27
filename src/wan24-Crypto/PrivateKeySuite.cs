@@ -409,7 +409,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override void Deserialize(Stream stream, int version)
         {
-            byte[]? keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+            byte[]? keyData = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
             try
             {
                 if (keyData is not null) KeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
@@ -420,7 +420,7 @@ namespace wan24.Crypto
                         MaxKeyExchangeKeyUsageCount = stream.ReadNumber<long>(version);
                         break;
                 }
-                keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                keyData = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
                 if (keyData is not null) CounterKeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
                 switch (SerializedObjectVersion!.Value)// Object version switch
                 {
@@ -429,7 +429,7 @@ namespace wan24.Crypto
                         MaxCounterKeyExchangeKeyUsageCount = stream.ReadNumber<long>(version);
                         break;
                 }
-                keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                keyData = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
                 if (keyData is not null) SignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
                 switch (SerializedObjectVersion!.Value)// Object version switch
                 {
@@ -438,7 +438,7 @@ namespace wan24.Crypto
                         MaxSignatureKeyUsageCount = stream.ReadNumber<long>(version);
                         break;
                 }
-                keyData = stream.ReadBytesNullable(version, minLen: 1, maxLen: short.MaxValue)?.Value;
+                keyData = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: short.MaxValue);
                 if (keyData is not null) CounterSignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
                 switch (SerializedObjectVersion!.Value)// Object version switch
                 {
@@ -461,7 +461,7 @@ namespace wan24.Crypto
                     SignedPublicCounterKey = stream.ReadSerializedNullable<AsymmetricSignedPublicKey>(version);
                     break;
             }
-            SymmetricKey = stream.ReadBytesNullable(version, minLen: 1, maxLen: byte.MaxValue)?.Value;
+            SymmetricKey = stream.ReadArrayNullable<byte>(version, minLen: 1, maxLen: byte.MaxValue);
             switch (SerializedObjectVersion!.Value)// Object version switch
             {
                 case 3:
@@ -474,7 +474,7 @@ namespace wan24.Crypto
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
-            byte[]? keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            byte[]? keyData = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             IAsymmetricKey? key = null;
             try
             {
@@ -486,7 +486,7 @@ namespace wan24.Crypto
                         MaxKeyExchangeKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
                         break;
                 }
-                keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                keyData = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                 if (keyData is not null) CounterKeyExchangeKey = AsymmetricKeyBase.Import<IKeyExchangePrivateKey>(keyData);
                 switch (SerializedObjectVersion!.Value)// Object version switch
                 {
@@ -495,7 +495,7 @@ namespace wan24.Crypto
                         MaxCounterKeyExchangeKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
                         break;
                 }
-                keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                keyData = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                 if (keyData is not null) SignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
                 switch (SerializedObjectVersion!.Value)// Object version switch
                 {
@@ -504,7 +504,7 @@ namespace wan24.Crypto
                         MaxSignatureKeyUsageCount = await stream.ReadNumberAsync<long>(version, cancellationToken: cancellationToken).DynamicContext();
                         break;
                 }
-                keyData = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+                keyData = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: short.MaxValue, cancellationToken: cancellationToken).DynamicContext();
                 if (keyData is not null) CounterSignatureKey = AsymmetricKeyBase.Import<ISignaturePrivateKey>(keyData);
                 switch (SerializedObjectVersion!.Value)// Object version switch
                 {
@@ -527,7 +527,7 @@ namespace wan24.Crypto
                     SignedPublicCounterKey = await stream.ReadSerializedNullableAsync<AsymmetricSignedPublicKey>(version, cancellationToken).DynamicContext();
                     break;
             }
-            SymmetricKey = (await stream.ReadBytesNullableAsync(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext())?.Value;
+            SymmetricKey = await stream.ReadArrayNullableAsync<byte>(version, minLen: 1, maxLen: byte.MaxValue, cancellationToken: cancellationToken).DynamicContext();
             switch (SerializedObjectVersion!.Value)// Object version switch
             {
                 case 3:

@@ -210,7 +210,7 @@ namespace wan24.Crypto
         protected override async Task DisposeCore()
         {
             await ClearAsync().DynamicContext();
-            await Sync.DisposeAsync().DynamicContext();
+            Sync.Dispose();
         }
     }
 }

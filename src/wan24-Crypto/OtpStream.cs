@@ -87,7 +87,7 @@ namespace wan24.Crypto
         protected override async Task DisposeCore()
         {
             await base.DisposeCore().DynamicContext();
-            await SequenceSync.DisposeAsync().DynamicContext();
+            SequenceSync.Dispose();
         }
 
         /// <summary>

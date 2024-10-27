@@ -163,7 +163,7 @@ namespace wan24.Crypto
             {
                 // Use the custom RNG
                 ValueTask writeTask = ValueTask.CompletedTask;
-                using RentedArrayStructSimple<byte> buffer = new(Math.Min(Settings.BufferSize, RandomData.BufferSize), clean: false)
+                using RentedMemory<byte> buffer = new(Math.Min(Settings.BufferSize, RandomData.BufferSize), clean: false)
                 {
                     Clear = true
                 };

@@ -92,14 +92,14 @@ namespace wan24.Crypto
         protected override void Deserialize(Stream stream, int version)
         {
             DeserializeHlVersion(stream, version);
-            Payload = stream.ReadBytes(version, minLen: MinPayloadLength, maxLen: MaxPayloadLength).Value;
+            Payload = stream.ReadArray<byte>(version, minLen: MinPayloadLength, maxLen: MaxPayloadLength);
         }
 
         /// <inheritdoc/>
         protected override async Task DeserializeAsync(Stream stream, int version, CancellationToken cancellationToken)
         {
             await DeserializeHlVersionAsync(stream, version, cancellationToken).DynamicContext();
-            Payload = (await stream.ReadBytesAsync(version, minLen: MinPayloadLength, maxLen: MaxPayloadLength, cancellationToken: cancellationToken).DynamicContext()).Value;
+            Payload = await stream.ReadArrayAsync<byte>(version, minLen: MinPayloadLength, maxLen: MaxPayloadLength, cancellationToken: cancellationToken).DynamicContext();
         }
 
         /// <summary>

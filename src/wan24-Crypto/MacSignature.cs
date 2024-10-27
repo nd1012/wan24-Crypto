@@ -100,7 +100,7 @@ namespace wan24.Crypto
         {
             if (dataSignature.Length < 2) return false;
             using SecureByteArrayRefStruct signatureKey = new(dataSignature[..(dataSignature.Length >> 1)].ToArray());
-            using RentedArrayRefStruct<byte> mac = new(dataSignature.Length >> 1, clean: false)
+            using RentedMemoryRef<byte> mac = new(dataSignature.Length >> 1, clean: false)
             {
                 Clear = true
             };

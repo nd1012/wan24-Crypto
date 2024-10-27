@@ -167,25 +167,26 @@ namespace wan24.Crypto
             unchecked
             {
                 for (i = 0; i != data.Length; i++) if (data[i] == 0) zeroIndex.Add(i);
-                using RentedArrayRefStruct<byte> buffer = new(zeroIndex.Count, clean: false)
+                using RentedMemoryRef<byte> buffer = new(zeroIndex.Count, clean: false)
                 {
                     Clear = true
                 };
+                Span<byte> bufferSpan = buffer.Span;
                 for (
                     rng.FillBytes(buffer.Span);
                     ;
-                    zeroIndex.Clear(), zeroIndex.AddRange(newZeroIndex), newZeroIndex.Clear(), rng.FillBytes(buffer.Span[..zeroIndex.Count])
+                    zeroIndex.Clear(), zeroIndex.AddRange(newZeroIndex), newZeroIndex.Clear(), rng.FillBytes(bufferSpan[..zeroIndex.Count])
                     )
                 {
                     for (i = 0; i != zeroIndex.Count; i++)
-                        if (buffer.Span[i] == 0)
+                        if (bufferSpan[i] == 0)
                         {
                             newZeroIndex ??= [];
                             newZeroIndex.Add(zeroIndex[i]);
                         }
                         else
                         {
-                            data[i] = buffer.Span[i];
+                            data[i] = bufferSpan[i];
                         }
                     if (newZeroIndex is null || newZeroIndex.Count == 0) return;
                 }
@@ -212,6 +213,7 @@ namespace wan24.Crypto
                 {
                     Clear = true
                 };
+                byte[] bufferArr = buffer.Array;
                 await rng.FillBytesAsync(buffer.Memory, cancellationToken).DynamicContext();
                 for (
                     ;
@@ -220,14 +222,14 @@ namespace wan24.Crypto
                     )
                 {
                     for (i = 0; i != zeroIndex.Count; i++)
-                        if (buffer.Span[i] == 0)
+                        if (bufferArr[i] == 0)
                         {
                             newZeroIndex ??= [];
                             newZeroIndex.Add(zeroIndex[i]);
                         }
                         else
                         {
-                            data.Span[i] = buffer.Span[i];
+                            data.Span[i] = bufferArr[i];//FIXME Avoid span access here
                         }
                     if (newZeroIndex is null || newZeroIndex.Count == 0) return;
                     await rng.FillBytesAsync(buffer.Memory[..newZeroIndex.Count], cancellationToken).DynamicContext();
