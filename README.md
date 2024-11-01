@@ -437,6 +437,23 @@ designed for an app which runs in a specific user context).
 **WARNING**: For each value protection level that you want to use you'll need 
 to set a key using `ValueProtectionKeys.Set(2)`, which is not thread-safe.
 
+### Storable process, device and user secret
+
+You can manage a secret which will be protected for the process, device or 
+user scope using the `ProcessSecret`, `DeviceSecret` and `UserSecret` types:
+
+```cs
+using DeviceSecret secret = DeviceSecret.FromStoredValue(storedValue);
+using(SecureArray secureValue = secret.Value)
+{
+    // Do something with the raw secureValue
+}
+using(SecureArray storableValue = secret.GetStorableValue())
+{
+    // Store storableValue for later use
+}
+```
+
 ## Too many options?
 
 The `CryptoOptions` contains a huge collection of properties, which follow a 

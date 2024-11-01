@@ -18,7 +18,7 @@ namespace wan24.Crypto
         in TimeSpan? recryptTimeout = null,
         in CryptoOptions? options = null
         )
-        : BasicAllDisposableBase()
+        : DisposableBase()
     {
         /// <summary>
         /// Value
